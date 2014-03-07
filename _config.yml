@@ -1,0 +1,6 @@
+name: brewhouse
+markdown: redcarpet
+pygments: true
+assets:
+  css_compressor: sass
+  js_compressor:  uglifier
