@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>brewhouse - Quality Software, One Cup at a Time</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:site_name" content="brewhouse"/>
+    <meta property="og:title" content="brewhouse - quality software, one cup at a time"/>
+    <meta property="og:url" content="http://brewhouse.io/"/>
+    <meta property="og:type" content="business.business"/>
+    <meta property="og:image" content="http://brewhouse.io/images/brewhouse-symbol-large.png" />
+    <meta property="og:description" content="dedicated to building superb software">
+
+    <!-- <meta name="title" content="{{ page.title }}"> -->
+    <meta name="title" content="brewhouse.io">
+    <meta name="author" content="brewhouse.io">
+    <meta name="copyright" content="brewhouse software inc. 2014">
+    <meta name="robots" content="INDEX, FOLLOW">
+
+    <link rel="shortcut icon" href="/images/icons/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png" />
+
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet" type="text/css">
+
+    {% stylesheet application %}
+  </head>
+  <body>
+    {% include ga.html %}
+
+    <div class="container main">
+      {% include header_and_logo.html %}
+
+      {{ content }}
+    </div>
+
+    <!-- <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-11 col-xs-offset-1">
+            <p>
+              &copy; 2014 brewhouse software, inc.
+            </p>
+          </div>--><!--col-xs-12-->
+        <!--</div>--><!-- row -->
+      <!--</div>--><!-- container -->
+    <!--</footer> -->
+
+    {% javascript app %}
+  </body>
+</html>
