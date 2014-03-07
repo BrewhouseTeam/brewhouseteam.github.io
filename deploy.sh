@@ -14,6 +14,9 @@
 
 # git push --all origin
 
+echo "If you're running the jekyll serve command the deploy will not work correctly "
+read -rsp $'Press any key to continue or control-c to cancel...\n';
+
 git co source
 bundle exec jekyll build
 git add .
