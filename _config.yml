@@ -1,6 +1,7 @@
 name: brewhouse
 markdown: redcarpet
 pygments: true
+exclude: ['deploy.sh']
 assets:
   css_compressor: sass
   js_compressor:  uglifier
