@@ -296,6 +296,21 @@ div.main {
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
+.learn-more.button {
+  color: #32BFDA;
+  border: 1px solid #32BFDA;
+  padding: 10px 20px;
+  text-align: center;
+  width: 50%;
+
+  &:hover {
+    -webkit-transition: all 0.15s ease-in-out;
+    -moz-transition: all 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
+
+    color: #F39914;
+  }
+}
 
 .content {
   margin: 100px auto;
