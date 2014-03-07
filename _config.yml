@@ -1,7 +1,0 @@
-name: brewhouse
-markdown: redcarpet
-pygments: true
-exclude: ['deploy.sh', 'Gemfile', 'Gemfile.lock']
-assets:
-  css_compressor: sass
-  js_compressor:  uglifier
