@@ -18,6 +18,7 @@ git co source
 bundle exec jekyll build
 git add .
 git commit -a -m "auto deploy :boom:"
+git push origin source
 
 rm -rf /tmp/_site
 cp -r _site /tmp/_site
