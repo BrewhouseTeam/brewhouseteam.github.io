@@ -15,14 +15,15 @@
 
   var $rootNode = $('html, body');
   $('a.internal').on('click', function(){
-    console.log('clicked');
     var href = $.attr(this, 'href');
+
+    var addHrefToHash = function() {
+      window.location.hash = href;
+    }
 
     $rootNode.animate({
       scrollTop: $(href).offset().top
-    }, 500, function () {
-      window.location.hash = href;
-    });
+    }, 1500, 'easeInOutExpo', addHrefToHash);
 
     return false;
   });
