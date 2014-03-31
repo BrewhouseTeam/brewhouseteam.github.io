@@ -29,5 +29,5 @@ git checkout master
 cp -r /tmp/_site/* .
 git add .
 git commit -a -m "auto deploy :boom:"
-git push origin master
+git push -f origin master
 git co source
