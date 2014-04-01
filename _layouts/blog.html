@@ -1,0 +1,33 @@
+{% include doctypes.html %}
+<html lang="en-us">
+  <head>
+    <title>{% if page.title %}{{ page.title }} &mdash; {% endif %}brewhouse blog</title>
+    <!-- <meta name="title" content="{{ page.title }}"> -->
+    <meta name="title" content="brewhouse.io">
+
+    {% include head.html %}
+  </head>
+  <body>
+    {% include ga.html %}
+
+    <div class="container main">
+      {% include header_and_logo_blog.html %}
+
+      {{ content }}
+    </div>
+
+    <!-- <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-11 col-xs-offset-1">
+            <p>
+              &copy; 2014 brewhouse software, inc.
+            </p>
+          </div>--><!--col-xs-12-->
+        <!--</div>--><!-- row -->
+      <!--</div>--><!-- container -->
+    <!--</footer> -->
+
+    {% javascript app %}
+  </body>
+</html>
