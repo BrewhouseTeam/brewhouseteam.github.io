@@ -1,5 +1,5 @@
 name: brewhouse
-markdown: redcarpet
+markdown: kramdown
 pygments: true
 exclude: ['deploy.sh', 'Gemfile', 'Gemfile.lock']
 assets:
