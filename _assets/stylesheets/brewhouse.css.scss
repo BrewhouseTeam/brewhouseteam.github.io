@@ -541,6 +541,18 @@ div.main {
     }
   }
 }
+
+.mailchimp-form {
+  margin: 10px;
+  padding: 10px;
+  border: solid 1px #ddd;
+  background: #eee;
+
+  .subscribe-button {
+    padding-top: 4px;
+  }
+}
+
 // END BLOG SPECIFIC
 
 footer {
