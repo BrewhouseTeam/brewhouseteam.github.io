@@ -1,5 +1,5 @@
 {% include doctypes.html %}
-<html lang="en-us">
+<html lang="en-us" class="blog">
   <head>
     <title>{% if page.title %}{{ page.title }} &mdash; {% endif %}brewhouse blog</title>
     <!-- <meta name="title" content="{{ page.title }}"> -->
@@ -9,6 +9,10 @@
   </head>
   <body>
     {% include ga.html %}
+
+    <nav id="navbar-blog" class="navbar navbar-default navbar-main" role="navigation">
+      <a id="brewhouse-logo" class="navbar-brand internal" rel="home" href="/" title="brewhouse logo"><img src="/images/brewhouse-logo-blog-2.png"></a>
+    </nav>
 
     <div class="container main">
       {% include header_and_logo_blog.html %}

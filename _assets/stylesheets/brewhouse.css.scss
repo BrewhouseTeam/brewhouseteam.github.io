@@ -7,6 +7,9 @@
 html {
   background: #f6f6f6;
 }
+html.blog {
+  background: #f0f0f0;
+}
 body {
   border-top: 2px solid #42CCEE;
   color: #7B7F83;
@@ -465,7 +468,7 @@ div.main {
     line-height: 33px;
   }
   blockquote {
-    color: #b0b0b0;
+    color: #999;
   }
   p {
     margin-bottom: 25px;
@@ -480,7 +483,14 @@ div.main {
 }
 #navbar-blog {
   background: transparent;
-  margin-bottom: 0px;
+  left: 10px;
+  margin-bottom: 0;
+  position: fixed;
+  top: 2px;
+
+  @media (max-width: 767px) {
+    display: none;
+  }
 
   #brewhouse-logo {
     display: block;
@@ -499,16 +509,20 @@ div.main {
   }
 }
 #banner-blog {
-  height: 422px;
-  margin-top: 70px;
   overflow: hidden;
 
+  a {
+    color: #76D6F5;
+
+    &:hover {
+      color: #18C3FA;
+    }
+  }
   img {
     -webkit-transition: margin-top 0.05s ease-in-out;
     -moz-transition: margin-top 0.05s ease-in-out;
     transition: margin-top 0.05s ease-in-out;
   }
-
   section {
     background-image: linear-gradient(bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
     background-image: -o-linear-gradient(bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
@@ -527,7 +541,7 @@ div.main {
       color: #fff;
       margin-left: 5%;
       margin-bottom: 0.5%;
-      margin-top: 22%;
+      margin-top: 28%;
     }
     h3 {
       color: #fff;
@@ -538,6 +552,33 @@ div.main {
       margin-left: 5%;
       margin-top: 0;
       text-transform: initial;
+    }
+  }
+
+  @media (max-width: 767px) {
+    height: 170px;
+
+    img {
+      display: block;
+      height: auto;
+      max-width: 100%;
+    }
+    section {
+      height: 80%;
+
+      h1 {
+        margin-left: 31%;
+        margin-top: 6.5%;
+      }
+      h3 {
+        -webkit-font-smoothing: antialiased;
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 1.5;
+        margin-left: 31%;
+        margin-top: 0;
+        width: 39%;
+      }
     }
   }
 }

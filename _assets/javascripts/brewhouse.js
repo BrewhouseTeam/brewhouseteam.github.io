@@ -4,30 +4,34 @@ jQuery(function($) {
       $navbar     = $('.navbar-main'),
       $blogBanner = $('#banner-blog'),
       $blogImage  = $('img', $blogBanner),
-      lastScroll, now, delta;
+      lastScroll, now, _delta;
 
-  if ($blogBanner.length && $blogImage.length){
-    delta = $blogImage.height() - $blogBanner.height();
-    console.log(delta);
-  }
+  // Parallax banner
+  // if ($blogBanner.length && $blogImage.length){
+  //   _delta = $blogImage.height() - $blogBanner.height();
+  // }
 
   $document.scroll(function() {
-    now = new Date().valueOf();
+    // Parallax banner
+    // now = new Date().valueOf();
 
-    if(lastScroll && now - lastScroll < 25){
-      return;
-    }else{
-      lastScroll = now;
-    }
+    // if (lastScroll && now - lastScroll < 50){
+    //   return;
+    // } else {
+    //   lastScroll = now;
+    // }
+
+    // if ($blogBanner.length && $blogImage.length && _delta > 0){
+    //   var newTop = Math.max(-_delta, -$document.scrollTop() / 4);
+    //   console.log(newTop);
+    //   $blogImage.css({marginTop: newTop});
+    // }
+    // END Parallax banner
 
     if ($document.scrollTop() >= 5) {
       $navbar.addClass('sticky');
     } else {
       $navbar.removeClass('sticky');
-    }
-
-    if ($blogBanner.length && $blogImage.length && delta > 0){
-      $blogImage.css({marginTop: Math.max(-delta, -$document.scrollTop() / 5)});
     }
   });
 
@@ -37,7 +41,7 @@ jQuery(function($) {
 
     var addHrefToHash = function() {
       window.location.hash = href;
-    }
+    };
 
     $rootNode.animate({
       scrollTop: $(href).offset().top
