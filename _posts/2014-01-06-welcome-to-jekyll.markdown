@@ -1,8 +1,13 @@
 ---
-layout: post
+layout: blog
+author: godfrey
 title:  "Welcome to Jekyll!"
 date:   2014-01-06 10:32:40
-categories: jekyll update
+published: true
+tags:
+  - ruby
+  - rails
+  - rails 4.1
 ---
 
 You'll find this post in your `_posts` directory - edit this post and re-build (or run with the `-w` switch) to see your changes!
