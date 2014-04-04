@@ -119,47 +119,47 @@ your model and use `super` to reach the original implementation.
 
 There are a few caveats you should keep in mind when using this feature:
 
-1. Despite its name, this feature doesn't actually use the `ENUM` type that
-   is implemented in certain databases. The mapping between states
+__I__. Despite its name, this feature doesn't actually use the `ENUM` type that is
+   implemented in certain databases. The mapping between states
    and their corresponding integers are maintained in the Ruby model file.
    This means that you should not change the order of the `enum` symbols once
    they are added. To remove unused states, you can use an explicit mapping:
 
-    ```ruby
-    class Bug < ActiveRecord::Base
-      enum status: {
-        new: 0,
-        in_progress: 2,
-        resolved: 3,
-        rejected: 4,
-        reopened: 5
-      }
-    end
-    ```
+{% highlight ruby %}
+class Bug < ActiveRecord::Base
+  enum status: {
+    new: 0,
+    in_progress: 2,
+    resolved: 3,
+    rejected: 4,
+    reopened: 5
+  }
+end
+{% endhighlight %}
 
-2. Avoid using the same names inside different enums in the same class!
+__II__. Avoid using the same names inside different enums in the same class!
    Doing so will leave Active Record very confused!
 
-    ```ruby
-    class Bug < ActiveRecord::Base
-      enum status: [ :new, ... ]
-      enum code_review_status: [ :new, ... ] # WARNING: Don't do this!
-    end
-    ```
+{% highlight ruby %}
+class Bug < ActiveRecord::Base
+  enum status: [ :new, ... ]
+  enum code_review_status: [ :new, ... ] # WARNING: Don't do this!
+end
+{% endhighlight %}
 
-3. If you need to write custom scopes to query the enum columns, you would have
+__III__. If you need to write custom scopes to query the enum columns, you would have
    to pass the integers instead of the symbols. You can access the enum-integer
    mapping via a constant added by the macro:
 
-    ```ruby
-    class Bug < ActiveRecord::Base
-      scope :open, -> {
-        where('status <> ? OR status <> ?', STATUS[:resolved], STATUS[:rejected])
-      }
-    end
-    ```
+{% highlight ruby %}
+class Bug < ActiveRecord::Base
+  scope :open, -> {
+    where('status <> ? OR status <> ?', STATUS[:resolved], STATUS[:rejected])
+  }
+end
+{% endhighlight %}
 
-4. Currently, the dirty tracking methods (e.g. `status_was?`) have not been
+__IV__. Currently, the dirty tracking methods (e.g. `status_was?`) have not been
    updated to work with enums yet (they currently return the mapped integer
    instead of the symbols). This should be fixed before the final release. (See
    [#13267](https://github.com/rails/rails/pull/13267) for the progress.)
@@ -252,7 +252,7 @@ signed cookies, but it is now much easier to use it for other purposes.
 For example, you can implement a stateless "reset password" feature without
 having to store any tokens in the database:
 
-```ruby
+{% highlight ruby %}
 class User < ActiveRecord::Base
   class << self
     def verifier_for(purpose)
@@ -290,7 +290,7 @@ class Notifier < ActionMailer::Base
     mail(to: user.email, subject: "Your have requested to reset your password")
   end
 end
-```
+{% endhighlight %}
 
 That way, everything that is required to fufill the password reset request is
 included in the link, nothing need to be stored in the database. This can also

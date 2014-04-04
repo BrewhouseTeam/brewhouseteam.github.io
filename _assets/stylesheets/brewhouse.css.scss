@@ -459,10 +459,13 @@ div.main {
   h1, h2, h3 {
     color: #3a3a3a;
   }
-  li, p {
+  li, p, blockquote {
     font-family: Georgia,Cambria,"Times New Roman",Times,serif;
     font-size: 18px;
     line-height: 33px;
+  }
+  blockquote {
+    color: #b0b0b0;
   }
   p {
     margin-bottom: 25px;
@@ -490,6 +493,9 @@ div.main {
 .highlight {
   pre, code {
     background-color: #1d1f21;
+  }
+  pre {
+    margin-bottom: 30px;
   }
 }
 #banner-blog {
