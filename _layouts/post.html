@@ -21,7 +21,6 @@ layout: blog
             <span>
               <img class="img-circle img-author" src="{{ author.email | to_gravatar }}" alt="A photo of {{ author.name }}" width="55">
 
-              <!-- Personal Info. -->
               <a href="{{ author.web }}" target="_blank">{{ author.name }}</a> wrote this on {{ page.date | date_to_string }}
             </span>
           {% endif %}

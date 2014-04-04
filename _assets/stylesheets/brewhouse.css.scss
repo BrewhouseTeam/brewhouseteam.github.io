@@ -9,6 +9,12 @@ html {
 }
 html.blog {
   background: #f0f0f0;
+
+  a:hover,
+  a:focus,
+  a:active {
+    text-decoration: underline;
+  }
 }
 body {
   border-top: 2px solid #42CCEE;
@@ -542,6 +548,7 @@ div.main {
 
     &:hover {
       color: #18C3FA;
+      text-decoration: none;
     }
   }
   img {
