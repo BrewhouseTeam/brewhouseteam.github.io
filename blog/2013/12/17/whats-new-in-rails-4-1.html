@@ -49,7 +49,7 @@
 
 <link href="http://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet" type="text/css" />
 
-<link rel="stylesheet" href="/assets/application-cf06501e1922cf82d95dc71651c76d9e.css">
+<link rel="stylesheet" href="/assets/application-aaa132bfe08edcb418e655999e2026e5.css">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" />
 
@@ -235,57 +235,47 @@ your model and use <code>super</code> to reach the original implementation.</p>
 
 <p>There are a few caveats you should keep in mind when using this feature:</p>
 
-<ol>
-  <li>
-    <p>Despite its name, this feature doesn’t actually use the <code>ENUM</code> type that
-is implemented in certain databases. The mapping between states
-and their corresponding integers are maintained in the Ruby model file.
-This means that you should not change the order of the <code>enum</code> symbols once
-they are added. To remove unused states, you can use an explicit mapping:</p>
+<p><strong>I</strong>. Despite its name, this feature doesn’t actually use the <code>ENUM</code> type that is
+   implemented in certain databases. The mapping between states
+   and their corresponding integers are maintained in the Ruby model file.
+   This means that you should not change the order of the <code>enum</code> symbols once
+   they are added. To remove unused states, you can use an explicit mapping:</p>
 
-    <p><code>ruby
- class Bug &lt; ActiveRecord::Base
-   enum status: {
-     new: 0,
-     in_progress: 2,
-     resolved: 3,
-     rejected: 4,
-     reopened: 5
-   }
- end
-</code></p>
-  </li>
-  <li>
-    <p>Avoid using the same names inside different enums in the same class!
-Doing so will leave Active Record very confused!</p>
+<div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="nc">Bug</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">enum</span> <span class="ss">status</span><span class="p">:</span> <span class="p">{</span>
+    <span class="kp">new</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">in_progress</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="ss">resolved</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="ss">rejected</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="ss">reopened</span><span class="p">:</span> <span class="mi">5</span>
+  <span class="p">}</span>
+<span class="k">end</span>
+</code></pre></div>
 
-    <p><code>ruby
- class Bug &lt; ActiveRecord::Base
-   enum status: [ :new, ... ]
-   enum code_review_status: [ :new, ... ] # WARNING: Don't do this!
- end
-</code></p>
-  </li>
-  <li>
-    <p>If you need to write custom scopes to query the enum columns, you would have
-to pass the integers instead of the symbols. You can access the enum-integer
-mapping via a constant added by the macro:</p>
+<p><strong>II</strong>. Avoid using the same names inside different enums in the same class!
+   Doing so will leave Active Record very confused!</p>
 
-    <p><code>ruby
- class Bug &lt; ActiveRecord::Base
-   scope :open, -&gt; {
-     where('status &lt;&gt; ? OR status &lt;&gt; ?', STATUS[:resolved], STATUS[:rejected])
-   }
- end
-</code></p>
-  </li>
-  <li>
-    <p>Currently, the dirty tracking methods (e.g. <code>status_was?</code>) have not been
-updated to work with enums yet (they currently return the mapped integer
-instead of the symbols). This should be fixed before the final release. (See
-<a href="https://github.com/rails/rails/pull/13267">#13267</a> for the progress.)</p>
-  </li>
-</ol>
+<div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="nc">Bug</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">enum</span> <span class="ss">status</span><span class="p">:</span> <span class="o">[</span> <span class="ss">:new</span><span class="p">,</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="o">]</span>
+  <span class="n">enum</span> <span class="n">code_review_status</span><span class="p">:</span> <span class="o">[</span> <span class="ss">:new</span><span class="p">,</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="o">]</span> <span class="c1"># WARNING: Don&#39;t do this!</span>
+<span class="k">end</span>
+</code></pre></div>
+
+<p><strong>III</strong>. If you need to write custom scopes to query the enum columns, you would have
+   to pass the integers instead of the symbols. You can access the enum-integer
+   mapping via a constant added by the macro:</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="nc">Bug</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">scope</span> <span class="ss">:open</span><span class="p">,</span> <span class="o">-&gt;</span> <span class="p">{</span>
+    <span class="n">where</span><span class="p">(</span><span class="s1">&#39;status &lt;&gt; ? OR status &lt;&gt; ?&#39;</span><span class="p">,</span> <span class="no">STATUS</span><span class="o">[</span><span class="ss">:resolved</span><span class="o">]</span><span class="p">,</span> <span class="no">STATUS</span><span class="o">[</span><span class="ss">:rejected</span><span class="o">]</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="k">end</span>
+</code></pre></div>
+
+<p><strong>IV</strong>. Currently, the dirty tracking methods (e.g. <code>status_was?</code>) have not been
+   updated to work with enums yet (they currently return the mapped integer
+   instead of the symbols). This should be fixed before the final release. (See
+   <a href="https://github.com/rails/rails/pull/13267">#13267</a> for the progress.)</p>
 
 <p>Read more about this feature:</p>
 
@@ -376,44 +366,44 @@ signed cookies, but it is now much easier to use it for other purposes.</p>
 <p>For example, you can implement a stateless “reset password” feature without
 having to store any tokens in the database:</p>
 
-<p>```ruby
-class User &lt; ActiveRecord::Base
-  class « self
-    def verifier_for(purpose)
-      @verifiers ||= {}
-      @verifiers.fetch(purpose) do |p|
-        @verifiers[p] = Rails.application.message_verifier(“#{self.name}-#{p.to_s}”)
-      end
-    end
-  end</p>
+<div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
+    <span class="k">def</span> <span class="nf">verifier_for</span><span class="p">(</span><span class="n">purpose</span><span class="p">)</span>
+      <span class="vi">@verifiers</span> <span class="o">||=</span> <span class="p">{}</span>
+      <span class="vi">@verifiers</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">purpose</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="nb">p</span><span class="o">|</span>
+        <span class="vi">@verifiers</span><span class="o">[</span><span class="nb">p</span><span class="o">]</span> <span class="o">=</span> <span class="no">Rails</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">message_verifier</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">-</span><span class="si">#{</span><span class="nb">p</span><span class="o">.</span><span class="n">to_s</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
 
-<p>def reset_password_token
-    verifier = self.class.verifier_for(‘reset-password’) # Unique for each type of messages
-    verifier.generate([id, Time.now])
-  end</p>
+  <span class="k">def</span> <span class="nf">reset_password_token</span>
+    <span class="n">verifier</span> <span class="o">=</span> <span class="nb">self</span><span class="o">.</span><span class="n">class</span><span class="o">.</span><span class="n">verifier_for</span><span class="p">(</span><span class="s1">&#39;reset-password&#39;</span><span class="p">)</span> <span class="c1"># Unique for each type of messages</span>
+    <span class="n">verifier</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="o">[</span><span class="nb">id</span><span class="p">,</span> <span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="o">]</span><span class="p">)</span>
+  <span class="k">end</span>
 
-<p>def reset_password!(token, new_password, new_password_confirmation)
-    # This raises an exception if the message is modified
-    user_id, timestamp = self.class.verifier_for(‘reset-password’).verify(token)</p>
+  <span class="k">def</span> <span class="nf">reset_password!</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">new_password</span><span class="p">,</span> <span class="n">new_password_confirmation</span><span class="p">)</span>
+    <span class="c1"># This raises an exception if the message is modified</span>
+    <span class="n">user_id</span><span class="p">,</span> <span class="n">timestamp</span> <span class="o">=</span> <span class="nb">self</span><span class="o">.</span><span class="n">class</span><span class="o">.</span><span class="n">verifier_for</span><span class="p">(</span><span class="s1">&#39;reset-password&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">verify</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
 
-<pre><code>if timestamp &gt; 1.day.ago
-  self.password = new_password
-  self.password_confirmation = new_password_confirmation
-  save!
-else
-  # Token expired
-  # ...
-end   end end
-</code></pre>
+    <span class="k">if</span> <span class="n">timestamp</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">.</span><span class="n">day</span><span class="o">.</span><span class="n">ago</span>
+      <span class="nb">self</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="n">new_password</span>
+      <span class="nb">self</span><span class="o">.</span><span class="n">password_confirmation</span> <span class="o">=</span> <span class="n">new_password_confirmation</span>
+      <span class="n">save!</span>
+    <span class="k">else</span>
+      <span class="c1"># Token expired</span>
+      <span class="c1"># ...</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
 
-<p>class Notifier &lt; ActionMailer::Base
-  def reset_password(user)
-    @user = user
-    @reset_password_url = password_reset_url(token: @user.reset_password_token)
-    mail(to: user.email, subject: “Your have requested to reset your password”)
-  end
-end
-```</p>
+<span class="k">class</span> <span class="nc">Notifier</span> <span class="o">&lt;</span> <span class="no">ActionMailer</span><span class="o">::</span><span class="no">Base</span>
+  <span class="k">def</span> <span class="nf">reset_password</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+    <span class="vi">@user</span> <span class="o">=</span> <span class="n">user</span>
+    <span class="vi">@reset_password_url</span> <span class="o">=</span> <span class="n">password_reset_url</span><span class="p">(</span><span class="ss">token</span><span class="p">:</span> <span class="vi">@user</span><span class="o">.</span><span class="n">reset_password_token</span><span class="p">)</span>
+    <span class="n">mail</span><span class="p">(</span><span class="ss">to</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span> <span class="ss">subject</span><span class="p">:</span> <span class="s2">&quot;Your have requested to reset your password&quot;</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
 
 <p>That way, everything that is required to fufill the password reset request is
 included in the link, nothing need to be stored in the database. This can also
@@ -482,6 +472,31 @@ again at the <a href="http://www.meetup.com/vancouver-ruby/events/154207602/">#V
 today. Stop by and say hi if you are in town!</p>
 
 
+
+        <div class="mailchimp-form">
+          <p>
+            Drop your email below to receive Brew Pub's writings in your mailbox.
+          </p>
+          <!-- Begin MailChimp Signup Form -->
+          <link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+          <div id="mc_embed_signup" class="row">
+            <form action="http://brewhouse.us8.list-manage.com/subscribe/post?u=c524f6473f5901cae1230a052&amp;id=14f9de4be1" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+
+              <div class="col-sm-8">
+                <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required style="width: 100%; margin: 0 0 4% 0">
+              </div>
+              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+              <div style="position: absolute; left: -5000px;">
+                <input type="text" name="b_c524f6473f5901cae1230a052_14f9de4be1" value="">
+              </div>
+
+              <div class="col-sm-4 subscribe-button">
+                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+              </div>
+            </form>
+          </div>
+          <!--End mc_embed_signup-->
+        </div>
 
         <div id="disqus_thread"></div>
 
