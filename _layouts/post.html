@@ -2,6 +2,8 @@
 layout: blog
 ---
 
+{% assign author = site.data.authors[page.author] %}
+
 <div class="content">
   <div class="row">
     <div class="col-xs-12 col-sm-9">
@@ -15,7 +17,14 @@ layout: blog
           {{ page.title }}
         </h1>
         <p class="meta">
-          <a href="https://twitter.com/chancancode">Godfrey</a> wrote this on {{ page.date | date_to_string }}
+          {% if author %}
+            <span>
+              <img class="img-circle img-author" src="{{ author.email | to_gravatar }}" alt="A photo of {{ author.name }}" width="55">
+
+              <!-- Personal Info. -->
+              <a href="{{ author.web }}" target="_blank">{{ author.name }}</a> wrote this on {{ page.date | date_to_string }}
+            </span>
+          {% endif %}
         </p>
 
         {{ content }}
