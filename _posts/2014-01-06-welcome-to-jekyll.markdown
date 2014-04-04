@@ -1,5 +1,5 @@
 ---
-layout: blog
+layout: post
 author: godfrey
 title:  "Welcome to Jekyll!"
 date:   2014-01-06 10:32:40

@@ -128,7 +128,7 @@ hr {
       padding: 27px 22px 24px;
     }
 
-    .highlight {
+    .highlight-link {
       a {
         color: #000;
       }
@@ -182,7 +182,7 @@ hr {
       }
     }
 
-    .highlight {
+    .highlight-link {
       a {
         color: #fff;
       }
@@ -435,6 +435,10 @@ div.main {
 // BLOG SPECIFIC
 .post {
   margin: 0 0 60px 0;
+
+  h1, h2, h3 {
+    color: #3a3a3a;
+  }
 }
 #navbar-blog {
   background: transparent;
@@ -448,7 +452,11 @@ div.main {
     }
   }
 }
-
+.highlight {
+  pre, code {
+    background-color: #1d1f21;
+  }
+}
 #banner-blog {
   height: 422px;
   margin-top: 70px;

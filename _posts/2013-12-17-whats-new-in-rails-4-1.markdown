@@ -4,14 +4,16 @@ title:     "What's new in Rails 4.1"
 author:    godfrey
 published: true
 category:  blog
-date:      2013-12-06 10:32:40
+date:      2013-12-17 10:32:40
 tags:
   - ruby
   - rails
   - rails 4.1
 ---
 
-In case you haven't been paying attention, Rails 4.1 beta [was realeased today][weblog-post]!
+<blockquote><strong>Note</strong>: <em>This was originally published on the Coherence blog on December 17th, 2013. It has been migrated here for historical purposes.</em></blockquote>
+
+In case you haven't been paying attention, Rails 4.1 beta [was released today][weblog-post]!
 While this is a minor release, there are still plenty of handy new features
 that's worth getting excited about. Here are a few of my favourites, along with
 some thoughts on why I think they are useful.
