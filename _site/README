@@ -1,1 +1,0 @@
-Make sure to work off the `source` branch, and run the ./deploy.sh script to send `master` up to GH Pages.
