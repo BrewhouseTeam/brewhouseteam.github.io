@@ -418,6 +418,30 @@ div.main {
       margin-top: 10px;
     }
   }
+
+  .project {
+    border: 1px solid #F5EFEF;
+    padding: 20px;
+  }
+
+  .project-logo {
+    display: block;
+    text-align: center;
+    height: 60px;
+    vertical-align: middle;
+
+    img {
+      height: 30px;
+    }
+
+    img#caliper-logo {
+      height: 32px;
+    }
+
+    img#yciitu-logo {
+      height: 38px;
+    }
+  }
 }
 
 #privacy-policy-section {
@@ -546,6 +570,7 @@ div.main {
       margin-bottom: 0.5%;
       margin-top: 28%;
     }
+
     h3 {
       color: #fff;
       font-size: 20px;
