@@ -23,7 +23,7 @@ Our team has full visibility on everything. This includes data like our budget, 
 
 Every week we meet for a "weekly brew". As we work with different clients and internal projects on rotation, we find it important to have a meeting outside of the office to do a roundup and plan things for the weeks ahead.
 
-We only charge out 30 hours of development time a week so that leaves a day to work on internal hacks, creative projects or to prepare for the week ahead. It’s very difficult to work for clients and on the company at the same time. Godfrey, for example, contributes his time to the Rails open source project and collects content for a rails weekly roundup.
+We only charge out 30 hours of development time a week so that leaves a day to work on internal hacks, creative projects or to prepare for the week ahead. It’s very difficult to work for clients and on the company at the same time. Godfrey, for example, contributes his time to the [Rails](http://rubyonrails.org/) open source project and collects content for a [rails weekly roundup](http://rails-weekly.goodbits.io).
 
 Community is important to us and we gain value from others all the time. We help organize #vanruby’s meetups and hack nights. This is now baked into what we do at Brewhouse and is no longer something I do on my own. We’re going to brew as much tech here in Vancouver.
 
@@ -37,8 +37,8 @@ We are going to continue code curating services in a workshop format and will so
 
 Yep, we do product, as well as service. It’s hard but we’re doing it.
 
-In the past, I’ve worked with clients for long periods of time and then try to buy back time to then work on products -- 4 months on service; 1 month on product. This didn’t work. It was very hard to keep momentum and the pace up. To ship Caliper last year, I found momentum helped keep focus and drive the solution to best fit the problem our customers were having. 
+In the past, I’ve worked with clients for long periods of time and then try to buy back time to then work on products -- 4 months on service; 1 month on product. This didn’t work. It was very hard to keep momentum and the pace up. To ship [Caliper](http://caliper.io) last year, I found momentum helped keep focus and drive the solution to best fit the problem our customers were having. 
 
-In Brewhouse, we’ll always be working on product. This has enabled us to start sending out invites to our new service, Goodbits. This time split is working well for our business.
+At Brewhouse, we’ll always be working on product. This has enabled us to start sending out invites to our new service, [Goodbits](https://goodbits.io). This time split is working well for our business.
 
 That’s all for now. We’ll be writing about some of the themes I touched on in this post and web development learnings. If this is interesting to you, subscribe to our blog for new articles or our newsletter, where we’ll also be sharing what we read during the week.
