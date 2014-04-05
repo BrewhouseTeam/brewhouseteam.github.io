@@ -13,7 +13,7 @@ I want to expand a little -- to those that know us, those that don’t, who we a
 
 ## Full Transparency
 
-When I first started talking about Brewhouse I took everything I learned from working with my friends at GoFreeRange. The one thing I wanted to bring to this business was full transparency internally and with cilents. We’ve implemented this and are very happy with the results.
+When I first started talking about Brewhouse I took everything I learned from working with my friends at [GoFreeRange](http://gofreerange.com). The one thing I wanted to bring to this business was full transparency internally and with cilents. We’ve implemented this and are very happy with the results.
 
 As an example, in the early months, the team proposed to discount their salaries for a month so we could buy nice chairs for the office (yep, those lovely beauties in the picture above). That was important because we sit in them all day. The key learning here was that at the time, I didn’t know this was so important and without the transparency on the decision, this suggestion would not have been made.
 
