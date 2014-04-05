@@ -1,7 +1,7 @@
 ---
 layout:    post
 title:     "What's new in Rails 4.1"
-author:    kalv
+author:    godfrey
 published: true
 category:  blog
 date:      2013-12-17 10:32:40
