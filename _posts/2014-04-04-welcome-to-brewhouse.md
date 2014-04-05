@@ -13,7 +13,10 @@ I want to expand a little -- to those that know us, those that don’t, who we a
 
 ## Full Transparency
 
-When I first started talking about Brewhouse I took everything I learned from working with my friends at [GoFreeRange](http://gofreerange.com). The one thing I wanted to bring to this business was full transparency internally and with cilents. We’ve implemented this and are very happy with the results.
+When I first started talking about Brewhouse I took everything I learned
+from working with my friends at [GoFreeRange](http://gofreerange.com).
+The one thing I wanted to bring to this business was full transparency
+internally and with clients. We’ve implemented this and are very happy with the results.
 
 As an example, in the early months, the team proposed to discount their salaries for a month so we could buy nice chairs for the office (yep, those lovely beauties in the picture below). That was important because we sit in them all day. The key learning here was that at the time, I didn’t know this was so important and without the transparency on the decision, this suggestion would not have been made.
 
@@ -41,7 +44,7 @@ We are going to continue code curating services in a workshop format and will so
 
 Yep, we do product, as well as service. It’s hard but we’re doing it.
 
-In the past, I’ve worked with clients for long periods of time and then try to buy back time to then work on products -- 4 months on service; 1 month on product. This didn’t work. It was very hard to keep momentum and the pace up. To ship [Caliper](http://caliper.io) last year, I found momentum helped keep focus and drive the solution to best fit the problem our customers were having. 
+In the past, I’ve worked with clients for long periods of time and then try to buy back time to then work on products -- 4 months on service; 1 month on product. This didn’t work. It was very hard to keep momentum and the pace up. To ship [Caliper](http://caliper.io) last year, I found momentum helped keep focus and drive the solution to best fit the problem our customers were having.
 
 At Brewhouse, we’ll always be working on product. This has enabled us to start sending out invites to our new service, [Goodbits](https://goodbits.io). This time split is working well for our business.
 
