@@ -15,7 +15,7 @@ I want to expand a little -- to those that know us, those that don’t, who we a
 
 When I first started talking about Brewhouse I took everything I learned from working with my friends at [GoFreeRange](http://gofreerange.com). The one thing I wanted to bring to this business was full transparency internally and with cilents. We’ve implemented this and are very happy with the results.
 
-As an example, in the early months, the team proposed to discount their salaries for a month so we could buy nice chairs for the office (yep, those lovely beauties in the picture above). That was important because we sit in them all day. The key learning here was that at the time, I didn’t know this was so important and without the transparency on the decision, this suggestion would not have been made.
+As an example, in the early months, the team proposed to discount their salaries for a month so we could buy nice chairs for the office (yep, those lovely beauties in the picture below). That was important because we sit in them all day. The key learning here was that at the time, I didn’t know this was so important and without the transparency on the decision, this suggestion would not have been made.
 
 ![Our office chairs](/images/posts/chairs.jpg "Our office chairs")
 
@@ -29,15 +29,15 @@ Every week we meet for a "weekly brew". As we work with different clients and in
 
 We only charge out 30 hours of development time a week so that leaves a day to work on internal hacks, creative projects or to prepare for the week ahead. It’s very difficult to work for clients and on the company at the same time. Godfrey, for example, contributes his time to the [Rails](http://rubyonrails.org/) open source project and collects content for a [rails weekly roundup](http://rails-weekly.goodbits.io).
 
-Community is important to us and we gain value from others all the time. We help organize #vanruby’s meetups and hack nights. This is now baked into what we do at Brewhouse and is no longer something I do on my own. We’re going to brew as much tech here in Vancouver.
+Community is important to us and we gain value from others all the time. We help organize [#vanruby](http://vanruby.org/)’s meetups and hack nights. This is now baked into what we do at Brewhouse and is no longer something I do on my own. We’re going to brew as much tech here in Vancouver as we can.
 
 ## Code Curation and Mentorship
 
 With some of our clients-to-date, we’ve trialed the notion of CTO-for-hire, as well as code curation workshops. The results have been interesting and deserves another post.
 
-We are going to continue code curating services in a workshop format and will soon be experimenting, providing these services part-time for some of our existing clients.
+We are going to continue code curating services in a workshop format and will soon be providing these services part-time for some of our existing clients.
 
-## Product vs Service
+## Product &amp; Service
 
 Yep, we do product, as well as service. It’s hard but we’re doing it.
 
@@ -47,4 +47,4 @@ At Brewhouse, we’ll always be working on product. This has enabled us to start
 
 [![Goodbits](/images/posts/goodbits.jpg "Goodbits")](https://goodbits.io)
 
-That’s all for now. We’ll be writing about some of the themes I touched on in this post and web development learnings. If this is interesting to you, subscribe to our blog for new articles or our newsletter, where we’ll also be sharing what we read during the week.
+That’s all for now. We’ll be writing about some of the themes I touched on in this post and web development learnings in the future. If this is interesting to you, subscribe to our blog for new articles or our newsletter, where we’ll also be sharing what we read during the week.
