@@ -49,4 +49,14 @@ jQuery(function($) {
 
     return false;
   });
+
+  if(window.location.search.indexOf("brewPubStart") > -1){
+    var $elem = $('h1#brew-pub-start');
+
+    $rootNode.animate({
+      scrollTop: $elem.offset().top - 30
+    }, 1500, 'easeInOutExpo');
+
+  }
+
 });
