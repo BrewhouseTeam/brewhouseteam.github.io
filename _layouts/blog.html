@@ -1,9 +1,9 @@
 {% include doctypes.html %}
 <html lang="en-us" class="blog">
   <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# business: http://ogp.me/ns/business#">
-    <title>{% if page.title %}{{ page.title }} &mdash; {% endif %}brewhouse blog</title>
-    <!-- <meta name="title" content="{{ page.title }}"> -->
-    <meta name="title" content="brewhouse.io">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}the brew pub - brewhouse software blog</title>
+    <meta property="og:title" content="{% if page.title %}{{ page.title }} - {% endif %}the brew pub - brewhouse software blog">
+
     <link rel="alternate" type="application/atom+xml" href="/blog/index.xml" title="The Brew Pub atom feed">
 
     {% include head.html %}
