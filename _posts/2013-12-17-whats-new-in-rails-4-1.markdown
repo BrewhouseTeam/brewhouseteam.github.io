@@ -5,6 +5,7 @@ author:    godfrey
 published: true
 category:  blog
 date:      2013-12-17 10:32:40
+counturl:  http://coherence.io/blog/2013/12/17/whats-new-in-rails-4-1.html
 tags:
   - ruby
   - rails
