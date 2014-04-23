@@ -18,7 +18,7 @@ I have been using services objects for the past three years and they reconciled 
 
 A service object (aka method object) performs one action. It holds the business logic to perform that action. Here is an example:
 
-```
+{% highlight ruby %}
 # app/services/accept_invite.rb
 class AcceptInvite
   def self.call(invite, user)
@@ -26,7 +26,7 @@ class AcceptInvite
     UserMailer.invite_accepted(invite).deliver
   end
 end
-```
+{% endhighlight %}
 
 The conventions I follow are:
 
@@ -46,7 +46,7 @@ A quick look into a service object and I get what business logic is involved. I 
 
 Controllers turn the request (params, session, cookies) into arguments, pass them down to the service and redirect or render according to the service response.
 
-```
+{% highlight ruby %}
 class InviteController < ApplicationController
   def accept
     invite = Invite.find_by_token!(params[:token])
@@ -57,11 +57,11 @@ class InviteController < ApplicationController
     end
   end
 end
-```
+{% endhighlight %}
 
 Models only deal with associations, scopes, validations and persistence.
 
-```
+{% highlight ruby %}
 class Invite < ActiveRecord::Base
 
   def accept!(user, time=Time.now)
@@ -72,7 +72,7 @@ class Invite < ActiveRecord::Base
   end
 
 end
-```
+{% endhighlight %}
 
 It makes them way easier to maintain and to test!
 
@@ -82,7 +82,7 @@ Service objects are likely to be called from controllers as well as:
 
 * other service objects
 
-```
+{% highlight ruby %}
 class BatchSyncUsers do
   def self.call(users)
     users.map do |user|
@@ -90,38 +90,38 @@ class BatchSyncUsers do
     end
   end
 end
-```
+{% endhighlight %}
 
 * rake task
 
-```
+{% highlight ruby %}
 task :sync do
   SyncLoggedTimeFromFreckle.call
 end
-```
+{% endhighlight %}
 
 * the console
 
-```
+{% highlight ruby %}
 $> ApproveTransaction.call(transaction, user, 2.days.ago)
-```
+{% endhighlight %}
 
 * even from test helpers to setup your integration tests!
 
-```
+{% highlight ruby %}
 def create_approved_transaction
   transaction = FactoryGirl.create(:transaction)
   ApproveTransaction.call(transaction, FactoryGirl.create(:user))
 
   transaction
 end
-```
+{% endhighlight %}
 
 ### DRY and Embrace change
 
 I keep service objects as simple and small as I can. I compose service objects with other services objects, and I reuse them. My code is quite modular and I'm ready to embrace change.
 
-```
+{% highlight ruby %}
 class SendNewsletter
   def self.call(newsletter)
     campaign = CreateMailchimpCampaign.call(newsletter)
@@ -137,7 +137,7 @@ class SendTestNewsletter
     DeleteCampaign.call(campaign)
   end
 end
-```
+{% endhighlight %}
 
 ### Clean up and speed up your test suite
 
@@ -149,7 +149,7 @@ I tend not to use any mocks or stub to test services that deal with active recor
 
 I like to use instance of service objects to take advantage of using private methods. I also add Virtus into the mix to handle parameters. For instance:
 
-```
+{% highlight ruby %}
 class AcceptInvite
   def self.call(*args)
     new(*args).call
@@ -183,11 +183,11 @@ class AcceptInvite
     # ...
   end
 end
-```
+{% endhighlight %}
 
 Oh, and you can extract the first few lines into a helper to get down to:
 
-```
+{% highlight ruby %}
 class AcceptInvite
   include Service
 
@@ -198,7 +198,7 @@ class AcceptInvite
     # ...
   end
 end
-```
+{% endhighlight %}
 
 ## Return values!
 
@@ -212,30 +212,30 @@ Most services I write are not supposed to fail. They do not return anything (mea
 
 Those are the services which create records. The caller has to check if model is persisted and it has access to errors.
 
-```
+{% highlight ruby %}
 def create
   attributes = params.fetch(:invite).
     merge(creator: current_user)
   @invite = CreateInvite.call(attributes)
-    if @invite.persisted?
-      redirect_to @invite
-    else
-      render :new
+  if @invite.persisted?
+    redirect_to @invite
+  else
+    render :new
   end
 end
-```
+{% endhighlight %}
 
 ### Flavour #3: Response object
 
 Some services have several outcomes and complex errors handling. They return a response object which responds to `success?` and `error(s)`.
 
-```ruby
+{% highlight ruby %}ruby
 response = AcceptInvitation.call # ...
 if response.success?
   redirect_to # ...
 else
   render :edit, alert: response.error
 end
-```
+{% endhighlight %}
 
 This is it with service objects for now. Experiment with them, they will make your codebase more expressive and easier to maintain!
