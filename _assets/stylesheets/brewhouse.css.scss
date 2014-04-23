@@ -64,14 +64,22 @@ h2 {
 }
 
 h3 {
-  color: #444;
-  font-size: 36px;
-  margin: 20px auto 40px;
-  text-transform: uppercase;
-
   @media (max-width: 769px) {
-    font-size: 29px;
-    margin-bottom: 15px;
+    font-size: 14px;
+  }
+}
+
+.landing {
+  h3 {
+    color: #444;
+    font-size: 36px;
+    margin: 20px auto 40px;
+    text-transform: uppercase;
+
+    @media (max-width: 769px) {
+      font-size: 29px;
+      margin-bottom: 15px;
+    }
   }
 }
 // To get the site out the door, remove this when redesigning / refactoring
@@ -560,6 +568,9 @@ div.main {
   }
   pre {
     margin-bottom: 30px;
+    @media (max-width: 767px) {
+      font-size: 12px;
+    }
   }
 }
 #banner-blog {
