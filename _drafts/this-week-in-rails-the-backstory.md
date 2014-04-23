@@ -4,13 +4,12 @@ title:  "This week in Rails: the backstory"
 author: godfrey
 category: blog
 published: false
-date:   2013-04-22 15:44:40
 tags:
   - rails
 ---
 
 I recently started a newsletter called [*This week in Rails*](http://rails-weekly.goodbits.io)
-(you may have [heard](http://blog.plataformatec.com.br/2014/04/3-features-from-rails-4-1-that-im-excited-about/) [about it](http://ruby5.envylabs.com/episodes/495-episode-458-april-22nd-2014#story-3)) –
+(you may have [heard]((http://ruby5.envylabs.com/episodes/495-episode-458-april-22nd-2014#story-3) about it) –
 a weekly digest of notable commits, issues, pull-requests and other interesting
 things happening around the Rails ecosystem. I'd like to share my motivations
 behind the newsletter and some of the things I've learned along the way.
@@ -43,7 +42,8 @@ about the non-shiny, seemingly unimportant changes. Every week there are
 countless individual contributors pouring hours upon hours of their personal
 time to quietly improve rails – one bug report, one bug fix, one
 documentation change, one small feature at a time. The stability you enjoy on
-Rails today is a battle fought and won by [literally thousands](http://contributors.rubyonrails.org/) of nameless heroes.
+Rails today is a battle fought and won by [literally thousands](http://contributors.rubyonrails.org/)
+of nameless heroes.
 
 By highlighting these smaller patches in my newsletter, my goal is to demystify
 the process of contributing to Rails and hopefully encourage more contributions
@@ -51,26 +51,36 @@ the process of contributing to Rails and hopefully encourage more contributions
 
 ## Dogfooding
 
-I am also a big believer of [eating your own dogfood](http://en.wikipedia.org/wiki/Eating_your_own_dog_food). At Brewhouse, we are working on an in-house product called [Goodbits](https://goodbits.io/?utm_source=brewhouse-blog-backstory) (you can read more about it [here](http://blog.goodbits.io/2014/04/15/we-built-goodbits/)). The Rails newsletter gave me the perfect opportunity to use the product the same way our customers would. This is a great way to learn about our customers' needs and experience the quirks in the product first-hand.
+I am also a big believer of [eating your own dogfood](http://en.wikipedia.org/wiki/Eating_your_own_dog_food).
+At Brewhouse, we are working on an in-house product called [Goodbits](https://goodbits.io/?utm_source=brewhouse-blog-backstory)
+(you can read more about it [here](http://blog.goodbits.io/2014/04/15/we-built-goodbits/)).
+The Rails newsletter gave me the perfect opportunity to use the product the same
+way our customers would. This is a great way to learn about the need of our
+customers needs and experience the quirks in the product first-hand.
 
 This effort has already paid off a few times by now. As an example, one of the
 early issues of my newsletter tipped off the wrong wires inside Gmail's spam
 filter and never made it to my subscribers' inbox. After a lot of
-trial-and-error, we determined that it was because we were hotlinking the logo image
-from a public Dropbox folder. Following our findings, we implemented a more robust
-image hosting solution before we officially rolled out the feature for our
-customers.
+trial-and-error, we determined that it was because I hotlinked my custom logo
+image from a public Dropbox folder. Following our findings, we implemented a
+more robust image hosting solution before we officially rolled out the custom
+logo feature for our customers.
 
 ## The Results
 
 The newsletter has been very well-received. In the span of a few weeks, over 400
-readers subscribed to my newsletter. Except for the one that went into the spam
-folder, the newsletter had consistently logged an open rate of over 80% and
-over 40% click rate. (This is [well above](http://mailchimp.com/resources/research/email-marketing-benchmarks/) typical marketing emails.)
+readers subscribed to my newsletter. Except for the one issue that went into the
+spam folder, the newsletter had consistently logged an open rate of over 80% and
+over 40% click rate. (This is [well above](http://mailchimp.com/resources/research/email-marketing-benchmarks/)
+typical marketing emails.)
 
 To be honest, this completely exceeded any expectations I had when I started
-this as a [Friday afternoon project](http://brewhouse.io/2014/04/04/welcome-to-brewhouse.html#staying-creative). While not very "sexy", it turns out that email newsletters could be a very powerful medium to engage with your readers.
+this as a [Friday afternoon project](http://brewhouse.io/2014/04/04/welcome-to-brewhouse.html#staying-creative).
+While not very "sexy", it turns out that email newsletters could be a very
+powerful medium to engage with your readers.
 
-Got some interesting niche content to share with your customers, coworkers or
-your community? Give [Goodbits](https://goodbits.io/?utm_source=brewhouse-blog-backstory) a spin and let us know
-what you think!
+If you haven't already, you should [check out my newsletter](http://rails-weekly.goodbits.io/archive)
+and consider [subscribing](http://rails-weekly.goodbits.io)! Got some
+interesting niche content to share with your customers, coworkers or your
+community? Give [Goodbits](https://goodbits.io/?utm_source=brewhouse-blog-backstory)
+a spin and let us know what you think!
