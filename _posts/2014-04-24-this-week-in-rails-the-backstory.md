@@ -1,9 +1,10 @@
 ---
-layout: post
-title:  "This week in Rails: the backstory"
-author: godfrey
-category: blog
-published: false
+layout:    post
+title:     "This week in Rails: the backstory"
+author:    godfrey
+category:  blog
+date:      2013-04-24 09:04
+published: true
 tags:
   - rails
 ---
@@ -68,11 +69,11 @@ logo feature for our customers.
 
 ## The Results
 
-The newsletter has been very well-received. In the span of a few weeks, over 400
+The newsletter has been very well-received. In the span of a few weeks, over 450
 readers subscribed to my newsletter. Except for the one issue that went into the
 spam folder, the newsletter had consistently logged an open rate of over 80% and
 over 40% click rate. (This is [well above](http://mailchimp.com/resources/research/email-marketing-benchmarks/)
-typical marketing emails.)
+typical "marketing" emails.)
 
 To be honest, this completely exceeded any expectations I had when I started
 this as a [Friday afternoon project](http://brewhouse.io/2014/04/04/welcome-to-brewhouse.html#staying-creative).
