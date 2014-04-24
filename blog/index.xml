@@ -3,7 +3,7 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2014-04-24T09:09:33-05:00</updated>
+    <updated>2014-04-24T09:15:54-05:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
@@ -17,10 +17,10 @@
           <updated>2014-04-24T09:04:00-05:00</updated>
           <id>http://brewhouse.io/blog/2014/04/24/this-week-in-rails-the-backstory</id>
           <content type="html">&lt;p&gt;I recently started a newsletter called &lt;a href=&quot;http://rails-weekly.goodbits.io&quot;&gt;&lt;em&gt;This week in Rails&lt;/em&gt;&lt;/a&gt;
-(you may have &lt;a href=&quot;(http://ruby5.envylabs.com/episodes/495-episode-458-april-22nd-2014#story-3) about it&quot;&gt;heard&lt;/a&gt; –
-a weekly digest of notable commits, issues, pull-requests and other interesting
-things happening around the Rails ecosystem. I’d like to share my motivations
-behind the newsletter and some of the things I’ve learned along the way.&lt;/p&gt;
+(you may have &lt;a href=&quot;http://ruby5.envylabs.com/episodes/495-episode-458-april-22nd-2014#story-3&quot;&gt;heard&lt;/a&gt;
+about it) – a weekly digest of notable commits, issues, pull-requests and other
+interesting things happening around the Rails ecosystem. I’d like to share my
+motivations behind the newsletter and some of the things I’ve learned along the way.&lt;/p&gt;
 
 &lt;h2 id=&quot;knowledge-sharing&quot;&gt;Knowledge Sharing&lt;/h2&gt;
 
