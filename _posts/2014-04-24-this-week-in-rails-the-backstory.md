@@ -1,18 +1,19 @@
 ---
-layout: post
-title:  "This week in Rails: the backstory"
-author: godfrey
-category: blog
-published: false
+layout:    post
+title:     "This week in Rails: the backstory"
+author:    godfrey
+category:  blog
+date:      2014-04-24 09:04
+published: true
 tags:
   - rails
 ---
 
 I recently started a newsletter called [*This week in Rails*](http://rails-weekly.goodbits.io)
-(you may have [heard]((http://ruby5.envylabs.com/episodes/495-episode-458-april-22nd-2014#story-3) about it) –
-a weekly digest of notable commits, issues, pull-requests and other interesting
-things happening around the Rails ecosystem. I'd like to share my motivations
-behind the newsletter and some of the things I've learned along the way.
+(you may have [heard](http://ruby5.envylabs.com/episodes/495-episode-458-april-22nd-2014#story-3)
+about it) – a weekly digest of notable commits, issues, pull-requests and other
+interesting things happening around the Rails ecosystem. I'd like to share my
+motivations behind the newsletter and some of the things I've learned along the way.
 
 ## Knowledge Sharing
 
@@ -68,11 +69,11 @@ logo feature for our customers.
 
 ## The Results
 
-The newsletter has been very well-received. In the span of a few weeks, over 400
+The newsletter has been very well-received. In the span of a few weeks, over 450
 readers subscribed to my newsletter. Except for the one issue that went into the
 spam folder, the newsletter had consistently logged an open rate of over 80% and
 over 40% click rate. (This is [well above](http://mailchimp.com/resources/research/email-marketing-benchmarks/)
-typical marketing emails.)
+typical "marketing" emails.)
 
 To be honest, this completely exceeded any expectations I had when I started
 this as a [Friday afternoon project](http://brewhouse.io/2014/04/04/welcome-to-brewhouse.html#staying-creative).
