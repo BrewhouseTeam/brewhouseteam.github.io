@@ -1,0 +1,258 @@
+<!-- Nice to see you took a peek here, hello -->
+<!-- send us an email at hello at brewhouse dot io if you want to talk tech -->
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+
+<html lang="en-us" class="blog">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# business: http://ogp.me/ns/business#">
+    <title>This week in Rails: the backstory - the brew pub - brewhouse software blog</title>
+    <meta property="og:title" content="This week in Rails: the backstory - the brew pub - brewhouse software blog">
+
+    <link rel="alternate" type="application/atom+xml" href="/blog/index.xml" title="The Brew Pub atom feed">
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="author" content="brewhouse.io">
+<meta name="copyright" content="brewhouse software inc. 2014">
+<meta name="robots" content="INDEX, FOLLOW">
+
+<meta property="og:site_name" content="brewhouse">
+<meta property="og:url" content="http://brewhouse.io/blog/2014/04/24/this-week-in-rails-the-backstory.html">
+<meta property="og:type" content="business.business">
+<meta property="og:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png">
+<meta property="og:description" content="dedicated to building superb software">
+<meta property="business:contact_data:street_address" content="55 E Cordova St - Unit 604">
+<meta property="business:contact_data:locality" content="Vancouver, BC">
+<meta property="business:contact_data:postal_code" content="V6A 0A5">
+<meta property="business:contact_data:country_name" content="Canada">
+<meta property="place:location:latitude" content="49.282471">
+<meta property="place:location:longitude" content="-123.103046">
+
+<link rel="shortcut icon" href="/images/icons/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
+
+<link href="http://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" href="/assets/application-37b21f091b3c6d3625734f9cdda5a361.css">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css">
+
+  </head>
+  <body>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46725009-2', 'brewhouse.io');
+  ga('send', 'pageview');
+
+</script>
+
+
+    <nav id="navbar-blog" class="navbar navbar-default navbar-main" role="navigation">
+      <a id="brewhouse-logo" class="navbar-brand internal" rel="home" href="/" title="brewhouse logo"><img src="/images/brewhouse-logo-blog-2.png"></a>
+    </nav>
+
+    <div class="container main">
+      <div id="banner-blog" class="row">
+  <div class="col-xs-12 img-full-width">
+    <img src="/images/blog-background.jpg" class="img-responsive">
+
+    <section>
+      <h1 id="brew-pub-start">
+        The Brew Pub
+      </h1>
+      <h3>
+        Writings from <a href="http://brewhouse.io">brewhouse.io</a>, makers of <a href="https://goodbits.io?utm_source=brewhouse-blog">goodbits.io</a> and other stellar apps for clients.
+      </h3>
+    </section>
+  </div>
+</div>
+
+
+      
+
+<div id="article-start" class="content">
+  <div class="row">
+    <div class="col-xs-12 col-sm-9">
+
+      <div class="post">
+        <div class="social-actions">
+          <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io/blog/2014/04/24/this-week-in-rails-the-backstory.html" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="">Tweet</a>
+        </div>
+
+        <h1>
+          This week in Rails: the backstory
+        </h1>
+        <p class="meta">
+          
+            <span>
+              <img class="img-circle img-author" src="//www.gravatar.com/avatar/560f36d69534a1a58d0f12dad39b0396?s=135" alt="A photo of Godfrey Chan" width="55">
+
+              <a href="http://twitter.com/chancancode" target="_blank">Godfrey Chan</a> wrote this on 24 Apr 2014
+            </span>
+          
+        </p>
+
+        <p>I recently started a newsletter called <a href="http://rails-weekly.goodbits.io"><em>This week in Rails</em></a>
+(you may have <a href="(http://ruby5.envylabs.com/episodes/495-episode-458-april-22nd-2014#story-3) about it">heard</a> –
+a weekly digest of notable commits, issues, pull-requests and other interesting
+things happening around the Rails ecosystem. I’d like to share my motivations
+behind the newsletter and some of the things I’ve learned along the way.</p>
+
+<h2 id="knowledge-sharing">Knowledge Sharing</h2>
+
+<p>My biggest goal of the newsletter is to share knowledge. Since I <a href="https://twitter.com/bitsweat/status/413014212303024128">joined</a>
+the Rails committer team last year, I had the opportunity to follow the
+development of Rails very closely. This helped me to gain a much better
+understanding of the tools I use at work and greatly enhanced my productivity.
+It also forced me to read a lot of code written by other people, which is a
+great way to learn and improve my craft as a programmer.</p>
+
+<p>Despite the tremendous benefits, following a project as large as Rails could be
+quite overwhelming. On average, I receive about 40 email notifications from
+GitHub every day, most of them from new comments on issues and pull-requests.
+At times, it could also be quite difficult to understand the background of a
+commit or pull-request just by reading the code.</p>
+
+<p>In my newsletter I attempt to unlock these learning opportunities for more
+people by filtering out most of the noise and presenting the tidbits in an
+easy-to-digest format. I also try to provide a little bit of background to help
+my readers understand the context of the code.</p>
+
+<h2 id="highlighting--encouraging-contributions">Highlighting &amp; Encouraging Contributions</h2>
+
+<p>If you aren’t paying close attention, you often only hear about the shiniest new
+features on every major/minor release of Rails. However, open-source work is all
+about the non-shiny, seemingly unimportant changes. Every week there are
+countless individual contributors pouring hours upon hours of their personal
+time to quietly improve rails – one bug report, one bug fix, one
+documentation change, one small feature at a time. The stability you enjoy on
+Rails today is a battle fought and won by <a href="http://contributors.rubyonrails.org/">literally thousands</a>
+of nameless heroes.</p>
+
+<p>By highlighting these smaller patches in my newsletter, my goal is to demystify
+the process of contributing to Rails and hopefully encourage more contributions
+(to Rails and other open-source projects) over time.</p>
+
+<h2 id="dogfooding">Dogfooding</h2>
+
+<p>I am also a big believer of <a href="http://en.wikipedia.org/wiki/Eating_your_own_dog_food">eating your own dogfood</a>.
+At Brewhouse, we are working on an in-house product called <a href="https://goodbits.io/?utm_source=brewhouse-blog-backstory">Goodbits</a>
+(you can read more about it <a href="http://blog.goodbits.io/2014/04/15/we-built-goodbits/">here</a>).
+The Rails newsletter gave me the perfect opportunity to use the product the same
+way our customers would. This is a great way to learn about the need of our
+customers needs and experience the quirks in the product first-hand.</p>
+
+<p>This effort has already paid off a few times by now. As an example, one of the
+early issues of my newsletter tipped off the wrong wires inside Gmail’s spam
+filter and never made it to my subscribers’ inbox. After a lot of
+trial-and-error, we determined that it was because I hotlinked my custom logo
+image from a public Dropbox folder. Following our findings, we implemented a
+more robust image hosting solution before we officially rolled out the custom
+logo feature for our customers.</p>
+
+<h2 id="the-results">The Results</h2>
+
+<p>The newsletter has been very well-received. In the span of a few weeks, over 450
+readers subscribed to my newsletter. Except for the one issue that went into the
+spam folder, the newsletter had consistently logged an open rate of over 80% and
+over 40% click rate. (This is <a href="http://mailchimp.com/resources/research/email-marketing-benchmarks/">well above</a>
+typical “marketing” emails.)</p>
+
+<p>To be honest, this completely exceeded any expectations I had when I started
+this as a <a href="http://brewhouse.io/2014/04/04/welcome-to-brewhouse.html#staying-creative">Friday afternoon project</a>.
+While not very “sexy”, it turns out that email newsletters could be a very
+powerful medium to engage with your readers.</p>
+
+<p>If you haven’t already, you should <a href="http://rails-weekly.goodbits.io/archive">check out my newsletter</a>
+and consider <a href="http://rails-weekly.goodbits.io">subscribing</a>! Got some
+interesting niche content to share with your customers, coworkers or your
+community? Give <a href="https://goodbits.io/?utm_source=brewhouse-blog-backstory">Goodbits</a>
+a spin and let us know what you think!</p>
+
+
+        <div class="mailchimp-form text-center">
+          <p>
+            Drop your email below to receive Brew Pub's writings in your mailbox.
+          </p>
+          <!-- Begin MailChimp Signup Form -->
+          <link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+          <div id="mc_embed_signup" class="row">
+            <form action="http://brewhouse.us8.list-manage.com/subscribe/post?u=c524f6473f5901cae1230a052&amp;id=14f9de4be1" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+
+              <div class="col-sm-8">
+                <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required style="width: 100%; margin: 0 0 4% 0">
+              </div>
+              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+              <div style="position: absolute; left: -5000px;">
+                <input type="text" name="b_c524f6473f5901cae1230a052_14f9de4be1" value="">
+              </div>
+
+              <div class="col-sm-4 subscribe-button">
+                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+              </div>
+            </form>
+          </div>
+          <!--End mc_embed_signup-->
+        </div>
+
+        <div id="disqus_thread"></div>
+
+        <!-- disqus -->
+        <script type="text/javascript">
+            var disqus_shortname = 'brewhouse';
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        <!-- /disqus -->
+
+      </div><!-- /post -->
+
+    </div>
+  </div><!-- /row -->
+</div><!-- /content-->
+
+<script>
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+</script>
+
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-11 col-xs-offset-1">
+            <p>
+              &copy; 2014 <a href="http://brewhouse.io">brewhouse software, inc.</a>
+            </p>
+          </div><!--col-xs-12 -->
+        </div><!-- row -->
+      </div><!-- container -->
+    </footer>
+
+    <script src="/assets/app-bb7a7839973c4b2fe85c66ec1aae43c4.js"></script>
+  </body>
+</html>
