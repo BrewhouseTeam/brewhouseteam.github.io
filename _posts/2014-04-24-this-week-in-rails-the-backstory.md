@@ -10,10 +10,10 @@ tags:
 ---
 
 I recently started a newsletter called [*This week in Rails*](http://rails-weekly.goodbits.io)
-(you may have [heard]((http://ruby5.envylabs.com/episodes/495-episode-458-april-22nd-2014#story-3) about it) –
-a weekly digest of notable commits, issues, pull-requests and other interesting
-things happening around the Rails ecosystem. I'd like to share my motivations
-behind the newsletter and some of the things I've learned along the way.
+(you may have [heard](http://ruby5.envylabs.com/episodes/495-episode-458-april-22nd-2014#story-3)
+about it) – a weekly digest of notable commits, issues, pull-requests and other
+interesting things happening around the Rails ecosystem. I'd like to share my
+motivations behind the newsletter and some of the things I've learned along the way.
 
 ## Knowledge Sharing
 
