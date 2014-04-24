@@ -11,7 +11,7 @@ tags:
 
 <p>
   <a href="http://brewhouse.io{{ page.url }}">
-    <img class="img-right" alt="This Week in Rails Logo" src="/images/2014-04-24-this-week-in-rails-backstory.jpg">
+    <img class="img-right img-responsive" alt="This Week in Rails Logo" src="/images/2014-04-24-this-week-in-rails-backstory.jpg">
   </a>
 </p>
 

@@ -705,6 +705,12 @@ div.main {
 .img-right {
   float: right;
   margin: 0 0 20px 30px;
+
+  @media (max-width: 400px) {
+    margin-left: 0;
+
+    max-width: 100%;
+  }
 }
 
 .on-blog .img-right {
