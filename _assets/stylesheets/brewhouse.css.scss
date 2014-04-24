@@ -605,9 +605,9 @@ div.main {
 
     h1 {
       color: #fff;
-      margin-left: 5%;
+      margin-left: 11%;
       margin-bottom: 0.5%;
-      margin-top: 28%;
+      margin-top: 27%;
     }
 
     h3 {
@@ -616,14 +616,19 @@ div.main {
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-weight: 100;
       letter-spacing: 0.05em;
-      margin-left: 5%;
+      margin-left: 11%;
       margin-top: 0;
       text-transform: initial;
     }
   }
+}
 
-  @media (max-width: 767px) {
-    height: 170px;
+.on-post {
+  .content {
+    margin: 30px auto;
+  }
+  #banner-blog {
+    height: 95px;
 
     img {
       display: block;
@@ -631,24 +636,64 @@ div.main {
       max-width: 100%;
     }
     section {
-      height: 80%;
+      background-image: linear-gradient(bottom, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0) 70%);
+      background-image: -o-linear-gradient(bottom, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0) 70%);
+      background-image: -moz-linear-gradient(bottom, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0) 70%);
+      background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0) 70%);
+      background-image: -ms-linear-gradient(bottom, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0) 70%);
+      background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(0, 0, 0, 0.60)), color-stop(1, rgba(0, 0, 0, 0)));
+
+      height: 50%;
 
       h1 {
-        margin-left: 31%;
-        margin-top: 6.5%;
+        margin-left: 11%;
+        margin-top: 1%;
       }
       h3 {
         -webkit-font-smoothing: antialiased;
         font-size: 14px;
         font-weight: 300;
         line-height: 1.5;
-        margin-left: 31%;
+        margin-left: 11%;
         margin-top: 0;
-        width: 39%;
+        width: 60%;
       }
     }
   }
 }
+
+@media (max-width: 767px) {
+  body.on-post,
+  body.on-blog {
+    #banner-blog {
+      height: 150px;
+
+      img {
+        display: block;
+        height: auto;
+        max-width: 100%;
+      }
+      section {
+        height: 60%;
+
+        h1 {
+          margin-left: 31%;
+          margin-top: 4.5%;
+        }
+        h3 {
+          -webkit-font-smoothing: antialiased;
+          font-size: 14px;
+          font-weight: 300;
+          line-height: 1.5;
+          margin-left: 31%;
+          margin-top: 0;
+          width: 39%;
+        }
+      }
+    }
+  }
+}
+
 
 .mailchimp-form {
   margin: 0 0 30px 0;

@@ -1,3 +1,5 @@
+{% capture on_post %}{% if page.path contains '_posts' %}on-post{% else %}on-blog{% endif %}{% endcapture %}
+
 {% include doctypes.html %}
 <html lang="en-us" class="blog">
   <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# business: http://ogp.me/ns/business#">
@@ -8,7 +10,7 @@
 
     {% include head.html %}
   </head>
-  <body>
+  <body class="{{ on_post }}">
     {% include ga.html %}
 
     <nav id="navbar-blog" class="navbar navbar-default navbar-main" role="navigation">
