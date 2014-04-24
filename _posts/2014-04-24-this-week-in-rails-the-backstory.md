@@ -11,7 +11,8 @@ tags:
 
 <p>
   <a href="http://brewhouse.io{{ page.url }}">
-  <img class="img-right" alt="This Week in Rails Logo" src="/images/2014-04-24-this-week-in-rails-backstory.jpg"></a>
+    <img class="img-right" alt="This Week in Rails Logo" src="/images/2014-04-24-this-week-in-rails-backstory.jpg">
+  </a>
 </p>
 
 I recently started a newsletter called [*This week in Rails*](http://rails-weekly.goodbits.io)
