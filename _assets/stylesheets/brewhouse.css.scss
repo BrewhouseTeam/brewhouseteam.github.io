@@ -694,6 +694,14 @@ div.main {
   }
 }
 
+.img-right {
+  float: right;
+  margin: 0 0 20px 30px;
+}
+
+.on-blog .img-right {
+  max-height: 160px;
+}
 
 .mailchimp-form {
   margin: 0 0 30px 0;

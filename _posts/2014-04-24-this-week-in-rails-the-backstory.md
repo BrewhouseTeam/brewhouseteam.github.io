@@ -1,6 +1,6 @@
 ---
 layout:    post
-title:     "This week in Rails: the backstory"
+title:     "This Week in Rails: the Backstory"
 author:    godfrey
 category:  blog
 date:      2014-04-24 09:04
@@ -8,6 +8,11 @@ published: true
 tags:
   - rails
 ---
+
+<p>
+  <a href="http://brewhouse.io{{ page.url }}">
+  <img class="img-right" alt="This Week in Rails Logo" src="/images/2014-04-24-this-week-in-rails-backstory.jpg"></a>
+</p>
 
 I recently started a newsletter called [*This week in Rails*](http://rails-weekly.goodbits.io)
 (you may have [heard](http://ruby5.envylabs.com/episodes/495-episode-458-april-22nd-2014#story-3)
