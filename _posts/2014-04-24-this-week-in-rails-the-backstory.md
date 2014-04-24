@@ -3,7 +3,7 @@ layout:    post
 title:     "This week in Rails: the backstory"
 author:    godfrey
 category:  blog
-date:      2013-04-24 09:04
+date:      2014-04-24 09:04
 published: true
 tags:
   - rails
