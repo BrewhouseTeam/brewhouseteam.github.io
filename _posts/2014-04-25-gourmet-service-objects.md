@@ -4,35 +4,40 @@ title: "Gourmet Service Objects"
 author: philippe
 category: blog
 published: false
+date:      2014-05-01 09:00
 tags:
   - rails
 ---
 
-Your rails app's business logic is hidden in ugly controllers with 10+ lines long method and fat models powered by Longuini callbacks? Your tests are getting out of control and you spend most of your days looking at green dots? You want to impress your coworkers with Unicorn level code?
+Is your Rails app's business logic hidden in ugly controllers with 10+ lines long method and fat models powered by Linguini callbacks? Are your tests getting out of control and you spend most of your days looking at green dots? Do you want to impress your coworkers with Unicorn level code?
 
 You need Gourmet Service Objects™!
 
-I have been using services objects for the past three years and they reconciled me with Rails (as much as Automated tests reconciled me with software programming!).
+I have been using services objects for the past three years and they reconciled my take on Rails (as much as automated testing reconciled my feelings for software programming!).
 
-## A service object **does** one thing
+## A service object _does one thing_
 
 A service object (aka method object) performs one action. It holds the business logic to perform that action. Here is an example:
 
 {% highlight ruby %}
 # app/services/accept_invite.rb
 class AcceptInvite
+
   def self.call(invite, user)
     invite.accept!(user)
     UserMailer.invite_accepted(invite).deliver
   end
+
 end
 {% endhighlight %}
 
-The conventions I follow are:
+Three conventions I follow are:
 
-* services go under the `app/services` directory. I encourage you to use subdirectories for business logic heavy domains: `app/services/invite/accept.rb` and `app/services/invite/create.rb` will define `Invite::Accept` and `Invite::Create`.
-* services start with a verb (and do not end with Service): `ApproveTransaction`, `SendTestNewsletter`, `ImportUsersFromCsv`
-* services respond to the `call` method. I found using another verb makes it a bit redondant: `ApproveTransaction.approve()` does not read well. Also, the `call` method is the de facto method for lambda, procs, and method objects.
+* Services go under the `app/services` directory. I encourage you to use subdirectories for business logic-heavy domains. For instance:
+  * The file `app/services/invite/accept.rb` will define `Invite::Accept`
+  * while `app/services/invite/create.rb` will define `Invite::Create`
+* Services start with a verb (and do not end with Service): `ApproveTransaction`, `SendTestNewsletter`, `ImportUsersFromCsv`
+* Services respond to the `call` method. I found using another verb makes it a bit redundant: `ApproveTransaction.approve()` does not read well. Also, the `call` method is the de facto method for lambda, procs, and method objects.
 
 ## Benefits
 
@@ -40,7 +45,7 @@ The conventions I follow are:
 
 I can just glance over the `services` directory to see what your application **does**: `ApproveTransaction`, `CancelTransaction`, `BlockAccount`, `SendTransactionApprovalReminder`…
 
-A quick look into a service object and I get what business logic is involved. I don't have to go through the controllers, active record model callbacks and observers to understand what "approving a transaction" involves.
+A quick look into a service object and I know what business logic is involved. I don't have to go through the controllers, ActiveRecord model callbacks and observers to understand what "approving a transaction" involves.
 
 ### Clean-up models and controllers
 
@@ -48,14 +53,17 @@ Controllers turn the request (params, session, cookies) into arguments, pass the
 
 {% highlight ruby %}
 class InviteController < ApplicationController
+
   def accept
     invite = Invite.find_by_token!(params[:token])
+
     if AcceptInvite.call(invite, current_user)
       redirect_to invite.item, notice: "Welcome!"
     else
       redirect_to '/', alert: "Oopsy!"
     end
   end
+
 end
 {% endhighlight %}
 
@@ -74,25 +82,25 @@ class Invite < ActiveRecord::Base
 end
 {% endhighlight %}
 
-It makes them way easier to maintain and to test!
+Making models much easier to test and maintain!
 
 ### Call them from anywhere
 
 Service objects are likely to be called from controllers as well as:
 
-* other service objects
+* Other service objects:
 
 {% highlight ruby %}
 class BatchSyncUsers do
+
   def self.call(users)
-    users.map do |user|
-      SyncUser.call(user)
-    end
+    users.each { |user| SyncUser.call(user) }
   end
+
 end
 {% endhighlight %}
 
-* rake task
+* Rake tasks:
 
 {% highlight ruby %}
 task :sync do
@@ -100,13 +108,13 @@ task :sync do
 end
 {% endhighlight %}
 
-* the console
+* The console:
 
 {% highlight ruby %}
 $> ApproveTransaction.call(transaction, user, 2.days.ago)
 {% endhighlight %}
 
-* even from test helpers to setup your integration tests!
+* Even from test helpers to setup your integration tests!
 
 {% highlight ruby %}
 def create_approved_transaction
@@ -122,35 +130,40 @@ end
 I keep service objects as simple and small as I can. I compose service objects with other services objects, and I reuse them. My code is quite modular and I'm ready to embrace change.
 
 {% highlight ruby %}
-class SendNewsletter
-  def self.call(newsletter)
-    campaign = CreateMailchimpCampaign.call(newsletter)
-    DeliverCampaign.call(campaign)
-    DeleteCampaign.call(campaign)
-  end
-end
-
 class SendTestNewsletter
+
   def self.call(newsletter)
     campaign = CreateMailchimpCampaign.call(newsletter)
     DeliverTestEmail.call(campaign)
-    DeleteCampaign.call(campaign)
+    DeleteCampaign.call(campaign) # Don't keep the test campaign around
   end
+
+end
+
+class SendNewsletter
+
+  def self.call(newsletter)
+    campaign = CreateMailchimpCampaign.call(newsletter)
+    DeliverCampaign.call(campaign)
+    # Could easily delete here as well, but we want to retain the legit campaigns
+  end
+
 end
 {% endhighlight %}
 
 ### Clean up and speed up your test suite
 
-Services are easy and fast to test since they are small ruby objects with one point of entry (the `call` method remember?). Complex services are composed with other services, so you can split up your tests easily.
+Services are easy and fast to test since they are small ruby objects with one point of entry (the `call` method). Complex services are composed with other services, so you can split up your tests easily.
 
-I tend not to use any mocks or stub to test services that deal with active record objects. rspec-set helps me keep the running time quite low while having simple and robusts test. Once again, service objects are small and do one thing, so they tend to have a limited amount of dependencies.
+I tend not to use any mocks or stub to test services that deal with ActiveRecord objects. [rspec-set](https://github.com/pcreux/rspec-set) helps me keep the running time quite low while having simple and robusts test. Once again, service objects are small and do one thing, so they tend to have a limited amount of dependencies.
 
 ## Real world services
 
-I like to use instance of service objects to take advantage of using private methods. I also add Virtus into the mix to handle parameters. For instance:
+I like to use instances of service objects to take advantage of private methods. I add Virtus into the mix to handle parameters. For instance:
 
 {% highlight ruby %}
 class AcceptInvite
+
   def self.call(*args)
     new(*args).call
   end
@@ -160,7 +173,7 @@ class AcceptInvite
   attribute :invite, Invite
   attribute :user, User
   attribute :account, Account
-  attribute :time, default: ->(_,_) { Time.now }
+  attribute :time, default: proc { Time.now }
 
   def call
     unless invite_already_accepted?
@@ -182,13 +195,15 @@ class AcceptInvite
   def send_notification_to_inviter
     # ...
   end
+
 end
 {% endhighlight %}
 
-Oh, and you can extract the first few lines into a helper to get down to:
+You can extract the `def self.call` into a helper module, and cut down to:
 
 {% highlight ruby %}
 class AcceptInvite
+
   include Service
 
   attribute :invite
@@ -197,6 +212,7 @@ class AcceptInvite
   def call
     # ...
   end
+
 end
 {% endhighlight %}
 
@@ -206,17 +222,17 @@ The services I make have three flavours when it comes to communicating back to t
 
 ### Flavour #1: Fail loudly
 
-Most services I write are not supposed to fail. They do not return anything (meaningful) but they raise an exception if something goes wrong. Those services are likely to use methods that fail loudly such as `Hash#fetch`, `create!`, `save!`, `find_by_name!` etc.
+Most services I write are not supposed to fail. They do not return anything (meaningful) but they raise an exception when something goes wrong. Those services are likely to use methods that fail loudly such as `Hash#fetch`, `create!`, `save!`, `find_by_name!` etc.
 
-### Flavour #2: Return created active record model
+### Flavour #2: Return a persisted ActiveRecord model
 
-Those are the services which create records. The caller has to check if model is persisted and it has access to errors.
+The caller can check if an AR instance is persisted and then has access to it's errors.
 
 {% highlight ruby %}
 def create
-  attributes = params.fetch(:invite).
-    merge(creator: current_user)
-  @invite = CreateInvite.call(attributes)
+  attributes = params.fetch(:invite).merge(creator: current_user)
+  @invite    = CreateInvite.call(attributes)
+
   if @invite.persisted?
     redirect_to @invite
   else
@@ -227,10 +243,11 @@ end
 
 ### Flavour #3: Response object
 
-Some services have several outcomes and complex errors handling. They return a response object which responds to `success?` and `error(s)`.
+Some services have several outcomes and complex error handling. They return a response object which responds to `success?` and `error(s)`.
 
-{% highlight ruby %}ruby
-response = AcceptInvitation.call # ...
+{% highlight ruby %}
+response = AcceptInvitation.call(@invite)
+
 if response.success?
   redirect_to # ...
 else
@@ -238,4 +255,4 @@ else
 end
 {% endhighlight %}
 
-This is it with service objects for now. Experiment with them, they will make your codebase more expressive and easier to maintain!
+That's it for service objects (for now)! Experiment with them, as I believe they will make your codebase more expressive and easier to maintain!
