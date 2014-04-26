@@ -82,7 +82,7 @@ class Invite < ActiveRecord::Base
 end
 {% endhighlight %}
 
-Making models much easier to test and maintain!
+This makes models much easier to test and maintain!
 
 ### Call them from anywhere
 
@@ -97,6 +97,16 @@ class BatchSyncUsers do
     users.each { |user| SyncUser.call(user) }
   end
 
+end
+{% endhighlight %}
+
+* DelayedJob/Rescue/Sidekiq Jobs:
+
+{% highlight ruby %}
+class SyncInvoicesJob
+  def work
+    SyncInvoice.call
+  end
 end
 {% endhighlight %}
 
@@ -127,7 +137,9 @@ end
 
 ### DRY and Embrace change
 
-I keep service objects as simple and small as I can. I compose service objects with other services objects, and I reuse them. My code is quite modular and I'm ready to embrace change.
+I keep service objects as simple and small as I can. I compose service
+objects with other services objects, and I reuse them. My code is quite
+modular and I'm ready to Embrace Change™.
 
 {% highlight ruby %}
 class SendTestNewsletter
@@ -249,10 +261,17 @@ Some services have several outcomes and complex error handling. They return a re
 response = AcceptInvitation.call(@invite)
 
 if response.success?
-  redirect_to # ...
+  redirect_to root_path, notice: "Welcome!"
 else
-  render :edit, alert: response.error
+  redirect_to root_path, alert: response.error
 end
 {% endhighlight %}
 
-That's it for service objects (for now)! Experiment with them, as I believe they will make your codebase more expressive and easier to maintain!
+That's it for service objects for now. Experiment with them, as I
+believe they will make your codebase more expressive and easier to
+maintain!
+
+I'm happy to respond to any question or concern you guys might have. Feel free to
+leave a comment below. <3 <3 <3
+
+
