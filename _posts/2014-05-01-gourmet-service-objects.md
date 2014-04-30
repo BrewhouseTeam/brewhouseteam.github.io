@@ -3,8 +3,8 @@ layout: post
 title: "Gourmet Service Objects"
 author: philippe
 category: blog
-published: false
-date:      2014-05-01 09:00
+published: true
+date:      2014-04-30 12:37
 tags:
   - rails
 ---
