@@ -13,7 +13,7 @@ Is your Rails app's business logic hidden in ugly controllers with 10+ lines lon
 
 You need Gourmet Service Objects™!
 
-I have been using services objects for the past three years and they reconciled my take on Rails (as much as automated testing reconciled my feelings for software programming!).
+I have been using service objects for the past three years and they reconciled my take on Rails (as much as automated testing reconciled my feelings for software programming!).
 
 ## A service object _does one thing_
 
@@ -87,7 +87,7 @@ This makes models and controllers much easier to test and maintain!
 ### DRY and Embrace change
 
 I keep service objects as simple and small as I can. I compose service
-objects with other services objects, and I reuse them. My code is quite
+objects with other service objects, and I reuse them. My code is quite
 modular and I'm ready to Embrace Change™.
 
 {% highlight ruby %}
@@ -315,7 +315,7 @@ end
 
 ### Flavour #2: Return a persisted ActiveRecord model
 
-The caller can check if an AR instance is persisted and then has access to it's errors.
+The caller can check if an AR instance is persisted and then has access to its errors.
 
 {% highlight ruby %}
 class InviteController < LoggedInController
