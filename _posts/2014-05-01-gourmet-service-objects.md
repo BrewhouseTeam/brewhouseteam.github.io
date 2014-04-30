@@ -41,9 +41,9 @@ Three conventions I follow are:
 
 ## Benefits
 
-### Service objects show what your application *does*
+### Service objects show what my application *does*
 
-I can just glance over the `services` directory to see what your application **does**: `ApproveTransaction`, `CancelTransaction`, `BlockAccount`, `SendTransactionApprovalReminder`…
+I can just glance over the `services` directory to see what my application **does**: `ApproveTransaction`, `CancelTransaction`, `BlockAccount`, `SendTransactionApprovalReminder`…
 
 A quick look into a service object and I know what business logic is involved. I don't have to go through the controllers, ActiveRecord model callbacks and observers to understand what "approving a transaction" involves.
 
@@ -82,58 +82,7 @@ class Invite < ActiveRecord::Base
 end
 {% endhighlight %}
 
-This makes models much easier to test and maintain!
-
-### Call them from anywhere
-
-Service objects are likely to be called from controllers as well as:
-
-* Other service objects:
-
-{% highlight ruby %}
-class BatchSyncUsers do
-
-  def self.call(users)
-    users.each { |user| SyncUser.call(user) }
-  end
-
-end
-{% endhighlight %}
-
-* DelayedJob/Rescue/Sidekiq Jobs:
-
-{% highlight ruby %}
-class SyncInvoicesJob
-  def work
-    SyncInvoice.call
-  end
-end
-{% endhighlight %}
-
-* Rake tasks:
-
-{% highlight ruby %}
-task :sync do
-  SyncLoggedTimeFromFreckle.call
-end
-{% endhighlight %}
-
-* The console:
-
-{% highlight ruby %}
-$> ApproveTransaction.call(transaction, user, 2.days.ago)
-{% endhighlight %}
-
-* Even from test helpers to setup your integration tests!
-
-{% highlight ruby %}
-def create_approved_transaction
-  transaction = FactoryGirl.create(:transaction)
-  ApproveTransaction.call(transaction, FactoryGirl.create(:user))
-
-  transaction
-end
-{% endhighlight %}
+This makes models and controllers much easier to test and maintain!
 
 ### DRY and Embrace change
 
@@ -169,6 +118,58 @@ Services are easy and fast to test since they are small ruby objects with one po
 
 I tend not to use any mocks or stub to test services that deal with ActiveRecord objects. [rspec-set](https://github.com/pcreux/rspec-set) helps me keep the running time quite low while having simple and robusts test. Once again, service objects are small and do one thing, so they tend to have a limited amount of dependencies.
 
+### Call them from anywhere
+
+Service objects are likely to be called from controllers as well as:
+
+* Other service objects:
+
+{% highlight ruby %}
+class BatchSyncUsers do
+
+  def self.call(users)
+    users.each { |user| SyncUser.call(user) }
+  end
+
+end
+{% endhighlight %}
+
+* DelayedJob / Rescue / Sidekiq Jobs:
+
+{% highlight ruby %}
+class SyncInvoicesJob
+  def work
+    SyncInvoices.call
+  end
+end
+{% endhighlight %}
+
+* Rake tasks:
+
+{% highlight ruby %}
+task :sync do
+  SyncInvoices.call
+end
+{% endhighlight %}
+
+* The console:
+
+{% highlight ruby %}
+$> ApproveTransaction.call(transaction, user, 2.days.ago)
+{% endhighlight %}
+
+* Even from test helpers to setup my integration tests!
+
+{% highlight ruby %}
+def create_approved_transaction
+  transaction = FactoryGirl.create(:transaction)
+  ApproveTransaction.call(transaction, FactoryGirl.create(:user))
+
+  transaction
+end
+{% endhighlight %}
+
+
 ## Real world services
 
 I like to use instances of service objects to take advantage of private methods. I add Virtus into the mix to handle parameters. For instance:
@@ -182,10 +183,10 @@ class AcceptInvite
 
   include Virtus.model
 
-  attribute :invite, Invite
-  attribute :user, User
+  attribute :invite,  Invite
+  attribute :user,    User
   attribute :account, Account
-  attribute :time, default: proc { Time.now }
+  attribute :time,    Time,   default: proc { Time.now }
 
   def call
     unless invite_already_accepted?
@@ -211,45 +212,125 @@ class AcceptInvite
 end
 {% endhighlight %}
 
-You can extract the `def self.call` into a helper module, and cut down to:
+I extracted the `def self.call` into a helper module `Service`:
 
 {% highlight ruby %}
+module Service
+  extend ActiveSupport::Concern
+
+  included do
+    def self.call(*args)
+      new(*args).call
+    end
+  end
+end
+
 class AcceptInvite
 
   include Service
+  include Virtus.model
 
-  attribute :invite
-  # ...
+  attribute :invite, Invite
+  attribute :user, User
+  attribute :account, Account
+  attribute :time, default: proc { Time.now }
 
   def call
+    unless invite_already_accepted?
+      accept_invite
+      send_notification_to_inviter
+    end
+  end
+
+  private
+
+  # ...
+
+end
+{% endhighlight %}
+
+I sometimes inject dependencies to test services that orchestrate
+complex operations. Since services respond to the `call` method, a
+simple `proc` does the job.
+
+{% highlight ruby %}
+class Trumpet
+  include Service
+  # ...
+end
+
+class Bass
+  include Service
+  # ...
+end
+
+class OutOfTuneError < StandardError
+end
+
+class Conductor
+  include Service
+  include Virtus.model
+
+  attribute :trumpet, Trumpet, default: proc { Trumpet }
+  attribute :bass,    Bass,    default: proc { Bass }
+
+  def call
+    trumpet.call('C4 .. G4')
+    bass.call('C2 D2 E2 E2')
+  rescue OutOfTuneError => e
     # ...
+  end
+end
+
+
+expect(Conductor.call(
+  trumpet:  proc { "onk! onk!" },
+  bass:     proc { raise OutOfTuneError }
+)).to sound_awful
+{% endhighlight %}
+
+
+## Values: The Return
+
+The services I write have three flavours when it comes to communicating back to the caller.
+
+### Flavour #1: Fail loudly
+
+Most services are not supposed to fail. They do not return anything (meaningful) but they raise an exception when something goes wrong. Those services are likely to use methods that fail loudly such as `Hash#fetch`, `create!`, `save!`, `find_by_name!` etc.
+
+{% highlight ruby %}
+class ContractController < LoggedInController
+
+  def sign
+    contract = current_user.contracts.find(params.fetch(:id))
+    SignContract.call(contract: contract, user: current_user)
+    flash[:notice] = "Contract signed!"
+    redirect_to contract
   end
 
 end
 {% endhighlight %}
 
-## Return values!
 
-The services I make have three flavours when it comes to communicating back to the caller.
-
-### Flavour #1: Fail loudly
-
-Most services I write are not supposed to fail. They do not return anything (meaningful) but they raise an exception when something goes wrong. Those services are likely to use methods that fail loudly such as `Hash#fetch`, `create!`, `save!`, `find_by_name!` etc.
 
 ### Flavour #2: Return a persisted ActiveRecord model
 
 The caller can check if an AR instance is persisted and then has access to it's errors.
 
 {% highlight ruby %}
-def create
-  attributes = params.fetch(:invite).merge(creator: current_user)
-  @invite    = CreateInvite.call(attributes)
+class InviteController < LoggedInController
 
-  if @invite.persisted?
-    redirect_to @invite
-  else
-    render :new
+  def create
+    attributes = params.fetch(:invite).merge(creator: current_user)
+    @invite    = CreateInvite.call(attributes)
+
+    if @invite.persisted?
+      redirect_to @invite
+    else
+      render :new, alert: errors_for_humans(@invite.errors)
+    end
   end
+
 end
 {% endhighlight %}
 
@@ -258,12 +339,21 @@ end
 Some services have several outcomes and complex error handling. They return a response object which responds to `success?` and `error(s)`.
 
 {% highlight ruby %}
-response = AcceptInvitation.call(@invite)
+class InviteController < LoggedInController
 
-if response.success?
-  redirect_to root_path, notice: "Welcome!"
-else
-  redirect_to root_path, alert: response.error
+  def accept
+    response = AcceptInvitation.call(
+      invite: Invite.find_by_token!(params[:token]),
+      user: current_user
+    )
+
+    if response.success?
+      redirect_to root_path, notice: "Welcome!"
+    else
+      redirect_to root_path, alert: response.error
+    end
+  end
+
 end
 {% endhighlight %}
 
