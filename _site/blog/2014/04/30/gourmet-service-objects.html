@@ -1,0 +1,535 @@
+
+
+<!-- Nice to see you took a peek here, hello -->
+<!-- send us an email at hello at brewhouse dot io if you want to talk tech -->
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+
+<html lang="en-us" class="blog">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# business: http://ogp.me/ns/business#">
+    <title>Gourmet Service Objects - the brew pub - brewhouse software blog</title>
+    <meta property="og:title" content="Gourmet Service Objects - the brew pub - brewhouse software blog">
+
+    <link rel="alternate" type="application/atom+xml" href="/blog/index.xml" title="The Brew Pub atom feed">
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="author" content="brewhouse.io">
+<meta name="copyright" content="brewhouse software inc. 2014">
+<meta name="robots" content="INDEX, FOLLOW">
+
+<meta property="og:site_name" content="brewhouse">
+<meta property="og:url" content="http://brewhouse.io/blog/2014/04/30/gourmet-service-objects.html">
+<meta property="og:type" content="business.business">
+<meta property="og:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png">
+<meta property="og:description" content="dedicated to building superb software">
+<meta property="business:contact_data:street_address" content="55 E Cordova St - Unit 604">
+<meta property="business:contact_data:locality" content="Vancouver, BC">
+<meta property="business:contact_data:postal_code" content="V6A 0A5">
+<meta property="business:contact_data:country_name" content="Canada">
+<meta property="place:location:latitude" content="49.282471">
+<meta property="place:location:longitude" content="-123.103046">
+
+<link rel="shortcut icon" href="/images/icons/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
+
+<link href="http://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" href="/assets/application-187011c2e8f80735efb36a1988ed9268.css">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css">
+
+  </head>
+  <body class="on-post">
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46725009-2', 'brewhouse.io');
+  ga('send', 'pageview');
+
+</script>
+
+
+    <nav id="navbar-blog" class="navbar navbar-default navbar-main" role="navigation">
+      <a id="brewhouse-logo" class="navbar-brand internal" rel="home" href="/" title="brewhouse logo"><img src="/images/brewhouse-logo-blog-2.png"></a>
+    </nav>
+
+    <div class="container main">
+      <div id="banner-blog" class="row">
+  <div class="col-xs-12 img-full-width">
+    <img src="/images/blog-background.jpg" class="img-responsive">
+
+    <section>
+      <h1 id="brew-pub-start">
+        <a href="http://brewhouse.io/blog/">The Brew Pub</a>
+      </h1>
+      <h3>
+        Writings from <a href="http://brewhouse.io">brewhouse.io</a>, makers of <a href="https://goodbits.io?utm_source=brewhouse-blog">goodbits.io</a> and other stellar apps for clients.
+      </h3>
+    </section>
+  </div>
+</div>
+
+
+      
+
+<div id="article-start" class="content">
+  <div class="row">
+    <div class="col-xs-12 col-sm-9">
+
+      <div class="post">
+        <div class="social-actions">
+          <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io/blog/2014/04/30/gourmet-service-objects.html" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="">Tweet</a>
+        </div>
+
+        <h1>
+          Gourmet Service Objects
+        </h1>
+        <p class="meta">
+          
+            <span>
+              <img class="img-circle img-author" src="//www.gravatar.com/avatar/cf8db14764d6420698b0ed9c9ed1ba93?s=135" alt="A photo of Philippe Creux" width="55">
+
+              <a href="http://twitter.com/pcreux" target="_blank">Philippe Creux</a> wrote this on 30 Apr 2014
+            </span>
+          
+        </p>
+
+        <p>Is your Rails app’s business logic hidden in ugly controllers with 10+ lines long method and fat models powered by Linguini callbacks? Are your tests getting out of control and you spend most of your days looking at green dots? Do you want to impress your coworkers with Unicorn level code?</p>
+
+<p>You need Gourmet Service Objects™!</p>
+
+<p>I have been using service objects for the past three years and they reconciled my take on Rails (as much as automated testing reconciled my feelings for software programming!).</p>
+
+<h2 id="a-service-object-does-one-thing">A service object <em>does one thing</em></h2>
+
+<p>A service object (aka method object) performs one action. It holds the business logic to perform that action. Here is an example:</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="c1"># app/services/accept_invite.rb</span>
+<span class="k">class</span> <span class="nc">AcceptInvite</span>
+
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">call</span><span class="p">(</span><span class="n">invite</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span>
+    <span class="n">invite</span><span class="o">.</span><span class="n">accept!</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+    <span class="no">UserMailer</span><span class="o">.</span><span class="n">invite_accepted</span><span class="p">(</span><span class="n">invite</span><span class="p">)</span><span class="o">.</span><span class="n">deliver</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+</code></pre></div>
+
+<p>The three conventions I follow are:</p>
+
+<ul>
+  <li>Services go under the <code>app/services</code> directory. I encourage you to use subdirectories for business logic-heavy domains. For instance:
+    <ul>
+      <li>The file <code>app/services/invite/accept.rb</code> will define <code>Invite::Accept</code></li>
+      <li>while <code>app/services/invite/create.rb</code> will define <code>Invite::Create</code></li>
+    </ul>
+  </li>
+  <li>Services start with a verb (and do not end with Service): <code>ApproveTransaction</code>, <code>SendTestNewsletter</code>, <code>ImportUsersFromCsv</code></li>
+  <li>Services respond to the <code>call</code> method. I found using another verb makes it a bit redundant: <code>ApproveTransaction.approve()</code> does not read well. Also, the <code>call</code> method is the de facto method for lambda, procs, and method objects.</li>
+</ul>
+
+<h2 id="benefits">Benefits</h2>
+
+<h3 id="service-objects-show-what-my-application-does">Service objects show what my application <em>does</em></h3>
+
+<p>I can just glance over the <code>services</code> directory to see what my application <strong>does</strong>: <code>ApproveTransaction</code>, <code>CancelTransaction</code>, <code>BlockAccount</code>, <code>SendTransactionApprovalReminder</code>…</p>
+
+<p>A quick look into a service object and I know what business logic is involved. I don’t have to go through the controllers, ActiveRecord model callbacks and observers to understand what “approving a transaction” involves.</p>
+
+<h3 id="clean-up-models-and-controllers">Clean-up models and controllers</h3>
+
+<p>Controllers turn the request (params, session, cookies) into arguments, pass them down to the service and redirect or render according to the service response.</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="nc">InviteController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+
+  <span class="k">def</span> <span class="nf">accept</span>
+    <span class="n">invite</span> <span class="o">=</span> <span class="no">Invite</span><span class="o">.</span><span class="n">find_by_token!</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:token</span><span class="o">]</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="no">AcceptInvite</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">invite</span><span class="p">,</span> <span class="n">current_user</span><span class="p">)</span>
+      <span class="n">redirect_to</span> <span class="n">invite</span><span class="o">.</span><span class="n">item</span><span class="p">,</span> <span class="ss">notice</span><span class="p">:</span> <span class="s2">&quot;Welcome!&quot;</span>
+    <span class="k">else</span>
+      <span class="n">redirect_to</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="ss">alert</span><span class="p">:</span> <span class="s2">&quot;Oopsy!&quot;</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+</code></pre></div>
+
+<p>Models only deal with associations, scopes, validations and persistence.</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="nc">Invite</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+
+  <span class="k">def</span> <span class="nf">accept!</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+    <span class="n">update_attributes!</span><span class="p">(</span>
+      <span class="n">accepted_by_user_id</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+      <span class="n">accepted_at</span><span class="p">:</span> <span class="n">time</span>
+    <span class="p">)</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+</code></pre></div>
+
+<p>This makes models and controllers much easier to test and maintain!</p>
+
+<h3 id="dry-and-embrace-change">DRY and Embrace change</h3>
+
+<p>I keep service objects as simple and small as I can. I compose service
+objects with other service objects, and I reuse them. My code is quite
+modular and I’m ready to Embrace Change™.</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="nc">SendTestNewsletter</span>
+
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">call</span><span class="p">(</span><span class="n">newsletter</span><span class="p">)</span>
+    <span class="n">campaign</span> <span class="o">=</span> <span class="no">CreateMailchimpCampaign</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">newsletter</span><span class="p">)</span>
+    <span class="no">DeliverTestEmail</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">campaign</span><span class="p">)</span>
+    <span class="no">DeleteCampaign</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">campaign</span><span class="p">)</span> <span class="c1"># Don&#39;t keep the test campaign around</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">SendNewsletter</span>
+
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">call</span><span class="p">(</span><span class="n">newsletter</span><span class="p">)</span>
+    <span class="n">campaign</span> <span class="o">=</span> <span class="no">CreateMailchimpCampaign</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">newsletter</span><span class="p">)</span>
+    <span class="no">DeliverCampaign</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">campaign</span><span class="p">)</span>
+    <span class="c1"># Could easily delete here as well, but we want to retain the legit campaigns</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+</code></pre></div>
+
+<h3 id="clean-up-and-speed-up-your-test-suite">Clean up and speed up your test suite</h3>
+
+<p>Services are easy and fast to test since they are small ruby objects with one point of entry (the <code>call</code> method). Complex services are composed with other services, so you can split up your tests easily.</p>
+
+<p>I tend not to use any mocks or stub to test services that deal with ActiveRecord objects. <a href="https://github.com/pcreux/rspec-set">rspec-set</a> helps me keep the running time quite low while having simple and robusts test. Once again, service objects are small and do one thing, so they tend to have a limited amount of dependencies.</p>
+
+<h3 id="call-them-from-anywhere">Call them from anywhere</h3>
+
+<p>Service objects are likely to be called from controllers as well as:</p>
+
+<ul>
+  <li>Other service objects:</li>
+</ul>
+
+<div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="nc">BatchSyncUsers</span> <span class="k">do</span>
+
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">call</span><span class="p">(</span><span class="n">users</span><span class="p">)</span>
+    <span class="n">users</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">user</span><span class="o">|</span> <span class="no">SyncUser</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">user</span><span class="p">)</span> <span class="p">}</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+</code></pre></div>
+
+<ul>
+  <li>DelayedJob / Rescue / Sidekiq Jobs:</li>
+</ul>
+
+<div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="nc">SyncInvoicesJob</span>
+  <span class="k">def</span> <span class="nf">work</span>
+    <span class="no">SyncInvoices</span><span class="o">.</span><span class="n">call</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+
+<ul>
+  <li>Rake tasks:</li>
+</ul>
+
+<div class="highlight"><pre><code class="ruby"><span class="n">task</span> <span class="ss">:sync</span> <span class="k">do</span>
+  <span class="no">SyncInvoices</span><span class="o">.</span><span class="n">call</span>
+<span class="k">end</span>
+</code></pre></div>
+
+<ul>
+  <li>The console:</li>
+</ul>
+
+<div class="highlight"><pre><code class="ruby"><span class="vg">$&gt;</span> <span class="no">ApproveTransaction</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">transaction</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="mi">2</span><span class="o">.</span><span class="n">days</span><span class="o">.</span><span class="n">ago</span><span class="p">)</span>
+</code></pre></div>
+
+<ul>
+  <li>Even from test helpers to setup my integration tests!</li>
+</ul>
+
+<div class="highlight"><pre><code class="ruby"><span class="k">def</span> <span class="nf">create_approved_transaction</span>
+  <span class="n">transaction</span> <span class="o">=</span> <span class="no">FactoryGirl</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:transaction</span><span class="p">)</span>
+  <span class="no">ApproveTransaction</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">transaction</span><span class="p">,</span> <span class="no">FactoryGirl</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:user</span><span class="p">))</span>
+
+  <span class="n">transaction</span>
+<span class="k">end</span>
+</code></pre></div>
+
+<h2 id="real-world-services">Real world services</h2>
+
+<p>I like to use instances of service objects to take advantage of private methods. I add Virtus into the mix to handle parameters. For instance:</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="nc">AcceptInvite</span>
+
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">call</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+    <span class="kp">new</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span><span class="o">.</span><span class="n">call</span>
+  <span class="k">end</span>
+
+  <span class="kp">include</span> <span class="no">Virtus</span><span class="o">.</span><span class="n">model</span>
+
+  <span class="n">attribute</span> <span class="ss">:invite</span><span class="p">,</span>  <span class="no">Invite</span>
+  <span class="n">attribute</span> <span class="ss">:user</span><span class="p">,</span>    <span class="no">User</span>
+  <span class="n">attribute</span> <span class="ss">:account</span><span class="p">,</span> <span class="no">Account</span>
+  <span class="n">attribute</span> <span class="ss">:time</span><span class="p">,</span>    <span class="no">Time</span><span class="p">,</span>   <span class="ss">default</span><span class="p">:</span> <span class="nb">proc</span> <span class="p">{</span> <span class="no">Time</span><span class="o">.</span><span class="n">now</span> <span class="p">}</span>
+
+  <span class="k">def</span> <span class="nf">call</span>
+    <span class="k">unless</span> <span class="n">invite_already_accepted?</span>
+      <span class="n">accept_invite</span>
+      <span class="n">send_notification_to_inviter</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="kp">private</span>
+
+  <span class="k">def</span> <span class="nf">invite_already_accepted?</span>
+    <span class="c1"># ...</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">accept_invite</span>
+    <span class="c1"># ...</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">send_notification_to_inviter</span>
+    <span class="c1"># ...</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+</code></pre></div>
+
+<p>I extracted the <code>def self.call</code> into a helper module <code>Service</code>:</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="k">module</span> <span class="nn">Service</span>
+  <span class="kp">extend</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Concern</span>
+
+  <span class="n">included</span> <span class="k">do</span>
+    <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">call</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+      <span class="kp">new</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span><span class="o">.</span><span class="n">call</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">AcceptInvite</span>
+
+  <span class="kp">include</span> <span class="no">Service</span>
+  <span class="kp">include</span> <span class="no">Virtus</span><span class="o">.</span><span class="n">model</span>
+
+  <span class="n">attribute</span> <span class="ss">:invite</span><span class="p">,</span> <span class="no">Invite</span>
+  <span class="n">attribute</span> <span class="ss">:user</span><span class="p">,</span> <span class="no">User</span>
+  <span class="n">attribute</span> <span class="ss">:account</span><span class="p">,</span> <span class="no">Account</span>
+  <span class="n">attribute</span> <span class="ss">:time</span><span class="p">,</span> <span class="ss">default</span><span class="p">:</span> <span class="nb">proc</span> <span class="p">{</span> <span class="no">Time</span><span class="o">.</span><span class="n">now</span> <span class="p">}</span>
+
+  <span class="k">def</span> <span class="nf">call</span>
+    <span class="k">unless</span> <span class="n">invite_already_accepted?</span>
+      <span class="n">accept_invite</span>
+      <span class="n">send_notification_to_inviter</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="kp">private</span>
+
+  <span class="c1"># ...</span>
+
+<span class="k">end</span>
+</code></pre></div>
+
+<p>I sometimes inject dependencies to test services that orchestrate
+complex operations. Since services respond to the <code>call</code> method, a
+simple <code>proc</code> does the job.</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="nc">Trumpet</span>
+  <span class="kp">include</span> <span class="no">Service</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Bass</span>
+  <span class="kp">include</span> <span class="no">Service</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">OutOfTuneError</span> <span class="o">&lt;</span> <span class="no">StandardError</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Conductor</span>
+  <span class="kp">include</span> <span class="no">Service</span>
+  <span class="kp">include</span> <span class="no">Virtus</span><span class="o">.</span><span class="n">model</span>
+
+  <span class="n">attribute</span> <span class="ss">:trumpet</span><span class="p">,</span> <span class="no">Trumpet</span><span class="p">,</span> <span class="ss">default</span><span class="p">:</span> <span class="nb">proc</span> <span class="p">{</span> <span class="no">Trumpet</span> <span class="p">}</span>
+  <span class="n">attribute</span> <span class="ss">:bass</span><span class="p">,</span>    <span class="no">Bass</span><span class="p">,</span>    <span class="ss">default</span><span class="p">:</span> <span class="nb">proc</span> <span class="p">{</span> <span class="no">Bass</span> <span class="p">}</span>
+
+  <span class="k">def</span> <span class="nf">call</span>
+    <span class="n">trumpet</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;C4 .. G4&#39;</span><span class="p">)</span>
+    <span class="n">bass</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;C2 D2 E2 E2&#39;</span><span class="p">)</span>
+  <span class="k">rescue</span> <span class="no">OutOfTuneError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+    <span class="c1"># ...</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+
+<span class="n">expect</span><span class="p">(</span><span class="no">Conductor</span><span class="o">.</span><span class="n">call</span><span class="p">(</span>
+  <span class="ss">trumpet</span><span class="p">:</span>  <span class="nb">proc</span> <span class="p">{</span> <span class="s2">&quot;onk! onk!&quot;</span> <span class="p">},</span>
+  <span class="ss">bass</span><span class="p">:</span>     <span class="nb">proc</span> <span class="p">{</span> <span class="k">raise</span> <span class="no">OutOfTuneError</span> <span class="p">}</span>
+<span class="p">))</span><span class="o">.</span><span class="n">to</span> <span class="n">sound_awful</span>
+</code></pre></div>
+
+<h2 id="values-the-return">Values: The Return</h2>
+
+<p>The services I write have three flavours when it comes to communicating back to the caller.</p>
+
+<h3 id="flavour-1-fail-loudly">Flavour #1: Fail loudly</h3>
+
+<p>Most services are not supposed to fail. They do not return anything (meaningful) but they raise an exception when something goes wrong. Those services are likely to use methods that fail loudly such as <code>Hash#fetch</code>, <code>create!</code>, <code>save!</code>, <code>find_by_name!</code> etc.</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="nc">ContractController</span> <span class="o">&lt;</span> <span class="no">LoggedInController</span>
+
+  <span class="k">def</span> <span class="nf">sign</span>
+    <span class="n">contract</span> <span class="o">=</span> <span class="n">current_user</span><span class="o">.</span><span class="n">contracts</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="ss">:id</span><span class="p">))</span>
+    <span class="no">SignContract</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="ss">contract</span><span class="p">:</span> <span class="n">contract</span><span class="p">,</span> <span class="ss">user</span><span class="p">:</span> <span class="n">current_user</span><span class="p">)</span>
+    <span class="n">flash</span><span class="o">[</span><span class="ss">:notice</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;Contract signed!&quot;</span>
+    <span class="n">redirect_to</span> <span class="n">contract</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+</code></pre></div>
+
+<h3 id="flavour-2-return-a-persisted-activerecord-model">Flavour #2: Return a persisted ActiveRecord model</h3>
+
+<p>The caller can check if an AR instance is persisted and then has access to its errors.</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="nc">InviteController</span> <span class="o">&lt;</span> <span class="no">LoggedInController</span>
+
+  <span class="k">def</span> <span class="nf">create</span>
+    <span class="n">attributes</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="ss">:invite</span><span class="p">)</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="ss">creator</span><span class="p">:</span> <span class="n">current_user</span><span class="p">)</span>
+    <span class="vi">@invite</span>    <span class="o">=</span> <span class="no">CreateInvite</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">attributes</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="vi">@invite</span><span class="o">.</span><span class="n">persisted?</span>
+      <span class="n">redirect_to</span> <span class="vi">@invite</span>
+    <span class="k">else</span>
+      <span class="n">render</span> <span class="ss">:new</span><span class="p">,</span> <span class="ss">alert</span><span class="p">:</span> <span class="n">errors_for_humans</span><span class="p">(</span><span class="vi">@invite</span><span class="o">.</span><span class="n">errors</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+</code></pre></div>
+
+<h3 id="flavour-3-response-object">Flavour #3: Response object</h3>
+
+<p>Some services have several outcomes and complex error handling. They return a response object which responds to <code>success?</code> and <code>error(s)</code>.</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="nc">InviteController</span> <span class="o">&lt;</span> <span class="no">LoggedInController</span>
+
+  <span class="k">def</span> <span class="nf">accept</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="no">AcceptInvitation</span><span class="o">.</span><span class="n">call</span><span class="p">(</span>
+      <span class="ss">invite</span><span class="p">:</span> <span class="no">Invite</span><span class="o">.</span><span class="n">find_by_token!</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:token</span><span class="o">]</span><span class="p">),</span>
+      <span class="ss">user</span><span class="p">:</span> <span class="n">current_user</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">success?</span>
+      <span class="n">redirect_to</span> <span class="n">root_path</span><span class="p">,</span> <span class="ss">notice</span><span class="p">:</span> <span class="s2">&quot;Welcome!&quot;</span>
+    <span class="k">else</span>
+      <span class="n">redirect_to</span> <span class="n">root_path</span><span class="p">,</span> <span class="ss">alert</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">error</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+</code></pre></div>
+
+<p>That’s it for service objects for now. Experiment with them, as I
+believe they will make your codebase more expressive and easier to
+maintain!</p>
+
+<p>I’m happy to respond to any question or concern you guys might have. Feel free to
+leave a comment below. &lt;3 &lt;3 &lt;3</p>
+
+
+
+        <div class="mailchimp-form text-center">
+          <p>
+            Drop your email below to receive Brew Pub's writings in your mailbox.
+          </p>
+          <!-- Begin MailChimp Signup Form -->
+          <link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+          <div id="mc_embed_signup" class="row">
+            <form action="http://brewhouse.us8.list-manage.com/subscribe/post?u=c524f6473f5901cae1230a052&amp;id=14f9de4be1" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+
+              <div class="col-sm-8">
+                <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required style="width: 100%; margin: 0 0 4% 0">
+              </div>
+              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+              <div style="position: absolute; left: -5000px;">
+                <input type="text" name="b_c524f6473f5901cae1230a052_14f9de4be1" value="">
+              </div>
+
+              <div class="col-sm-4 subscribe-button">
+                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+              </div>
+            </form>
+          </div>
+          <!--End mc_embed_signup-->
+        </div>
+
+        <div id="disqus_thread"></div>
+
+        <!-- disqus -->
+        <script type="text/javascript">
+            var disqus_shortname = 'brewhouse';
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        <!-- /disqus -->
+
+      </div><!-- /post -->
+
+    </div>
+  </div><!-- /row -->
+</div><!-- /content-->
+
+<script>
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+</script>
+
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-11 col-xs-offset-1">
+            <p>
+              &copy; 2014 <a href="http://brewhouse.io">brewhouse software, inc.</a>
+            </p>
+          </div><!--col-xs-12 -->
+        </div><!-- row -->
+      </div><!-- container -->
+    </footer>
+
+    <script src="/assets/app-bb7a7839973c4b2fe85c66ec1aae43c4.js"></script>
+  </body>
+</html>
