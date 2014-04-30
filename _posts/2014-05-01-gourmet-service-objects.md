@@ -31,7 +31,7 @@ class AcceptInvite
 end
 {% endhighlight %}
 
-Three conventions I follow are:
+The three conventions I follow are:
 
 * Services go under the `app/services` directory. I encourage you to use subdirectories for business logic-heavy domains. For instance:
   * The file `app/services/invite/accept.rb` will define `Invite::Accept`
