@@ -342,15 +342,15 @@ Some services have several outcomes and complex error handling. They return a re
 class InviteController < LoggedInController
 
   def accept
-    response = AcceptInvitation.call(
+    result = AcceptInvitation.call(
       invite: Invite.find_by_token!(params[:token]),
       user: current_user
     )
 
-    if response.success?
+    if result.success?
       redirect_to root_path, notice: "Welcome!"
     else
-      redirect_to root_path, alert: response.error
+      redirect_to root_path, alert: result.error
     end
   end
 
