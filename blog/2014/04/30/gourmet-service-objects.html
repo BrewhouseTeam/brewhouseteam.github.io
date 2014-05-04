@@ -422,14 +422,20 @@ simple <code>proc</code> does the job.</p>
 <div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="nc">InviteController</span> <span class="o">&lt;</span> <span class="no">LoggedInController</span>
 
   <span class="k">def</span> <span class="nf">create</span>
-    <span class="n">attributes</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="ss">:invite</span><span class="p">)</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="ss">creator</span><span class="p">:</span> <span class="n">current_user</span><span class="p">)</span>
-    <span class="vi">@invite</span>    <span class="o">=</span> <span class="no">CreateInvite</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">attributes</span><span class="p">)</span>
+    <span class="n">attributes</span> <span class="o">=</span> <span class="n">invite_params</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="ss">creator</span><span class="p">:</span> <span class="n">current_user</span><span class="p">)</span>
+    <span class="vi">@invite</span> <span class="o">=</span> <span class="no">CreateInvite</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">attributes</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="vi">@invite</span><span class="o">.</span><span class="n">persisted?</span>
       <span class="n">redirect_to</span> <span class="vi">@invite</span>
     <span class="k">else</span>
       <span class="n">render</span> <span class="ss">:new</span><span class="p">,</span> <span class="ss">alert</span><span class="p">:</span> <span class="n">errors_for_humans</span><span class="p">(</span><span class="vi">@invite</span><span class="o">.</span><span class="n">errors</span><span class="p">)</span>
     <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="kp">private</span>
+
+  <span class="k">def</span> <span class="nf">invite_params</span>
+    <span class="n">params</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="ss">:invite</span><span class="p">)</span><span class="o">.</span><span class="n">permit</span><span class="p">(</span><span class="ss">:token</span><span class="p">)</span>
   <span class="k">end</span>
 
 <span class="k">end</span>
@@ -442,15 +448,15 @@ simple <code>proc</code> does the job.</p>
 <div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="nc">InviteController</span> <span class="o">&lt;</span> <span class="no">LoggedInController</span>
 
   <span class="k">def</span> <span class="nf">accept</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="no">AcceptInvitation</span><span class="o">.</span><span class="n">call</span><span class="p">(</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="no">AcceptInvitation</span><span class="o">.</span><span class="n">call</span><span class="p">(</span>
       <span class="ss">invite</span><span class="p">:</span> <span class="no">Invite</span><span class="o">.</span><span class="n">find_by_token!</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:token</span><span class="o">]</span><span class="p">),</span>
       <span class="ss">user</span><span class="p">:</span> <span class="n">current_user</span>
     <span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">success?</span>
+    <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">success?</span>
       <span class="n">redirect_to</span> <span class="n">root_path</span><span class="p">,</span> <span class="ss">notice</span><span class="p">:</span> <span class="s2">&quot;Welcome!&quot;</span>
     <span class="k">else</span>
-      <span class="n">redirect_to</span> <span class="n">root_path</span><span class="p">,</span> <span class="ss">alert</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">error</span>
+      <span class="n">redirect_to</span> <span class="n">root_path</span><span class="p">,</span> <span class="ss">alert</span><span class="p">:</span> <span class="n">result</span><span class="o">.</span><span class="n">error</span>
     <span class="k">end</span>
   <span class="k">end</span>
 
