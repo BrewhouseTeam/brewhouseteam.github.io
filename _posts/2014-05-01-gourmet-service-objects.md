@@ -321,14 +321,20 @@ The caller can check if an AR instance is persisted and then has access to its e
 class InviteController < LoggedInController
 
   def create
-    attributes = params.fetch(:invite).merge(creator: current_user)
-    @invite    = CreateInvite.call(attributes)
+    attributes = invite_params.merge(creator: current_user)
+    @invite = CreateInvite.call(attributes)
 
     if @invite.persisted?
       redirect_to @invite
     else
       render :new, alert: errors_for_humans(@invite.errors)
     end
+  end
+
+  private
+
+  def invite_params
+    params.fetch(:invite).permit(:token)
   end
 
 end
