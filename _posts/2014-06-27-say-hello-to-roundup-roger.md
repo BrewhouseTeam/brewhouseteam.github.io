@@ -134,7 +134,7 @@ There is also a ```send_test_email``` rake task to test whether SMTP settings ar
 
 ##We Use This
 
-Since we like to [eat our own dog food](http://en.wikipedia.org/wiki/Eating_your_own_dog_food) at Brewhouse, we've been using Roundup Roger as part of our daily efforts for the last couple of months. Our hope is that others will find the same value that we've found. The more teams that try this out, the more we'll know about how to improve it. As always, feedback is welcome.
+Since we like to [eat our own dog food](http://brewhouse.io/blog/2014/04/24/this-week-in-rails-the-backstory.html#dogfooding) at Brewhouse, we've been using Roundup Roger as part of our daily efforts for the last couple of months. Our hope is that others will find the same value that we've found. The more teams that try this out, the more we'll know about how to improve it. As always, feedback is welcome.
 
 [Give it a try!](https://github.com/BrewhouseTeam/roundup-roger)
 
