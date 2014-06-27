@@ -18,9 +18,11 @@ html.blog {
 }
 body {
   border-top: 2px solid #42CCEE;
-  color: #7B7F83;
+  color: #444;
   font-size: 15px;
   line-height: 1.5em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -636,7 +638,7 @@ div.main {
       color: #fff;
       font-size: 20px;
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-weight: 100;
+      font-weight: 300;
       letter-spacing: 0.05em;
       margin-left: 11%;
       margin-top: 0;
