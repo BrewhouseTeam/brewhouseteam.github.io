@@ -22,7 +22,7 @@ The point of a wrap-up is to educate the team on:
 * What you’ll be working on next
 * Whether you’ve hit any blockers that are impeding your progress
 
-Email works well in this situation because it prevents <em>Chatty Carls</em> from commandeering your meeting, and allows concise discourse that can be re-visited later if needed. Also, for those of us who have trouble with (context switching)[http://www.joelonsoftware.com/articles/fog0000000022.html], it can be easier to communicate the work you’ve accomplished by writing it out as opposed to communicating verbally.
+Email works well in this situation because it prevents <em>Chatty Carls</em> from commandeering your meeting, and allows concise discourse that can be re-visited later if needed. Also, for those of us who have trouble with [context switching](http://www.joelonsoftware.com/articles/fog0000000022.html), it can be easier to communicate the work you’ve accomplished by writing it out as opposed to communicating verbally.
 
 Another benefit of an email wrap-up is a flexible response time. Some of our team members finish later in the day than others, and often accomplish a lot after the in-person wrap-up happens. With Roundup Roger, team members have the flexibility to respond to the reminder email at any time. As long as they send their email before the roundup is sent in the morning, their contributions will be included.
 
