@@ -3,12 +3,152 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2014-05-04T11:42:36-07:00</updated>
+    <updated>2014-06-29T22:27:45-07:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
         <email>hello@brewhouse.io</email>
     </author>
+    
+    
+      <entry>
+          <title>Say Hello to Roundup Roger</title>
+          <link href="http://brewhouse.io/2014/06/27/say-hello-to-roundup-roger.html"/>
+          <updated>2014-06-27T15:36:00-07:00</updated>
+          <id>http://brewhouse.io/2014/06/27/say-hello-to-roundup-roger</id>
+          <content type="html">&lt;p&gt;
+  &lt;a href=&quot;https://github.com/BrewhouseTeam/roundup-roger&quot;&gt;
+    &lt;img class=&quot;img-right img-responsive&quot; alt=&quot;This Week in Rails Logo&quot; src=&quot;https://dl.dropboxusercontent.com/u/79436/roundup_roger_logo1.png&quot; /&gt;
+  &lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;At Brewhouse, we spend Fridays doing creative work. During these wonderful days, we focus on interesting hacks and innovative projects. Over the last 10 weeks, I’ve been able to spend my Fridays working on a project with &lt;a href=&quot;https://github.com/pcreux&quot;&gt;Philippe Creux&lt;/a&gt; called &lt;a href=&quot;https://github.com/BrewhouseTeam/roundup-roger&quot;&gt;Roundup Roger&lt;/a&gt;. Roundup Roger is an open source tool to wrap-up a team’s day via email. A wrap-up is quite similar to an agile standup (or scrum), but at the end of the business day.&lt;/p&gt;
+
+&lt;p&gt;You’re probably thinking, “How anti-social of you!”.  Yes, you’re right, we’re endorsing email correspondence over face-to-face interaction. But we’re talking about wrap-up meetings here, not beer Fridays.&lt;/p&gt;
+
+&lt;p&gt;The point of a wrap-up is to educate the team on:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;What you’ve accomplished during the last business day&lt;/li&gt;
+  &lt;li&gt;What you’ll be working on next&lt;/li&gt;
+  &lt;li&gt;Whether you’ve hit any blockers that are impeding your progress&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Email works well in this situation because it prevents &lt;em&gt;Chatty Carls&lt;/em&gt; from commandeering your meeting, and allows concise discourse that can be re-visited later if needed. Also, for those of us who have trouble with &lt;a href=&quot;http://www.joelonsoftware.com/articles/fog0000000022.html&quot;&gt;context switching&lt;/a&gt;, it can be easier to communicate the work you’ve accomplished by writing it out as opposed to communicating verbally.&lt;/p&gt;
+
+&lt;p&gt;Another benefit of an email wrap-up is a flexible response time. Some of our team members finish later in the day than others, and often accomplish a lot after the in-person wrap-up happens. With Roundup Roger, team members have the flexibility to respond to the reminder email at any time. As long as they send their email before the roundup is sent in the morning, their contributions will be included.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-does-roundup-roger-work&quot;&gt;How Does Roundup Roger Work?&lt;/h2&gt;
+
+&lt;p&gt;Reminder emails are sent out daily at a scheduled time. Each team member responds to the reminder email:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/reminder-email.png&quot; alt=&quot;reminder email&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;The following day, a roundup email is sent to the entire team with each member’s contributions from the previous day:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/roundup-email.png&quot; alt=&quot;roundup email&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;technical-details&quot;&gt;Technical Details&lt;/h2&gt;
+
+&lt;p&gt;Roundup Roger is a &lt;a href=&quot;http://www.sinatrarb.com/&quot;&gt;Sinatra&lt;/a&gt; app, that capitalizes on &lt;a href=&quot;https://github.com/jeremyevans/sequel&quot;&gt;Sequel’s&lt;/a&gt; ORM layer.&lt;/p&gt;
+
+&lt;p&gt;After using &lt;a href=&quot;http://rubyonrails.org/&quot;&gt;Rails&lt;/a&gt; over the last couple of years, I had become soft. It’s not the best realization to find you’ve become accustomed to having everything done for you. It took me a few weeks to stop trying to use &lt;a href=&quot;http://guides.rubyonrails.org/active_record_querying.html&quot;&gt;ActiveRecord&lt;/a&gt; when querying the database and in the end, I had a good cry and got over myself. I then became much better at using the Sequel gem’s ORM layer.&lt;/p&gt;
+
+&lt;p&gt;I’ve also realized that Sinatra is not really a framework at all, but more of a library. I suppose this is why people call it a ‘micro-framework’.&lt;/p&gt;
+
+&lt;p&gt;“Hey Sinatra! Thanks for nothing!”&lt;/p&gt;
+
+&lt;p&gt;Jokes aside, Sinatra ended up being a great tool to solve this problem. As it turns out, we didn’t really need much of the ‘good stuff’ that comes along with Rails. The app itself doesn’t have a web UI and is meant to be run solely via scheduled tasks in production.&lt;/p&gt;
+
+&lt;h3 id=&quot;building-emails&quot;&gt;Building Emails&lt;/h3&gt;
+
+&lt;p&gt;To build emails, we used &lt;a href=&quot;https://github.com/solnic/virtus&quot;&gt;Virtus&lt;/a&gt; to create a common interface for defining attributes. It allowed us to do things like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;  &lt;span class=&quot;no&quot;&gt;OutboundEmail&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;recipients&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;subject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;subject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;When a user replies to a reminder email, we retrieve the payload passed from &lt;a href=&quot;https://www.mandrill.com/&quot;&gt;Mandrill&lt;/a&gt;, and grab the name, email and body, such that we can later apply these to the roundup email.&lt;/p&gt;
+
+&lt;p&gt;When we build the roundup email, we strip each email body to remove signatures. This was somewhat tricky, as different email clients apply signatures differently.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;  &lt;span class=&quot;no&quot;&gt;PATTERNS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;—\n+Sent&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;--&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;gt;? ?On&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;freeze&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;stripped_body&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;PATTERNS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pattern&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strip_pattern&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pattern&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strip&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;strip_pattern&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pattern&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gsub&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/\n(&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pattern&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;| [^\n]+\n?[^\n]+\n+\&amp;gt;).*/m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;We then separate each person’s contribution with a random ascii separator, because, WHY NOT?&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;separator&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&amp;quot;█║▌│ █│║▌ ║││█║▌ │║║█║ │║║█║ █│║▌&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&amp;quot;▇ ▅ █ ▅ ▇ ▂ ▃ ▁ ▁ ▅ ▃ ▅ ▅ ▄ ▅&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&amp;quot;★★★★★★★★★★★★★★★★★★&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sample&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;sending-emails&quot;&gt;Sending Emails&lt;/h3&gt;
+
+&lt;p&gt;We use &lt;a href=&quot;https://github.com/benprew/pony&quot;&gt;Pony&lt;/a&gt; to send emails. This is where the magic happens…&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SendOutboundEmail&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;Pony&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+      &lt;span class=&quot;ss&quot;&gt;:to&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;ss&quot;&gt;:from&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ENV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;EMAIL_FROM&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;ss&quot;&gt;:subject&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;subject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;ss&quot;&gt;:html_body&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;ss&quot;&gt;:via&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:smtp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;ss&quot;&gt;:via_options&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;ss&quot;&gt;:address&lt;/span&gt;        &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ENV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;SMTP_ADDRESS&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;ss&quot;&gt;:port&lt;/span&gt;           &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ENV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;SMTP_PORT&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;ss&quot;&gt;:enable_starttls_auto&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;ss&quot;&gt;:user_name&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ENV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;SMTP_USER_NAME&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;ss&quot;&gt;:password&lt;/span&gt;       &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ENV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;SMTP_PASSWORD&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;ss&quot;&gt;:authentication&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:plain&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;scheduling-and-business-time&quot;&gt;Scheduling and Business Time&lt;/h3&gt;
+
+&lt;p&gt;We use the &lt;a href=&quot;https://github.com/bokmann/business_time&quot;&gt;Business Time&lt;/a&gt; gem to prevent reminders and roundups from being sent on weekends. Perhaps this item should be configurable for those of you who like to work on weekends (why??).&lt;/p&gt;
+
+&lt;p&gt;The Heroku Scheduler plans our tasks for daily execution.&lt;/p&gt;
+
+&lt;p&gt;We’d like to think setup is pretty simple. Just schedule the following two rake tasks based on your team’s needs:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;  &lt;span class=&quot;n&quot;&gt;rake&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;send_reminders&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;  &lt;span class=&quot;n&quot;&gt;rake&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;send_roundup&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;There is also a &lt;code&gt;send_test_email&lt;/code&gt; rake task to test whether SMTP settings are configured correctly.&lt;/p&gt;
+
+&lt;h2 id=&quot;we-use-this&quot;&gt;We Use This&lt;/h2&gt;
+
+&lt;p&gt;Since we like to &lt;a href=&quot;http://brewhouse.io/blog/2014/04/24/this-week-in-rails-the-backstory.html#dogfooding&quot;&gt;eat our own dog food&lt;/a&gt; at Brewhouse, we’ve been using Roundup Roger as part of our daily efforts for the last couple of months. Our hope is that others will find the same value that we’ve found. The more teams that try this out, the more we’ll know about how to improve it. As always, feedback and contributions are welcome.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/BrewhouseTeam/roundup-roger&quot;&gt;Give it a try!&lt;/a&gt;&lt;/p&gt;
+
+</content>
+      </entry>
+    
     
     
       <entry>
