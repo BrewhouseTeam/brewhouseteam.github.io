@@ -53,20 +53,14 @@ h6 {
   font-family: 'bh_proxima', sans-serif;
 }
 
-h1 {
-  @media (max-width: 767px) {
+@media (max-width: 767px) {
+  h1 {
     font-size: 26px;
   }
-}
-
-h2 {
-  @media (max-width: 769px) {
+  h2 {
     font-size: 16px;
   }
-}
-
-h3 {
-  @media (max-width: 769px) {
+  h3 {
     font-size: 14px;
   }
 }
@@ -275,13 +269,17 @@ div.main {
       }
     }
 
-    @media (min-width: 770px) {
+    @media (min-width: 768px) {
+      font-size: 23px;
+      padding-top: 17px;
+    }
+    @media (min-width: 850px) {
       font-size: 26px;
       padding-top: 16px;
     }
-    @media (min-width: 1050px) {
-      font-size: 37px;
-      padding-top: 9px;
+    @media (min-width: 1170px) {
+      font-size: 34px;
+      padding-top: 11px;
     }
 
     .arrow-tip-container {
@@ -319,9 +317,10 @@ div.main {
   color: #222;
   line-height: 1.5em;
   margin: 25px auto;
+
   @media (min-width: 770px) {
     font-size: 20px;
-    width: 60%;
+    width: 77%;
   }
 }
 .learn-more {
