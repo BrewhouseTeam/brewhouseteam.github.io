@@ -59,4 +59,15 @@ jQuery(function($) {
 
   }
 
+  if($(window).width() > 750) {
+    $("video.team-video")[0].autoplay = true;
+  }
+
 });
+
+$(window).resize(function() {
+  if($(window).width() > 750) {
+    $("video.team-video")[0].autoplay = true;
+  };
+});
+

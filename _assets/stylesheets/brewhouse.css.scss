@@ -347,6 +347,20 @@ div.main {
   }
 }
 
+//time-lapse
+
+.team-video {
+  @media (max-width: 750px) {
+    display: none;
+  }
+}
+
+img.team-photo {
+  @media (min-width: 751px) {
+    display: none;
+  }
+}
+
 .content {
   margin: 100px auto;
   width: 80%;
