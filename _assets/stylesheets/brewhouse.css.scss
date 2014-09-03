@@ -702,6 +702,26 @@ img.team-photo {
 @media (max-width: 767px) {
   body.on-post,
   body.on-blog {
+    h2 {
+      font-size: 22px;
+    }
+    h3 {
+      font-size: 17px;
+    }
+    .post > h1 {
+      text-align: center;
+    }
+    p.meta {
+      text-align: center;
+    }
+    p.meta span a {
+      display: block;
+    }
+    .social-actions {
+      float: none;
+      text-align: center;
+    }
+
     #banner-blog {
       height: 150px;
 
