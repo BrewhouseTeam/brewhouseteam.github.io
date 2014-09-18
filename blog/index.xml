@@ -3,7 +3,7 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2014-04-24T09:15:54-05:00</updated>
+    <updated>2014-09-19T03:39:18+09:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
@@ -12,11 +12,809 @@
     
     
       <entry>
-          <title>This week in Rails: the backstory</title>
+          <title>Ruby Kaigi 2014: Day 1</title>
+          <link href="http://brewhouse.io/blog/2014/09/18/ruby-kaigi-2014-day-1.html"/>
+          <updated>2014-09-18T11:00:00+09:00</updated>
+          <id>http://brewhouse.io/blog/2014/09/18/ruby-kaigi-2014-day-1</id>
+          <content type="html">&lt;p&gt;
+  &lt;a href=&quot;/images/posts/ruby-kaigi-2014/japan.jpg&quot;&gt;
+    &lt;img class=&quot;img-responsive&quot; alt=&quot;I&#39;m in Japan!&quot; src=&quot;/images/posts/ruby-kaigi-2014/japan.jpg&quot; /&gt;
+  &lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;ZOMG! I’m in Japan!&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;img-responsive img-right&quot; alt=&quot;My name tag&quot; src=&quot;/images/posts/ruby-kaigi-2014/name-tag.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This year, I am fortunate enough to be one of the 750 attendees at Ruby Kaigi in
+Tokyo. If you are among one of them, I’d love to meet you and chat about Ruby,
+Rails, etc. Just look for my name tag!&lt;/p&gt;
+
+&lt;p&gt;For those of you who couldn’t make it this year, don’t feel left out! I’ll be
+writing a three-part blog post (one for each day) to cover the things I’ve
+learned here, so you can watch the talks online that interestes you when they
+become available. (You can also watch the &lt;a href=&quot;http://rubykaigi.org/2014&quot;&gt;live streams&lt;/a&gt;!)&lt;/p&gt;
+
+&lt;p&gt;Without further to do, here is day 1 at Ruby Kaigi!&lt;/p&gt;
+
+&lt;h2 id=&quot;cool-stuff&quot;&gt;Cool Stuff&lt;/h2&gt;
+
+&lt;p&gt;
+  &lt;a href=&quot;/images/posts/ruby-kaigi-2014/headset.jpg&quot;&gt;
+    &lt;img class=&quot;img-responsive&quot; alt=&quot;Translation headset&quot; src=&quot;/images/posts/ruby-kaigi-2014/headset.jpg&quot; /&gt;
+  &lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;All the talks are real-time translated into English and Japanese via these
+headsets.&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;a href=&quot;/images/posts/ruby-kaigi-2014/goodies.jpg&quot;&gt;
+    &lt;img class=&quot;img-responsive&quot; alt=&quot;This machine sells the goodies&quot; src=&quot;/images/posts/ruby-kaigi-2014/goodies.jpg&quot; /&gt;
+  &lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;You can purchase some Ruby Kaigi goodies from this veding machine.&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;a href=&quot;/images/posts/ruby-kaigi-2014/bento-box.jpg&quot;&gt;
+    &lt;img class=&quot;img-responsive&quot; alt=&quot;A bento box!&quot; src=&quot;/images/posts/ruby-kaigi-2014/bento-box.jpg&quot; /&gt;
+  &lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Bento boxes for lunch!&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;a href=&quot;/images/posts/ruby-kaigi-2014/ios8.jpg&quot;&gt;
+    &lt;img class=&quot;img-responsive&quot; alt=&quot;iOS 8: The biggest release ever.&quot; src=&quot;/images/posts/ruby-kaigi-2014/ios8.jpg&quot; /&gt;
+  &lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Rule #1 and #2 of Ruby Kaigi – don’t upgrade your iPhone with the conference wifi!&lt;/p&gt;
+
+&lt;h2 id=&quot;cruby-committers-whos-who-in-2014&quot;&gt;CRuby Committers Who’s Who in 2014&lt;/h2&gt;
+
+&lt;p&gt;
+  &lt;a href=&quot;/images/posts/ruby-kaigi-2014/zzak.jpg&quot;&gt;
+    &lt;img class=&quot;img-responsive&quot; alt=&quot;It&#39;s @_zzak!&quot; src=&quot;/images/posts/ruby-kaigi-2014/zzak.jpg&quot; /&gt;
+  &lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/nagachika&quot;&gt;@nogachika&lt;/a&gt;, who is known for his &lt;a href=&quot;http://d.hatena.ne.jp/nagachika/searchdiary?word=%2A%5Bchanges%5D&quot;&gt;ruby-trunk-changes&lt;/a&gt;
+commentary (it’s like &lt;a href=&quot;https://rails-weekly.goodbits.io&quot;&gt;Rails weekly&lt;/a&gt; but for
+Ruby trunk), gave a behind-the-scene view of CRuby development.&lt;/p&gt;
+
+&lt;p&gt;There are 84 registered accounts on SVN (including a &lt;a href=&quot;LINKME&quot;&gt;bot&lt;/a&gt;), 50 of which
+who had at least one commit since Ruby Kaigi 2013. @nogachika introduced some of
+them in his talk, some highlights:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://twitter.com/yukihiro_matz&quot;&gt;@matz&lt;/a&gt; who invented Ruby (and
+&lt;a href=&quot;https://github.com/mruby/mruby&quot;&gt;mruby&lt;/a&gt;), whose only commit of the year was to
+&lt;a href=&quot;https://github.com/ruby/ruby/commit/ae9bda718da8181d47f379a243e384f892448c50&quot;&gt;bump the Ruby version&lt;/a&gt;
+(Matz focuses more on the design aspect of Ruby as well as mruby development
+these days).&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://twitter.com/koichisasada&quot;&gt;@ko1&lt;/a&gt; who introduced incremental GC in Ruby 2.2&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://twitter.com/nari3&quot;&gt;@nari&lt;/a&gt; who introduced Symbol GC, which played a key role in Rails’ plan to target 2.2+ exclusively in Rails 5&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://twitter.com/tmm1&quot;&gt;@tmm1&lt;/a&gt; who introduced many performance optimizations, including speeding up &lt;code&gt;Hash#[]&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://twitter.com/znz&quot;&gt;@kazu&lt;/a&gt; the typo fixer&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;building-the-ruby-interpreter--what-is-easy-and-what-is-difficult&quot;&gt;Building the Ruby interpreter – What is easy and what is difficult?&lt;/h2&gt;
+
+&lt;p&gt;
+  &lt;a href=&quot;/images/posts/ruby-kaigi-2014/ko1.jpg&quot;&gt;
+    &lt;img class=&quot;img-responsive&quot; alt=&quot;@ko1 giving his talk&quot; src=&quot;/images/posts/ruby-kaigi-2014/ko1.jpg&quot; /&gt;
+  &lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/koichisasada&quot;&gt;@ko1&lt;/a&gt; works on Matz’s Ruby team at Heroku.
+Over the years, he has accumulated an impressive list of contributions to the
+Ruby language/implementation, including native thread locking, fibers, the new
+method cache, flonum, RGenGC and incremental GC in Ruby 2.2 (more about it in
+vol 0048 of the &lt;a href=&quot;http://magazine.rubyist.net/&quot;&gt;Rubyist Magazine&lt;/a&gt; and his talk
+at the upcoming &lt;a href=&quot;http://rubyconf.org/&quot;&gt;RubyConf 2014&lt;/a&gt;).&lt;/p&gt;
+
+&lt;h3 id=&quot;tradeoffs&quot;&gt;Tradeoffs&lt;/h3&gt;
+
+&lt;p&gt;The overarching theme of his talk is about making tradeoffs. Like many things in
+life, most decisions we make as programmers are tradeoffs that affects multiple
+intertwined goals that are often in conflict with each other. As engineers, it
+is our job to understand about these tradeoffs, carefully consider the factors
+in-play and overcome these challenges.&lt;/p&gt;
+
+&lt;h3 id=&quot;parallel-execution&quot;&gt;Parallel Execution&lt;/h3&gt;
+
+&lt;p&gt;One of the specific example @ko1 talked about is the problem of supporting
+parallel execution in Ruby.&lt;/p&gt;
+
+&lt;p&gt;Simply providing parallel threads (i.e. getting rid of the GVL) to enable
+parallel execution is actually a relatively easy task. The difficulties here is
+to maintain good programming experience, good serial execution performance (due
+to increased synchronization) and CRuby source code quality/maintainability.&lt;/p&gt;
+
+&lt;p&gt;Running multiple threads in parallel under the typical “share everything”
+programming model often results in subtle bugs that falls under the following
+categories: race conditions, atomicity violation and order violation. Making
+matter worse, the non-deterministic nature of parallel execution make these bugs
+very difficult to reproduce. All of these problems contribute negatively to the
+“programmer happiness”, which is a very important cornerstone of the Ruby
+language.&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;a href=&quot;/images/posts/ruby-kaigi-2014/thread-wizards.jpg&quot;&gt;
+    &lt;img class=&quot;img-responsive&quot; alt=&quot;Wizards use threads&quot; src=&quot;/images/posts/ruby-kaigi-2014/thread-wizards.jpg&quot; /&gt;
+  &lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;@ko1 believes that the tradeoff here is not unlike other problems we faced in
+the past, such as the safety/performance tradeoff of garbage collection vs
+manual memory management. In this case, parallel threads is like manual memory
+management – while it’s highly performant and flexible, it’s also extremely
+error-prone and very difficult to reason about. He believes that Ruby’s job is
+to provide an alternative programming model for parallel execution that is safe
+and programmer-friendly, as well as good debugging tools. Ultimately these will
+be preferred over utilizing threads directly for most applications, just like
+how garbage collection is now preferred by many programmers.&lt;/p&gt;
+
+&lt;p&gt;He then briefly introduced a few ideas for implementing such models in Ruby and
+some academic research on making parallel execution deterministic.&lt;/p&gt;
+
+&lt;h3 id=&quot;gc-benchmarking-community-and-more&quot;&gt;GC, Benchmarking, Community and more!&lt;/h3&gt;
+
+&lt;p&gt;In the rest of his talk, @ko1 did a similar analysis on other topics such as
+Ruby garbage collection, making measurements and becoming a CRuby committer. If
+those topics interests you, be sure to check out this talk!&lt;/p&gt;
+
+&lt;h2 id=&quot;symbol-gc&quot;&gt;Symbol GC&lt;/h2&gt;
+
+&lt;p&gt;
+  &lt;a href=&quot;/images/posts/ruby-kaigi-2014/symbols.jpg&quot;&gt;
+    &lt;img class=&quot;img-responsive&quot; alt=&quot;@nari talking about symbol GC&quot; src=&quot;/images/posts/ruby-kaigi-2014/symbols.jpg&quot; /&gt;
+  &lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/nari3&quot;&gt;@nari&lt;/a&gt; is a CRuby committer from NaCl. He gave an
+overview of the “Symbol GC” feature he implemented for Ruby 2.2.&lt;/p&gt;
+
+&lt;p&gt;As I mentioned earlier, this is one of the key driver for the Rails team to
+target Ruby 2.2 in Rails 5. A common misconception about this feature is to
+think that all symbols will be GC-ed so we don’t have to worry about it anymore.
+As @nari shows us in this talk, it turns out this is not entirely correct.&lt;/p&gt;
+
+&lt;p&gt;To understand this, we first have to understand the problems associated with
+using symbols in CRuby 2.1 and below. Currently, once a symbol is allocated,
+they are associated with a fixed numeric ID internally, and are never garbage
+collected. This includes symbol literals (&lt;code&gt;:a_literal&lt;/code&gt; in Ruby code), dynamic
+symbols created in Ruby land (e.g. &lt;code&gt;&quot;a string&quot;.to_sym&lt;/code&gt;) and other side-effects
+(e.g. defining a method “foo” allocates a symbol &lt;code&gt;:foo&lt;/code&gt; for use in the methods
+table).&lt;/p&gt;
+
+&lt;p&gt;The pitfall associated with this approach is that the execution time of your
+program, you could accumulate many symbols that you no longer need, thus
+leaking memory. This is particularly problematic for programs that has a long
+lifetime and handles a lot of user inputs, as it has the potential to be
+exploited by malicious users and cause DOS attacks.&lt;/p&gt;
+
+&lt;p&gt;Web applications written in Ruby (e.g. Rails applications) happens to fit this
+description perfectly. For example, the following piece of pseudo-code is bad:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;ruby
+value = store.fetch(params[:key].to_sym)
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;As you can see, a user supplied string is being converted into a symbol (a
+dynamic symbol allocation). This is problematic, because an attack could send
+a bunch of different strings under this parameter and eventually cause the
+server to crash when it runs out of memory. In fact, this has been a common
+source of security issue in Rails (e.g. CVE-2012-3424), which explains the
+desire to require Ruby 2.2 in Rails 5.&lt;/p&gt;
+
+&lt;p&gt;Currently, symbols cannot be GC’ed because they need to maintain the same ID
+for the C code that depends on it (for example, if the corresponding symbol has
+been GC’ed as the C code looks it up via &lt;code&gt;ID2SYM&lt;/code&gt;, then things would break).&lt;/p&gt;
+
+&lt;p&gt;To solve this problem, symbols are now classified into two categories – immortal
+symbols and mortal symbols. As the name implies, immortal symbols are not
+garbage collected by the runtime and have a stable ID, so baiscally how symbols
+work today. Mortal symbols, on the other hand, can be garbage collected by the
+runtime just like any other objects. They don’t have an ID, so they are usually
+only useful in Ruby-land.&lt;/p&gt;
+
+&lt;p&gt;As it becomes necessary, mortal symbols will be “pinned-down” by the runtime and
+becomes immortal symbols. Because they are marked as “uncollectable”, their
+memory address becomes their IDs and hence they can be used in C code. For
+example, consider this piece of code:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;ruby
+define_method(method_name.to_sym) do
+  # ...
+end
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Here, the runtime first allocates a mortal symbol (from &lt;code&gt;method_name.to_sym&lt;/code&gt;)
+that can be garbage collected. As it is passed into &lt;code&gt;define_method&lt;/code&gt;, however,
+the runtime would convert it into a immortal symbol so that it could be used in
+the methods table. Once this happens, the symbol can no longer be garbage
+collected – it is impossible to convert an immortal symbol back into a mortal
+symbol. (Also, if an immortal symbol with the same name has previously been
+allocated from a different place, the same symbol will be reused here instead.)&lt;/p&gt;
+
+&lt;p&gt;While this approach eliminates a entire class of potential bugs, it also
+introduces some new pitfalls. In particular, if a dynamic symbol (mortal by
+default) is converted into an immortal symbol, your program will suffer from the
+same vulnerability as before.&lt;/p&gt;
+
+&lt;p&gt;Therefore, as application programmers, we still need to be mindful of when a
+dynamic symbol might be converted into an immortal symbol. While you probably
+aren’t defining dynamic methods based on user inputs (if you are, you might
+have bigger problems to worry about!), it is possible that passing a dynamic
+symbol into a C function might cause it to become immortalized (e.g. when the C
+code calls &lt;code&gt;SYM2ID&lt;/code&gt; on it). While most of the CRuby C code has been refactored
+to avoid this landmine, it is still a common problem in third-party extensions.
+@nari noted that our ecosystem is still undergoing a transition period, and
+things would get better overtime (Rails 5 is probably going to help accelerate
+that as well).&lt;/p&gt;
+
+&lt;p&gt;I highly recommend that you watch this talk, especially if you maintain a gem
+and/or C-extension.&lt;/p&gt;
+
+&lt;h2 id=&quot;transactional-memory-and-ruby&quot;&gt;Transactional Memory and Ruby&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/ReiOdaira&quot;&gt;@ReiOdaira&lt;/a&gt; and &lt;a href=&quot;https://twitter.com/brucehsu&quot;&gt;@brucehsu&lt;/a&gt;
+did two different talks on how transactional memory can benefit the Ruby
+language.&lt;/p&gt;
+
+&lt;p&gt;Transactional memory is similar to how a database work. It allows the programmer
+to place a block of code inside a memory transaction, during which all the
+memory operations will be perceived as a single atomic operation from other
+threads (or fails and the operations are rolledback and aren’t observable from
+outside of the thread that requested the transaction).&lt;/p&gt;
+
+&lt;p&gt;@ReiOdaira’s talk focuses on his research at IBM that utilize hardware-based
+transactional memory to reduce Ruby’s dependency on the global VM lock (GVL)
+thus improving the degree of achievable parallization.&lt;/p&gt;
+
+&lt;p&gt;@brucehsu’s talk focuses on software-based transactional memory techniques, and
+showed the world how it could be done by writing a new Ruby VM in Go, aptly
+called &lt;a href=&quot;https://github.com/brucehsu/GobiesVM&quot;&gt;Gobies&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you are interested in how these cutting edge technologies can be used in
+Ruby, these talks are for you!&lt;/p&gt;
+
+&lt;h2 id=&quot;wrapping-up&quot;&gt;Wrapping Up&lt;/h2&gt;
+
+&lt;p&gt;That about wraps up my notes for Day 1 of Ruby Kaigi 2014. Of course, there are
+many other talks that are equally interesting. However, it’s already 3AM here in
+Japan and I should probably get some rest ;) I encourage you to check out the
+&lt;a href=&quot;http://rubykaigi.org/2014/schedule&quot;&gt;conference schedule&lt;/a&gt; for a full list of
+talks.&lt;/p&gt;
+
+&lt;p&gt;Stay tuned for part 2 &amp;amp; 3!&lt;/p&gt;
+</content>
+      </entry>
+    
+    
+    
+      <entry>
+          <title>Say Hello to Roundup Roger</title>
+          <link href="http://brewhouse.io/2014/06/27/say-hello-to-roundup-roger.html"/>
+          <updated>2014-06-27T15:36:00+09:00</updated>
+          <id>http://brewhouse.io/2014/06/27/say-hello-to-roundup-roger</id>
+          <content type="html">&lt;p&gt;
+  &lt;a href=&quot;https://github.com/BrewhouseTeam/roundup-roger&quot;&gt;
+    &lt;img class=&quot;img-right img-responsive&quot; alt=&quot;This Week in Rails Logo&quot; src=&quot;https://dl.dropboxusercontent.com/u/79436/roundup_roger_logo1.png&quot; /&gt;
+  &lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;At Brewhouse, we spend Fridays doing creative work. During these wonderful days, we focus on interesting hacks and innovative projects. Over the last 10 weeks, I’ve been able to spend my Fridays working on a project with &lt;a href=&quot;https://github.com/pcreux&quot;&gt;Philippe Creux&lt;/a&gt; called &lt;a href=&quot;https://github.com/BrewhouseTeam/roundup-roger&quot;&gt;Roundup Roger&lt;/a&gt;. Roundup Roger is an open source tool to wrap-up a team’s day via email. A wrap-up is quite similar to an agile standup (or scrum), but at the end of the business day.&lt;/p&gt;
+
+&lt;p&gt;You’re probably thinking, “How anti-social of you!”.  Yes, you’re right, we’re endorsing email correspondence over face-to-face interaction. But we’re talking about wrap-up meetings here, not beer Fridays.&lt;/p&gt;
+
+&lt;p&gt;The point of a wrap-up is to educate the team on:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;What you’ve accomplished during the last business day&lt;/li&gt;
+  &lt;li&gt;What you’ll be working on next&lt;/li&gt;
+  &lt;li&gt;Whether you’ve hit any blockers that are impeding your progress&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Email works well in this situation because it prevents &lt;em&gt;Chatty Carls&lt;/em&gt; from commandeering your meeting, and allows concise discourse that can be re-visited later if needed. Also, for those of us who have trouble with &lt;a href=&quot;http://www.joelonsoftware.com/articles/fog0000000022.html&quot;&gt;context switching&lt;/a&gt;, it can be easier to communicate the work you’ve accomplished by writing it out as opposed to communicating verbally.&lt;/p&gt;
+
+&lt;p&gt;Another benefit of an email wrap-up is a flexible response time. Some of our team members finish later in the day than others, and often accomplish a lot after the in-person wrap-up happens. With Roundup Roger, team members have the flexibility to respond to the reminder email at any time. As long as they send their email before the roundup is sent in the morning, their contributions will be included.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-does-roundup-roger-work&quot;&gt;How Does Roundup Roger Work?&lt;/h2&gt;
+
+&lt;p&gt;Reminder emails are sent out daily at a scheduled time. Each team member responds to the reminder email:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/reminder-email.png&quot; alt=&quot;reminder email&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;The following day, a roundup email is sent to the entire team with each member’s contributions from the previous day:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/roundup-email.png&quot; alt=&quot;roundup email&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;technical-details&quot;&gt;Technical Details&lt;/h2&gt;
+
+&lt;p&gt;Roundup Roger is a &lt;a href=&quot;http://www.sinatrarb.com/&quot;&gt;Sinatra&lt;/a&gt; app, that capitalizes on &lt;a href=&quot;https://github.com/jeremyevans/sequel&quot;&gt;Sequel’s&lt;/a&gt; ORM layer.&lt;/p&gt;
+
+&lt;p&gt;After using &lt;a href=&quot;http://rubyonrails.org/&quot;&gt;Rails&lt;/a&gt; over the last couple of years, I had become soft. It’s not the best realization to find you’ve become accustomed to having everything done for you. It took me a few weeks to stop trying to use &lt;a href=&quot;http://guides.rubyonrails.org/active_record_querying.html&quot;&gt;ActiveRecord&lt;/a&gt; when querying the database and in the end, I had a good cry and got over myself. I then became much better at using the Sequel gem’s ORM layer.&lt;/p&gt;
+
+&lt;p&gt;I’ve also realized that Sinatra is not really a framework at all, but more of a library. I suppose this is why people call it a ‘micro-framework’.&lt;/p&gt;
+
+&lt;p&gt;“Hey Sinatra! Thanks for nothing!”&lt;/p&gt;
+
+&lt;p&gt;Jokes aside, Sinatra ended up being a great tool to solve this problem. As it turns out, we didn’t really need much of the ‘good stuff’ that comes along with Rails. The app itself doesn’t have a web UI and is meant to be run solely via scheduled tasks in production.&lt;/p&gt;
+
+&lt;h3 id=&quot;building-emails&quot;&gt;Building Emails&lt;/h3&gt;
+
+&lt;p&gt;To build emails, we used &lt;a href=&quot;https://github.com/solnic/virtus&quot;&gt;Virtus&lt;/a&gt; to create a common interface for defining attributes. It allowed us to do things like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;  &lt;span class=&quot;no&quot;&gt;OutboundEmail&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;recipients&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;subject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;subject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;When a user replies to a reminder email, we retrieve the payload passed from &lt;a href=&quot;https://www.mandrill.com/&quot;&gt;Mandrill&lt;/a&gt;, and grab the name, email and body, such that we can later apply these to the roundup email.&lt;/p&gt;
+
+&lt;p&gt;When we build the roundup email, we strip each email body to remove signatures. This was somewhat tricky, as different email clients apply signatures differently.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;  &lt;span class=&quot;no&quot;&gt;PATTERNS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;—\n+Sent&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;--&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;gt;? ?On&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;freeze&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;stripped_body&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;PATTERNS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pattern&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strip_pattern&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pattern&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strip&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;strip_pattern&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pattern&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gsub&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/\n(&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pattern&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;| [^\n]+\n?[^\n]+\n+\&amp;gt;).*/m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;We then separate each person’s contribution with a random ascii separator, because, WHY NOT?&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;separator&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&amp;quot;█║▌│ █│║▌ ║││█║▌ │║║█║ │║║█║ █│║▌&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&amp;quot;▇ ▅ █ ▅ ▇ ▂ ▃ ▁ ▁ ▅ ▃ ▅ ▅ ▄ ▅&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&amp;quot;★★★★★★★★★★★★★★★★★★&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sample&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;sending-emails&quot;&gt;Sending Emails&lt;/h3&gt;
+
+&lt;p&gt;We use &lt;a href=&quot;https://github.com/benprew/pony&quot;&gt;Pony&lt;/a&gt; to send emails. This is where the magic happens…&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SendOutboundEmail&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;Pony&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+      &lt;span class=&quot;ss&quot;&gt;:to&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;ss&quot;&gt;:from&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ENV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;EMAIL_FROM&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;ss&quot;&gt;:subject&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;subject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;ss&quot;&gt;:html_body&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;ss&quot;&gt;:via&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:smtp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;ss&quot;&gt;:via_options&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;ss&quot;&gt;:address&lt;/span&gt;        &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ENV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;SMTP_ADDRESS&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;ss&quot;&gt;:port&lt;/span&gt;           &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ENV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;SMTP_PORT&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;ss&quot;&gt;:enable_starttls_auto&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;ss&quot;&gt;:user_name&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ENV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;SMTP_USER_NAME&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;ss&quot;&gt;:password&lt;/span&gt;       &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ENV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;SMTP_PASSWORD&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;ss&quot;&gt;:authentication&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:plain&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;scheduling-and-business-time&quot;&gt;Scheduling and Business Time&lt;/h3&gt;
+
+&lt;p&gt;We use the &lt;a href=&quot;https://github.com/bokmann/business_time&quot;&gt;Business Time&lt;/a&gt; gem to prevent reminders and roundups from being sent on weekends. Perhaps this item should be configurable for those of you who like to work on weekends (why??).&lt;/p&gt;
+
+&lt;p&gt;The Heroku Scheduler plans our tasks for daily execution.&lt;/p&gt;
+
+&lt;p&gt;We’d like to think setup is pretty simple. Just schedule the following two rake tasks based on your team’s needs:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;  &lt;span class=&quot;n&quot;&gt;rake&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;send_reminders&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;  &lt;span class=&quot;n&quot;&gt;rake&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;send_roundup&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;There is also a &lt;code&gt;send_test_email&lt;/code&gt; rake task to test whether SMTP settings are configured correctly.&lt;/p&gt;
+
+&lt;h2 id=&quot;we-use-this&quot;&gt;We Use This&lt;/h2&gt;
+
+&lt;p&gt;Since we like to &lt;a href=&quot;http://brewhouse.io/blog/2014/04/24/this-week-in-rails-the-backstory.html#dogfooding&quot;&gt;eat our own dog food&lt;/a&gt; at Brewhouse, we’ve been using Roundup Roger as part of our daily efforts for the last couple of months. Our hope is that others will find the same value that we’ve found. The more teams that try this out, the more we’ll know about how to improve it. As always, feedback and contributions are welcome.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/BrewhouseTeam/roundup-roger&quot;&gt;Give it a try!&lt;/a&gt;&lt;/p&gt;
+
+</content>
+      </entry>
+    
+    
+    
+      <entry>
+          <title>Gourmet Service Objects</title>
+          <link href="http://brewhouse.io/blog/2014/04/30/gourmet-service-objects.html"/>
+          <updated>2014-04-30T12:37:00+09:00</updated>
+          <id>http://brewhouse.io/blog/2014/04/30/gourmet-service-objects</id>
+          <content type="html">&lt;p&gt;Is your Rails app’s business logic hidden in ugly controllers with 10+ lines long method and fat models powered by Linguini callbacks? Are your tests getting out of control and you spend most of your days looking at green dots? Do you want to impress your coworkers with Unicorn level code?&lt;/p&gt;
+
+&lt;p&gt;You need Gourmet Service Objects™!&lt;/p&gt;
+
+&lt;p&gt;I have been using service objects for the past three years and they reconciled my take on Rails (as much as automated testing reconciled my feelings for software programming!).&lt;/p&gt;
+
+&lt;h2 id=&quot;a-service-object-does-one-thing&quot;&gt;A service object &lt;em&gt;does one thing&lt;/em&gt;&lt;/h2&gt;
+
+&lt;p&gt;A service object (aka method object) performs one action. It holds the business logic to perform that action. Here is an example:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/services/accept_invite.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AcceptInvite&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;invite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;invite&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;accept!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;UserMailer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;invite_accepted&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;invite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;deliver&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The three conventions I follow are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Services go under the &lt;code&gt;app/services&lt;/code&gt; directory. I encourage you to use subdirectories for business logic-heavy domains. For instance:
+    &lt;ul&gt;
+      &lt;li&gt;The file &lt;code&gt;app/services/invite/accept.rb&lt;/code&gt; will define &lt;code&gt;Invite::Accept&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;while &lt;code&gt;app/services/invite/create.rb&lt;/code&gt; will define &lt;code&gt;Invite::Create&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Services start with a verb (and do not end with Service): &lt;code&gt;ApproveTransaction&lt;/code&gt;, &lt;code&gt;SendTestNewsletter&lt;/code&gt;, &lt;code&gt;ImportUsersFromCsv&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Services respond to the &lt;code&gt;call&lt;/code&gt; method. I found using another verb makes it a bit redundant: &lt;code&gt;ApproveTransaction.approve()&lt;/code&gt; does not read well. Also, the &lt;code&gt;call&lt;/code&gt; method is the de facto method for lambda, procs, and method objects.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;benefits&quot;&gt;Benefits&lt;/h2&gt;
+
+&lt;h3 id=&quot;service-objects-show-what-my-application-does&quot;&gt;Service objects show what my application &lt;em&gt;does&lt;/em&gt;&lt;/h3&gt;
+
+&lt;p&gt;I can just glance over the &lt;code&gt;services&lt;/code&gt; directory to see what my application &lt;strong&gt;does&lt;/strong&gt;: &lt;code&gt;ApproveTransaction&lt;/code&gt;, &lt;code&gt;CancelTransaction&lt;/code&gt;, &lt;code&gt;BlockAccount&lt;/code&gt;, &lt;code&gt;SendTransactionApprovalReminder&lt;/code&gt;…&lt;/p&gt;
+
+&lt;p&gt;A quick look into a service object and I know what business logic is involved. I don’t have to go through the controllers, ActiveRecord model callbacks and observers to understand what “approving a transaction” involves.&lt;/p&gt;
+
+&lt;h3 id=&quot;clean-up-models-and-controllers&quot;&gt;Clean-up models and controllers&lt;/h3&gt;
+
+&lt;p&gt;Controllers turn the request (params, session, cookies) into arguments, pass them down to the service and redirect or render according to the service response.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;InviteController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationController&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;accept&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;invite&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Invite&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_by_token!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:token&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;AcceptInvite&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;invite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;current_user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;redirect_to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;invite&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;notice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Welcome!&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;redirect_to&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Oopsy!&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Models only deal with associations, scopes, validations and persistence.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Invite&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;accept!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;update_attributes!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;accepted_by_user_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;accepted_at&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This makes models and controllers much easier to test and maintain!&lt;/p&gt;
+
+&lt;h3 id=&quot;dry-and-embrace-change&quot;&gt;DRY and Embrace change&lt;/h3&gt;
+
+&lt;p&gt;I keep service objects as simple and small as I can. I compose service
+objects with other service objects, and I reuse them. My code is quite
+modular and I’m ready to Embrace Change™.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SendTestNewsletter&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newsletter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;campaign&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;CreateMailchimpCampaign&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newsletter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;DeliverTestEmail&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;campaign&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;DeleteCampaign&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;campaign&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Don&amp;#39;t keep the test campaign around&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SendNewsletter&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newsletter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;campaign&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;CreateMailchimpCampaign&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newsletter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;DeliverCampaign&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;campaign&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# Could easily delete here as well, but we want to retain the legit campaigns&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;clean-up-and-speed-up-your-test-suite&quot;&gt;Clean up and speed up your test suite&lt;/h3&gt;
+
+&lt;p&gt;Services are easy and fast to test since they are small ruby objects with one point of entry (the &lt;code&gt;call&lt;/code&gt; method). Complex services are composed with other services, so you can split up your tests easily.&lt;/p&gt;
+
+&lt;p&gt;I tend not to use any mocks or stub to test services that deal with ActiveRecord objects. &lt;a href=&quot;https://github.com/pcreux/rspec-set&quot;&gt;rspec-set&lt;/a&gt; helps me keep the running time quite low while having simple and robusts test. Once again, service objects are small and do one thing, so they tend to have a limited amount of dependencies.&lt;/p&gt;
+
+&lt;h3 id=&quot;call-them-from-anywhere&quot;&gt;Call them from anywhere&lt;/h3&gt;
+
+&lt;p&gt;Service objects are likely to be called from controllers as well as:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Other service objects:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BatchSyncUsers&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;users&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;SyncUser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;DelayedJob / Rescue / Sidekiq Jobs:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SyncInvoicesJob&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;work&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;SyncInvoices&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Rake tasks:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;task&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:sync&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;SyncInvoices&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The console:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;vg&quot;&gt;$&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApproveTransaction&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;days&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ago&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Even from test helpers to setup my integration tests!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;create_approved_transaction&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;transaction&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;FactoryGirl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;ApproveTransaction&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;FactoryGirl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;transaction&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;real-world-services&quot;&gt;Real world services&lt;/h2&gt;
+
+&lt;p&gt;I like to use instances of service objects to take advantage of private methods. I add Virtus into the mix to handle parameters. For instance:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AcceptInvite&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;kp&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Virtus&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:invite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;no&quot;&gt;Invite&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;    &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:account&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Account&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;    &lt;span class=&quot;no&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;   &lt;span class=&quot;ss&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;proc&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;now&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;invite_already_accepted?&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;accept_invite&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;send_notification_to_inviter&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;invite_already_accepted?&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;accept_invite&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;send_notification_to_inviter&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;I extracted the &lt;code&gt;def self.call&lt;/code&gt; into a helper module &lt;code&gt;Service&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Service&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;extend&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveSupport&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Concern&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;included&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;kp&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AcceptInvite&lt;/span&gt;
+
+  &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Service&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Virtus&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:invite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Invite&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:account&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Account&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;proc&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;now&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;invite_already_accepted?&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;accept_invite&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;send_notification_to_inviter&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;I sometimes inject dependencies to test services that orchestrate
+complex operations. Since services respond to the &lt;code&gt;call&lt;/code&gt; method, a
+simple &lt;code&gt;proc&lt;/code&gt; does the job.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Trumpet&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Service&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Bass&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Service&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OutOfTuneError&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;StandardError&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Conductor&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Service&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Virtus&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:trumpet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Trumpet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;proc&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Trumpet&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:bass&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;    &lt;span class=&quot;no&quot;&gt;Bass&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;    &lt;span class=&quot;ss&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;proc&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Bass&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;trumpet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;C4 .. G4&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;bass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;C2 D2 E2 E2&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;rescue&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;OutOfTuneError&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+
+&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Conductor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;trumpet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;  &lt;span class=&quot;nb&quot;&gt;proc&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;onk! onk!&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;bass&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;     &lt;span class=&quot;nb&quot;&gt;proc&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;raise&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;OutOfTuneError&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sound_awful&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;values-the-return&quot;&gt;Values: The Return&lt;/h2&gt;
+
+&lt;p&gt;The services I write have three flavours when it comes to communicating back to the caller.&lt;/p&gt;
+
+&lt;h3 id=&quot;flavour-1-fail-loudly&quot;&gt;Flavour #1: Fail loudly&lt;/h3&gt;
+
+&lt;p&gt;Most services are not supposed to fail. They do not return anything (meaningful) but they raise an exception when something goes wrong. Those services are likely to use methods that fail loudly such as &lt;code&gt;Hash#fetch&lt;/code&gt;, &lt;code&gt;create!&lt;/code&gt;, &lt;code&gt;save!&lt;/code&gt;, &lt;code&gt;find_by_name!&lt;/code&gt; etc.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ContractController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;LoggedInController&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;sign&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;contract&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;current_user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;contracts&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;SignContract&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;contract&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;contract&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;current_user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;flash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:notice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Contract signed!&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;redirect_to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;contract&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;flavour-2-return-a-persisted-activerecord-model&quot;&gt;Flavour #2: Return a persisted ActiveRecord model&lt;/h3&gt;
+
+&lt;p&gt;The caller can check if an AR instance is persisted and then has access to its errors.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;InviteController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;LoggedInController&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;attributes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;invite_params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;merge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;creator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;current_user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@invite&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;CreateInvite&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@invite&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;persisted?&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;redirect_to&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@invite&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;errors_for_humans&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@invite&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;errors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;invite_params&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:invite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;permit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;flavour-3-response-object&quot;&gt;Flavour #3: Response object&lt;/h3&gt;
+
+&lt;p&gt;Some services have several outcomes and complex error handling. They return a response object which responds to &lt;code&gt;success?&lt;/code&gt; and &lt;code&gt;error(s)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;InviteController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;LoggedInController&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;accept&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;AcceptInvitation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;ss&quot;&gt;invite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Invite&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_by_token!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:token&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+      &lt;span class=&quot;ss&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;current_user&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;success?&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;redirect_to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;notice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Welcome!&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;redirect_to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;error&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;That’s it for service objects for now. Experiment with them, as I
+believe they will make your codebase more expressive and easier to
+maintain!&lt;/p&gt;
+
+&lt;p&gt;I’m happy to respond to any question or concern you guys might have. Feel free to
+leave a comment below. &amp;lt;3 &amp;lt;3 &amp;lt;3&lt;/p&gt;
+
+</content>
+      </entry>
+    
+    
+    
+      <entry>
+          <title>This Week in Rails: the Backstory</title>
           <link href="http://brewhouse.io/blog/2014/04/24/this-week-in-rails-the-backstory.html"/>
-          <updated>2014-04-24T09:04:00-05:00</updated>
+          <updated>2014-04-24T09:04:00+09:00</updated>
           <id>http://brewhouse.io/blog/2014/04/24/this-week-in-rails-the-backstory</id>
-          <content type="html">&lt;p&gt;I recently started a newsletter called &lt;a href=&quot;http://rails-weekly.goodbits.io&quot;&gt;&lt;em&gt;This week in Rails&lt;/em&gt;&lt;/a&gt;
+          <content type="html">&lt;p&gt;
+  &lt;a href=&quot;http://brewhouse.io/blog/2014/04/24/this-week-in-rails-the-backstory.html&quot;&gt;
+    &lt;img class=&quot;img-right img-responsive&quot; alt=&quot;This Week in Rails Logo&quot; src=&quot;/images/2014-04-24-this-week-in-rails-backstory.jpg&quot; /&gt;
+  &lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;I recently started a newsletter called &lt;a href=&quot;http://rails-weekly.goodbits.io&quot;&gt;&lt;em&gt;This week in Rails&lt;/em&gt;&lt;/a&gt;
 (you may have &lt;a href=&quot;http://ruby5.envylabs.com/episodes/495-episode-458-april-22nd-2014#story-3&quot;&gt;heard&lt;/a&gt;
 about it) – a weekly digest of notable commits, issues, pull-requests and other
 interesting things happening around the Rails ecosystem. I’d like to share my
@@ -100,7 +898,7 @@ a spin and let us know what you think!&lt;/p&gt;
       <entry>
           <title>Welcome to Brewhouse</title>
           <link href="http://brewhouse.io/2014/04/04/welcome-to-brewhouse.html"/>
-          <updated>2014-04-04T16:34:00-05:00</updated>
+          <updated>2014-04-04T16:34:00+09:00</updated>
           <id>http://brewhouse.io/2014/04/04/welcome-to-brewhouse</id>
           <content type="html">&lt;p&gt;Hello, we’re Brewhouse. We are a group of creative developers who have come together to continue building great products for ourselves and others.&lt;/p&gt;
 
