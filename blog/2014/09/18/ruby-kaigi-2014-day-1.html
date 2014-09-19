@@ -178,12 +178,12 @@ headsets.</p>
 </p>
 
 <p><a href="https://twitter.com/nagachika">@nogachika</a>, who is known for his <a href="http://d.hatena.ne.jp/nagachika/searchdiary?word=%2A%5Bchanges%5D">ruby-trunk-changes</a>
-commentary (it’s like <a href="https://rails-weekly.goodbits.io">Rails weekly</a> but for
+commentary (it’s like <a href="http://rails-weekly.goodbits.io">Rails weekly</a> but for
 Ruby trunk), gave a behind-the-scene view of CRuby development.</p>
 
-<p>There are 84 registered accounts on SVN (including a <a href="LINKME">bot</a>), 50 of which
-who had at least one commit since Ruby Kaigi 2013. @nogachika introduced some of
-them in his talk, some highlights:</p>
+<p>There are 84 registered accounts on SVN (including a bot), 50 of which who had
+at least one commit since Ruby Kaigi 2013. @nogachika introduced some of them in
+his talk, including:</p>
 
 <ul>
   <li><a href="https://twitter.com/yukihiro_matz">@matz</a> who invented Ruby (and
@@ -196,6 +196,9 @@ these days).</li>
   <li><a href="https://twitter.com/tmm1">@tmm1</a> who introduced many performance optimizations, including speeding up <code>Hash#[]</code></li>
   <li><a href="https://twitter.com/znz">@kazu</a> the typo fixer</li>
 </ul>
+
+<p>Watch the talk online to get to know more of these people who built the language
+we love!</p>
 
 <h2 id="building-the-ruby-interpreter--what-is-easy-and-what-is-difficult">Building the Ruby interpreter – What is easy and what is difficult?</h2>
 
@@ -233,7 +236,7 @@ to increased synchronization) and CRuby source code quality/maintainability.</p>
 <p>Running multiple threads in parallel under the typical “share everything”
 programming model often results in subtle bugs that falls under the following
 categories: race conditions, atomicity violation and order violation. Making
-matter worse, the non-deterministic nature of parallel execution make these bugs
+matters worse, the non-deterministic nature of parallel execution make these bugs
 very difficult to reproduce. All of these problems contribute negatively to the
 “programmer happiness”, which is a very important cornerstone of the Ruby
 language.</p>
@@ -274,7 +277,7 @@ those topics interests you, be sure to check out this talk!</p>
 <p><a href="https://twitter.com/nari3">@nari</a> is a CRuby committer from NaCl. He gave an
 overview of the “Symbol GC” feature he implemented for Ruby 2.2.</p>
 
-<p>As I mentioned earlier, this is one of the key driver for the Rails team to
+<p>As I mentioned earlier, this is one of the key drivers for the Rails team to
 target Ruby 2.2 in Rails 5. A common misconception about this feature is to
 think that all symbols will be GC-ed so we don’t have to worry about it anymore.
 As @nari shows us in this talk, it turns out this is not entirely correct.</p>
@@ -287,16 +290,16 @@ symbols created in Ruby land (e.g. <code>"a string".to_sym</code>) and other sid
 (e.g. defining a method “foo” allocates a symbol <code>:foo</code> for use in the methods
 table).</p>
 
-<p>The pitfall associated with this approach is that the execution time of your
-program, you could accumulate many symbols that you no longer need, thus
-leaking memory. This is particularly problematic for programs that has a long
+<p>The pitfall associated with this approach is that over the execution time of
+your program, you could accumulate many symbols that you no longer need, thus
+leaking memory. This is particularly problematic for programs that have a long
 lifetime and handles a lot of user inputs, as it has the potential to be
 exploited by malicious users and cause DOS attacks.</p>
 
 <p>Web applications written in Ruby (e.g. Rails applications) happens to fit this
 description perfectly. For example, the following piece of pseudo-code is bad:</p>
 
-<p><code>ruby
+<p><code>
 value = store.fetch(params[:key].to_sym)
 </code></p>
 
@@ -323,19 +326,21 @@ becomes immortal symbols. Because they are marked as “uncollectable”, their
 memory address becomes their IDs and hence they can be used in C code. For
 example, consider this piece of code:</p>
 
-<p><code>ruby
+<pre>
+```
 define_method(method_name.to_sym) do
   # ...
 end
-</code></p>
+```
+</pre>
 
 <p>Here, the runtime first allocates a mortal symbol (from <code>method_name.to_sym</code>)
 that can be garbage collected. As it is passed into <code>define_method</code>, however,
 the runtime would convert it into a immortal symbol so that it could be used in
 the methods table. Once this happens, the symbol can no longer be garbage
 collected – it is impossible to convert an immortal symbol back into a mortal
-symbol. (Also, if an immortal symbol with the same name has previously been
-allocated from a different place, the same symbol will be reused here instead.)</p>
+symbol. Also, if an immortal symbol with the same name has previously been
+allocated from a different place, the same symbol will be reused here instead.</p>
 
 <p>While this approach eliminates a entire class of potential bugs, it also
 introduces some new pitfalls. In particular, if a dynamic symbol (mortal by
@@ -362,11 +367,11 @@ and/or C-extension.</p>
 did two different talks on how transactional memory can benefit the Ruby
 language.</p>
 
-<p>Transactional memory is similar to how a database work. It allows the programmer
-to place a block of code inside a memory transaction, during which all the
-memory operations will be perceived as a single atomic operation from other
-threads (or fails and the operations are rolledback and aren’t observable from
-outside of the thread that requested the transaction).</p>
+<p>Transactional memory is similar to how a database transaction works. It allows
+the programmer to place a block of code inside a memory transaction, during
+which all memory operations will be perceived as a single atomic operation from
+other threads (or fails and the operations are rolledback and aren’t observable
+from outside of the thread that requested the transaction).</p>
 
 <p>@ReiOdaira’s talk focuses on his research at IBM that utilize hardware-based
 transactional memory to reduce Ruby’s dependency on the global VM lock (GVL)
@@ -392,7 +397,7 @@ talks.</p>
 
         <div class="mailchimp-form text-center">
           <p>
-            Drop your email below to receive Brew Pub's writings in your mailbox.
+            Enter your email below and receive more from the BrewPub:
           </p>
           <!-- Begin MailChimp Signup Form -->
           <link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">

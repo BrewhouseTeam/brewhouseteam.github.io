@@ -3,7 +3,7 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2014-09-19T03:39:18+09:00</updated>
+    <updated>2014-09-19T09:10:42+09:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
@@ -81,12 +81,12 @@ headsets.&lt;/p&gt;
 &lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://twitter.com/nagachika&quot;&gt;@nogachika&lt;/a&gt;, who is known for his &lt;a href=&quot;http://d.hatena.ne.jp/nagachika/searchdiary?word=%2A%5Bchanges%5D&quot;&gt;ruby-trunk-changes&lt;/a&gt;
-commentary (it’s like &lt;a href=&quot;https://rails-weekly.goodbits.io&quot;&gt;Rails weekly&lt;/a&gt; but for
+commentary (it’s like &lt;a href=&quot;http://rails-weekly.goodbits.io&quot;&gt;Rails weekly&lt;/a&gt; but for
 Ruby trunk), gave a behind-the-scene view of CRuby development.&lt;/p&gt;
 
-&lt;p&gt;There are 84 registered accounts on SVN (including a &lt;a href=&quot;LINKME&quot;&gt;bot&lt;/a&gt;), 50 of which
-who had at least one commit since Ruby Kaigi 2013. @nogachika introduced some of
-them in his talk, some highlights:&lt;/p&gt;
+&lt;p&gt;There are 84 registered accounts on SVN (including a bot), 50 of which who had
+at least one commit since Ruby Kaigi 2013. @nogachika introduced some of them in
+his talk, including:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://twitter.com/yukihiro_matz&quot;&gt;@matz&lt;/a&gt; who invented Ruby (and
@@ -99,6 +99,9 @@ these days).&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://twitter.com/tmm1&quot;&gt;@tmm1&lt;/a&gt; who introduced many performance optimizations, including speeding up &lt;code&gt;Hash#[]&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://twitter.com/znz&quot;&gt;@kazu&lt;/a&gt; the typo fixer&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;Watch the talk online to get to know more of these people who built the language
+we love!&lt;/p&gt;
 
 &lt;h2 id=&quot;building-the-ruby-interpreter--what-is-easy-and-what-is-difficult&quot;&gt;Building the Ruby interpreter – What is easy and what is difficult?&lt;/h2&gt;
 
@@ -136,7 +139,7 @@ to increased synchronization) and CRuby source code quality/maintainability.&lt;
 &lt;p&gt;Running multiple threads in parallel under the typical “share everything”
 programming model often results in subtle bugs that falls under the following
 categories: race conditions, atomicity violation and order violation. Making
-matter worse, the non-deterministic nature of parallel execution make these bugs
+matters worse, the non-deterministic nature of parallel execution make these bugs
 very difficult to reproduce. All of these problems contribute negatively to the
 “programmer happiness”, which is a very important cornerstone of the Ruby
 language.&lt;/p&gt;
@@ -177,7 +180,7 @@ those topics interests you, be sure to check out this talk!&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://twitter.com/nari3&quot;&gt;@nari&lt;/a&gt; is a CRuby committer from NaCl. He gave an
 overview of the “Symbol GC” feature he implemented for Ruby 2.2.&lt;/p&gt;
 
-&lt;p&gt;As I mentioned earlier, this is one of the key driver for the Rails team to
+&lt;p&gt;As I mentioned earlier, this is one of the key drivers for the Rails team to
 target Ruby 2.2 in Rails 5. A common misconception about this feature is to
 think that all symbols will be GC-ed so we don’t have to worry about it anymore.
 As @nari shows us in this talk, it turns out this is not entirely correct.&lt;/p&gt;
@@ -190,16 +193,16 @@ symbols created in Ruby land (e.g. &lt;code&gt;&quot;a string&quot;.to_sym&lt;/c
 (e.g. defining a method “foo” allocates a symbol &lt;code&gt;:foo&lt;/code&gt; for use in the methods
 table).&lt;/p&gt;
 
-&lt;p&gt;The pitfall associated with this approach is that the execution time of your
-program, you could accumulate many symbols that you no longer need, thus
-leaking memory. This is particularly problematic for programs that has a long
+&lt;p&gt;The pitfall associated with this approach is that over the execution time of
+your program, you could accumulate many symbols that you no longer need, thus
+leaking memory. This is particularly problematic for programs that have a long
 lifetime and handles a lot of user inputs, as it has the potential to be
 exploited by malicious users and cause DOS attacks.&lt;/p&gt;
 
 &lt;p&gt;Web applications written in Ruby (e.g. Rails applications) happens to fit this
 description perfectly. For example, the following piece of pseudo-code is bad:&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;ruby
+&lt;p&gt;&lt;code&gt;
 value = store.fetch(params[:key].to_sym)
 &lt;/code&gt;&lt;/p&gt;
 
@@ -226,19 +229,21 @@ becomes immortal symbols. Because they are marked as “uncollectable”, their
 memory address becomes their IDs and hence they can be used in C code. For
 example, consider this piece of code:&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;ruby
+&lt;pre&gt;
+```
 define_method(method_name.to_sym) do
   # ...
 end
-&lt;/code&gt;&lt;/p&gt;
+```
+&lt;/pre&gt;
 
 &lt;p&gt;Here, the runtime first allocates a mortal symbol (from &lt;code&gt;method_name.to_sym&lt;/code&gt;)
 that can be garbage collected. As it is passed into &lt;code&gt;define_method&lt;/code&gt;, however,
 the runtime would convert it into a immortal symbol so that it could be used in
 the methods table. Once this happens, the symbol can no longer be garbage
 collected – it is impossible to convert an immortal symbol back into a mortal
-symbol. (Also, if an immortal symbol with the same name has previously been
-allocated from a different place, the same symbol will be reused here instead.)&lt;/p&gt;
+symbol. Also, if an immortal symbol with the same name has previously been
+allocated from a different place, the same symbol will be reused here instead.&lt;/p&gt;
 
 &lt;p&gt;While this approach eliminates a entire class of potential bugs, it also
 introduces some new pitfalls. In particular, if a dynamic symbol (mortal by
@@ -265,11 +270,11 @@ and/or C-extension.&lt;/p&gt;
 did two different talks on how transactional memory can benefit the Ruby
 language.&lt;/p&gt;
 
-&lt;p&gt;Transactional memory is similar to how a database work. It allows the programmer
-to place a block of code inside a memory transaction, during which all the
-memory operations will be perceived as a single atomic operation from other
-threads (or fails and the operations are rolledback and aren’t observable from
-outside of the thread that requested the transaction).&lt;/p&gt;
+&lt;p&gt;Transactional memory is similar to how a database transaction works. It allows
+the programmer to place a block of code inside a memory transaction, during
+which all memory operations will be perceived as a single atomic operation from
+other threads (or fails and the operations are rolledback and aren’t observable
+from outside of the thread that requested the transaction).&lt;/p&gt;
 
 &lt;p&gt;@ReiOdaira’s talk focuses on his research at IBM that utilize hardware-based
 transactional memory to reduce Ruby’s dependency on the global VM lock (GVL)
