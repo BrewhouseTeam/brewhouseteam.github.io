@@ -23,6 +23,10 @@ body {
   line-height: 1.5em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 782px) {
+    font-size: 14px;
+  }
 }
 
 a {
@@ -403,8 +407,11 @@ img.team-photo {
     color: #555;
 
     @media (max-width: 782px) {
-      font-size: 12px;
+      font-size: 16px;
     }
+  }
+  .team-member-name small {
+    display: block;
   }
   .social-buttons {
     display: inline;
@@ -415,6 +422,9 @@ img.team-photo {
       position: relative;
       float: right;
     }
+  }
+  .bio p {
+    margin-bottom: 30px;
   }
 }
 
