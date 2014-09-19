@@ -1,0 +1,465 @@
+
+
+<!-- Nice to see you took a peek here, hello -->
+<!-- send us an email at hello at brewhouse dot io if you want to talk tech -->
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+
+<html lang="en-us" class="blog">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# business: http://ogp.me/ns/business#">
+    <title>Ruby Kaigi 2014: Day 2 - the brew pub - brewhouse software blog</title>
+    <meta property="og:title" content="Ruby Kaigi 2014: Day 2 - the brew pub - brewhouse software blog">
+
+    <link rel="alternate" type="application/atom+xml" href="/blog/index.xml" title="The Brew Pub atom feed">
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="author" content="brewhouse.io">
+<meta name="copyright" content="brewhouse software inc. 2014">
+<meta name="robots" content="INDEX, FOLLOW">
+
+<meta property="og:site_name" content="brewhouse">
+<meta property="og:url" content="http://brewhouse.io/blog/2014/09/19/ruby-kaigi-2014-day-2.html">
+<meta property="og:type" content="business.business">
+<meta property="og:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png">
+<meta property="og:description" content="dedicated to building superb software">
+<meta property="business:contact_data:street_address" content="55 E Cordova St - Unit 604">
+<meta property="business:contact_data:locality" content="Vancouver, BC">
+<meta property="business:contact_data:postal_code" content="V6A 0A5">
+<meta property="business:contact_data:country_name" content="Canada">
+<meta property="place:location:latitude" content="49.282471">
+<meta property="place:location:longitude" content="-123.103046">
+
+<link rel="shortcut icon" href="/images/icons/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
+
+<link href="http://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" href="/assets/application-68e3557633887359967668922102e356.css">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css">
+
+  </head>
+  <body class="on-post">
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46725009-2', 'brewhouse.io');
+  ga('send', 'pageview');
+
+</script>
+
+
+    <nav id="navbar-blog" class="navbar navbar-default navbar-main" role="navigation">
+      <a id="brewhouse-logo" class="navbar-brand internal" rel="home" href="/" title="brewhouse logo"><img src="/images/brewhouse-logo-blog-2.png"></a>
+    </nav>
+
+    <div class="container main">
+      <div id="banner-blog" class="row">
+  <div class="col-xs-12 img-full-width">
+    <img src="/images/blog-background.jpg" class="img-responsive">
+
+    <section>
+      <h1 id="brew-pub-start">
+        <a href="http://brewhouse.io/blog/">The Brew Pub</a>
+      </h1>
+      <h3>
+        Writings from <a href="http://brewhouse.io">brewhouse.io</a>, makers of <a href="https://goodbits.io?utm_source=brewhouse-blog">goodbits.io</a> and stellar apps for our clients.
+      </h3>
+    </section>
+  </div>
+</div>
+
+
+      
+
+<div id="article-start" class="content">
+  <div class="row">
+    <div class="col-xs-12 col-sm-9">
+
+      <div class="post">
+        <div class="social-actions">
+          <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io/blog/2014/09/19/ruby-kaigi-2014-day-2.html" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="">Tweet</a>
+        </div>
+
+        <h1>
+          Ruby Kaigi 2014: Day 2
+        </h1>
+        <p class="meta">
+          
+            <span>
+              <img class="img-circle img-author" src="//www.gravatar.com/avatar/560f36d69534a1a58d0f12dad39b0396?s=135" alt="A photo of Godfrey Chan" width="55">
+
+              <a href="http://twitter.com/chancancode" target="_blank">Godfrey Chan</a> wrote this on 19 Sep 2014
+            </span>
+          
+        </p>
+
+        <p>
+  <a href="/images/posts/ruby-kaigi-2014/japan.jpg">
+    <img class="img-responsive" alt="I'm in Japan!" src="/images/posts/ruby-kaigi-2014/japan.jpg" />
+  </a>
+</p>
+
+<p>ZOMG! I’m in Japan!</p>
+
+<p><img class="img-responsive img-right" alt="My name tag" src="/images/posts/ruby-kaigi-2014/name-tag.jpg" /></p>
+
+<p>This year, I am fortunate enough to be one of the 750 attendees at Ruby Kaigi in
+Tokyo. If you are among one of them, I’d love to meet you and chat about Ruby,
+Rails, etc. Just look for my name tag!</p>
+
+<p>For those of you who couldn’t make it this year, don’t feel left out! I’ll be
+writing a three-part blog post (one for each day) to cover the things I’ve
+learned here, so you can watch the talks online that interestes you when they
+become available. (You can also watch the <a href="http://rubykaigi.org/2014">live streams</a>!)</p>
+
+<p>Without further to do, here is day 2 at Ruby Kaigi!</p>
+
+<h2 id="matzs-keynote">Matz’s Keynote</h2>
+
+<p>
+  <a href="/images/posts/ruby-kaigi-2014/matz.jpg">
+    <img class="img-responsive" alt="It's Matz!" src="/images/posts/ruby-kaigi-2014/matz.jpg" />
+  </a>
+</p>
+
+<p><a href="https://twitter.com/yukihiro_matz">Matsumoto-san</a> gave a keynote address in the
+morning to kick off the second day of Ruby Kaigi 2014.</p>
+
+<p>In the first half of the keynote, Matz did a very detailed analysis of all the
+keynotes he has given in previous years at Ruby Kaigi, RubyConf and elsewhere –
+a meta-keynote, perhaps. Matz recounted all the new ideas that he proposed at
+the previous keynotes vs when they were actually implemented and shipped, if at
+all.</p>
+
+<p>For example, Matz talked about “staby lambda” (i.e. <code>-&gt;{ ... }</code>) in the RubyConf
+2005 keynote and was implemented in Ruby 1.9 that shipped in 2007. (Matz
+recalled that the feature was initially met with some backlash when he first
+proposed it, and turned out to be one of the most liked features when it was
+finally shipped.) Similarly, keyword arguments and a redesign of local variables
+scoping was proposed in 2004. The former made it 9 years later in Ruby 2.0, and
+the latter was ultimately abandoned due to backwards-compatibility concerns.</p>
+
+<p>As you can see, some of these ideas took a long time to complete. Some of them
+never made it. So far, 7 out of the 22 ideas that were proposed still haven’t
+been implemented, yielding a “false rate” of ~32%.</p>
+
+<p>Perhaps partly due to this, Matz took a break from announcing new feature ideas
+in his keynotes from 2011 to 2014. Meanwhile, the Ruby core team has focused on
+stabilizing the 2.x release series (and have been doing that amazingly well).</p>
+
+<p>However, Matz said that “OSS community is like a shark, must move forward or we
+will die”. With Ruby 2.x cruising along a stable and steady trajectory, Matz
+thinks that it’s about time to dream big again and start thinking about the
+features that would ultimately lead us to Ruby 3.0. This might take 10 years
+again, but we must fuel ourselves with the desire to move forward and without it
+Ruby 3.0 will not happen.</p>
+
+<p>With that said, Matz proposed some grand ideas: concurrency, a JIT compiler
+(and potentially adopt the LLVM infrastructure) and static typing.</p>
+
+<h3 id="static-typing">Static Typing</h3>
+
+<p>The first two of those probably aren’t very controversial, but <em>static typing</em>
+…?!</p>
+
+<p>Well, all the new kids in the street these days, like Scala, TypeScript, Dart
+and Go, they are all static typed language, so why not Ruby?</p>
+
+<p>This was proposed by Davide D’Agostino as feature <a href="https://bugs.ruby-lang.org/issues/9999">#9999</a>
+under the name “Type Annotation”. It looks like this:</p>
+
+<pre>def connect(r -&gt; Stream, c -&gt; Client) -&gt; Fiber
+  ...
+end</pre>
+
+<p>It turns out that our long-time rival Python has a similar proposal under PEP
+<a href="http://legacy.python.org/dev/peps/pep-3107/">#3107</a> called Function Annotations.
+It looks like this:</p>
+
+<pre>def connect(r: Stream, c: Client) -&gt; Fiber:
+  ...</pre>
+
+<p>As you can see, the two proposals are quite similar in their syntax (the Python
+syntax conflicts with keyword arguments in Ruby, so the <code>-&gt;</code> form was proposed).</p>
+
+<p>It is worth noting that in the Python proposal, this is purely a form of
+documentation – the specification does not require the implementations to
+enforce the types at runtime (Dart doesn’t either). There is also an optional
+type checker called “mypy” that uses these annotations to perform static type
+checking.</p>
+
+<h3 id="why-static-typing">Why static typing?</h3>
+
+<p>Before going any deeper into this, perhaps it would be worthwhile to understand
+the problems that static typing is supposed to solve. The follow reasons are
+usually thrown around to support static typing:</p>
+
+<ul>
+  <li><em>Performance</em>: the type information will allow the implementations to perform
+more optimization which would lead to increased performance.</li>
+  <li><em>Compile-time check</em>: to discover bugs early on.</li>
+  <li><em>Documentation</em>: the type information is important to the consumer of the APIs
+so it is better to have this explicitly conveyed rather than implied from the
+method/argument names and so on.</li>
+</ul>
+
+<h4 id="performance">Performance</h4>
+
+<p>While no one would complain about a faster Ruby, Matz noted that we don’t really
+need static typing for good performance. For example, V8 and LuaJIT are both
+highly performant VMs for dynamically typed languages (JavaScript and Lua,
+respectively).</p>
+
+<p>While it is true that techniques such as specialization can help improve
+performance, it is possible to achieve that to a certain degree without explicit
+type information, and we still haven’t explored that (and many other kind of
+possible optimizations) yet.</p>
+
+<p>So overall, performance alone is not a good reason for introducing static typing
+to Ruby.</p>
+
+<h4 id="compile-time-check">Compile-time check</h4>
+
+<p>Having the type information available allows for static analysis of the code and
+would make refactoring easier as well.</p>
+
+<p>(Matz made a comment about test coverage here, but after translation I wasn’t
+sure if it was sarcastic or not :P)</p>
+
+<h4 id="documentation">Documentation</h4>
+
+<p>Matz thinks that there is a value to the self-documenting nature of the type
+annotation. It is much better than comments, because it will not get out of sync
+with the code and contradicts how the code actually works. Furthermore, when
+learning to use a library or when debugging <a href="https://twitter.com/pcreux/status/481154970364825600">some code that you didn’t write
+(this morning)</a>, it spares
+you from having to digging deep into the internals just to figure out what the
+method returns.</p>
+
+<p>This point is the primary intention of PEP #3107 as well.</p>
+
+<h3 id="why-not-static-typing">Why not static typing?</h3>
+
+<p>With all that said, are there any reasons to not introduce static typing? Matz
+gave a few things to consider:</p>
+
+<ul>
+  <li>It works™ without it</li>
+  <li>It is against duck typing</li>
+  <li>It will be optional</li>
+  <li>DRY</li>
+</ul>
+
+<h4 id="duck-typing">Duck typing</h4>
+
+<p>Perhaps one of the biggest drawback with static typing is that it works against
+duck typing. Currently, it is possible to pass a string-like object that doesn’t
+inherit from <code>String</code>. With static typing, this is not possible.</p>
+
+<p>A Ruby without duck typing… is that really still Ruby?</p>
+
+<h4 id="optional">Optional</h4>
+
+<p>Naturally, if such a feature is introduced, it will have to be optional to
+maintain backwards compatibility with existing code. However, Matz asserts that
+optional typing has no use as the compiler’s hands are tied as soon as you call
+into an untyped method. (TypeScript has the same problem.)</p>
+
+<h4 id="dry">DRY</h4>
+
+<p>Rubist, especially Rails developers, like to avoid duplication. To Matz, the
+type information seems like a lot of duplication (between the code and the
+declaration, a problem that is more evident in small functions). Matz hates
+writing types.</p>
+
+<h3 id="soft-typing--type-inference">Soft-typing / Type inference</h3>
+
+<p>Matz also mentioned some a related technique that is perhaps more suitable for
+Ruby.</p>
+
+<p>Soft-typing is a kind of best-effort type checker that works based on the code
+structure and duck typing, so no declaration is required.</p>
+
+<p>For example, consider the follow code:</p>
+
+<pre>a = 1 # type of a is integer
+
+def foo(a)
+  print a.to_int
+end
+
+foo(1) # OK: 1 has to_int
+food("a") # NG: "a" doesn't have to_int</pre>
+
+<p>As you can see, the compiler can deduce from the code structure that anything
+passed into <code>foo</code> must respond to <code>to_int</code> and can reject anything that doesn’t
+have that method.</p>
+
+<p>In this case, a “type” is really a represented by classes as well as a set of
+methods (name + aguments type + return value type). This is going to be very
+difficult to do in Ruby because of dynamic requires (<code>require some_variable</code>),
+dynamicly defined methods (<code>defined_method</code>) and meta-programming features like
+<code>method_missing</code>.</p>
+
+<h3 id="subset">Subset</h3>
+
+<p>It is possible to target this feature for just a subset of the Ruby language
+(for example, exclude programs that uses dynamic <code>require</code>s). This fits nicely
+into Ruby’s philosophy as backwards compatibility is valued very highly by Matz
+and the Ruby team.</p>
+
+<p>With that, we will have “two languages in one” – a soft-typed language (the
+“subset”) and the dynamically typed language (the “superset”). The use of the
+former will be highly encouraged, but it could fall back into the superset if
+necessary.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>All of these things mentioned here are just ideas that might or might not
+happen. However, it is time to start building new things that would pave the way
+to Ruby 3.0.</p>
+
+<p>You can read more about this in Matz interview in the next volume of the Japan
+Linux magazine. I highly recommend that you watch this talk when it becomes
+available!</p>
+
+<h2 id="other-talks">Other talks</h2>
+
+<p>Besides Matz’s keynote, there are many other talks worth watching too. Here are
+some of the talks I attended today:</p>
+
+<ul>
+  <li>
+    <p><strong>A Just in Time compiler for CRuby</strong></p>
+
+    <p>In this talk, <a href="https://twitter.com/imasahiro">@imasahiro</a> showed us how he
+built an experimental JIT compiler called <a href="https://github.com/imasahiro/rujit">RuJIT</a>.</p>
+
+    <p><em>RuJIT</em> is a Trace-based JIT compiler, similar to the approach taken by
+Firefox’s JS VM. It is based on the current version of CRuby, and resulted in
+~2-5X speedup compared to trunk (and up to 100X in some cases).</p>
+
+    <p>In his talk, @imasahiro covered the details of his design, so if this sounds
+interesting to you, definitely go catch it online!</p>
+  </li>
+  <li>
+    <p><strong>Archeology of Ruby: Removed Features</strong></p>
+
+    <p>This is a short (and sweet!) talk from <a href="https://twitter.com/znz">@znz</a> that
+tells us about the history of Ruby by going through the features that were
+removed from the Ruby language.</p>
+
+    <p>Attending this talk was like learning about a city’s history in a museum. If
+that’s something you enjoy doing, I think you will probably like this talk
+too!</p>
+  </li>
+  <li>
+    <p><strong>Going the distance</strong></p>
+
+    <p><a href="https://twitter.com/schneems">@schneems</a> talked about how he learned to use
+the Levenshtein distance algorithm to solve his typo problem, which resulted
+in a <a href="https://github.com/rails/rails/pull/15497">pull request</a> to Rails that
+gives helpful suggestions when you mistyped a command.</p>
+
+    <p>If you always wondered what “algorithms” are about and were afraid to learn
+them, you should watch this talk!</p>
+  </li>
+</ul>
+
+<h2 id="wrapping-up">Wrapping Up</h2>
+
+<p>That about wraps up my notes for Day 2 of Ruby Kaigi 2014. Of course, there are
+many other talks that are equally interesting. I encourage you to check out the
+<a href="http://rubykaigi.org/2014/schedule">conference schedule</a> for a full list of
+talks.</p>
+
+<p>Stay tuned for part 3!</p>
+
+
+        <div class="mailchimp-form text-center">
+          <p>
+            Enter your email below and receive more from the BrewPub:
+          </p>
+          <!-- Begin MailChimp Signup Form -->
+          <link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+          <div id="mc_embed_signup" class="row">
+            <form action="http://brewhouse.us8.list-manage.com/subscribe/post?u=c524f6473f5901cae1230a052&amp;id=14f9de4be1" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+
+              <div class="col-sm-8">
+                <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required style="width: 100%; margin: 0 0 4% 0">
+              </div>
+              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+              <div style="position: absolute; left: -5000px;">
+                <input type="text" name="b_c524f6473f5901cae1230a052_14f9de4be1" value="">
+              </div>
+
+              <div class="col-sm-4 subscribe-button">
+                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+              </div>
+            </form>
+          </div>
+          <!--End mc_embed_signup-->
+        </div>
+
+        <div id="disqus_thread"></div>
+
+        <!-- disqus -->
+        <script type="text/javascript">
+            var disqus_shortname = 'brewhouse';
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        <!-- /disqus -->
+
+      </div><!-- /post -->
+
+    </div>
+  </div><!-- /row -->
+</div><!-- /content-->
+
+<script>
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+</script>
+
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-11 col-xs-offset-1">
+            <p>
+              &copy; 2014 <a href="http://brewhouse.io">brewhouse software, inc.</a>
+            </p>
+          </div><!--col-xs-12 -->
+        </div><!-- row -->
+      </div><!-- container -->
+    </footer>
+
+    <script src="/assets/app-d2b50542eb2234dffdd5932a70b4af3b.js"></script>
+  </body>
+</html>

@@ -3,12 +3,303 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2014-09-19T09:15:23+09:00</updated>
+    <updated>2014-09-20T07:20:46+09:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
         <email>hello@brewhouse.io</email>
     </author>
+    
+    
+      <entry>
+          <title>Ruby Kaigi 2014: Day 2</title>
+          <link href="http://brewhouse.io/blog/2014/09/19/ruby-kaigi-2014-day-2.html"/>
+          <updated>2014-09-19T11:00:00+09:00</updated>
+          <id>http://brewhouse.io/blog/2014/09/19/ruby-kaigi-2014-day-2</id>
+          <content type="html">&lt;p&gt;
+  &lt;a href=&quot;/images/posts/ruby-kaigi-2014/japan.jpg&quot;&gt;
+    &lt;img class=&quot;img-responsive&quot; alt=&quot;I&#39;m in Japan!&quot; src=&quot;/images/posts/ruby-kaigi-2014/japan.jpg&quot; /&gt;
+  &lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;ZOMG! I’m in Japan!&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;img-responsive img-right&quot; alt=&quot;My name tag&quot; src=&quot;/images/posts/ruby-kaigi-2014/name-tag.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This year, I am fortunate enough to be one of the 750 attendees at Ruby Kaigi in
+Tokyo. If you are among one of them, I’d love to meet you and chat about Ruby,
+Rails, etc. Just look for my name tag!&lt;/p&gt;
+
+&lt;p&gt;For those of you who couldn’t make it this year, don’t feel left out! I’ll be
+writing a three-part blog post (one for each day) to cover the things I’ve
+learned here, so you can watch the talks online that interestes you when they
+become available. (You can also watch the &lt;a href=&quot;http://rubykaigi.org/2014&quot;&gt;live streams&lt;/a&gt;!)&lt;/p&gt;
+
+&lt;p&gt;Without further to do, here is day 2 at Ruby Kaigi!&lt;/p&gt;
+
+&lt;h2 id=&quot;matzs-keynote&quot;&gt;Matz’s Keynote&lt;/h2&gt;
+
+&lt;p&gt;
+  &lt;a href=&quot;/images/posts/ruby-kaigi-2014/matz.jpg&quot;&gt;
+    &lt;img class=&quot;img-responsive&quot; alt=&quot;It&#39;s Matz!&quot; src=&quot;/images/posts/ruby-kaigi-2014/matz.jpg&quot; /&gt;
+  &lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/yukihiro_matz&quot;&gt;Matsumoto-san&lt;/a&gt; gave a keynote address in the
+morning to kick off the second day of Ruby Kaigi 2014.&lt;/p&gt;
+
+&lt;p&gt;In the first half of the keynote, Matz did a very detailed analysis of all the
+keynotes he has given in previous years at Ruby Kaigi, RubyConf and elsewhere –
+a meta-keynote, perhaps. Matz recounted all the new ideas that he proposed at
+the previous keynotes vs when they were actually implemented and shipped, if at
+all.&lt;/p&gt;
+
+&lt;p&gt;For example, Matz talked about “staby lambda” (i.e. &lt;code&gt;-&amp;gt;{ ... }&lt;/code&gt;) in the RubyConf
+2005 keynote and was implemented in Ruby 1.9 that shipped in 2007. (Matz
+recalled that the feature was initially met with some backlash when he first
+proposed it, and turned out to be one of the most liked features when it was
+finally shipped.) Similarly, keyword arguments and a redesign of local variables
+scoping was proposed in 2004. The former made it 9 years later in Ruby 2.0, and
+the latter was ultimately abandoned due to backwards-compatibility concerns.&lt;/p&gt;
+
+&lt;p&gt;As you can see, some of these ideas took a long time to complete. Some of them
+never made it. So far, 7 out of the 22 ideas that were proposed still haven’t
+been implemented, yielding a “false rate” of ~32%.&lt;/p&gt;
+
+&lt;p&gt;Perhaps partly due to this, Matz took a break from announcing new feature ideas
+in his keynotes from 2011 to 2014. Meanwhile, the Ruby core team has focused on
+stabilizing the 2.x release series (and have been doing that amazingly well).&lt;/p&gt;
+
+&lt;p&gt;However, Matz said that “OSS community is like a shark, must move forward or we
+will die”. With Ruby 2.x cruising along a stable and steady trajectory, Matz
+thinks that it’s about time to dream big again and start thinking about the
+features that would ultimately lead us to Ruby 3.0. This might take 10 years
+again, but we must fuel ourselves with the desire to move forward and without it
+Ruby 3.0 will not happen.&lt;/p&gt;
+
+&lt;p&gt;With that said, Matz proposed some grand ideas: concurrency, a JIT compiler
+(and potentially adopt the LLVM infrastructure) and static typing.&lt;/p&gt;
+
+&lt;h3 id=&quot;static-typing&quot;&gt;Static Typing&lt;/h3&gt;
+
+&lt;p&gt;The first two of those probably aren’t very controversial, but &lt;em&gt;static typing&lt;/em&gt;
+…?!&lt;/p&gt;
+
+&lt;p&gt;Well, all the new kids in the street these days, like Scala, TypeScript, Dart
+and Go, they are all static typed language, so why not Ruby?&lt;/p&gt;
+
+&lt;p&gt;This was proposed by Davide D’Agostino as feature &lt;a href=&quot;https://bugs.ruby-lang.org/issues/9999&quot;&gt;#9999&lt;/a&gt;
+under the name “Type Annotation”. It looks like this:&lt;/p&gt;
+
+&lt;pre&gt;def connect(r -&amp;gt; Stream, c -&amp;gt; Client) -&amp;gt; Fiber
+  ...
+end&lt;/pre&gt;
+
+&lt;p&gt;It turns out that our long-time rival Python has a similar proposal under PEP
+&lt;a href=&quot;http://legacy.python.org/dev/peps/pep-3107/&quot;&gt;#3107&lt;/a&gt; called Function Annotations.
+It looks like this:&lt;/p&gt;
+
+&lt;pre&gt;def connect(r: Stream, c: Client) -&amp;gt; Fiber:
+  ...&lt;/pre&gt;
+
+&lt;p&gt;As you can see, the two proposals are quite similar in their syntax (the Python
+syntax conflicts with keyword arguments in Ruby, so the &lt;code&gt;-&amp;gt;&lt;/code&gt; form was proposed).&lt;/p&gt;
+
+&lt;p&gt;It is worth noting that in the Python proposal, this is purely a form of
+documentation – the specification does not require the implementations to
+enforce the types at runtime (Dart doesn’t either). There is also an optional
+type checker called “mypy” that uses these annotations to perform static type
+checking.&lt;/p&gt;
+
+&lt;h3 id=&quot;why-static-typing&quot;&gt;Why static typing?&lt;/h3&gt;
+
+&lt;p&gt;Before going any deeper into this, perhaps it would be worthwhile to understand
+the problems that static typing is supposed to solve. The follow reasons are
+usually thrown around to support static typing:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;Performance&lt;/em&gt;: the type information will allow the implementations to perform
+more optimization which would lead to increased performance.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Compile-time check&lt;/em&gt;: to discover bugs early on.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Documentation&lt;/em&gt;: the type information is important to the consumer of the APIs
+so it is better to have this explicitly conveyed rather than implied from the
+method/argument names and so on.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;performance&quot;&gt;Performance&lt;/h4&gt;
+
+&lt;p&gt;While no one would complain about a faster Ruby, Matz noted that we don’t really
+need static typing for good performance. For example, V8 and LuaJIT are both
+highly performant VMs for dynamically typed languages (JavaScript and Lua,
+respectively).&lt;/p&gt;
+
+&lt;p&gt;While it is true that techniques such as specialization can help improve
+performance, it is possible to achieve that to a certain degree without explicit
+type information, and we still haven’t explored that (and many other kind of
+possible optimizations) yet.&lt;/p&gt;
+
+&lt;p&gt;So overall, performance alone is not a good reason for introducing static typing
+to Ruby.&lt;/p&gt;
+
+&lt;h4 id=&quot;compile-time-check&quot;&gt;Compile-time check&lt;/h4&gt;
+
+&lt;p&gt;Having the type information available allows for static analysis of the code and
+would make refactoring easier as well.&lt;/p&gt;
+
+&lt;p&gt;(Matz made a comment about test coverage here, but after translation I wasn’t
+sure if it was sarcastic or not :P)&lt;/p&gt;
+
+&lt;h4 id=&quot;documentation&quot;&gt;Documentation&lt;/h4&gt;
+
+&lt;p&gt;Matz thinks that there is a value to the self-documenting nature of the type
+annotation. It is much better than comments, because it will not get out of sync
+with the code and contradicts how the code actually works. Furthermore, when
+learning to use a library or when debugging &lt;a href=&quot;https://twitter.com/pcreux/status/481154970364825600&quot;&gt;some code that you didn’t write
+(this morning)&lt;/a&gt;, it spares
+you from having to digging deep into the internals just to figure out what the
+method returns.&lt;/p&gt;
+
+&lt;p&gt;This point is the primary intention of PEP #3107 as well.&lt;/p&gt;
+
+&lt;h3 id=&quot;why-not-static-typing&quot;&gt;Why not static typing?&lt;/h3&gt;
+
+&lt;p&gt;With all that said, are there any reasons to not introduce static typing? Matz
+gave a few things to consider:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;It works™ without it&lt;/li&gt;
+  &lt;li&gt;It is against duck typing&lt;/li&gt;
+  &lt;li&gt;It will be optional&lt;/li&gt;
+  &lt;li&gt;DRY&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;duck-typing&quot;&gt;Duck typing&lt;/h4&gt;
+
+&lt;p&gt;Perhaps one of the biggest drawback with static typing is that it works against
+duck typing. Currently, it is possible to pass a string-like object that doesn’t
+inherit from &lt;code&gt;String&lt;/code&gt;. With static typing, this is not possible.&lt;/p&gt;
+
+&lt;p&gt;A Ruby without duck typing… is that really still Ruby?&lt;/p&gt;
+
+&lt;h4 id=&quot;optional&quot;&gt;Optional&lt;/h4&gt;
+
+&lt;p&gt;Naturally, if such a feature is introduced, it will have to be optional to
+maintain backwards compatibility with existing code. However, Matz asserts that
+optional typing has no use as the compiler’s hands are tied as soon as you call
+into an untyped method. (TypeScript has the same problem.)&lt;/p&gt;
+
+&lt;h4 id=&quot;dry&quot;&gt;DRY&lt;/h4&gt;
+
+&lt;p&gt;Rubist, especially Rails developers, like to avoid duplication. To Matz, the
+type information seems like a lot of duplication (between the code and the
+declaration, a problem that is more evident in small functions). Matz hates
+writing types.&lt;/p&gt;
+
+&lt;h3 id=&quot;soft-typing--type-inference&quot;&gt;Soft-typing / Type inference&lt;/h3&gt;
+
+&lt;p&gt;Matz also mentioned some a related technique that is perhaps more suitable for
+Ruby.&lt;/p&gt;
+
+&lt;p&gt;Soft-typing is a kind of best-effort type checker that works based on the code
+structure and duck typing, so no declaration is required.&lt;/p&gt;
+
+&lt;p&gt;For example, consider the follow code:&lt;/p&gt;
+
+&lt;pre&gt;a = 1 # type of a is integer
+
+def foo(a)
+  print a.to_int
+end
+
+foo(1) # OK: 1 has to_int
+food(&quot;a&quot;) # NG: &quot;a&quot; doesn&#39;t have to_int&lt;/pre&gt;
+
+&lt;p&gt;As you can see, the compiler can deduce from the code structure that anything
+passed into &lt;code&gt;foo&lt;/code&gt; must respond to &lt;code&gt;to_int&lt;/code&gt; and can reject anything that doesn’t
+have that method.&lt;/p&gt;
+
+&lt;p&gt;In this case, a “type” is really a represented by classes as well as a set of
+methods (name + aguments type + return value type). This is going to be very
+difficult to do in Ruby because of dynamic requires (&lt;code&gt;require some_variable&lt;/code&gt;),
+dynamicly defined methods (&lt;code&gt;defined_method&lt;/code&gt;) and meta-programming features like
+&lt;code&gt;method_missing&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;subset&quot;&gt;Subset&lt;/h3&gt;
+
+&lt;p&gt;It is possible to target this feature for just a subset of the Ruby language
+(for example, exclude programs that uses dynamic &lt;code&gt;require&lt;/code&gt;s). This fits nicely
+into Ruby’s philosophy as backwards compatibility is valued very highly by Matz
+and the Ruby team.&lt;/p&gt;
+
+&lt;p&gt;With that, we will have “two languages in one” – a soft-typed language (the
+“subset”) and the dynamically typed language (the “superset”). The use of the
+former will be highly encouraged, but it could fall back into the superset if
+necessary.&lt;/p&gt;
+
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;All of these things mentioned here are just ideas that might or might not
+happen. However, it is time to start building new things that would pave the way
+to Ruby 3.0.&lt;/p&gt;
+
+&lt;p&gt;You can read more about this in Matz interview in the next volume of the Japan
+Linux magazine. I highly recommend that you watch this talk when it becomes
+available!&lt;/p&gt;
+
+&lt;h2 id=&quot;other-talks&quot;&gt;Other talks&lt;/h2&gt;
+
+&lt;p&gt;Besides Matz’s keynote, there are many other talks worth watching too. Here are
+some of the talks I attended today:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;A Just in Time compiler for CRuby&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;In this talk, &lt;a href=&quot;https://twitter.com/imasahiro&quot;&gt;@imasahiro&lt;/a&gt; showed us how he
+built an experimental JIT compiler called &lt;a href=&quot;https://github.com/imasahiro/rujit&quot;&gt;RuJIT&lt;/a&gt;.&lt;/p&gt;
+
+    &lt;p&gt;&lt;em&gt;RuJIT&lt;/em&gt; is a Trace-based JIT compiler, similar to the approach taken by
+Firefox’s JS VM. It is based on the current version of CRuby, and resulted in
+~2-5X speedup compared to trunk (and up to 100X in some cases).&lt;/p&gt;
+
+    &lt;p&gt;In his talk, @imasahiro covered the details of his design, so if this sounds
+interesting to you, definitely go catch it online!&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Archeology of Ruby: Removed Features&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;This is a short (and sweet!) talk from &lt;a href=&quot;https://twitter.com/znz&quot;&gt;@znz&lt;/a&gt; that
+tells us about the history of Ruby by going through the features that were
+removed from the Ruby language.&lt;/p&gt;
+
+    &lt;p&gt;Attending this talk was like learning about a city’s history in a museum. If
+that’s something you enjoy doing, I think you will probably like this talk
+too!&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Going the distance&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;https://twitter.com/schneems&quot;&gt;@schneems&lt;/a&gt; talked about how he learned to use
+the Levenshtein distance algorithm to solve his typo problem, which resulted
+in a &lt;a href=&quot;https://github.com/rails/rails/pull/15497&quot;&gt;pull request&lt;/a&gt; to Rails that
+gives helpful suggestions when you mistyped a command.&lt;/p&gt;
+
+    &lt;p&gt;If you always wondered what “algorithms” are about and were afraid to learn
+them, you should watch this talk!&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;wrapping-up&quot;&gt;Wrapping Up&lt;/h2&gt;
+
+&lt;p&gt;That about wraps up my notes for Day 2 of Ruby Kaigi 2014. Of course, there are
+many other talks that are equally interesting. I encourage you to check out the
+&lt;a href=&quot;http://rubykaigi.org/2014/schedule&quot;&gt;conference schedule&lt;/a&gt; for a full list of
+talks.&lt;/p&gt;
+
+&lt;p&gt;Stay tuned for part 3!&lt;/p&gt;
+</content>
+      </entry>
+    
     
     
       <entry>
