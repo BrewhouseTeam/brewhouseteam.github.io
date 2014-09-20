@@ -707,6 +707,58 @@ img.team-photo {
   }
 }
 
+// Pagination
+html.blog {
+  .pagination {
+    position: relative;
+    width: 80%;
+    max-width: 730px;
+    margin: 4rem auto;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.3rem;
+    color: #9EABB3;
+    text-align: center;
+  }
+
+  .pagination a {
+    // color: #9EABB3;
+  }
+
+  .pagination a:hover {
+    text-decoration: none;
+  }
+
+  /* Push the previous/next links out to the left/right */
+  .older-posts,
+  .newer-posts {
+    position: absolute;
+    display: inline-block;
+    padding: 0 15px;
+    border: #47A4C2 1px solid;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: border ease 0.3s;
+  }
+
+  .older-posts {
+    right: 0;
+  }
+
+  .page-number {
+    display: inline-block;
+    padding: 2px 0;
+  }
+
+  .newer-posts {
+    left: 0;
+  }
+
+  .older-posts:hover,
+  .newer-posts:hover {
+    border-color: #F39914;
+  }
+}
+
 @media (max-width: 767px) {
   body.on-post,
   body.on-blog {

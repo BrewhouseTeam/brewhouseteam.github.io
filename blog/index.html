@@ -4,35 +4,55 @@ layout: blog
 
 <div class="content">
 
-  {% for post in site.posts %}
-    {% assign author = site.data.authors[post.author] %}
+  {% for post in paginator.posts %}
+    {% unless post.draft %}
+      {% assign author = site.data.authors[post.author] %}
 
-    <div class="row">
-      <div class="col-xs-12 col-sm-9">
+      <div class="row">
+        <div class="col-xs-12 col-sm-9">
 
-        <div class="post">
-          <h1>
-            <a href="{{ post.url }}">{{ post.title }}</a>
-          </h1>
-          <p class="meta">
-            {% if author %}
-              <span>
-                <img class="img-circle img-author" src="{{ author.email | to_gravatar }}" alt="A photo of {{ author.name }}" width="55">
+          <div class="post">
+            <h1>
+              <a href="{{ post.url }}">{{ post.title }}</a>
+            </h1>
+            <p class="meta">
+              {% if author %}
+                <span>
+                  <img class="img-circle img-author" src="{{ author.email | to_gravatar }}" alt="A photo of {{ author.name }}" width="55">
 
-                <a href="{{ author.web }}" target="_blank">{{ author.name }}</a> wrote this on {{ post.date | date_to_string }}
-              </span>
-            {% endif %}
-          </p>
+                  <a href="{{ author.web }}" target="_blank">{{ author.name }}</a> wrote this on {{ post.date | date_to_string }}
+                </span>
+              {% endif %}
+            </p>
 
-          {{ post.content | truncatewords: 100 }}
+            {{ post.content | truncatewords: 40 }}
 
-          <div class="continue-reading">
-            <a href="{{ post.url }}">Continue reading ...</a>
-          </div>
-        </div><!-- /post -->
+            <div class="continue-reading">
+              <a href="{{ post.url }}">Continue reading ...</a>
+            </div>
+          </div><!-- /post -->
 
-      </div>
-    </div><!-- /row -->
+        </div>
+      </div><!-- /row -->
+    {% endunless %}
   {% endfor %}
+
+  <!-- Pagination links -->
+  <nav class="pagination" role="pagination">
+    {% if paginator.previous_page %}
+      {% if paginator.previous_page == 1 %}
+        <a class="newer-posts" href="/blog/">← Newer Posts</a>
+      {% else %}
+        <a class="newer-posts" href="/blog/page/{{ paginator.previous_page }}">← Newer Posts</a>
+      {% endif %}
+
+    {% endif %}
+
+    <span class="page-number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+
+    {% if paginator.next_page %}
+      <a class="older-posts" href="/blog/page/{{ paginator.next_page }}">Older Posts →</a>
+    {% endif %}
+  </nav>
 
 </div>
