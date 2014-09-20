@@ -17,7 +17,7 @@
 echo "If you're running the jekyll serve command the deploy will not work correctly!\n"
 read -rsp $'Press any key to continue or control-c to cancel...\n';
 
-git co source
+git checkout source
 bundle exec jekyll build
 git add .
 git commit -a -m "auto deploy :boom:"
@@ -30,4 +30,4 @@ cp -r /tmp/_site/* .
 git add .
 git commit -a -m "auto deploy :boom:"
 git push -f origin master
-git co source
+git checkout source
