@@ -5,6 +5,13 @@
   <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# business: http://ogp.me/ns/business#">
     <title>{% if page.title %}{{ page.title }} - {% endif %}the brew pub - brewhouse software blog</title>
     <meta property="og:title" content="{% if page.title %}{{ page.title }} - {% endif %}the brew pub - brewhouse software blog">
+    {% if page.excerpt %}
+      <meta name="description" content="{{ page.content | strip_html | truncatewords: 80}}">
+      <meta name="og:description" content="{{ page.content | strip_html | truncatewords: 80}}">
+    {% else %}
+    <meta name="description" content="Writings from brewhouse.io, makers of goodbits.io and stellar apps for our clients.">
+    <meta property="og:description" content="Writings from brewhouse.io, makers of goodbits.io and stellar apps for our clients.">
+    {% endif %}
 
     <link rel="alternate" type="application/atom+xml" href="/blog/index.xml" title="The Brew Pub atom feed">
 
