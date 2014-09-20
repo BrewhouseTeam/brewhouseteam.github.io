@@ -3,7 +3,7 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2014-09-20T12:00:58+09:00</updated>
+    <updated>2014-09-20T14:58:40+09:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
@@ -240,7 +240,7 @@ available!&lt;/p&gt;
 &lt;h2 id=&quot;other-talks&quot;&gt;Other talks&lt;/h2&gt;
 
 &lt;p&gt;Besides Matz’s keynote, there are many other talks worth watching too. Here are
-some of the talks I attended today:&lt;/p&gt;
+some of the talks I attended today.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -254,7 +254,7 @@ Firefox’s JS VM. It is based on the current version of CRuby, and resulted in
 ~2-5X speedup compared to trunk (and up to 100X in some cases).&lt;/p&gt;
 
     &lt;p&gt;In his talk, @imasahiro covered the details of his design, so if this sounds
-interesting to you, definitely go catch it online!&lt;/p&gt;
+interesting to you, definitely go catch it online when it becomes available.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;strong&gt;Archeology of Ruby: Removed Features&lt;/strong&gt;&lt;/p&gt;
@@ -276,7 +276,7 @@ in a &lt;a href=&quot;https://github.com/rails/rails/pull/15497&quot;&gt;pull re
 gives helpful suggestions when you mistyped a command.&lt;/p&gt;
 
     &lt;p&gt;If you always wondered what “algorithms” are about and were afraid to learn
-them, you should watch this talk!&lt;/p&gt;
+them, this talk is for you!&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
