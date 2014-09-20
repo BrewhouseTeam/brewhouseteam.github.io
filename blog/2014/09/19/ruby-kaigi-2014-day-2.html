@@ -114,25 +114,16 @@
         </p>
 
         <p>
-  <a href="/images/posts/ruby-kaigi-2014/japan.jpg">
-    <img class="img-responsive" alt="I'm in Japan!" src="/images/posts/ruby-kaigi-2014/japan.jpg" />
+  <a href="/images/posts/ruby-kaigi-2014/i-feel-happy.jpg">
+    <img class="img-responsive" alt="I feel happy!" src="/images/posts/ruby-kaigi-2014/i-feel-happy.jpg" />
   </a>
 </p>
 
-<p>ZOMG! I’m in Japan!</p>
+<p>Continuing from <a href="/blog/2014/09/18/ruby-kaigi-2014-day-1">my last post</a>, here is
+day 2 at Ruby Kaigi!</p>
 
-<p><img class="img-responsive img-right" alt="My name tag" src="/images/posts/ruby-kaigi-2014/name-tag.jpg" /></p>
-
-<p>This year, I am fortunate enough to be one of the 750 attendees at Ruby Kaigi in
-Tokyo. If you are among one of them, I’d love to meet you and chat about Ruby,
-Rails, etc. Just look for my name tag!</p>
-
-<p>For those of you who couldn’t make it this year, don’t feel left out! I’ll be
-writing a three-part blog post (one for each day) to cover the things I’ve
-learned here, so you can watch the talks online that interestes you when they
-become available. (You can also watch the <a href="http://rubykaigi.org/2014">live streams</a>!)</p>
-
-<p>Without further to do, here is day 2 at Ruby Kaigi!</p>
+<p>(The talks are being <a href="http://rubykaigi.org/2014">live streamed</a> on the Internet,
+you can find the links at the middle of the Ruby Kaigi homepage.)</p>
 
 <h2 id="matzs-keynote">Matz’s Keynote</h2>
 
@@ -148,13 +139,13 @@ morning to kick off the second day of Ruby Kaigi 2014.</p>
 <p>In the first half of the keynote, Matz did a very detailed analysis of all the
 keynotes he has given in previous years at Ruby Kaigi, RubyConf and elsewhere –
 a meta-keynote, perhaps. Matz recounted all the new ideas that he proposed at
-the previous keynotes vs when they were actually implemented and shipped, if at
+the previous keynotes vs. when they were actually implemented and shipped, if at
 all.</p>
 
 <p>For example, Matz talked about “staby lambda” (i.e. <code>-&gt;{ ... }</code>) in the RubyConf
 2005 keynote and was implemented in Ruby 1.9 that shipped in 2007. (Matz
 recalled that the feature was initially met with some backlash when he first
-proposed it, and turned out to be one of the most liked features when it was
+proposed it but turned out to be one of the most liked features when it was
 finally shipped.) Similarly, keyword arguments and a redesign of local variables
 scoping was proposed in 2004. The former made it 9 years later in Ruby 2.0, and
 the latter was ultimately abandoned due to backwards-compatibility concerns.</p>
@@ -171,7 +162,7 @@ stabilizing the 2.x release series (and have been doing that amazingly well).</p
 will die”. With Ruby 2.x cruising along a stable and steady trajectory, Matz
 thinks that it’s about time to dream big again and start thinking about the
 features that would ultimately lead us to Ruby 3.0. This might take 10 years
-again, but we must fuel ourselves with the desire to move forward and without it
+again, but we must fuel ourselves with the desire to move forward because without it
 Ruby 3.0 will not happen.</p>
 
 <p>With that said, Matz proposed some grand ideas: concurrency, a JIT compiler
@@ -253,7 +244,7 @@ annotation. It is much better than comments, because it will not get out of sync
 with the code and contradicts how the code actually works. Furthermore, when
 learning to use a library or when debugging <a href="https://twitter.com/pcreux/status/481154970364825600">some code that you didn’t write
 (this morning)</a>, it spares
-you from having to digging deep into the internals just to figure out what the
+you from having to dig deep into the internals just to figure out what the
 method returns.</p>
 
 <p>This point is the primary intention of PEP #3107 as well.</p>
@@ -294,7 +285,7 @@ writing types.</p>
 
 <h3 id="soft-typing--type-inference">Soft-typing / Type inference</h3>
 
-<p>Matz also mentioned some a related technique that is perhaps more suitable for
+<p>Matz also mentioned a related technique that is perhaps more suitable for
 Ruby.</p>
 
 <p>Soft-typing is a kind of best-effort type checker that works based on the code
@@ -324,7 +315,7 @@ dynamicly defined methods (<code>defined_method</code>) and meta-programming fea
 <h3 id="subset">Subset</h3>
 
 <p>It is possible to target this feature for just a subset of the Ruby language
-(for example, exclude programs that uses dynamic <code>require</code>s). This fits nicely
+(for example, exclude programs that use dynamic <code>require</code>s). This fits nicely
 into Ruby’s philosophy as backwards compatibility is valued very highly by Matz
 and the Ruby team.</p>
 
