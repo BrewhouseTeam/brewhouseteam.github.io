@@ -2,8 +2,9 @@
 layout: post
 title: "The Evolution of Brewhouse Software"
 author: "lana"
+category:  blog
 date: 2014-09-25 12:48
-draft: true
+draft:true
 tags:
   - tea
   - brew
