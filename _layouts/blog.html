@@ -3,19 +3,44 @@
 {% include doctypes.html %}
 <html lang="en-us" class="blog">
   <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# business: http://ogp.me/ns/business#">
-    <title>{% if page.title %}{{ page.title }} - {% endif %}the brew pub - brewhouse software blog</title>
-    <meta property="og:title" content="{% if page.title %}{{ page.title }} - {% endif %}the brew pub - brewhouse software blog">
-    {% if page.excerpt %}
-      <meta name="description" content="{{ page.content | strip_html | truncatewords: 80}}">
-      <meta name="og:description" content="{{ page.content | strip_html | truncatewords: 80}}">
-    {% else %}
-    <meta name="description" content="Writings from brewhouse.io, makers of goodbits.io and stellar apps for our clients.">
-    <meta property="og:description" content="Writings from brewhouse.io, makers of goodbits.io and stellar apps for our clients.">
-    {% endif %}
+
+    <title>{% if page.title %}{{ page.title }}{% else %}the brew pub - brewhouse software blog{% endif %}</title>
+    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}the brew pub - brewhouse software blog{% endif %}">
+    <meta property="og:site_name" content="brewhouse">
+    <meta property="og:url" content="http://brewhouse.io{{ page.url | replace: 'index.html', ''}}">
+
+    <meta property="og:image" content="{% if page.shared_square_image %}{{ page.shared_square_image }}{% else %}http://brewhouse.io/images/brewhouse-symbol-large-200x200.png{% endif %}">
+
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:site" content="@brewhouseteam" />
+    <meta property="twitter:image" content="{% if page.shared_square_image %}{{ page.shared_square_image }}{% else %}http://brewhouse.io/images/brewhouse-symbol-large-200x200.png{% endif %}">
+    <meta property="twitter:url" content="http://brewhouse.io/{{page.url}}">
 
     <link rel="alternate" type="application/atom+xml" href="/blog/index.xml" title="The Brew Pub atom feed">
 
-    {% include head.html %}
+    {% if page.id %}
+      <meta property="og:type" content="article">
+      <meta property="article:published_time" content="{{page.date | date: "%Y-%m-%d" }}">
+      <meta property="article:author" content="{{ site.data.authors[page.author].name }}">
+
+      <meta property="twitter:title" content="{{ page.title }}">
+
+      {% if page.shared_description %}
+        <meta name="description" content="{{ page.shared_description }}">
+        <meta property="twitter:description" content="{{ page.shared_description }}">
+        <meta property="og:description" content="{{page.shared_description}}">
+      {% endif %}
+    {% else %}
+      <meta property="og:description" content="{{ site.description }}">
+      <meta property="og:type" content="website">
+
+      <meta property="twitter:description" content="{{ site.description }}">
+      <meta property="twitter:title" content="The BrewPub">
+
+      <meta name="description" content="{{ site.description }}">
+    {% endif %}
+
+    {% include shared_head.html %}
   </head>
   <body class="{{ on_post }}">
     {% include ga.html %}

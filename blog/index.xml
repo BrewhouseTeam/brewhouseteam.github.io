@@ -16,6 +16,10 @@ layout: nil
     {% unless post.draft %}
       <entry>
           <title>{{ post.title }}</title>
+          <author>
+            <name>{{ site.data.authors[post.author].name }}</name>
+            <email>{{ site.data.authors[post.author].email }}</email>
+          </author>
           <link href="http://brewhouse.io{{ post.url }}"/>
           <updated>{{ post.date | date_to_xmlschema }}</updated>
           <id>http://brewhouse.io{{ post.id }}</id>

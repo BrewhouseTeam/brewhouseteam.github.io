@@ -1,3 +1,8 @@
+# Site settings
+title: Brewhouse
+email: hello@brewhouse.io
+description: "Writings from brewhouse.io, makers of goodbits.io and stellar apps for our clients."
+
 name: brewhouse
 markdown: kramdown
 pygments: true

@@ -2,12 +2,34 @@
 <html lang="en-us">
   <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# business: http://ogp.me/ns/business#">
     <title>Brewhouse - Vancouver's leading Rails web development agency</title>
+
     <meta name="description" content="Vancouver's leading Rails web development agency">
     <meta property="og:description" content="Vancouver's leading Rails web development agency">
     <meta name="keywords" content="cascadia vancouver web mobile ruby rails product development developers agency hire">
     <meta property="og:title" content="Brewhouse - Vancouver's leading Rails developers">
 
-    {% include head.html %}
+    <meta name="author" content="brewhouse.io">
+    <meta name="copyright" content="brewhouse software inc. 2014">
+
+    <meta property="og:site_name" content="brewhouse">
+    <meta property="og:url" content="http://brewhouse.io{{ page.url | replace: 'index.html', ''}}">
+    <meta property="og:type" content="business.business">
+
+    <meta property="og:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png">
+
+    <meta property="business:contact_data:street_address" content="#303 - 210 Carrall St">
+    <meta property="business:contact_data:locality" content="Vancouver, BC">
+    <meta property="business:contact_data:postal_code" content="V6B 2J1">
+    <meta property="business:contact_data:country_name" content="Canada">
+    <meta property="place:location:latitude" content="49.282471">
+    <meta property="place:location:longitude" content="-123.103046">
+
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:site" content="@brewhouseteam" />
+    <meta property="twitter:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png">
+    <meta property="twitter:url" content="http://brewhouse.io">
+
+    {% include shared_head.html %}
   </head>
   <body>
     {% include ga.html %}
