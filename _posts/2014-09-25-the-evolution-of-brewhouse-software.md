@@ -13,7 +13,9 @@ tags:
   - office
 ---
 
-![tea that looks like coffee](/images/coff.jpg)
+<p>
+  <img class="img-responsive" alt="tea that looks like coffee" src="/images/posts/2014/Sept/coff.jpg">
+</p>
 
 *"Brewhouse -- so you brew beer?"*
 
@@ -25,7 +27,9 @@ Craft coffee is huge in the west coast, craft beer is surging and what *we* actu
 
 ##Coffee Connection
 
-![Our coffee and tea tools](/images/coffee-tools.jpg)
+<p>
+  <img class="img-responsive" alt="coffee tools used" src="/images/posts/2014/Sept/coffee-tools.jpg">
+</p>
 
 Coffee *and* tea (for those Brits out there!) -- it's not just associated with our name, we love the stuff! 
 
@@ -35,12 +39,16 @@ We think the elements that go into creating coffee overlap with how we create ou
 
 ##Movin' On Up
 
-![Map of our 'hood](/images/map.jpg)
+<p>
+  <img class="img-responsive" alt="Map of location" src="/images/posts/2014/Sept/map.jpg">
+</p>
 
 The time was right. We added two more to the team of four and realized that it wouldn't cost much more to have our own dedicated space.  It was always our intention to branch out, as our previous digs, a co-working space ([Chloi HQ](http://chloi.io/)), lacked the ability to brand and limited us in what we could do. After all, it is a shared space! We're creative and we needed to be able to feel like the space we worked in was our own. So Brewhouse Software HQ was born.
 
 *And then there were six.*
-![Gabe and Lana faces](/images/GabeMe.jpg)
+<p>
+  <img class="img-responsive" alt="Gabe face and Lana face" src="/images/posts/2014/Sept/gabe-me.jpg">
+</p>
 
 It was a big step to add two more to the team. [Gabe](https://twitter.com/gabescholz) was a welcome addition. He was an amazing developer, specializing in AngularJS, and we now had the capacity to take on more customers, more clients and more work to do with our products. 
 
@@ -49,7 +57,9 @@ Adding [Lana](https://twitter.com/MsTopham) to the team was more of a leap. Havi
 
 ##It's Custom, Baby
 
-![Office](/images/office.jpg)
+<p>
+  <img class="img-responsive" alt="Brewhouse HQ office view" src="/images/posts/2014/Sept/office.jpg">
+</p>
 
 Our 1400 square foot space is roomy -- too big for six but egging us on to grow. It boasts a fully stocked kitchen of snacks, a deep selection of coffee and tea (it's kinda our thing!) and small features which make it feel custom: like beanbag chairs, art created by [Chuck](https://twitter.com/ChuckBergeron) and our whiteboard on wheels, moonlighting as a Visual Timeline. 
 
