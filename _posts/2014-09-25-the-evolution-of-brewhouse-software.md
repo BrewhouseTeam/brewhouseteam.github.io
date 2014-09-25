@@ -3,6 +3,8 @@ layout: post
 title: "The Evolution of Brewhouse Software"
 author: "lana"
 date: 2014-09-25 12:48
+draft: true
+tags:
   - tea
   - brew
   - moving
@@ -10,7 +12,6 @@ date: 2014-09-25 12:48
   - office
 shared_square_image:(/images/brewsquare.jpg)
 shared_description: Find out how we got our name. It's probably not what you think! 
-draft: true
 --- 
 
 ![tea that looks like coffee](/images/coff.jpg)
