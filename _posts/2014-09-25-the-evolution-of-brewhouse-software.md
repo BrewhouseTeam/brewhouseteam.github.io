@@ -2,18 +2,16 @@
 layout: post
 title: "The Evolution of Brewhouse Software"
 author: "lana"
-category:  blog
+category: blog
 date: 2014-09-25 12:48
-draft:true
+draft: true
 tags:
   - tea
   - brew
   - moving
   - coffee
   - office
-shared_square_image:(/images/brewsquare.jpg)
-shared_description: Find out how we got our name. It's probably not what you think! 
---- 
+---
 
 ![tea that looks like coffee](/images/coff.jpg)
 
@@ -44,7 +42,7 @@ The time was right. We added two more to the team of four and realized that it w
 *And then there were six.*
 ![Gabe and Lana faces](/images/GabeMe.jpg)
 
-It was a big step to add two more to the team. [Gabe](https://twitter.com/gabescholz) was a welcome addition. He was an amazing developer, specializing in Angular.JS, and we now had the capacity to take on more customers, more clients and more work to do with our products. 
+It was a big step to add two more to the team. [Gabe](https://twitter.com/gabescholz) was a welcome addition. He was an amazing developer, specializing in AngularJS, and we now had the capacity to take on more customers, more clients and more work to do with our products. 
 
 
 Adding [Lana](https://twitter.com/MsTopham) to the team was more of a leap. Having someone who wasn't a developer or a designer -- someone who read copy from a whole different perspective. That was big. We're no longer "techies", we're now a bonafide business with multi-functions and roles to help us grow.
