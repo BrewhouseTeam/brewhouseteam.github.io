@@ -3,7 +3,6 @@ layout: post
 title: "The Evolution of Brewhouse Software"
 author: "lana"
 date: 2014-09-25 12:48
-  - Brewhouse
   - tea
   - brew
   - moving
