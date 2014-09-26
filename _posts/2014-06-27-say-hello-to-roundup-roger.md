@@ -8,7 +8,7 @@ date: 2014-06-27 15:36
 
 <p>
   <a href="https://github.com/BrewhouseTeam/roundup-roger">
-    <img class="img-right img-responsive" alt="This Week in Rails Logo" src="https://dl.dropboxusercontent.com/u/79436/roundup_roger_logo1.png">
+    <img class="img-right img-responsive" alt="This Week in Rails Logo" src="https://s3.amazonaws.com/roundup-roger/roundup_roger_logo1.png">
   </a>
 </p>
 
