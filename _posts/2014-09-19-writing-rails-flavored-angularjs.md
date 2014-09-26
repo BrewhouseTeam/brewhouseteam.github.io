@@ -40,6 +40,8 @@ helper methods to enable two-way binding, render directives, and call evented
 functions. It's a cleaner approach to JavaScript in your Rails application.
 Let's take a look.
 
+<!-- break -->
+
 ## Binding attributes
 
 Two-way binding works right out of the box with Sprinkles. Wrapping objects

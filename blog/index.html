@@ -25,11 +25,12 @@ layout: blog
               {% endif %}
             </p>
 
-            {{ post.content | truncatewords: 40 }}
-
-            <div class="continue-reading">
-              <a href="{{ post.url }}">Continue reading ...</a>
-            </div>
+            {{ post.content | split:'<!-- break -->' | first }}
+            {% if post.content contains '<!-- break -->' %}
+              <div class="continue-reading">
+                <a href="{{ post.url }}">Continue reading ...</a>
+              </div>
+            {% endif %}
           </div><!-- /post -->
 
         </div>

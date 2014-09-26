@@ -11,6 +11,8 @@ We love building applications. This has made us learn and evolve our techniques 
 
 I want to expand a little -- to those that know us, those that don’t, who we are and what we do.
 
+<!-- break -->
+
 ## Full Transparency
 
 When I first started talking about Brewhouse I took everything I learned

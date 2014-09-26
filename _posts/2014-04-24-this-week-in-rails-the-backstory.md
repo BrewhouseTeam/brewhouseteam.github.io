@@ -21,6 +21,8 @@ about it) – a weekly digest of notable commits, issues, pull-requests and othe
 interesting things happening around the Rails ecosystem. I'd like to share my
 motivations behind the newsletter and some of the things I've learned along the way.
 
+<!-- break -->
+
 ## Knowledge Sharing
 
 My biggest goal of the newsletter is to share knowledge. Since I [joined](https://twitter.com/bitsweat/status/413014212303024128)

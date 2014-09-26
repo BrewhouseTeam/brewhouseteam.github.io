@@ -15,6 +15,8 @@ You need Gourmet Service Objects™!
 
 I have been using service objects for the past three years and they reconciled my take on Rails (as much as automated testing reconciled my feelings for software programming!).
 
+<!-- break -->
+
 ## A service object _does one thing_
 
 A service object (aka method object) performs one action. It holds the business logic to perform that action. Here is an example:
