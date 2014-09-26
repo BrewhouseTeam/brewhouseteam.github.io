@@ -53,11 +53,8 @@ The time was right. We added two more to the team of four and realized that it w
 *And then there were six.*
 <img class="img-responsive" alt="Gabe face and Lana face" src="/images/posts/2014/Sept/gabe-me.jpg">
 
-<<<<<<< HEAD:_posts/2014-09-30-the-evolution-of-brewhouse-software.md
+
 It was a big step to add two more to the team. [Gabe](https://twitter.com/gabescholz) was a welcome addition. He is an amazing developer, specializing in AngularJS, and we now have the capacity to take on more customers, more clients and more work to do with our products. 
-=======
-It was a big step to add two more to the team. [Gabe](https://twitter.com/gabescholz) was a welcome addition. He was an amazing developer, specializing in AngularJS, and we now had the capacity to take on more customers, more clients and more work to do with our products.
->>>>>>> FETCH_HEAD:_posts/2014-09-25-the-evolution-of-brewhouse-software.md
 
 
 Adding [Lana](https://twitter.com/MsTopham) (aka, Me) to the team was more of a leap. Having someone who wasn't a developer or a designer -- someone who read copy from a whole different perspective. That was big. We're no longer "techies", we're now a bonafide business with multi-functions and roles to help us grow.
