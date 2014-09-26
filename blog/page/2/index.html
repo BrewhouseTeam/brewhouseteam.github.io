@@ -16,14 +16,14 @@
     <title>the brew pub - brewhouse software blog</title>
     <meta property="og:title" content="the brew pub - brewhouse software blog">
     <meta property="og:site_name" content="brewhouse">
-    <meta property="og:url" content="http://brewhouse.io/blog/">
+    <meta property="og:url" content="http://brewhouse.io/blog/page/2/">
 
     <meta property="og:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png">
 
     <meta property="twitter:card" content="summary" />
     <meta property="twitter:site" content="@brewhouseteam" />
     <meta property="twitter:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png">
-    <meta property="twitter:url" content="http://brewhouse.io//blog/index.html">
+    <meta property="twitter:url" content="http://brewhouse.io//blog/page/2/index.html">
 
     <link rel="alternate" type="application/atom+xml" href="/blog/index.xml" title="The Brew Pub atom feed">
 
@@ -106,31 +106,40 @@
 
           <div class="post">
             <h1>
-              <a href="/blog/2014/09/26/ruby-kaigi-2014-day-3.html">Ruby Kaigi 2014: Day 3</a>
+              <a href="/2014/06/27/say-hello-to-roundup-roger.html">Say Hello to Roundup Roger</a>
             </h1>
             <p class="meta">
               
                 <span>
-                  <img class="img-circle img-author" src="//www.gravatar.com/avatar/560f36d69534a1a58d0f12dad39b0396?s=135" alt="A photo of Godfrey Chan" width="55">
+                  <img class="img-circle img-author" src="//www.gravatar.com/avatar/431315f0018a1c697f449304c96dcfff?s=135" alt="A photo of Jenn Cooper" width="55">
 
-                  <a href="http://twitter.com/chancancode" target="_blank">Godfrey Chan</a> wrote this on 26 Sep 2014
+                  <a href="http://twitter.com/jncoops" target="_blank">Jenn Cooper</a> wrote this on 27 Jun 2014
                 </span>
               
             </p>
 
             <p>
-  <a href="/images/posts/ruby-kaigi-2014/the-end.jpg">
-    <img class="img-responsive" alt="#rubykaigi has finally come to an end!" src="/images/posts/ruby-kaigi-2014/the-end.jpg" />
+  <a href="https://github.com/BrewhouseTeam/roundup-roger">
+    <img class="img-right img-responsive" alt="This Week in Rails Logo" src="https://dl.dropboxusercontent.com/u/79436/roundup_roger_logo1.png" />
   </a>
 </p>
 
-<p>Continuing from <a href="/blog/2014/09/18/ruby-kaigi-2014-day-1">part 1</a> and <a href="/blog/2014/09/19/ruby-kaigi-2014-day-2">part 2</a>,
-of my Ruby Kaigi blog posts, here is the final day at Ruby Kaigi!</p>
+<p>At Brewhouse, we spend Fridays doing creative work. During these wonderful days, we focus on interesting hacks and innovative projects. Over the last 10 weeks, I’ve been able to spend my Fridays working on a project with <a href="https://github.com/pcreux">Philippe Creux</a> called <a href="https://github.com/BrewhouseTeam/roundup-roger">Roundup Roger</a>. Roundup Roger is an open source tool to wrap-up a team’s day via email. A wrap-up is quite similar to an agile standup (or scrum), but at the end of the business day.</p>
+
+<p>You’re probably thinking, “How anti-social of you!”.  Yes, you’re right, we’re endorsing email correspondence over face-to-face interaction. But we’re talking about wrap-up meetings here, not beer Fridays.</p>
+
+<p>The point of a wrap-up is to educate the team on:</p>
+
+<ul>
+  <li>What you’ve accomplished during the last business day</li>
+  <li>What you’ll be working on next</li>
+  <li>Whether you’ve hit any blockers that are impeding your progress</li>
+</ul>
 
 
             
               <div class="continue-reading">
-                <a href="/blog/2014/09/26/ruby-kaigi-2014-day-3.html">Continue reading ...</a>
+                <a href="/2014/06/27/say-hello-to-roundup-roger.html">Continue reading ...</a>
               </div>
             
           </div><!-- /post -->
@@ -147,108 +156,28 @@ of my Ruby Kaigi blog posts, here is the final day at Ruby Kaigi!</p>
 
           <div class="post">
             <h1>
-              <a href="/blog/2014/09/23/writing-rails-flavored-angularjs.html">Writing Rails-flavored AngularJS</a>
+              <a href="/blog/2014/04/30/gourmet-service-objects.html">Gourmet Service Objects</a>
             </h1>
             <p class="meta">
               
                 <span>
-                  <img class="img-circle img-author" src="//www.gravatar.com/avatar/667f2b767c362d9291bf2e7afa3de5fd?s=135" alt="A photo of Gabe Scholz" width="55">
+                  <img class="img-circle img-author" src="//www.gravatar.com/avatar/cf8db14764d6420698b0ed9c9ed1ba93?s=135" alt="A photo of Philippe Creux" width="55">
 
-                  <a href="http://twitter.com/gabescholz" target="_blank">Gabe Scholz</a> wrote this on 23 Sep 2014
+                  <a href="http://twitter.com/pcreux" target="_blank">Philippe Creux</a> wrote this on 30 Apr 2014
                 </span>
               
             </p>
 
-            <p>When I think about Ruby on Rails and AngularJS in the same codebase, I kind of cringe. After
-spending more than a year trying to reconcile how Rails plays with Angular, not only
-have I been unsuccessful, but I have not been satisfied with any of the suggested
-solutions. There is a ton of material on the numerous Rails hacks you should employ
-so that Rails and AngularJS feel compatible; however, I’m beginning to
-wonder whether this problem is being approached from the wrong direction.
-Instead, how can we hack AngularJS so that it plays nice with Rails?</p>
+            <p>Is your Rails app’s business logic hidden in ugly controllers with 10+ lines long method and fat models powered by Linguini callbacks? Are your tests getting out of control and you spend most of your days looking at green dots? Do you want to impress your coworkers with Unicorn level code?</p>
 
-<p>As a Ruby on Rails developer, I want to feel that I’m writing a Rails
-application. I’m OK with a page refresh when I’m browsing between features. I don’t
-want to feel like I have to submit to the ‘Single Page Application’ paradigm.
-I want my JavaScript to be sprinkled on the page to augment my application. I
-don’t want my JavaScript to consume the entire thing. AngularJS has a tendency
-to pull you out of developing Rails in the Rails way.</p>
+<p>You need Gourmet Service Objects™!</p>
 
-<p>Rails comes bundled with vanilla jQuery, which is very easy to get started with,
-but it is difficult to maintain. I love how Angular encapsulates, localizes and contains
-JavaScript functionality. It’s maintainable, modular, and easier to understand
-than a sputtering of jQuery files. It would be nice if I could focus on writing
-JavaScript for components and leave the application bit to my Rails server.</p>
-
-<p>My solution to solve this problem is appropriately called
-<a href="https://github.com/BrewhouseTeam/angular_sprinkles">Angular Sprinkles</a>.
-This gem hides all of the usual setup required for a tranditional AngularJS
-application while dynamically generating one at run time. Developers use Rails
-helper methods to enable two-way binding, render directives, and call evented
-functions. It’s a cleaner approach to JavaScript in your Rails application.
-Let’s take a look.</p>
+<p>I have been using service objects for the past three years and they reconciled my take on Rails (as much as automated testing reconciled my feelings for software programming!).</p>
 
 
             
               <div class="continue-reading">
-                <a href="/blog/2014/09/23/writing-rails-flavored-angularjs.html">Continue reading ...</a>
-              </div>
-            
-          </div><!-- /post -->
-
-        </div>
-      </div><!-- /row -->
-    
-  
-    
-  
-    
-      
-
-      <div class="row">
-        <div class="col-xs-12 col-sm-9">
-
-          <div class="post">
-            <h1>
-              <a href="/blog/2014/09/19/ruby-kaigi-2014-day-2.html">Ruby Kaigi 2014: Day 2</a>
-            </h1>
-            <p class="meta">
-              
-                <span>
-                  <img class="img-circle img-author" src="//www.gravatar.com/avatar/560f36d69534a1a58d0f12dad39b0396?s=135" alt="A photo of Godfrey Chan" width="55">
-
-                  <a href="http://twitter.com/chancancode" target="_blank">Godfrey Chan</a> wrote this on 19 Sep 2014
-                </span>
-              
-            </p>
-
-            <p>
-  <a href="/images/posts/ruby-kaigi-2014/i-feel-happy.jpg">
-    <img class="img-responsive" alt="I feel happy!" src="/images/posts/ruby-kaigi-2014/i-feel-happy.jpg" />
-  </a>
-</p>
-
-<p>Continuing from <a href="/blog/2014/09/18/ruby-kaigi-2014-day-1">my last post</a>, here is
-day 2 at Ruby Kaigi!</p>
-
-<p>(The talks are being <a href="http://rubykaigi.org/2014">live streamed</a> on the Internet,
-you can find the links at the middle of the Ruby Kaigi homepage.)</p>
-
-<h2 id="matzs-keynote">Matz’s Keynote</h2>
-
-<p>
-  <a href="/images/posts/ruby-kaigi-2014/matz.jpg">
-    <img class="img-responsive" alt="It's Matz!" src="/images/posts/ruby-kaigi-2014/matz.jpg" />
-  </a>
-</p>
-
-<p><a href="https://twitter.com/yukihiro_matz">Matsumoto-san</a> gave a keynote address in the
-morning to kick off the second day of Ruby Kaigi 2014.</p>
-
-
-            
-              <div class="continue-reading">
-                <a href="/blog/2014/09/19/ruby-kaigi-2014-day-2.html">Continue reading ...</a>
+                <a href="/blog/2014/04/30/gourmet-service-objects.html">Continue reading ...</a>
               </div>
             
           </div><!-- /post -->
@@ -265,43 +194,111 @@ morning to kick off the second day of Ruby Kaigi 2014.</p>
 
           <div class="post">
             <h1>
-              <a href="/blog/2014/09/18/ruby-kaigi-2014-day-1.html">Ruby Kaigi 2014: Day 1</a>
+              <a href="/blog/2014/04/24/this-week-in-rails-the-backstory.html">This Week in Rails: the Backstory</a>
             </h1>
             <p class="meta">
               
                 <span>
                   <img class="img-circle img-author" src="//www.gravatar.com/avatar/560f36d69534a1a58d0f12dad39b0396?s=135" alt="A photo of Godfrey Chan" width="55">
 
-                  <a href="http://twitter.com/chancancode" target="_blank">Godfrey Chan</a> wrote this on 18 Sep 2014
+                  <a href="http://twitter.com/chancancode" target="_blank">Godfrey Chan</a> wrote this on 24 Apr 2014
                 </span>
               
             </p>
 
             <p>
-  <a href="/images/posts/ruby-kaigi-2014/japan.jpg">
-    <img class="img-responsive" alt="I'm in Japan!" src="/images/posts/ruby-kaigi-2014/japan.jpg" />
+  <a href="http://brewhouse.io/blog/2014/04/24/this-week-in-rails-the-backstory.html">
+    <img class="img-right img-responsive" alt="This Week in Rails Logo" src="/images/2014-04-24-this-week-in-rails-backstory.jpg" />
   </a>
 </p>
 
-<p>ZOMG! I’m in Japan!</p>
-
-<p>This year, I am fortunate enough to be one of the 750 attendees at Ruby Kaigi in
-Tokyo. If you are among one of them, I’d love to meet you and chat about Ruby,
-Rails, etc. Just look for my name tag!</p>
-
-<p><img class="img-responsive img-right" alt="My name tag" src="/images/posts/ruby-kaigi-2014/name-tag.jpg" /></p>
-
-<p>For those of you who couldn’t make it this year, don’t feel left out! I’ll be
-writing a three-part blog post (one for each day) to cover the things I’ve
-learned here, so you can watch the talks online that interestes you when they
-become available. (You can also watch the <a href="http://rubykaigi.org/2014">live streams</a>!)</p>
-
-<p>Without further ado, here is day 1 at Ruby Kaigi!</p>
+<p>I recently started a newsletter called <a href="http://rails-weekly.goodbits.io"><em>This week in Rails</em></a>
+(you may have <a href="http://ruby5.envylabs.com/episodes/495-episode-458-april-22nd-2014#story-3">heard</a>
+about it) – a weekly digest of notable commits, issues, pull-requests and other
+interesting things happening around the Rails ecosystem. I’d like to share my
+motivations behind the newsletter and some of the things I’ve learned along the way.</p>
 
 
             
               <div class="continue-reading">
-                <a href="/blog/2014/09/18/ruby-kaigi-2014-day-1.html">Continue reading ...</a>
+                <a href="/blog/2014/04/24/this-week-in-rails-the-backstory.html">Continue reading ...</a>
+              </div>
+            
+          </div><!-- /post -->
+
+        </div>
+      </div><!-- /row -->
+    
+  
+    
+      
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-9">
+
+          <div class="post">
+            <h1>
+              <a href="/2014/04/04/welcome-to-brewhouse.html">Welcome to Brewhouse</a>
+            </h1>
+            <p class="meta">
+              
+                <span>
+                  <img class="img-circle img-author" src="//www.gravatar.com/avatar/d0018d7ed506c94fdccf01d73ab554dc?s=135" alt="A photo of Kalvir Sandhu" width="55">
+
+                  <a href="http://twitter.com/kalv" target="_blank">Kalvir Sandhu</a> wrote this on 04 Apr 2014
+                </span>
+              
+            </p>
+
+            <p>Hello, we’re Brewhouse. We are a group of creative developers who have come together to continue building great products for ourselves and others.</p>
+
+<p>We love building applications. This has made us learn and evolve our techniques to best deliver great software products. Products that deliver value, fun, and are backed by quality code and tests.</p>
+
+<p>I want to expand a little – to those that know us, those that don’t, who we are and what we do.</p>
+
+
+            
+              <div class="continue-reading">
+                <a href="/2014/04/04/welcome-to-brewhouse.html">Continue reading ...</a>
+              </div>
+            
+          </div><!-- /post -->
+
+        </div>
+      </div><!-- /row -->
+    
+  
+    
+      
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-9">
+
+          <div class="post">
+            <h1>
+              <a href="/blog/2013/12/17/whats-new-in-rails-4-1.html">What's new in Rails 4.1</a>
+            </h1>
+            <p class="meta">
+              
+                <span>
+                  <img class="img-circle img-author" src="//www.gravatar.com/avatar/560f36d69534a1a58d0f12dad39b0396?s=135" alt="A photo of Godfrey Chan" width="55">
+
+                  <a href="http://twitter.com/chancancode" target="_blank">Godfrey Chan</a> wrote this on 17 Dec 2013
+                </span>
+              
+            </p>
+
+            <blockquote><em>This was originally published on the Coherence blog on December 17th, 2013. It has been migrated here for historical purposes.</em></blockquote>
+
+<p>In case you haven’t been paying attention, Rails 4.1 beta <a href="http://weblog.rubyonrails.org/">was released today</a>!
+While this is a minor release, there are still plenty of handy new features
+that’s worth getting excited about. Here are a few of my favourites, along with
+some thoughts on why I think they are useful.</p>
+
+
+            
+              <div class="continue-reading">
+                <a href="/blog/2013/12/17/whats-new-in-rails-4-1.html">Continue reading ...</a>
               </div>
             
           </div><!-- /post -->
@@ -314,11 +311,14 @@ become available. (You can also watch the <a href="http://rubykaigi.org/2014">li
   <!-- Pagination links -->
   <nav class="pagination" role="pagination">
     
-
-    <span class="page-number ">Page: 1 of 2</span>
+      
+        <a class="newer-posts" href="/blog/">← Newer Posts</a>
+      
 
     
-      <a class="older-posts" href="/blog/page/2">Older Posts →</a>
+
+    <span class="page-number ">Page: 2 of 2</span>
+
     
   </nav>
 

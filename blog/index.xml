@@ -3,7 +3,7 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2014-09-19T21:05:51-07:00</updated>
+    <updated>2014-09-26T10:23:40-07:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
@@ -12,7 +12,271 @@
     
     
       <entry>
+          <title>Ruby Kaigi 2014: Day 3</title>
+          <author>
+            <name>Godfrey Chan</name>
+            <email>godfrey@brewhouse.io</email>
+          </author>
+          <link href="http://brewhouse.io/blog/2014/09/26/ruby-kaigi-2014-day-3.html"/>
+          <updated>2014-09-26T11:00:00-07:00</updated>
+          <id>http://brewhouse.io/blog/2014/09/26/ruby-kaigi-2014-day-3</id>
+          <content type="html">&lt;p&gt;
+  &lt;a href=&quot;/images/posts/ruby-kaigi-2014/the-end.jpg&quot;&gt;
+    &lt;img class=&quot;img-responsive&quot; alt=&quot;#rubykaigi has finally come to an end!&quot; src=&quot;/images/posts/ruby-kaigi-2014/the-end.jpg&quot; /&gt;
+  &lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Continuing from &lt;a href=&quot;/blog/2014/09/18/ruby-kaigi-2014-day-1&quot;&gt;part 1&lt;/a&gt; and &lt;a href=&quot;/blog/2014/09/19/ruby-kaigi-2014-day-2&quot;&gt;part 2&lt;/a&gt;,
+of my Ruby Kaigi blog posts, here is the final day at Ruby Kaigi!&lt;/p&gt;
+
+&lt;!-- break --&gt;
+
+&lt;h2 id=&quot;talks-will-be-available-soon&quot;&gt;Talks will be available soon™&lt;/h2&gt;
+
+&lt;p&gt;Good news everyone! It looks like the wait is almost over – the official Ruby
+Kaigi account has &lt;a href=&quot;https://twitter.com/rubykaigi/status/513917550128660481&quot;&gt;tweeted&lt;/a&gt;
+that the talks will be made available on YouTube soon™. Follow them to get
+notified when that happens!&lt;/p&gt;
+
+&lt;h2 id=&quot;brief-notes-on-the-day-3-talks&quot;&gt;Brief notes on the day 3 talks&lt;/h2&gt;
+
+&lt;p&gt;To be honest, I didn’t go to as many talks on the third day, not because they
+weren’t great (those I attended was excellent), but because I was spending time
+hanging out with the #rubyfriends I made at the conference. With that said, here
+are some highlights of my last conference day:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Speeding up Rails 4.2&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;The &lt;a href=&quot;https://twitter.com/tenderlove&quot;&gt;@tenderlover&lt;/a&gt; session, in Japanese! Here
+Aaron showed off his adequate Japanese skillz by delivering a full talk in
+fluent Japanese; he even made a few puns in Japanese! For those who couldn’t
+wait for the talk to become available (or those who don’t speak Japanese), you
+can catch watch &lt;a href=&quot;http://www.confreaks.com/videos/4142-cascadiaruby2014-speed-up-rails-speed-up-your-code&quot;&gt;a similar talk&lt;/a&gt;
+Aaron gave at &lt;a href=&quot;http://cascadiaruby.com/&quot;&gt;Cascadia Ruby&lt;/a&gt; today.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;The Ruby Challenge&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;In this session, &lt;a href=&quot;https://twitter.com/sikachu&quot;&gt;@sikachu&lt;/a&gt; hosted an interactive
+Ruby game show. The contestants were picked from the audience randomly (we
+were given a card with a unique number when we walked in) to answer five
+questions about the performance characteristics of 10 pair of Ruby snippets
+that performs the same task.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Tending the Ruby ecosystem&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;https://twitter.com/_zzak&quot;&gt;@_zzak&lt;/a&gt; shared his journey of becoming a open-
+source contributor in the Ruby ecosystem, why it is important to give back
+to the community and some pointers on how you can start contributing.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Ruby 2.1 in Production&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;In this closing keynote, the legendary &lt;a href=&quot;https://twitter.com/tmm1&quot;&gt;@tmm1&lt;/a&gt; shed
+some light on Github’s experience on rolling out Ruby 2.1 in production, how
+it improved the performance on their site, as well as his history with Ruby,
+the story of him becoming a Ruby committer and more.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As always, there are many more great talks at the conference, so be sure to
+check out the full &lt;a href=&quot;http://rubykaigi.org/2014/schedule&quot;&gt;conference schedule&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;see-you-next-year&quot;&gt;See you next year?&lt;/h2&gt;
+
+&lt;p&gt;Overall, Ruby Kaigi has been a great conference for me. Here, you will find some
+in-depth technical talks that you won’t find in other conferences.&lt;/p&gt;
+
+&lt;p&gt;In addition to being an excellent platform for facilitating the exchange of
+technical knowledge, it is also an incredible platform for cultural exchange. It
+was a breath of fresh air for me to attend a conference outside of my “bubble”
+in North America. It was a such a great learning experience for me to see some
+of the Japanese Rubyist (and other Rubyist coming from around the world) are
+using the language to solve problems in ways that I am not used to (or to solve
+problems that I didn’t even think of before).&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;a href=&quot;/images/posts/ruby-kaigi-2014/matz-lunch-box.jpg&quot;&gt;
+    &lt;img class=&quot;img-responsive&quot; alt=&quot;Matz handing out lunch boxes&quot; src=&quot;/images/posts/ruby-kaigi-2014/matz-lunch-box.jpg&quot; /&gt;
+  &lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;It also reminded me of why I loved being part of the Ruby community. Ruby Kaigi
+is the conference where the creator of the language hands you your lunch box,
+where the core committers hold signs at the door and greet you as you walk into
+the conference venue every morning, where English and Japanese-speking Rubyists
+learn and deliver talks in each other’s native language.&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;a href=&quot;/images/posts/ruby-kaigi-2014/ruby-friends.jpg&quot;&gt;
+    &lt;img class=&quot;img-responsive&quot; alt=&quot;My #rubyfriends!&quot; src=&quot;/images/posts/ruby-kaigi-2014/ruby-friends.jpg&quot; /&gt;
+  &lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;I am very greatful to be part of this amazing conference and the greater Ruby
+community. I am looking forward to coming back to Ruby Kaigi in the future – and
+I hope see you there too!&lt;/p&gt;
+</content>
+      </entry>
+    
+    
+    
+      <entry>
+          <title>Writing Rails-flavored AngularJS</title>
+          <author>
+            <name>Gabe Scholz</name>
+            <email>gabe@brewhouse.io</email>
+          </author>
+          <link href="http://brewhouse.io/blog/2014/09/23/writing-rails-flavored-angularjs.html"/>
+          <updated>2014-09-23T11:00:00-07:00</updated>
+          <id>http://brewhouse.io/blog/2014/09/23/writing-rails-flavored-angularjs</id>
+          <content type="html">&lt;p&gt;When I think about Ruby on Rails and AngularJS in the same codebase, I kind of cringe. After
+spending more than a year trying to reconcile how Rails plays with Angular, not only
+have I been unsuccessful, but I have not been satisfied with any of the suggested
+solutions. There is a ton of material on the numerous Rails hacks you should employ
+so that Rails and AngularJS feel compatible; however, I’m beginning to
+wonder whether this problem is being approached from the wrong direction.
+Instead, how can we hack AngularJS so that it plays nice with Rails?&lt;/p&gt;
+
+&lt;p&gt;As a Ruby on Rails developer, I want to feel that I’m writing a Rails
+application. I’m OK with a page refresh when I’m browsing between features. I don’t
+want to feel like I have to submit to the ‘Single Page Application’ paradigm.
+I want my JavaScript to be sprinkled on the page to augment my application. I
+don’t want my JavaScript to consume the entire thing. AngularJS has a tendency
+to pull you out of developing Rails in the Rails way.&lt;/p&gt;
+
+&lt;p&gt;Rails comes bundled with vanilla jQuery, which is very easy to get started with,
+but it is difficult to maintain. I love how Angular encapsulates, localizes and contains
+JavaScript functionality. It’s maintainable, modular, and easier to understand
+than a sputtering of jQuery files. It would be nice if I could focus on writing
+JavaScript for components and leave the application bit to my Rails server.&lt;/p&gt;
+
+&lt;p&gt;My solution to solve this problem is appropriately called
+&lt;a href=&quot;https://github.com/BrewhouseTeam/angular_sprinkles&quot;&gt;Angular Sprinkles&lt;/a&gt;.
+This gem hides all of the usual setup required for a tranditional AngularJS
+application while dynamically generating one at run time. Developers use Rails
+helper methods to enable two-way binding, render directives, and call evented
+functions. It’s a cleaner approach to JavaScript in your Rails application.
+Let’s take a look.&lt;/p&gt;
+
+&lt;!-- break --&gt;
+
+&lt;h2 id=&quot;binding-attributes&quot;&gt;Binding attributes&lt;/h2&gt;
+
+&lt;p&gt;Two-way binding works right out of the box with Sprinkles. Wrapping objects
+with the &lt;code&gt;bindable&lt;/code&gt; controller helper gives them the &lt;code&gt;bind&lt;/code&gt; method.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/controllers/user_controller.rb&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UserController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationController&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;show&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bindable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;And then in the view, you can either bind to the entire JSONified object with &lt;code&gt;@user.bind&lt;/code&gt;,
+or just a single attribute with an argument.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;erb&quot;&gt;&lt;span class=&quot;x&quot;&gt;&amp;lt;!-- app/views/users/show.html.erb --&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;x&quot;&gt;&amp;lt;p&amp;gt;My name is: {{ &lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bind&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; }}&amp;lt;/p&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;&amp;lt;input type=&amp;quot;text&amp;quot; ng-model=&amp;quot;&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bind&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&amp;quot; /&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;inlined-directives&quot;&gt;Inlined directives&lt;/h2&gt;
+
+&lt;p&gt;We’ll take this a step further by creating a directive to make our name blink very rapidly (obviously).
+Let’s first write the directive.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;js&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// app/assets/javascripts/directives/blink.js&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;sprinkles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;directive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;blink&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$timeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;restrict&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;A&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;transclude&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;period&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;=&amp;#39;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;opacity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+      &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;blink&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;$timeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;nx&quot;&gt;opacity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;opacity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+          &lt;span class=&quot;nx&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;css&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;opacity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;opacity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+          &lt;span class=&quot;nx&quot;&gt;blink&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;period&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+      &lt;span class=&quot;nx&quot;&gt;blink&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;And now we can include the directive in our view with the &lt;code&gt;directive&lt;/code&gt; helper.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;erb&quot;&gt;&lt;span class=&quot;x&quot;&gt;&amp;lt;!-- app/views/users/show.html.erb --&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;cp&quot;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;directive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:blink&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;period&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;250&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;  &amp;lt;p&amp;gt;My name is: {{ &lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bind&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; }}&amp;lt;/p&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;&amp;lt;%&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;&amp;lt;input type=&amp;quot;text&amp;quot; ng-model=&amp;quot;&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bind&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&amp;quot; /&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;BOOM! Annoying blinking tag!&lt;/p&gt;
+
+&lt;h2 id=&quot;evented-javascript-functions&quot;&gt;Evented JavaScript functions&lt;/h2&gt;
+
+&lt;p&gt;Finally, it’s very important to be able to still use Angular’s built-in event
+bindings. For example, clicking a button and showing an alert box. Sprinkles
+solves this by allowing developers to inline Angular services with the &lt;code&gt;service&lt;/code&gt;
+helper method.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;js&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// app/assets/javascripts/services/alert_me.js&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;sprinkles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;service&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;alertMe&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;My name is: &amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;And then in the view,&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;erb&quot;&gt;&lt;span class=&quot;x&quot;&gt;&amp;lt;!-- app/views/users/show.html.erb --&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;x&quot;&gt;&amp;lt;button ng-click=&amp;quot;&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;service&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:alert_me&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bind&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&amp;quot;&amp;gt;CLICK ME!&amp;lt;/button&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;&amp;lt;input type=&amp;quot;text&amp;quot; ng-model=&amp;quot;&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bind&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&amp;quot; /&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In all of these examples there was no additional setup involved. An Angular application
+is generated behind the scenes, allowing the developer to keep focused on smaller
+JavaScript components. Focused on the… sprinkles.&lt;/p&gt;
+
+&lt;h2 id=&quot;let-us-know-what-you-think&quot;&gt;Let us know what you think&lt;/h2&gt;
+
+&lt;p&gt;Angular Sprinkles is a new approach to Angular-Rails development. It’s for those of us
+that love both of these great technologies and want to see them work together pleasantly.
+Please &lt;a href=&quot;https://github.com/BrewhouseTeam/angular_sprinkles&quot;&gt;have a look at the gem&lt;/a&gt;
+for more information on setup and leave some feedback. We would love to know what you think.&lt;/p&gt;
+</content>
+      </entry>
+    
+    
+    
+    
+    
+      <entry>
           <title>Ruby Kaigi 2014: Day 2</title>
+          <author>
+            <name>Godfrey Chan</name>
+            <email>godfrey@brewhouse.io</email>
+          </author>
           <link href="http://brewhouse.io/blog/2014/09/19/ruby-kaigi-2014-day-2.html"/>
           <updated>2014-09-19T11:00:00-07:00</updated>
           <id>http://brewhouse.io/blog/2014/09/19/ruby-kaigi-2014-day-2</id>
@@ -38,6 +302,8 @@ you can find the links at the middle of the Ruby Kaigi homepage.)&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://twitter.com/yukihiro_matz&quot;&gt;Matsumoto-san&lt;/a&gt; gave a keynote address in the
 morning to kick off the second day of Ruby Kaigi 2014.&lt;/p&gt;
+
+&lt;!-- break --&gt;
 
 &lt;p&gt;In the first half of the keynote, Matz did a very detailed analysis of all the
 keynotes he has given in previous years at Ruby Kaigi, RubyConf and elsewhere –
@@ -240,7 +506,7 @@ available!&lt;/p&gt;
 &lt;h2 id=&quot;other-talks&quot;&gt;Other talks&lt;/h2&gt;
 
 &lt;p&gt;Besides Matz’s keynote, there are many other talks worth watching too. Here are
-some of the talks I attended today:&lt;/p&gt;
+some of the talks I attended today.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -254,7 +520,7 @@ Firefox’s JS VM. It is based on the current version of CRuby, and resulted in
 ~2-5X speedup compared to trunk (and up to 100X in some cases).&lt;/p&gt;
 
     &lt;p&gt;In his talk, @imasahiro covered the details of his design, so if this sounds
-interesting to you, definitely go catch it online!&lt;/p&gt;
+interesting to you, definitely go catch it online when it becomes available.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;strong&gt;Archeology of Ruby: Removed Features&lt;/strong&gt;&lt;/p&gt;
@@ -276,7 +542,7 @@ in a &lt;a href=&quot;https://github.com/rails/rails/pull/15497&quot;&gt;pull re
 gives helpful suggestions when you mistyped a command.&lt;/p&gt;
 
     &lt;p&gt;If you always wondered what “algorithms” are about and were afraid to learn
-them, you should watch this talk!&lt;/p&gt;
+them, this talk is for you!&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -295,6 +561,10 @@ talks.&lt;/p&gt;
     
       <entry>
           <title>Ruby Kaigi 2014: Day 1</title>
+          <author>
+            <name>Godfrey Chan</name>
+            <email>godfrey@brewhouse.io</email>
+          </author>
           <link href="http://brewhouse.io/blog/2014/09/18/ruby-kaigi-2014-day-1.html"/>
           <updated>2014-09-18T11:00:00-07:00</updated>
           <id>http://brewhouse.io/blog/2014/09/18/ruby-kaigi-2014-day-1</id>
@@ -318,6 +588,8 @@ learned here, so you can watch the talks online that interestes you when they
 become available. (You can also watch the &lt;a href=&quot;http://rubykaigi.org/2014&quot;&gt;live streams&lt;/a&gt;!)&lt;/p&gt;
 
 &lt;p&gt;Without further ado, here is day 1 at Ruby Kaigi!&lt;/p&gt;
+
+&lt;!-- break --&gt;
 
 &lt;h2 id=&quot;cool-stuff&quot;&gt;Cool Stuff&lt;/h2&gt;
 
@@ -581,6 +853,10 @@ talks.&lt;/p&gt;
     
       <entry>
           <title>Say Hello to Roundup Roger</title>
+          <author>
+            <name>Jenn Cooper</name>
+            <email>cooper.jennl@gmail.com</email>
+          </author>
           <link href="http://brewhouse.io/2014/06/27/say-hello-to-roundup-roger.html"/>
           <updated>2014-06-27T15:36:00-07:00</updated>
           <id>http://brewhouse.io/2014/06/27/say-hello-to-roundup-roger</id>
@@ -601,6 +877,8 @@ talks.&lt;/p&gt;
   &lt;li&gt;What you’ll be working on next&lt;/li&gt;
   &lt;li&gt;Whether you’ve hit any blockers that are impeding your progress&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;!-- break --&gt;
 
 &lt;p&gt;Email works well in this situation because it prevents &lt;em&gt;Chatty Carls&lt;/em&gt; from commandeering your meeting, and allows concise discourse that can be re-visited later if needed. Also, for those of us who have trouble with &lt;a href=&quot;http://www.joelonsoftware.com/articles/fog0000000022.html&quot;&gt;context switching&lt;/a&gt;, it can be easier to communicate the work you’ve accomplished by writing it out as opposed to communicating verbally.&lt;/p&gt;
 
@@ -721,6 +999,10 @@ talks.&lt;/p&gt;
     
       <entry>
           <title>Gourmet Service Objects</title>
+          <author>
+            <name>Philippe Creux</name>
+            <email>philippe@brewhouse.io</email>
+          </author>
           <link href="http://brewhouse.io/blog/2014/04/30/gourmet-service-objects.html"/>
           <updated>2014-04-30T12:37:00-07:00</updated>
           <id>http://brewhouse.io/blog/2014/04/30/gourmet-service-objects</id>
@@ -729,6 +1011,8 @@ talks.&lt;/p&gt;
 &lt;p&gt;You need Gourmet Service Objects™!&lt;/p&gt;
 
 &lt;p&gt;I have been using service objects for the past three years and they reconciled my take on Rails (as much as automated testing reconciled my feelings for software programming!).&lt;/p&gt;
+
+&lt;!-- break --&gt;
 
 &lt;h2 id=&quot;a-service-object-does-one-thing&quot;&gt;A service object &lt;em&gt;does one thing&lt;/em&gt;&lt;/h2&gt;
 
@@ -1088,6 +1372,10 @@ leave a comment below. &amp;lt;3 &amp;lt;3 &amp;lt;3&lt;/p&gt;
     
       <entry>
           <title>This Week in Rails: the Backstory</title>
+          <author>
+            <name>Godfrey Chan</name>
+            <email>godfrey@brewhouse.io</email>
+          </author>
           <link href="http://brewhouse.io/blog/2014/04/24/this-week-in-rails-the-backstory.html"/>
           <updated>2014-04-24T09:04:00-07:00</updated>
           <id>http://brewhouse.io/blog/2014/04/24/this-week-in-rails-the-backstory</id>
@@ -1102,6 +1390,8 @@ leave a comment below. &amp;lt;3 &amp;lt;3 &amp;lt;3&lt;/p&gt;
 about it) – a weekly digest of notable commits, issues, pull-requests and other
 interesting things happening around the Rails ecosystem. I’d like to share my
 motivations behind the newsletter and some of the things I’ve learned along the way.&lt;/p&gt;
+
+&lt;!-- break --&gt;
 
 &lt;h2 id=&quot;knowledge-sharing&quot;&gt;Knowledge Sharing&lt;/h2&gt;
 
@@ -1180,6 +1470,10 @@ a spin and let us know what you think!&lt;/p&gt;
     
       <entry>
           <title>Welcome to Brewhouse</title>
+          <author>
+            <name>Kalvir Sandhu</name>
+            <email>kalv@brewhouse.io</email>
+          </author>
           <link href="http://brewhouse.io/2014/04/04/welcome-to-brewhouse.html"/>
           <updated>2014-04-04T16:34:00-07:00</updated>
           <id>http://brewhouse.io/2014/04/04/welcome-to-brewhouse</id>
@@ -1188,6 +1482,8 @@ a spin and let us know what you think!&lt;/p&gt;
 &lt;p&gt;We love building applications. This has made us learn and evolve our techniques to best deliver great software products. Products that deliver value, fun, and are backed by quality code and tests.&lt;/p&gt;
 
 &lt;p&gt;I want to expand a little – to those that know us, those that don’t, who we are and what we do.&lt;/p&gt;
+
+&lt;!-- break --&gt;
 
 &lt;h2 id=&quot;full-transparency&quot;&gt;Full Transparency&lt;/h2&gt;
 
@@ -1236,8 +1532,12 @@ internally and with clients. We’ve implemented this and are very happy with th
     
       <entry>
           <title>What's new in Rails 4.1</title>
+          <author>
+            <name>Godfrey Chan</name>
+            <email>godfrey@brewhouse.io</email>
+          </author>
           <link href="http://brewhouse.io/blog/2013/12/17/whats-new-in-rails-4-1.html"/>
-          <updated>2013-12-17T10:32:40Z</updated>
+          <updated>2013-12-17T02:32:40-08:00</updated>
           <id>http://brewhouse.io/blog/2013/12/17/whats-new-in-rails-4-1</id>
           <content type="html">&lt;blockquote&gt;&lt;em&gt;This was originally published on the Coherence blog on December 17th, 2013. It has been migrated here for historical purposes.&lt;/em&gt;&lt;/blockquote&gt;
 
@@ -1245,6 +1545,8 @@ internally and with clients. We’ve implemented this and are very happy with th
 While this is a minor release, there are still plenty of handy new features
 that’s worth getting excited about. Here are a few of my favourites, along with
 some thoughts on why I think they are useful.&lt;/p&gt;
+
+&lt;!-- break --&gt;
 
 &lt;p&gt;(This post is based on my lightning talk at &lt;a href=&quot;http://vanruby.org/&quot;&gt;#VANRUBY&lt;/a&gt;, the original
 slides can be found &lt;a href=&quot;http://www.slideshare.net/godfreykfc/rails-41&quot;&gt;here&lt;/a&gt;.)&lt;/p&gt;
