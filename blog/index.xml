@@ -3,7 +3,7 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2014-09-26T18:28:47+09:00</updated>
+    <updated>2014-09-26T18:35:21+09:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
@@ -93,20 +93,20 @@ technical knowledge, it is also an incredible platform for cultural exchange. It
 was a breath of fresh air for me to attend a conference outside of my “bubble”
 in North America. It was a such a great learning experience for me to see some
 of the Japanese Rubyist (and other Rubyist coming from around the world) are
-using the language to solve problems in a ways that I am not used to (or to
-solve problems that I didn’t even think of before).&lt;/p&gt;
+using the language to solve problems in ways that I am not used to (or to solve
+problems that I didn’t even think of before).&lt;/p&gt;
 
 &lt;p&gt;
-  &lt;a href=&quot;/images/posts/ruby-kaigi-2014/the-end.jpg&quot;&gt;
+  &lt;a href=&quot;/images/posts/ruby-kaigi-2014/matz-lunch-box.jpg&quot;&gt;
     &lt;img class=&quot;img-responsive&quot; alt=&quot;Matz handing out lunch boxes&quot; src=&quot;/images/posts/ruby-kaigi-2014/matz-lunch-box.jpg&quot; /&gt;
   &lt;/a&gt;
 &lt;/p&gt;
 
 &lt;p&gt;It also reminded of why I loved being part of the Ruby community. Ruby Kaigi is
 the conference where the creator of the language hands you your lunch box, where
-the core committers are holding signs and greeting you as you walk into the
-conference venue every morning, where English and Japanese-speking Rubyist would
-spend years learning and delivering their talks in each other’s language.&lt;/p&gt;
+the core committers hold signs at the door and greet you as you walk into the
+conference venue every morning, where English and Japanese-speking Rubyist learn
+and deliber talks in each other’s native language.&lt;/p&gt;
 
 &lt;p&gt;
   &lt;a href=&quot;/images/posts/ruby-kaigi-2014/ruby-friends.jpg&quot;&gt;
@@ -114,8 +114,9 @@ spend years learning and delivering their talks in each other’s language.&lt;/
   &lt;/a&gt;
 &lt;/p&gt;
 
-&lt;p&gt;I am very greatful to be part of this amazing conference this year. I am looking
-forward to being there again in the future – and I hope see you there too!&lt;/p&gt;
+&lt;p&gt;I am very greatful to be part of this amazing conference and community. I am
+looking forward to coming back to Ruby Kaigi in the future – and I hope see you
+there too!&lt;/p&gt;
 </content>
       </entry>
     
