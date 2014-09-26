@@ -167,27 +167,6 @@ so that Rails and AngularJS feel compatible; however, I’m beginning to
 wonder whether this problem is being approached from the wrong direction.
 Instead, how can we hack AngularJS so that it plays nice with Rails?</p>
 
-<p>As a Ruby on Rails developer, I want to feel that I’m writing a Rails
-application. I’m OK with a page refresh when I’m browsing between features. I don’t
-want to feel like I have to submit to the ‘Single Page Application’ paradigm.
-I want my JavaScript to be sprinkled on the page to augment my application. I
-don’t want my JavaScript to consume the entire thing. AngularJS has a tendency
-to pull you out of developing Rails in the Rails way.</p>
-
-<p>Rails comes bundled with vanilla jQuery, which is very easy to get started with,
-but it is difficult to maintain. I love how Angular encapsulates, localizes and contains
-JavaScript functionality. It’s maintainable, modular, and easier to understand
-than a sputtering of jQuery files. It would be nice if I could focus on writing
-JavaScript for components and leave the application bit to my Rails server.</p>
-
-<p>My solution to solve this problem is appropriately called
-<a href="https://github.com/BrewhouseTeam/angular_sprinkles">Angular Sprinkles</a>.
-This gem hides all of the usual setup required for a tranditional AngularJS
-application while dynamically generating one at run time. Developers use Rails
-helper methods to enable two-way binding, render directives, and call evented
-functions. It’s a cleaner approach to JavaScript in your Rails application.
-Let’s take a look.</p>
-
 
             
               <div class="continue-reading">
