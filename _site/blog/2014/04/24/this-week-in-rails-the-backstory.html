@@ -1,3 +1,5 @@
+
+
 <!-- Nice to see you took a peek here, hello -->
 <!-- send us an email at hello at brewhouse dot io if you want to talk tech -->
 
@@ -10,31 +12,37 @@
 
 <html lang="en-us" class="blog">
   <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# business: http://ogp.me/ns/business#">
-    <title>This week in Rails: the backstory - the brew pub - brewhouse software blog</title>
-    <meta property="og:title" content="This week in Rails: the backstory - the brew pub - brewhouse software blog">
+
+    <title>This Week in Rails: the Backstory</title>
+    <meta property="og:title" content="This Week in Rails: the Backstory">
+    <meta property="og:site_name" content="brewhouse">
+    <meta property="og:url" content="http://brewhouse.io/blog/2014/04/24/this-week-in-rails-the-backstory.html">
+
+    <meta property="og:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png">
+
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:site" content="@brewhouseteam" />
+    <meta property="twitter:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png">
+    <meta property="twitter:url" content="http://brewhouse.io//blog/2014/04/24/this-week-in-rails-the-backstory.html">
 
     <link rel="alternate" type="application/atom+xml" href="/blog/index.xml" title="The Brew Pub atom feed">
+
+    
+      <meta property="og:type" content="article">
+      <meta property="article:published_time" content="2014-04-24">
+      <meta property="article:tag" content="Godfrey Chan">
+
+      <meta property="twitter:title" content="This Week in Rails: the Backstory">
+
+      
+    
 
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta name="author" content="brewhouse.io">
-<meta name="copyright" content="brewhouse software inc. 2014">
 <meta name="robots" content="INDEX, FOLLOW">
-
-<meta property="og:site_name" content="brewhouse">
-<meta property="og:url" content="http://brewhouse.io/blog/2014/04/24/this-week-in-rails-the-backstory.html">
-<meta property="og:type" content="business.business">
-<meta property="og:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png">
-<meta property="og:description" content="dedicated to building superb software">
-<meta property="business:contact_data:street_address" content="55 E Cordova St - Unit 604">
-<meta property="business:contact_data:locality" content="Vancouver, BC">
-<meta property="business:contact_data:postal_code" content="V6A 0A5">
-<meta property="business:contact_data:country_name" content="Canada">
-<meta property="place:location:latitude" content="49.282471">
-<meta property="place:location:longitude" content="-123.103046">
 
 <link rel="shortcut icon" href="/images/icons/favicon.ico" type="image/x-icon">
 <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
@@ -48,12 +56,12 @@
 
 <link href="http://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet" type="text/css">
 
-<link rel="stylesheet" href="/assets/application-37b21f091b3c6d3625734f9cdda5a361.css">
+<link rel="stylesheet" href="/assets/application-d23fd63f2f55a6d3311e16df93ecfdf4.css">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css">
 
   </head>
-  <body>
+  <body class="on-post">
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -77,10 +85,10 @@
 
     <section>
       <h1 id="brew-pub-start">
-        The Brew Pub
+        <a href="/blog/">The Brew Pub</a>
       </h1>
       <h3>
-        Writings from <a href="http://brewhouse.io">brewhouse.io</a>, makers of <a href="https://goodbits.io?utm_source=brewhouse-blog">goodbits.io</a> and other stellar apps for clients.
+        Writings from <a href="http://brewhouse.io">brewhouse.io</a>, makers of <a href="https://goodbits.io?utm_source=brewhouse-blog">goodbits.io</a> and stellar apps for our clients.
       </h3>
     </section>
   </div>
@@ -99,7 +107,7 @@
         </div>
 
         <h1>
-          This week in Rails: the backstory
+          This Week in Rails: the Backstory
         </h1>
         <p class="meta">
           
@@ -111,11 +119,17 @@
           
         </p>
 
-        <p>I recently started a newsletter called <a href="http://rails-weekly.goodbits.io"><em>This week in Rails</em></a>
-(you may have <a href="(http://ruby5.envylabs.com/episodes/495-episode-458-april-22nd-2014#story-3) about it">heard</a> –
-a weekly digest of notable commits, issues, pull-requests and other interesting
-things happening around the Rails ecosystem. I’d like to share my motivations
-behind the newsletter and some of the things I’ve learned along the way.</p>
+        <p>
+  <a href="http://brewhouse.io/blog/2014/04/24/this-week-in-rails-the-backstory.html">
+    <img class="img-right img-responsive" alt="This Week in Rails Logo" src="/images/2014-04-24-this-week-in-rails-backstory.jpg" />
+  </a>
+</p>
+
+<p>I recently started a newsletter called <a href="http://rails-weekly.goodbits.io"><em>This week in Rails</em></a>
+(you may have <a href="http://ruby5.envylabs.com/episodes/495-episode-458-april-22nd-2014#story-3">heard</a>
+about it) – a weekly digest of notable commits, issues, pull-requests and other
+interesting things happening around the Rails ecosystem. I’d like to share my
+motivations behind the newsletter and some of the things I’ve learned along the way.</p>
 
 <h2 id="knowledge-sharing">Knowledge Sharing</h2>
 
@@ -191,7 +205,7 @@ a spin and let us know what you think!</p>
 
         <div class="mailchimp-form text-center">
           <p>
-            Drop your email below to receive Brew Pub's writings in your mailbox.
+            Enter your email below and receive more from the BrewPub:
           </p>
           <!-- Begin MailChimp Signup Form -->
           <link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
@@ -253,6 +267,6 @@ a spin and let us know what you think!</p>
       </div><!-- container -->
     </footer>
 
-    <script src="/assets/app-bb7a7839973c4b2fe85c66ec1aae43c4.js"></script>
+    <script src="/assets/app-d2b50542eb2234dffdd5932a70b4af3b.js"></script>
   </body>
 </html>

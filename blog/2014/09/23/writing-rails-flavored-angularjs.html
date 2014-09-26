@@ -1,0 +1,319 @@
+
+
+<!-- Nice to see you took a peek here, hello -->
+<!-- send us an email at hello at brewhouse dot io if you want to talk tech -->
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+
+<html lang="en-us" class="blog">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# business: http://ogp.me/ns/business#">
+
+    <title>Writing Rails-flavored AngularJS</title>
+    <meta property="og:title" content="Writing Rails-flavored AngularJS">
+    <meta property="og:site_name" content="brewhouse">
+    <meta property="og:url" content="http://brewhouse.io/blog/2014/09/23/writing-rails-flavored-angularjs.html">
+
+    <meta property="og:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png">
+
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:site" content="@brewhouseteam" />
+    <meta property="twitter:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png">
+    <meta property="twitter:url" content="http://brewhouse.io//blog/2014/09/23/writing-rails-flavored-angularjs.html">
+
+    <link rel="alternate" type="application/atom+xml" href="/blog/index.xml" title="The Brew Pub atom feed">
+
+    
+      <meta property="og:type" content="article">
+      <meta property="article:published_time" content="2014-09-23">
+      <meta property="article:tag" content="Gabe Scholz">
+
+      <meta property="twitter:title" content="Writing Rails-flavored AngularJS">
+
+      
+    
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="robots" content="INDEX, FOLLOW">
+
+<link rel="shortcut icon" href="/images/icons/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
+
+<link href="http://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" href="/assets/application-d23fd63f2f55a6d3311e16df93ecfdf4.css">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css">
+
+  </head>
+  <body class="on-post">
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46725009-2', 'brewhouse.io');
+  ga('send', 'pageview');
+
+</script>
+
+
+    <nav id="navbar-blog" class="navbar navbar-default navbar-main" role="navigation">
+      <a id="brewhouse-logo" class="navbar-brand internal" rel="home" href="/" title="brewhouse logo"><img src="/images/brewhouse-logo-blog-2.png"></a>
+    </nav>
+
+    <div class="container main">
+      <div id="banner-blog" class="row">
+  <div class="col-xs-12 img-full-width">
+    <img src="/images/blog-background.jpg" class="img-responsive">
+
+    <section>
+      <h1 id="brew-pub-start">
+        <a href="/blog/">The Brew Pub</a>
+      </h1>
+      <h3>
+        Writings from <a href="http://brewhouse.io">brewhouse.io</a>, makers of <a href="https://goodbits.io?utm_source=brewhouse-blog">goodbits.io</a> and stellar apps for our clients.
+      </h3>
+    </section>
+  </div>
+</div>
+
+
+      
+
+<div id="article-start" class="content">
+  <div class="row">
+    <div class="col-xs-12 col-sm-9">
+
+      <div class="post">
+        <div class="social-actions">
+          <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io/blog/2014/09/23/writing-rails-flavored-angularjs.html" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="">Tweet</a>
+        </div>
+
+        <h1>
+          Writing Rails-flavored AngularJS
+        </h1>
+        <p class="meta">
+          
+            <span>
+              <img class="img-circle img-author" src="//www.gravatar.com/avatar/667f2b767c362d9291bf2e7afa3de5fd?s=135" alt="A photo of Gabe Scholz" width="55">
+
+              <a href="http://twitter.com/gabescholz" target="_blank">Gabe Scholz</a> wrote this on 23 Sep 2014
+            </span>
+          
+        </p>
+
+        <p>When I think about Ruby on Rails and AngularJS in the same codebase, I kind of cringe. After
+spending more than a year trying to reconcile how Rails plays with Angular, not only
+have I been unsuccessful, but I have not been satisfied with any of the suggested
+solutions. There is a ton of material on the numerous Rails hacks you should employ
+so that Rails and AngularJS feel compatible; however, I’m beginning to
+wonder whether this problem is being approached from the wrong direction.
+Instead, how can we hack AngularJS so that it plays nice with Rails?</p>
+
+<p>As a Ruby on Rails developer, I want to feel that I’m writing a Rails
+application. I’m OK with a page refresh when I’m browsing between features. I don’t
+want to feel like I have to submit to the ‘Single Page Application’ paradigm.
+I want my JavaScript to be sprinkled on the page to augment my application. I
+don’t want my JavaScript to consume the entire thing. AngularJS has a tendency
+to pull you out of developing Rails in the Rails way.</p>
+
+<p>Rails comes bundled with vanilla jQuery, which is very easy to get started with,
+but it is difficult to maintain. I love how Angular encapsulates, localizes and contains
+JavaScript functionality. It’s maintainable, modular, and easier to understand
+than a sputtering of jQuery files. It would be nice if I could focus on writing
+JavaScript for components and leave the application bit to my Rails server.</p>
+
+<p>My solution to solve this problem is appropriately called
+<a href="https://github.com/BrewhouseTeam/angular_sprinkles">Angular Sprinkles</a>.
+This gem hides all of the usual setup required for a tranditional AngularJS
+application while dynamically generating one at run time. Developers use Rails
+helper methods to enable two-way binding, render directives, and call evented
+functions. It’s a cleaner approach to JavaScript in your Rails application.
+Let’s take a look.</p>
+
+<h2 id="binding-attributes">Binding attributes</h2>
+
+<p>Two-way binding works right out of the box with Sprinkles. Wrapping objects
+with the <code>bindable</code> controller helper gives them the <code>bind</code> method.</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="c1"># app/controllers/user_controller.rb</span>
+
+<span class="k">class</span> <span class="nc">UserController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">show</span>
+    <span class="vi">@user</span> <span class="o">=</span> <span class="n">bindable</span><span class="p">(</span><span class="no">User</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">))</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+
+<p>And then in the view, you can either bind to the entire JSONified object with <code>@user.bind</code>,
+or just a single attribute with an argument.</p>
+
+<div class="highlight"><pre><code class="erb"><span class="x">&lt;!-- app/views/users/show.html.erb --&gt;</span>
+
+<span class="x">&lt;p&gt;My name is: {{ </span><span class="cp">&lt;%=</span> <span class="vi">@user</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="ss">:name</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="x"> }}&lt;/p&gt;</span>
+<span class="x">&lt;input type=&quot;text&quot; ng-model=&quot;</span><span class="cp">&lt;%=</span> <span class="vi">@user</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="ss">:name</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="x">&quot; /&gt;</span>
+</code></pre></div>
+
+<h2 id="inlined-directives">Inlined directives</h2>
+
+<p>We’ll take this a step further by creating a directive to make our name blink very rapidly (obviously).
+Let’s first write the directive.</p>
+
+<div class="highlight"><pre><code class="js"><span class="c1">// app/assets/javascripts/directives/blink.js</span>
+
+<span class="nx">sprinkles</span><span class="p">.</span><span class="nx">directive</span><span class="p">(</span><span class="s1">&#39;blink&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$timeout</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">restrict</span><span class="o">:</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span>
+    <span class="nx">transclude</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">scope</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">period</span><span class="o">:</span> <span class="s1">&#39;=&#39;</span>
+    <span class="p">},</span>
+    <span class="nx">link</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">opacity</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+      <span class="kd">function</span> <span class="nx">blink</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">$timeout</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+          <span class="nx">opacity</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="nx">opacity</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+          <span class="nx">element</span><span class="p">.</span><span class="nx">css</span><span class="p">({</span><span class="nx">opacity</span><span class="o">:</span> <span class="nx">opacity</span><span class="p">});</span>
+          <span class="nx">blink</span><span class="p">();</span>
+        <span class="p">},</span> <span class="nx">scope</span><span class="p">.</span><span class="nx">period</span><span class="p">);</span>
+      <span class="p">}</span>
+
+      <span class="nx">blink</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<p>And now we can include the directive in our view with the <code>directive</code> helper.</p>
+
+<div class="highlight"><pre><code class="erb"><span class="x">&lt;!-- app/views/users/show.html.erb --&gt;</span>
+
+<span class="cp">&lt;%=</span> <span class="n">directive</span><span class="p">(</span><span class="ss">:blink</span><span class="p">,</span> <span class="ss">period</span><span class="p">:</span> <span class="mi">250</span><span class="p">)</span> <span class="k">do</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">  &lt;p&gt;My name is: {{ </span><span class="cp">&lt;%=</span> <span class="vi">@user</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="ss">:name</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="x"> }}&lt;/p&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">&lt;input type=&quot;text&quot; ng-model=&quot;</span><span class="cp">&lt;%=</span> <span class="vi">@user</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="ss">:name</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="x">&quot; /&gt;</span>
+</code></pre></div>
+
+<p>BOOM! Annoying blinking tag!</p>
+
+<h2 id="evented-javascript-functions">Evented JavaScript functions</h2>
+
+<p>Finally, it’s very important to be able to still use Angular’s built-in event
+bindings. For example, clicking a button and showing an alert box. Sprinkles
+solves this by allowing developers to inline Angular services with the <code>service</code>
+helper method.</p>
+
+<div class="highlight"><pre><code class="js"><span class="c1">// app/assets/javascripts/services/alert_me.js</span>
+
+<span class="nx">sprinkles</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;alertMe&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">input</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;My name is: &#39;</span> <span class="o">+</span> <span class="nx">input</span><span class="p">);</span>
+  <span class="p">};</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<p>And then in the view,</p>
+
+<div class="highlight"><pre><code class="erb"><span class="x">&lt;!-- app/views/users/show.html.erb --&gt;</span>
+
+<span class="x">&lt;button ng-click=&quot;</span><span class="cp">&lt;%=</span> <span class="n">service</span><span class="p">(</span><span class="ss">:alert_me</span><span class="p">,</span> <span class="vi">@user</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="ss">:name</span><span class="p">))</span> <span class="cp">%&gt;</span><span class="x">&quot;&gt;CLICK ME!&lt;/button&gt;</span>
+<span class="x">&lt;input type=&quot;text&quot; ng-model=&quot;</span><span class="cp">&lt;%=</span> <span class="vi">@user</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="ss">:name</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="x">&quot; /&gt;</span>
+</code></pre></div>
+
+<p>In all of these examples there was no additional setup involved. An Angular application
+is generated behind the scenes, allowing the developer to keep focused on smaller
+JavaScript components. Focused on the… sprinkles.</p>
+
+<h2 id="let-us-know-what-you-think">Let us know what you think</h2>
+
+<p>Angular Sprinkles is a new approach to Angular-Rails development. It’s for those of us
+that love both of these great technologies and want to see them work together pleasantly.
+Please <a href="https://github.com/BrewhouseTeam/angular_sprinkles">have a look at the gem</a>
+for more information on setup and leave some feedback. We would love to know what you think.</p>
+
+
+        <div class="mailchimp-form text-center">
+          <p>
+            Enter your email below and receive more from the BrewPub:
+          </p>
+          <!-- Begin MailChimp Signup Form -->
+          <link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+          <div id="mc_embed_signup" class="row">
+            <form action="http://brewhouse.us8.list-manage.com/subscribe/post?u=c524f6473f5901cae1230a052&amp;id=14f9de4be1" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+
+              <div class="col-sm-8">
+                <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required style="width: 100%; margin: 0 0 4% 0">
+              </div>
+              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+              <div style="position: absolute; left: -5000px;">
+                <input type="text" name="b_c524f6473f5901cae1230a052_14f9de4be1" value="">
+              </div>
+
+              <div class="col-sm-4 subscribe-button">
+                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+              </div>
+            </form>
+          </div>
+          <!--End mc_embed_signup-->
+        </div>
+
+        <div id="disqus_thread"></div>
+
+        <!-- disqus -->
+        <script type="text/javascript">
+            var disqus_shortname = 'brewhouse';
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        <!-- /disqus -->
+
+      </div><!-- /post -->
+
+    </div>
+  </div><!-- /row -->
+</div><!-- /content-->
+
+<script>
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+</script>
+
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-11 col-xs-offset-1">
+            <p>
+              &copy; 2014 <a href="http://brewhouse.io">brewhouse software, inc.</a>
+            </p>
+          </div><!--col-xs-12 -->
+        </div><!-- row -->
+      </div><!-- container -->
+    </footer>
+
+    <script src="/assets/app-d2b50542eb2234dffdd5932a70b4af3b.js"></script>
+  </body>
+</html>

@@ -29,6 +29,16 @@ task :new_post, :title do |t, args|
     post.puts "title: \"#{title.gsub(/&/,'&amp;')}\""
     post.puts "author: \"#{author}\""
     post.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M')}"
+
+    post.puts "tags:"
+    post.puts "  - example"
+    post.puts "  - tags"
+    post.puts "  - here"
+    post.puts "shared_square_image: http://brewhouse.io/images/posts/2014/Jul/square-400px-img-here.png"
+    post.puts "shared_description: Write a sentence or two about the blog post here!"
+    post.puts "draft: true"
+    post.puts "published: false"
+
     post.puts "---"
   end
 end
