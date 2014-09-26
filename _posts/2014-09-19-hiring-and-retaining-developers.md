@@ -21,6 +21,8 @@ Developers care about what they ship. So what can be offered to allow them ship,
 
 Let me explain some areas that I believe are important to hiring and retaining good developers.
 
+<!-- break -->
+
 ## Code quality
 
 If I'm a cook, would I want to cook food in a messy, un-organized kitchen? Um, nope.
@@ -45,7 +47,7 @@ There are lots of tooling out there to measure your code complexity. They measur
 
 .. More to come ..
 
-There are services like Code Climate which run reports regularly on your code and scoring it. Great way to get alerts when the score becomes worse. They can reward specific developers 
+There are services like Code Climate which run reports regularly on your code and scoring it. Great way to get alerts when the score becomes worse. They can reward specific developers
 
 ## Project practises
 

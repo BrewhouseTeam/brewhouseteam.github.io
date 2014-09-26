@@ -19,6 +19,8 @@ so that Rails and AngularJS feel compatible; however, I'm beginning to
 wonder whether this problem is being approached from the wrong direction.
 Instead, how can we hack AngularJS so that it plays nice with Rails?
 
+<!-- break -->
+
 As a Ruby on Rails developer, I want to feel that I'm writing a Rails
 application. I'm OK with a page refresh when I'm browsing between features. I don't
 want to feel like I have to submit to the 'Single Page Application' paradigm.

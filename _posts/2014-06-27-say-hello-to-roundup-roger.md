@@ -8,7 +8,7 @@ date: 2014-06-27 15:36
 
 <p>
   <a href="https://github.com/BrewhouseTeam/roundup-roger">
-    <img class="img-right img-responsive" alt="This Week in Rails Logo" src="https://dl.dropboxusercontent.com/u/79436/roundup_roger_logo1.png">
+    <img class="img-right img-responsive" alt="This Week in Rails Logo" src="https://s3.amazonaws.com/roundup-roger/roundup_roger_logo1.png">
   </a>
 </p>
 
@@ -21,6 +21,8 @@ The point of a wrap-up is to educate the team on:
 * What you’ve accomplished during the last business day
 * What you’ll be working on next
 * Whether you’ve hit any blockers that are impeding your progress
+
+<!-- break -->
 
 Email works well in this situation because it prevents <em>Chatty Carls</em> from commandeering your meeting, and allows concise discourse that can be re-visited later if needed. Also, for those of us who have trouble with [context switching](http://www.joelonsoftware.com/articles/fog0000000022.html), it can be easier to communicate the work you’ve accomplished by writing it out as opposed to communicating verbally.
 

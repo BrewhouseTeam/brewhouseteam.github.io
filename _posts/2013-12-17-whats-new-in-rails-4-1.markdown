@@ -19,6 +19,8 @@ While this is a minor release, there are still plenty of handy new features
 that's worth getting excited about. Here are a few of my favourites, along with
 some thoughts on why I think they are useful.
 
+<!-- break -->
+
 (This post is based on my lightning talk at [#VANRUBY][vanruby], the original
 slides can be found [here][slides].)
 
