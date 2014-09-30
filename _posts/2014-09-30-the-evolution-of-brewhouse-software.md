@@ -4,7 +4,6 @@ title: "The Evolution of Brewhouse Software"
 author: "lana"
 category: blog
 date: 2014-09-30 8:00
-draft: true
 published: true
 tags:
   - tea
