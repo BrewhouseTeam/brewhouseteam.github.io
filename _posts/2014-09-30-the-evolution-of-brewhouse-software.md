@@ -25,9 +25,10 @@ Everyone on the team has been asked this question at some point when introducing
 
 *Brewhouse Software*. It took about two weeks of defining and then redefining what was important about the brand and the creative process attached to it. The notion of coffee kept coming up. Code and coffee. Coffee and creating. And within the team, the fuss we made about a fantastic cup of high quality, craft coffee.
 
+<!-- break -->
+
 Craft coffee is huge in the west coast, craft beer is surging and what *we* actually do is create "craft software". We really care about the tools used, the process to create the software and the people that we work with. Craft implies care and quality. So naturally, the perfect name for us was *Brewhouse Software*.
 
-<!-- break -->
 
 ##Coffee Connection
 
