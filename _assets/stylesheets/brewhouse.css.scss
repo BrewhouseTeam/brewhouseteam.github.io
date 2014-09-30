@@ -833,9 +833,11 @@ html.blog {
   background: #42CCEE;
 
   #mc_embed_signup input.button {
-    background: #fafafa;
-    color: #777;
-    border-radius: 0;
+    transition: all 0.3s;
+
+    background: #FD7E5F;
+    color: #fff;
+    border-radius: 3px;
     height: 38px;
     margin-bottom: 0;
     width: 100%;
@@ -843,11 +845,14 @@ html.blog {
   #mc_embed_signup input.button:focus,
   #mc_embed_signup input.button:active,
   #mc_embed_signup input.button:hover {
-    background: #fff;
-    color: #333;
+    background: #F5380B;
+    color: #fff;
   }
   #mc_embed_signup input.email {
     border: 0;
+    border-radius: 3px;
+    font-family: 'bh_proxima', sans-serif;
+    padding-left: 10px;
   }
   .subscribe-button {
     padding-top: 0 !important;
@@ -858,7 +863,9 @@ html.blog {
   p {
     color: #fff;
     font-family: 'bh_proxima', sans-serif;
-    font-size: 140%;
+    font-size: 130%;
+    font-weight: 700;
+    letter-spacing: -0.05em;
     margin-bottom: 10px;
   }
   .subscribe-button {

@@ -36,7 +36,7 @@ Craft coffee is huge in the west coast, craft beer is surging and what *we* actu
   <img class="img-responsive" alt="coffee tools used" src="/images/posts/2014/Sept/coffee-tools.jpg">
 </p>
 
-Coffee *and* tea (for those Brits out there!) -- it's not just associated with our name, [we love the stuff](https://vimeo.com/101646332)! 
+Coffee *and* tea (for those Brits out there!) -- it's not just associated with our name, [we love the stuff](https://vimeo.com/101646332)!
 
 As a group of individuals, design is important to us. Design in building software and design in the tools we use. We're not a full on design firm but we try and learn as much as we can from other crafts.
 
@@ -53,9 +53,9 @@ The time was right. We added two more to the team of four and realized that it w
 *And then there were six.*
 <img class="img-responsive" alt="Gabe face and Lana face" src="/images/posts/2014/Sept/gabe-me.png">
 
-It was a big step to add two more to the team. [Gabe](https://twitter.com/gabescholz) was a welcome addition. He is an amazing developer, specializing in AngularJS, and we now have the capacity to take on more customers, more clients and more work to do with our products. 
+Another big step was adding two more to the team. [Gabe](https://twitter.com/gabescholz) was a welcome addition. He is an amazing developer, specializing in AngularJS. We now have the capacity to bring on more customers, and tackle more work with our products.
 
-Adding [Lana](https://twitter.com/MsTopham) (aka, Me) to the team was more of a leap. Having someone who wasn't a developer or a designer -- someone who read copy from a whole different perspective. That was big. We're no longer "techies", we're now a bonafide business with multi-functions and roles to help us grow.
+Adding [Lana](https://twitter.com/MsTopham) (aka, Me) to the team was more of a leap. Having someone who wasn't a developer or a designer -- someone who read copy from a whole different perspective. That was big. We're no longer just "techies". We're now a bonafide business with multi-functions and roles to help us grow.
 
 ##It's Custom, Baby
 
@@ -63,13 +63,13 @@ Adding [Lana](https://twitter.com/MsTopham) (aka, Me) to the team was more of a 
   <img class="img-responsive" alt="Brewhouse HQ office view" src="/images/posts/2014/Sept/office.jpg">
 </p>
 
-Our 1400 square foot space is roomy -- too big for six but egging us on to grow. It boasts a fully stocked kitchen of snacks, a deep selection of coffee and tea (it's kinda our thing!) and small features which make it feel custom: like beanbag chairs, art created by [Chuck](https://twitter.com/ChuckBergeron) and our whiteboard on wheels, moonlighting as a Visual Timeline.
+Our 1,400 square ft. space is roomy -- too big for six but egging us on to grow. It boasts a fully stocked kitchen of snacks, a deep selection of coffee and tea (it's kinda our thing!) and small features which make it feel custom: like beanbag chairs, art created by [Chuck](https://twitter.com/ChuckBergeron) and our whiteboard on wheels, moonlighting as a Visual Timeline.
 
 <p>
   <img class="img-responsive" alt="Vanruby event" src="/images/posts/2014/Sept/vanruby.jpg">
 </p>
 
-This large space calls for multi-purpose use. We're fond of the startup community and feel it is our duty to share our space to allow others to host small meetups or [larger events](http://vanruby.org/2014-heroes.html). This is our home but we love to open the doors so others can enjoy our beautiful spread as much as we do.
+This large space calls for multi-purpose use. We're fond of the startup community and feel it is our duty to share our space to allow others to host small meetups or [larger events](http://vanruby.org/2014-heroes.html). This is our home, but we love to open the doors so others can enjoy our beautiful spread as much as we do.
 
 
-If you're interested in working with us, stop by for a cup of coffee ![](/images/posts/2014/Sept/coffee-emoji.png) or [get in touch](http://brewhouse.io/#contact). 
+If you're interested in working with us, stop by for a cup ![](/images/posts/2014/Sept/coffee-emoji.png) or [get in touch](http://brewhouse.io/#contact).
