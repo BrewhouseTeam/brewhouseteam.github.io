@@ -12,7 +12,7 @@ tags:
   - coffee
   - office
 shared_square_image: http://blog.goodbits.io/images/posts/2014/Sept/brewsquare.jpg
-shared_description: Brewhouse Software has evolved. Learn about the recent changes that are making us 
+shared_description: Brewhouse Software has evolved. Learn about the recent changes that are making us bubble with joy!
 ---
 
 <p>
