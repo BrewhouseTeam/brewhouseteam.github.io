@@ -69,7 +69,7 @@ Our 1400 square foot space is roomy -- too big for six but egging us on to grow.
   <img class="img-responsive" alt="Vanruby event" src="/images/posts/2014/Sept/vanruby.jpg">
 </p>
 
-This large space calls for multi-purpose use. We're fond of the startup community and feel it is our duty to share our space to allow others to host small meetups or [larger events](http://vanruby.org/2014-heroes.html). This is our home but love to open the doors so others can enjoy our beautiful spread as much as we do.
+This large space calls for multi-purpose use. We're fond of the startup community and feel it is our duty to share our space to allow others to host small meetups or [larger events](http://vanruby.org/2014-heroes.html). This is our home but we love to open the doors so others can enjoy our beautiful spread as much as we do.
 
 
 If you're interested in working with us, stop by for a cup of coffee ![](/images/posts/2014/Sept/coffee-emoji.png) or [get in touch](http://brewhouse.io/#contact). 
