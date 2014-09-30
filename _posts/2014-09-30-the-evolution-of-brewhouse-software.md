@@ -51,7 +51,7 @@ We think the elements that go into creating coffee overlap with how we create ou
 The time was right. We added two more to the team of four and realized that it wouldn't cost much more to have our own dedicated space.  It was always our intention to branch out, as our previous digs, a co-working space ([Chloi HQ](http://chloi.io/)), lacked the ability to brand and limited us in what we could do. After all, it is a shared space! We're creative and we needed to be able to feel like the space we worked in was our own. So Brewhouse Software HQ was born.
 
 *And then there were six.*
-<img class="img-responsive" alt="Gabe face and Lana face" src="/images/posts/2014/Sept/gabe-me.jpg">
+<img class="img-responsive" alt="Gabe face and Lana face" src="/images/posts/2014/Sept/gabe-me.png">
 
 It was a big step to add two more to the team. [Gabe](https://twitter.com/gabescholz) was a welcome addition. He is an amazing developer, specializing in AngularJS, and we now have the capacity to take on more customers, more clients and more work to do with our products. 
 
