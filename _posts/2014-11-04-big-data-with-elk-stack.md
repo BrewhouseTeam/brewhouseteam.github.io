@@ -18,11 +18,11 @@ We've built a data analysis and dashboarding infrastructure for one of our clien
 
 My highest priority was to allow them to browse the data they collect so that they can ensure that the data points are consistent and contain all the attributes required to generate the reports and dashboards they need.
 
-I chose to give a try to the [ELK stack](http://www.elasticsearch.org/overview/): [ElasticSearch](http://www.elasticsearch.org/overview/elasticsearch/), [logstash](http://www.elasticsearch.org/overview/logstash/) and [Kibana](http://www.elasticsearch.org/overview/kibana/).
+I chose to give the [ELK stack](http://www.elasticsearch.org/overview/) a try: [ElasticSearch](http://www.elasticsearch.org/overview/elasticsearch/), [logstash](http://www.elasticsearch.org/overview/logstash/) and [Kibana](http://www.elasticsearch.org/overview/kibana/).
 
 <!-- break -->
 
-[ElasticSearch](http://www.elasticsearch.org/overview/elasticsearch/) is a schema less database that has powerful search capabilities and is easy to scale horizontally. Schema-less means that you just throw JSON at it and it updates the schema as you go. It indexes every single field, so you can search anything (with full text search) and aggregate and group data. Registering a new node to a cluster is a matter of installing ElasticSearch on a machine and editing a configuration file. ElasticSearch takes care of spreading data around and spliting out requests over multiple servers.
+[ElasticSearch](http://www.elasticsearch.org/overview/elasticsearch/) is a schema-less database that has powerful search capabilities and is easy to scale horizontally. Schema-less means that you just throw JSON at it and it updates the schema as you go. It indexes every single field, so you can search anything (with full-text search) and it will aggregate and group the data. Registering a new node to a cluster is a matter of installing ElasticSearch on a machine and editing a config file. ElasticSearch takes care of spreading data around and splitting out requests over multiple servers.
 
 [logstash](http://www.elasticsearch.org/overview/logstash/) allows you to pipeline data from and to anywhere. This is called an ETL (for Extract Transform Load) pipeline in the Business Intelligence and Data warehousing world. This is what allows us to fetch, transform and store events into ElasticSearch.
 
