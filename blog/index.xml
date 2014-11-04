@@ -3,12 +3,290 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2014-09-26T10:32:23-07:00</updated>
+    <updated>2014-11-04T10:39:08-08:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
         <email>hello@brewhouse.io</email>
     </author>
+    
+    
+      <entry>
+          <title>Big data in minutes with the ELK Stack</title>
+          <author>
+            <name>Philippe Creux</name>
+            <email>philippe@brewhouse.io</email>
+          </author>
+          <link href="http://brewhouse.io/blog/2014/11/04/big-data-with-elk-stack.html"/>
+          <updated>2014-11-04T08:00:00-08:00</updated>
+          <id>http://brewhouse.io/blog/2014/11/04/big-data-with-elk-stack</id>
+          <content type="html">&lt;p&gt;We’ve built a data analysis and dashboarding infrastucture for one of our clients over the past few weeks. They collect about 10 million data points a day. Yes, that’s big data.&lt;/p&gt;
+
+&lt;p&gt;My highest priority was to allow them to browse the data they collect so that they can ensure that the data points are consistent and contain all the attributes required to generate the reports and dashboards they need.&lt;/p&gt;
+
+&lt;p&gt;I chose to give a try to the &lt;a href=&quot;http://www.elasticsearch.org/overview/&quot;&gt;ELK stack&lt;/a&gt;: &lt;a href=&quot;http://www.elasticsearch.org/overview/elasticsearch/&quot;&gt;ElasticSearch&lt;/a&gt;, &lt;a href=&quot;http://www.elasticsearch.org/overview/logstash/&quot;&gt;logstash&lt;/a&gt; and &lt;a href=&quot;http://www.elasticsearch.org/overview/kibana/&quot;&gt;Kibana&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!-- break --&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.elasticsearch.org/overview/elasticsearch/&quot;&gt;ElasticSearch&lt;/a&gt; is a schema less database that has powerful search capabilities and is easy to scale horizontally. Schema-less means that you just throw JSON at it and it updates the schema as you go. It indexes every single field, so you can search anything (with full text search) and aggregate and group data. Registering a new node to a cluster is a matter of installing ElasticSearch on a machine and editing a configuration file. ElasticSearch takes care of spreading data around and split out requests over multiple servers.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.elasticsearch.org/overview/logstash/&quot;&gt;logstash&lt;/a&gt; allows you to pipeline data from and to anywhere. This is called an ETL (for Extract Transform Load) pipeline in the Business Intelligence and Data warehousing world. This is what allows us to fetch, transform and store events into ElasticSearch.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.elasticsearch.org/overview/kibana/&quot;&gt;Kibana&lt;/a&gt; is a web based data analysis and dash boarding tool for ElasticSearch. It leverages ElasticSearch search capabilities to aggregate and visualise your (big) data in seconds.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2014/elk/flow.jpg&quot; alt=&quot;flow&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;logstash-etl-pipeline-made-simple&quot;&gt;&lt;em&gt;logstash&lt;/em&gt;: ETL pipeline made simple&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;logstash&lt;/em&gt; is a simple tool that streams data from one or many inputs, transforms it and outputs it to one or many outputs.&lt;/p&gt;
+
+&lt;h3 id=&quot;inputs-read-and-parse-data&quot;&gt;Inputs: read and parse data&lt;/h3&gt;
+
+&lt;p&gt;Inputs are data sources such as log files (&lt;code&gt;/var/log/*.log&lt;/code&gt;) or data stored in a &lt;em&gt;S3 bucket&lt;/em&gt;, &lt;em&gt;rabbitmq&lt;/em&gt;, &lt;em&gt;redis&lt;/em&gt;, etc. Once the raw data is read, &lt;em&gt;logstash&lt;/em&gt; parses it using codecs such as &lt;em&gt;json&lt;/em&gt;, &lt;em&gt;key=value&lt;/em&gt;, &lt;em&gt;graphite format&lt;/em&gt; etc. You can find a &lt;a href=&quot;http://logstash.net/docs/1.4.2/&quot;&gt;full list of inputs and codecs&lt;/a&gt; on &lt;a href=&quot;http://logstash.net/docs/1.4.2/&quot;&gt;&lt;em&gt;logstash&lt;/em&gt; documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Let’s write a &lt;em&gt;logstash&lt;/em&gt; configuration file to load data from an S3 bucket containing text files with one json blob per line.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# logstash.conf&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;s3&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;bucket&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;my-bucket&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;credentials&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;aws-key&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;aws-token&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;codec&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;json&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;filters-transform-and-extend-data&quot;&gt;Filters: transform and extend data&lt;/h3&gt;
+
+&lt;p&gt;We now have data in the &lt;em&gt;logstash&lt;/em&gt; pipeline. It’s time to transform it a little. Take this sample input file:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;json&quot;&gt;&lt;span class=&quot;err&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;://my-bucket/input&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;-1&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.txt&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;quot;action&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;start game&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;quot;user&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;bob&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;quot;time&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;123456789&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;ip:&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;quot;56.42.42.42&amp;quot;&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;quot;action&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;win game&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;   &lt;span class=&quot;nt&quot;&gt;&amp;quot;user&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;kale&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;quot;time&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;123456792&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;ip:&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;quot;134.26.26.26&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;We can get &lt;em&gt;logstash&lt;/em&gt; to generate a proper &lt;em&gt;@timestamp&lt;/em&gt; field (later used by Kibana) and to add geolocalization using the ip address with the following filters:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# logstash.conf&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;filter&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# Parse the `time` attribute as a UNIX timestamp (seconds since epoch)&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# and store it in `@timestamp` attribute. This will be used in Kibana later on.&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;date&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;match&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;time&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;UNIX&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;# Add geolocalization attributes based on ip.&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;geoip&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;ip&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;output-load-data&quot;&gt;Output: load data&lt;/h3&gt;
+
+&lt;p&gt;The output section is quite similar to the input one. You can output to stdout (handy for debugging purpose or to pipe into another command) as well as storing into S3, loading into a database such as ElasticSearch etc.&lt;/p&gt;
+
+&lt;p&gt;Let’s output to stdout using ruby-debug format:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;filter&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;output&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;stdout&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;codec&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ruby&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;debug&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;and run &lt;em&gt;logstash&lt;/em&gt; to ensure that everything is wound up properly:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# $&amp;gt; logstash -f logstash.conf&lt;/span&gt;
+
+
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;s2&quot;&gt;&amp;quot;action&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;start game&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;s2&quot;&gt;&amp;quot;user&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;bob&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;s2&quot;&gt;&amp;quot;time&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;123456789&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&amp;quot;ip&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;56.42.42.42&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&amp;quot;@version&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;1&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;@timestamp&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;1973-11-29T21:33:09.000Z&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;s2&quot;&gt;&amp;quot;path&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;s3://my-bucket/input-1.txt&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+         &lt;span class=&quot;s2&quot;&gt;&amp;quot;geoip&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                      &lt;span class=&quot;s2&quot;&gt;&amp;quot;ip&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;56.42.42.42&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+           &lt;span class=&quot;s2&quot;&gt;&amp;quot;country_code2&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;US&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+           &lt;span class=&quot;s2&quot;&gt;&amp;quot;country_code3&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;USA&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&amp;quot;country_name&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;United States&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;s2&quot;&gt;&amp;quot;continent_code&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;NA&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+             &lt;span class=&quot;s2&quot;&gt;&amp;quot;region_name&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;NC&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+               &lt;span class=&quot;s2&quot;&gt;&amp;quot;city_name&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Raleigh&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+             &lt;span class=&quot;s2&quot;&gt;&amp;quot;postal_code&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;27668&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;s2&quot;&gt;&amp;quot;latitude&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;35&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;79769999999999&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+               &lt;span class=&quot;s2&quot;&gt;&amp;quot;longitude&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;78&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6253&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;s2&quot;&gt;&amp;quot;dma_code&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;560&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+               &lt;span class=&quot;s2&quot;&gt;&amp;quot;area_code&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;919&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;s2&quot;&gt;&amp;quot;timezone&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;America/New_York&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s2&quot;&gt;&amp;quot;real_region_name&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;North Carolina&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;s2&quot;&gt;&amp;quot;location&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;78&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6253&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;35&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;79769999999999&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Nice, all attributes were parsed properly and we now have &lt;em&gt;@timestamp&lt;/em&gt; and &lt;em&gt;geoip&lt;/em&gt; attributes.&lt;/p&gt;
+
+&lt;p&gt;Our final configuration file looks like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;s3&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;bucket&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;my-bucket&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;credentials&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;my-aws-key&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;my-aws-token&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;region_endpoint&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;us-east-1&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# keep track of the last processed file&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sincedb_path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;./last-s3-file&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;codec&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;json&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;filter&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# set the event timestamp&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;date&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;match&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;time&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;UNIX&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;# add geoip attributes&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;geoip&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;ip&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+
+&lt;span class=&quot;n&quot;&gt;output&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;elasticsearch_http&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;host&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;localhost&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;port&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;9200&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;There is quite a lot going on in just a few lines of code, eh?&lt;/p&gt;
+
+&lt;p&gt;On top of this &lt;em&gt;logstash&lt;/em&gt; keeps track of the inputs it had processed. So you can restart it without being concerned of data duplication.&lt;/p&gt;
+
+&lt;p&gt;Although &lt;em&gt;logstash&lt;/em&gt; is written in &lt;em&gt;Ruby&lt;/em&gt;, it is really fast. The packaged version runs on &lt;em&gt;JRuby&lt;/em&gt; and it takes advantage of the JVM threading capabilities by throwing a dozen of threads to parallelize data processing.&lt;/p&gt;
+
+&lt;h2 id=&quot;elasticsearch--kibana&quot;&gt;ElasticSearch &amp;amp; Kibana&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;logstash&lt;/em&gt; is now ready to store data into &lt;em&gt;ElasticSearch&lt;/em&gt;. Getting ElasticSearch running on your machine &lt;a href=&quot;http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup.html&quot;&gt;takes minutes&lt;/a&gt;. &lt;a href=&quot;http://www.elasticsearch.org/overview/kibana/installation/&quot;&gt;Setup Kibana&lt;/a&gt; and you can now browse your data. A couple of clicks later, you’ve got a good looking dashboard.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2014/elk/kibana.jpg&quot; alt=&quot;kibana-dashboard&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;setting-this-up-in-production&quot;&gt;Setting this up in production&lt;/h3&gt;
+
+&lt;p&gt;There is an excellent &lt;a href=&quot;https://github.com/lusis/chef-logstash&quot;&gt;chef cookbook&lt;/a&gt; to deploy &lt;em&gt;logstash&lt;/em&gt; in minutes.&lt;/p&gt;
+
+&lt;p&gt;We decided to use a hosted solution to manage the ElasticSearch cluster. The top two seem to be &lt;a href=&quot;http://qbox.io&quot;&gt;qbox.io&lt;/a&gt; and &lt;a href=&quot;http://found.no&quot;&gt;found.no&lt;/a&gt;. &lt;a href=&quot;http://found.no&quot;&gt;found.no&lt;/a&gt; provides reserved instance and allows you to scale your cluster without any downtime.&lt;/p&gt;
+
+&lt;p&gt;Kibana comes as a plugin on all hosted ElasticSearch services, so you just have to tick a checkbox and you’re ready to go!&lt;/p&gt;
+
+&lt;p&gt;Performance wise, an ElasticSearch cluster with 4 x &lt;a href=&quot;http://aws.amazon.com/ec2/instance-types/#Compute_Optimized&quot;&gt;Amazon EC2 c3.xlarge&lt;/a&gt; is sufficient to run Kibana reports on the last 30 days. This is about 3 billion data entries.&lt;/p&gt;
+
+&lt;h2 id=&quot;elk-store-and-visualize-huge-amounts-of-data-in-minutes&quot;&gt;ELK store and visualize huge amounts of data in minutes&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;logstash&lt;/em&gt; enabled me to deliver a ETL pipeline that is highly performant, reliable and easy to maintain in a matter of hours. &lt;em&gt;Elastic Search&lt;/em&gt; is a no brainer data base that ingests anything you throw at it and scale horizontally when need be. &lt;em&gt;Kibana&lt;/em&gt; allows you to make sense of your data and publish dashboards in minutes. I recommend you giving it a try to these powerful and simple tools.&lt;/p&gt;
+
+&lt;p&gt;Kibana 4 is on the way and a final version should be released in the next couple of month. It provides new features to generate business-oriented reports such as unique counts, funnels, etc. Until then, and to report on years of data, we’ve implemented a pipeline to load data into Amazon Datawarehouse solution &lt;a href=&quot;http://aws.amazon.com/redshift/&quot;&gt;Amazon Redshift&lt;/a&gt;. But this is a whole other story.&lt;/p&gt;
+
+&lt;p&gt;If this is a project you’re working on and would like some help, reach out for a chat!&lt;/p&gt;
+</content>
+      </entry>
+    
+    
+    
+      <entry>
+          <title>The Evolution of Brewhouse Software</title>
+          <author>
+            <name></name>
+            <email></email>
+          </author>
+          <link href="http://brewhouse.io/blog/2014/09/30/the-evolution-of-brewhouse-software.html"/>
+          <updated>2014-09-30T08:00:00-07:00</updated>
+          <id>http://brewhouse.io/blog/2014/09/30/the-evolution-of-brewhouse-software</id>
+          <content type="html">&lt;p&gt;
+  &lt;img class=&quot;img-responsive&quot; alt=&quot;tea that looks like coffee&quot; src=&quot;/images/posts/2014/Sept/coff.jpg&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;“Brewhouse – so you brew beer?”&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Everyone on the team has been asked this question at some point when introducing ourselves at an event or conference – it’s a valid question! However, we brew up a much different batch of awesome.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Brewhouse Software&lt;/em&gt;. It took about two weeks of defining and then redefining what was important about the brand and the creative process attached to it. The notion of coffee kept coming up. Code and coffee. Coffee and creating. And within the team, the fuss we made about a fantastic cup of high quality, craft coffee.&lt;/p&gt;
+
+&lt;!-- break --&gt;
+
+&lt;p&gt;Craft coffee is huge in the west coast, craft beer is surging and what &lt;em&gt;we&lt;/em&gt; actually do is create “craft software”. We really care about the tools used, the process to create the software and the people that we work with. Craft implies care and quality. So naturally, the perfect name for us was &lt;em&gt;Brewhouse Software&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;coffee-connection&quot;&gt;Coffee Connection&lt;/h2&gt;
+
+&lt;p&gt;
+  &lt;img class=&quot;img-responsive&quot; alt=&quot;coffee tools used&quot; src=&quot;/images/posts/2014/Sept/coffee-tools.jpg&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Coffee &lt;em&gt;and&lt;/em&gt; tea (for those Brits out there!) – it’s not just associated with our name, &lt;a href=&quot;https://vimeo.com/101646332&quot;&gt;we love the stuff&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;As a group of individuals, design is important to us. Design in building software and design in the tools we use. We’re not a full on design firm but we try and learn as much as we can from other crafts.&lt;/p&gt;
+
+&lt;p&gt;We think the elements that go into creating coffee overlap with how we create our software. Patience. The slow process of brewing a stellar cup of coffee applies to the work we do. We appreciate the relevance between the aspects of the coffee brewing world and how that relates to our processes.&lt;/p&gt;
+
+&lt;h2 id=&quot;movin-on-up&quot;&gt;Movin’ On Up&lt;/h2&gt;
+
+&lt;p&gt;
+  &lt;img class=&quot;img-responsive&quot; alt=&quot;Map of location&quot; src=&quot;/images/posts/2014/Sept/map.jpg&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;The time was right. We added two more to the team of four and realized that it wouldn’t cost much more to have our own dedicated space.  It was always our intention to branch out, as our previous digs, a co-working space (&lt;a href=&quot;http://chloi.io/&quot;&gt;Chloi HQ&lt;/a&gt;), lacked the ability to brand and limited us in what we could do. After all, it is a shared space! We’re creative and we needed to be able to feel like the space we worked in was our own. So Brewhouse Software HQ was born.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;And then there were six.&lt;/em&gt;
+&lt;img class=&quot;img-responsive&quot; alt=&quot;Gabe face and Lana face&quot; src=&quot;/images/posts/2014/Sept/gabe-me.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Another big step was adding two more to the team. &lt;a href=&quot;https://twitter.com/gabescholz&quot;&gt;Gabe&lt;/a&gt; was a welcome addition. He is an amazing developer, specializing in AngularJS. We now have the capacity to bring on more customers, and tackle more work with our products.&lt;/p&gt;
+
+&lt;p&gt;Adding &lt;a href=&quot;https://twitter.com/MsTopham&quot;&gt;Lana&lt;/a&gt; (aka, Me) to the team was more of a leap. Having someone who wasn’t a developer or a designer – someone who read copy from a whole different perspective. That was big. We’re no longer just “techies”. We’re now a bonafide business with multi-functions and roles to help us grow.&lt;/p&gt;
+
+&lt;h2 id=&quot;its-custom-baby&quot;&gt;It’s Custom, Baby&lt;/h2&gt;
+
+&lt;p&gt;
+  &lt;img class=&quot;img-responsive&quot; alt=&quot;Brewhouse HQ office view&quot; src=&quot;/images/posts/2014/Sept/office.jpg&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Our 1,400 square ft. space is roomy – too big for six but egging us on to grow. It boasts a fully stocked kitchen of snacks, a deep selection of coffee and tea (it’s kinda our thing!) and small features which make it feel custom: like beanbag chairs, art created by &lt;a href=&quot;https://twitter.com/ChuckBergeron&quot;&gt;Chuck&lt;/a&gt; and our whiteboard on wheels, moonlighting as a Visual Timeline.&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;img class=&quot;img-responsive&quot; alt=&quot;Vanruby event&quot; src=&quot;/images/posts/2014/Sept/vanruby.jpg&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;This large space calls for multi-purpose use. We’re fond of the startup community and feel it is our duty to share our space to allow others to host small meetups or &lt;a href=&quot;http://vanruby.org/2014-heroes.html&quot;&gt;larger events&lt;/a&gt;. This is our home, but we love to open the doors so others can enjoy our beautiful spread as much as we do.&lt;/p&gt;
+
+&lt;p&gt;If you’re interested in working with us, stop by for a cup &lt;img src=&quot;/images/posts/2014/Sept/coffee-emoji.png&quot; alt=&quot;&quot; /&gt; or &lt;a href=&quot;http://brewhouse.io/#contact&quot;&gt;get in touch&lt;/a&gt;.&lt;/p&gt;
+</content>
+      </entry>
+    
     
     
       <entry>
@@ -862,7 +1140,7 @@ talks.&lt;/p&gt;
           <id>http://brewhouse.io/2014/06/27/say-hello-to-roundup-roger</id>
           <content type="html">&lt;p&gt;
   &lt;a href=&quot;https://github.com/BrewhouseTeam/roundup-roger&quot;&gt;
-    &lt;img class=&quot;img-right img-responsive&quot; alt=&quot;This Week in Rails Logo&quot; src=&quot;https://dl.dropboxusercontent.com/u/79436/roundup_roger_logo1.png&quot; /&gt;
+    &lt;img class=&quot;img-right img-responsive&quot; alt=&quot;This Week in Rails Logo&quot; src=&quot;https://s3.amazonaws.com/roundup-roger/roundup_roger_logo1.png&quot; /&gt;
   &lt;/a&gt;
 &lt;/p&gt;
 
