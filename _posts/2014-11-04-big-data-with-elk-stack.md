@@ -10,7 +10,7 @@ tags:
   - logstash
   - elasticsearch
   - bigdata
-shared_square_image: http://blog.goodbits.io/images/posts/2014/Nov/bigdata.png
+shared_square_image: http://brewhouse.io/images/posts/2014/Nov/bigdata.png
 shared_description: We here at Brewhouse have built a data analysis and dashboarding infrastucture for one of our clients over the past few weeks. They collect about 10 million data points a day ...
 ---
 
