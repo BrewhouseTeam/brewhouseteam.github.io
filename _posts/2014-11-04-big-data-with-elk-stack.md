@@ -3,7 +3,7 @@ layout: post
 title: "Big data in minutes with the ELK Stack"
 author: "philippe"
 category: blog
-date: 2014-10-24 8:00
+date: 2014-11-04 8:00
 published: true
 tags:
   - kibana
