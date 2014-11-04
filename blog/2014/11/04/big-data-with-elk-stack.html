@@ -127,7 +127,7 @@
 
 <!-- break -->
 
-<p><a href="http://www.elasticsearch.org/overview/elasticsearch/">ElasticSearch</a> is a schema less database that has powerful search capabilities and is easy to scale horizontally. Schema-less means that you just throw JSON at it and it updates the schema as you go. It indexes every single field, so you can search anything (with full text search) and aggregate and group data. Registering a new node to a cluster is a matter of installing ElasticSearch on a machine and editing a configuration file. ElasticSearch takes care of spreading data around and split out requests over multiple servers.</p>
+<p><a href="http://www.elasticsearch.org/overview/elasticsearch/">ElasticSearch</a> is a schema less database that has powerful search capabilities and is easy to scale horizontally. Schema-less means that you just throw JSON at it and it updates the schema as you go. It indexes every single field, so you can search anything (with full text search) and aggregate and group data. Registering a new node to a cluster is a matter of installing ElasticSearch on a machine and editing a configuration file. ElasticSearch takes care of spreading data around and spliting out requests over multiple servers.</p>
 
 <p><a href="http://www.elasticsearch.org/overview/logstash/">logstash</a> allows you to pipeline data from and to anywhere. This is called an ETL (for Extract Transform Load) pipeline in the Business Intelligence and Data warehousing world. This is what allows us to fetch, transform and store events into ElasticSearch.</p>
 
@@ -141,9 +141,9 @@
 
 <h3 id="inputs-read-and-parse-data">Inputs: read and parse data</h3>
 
-<p>Inputs are data sources such as log files (<code>/var/log/*.log</code>) or data stored in a <em>S3 bucket</em>, <em>rabbitmq</em>, <em>redis</em>, etc. Once the raw data is read, <em>logstash</em> parses it using codecs such as <em>json</em>, <em>key=value</em>, <em>graphite format</em> etc. You can find a <a href="http://logstash.net/docs/1.4.2/">full list of inputs and codecs</a> on <a href="http://logstash.net/docs/1.4.2/"><em>logstash</em> documentation</a>.</p>
+<p>Inputs are data sources such as log files (<code>/var/log/*.log</code>) or data stored in a <em>S3 bucket</em>, <em>RabbitMQ</em>, <em>redis</em>, etc. Once the raw data is read, <em>logstash</em> parses it using codecs such as <em>JSON</em>, <em>key=value</em>, <em>graphite format</em> etc. You can find a <a href="http://logstash.net/docs/1.4.2/">full list of inputs and codecs</a> on <a href="http://logstash.net/docs/1.4.2/"><em>logstash</em> documentation</a>.</p>
 
-<p>Let’s write a <em>logstash</em> configuration file to load data from an S3 bucket containing text files with one json blob per line.</p>
+<p>Let’s write a <em>logstash</em> configuration file to load data from an S3 bucket containing text files with one JSON blob per line.</p>
 
 <div class="highlight"><pre><code class="ruby"><span class="c1"># logstash.conf</span>
 
@@ -288,7 +288,7 @@
 
 <p>On top of this <em>logstash</em> keeps track of the inputs it had processed. So you can restart it without being concerned of data duplication.</p>
 
-<p>Although <em>logstash</em> is written in <em>Ruby</em>, it is really fast. The packaged version runs on <em>JRuby</em> and it takes advantage of the JVM threading capabilities by throwing a dozen of threads to parallelize data processing.</p>
+<p>Although <em>logstash</em> is written in <em>Ruby</em>, it is really fast. The packaged version runs on <em>JRuby</em> and it takes advantage of the JVM’s threading capabilities by throwing a dozen of threads to parallelize data processing.</p>
 
 <h2 id="elasticsearch--kibana">ElasticSearch &amp; Kibana</h2>
 
@@ -308,9 +308,9 @@
 
 <h2 id="elk-store-and-visualize-huge-amounts-of-data-in-minutes">ELK store and visualize huge amounts of data in minutes</h2>
 
-<p><em>logstash</em> enabled me to deliver a ETL pipeline that is highly performant, reliable and easy to maintain in a matter of hours. <em>Elastic Search</em> is a no brainer data base that ingests anything you throw at it and scale horizontally when need be. <em>Kibana</em> allows you to make sense of your data and publish dashboards in minutes. I recommend you giving it a try to these powerful and simple tools.</p>
+<p><em>logstash</em> enabled me to deliver a ETL pipeline that is highly performant, reliable and easy to maintain in a matter of hours. <em>Elastic Search</em> is a no brainer data base that ingests anything you throw at it and scales horizontally when need be. <em>Kibana</em> allows you to make sense of your data and publish dashboards in minutes. I recommend you giving it a try to these powerful and simple tools.</p>
 
-<p>Kibana 4 is on the way and a final version should be released in the next couple of month. It provides new features to generate business-oriented reports such as unique counts, funnels, etc. Until then, and to report on years of data, we’ve implemented a pipeline to load data into Amazon Datawarehouse solution <a href="http://aws.amazon.com/redshift/">Amazon Redshift</a>. But this is a whole other story.</p>
+<p>Kibana 4 is on the way and a final version should be released in the next couple of months. It provides new features to generate business-oriented reports such as unique counts, funnels, etc. Until then, and to report on years of data, we’ve implemented a pipeline to load data into the data warehouse solution <a href="http://aws.amazon.com/redshift/">Amazon Redshift</a>. But this is a whole other story.</p>
 
 <p>If this is a project you’re working on and would like some help, reach out for a chat!</p>
 

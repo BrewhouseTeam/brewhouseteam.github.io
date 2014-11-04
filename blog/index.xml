@@ -3,7 +3,7 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2014-11-04T10:39:08-08:00</updated>
+    <updated>2014-11-04T10:54:46-08:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
@@ -28,7 +28,7 @@
 
 &lt;!-- break --&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://www.elasticsearch.org/overview/elasticsearch/&quot;&gt;ElasticSearch&lt;/a&gt; is a schema less database that has powerful search capabilities and is easy to scale horizontally. Schema-less means that you just throw JSON at it and it updates the schema as you go. It indexes every single field, so you can search anything (with full text search) and aggregate and group data. Registering a new node to a cluster is a matter of installing ElasticSearch on a machine and editing a configuration file. ElasticSearch takes care of spreading data around and split out requests over multiple servers.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.elasticsearch.org/overview/elasticsearch/&quot;&gt;ElasticSearch&lt;/a&gt; is a schema less database that has powerful search capabilities and is easy to scale horizontally. Schema-less means that you just throw JSON at it and it updates the schema as you go. It indexes every single field, so you can search anything (with full text search) and aggregate and group data. Registering a new node to a cluster is a matter of installing ElasticSearch on a machine and editing a configuration file. ElasticSearch takes care of spreading data around and spliting out requests over multiple servers.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://www.elasticsearch.org/overview/logstash/&quot;&gt;logstash&lt;/a&gt; allows you to pipeline data from and to anywhere. This is called an ETL (for Extract Transform Load) pipeline in the Business Intelligence and Data warehousing world. This is what allows us to fetch, transform and store events into ElasticSearch.&lt;/p&gt;
 
@@ -42,9 +42,9 @@
 
 &lt;h3 id=&quot;inputs-read-and-parse-data&quot;&gt;Inputs: read and parse data&lt;/h3&gt;
 
-&lt;p&gt;Inputs are data sources such as log files (&lt;code&gt;/var/log/*.log&lt;/code&gt;) or data stored in a &lt;em&gt;S3 bucket&lt;/em&gt;, &lt;em&gt;rabbitmq&lt;/em&gt;, &lt;em&gt;redis&lt;/em&gt;, etc. Once the raw data is read, &lt;em&gt;logstash&lt;/em&gt; parses it using codecs such as &lt;em&gt;json&lt;/em&gt;, &lt;em&gt;key=value&lt;/em&gt;, &lt;em&gt;graphite format&lt;/em&gt; etc. You can find a &lt;a href=&quot;http://logstash.net/docs/1.4.2/&quot;&gt;full list of inputs and codecs&lt;/a&gt; on &lt;a href=&quot;http://logstash.net/docs/1.4.2/&quot;&gt;&lt;em&gt;logstash&lt;/em&gt; documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Inputs are data sources such as log files (&lt;code&gt;/var/log/*.log&lt;/code&gt;) or data stored in a &lt;em&gt;S3 bucket&lt;/em&gt;, &lt;em&gt;RabbitMQ&lt;/em&gt;, &lt;em&gt;redis&lt;/em&gt;, etc. Once the raw data is read, &lt;em&gt;logstash&lt;/em&gt; parses it using codecs such as &lt;em&gt;JSON&lt;/em&gt;, &lt;em&gt;key=value&lt;/em&gt;, &lt;em&gt;graphite format&lt;/em&gt; etc. You can find a &lt;a href=&quot;http://logstash.net/docs/1.4.2/&quot;&gt;full list of inputs and codecs&lt;/a&gt; on &lt;a href=&quot;http://logstash.net/docs/1.4.2/&quot;&gt;&lt;em&gt;logstash&lt;/em&gt; documentation&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Let’s write a &lt;em&gt;logstash&lt;/em&gt; configuration file to load data from an S3 bucket containing text files with one json blob per line.&lt;/p&gt;
+&lt;p&gt;Let’s write a &lt;em&gt;logstash&lt;/em&gt; configuration file to load data from an S3 bucket containing text files with one JSON blob per line.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# logstash.conf&lt;/span&gt;
 
@@ -189,7 +189,7 @@
 
 &lt;p&gt;On top of this &lt;em&gt;logstash&lt;/em&gt; keeps track of the inputs it had processed. So you can restart it without being concerned of data duplication.&lt;/p&gt;
 
-&lt;p&gt;Although &lt;em&gt;logstash&lt;/em&gt; is written in &lt;em&gt;Ruby&lt;/em&gt;, it is really fast. The packaged version runs on &lt;em&gt;JRuby&lt;/em&gt; and it takes advantage of the JVM threading capabilities by throwing a dozen of threads to parallelize data processing.&lt;/p&gt;
+&lt;p&gt;Although &lt;em&gt;logstash&lt;/em&gt; is written in &lt;em&gt;Ruby&lt;/em&gt;, it is really fast. The packaged version runs on &lt;em&gt;JRuby&lt;/em&gt; and it takes advantage of the JVM’s threading capabilities by throwing a dozen of threads to parallelize data processing.&lt;/p&gt;
 
 &lt;h2 id=&quot;elasticsearch--kibana&quot;&gt;ElasticSearch &amp;amp; Kibana&lt;/h2&gt;
 
@@ -209,9 +209,9 @@
 
 &lt;h2 id=&quot;elk-store-and-visualize-huge-amounts-of-data-in-minutes&quot;&gt;ELK store and visualize huge amounts of data in minutes&lt;/h2&gt;
 
-&lt;p&gt;&lt;em&gt;logstash&lt;/em&gt; enabled me to deliver a ETL pipeline that is highly performant, reliable and easy to maintain in a matter of hours. &lt;em&gt;Elastic Search&lt;/em&gt; is a no brainer data base that ingests anything you throw at it and scale horizontally when need be. &lt;em&gt;Kibana&lt;/em&gt; allows you to make sense of your data and publish dashboards in minutes. I recommend you giving it a try to these powerful and simple tools.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;logstash&lt;/em&gt; enabled me to deliver a ETL pipeline that is highly performant, reliable and easy to maintain in a matter of hours. &lt;em&gt;Elastic Search&lt;/em&gt; is a no brainer data base that ingests anything you throw at it and scales horizontally when need be. &lt;em&gt;Kibana&lt;/em&gt; allows you to make sense of your data and publish dashboards in minutes. I recommend you giving it a try to these powerful and simple tools.&lt;/p&gt;
 
-&lt;p&gt;Kibana 4 is on the way and a final version should be released in the next couple of month. It provides new features to generate business-oriented reports such as unique counts, funnels, etc. Until then, and to report on years of data, we’ve implemented a pipeline to load data into Amazon Datawarehouse solution &lt;a href=&quot;http://aws.amazon.com/redshift/&quot;&gt;Amazon Redshift&lt;/a&gt;. But this is a whole other story.&lt;/p&gt;
+&lt;p&gt;Kibana 4 is on the way and a final version should be released in the next couple of months. It provides new features to generate business-oriented reports such as unique counts, funnels, etc. Until then, and to report on years of data, we’ve implemented a pipeline to load data into the data warehouse solution &lt;a href=&quot;http://aws.amazon.com/redshift/&quot;&gt;Amazon Redshift&lt;/a&gt;. But this is a whole other story.&lt;/p&gt;
 
 &lt;p&gt;If this is a project you’re working on and would like some help, reach out for a chat!&lt;/p&gt;
 </content>
