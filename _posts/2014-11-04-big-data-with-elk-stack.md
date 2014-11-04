@@ -10,6 +10,8 @@ tags:
   - logstash
   - elasticsearch
   - bigdata
+shared_square_image: http://blog.goodbits.io/images/posts/2014/Nov/bigdata.png
+shared_description: We here at Brewhouse have built a data analysis and dashboarding infrastucture for one of our clients over the past few weeks. They collect about 10 million data points a day ...
 ---
 
 We've built a data analysis and dashboarding infrastucture for one of our clients over the past few weeks. They collect about 10 million data points a day. Yes, that’s big data.
@@ -27,7 +29,7 @@ I chose to give a try to the [ELK stack](http://www.elasticsearch.org/overview/)
 [Kibana](http://www.elasticsearch.org/overview/kibana/) is a web based data analysis and dash boarding tool for ElasticSearch. It leverages ElasticSearch search capabilities to aggregate and visualise your (big) data in seconds.
 
 
-![flow](/images/posts/2014/elk/flow.jpg)
+![flow](/images/posts/2014/Nov/flow.jpg)
 
 ## *logstash*: ETL pipeline made simple
 
@@ -198,7 +200,7 @@ Although *logstash* is written in *Ruby*, it is really fast. The packaged versio
 
 *logstash* is now ready to store data into *ElasticSearch*. Getting ElasticSearch running on your machine [takes minutes](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup.html). [Setup Kibana](http://www.elasticsearch.org/overview/kibana/installation/) and you can now browse your data. A couple of clicks later, you've got a good looking dashboard.
 
-![kibana-dashboard](/images/posts/2014/elk/kibana.jpg)
+![kibana-dashboard](/images/posts/2014/Nov/kibana.jpg)
 
 ### Setting this up in production
 
