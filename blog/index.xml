@@ -3,7 +3,7 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2014-11-04T10:54:46-08:00</updated>
+    <updated>2014-11-04T10:57:01-08:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
@@ -20,7 +20,7 @@
           <link href="http://brewhouse.io/blog/2014/11/04/big-data-with-elk-stack.html"/>
           <updated>2014-11-04T08:00:00-08:00</updated>
           <id>http://brewhouse.io/blog/2014/11/04/big-data-with-elk-stack</id>
-          <content type="html">&lt;p&gt;We’ve built a data analysis and dashboarding infrastucture for one of our clients over the past few weeks. They collect about 10 million data points a day. Yes, that’s big data.&lt;/p&gt;
+          <content type="html">&lt;p&gt;We’ve built a data analysis and dashboarding infrastructure for one of our clients over the past few weeks. They collect about 10 million data points a day. Yes, that’s big data.&lt;/p&gt;
 
 &lt;p&gt;My highest priority was to allow them to browse the data they collect so that they can ensure that the data points are consistent and contain all the attributes required to generate the reports and dashboards they need.&lt;/p&gt;
 
