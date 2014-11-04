@@ -14,7 +14,7 @@ shared_square_image: http://blog.goodbits.io/images/posts/2014/Nov/bigdata.png
 shared_description: We here at Brewhouse have built a data analysis and dashboarding infrastucture for one of our clients over the past few weeks. They collect about 10 million data points a day ...
 ---
 
-We've built a data analysis and dashboarding infrastucture for one of our clients over the past few weeks. They collect about 10 million data points a day. Yes, that’s big data.
+We've built a data analysis and dashboarding infrastructure for one of our clients over the past few weeks. They collect about 10 million data points a day. Yes, that’s big data.
 
 My highest priority was to allow them to browse the data they collect so that they can ensure that the data points are consistent and contain all the attributes required to generate the reports and dashboards they need.
 
@@ -22,7 +22,7 @@ I chose to give a try to the [ELK stack](http://www.elasticsearch.org/overview/)
 
 <!-- break -->
 
-[ElasticSearch](http://www.elasticsearch.org/overview/elasticsearch/) is a schema less database that has powerful search capabilities and is easy to scale horizontally. Schema-less means that you just throw JSON at it and it updates the schema as you go. It indexes every single field, so you can search anything (with full text search) and aggregate and group data. Registering a new node to a cluster is a matter of installing ElasticSearch on a machine and editing a configuration file. ElasticSearch takes care of spreading data around and split out requests over multiple servers.
+[ElasticSearch](http://www.elasticsearch.org/overview/elasticsearch/) is a schema less database that has powerful search capabilities and is easy to scale horizontally. Schema-less means that you just throw JSON at it and it updates the schema as you go. It indexes every single field, so you can search anything (with full text search) and aggregate and group data. Registering a new node to a cluster is a matter of installing ElasticSearch on a machine and editing a configuration file. ElasticSearch takes care of spreading data around and spliting out requests over multiple servers.
 
 [logstash](http://www.elasticsearch.org/overview/logstash/) allows you to pipeline data from and to anywhere. This is called an ETL (for Extract Transform Load) pipeline in the Business Intelligence and Data warehousing world. This is what allows us to fetch, transform and store events into ElasticSearch.
 
@@ -37,9 +37,9 @@ I chose to give a try to the [ELK stack](http://www.elasticsearch.org/overview/)
 
 ### Inputs: read and parse data
 
-Inputs are data sources such as log files (`/var/log/*.log`) or data stored in a *S3 bucket*, *rabbitmq*, *redis*, etc. Once the raw data is read, *logstash* parses it using codecs such as *json*, *key=value*, *graphite format* etc. You can find a [full list of inputs and codecs](http://logstash.net/docs/1.4.2/) on [*logstash* documentation](http://logstash.net/docs/1.4.2/).
+Inputs are data sources such as log files (`/var/log/*.log`) or data stored in a *S3 bucket*, *RabbitMQ*, *redis*, etc. Once the raw data is read, *logstash* parses it using codecs such as *JSON*, *key=value*, *graphite format* etc. You can find a [full list of inputs and codecs](http://logstash.net/docs/1.4.2/) on [*logstash* documentation](http://logstash.net/docs/1.4.2/).
 
-Let's write a *logstash* configuration file to load data from an S3 bucket containing text files with one json blob per line.
+Let's write a *logstash* configuration file to load data from an S3 bucket containing text files with one JSON blob per line.
 
 {% highlight ruby %}
 # logstash.conf
@@ -194,7 +194,7 @@ There is quite a lot going on in just a few lines of code, eh?
 
 On top of this *logstash* keeps track of the inputs it had processed. So you can restart it without being concerned of data duplication.
 
-Although *logstash* is written in *Ruby*, it is really fast. The packaged version runs on *JRuby* and it takes advantage of the JVM threading capabilities by throwing a dozen of threads to parallelize data processing.
+Although *logstash* is written in *Ruby*, it is really fast. The packaged version runs on *JRuby* and it takes advantage of the JVM's threading capabilities by throwing a dozen of threads to parallelize data processing.
 
 ## ElasticSearch & Kibana
 
@@ -214,8 +214,8 @@ Performance wise, an ElasticSearch cluster with 4 x [Amazon EC2 c3.xlarge](http:
 
 ## ELK store and visualize huge amounts of data in minutes
 
-*logstash* enabled me to deliver a ETL pipeline that is highly performant, reliable and easy to maintain in a matter of hours. *Elastic Search* is a no brainer data base that ingests anything you throw at it and scale horizontally when need be. *Kibana* allows you to make sense of your data and publish dashboards in minutes. I recommend you giving it a try to these powerful and simple tools.
+*logstash* enabled me to deliver a ETL pipeline that is highly performant, reliable and easy to maintain in a matter of hours. *Elastic Search* is a no brainer data base that ingests anything you throw at it and scales horizontally when need be. *Kibana* allows you to make sense of your data and publish dashboards in minutes. I recommend you giving it a try to these powerful and simple tools.
 
-Kibana 4 is on the way and a final version should be released in the next couple of month. It provides new features to generate business-oriented reports such as unique counts, funnels, etc. Until then, and to report on years of data, we've implemented a pipeline to load data into Amazon Datawarehouse solution [Amazon Redshift](http://aws.amazon.com/redshift/). But this is a whole other story.
+Kibana 4 is on the way and a final version should be released in the next couple of months. It provides new features to generate business-oriented reports such as unique counts, funnels, etc. Until then, and to report on years of data, we've implemented a pipeline to load data into the data warehouse solution [Amazon Redshift](http://aws.amazon.com/redshift/). But this is a whole other story.
 
 If this is a project you're working on and would like some help, reach out for a chat!
