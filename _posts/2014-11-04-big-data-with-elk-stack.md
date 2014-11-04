@@ -24,9 +24,9 @@ I chose to give the [ELK stack](http://www.elasticsearch.org/overview/) a try: [
 
 [ElasticSearch](http://www.elasticsearch.org/overview/elasticsearch/) is a schema-less database that has powerful search capabilities and is easy to scale horizontally. Schema-less means that you just throw JSON at it and it updates the schema as you go. It indexes every single field, so you can search anything (with full-text search) and it will aggregate and group the data. Registering a new node to a cluster is a matter of installing ElasticSearch on a machine and editing a config file. ElasticSearch takes care of spreading data around and splitting out requests over multiple servers.
 
-[logstash](http://www.elasticsearch.org/overview/logstash/) allows you to pipeline data from and to anywhere. This is called an ETL (for Extract Transform Load) pipeline in the Business Intelligence and Data warehousing world. This is what allows us to fetch, transform and store events into ElasticSearch.
+[logstash](http://www.elasticsearch.org/overview/logstash/) allows you to pipeline data from and to anywhere. This is called an ETL (for Extract, Transform, Load) pipeline in the Business Intelligence and Data warehousing world, and it is what allows us to fetch, transform, and store events into ElasticSearch.
 
-[Kibana](http://www.elasticsearch.org/overview/kibana/) is a web based data analysis and dash boarding tool for ElasticSearch. It leverages ElasticSearch search capabilities to aggregate and visualise your (big) data in seconds.
+[Kibana](http://www.elasticsearch.org/overview/kibana/) is a web-based data analysis and dashboarding tool for ElasticSearch. It leverages ElasticSearch's search capabilities to visualise your (big) data in seconds.
 
 
 ![flow](/images/posts/2014/Nov/flow.jpg)
@@ -68,7 +68,7 @@ We now have data in the *logstash* pipeline. It’s time to transform it a littl
 {% endhighlight %}
 
 
-We can get *logstash* to generate a proper *@timestamp* field (later used by Kibana) and to add geolocalization using the ip address with the following filters:
+We can get *logstash* to generate a proper *@timestamp* field (later used by Kibana) and to add geolocalization using the IP address with the following filters:
 
 {% highlight ruby %}
 # logstash.conf
@@ -93,9 +93,9 @@ filter {
 
 ### Output: load data
 
-The output section is quite similar to the input one. You can output to stdout (handy for debugging purpose or to pipe into another command) as well as storing into S3, loading into a database such as ElasticSearch etc.
+The output section is quite similar to the input one. You can output to stdout (handy for debugging purpose or to pipe into another command) as well as storing on S3, loading into a database such as ElasticSearch etc.
 
-Let’s output to stdout using ruby-debug format:
+Let’s output to stdout using the `ruby-debug` format:
 
 {% highlight ruby %}
 input {
@@ -192,13 +192,13 @@ output {
 
 There is quite a lot going on in just a few lines of code, eh?
 
-On top of this *logstash* keeps track of the inputs it had processed. So you can restart it without being concerned of data duplication.
+On top of this, *logstash* keeps track of the inputs it has processed. So you can restart it without being concerned of data duplication.
 
-Although *logstash* is written in *Ruby*, it is really fast. The packaged version runs on *JRuby* and it takes advantage of the JVM's threading capabilities by throwing a dozen of threads to parallelize data processing.
+Although *logstash* is written in *Ruby*, it is really fast. The packaged version runs on *JRuby* and it takes advantage of the JVM's threading capabilities by throwing dozens of threads to parallelize data processing.
 
 ## ElasticSearch & Kibana
 
-*logstash* is now ready to store data into *ElasticSearch*. Getting ElasticSearch running on your machine [takes minutes](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup.html). [Setup Kibana](http://www.elasticsearch.org/overview/kibana/installation/) and you can now browse your data. A couple of clicks later, you've got a good looking dashboard.
+*logstash* is now ready to store data in *ElasticSearch*. Getting ElasticSearch running on your machine [takes minutes](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup.html). [Setup Kibana](http://www.elasticsearch.org/overview/kibana/installation/). A couple of clicks later, you've got a good looking dashboard.
 
 ![kibana-dashboard](/images/posts/2014/Nov/kibana.jpg)
 
@@ -206,16 +206,16 @@ Although *logstash* is written in *Ruby*, it is really fast. The packaged versio
 
 There is an excellent [chef cookbook](https://github.com/lusis/chef-logstash) to deploy *logstash* in minutes.
 
-We decided to use a hosted solution to manage the ElasticSearch cluster. The top two seem to be [qbox.io](http://qbox.io) and [found.no](http://found.no). [found.no](http://found.no) provides reserved instance and allows you to scale your cluster without any downtime.
+We decided to use a hosted solution to manage the ElasticSearch cluster. The top two seem to be [qbox.io](http://qbox.io) and [found.no](http://found.no). [found.no](http://found.no) provides reserved instances and allows you to scale your cluster without any downtime.
 
 Kibana comes as a plugin on all hosted ElasticSearch services, so you just have to tick a checkbox and you're ready to go!
 
-Performance wise, an ElasticSearch cluster with 4 x [Amazon EC2 c3.xlarge](http://aws.amazon.com/ec2/instance-types/#Compute_Optimized) is sufficient to run Kibana reports on the last 30 days. This is about 3 billion data entries.
+Performance wise, an ElasticSearch cluster with 4x [Amazon EC2 c3.xlarge](http://aws.amazon.com/ec2/instance-types/#Compute_Optimized) is sufficient to run Kibana reports on the last 30 days. This is about 3 billion data entries.
 
-## ELK store and visualize huge amounts of data in minutes
+## ELK - to store and visualize huge amounts of data in minutes
 
-*logstash* enabled me to deliver a ETL pipeline that is highly performant, reliable and easy to maintain in a matter of hours. *Elastic Search* is a no brainer data base that ingests anything you throw at it and scales horizontally when need be. *Kibana* allows you to make sense of your data and publish dashboards in minutes. I recommend you giving it a try to these powerful and simple tools.
+*logstash* enabled us to deliver an ETL pipeline that is highly performant, reliable and easy to maintain in a matter of hours. *Elastic Search* is a no brainer database that ingests anything you throw at it and scales horizontally when need be. *Kibana* allows you to make sense of your data and publish dashboards in minutes. I recommend you giving it a try to these powerful and simple tools.
 
-Kibana 4 is on the way and a final version should be released in the next couple of months. It provides new features to generate business-oriented reports such as unique counts, funnels, etc. Until then, and to report on years of data, we've implemented a pipeline to load data into the data warehouse solution [Amazon Redshift](http://aws.amazon.com/redshift/). But this is a whole other story.
+Kibana 4 is on the way, and a final version should be released in the next couple of months. It provides new features to generate business-oriented reports such as unique counts, funnels, etc. Until then, and to report on years of data, we've implemented a pipeline to load data into the data warehouse solution [Amazon Redshift](http://aws.amazon.com/redshift/). But this is a whole other story.
 
 If this is a project you're working on and would like some help, reach out for a chat!
