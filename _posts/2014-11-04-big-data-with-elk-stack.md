@@ -12,7 +12,7 @@ tags:
   - bigdata
 ---
 
-We've built a data analysis and dashboarding infrastucture for one of our clients over the past few weeks. They collect about 10 million data points a day. Yes, that’s big data.
+We've built a data analysis and dashboarding infrastructure for one of our clients over the past few weeks. They collect about 10 million data points a day. Yes, that’s big data.
 
 My highest priority was to allow them to browse the data they collect so that they can ensure that the data points are consistent and contain all the attributes required to generate the reports and dashboards they need.
 
