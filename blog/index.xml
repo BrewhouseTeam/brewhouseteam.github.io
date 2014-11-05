@@ -3,7 +3,7 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2014-11-04T10:57:01-08:00</updated>
+    <updated>2014-11-05T11:57:53-08:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
@@ -24,17 +24,17 @@
 
 &lt;p&gt;My highest priority was to allow them to browse the data they collect so that they can ensure that the data points are consistent and contain all the attributes required to generate the reports and dashboards they need.&lt;/p&gt;
 
-&lt;p&gt;I chose to give a try to the &lt;a href=&quot;http://www.elasticsearch.org/overview/&quot;&gt;ELK stack&lt;/a&gt;: &lt;a href=&quot;http://www.elasticsearch.org/overview/elasticsearch/&quot;&gt;ElasticSearch&lt;/a&gt;, &lt;a href=&quot;http://www.elasticsearch.org/overview/logstash/&quot;&gt;logstash&lt;/a&gt; and &lt;a href=&quot;http://www.elasticsearch.org/overview/kibana/&quot;&gt;Kibana&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I chose to give the &lt;a href=&quot;http://www.elasticsearch.org/overview/&quot;&gt;ELK stack&lt;/a&gt; a try: &lt;a href=&quot;http://www.elasticsearch.org/overview/elasticsearch/&quot;&gt;ElasticSearch&lt;/a&gt;, &lt;a href=&quot;http://www.elasticsearch.org/overview/logstash/&quot;&gt;logstash&lt;/a&gt; and &lt;a href=&quot;http://www.elasticsearch.org/overview/kibana/&quot;&gt;Kibana&lt;/a&gt;.&lt;/p&gt;
 
 &lt;!-- break --&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://www.elasticsearch.org/overview/elasticsearch/&quot;&gt;ElasticSearch&lt;/a&gt; is a schema less database that has powerful search capabilities and is easy to scale horizontally. Schema-less means that you just throw JSON at it and it updates the schema as you go. It indexes every single field, so you can search anything (with full text search) and aggregate and group data. Registering a new node to a cluster is a matter of installing ElasticSearch on a machine and editing a configuration file. ElasticSearch takes care of spreading data around and spliting out requests over multiple servers.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.elasticsearch.org/overview/elasticsearch/&quot;&gt;ElasticSearch&lt;/a&gt; is a schema-less database that has powerful search capabilities and is easy to scale horizontally. Schema-less means that you just throw JSON at it and it updates the schema as you go. It indexes every single field, so you can search anything (with full-text search) and it will aggregate and group the data. Registering a new node to a cluster is a matter of installing ElasticSearch on a machine and editing a config file. ElasticSearch takes care of spreading data around and splitting out requests over multiple servers.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://www.elasticsearch.org/overview/logstash/&quot;&gt;logstash&lt;/a&gt; allows you to pipeline data from and to anywhere. This is called an ETL (for Extract Transform Load) pipeline in the Business Intelligence and Data warehousing world. This is what allows us to fetch, transform and store events into ElasticSearch.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.elasticsearch.org/overview/logstash/&quot;&gt;logstash&lt;/a&gt; allows you to pipeline data to and from anywhere. This is called an ETL (for Extract, Transform, Load) pipeline in the Business Intelligence and Data warehousing world, and it is what allows us to fetch, transform, and store events into ElasticSearch.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://www.elasticsearch.org/overview/kibana/&quot;&gt;Kibana&lt;/a&gt; is a web based data analysis and dash boarding tool for ElasticSearch. It leverages ElasticSearch search capabilities to aggregate and visualise your (big) data in seconds.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.elasticsearch.org/overview/kibana/&quot;&gt;Kibana&lt;/a&gt; is a web-based data analysis and dashboarding tool for ElasticSearch. It leverages ElasticSearch’s search capabilities to visualise your (big) data in seconds.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/posts/2014/elk/flow.jpg&quot; alt=&quot;flow&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/posts/2014/Nov/flow.jpg&quot; alt=&quot;flow&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;logstash-etl-pipeline-made-simple&quot;&gt;&lt;em&gt;logstash&lt;/em&gt;: ETL pipeline made simple&lt;/h2&gt;
 
@@ -69,7 +69,7 @@
 &lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;We can get &lt;em&gt;logstash&lt;/em&gt; to generate a proper &lt;em&gt;@timestamp&lt;/em&gt; field (later used by Kibana) and to add geolocalization using the ip address with the following filters:&lt;/p&gt;
+&lt;p&gt;We can get &lt;em&gt;logstash&lt;/em&gt; to generate a proper &lt;em&gt;@timestamp&lt;/em&gt; field (later used by Kibana) and to add geolocalization using the IP address with the following filters:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# logstash.conf&lt;/span&gt;
 
@@ -93,9 +93,9 @@
 
 &lt;h3 id=&quot;output-load-data&quot;&gt;Output: load data&lt;/h3&gt;
 
-&lt;p&gt;The output section is quite similar to the input one. You can output to stdout (handy for debugging purpose or to pipe into another command) as well as storing into S3, loading into a database such as ElasticSearch etc.&lt;/p&gt;
+&lt;p&gt;The output section is quite similar to the input one. You can output to stdout (handy for debugging purpose or to pipe into another command) as well as storing on S3, loading into a database such as ElasticSearch etc.&lt;/p&gt;
 
-&lt;p&gt;Let’s output to stdout using ruby-debug format:&lt;/p&gt;
+&lt;p&gt;Let’s output to stdout using the &lt;code&gt;ruby-debug&lt;/code&gt; format:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
@@ -187,31 +187,31 @@
 
 &lt;p&gt;There is quite a lot going on in just a few lines of code, eh?&lt;/p&gt;
 
-&lt;p&gt;On top of this &lt;em&gt;logstash&lt;/em&gt; keeps track of the inputs it had processed. So you can restart it without being concerned of data duplication.&lt;/p&gt;
+&lt;p&gt;On top of this, &lt;em&gt;logstash&lt;/em&gt; keeps track of the inputs it has processed. So you can restart it without being concerned of data duplication.&lt;/p&gt;
 
-&lt;p&gt;Although &lt;em&gt;logstash&lt;/em&gt; is written in &lt;em&gt;Ruby&lt;/em&gt;, it is really fast. The packaged version runs on &lt;em&gt;JRuby&lt;/em&gt; and it takes advantage of the JVM’s threading capabilities by throwing a dozen of threads to parallelize data processing.&lt;/p&gt;
+&lt;p&gt;Although &lt;em&gt;logstash&lt;/em&gt; is written in &lt;em&gt;Ruby&lt;/em&gt;, it is really fast. The packaged version runs on &lt;em&gt;JRuby&lt;/em&gt; and it takes advantage of the JVM’s threading capabilities by throwing dozens of threads to parallelize data processing.&lt;/p&gt;
 
 &lt;h2 id=&quot;elasticsearch--kibana&quot;&gt;ElasticSearch &amp;amp; Kibana&lt;/h2&gt;
 
-&lt;p&gt;&lt;em&gt;logstash&lt;/em&gt; is now ready to store data into &lt;em&gt;ElasticSearch&lt;/em&gt;. Getting ElasticSearch running on your machine &lt;a href=&quot;http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup.html&quot;&gt;takes minutes&lt;/a&gt;. &lt;a href=&quot;http://www.elasticsearch.org/overview/kibana/installation/&quot;&gt;Setup Kibana&lt;/a&gt; and you can now browse your data. A couple of clicks later, you’ve got a good looking dashboard.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;logstash&lt;/em&gt; is now ready to store data in &lt;em&gt;ElasticSearch&lt;/em&gt;. Getting ElasticSearch running on your machine &lt;a href=&quot;http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup.html&quot;&gt;takes minutes&lt;/a&gt;. &lt;a href=&quot;http://www.elasticsearch.org/overview/kibana/installation/&quot;&gt;Setup Kibana&lt;/a&gt;. A couple of clicks later, you’ve got a good looking dashboard.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/posts/2014/elk/kibana.jpg&quot; alt=&quot;kibana-dashboard&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/posts/2014/Nov/kibana.jpg&quot; alt=&quot;kibana-dashboard&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;setting-this-up-in-production&quot;&gt;Setting this up in production&lt;/h3&gt;
 
 &lt;p&gt;There is an excellent &lt;a href=&quot;https://github.com/lusis/chef-logstash&quot;&gt;chef cookbook&lt;/a&gt; to deploy &lt;em&gt;logstash&lt;/em&gt; in minutes.&lt;/p&gt;
 
-&lt;p&gt;We decided to use a hosted solution to manage the ElasticSearch cluster. The top two seem to be &lt;a href=&quot;http://qbox.io&quot;&gt;qbox.io&lt;/a&gt; and &lt;a href=&quot;http://found.no&quot;&gt;found.no&lt;/a&gt;. &lt;a href=&quot;http://found.no&quot;&gt;found.no&lt;/a&gt; provides reserved instance and allows you to scale your cluster without any downtime.&lt;/p&gt;
+&lt;p&gt;We decided to use a hosted solution to manage the ElasticSearch cluster. The top two seem to be &lt;a href=&quot;http://qbox.io&quot;&gt;qbox.io&lt;/a&gt; and &lt;a href=&quot;http://found.no&quot;&gt;found.no&lt;/a&gt;. &lt;a href=&quot;http://found.no&quot;&gt;found.no&lt;/a&gt; provides reserved instances and allows you to scale your cluster without any downtime.&lt;/p&gt;
 
 &lt;p&gt;Kibana comes as a plugin on all hosted ElasticSearch services, so you just have to tick a checkbox and you’re ready to go!&lt;/p&gt;
 
-&lt;p&gt;Performance wise, an ElasticSearch cluster with 4 x &lt;a href=&quot;http://aws.amazon.com/ec2/instance-types/#Compute_Optimized&quot;&gt;Amazon EC2 c3.xlarge&lt;/a&gt; is sufficient to run Kibana reports on the last 30 days. This is about 3 billion data entries.&lt;/p&gt;
+&lt;p&gt;Performance wise, an ElasticSearch cluster with 4x &lt;a href=&quot;http://aws.amazon.com/ec2/instance-types/#Compute_Optimized&quot;&gt;Amazon EC2 c3.xlarge&lt;/a&gt; is sufficient to run Kibana reports on the last 30 days. This is about 3 billion data entries.&lt;/p&gt;
 
-&lt;h2 id=&quot;elk-store-and-visualize-huge-amounts-of-data-in-minutes&quot;&gt;ELK store and visualize huge amounts of data in minutes&lt;/h2&gt;
+&lt;h2 id=&quot;elk---to-store-and-visualize-huge-amounts-of-data-in-minutes&quot;&gt;ELK - to store and visualize huge amounts of data in minutes&lt;/h2&gt;
 
-&lt;p&gt;&lt;em&gt;logstash&lt;/em&gt; enabled me to deliver a ETL pipeline that is highly performant, reliable and easy to maintain in a matter of hours. &lt;em&gt;Elastic Search&lt;/em&gt; is a no brainer data base that ingests anything you throw at it and scales horizontally when need be. &lt;em&gt;Kibana&lt;/em&gt; allows you to make sense of your data and publish dashboards in minutes. I recommend you giving it a try to these powerful and simple tools.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;logstash&lt;/em&gt; enabled us to deliver an ETL pipeline that is highly performant, reliable and easy to maintain in a matter of hours. &lt;em&gt;Elastic Search&lt;/em&gt; is a no brainer database that ingests anything you throw at it and scales horizontally when need be. &lt;em&gt;Kibana&lt;/em&gt; allows you to make sense of your data and publish dashboards in minutes. I recommend you giving it a try to these powerful and simple tools.&lt;/p&gt;
 
-&lt;p&gt;Kibana 4 is on the way and a final version should be released in the next couple of months. It provides new features to generate business-oriented reports such as unique counts, funnels, etc. Until then, and to report on years of data, we’ve implemented a pipeline to load data into the data warehouse solution &lt;a href=&quot;http://aws.amazon.com/redshift/&quot;&gt;Amazon Redshift&lt;/a&gt;. But this is a whole other story.&lt;/p&gt;
+&lt;p&gt;Kibana 4 is on the way, and a final version should be released in the next couple of months. It provides new features to generate business-oriented reports such as unique counts, funnels, etc. Until then, and to report on years of data, we’ve implemented a pipeline to load data into the data warehouse solution &lt;a href=&quot;http://aws.amazon.com/redshift/&quot;&gt;Amazon Redshift&lt;/a&gt;. But this is a whole other story.&lt;/p&gt;
 
 &lt;p&gt;If this is a project you’re working on and would like some help, reach out for a chat!&lt;/p&gt;
 </content>

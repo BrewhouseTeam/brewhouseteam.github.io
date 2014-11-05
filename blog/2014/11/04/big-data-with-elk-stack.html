@@ -18,11 +18,11 @@
     <meta property="og:site_name" content="brewhouse">
     <meta property="og:url" content="http://brewhouse.io/blog/2014/11/04/big-data-with-elk-stack.html">
 
-    <meta property="og:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png">
+    <meta property="og:image" content="http://brewhouse.io/images/posts/2014/Nov/bigdata.png">
 
     <meta property="twitter:card" content="summary" />
     <meta property="twitter:site" content="@brewhouseteam" />
-    <meta property="twitter:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png">
+    <meta property="twitter:image" content="http://brewhouse.io/images/posts/2014/Nov/bigdata.png">
     <meta property="twitter:url" content="http://brewhouse.io//blog/2014/11/04/big-data-with-elk-stack.html">
 
     <link rel="alternate" type="application/atom+xml" href="/blog/index.xml" title="The Brew Pub atom feed">
@@ -34,6 +34,10 @@
 
       <meta property="twitter:title" content="Big data in minutes with the ELK Stack">
 
+      
+        <meta name="description" content="We here at Brewhouse have built a data analysis and dashboarding infrastucture for one of our clients over the past few weeks. They collect about 10 million data points a day ...">
+        <meta property="twitter:description" content="We here at Brewhouse have built a data analysis and dashboarding infrastucture for one of our clients over the past few weeks. They collect about 10 million data points a day ...">
+        <meta property="og:description" content="We here at Brewhouse have built a data analysis and dashboarding infrastucture for one of our clients over the past few weeks. They collect about 10 million data points a day ...">
       
     
 
@@ -123,17 +127,17 @@
 
 <p>My highest priority was to allow them to browse the data they collect so that they can ensure that the data points are consistent and contain all the attributes required to generate the reports and dashboards they need.</p>
 
-<p>I chose to give a try to the <a href="http://www.elasticsearch.org/overview/">ELK stack</a>: <a href="http://www.elasticsearch.org/overview/elasticsearch/">ElasticSearch</a>, <a href="http://www.elasticsearch.org/overview/logstash/">logstash</a> and <a href="http://www.elasticsearch.org/overview/kibana/">Kibana</a>.</p>
+<p>I chose to give the <a href="http://www.elasticsearch.org/overview/">ELK stack</a> a try: <a href="http://www.elasticsearch.org/overview/elasticsearch/">ElasticSearch</a>, <a href="http://www.elasticsearch.org/overview/logstash/">logstash</a> and <a href="http://www.elasticsearch.org/overview/kibana/">Kibana</a>.</p>
 
 <!-- break -->
 
-<p><a href="http://www.elasticsearch.org/overview/elasticsearch/">ElasticSearch</a> is a schema less database that has powerful search capabilities and is easy to scale horizontally. Schema-less means that you just throw JSON at it and it updates the schema as you go. It indexes every single field, so you can search anything (with full text search) and aggregate and group data. Registering a new node to a cluster is a matter of installing ElasticSearch on a machine and editing a configuration file. ElasticSearch takes care of spreading data around and spliting out requests over multiple servers.</p>
+<p><a href="http://www.elasticsearch.org/overview/elasticsearch/">ElasticSearch</a> is a schema-less database that has powerful search capabilities and is easy to scale horizontally. Schema-less means that you just throw JSON at it and it updates the schema as you go. It indexes every single field, so you can search anything (with full-text search) and it will aggregate and group the data. Registering a new node to a cluster is a matter of installing ElasticSearch on a machine and editing a config file. ElasticSearch takes care of spreading data around and splitting out requests over multiple servers.</p>
 
-<p><a href="http://www.elasticsearch.org/overview/logstash/">logstash</a> allows you to pipeline data from and to anywhere. This is called an ETL (for Extract Transform Load) pipeline in the Business Intelligence and Data warehousing world. This is what allows us to fetch, transform and store events into ElasticSearch.</p>
+<p><a href="http://www.elasticsearch.org/overview/logstash/">logstash</a> allows you to pipeline data to and from anywhere. This is called an ETL (for Extract, Transform, Load) pipeline in the Business Intelligence and Data warehousing world, and it is what allows us to fetch, transform, and store events into ElasticSearch.</p>
 
-<p><a href="http://www.elasticsearch.org/overview/kibana/">Kibana</a> is a web based data analysis and dash boarding tool for ElasticSearch. It leverages ElasticSearch search capabilities to aggregate and visualise your (big) data in seconds.</p>
+<p><a href="http://www.elasticsearch.org/overview/kibana/">Kibana</a> is a web-based data analysis and dashboarding tool for ElasticSearch. It leverages ElasticSearch’s search capabilities to visualise your (big) data in seconds.</p>
 
-<p><img src="/images/posts/2014/elk/flow.jpg" alt="flow" /></p>
+<p><img src="/images/posts/2014/Nov/flow.jpg" alt="flow" /></p>
 
 <h2 id="logstash-etl-pipeline-made-simple"><em>logstash</em>: ETL pipeline made simple</h2>
 
@@ -168,7 +172,7 @@
 <span class="err">...</span>
 </code></pre></div>
 
-<p>We can get <em>logstash</em> to generate a proper <em>@timestamp</em> field (later used by Kibana) and to add geolocalization using the ip address with the following filters:</p>
+<p>We can get <em>logstash</em> to generate a proper <em>@timestamp</em> field (later used by Kibana) and to add geolocalization using the IP address with the following filters:</p>
 
 <div class="highlight"><pre><code class="ruby"><span class="c1"># logstash.conf</span>
 
@@ -192,9 +196,9 @@
 
 <h3 id="output-load-data">Output: load data</h3>
 
-<p>The output section is quite similar to the input one. You can output to stdout (handy for debugging purpose or to pipe into another command) as well as storing into S3, loading into a database such as ElasticSearch etc.</p>
+<p>The output section is quite similar to the input one. You can output to stdout (handy for debugging purpose or to pipe into another command) as well as storing on S3, loading into a database such as ElasticSearch etc.</p>
 
-<p>Let’s output to stdout using ruby-debug format:</p>
+<p>Let’s output to stdout using the <code>ruby-debug</code> format:</p>
 
 <div class="highlight"><pre><code class="ruby"><span class="n">input</span> <span class="p">{</span>
   <span class="c1"># ...</span>
@@ -286,31 +290,31 @@
 
 <p>There is quite a lot going on in just a few lines of code, eh?</p>
 
-<p>On top of this <em>logstash</em> keeps track of the inputs it had processed. So you can restart it without being concerned of data duplication.</p>
+<p>On top of this, <em>logstash</em> keeps track of the inputs it has processed. So you can restart it without being concerned of data duplication.</p>
 
-<p>Although <em>logstash</em> is written in <em>Ruby</em>, it is really fast. The packaged version runs on <em>JRuby</em> and it takes advantage of the JVM’s threading capabilities by throwing a dozen of threads to parallelize data processing.</p>
+<p>Although <em>logstash</em> is written in <em>Ruby</em>, it is really fast. The packaged version runs on <em>JRuby</em> and it takes advantage of the JVM’s threading capabilities by throwing dozens of threads to parallelize data processing.</p>
 
 <h2 id="elasticsearch--kibana">ElasticSearch &amp; Kibana</h2>
 
-<p><em>logstash</em> is now ready to store data into <em>ElasticSearch</em>. Getting ElasticSearch running on your machine <a href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup.html">takes minutes</a>. <a href="http://www.elasticsearch.org/overview/kibana/installation/">Setup Kibana</a> and you can now browse your data. A couple of clicks later, you’ve got a good looking dashboard.</p>
+<p><em>logstash</em> is now ready to store data in <em>ElasticSearch</em>. Getting ElasticSearch running on your machine <a href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup.html">takes minutes</a>. <a href="http://www.elasticsearch.org/overview/kibana/installation/">Setup Kibana</a>. A couple of clicks later, you’ve got a good looking dashboard.</p>
 
-<p><img src="/images/posts/2014/elk/kibana.jpg" alt="kibana-dashboard" /></p>
+<p><img src="/images/posts/2014/Nov/kibana.jpg" alt="kibana-dashboard" /></p>
 
 <h3 id="setting-this-up-in-production">Setting this up in production</h3>
 
 <p>There is an excellent <a href="https://github.com/lusis/chef-logstash">chef cookbook</a> to deploy <em>logstash</em> in minutes.</p>
 
-<p>We decided to use a hosted solution to manage the ElasticSearch cluster. The top two seem to be <a href="http://qbox.io">qbox.io</a> and <a href="http://found.no">found.no</a>. <a href="http://found.no">found.no</a> provides reserved instance and allows you to scale your cluster without any downtime.</p>
+<p>We decided to use a hosted solution to manage the ElasticSearch cluster. The top two seem to be <a href="http://qbox.io">qbox.io</a> and <a href="http://found.no">found.no</a>. <a href="http://found.no">found.no</a> provides reserved instances and allows you to scale your cluster without any downtime.</p>
 
 <p>Kibana comes as a plugin on all hosted ElasticSearch services, so you just have to tick a checkbox and you’re ready to go!</p>
 
-<p>Performance wise, an ElasticSearch cluster with 4 x <a href="http://aws.amazon.com/ec2/instance-types/#Compute_Optimized">Amazon EC2 c3.xlarge</a> is sufficient to run Kibana reports on the last 30 days. This is about 3 billion data entries.</p>
+<p>Performance wise, an ElasticSearch cluster with 4x <a href="http://aws.amazon.com/ec2/instance-types/#Compute_Optimized">Amazon EC2 c3.xlarge</a> is sufficient to run Kibana reports on the last 30 days. This is about 3 billion data entries.</p>
 
-<h2 id="elk-store-and-visualize-huge-amounts-of-data-in-minutes">ELK store and visualize huge amounts of data in minutes</h2>
+<h2 id="elk---to-store-and-visualize-huge-amounts-of-data-in-minutes">ELK - to store and visualize huge amounts of data in minutes</h2>
 
-<p><em>logstash</em> enabled me to deliver a ETL pipeline that is highly performant, reliable and easy to maintain in a matter of hours. <em>Elastic Search</em> is a no brainer data base that ingests anything you throw at it and scales horizontally when need be. <em>Kibana</em> allows you to make sense of your data and publish dashboards in minutes. I recommend you giving it a try to these powerful and simple tools.</p>
+<p><em>logstash</em> enabled us to deliver an ETL pipeline that is highly performant, reliable and easy to maintain in a matter of hours. <em>Elastic Search</em> is a no brainer database that ingests anything you throw at it and scales horizontally when need be. <em>Kibana</em> allows you to make sense of your data and publish dashboards in minutes. I recommend you giving it a try to these powerful and simple tools.</p>
 
-<p>Kibana 4 is on the way and a final version should be released in the next couple of months. It provides new features to generate business-oriented reports such as unique counts, funnels, etc. Until then, and to report on years of data, we’ve implemented a pipeline to load data into the data warehouse solution <a href="http://aws.amazon.com/redshift/">Amazon Redshift</a>. But this is a whole other story.</p>
+<p>Kibana 4 is on the way, and a final version should be released in the next couple of months. It provides new features to generate business-oriented reports such as unique counts, funnels, etc. Until then, and to report on years of data, we’ve implemented a pipeline to load data into the data warehouse solution <a href="http://aws.amazon.com/redshift/">Amazon Redshift</a>. But this is a whole other story.</p>
 
 <p>If this is a project you’re working on and would like some help, reach out for a chat!</p>
 
