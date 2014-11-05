@@ -24,7 +24,7 @@ I chose to give the [ELK stack](http://www.elasticsearch.org/overview/) a try: [
 
 [ElasticSearch](http://www.elasticsearch.org/overview/elasticsearch/) is a schema-less database that has powerful search capabilities and is easy to scale horizontally. Schema-less means that you just throw JSON at it and it updates the schema as you go. It indexes every single field, so you can search anything (with full-text search) and it will aggregate and group the data. Registering a new node to a cluster is a matter of installing ElasticSearch on a machine and editing a config file. ElasticSearch takes care of spreading data around and splitting out requests over multiple servers.
 
-[logstash](http://www.elasticsearch.org/overview/logstash/) allows you to pipeline data from and to anywhere. This is called an ETL (for Extract, Transform, Load) pipeline in the Business Intelligence and Data warehousing world, and it is what allows us to fetch, transform, and store events into ElasticSearch.
+[logstash](http://www.elasticsearch.org/overview/logstash/) allows you to pipeline data to and from anywhere. This is called an ETL (for Extract, Transform, Load) pipeline in the Business Intelligence and Data warehousing world, and it is what allows us to fetch, transform, and store events into ElasticSearch.
 
 [Kibana](http://www.elasticsearch.org/overview/kibana/) is a web-based data analysis and dashboarding tool for ElasticSearch. It leverages ElasticSearch's search capabilities to visualise your (big) data in seconds.
 
