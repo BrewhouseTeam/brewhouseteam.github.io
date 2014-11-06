@@ -218,4 +218,4 @@ Performance wise, an ElasticSearch cluster with 4x [Amazon EC2 c3.xlarge](http:/
 
 Kibana 4 is on the way, and a final version should be released in the next couple of months. It provides new features to generate business-oriented reports such as unique counts, funnels, etc. Until then, and to report on years of data, we've implemented a pipeline to load data into the data warehouse solution [Amazon Redshift](http://aws.amazon.com/redshift/). But this is a whole other story.
 
-If this is a project you're working on and would like some help, reach out for a chat!
+If this is a project you're working on and would like some help with, reach out for a chat!
