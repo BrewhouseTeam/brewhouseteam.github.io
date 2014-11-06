@@ -3,7 +3,7 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2014-11-05T11:57:53-08:00</updated>
+    <updated>2014-11-05T16:53:24-08:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
@@ -213,7 +213,7 @@
 
 &lt;p&gt;Kibana 4 is on the way, and a final version should be released in the next couple of months. It provides new features to generate business-oriented reports such as unique counts, funnels, etc. Until then, and to report on years of data, we’ve implemented a pipeline to load data into the data warehouse solution &lt;a href=&quot;http://aws.amazon.com/redshift/&quot;&gt;Amazon Redshift&lt;/a&gt;. But this is a whole other story.&lt;/p&gt;
 
-&lt;p&gt;If this is a project you’re working on and would like some help, reach out for a chat!&lt;/p&gt;
+&lt;p&gt;If this is a project you’re working on and would like some help with, reach out for a chat!&lt;/p&gt;
 </content>
       </entry>
     
