@@ -374,6 +374,11 @@ img.team-photo {
   }
 }
 
+#community .row {
+  margin-top: 15px;
+}
+
+
 // Hack for small screen sizes to show taller shots
 @media (max-width: 767px) {
   .img-full-width {
