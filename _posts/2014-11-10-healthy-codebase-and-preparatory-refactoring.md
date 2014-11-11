@@ -10,11 +10,13 @@ tags:
   - development
   - process
   - refactoring
-shared_square_image: TODO
-shared_description: TODO
+shared_square_image: http://brewhouse.io/images/posts/2014/Nov/preparatory-refactoring-square.jpg
+shared_description: Beautiful words and powerful metaphors to illustrate that keeping a Healthy Codebase and doing Prepartory Refactoring speed up development.
 ---
 
 In a [recent episode of the RubyRogues podcast](http://devchat.tv/ruby-rogues/178-rr-book-club-refactoring-ruby-with-martin-fowler), [Martin Fowler](http://martinfowler.com) and [Jessica Kerr](https://twitter.com/jessitron) literally spoke my mind. They named two concepts that I deeply believe in and care about: Healthy Codebase and Preparatory Refactoring. They expressed them in beautiful words and powerful metaphors, which enable me to share them with you in this article.
+
+<!-- break -->
 
 After 43 minutes of discussions on the steps of refactoring, Martin introduced the concept of Healthy Codebase.
 
@@ -23,6 +25,8 @@ After 43 minutes of discussions on the steps of refactoring, Martin introduced t
 We have to realise that unclear code slows us down. It is *"an economic judgment"* that code quality results in speed. So the *"Code quality versus Speed"* is a non-sense.
 
 *"Many times, I run into teams that say: 'Management isn't allowing us to do a quality job here because it will slow us down. And we've appealed to management and said we need to put more quality in the code, but they've said no, we need to go faster instead'. And my comment to that is that as soon as you're framing it in terms of code quality versus speed, you've lost. Because the whole point of refactoring is to go faster."*
+
+![Speed goes with code quality](/images/posts/2014/Nov/code-quality-speed-chart.jpg)
 
 Martin then illustrates his metaphor of the "Healthy Codebase":
 
@@ -33,6 +37,8 @@ So a "Healthy codebase" is a well written codebase that is clean and easy to und
 This is where Jessica Kerr jumps in to talk about Preparatory Refactoring and illustrates it with a beautiful metaphor.
 
 *"So, my strategy is before the red test […] I'm going to go refactor the code […] to make the change I want to make really easy. It's like I want to go 100 miles east but instead of just traipsing through the woods, I'm going to drive 20 miles north to the highway and then I'm going to go 100 miles east at three times the speed I could have if I just went straight there. When people are pushing you to just go straight there, sometimes you need to say, 'Wait, I need to check the map and find the quickest route'. The preparatory refactoring does that for me. And plus, it puts the refactoring at the beginning so it's sure to get done."*
+
+![Look at the map](/images/posts/2014/Nov/preparatory-refactoring-map.jpg)
 
 Preparatory Refactoring has some great benefits as it makes you go through the following steps:
 
