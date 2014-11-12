@@ -11,10 +11,10 @@ tags:
   - process
   - refactoring
 shared_square_image: http://brewhouse.io/images/posts/2014/Nov/preparatory-refactoring-square.jpg
-shared_description: Beautiful words and powerful metaphors to illustrate that keeping a Healthy Codebase and doing Prepartory Refactoring speed up development.
+shared_description: Beautiful words and powerful metaphors illustrate how keeping a Healthy Codebase and doing Prepartory Refactoring speed up development.
 ---
 
-In a [recent episode of the RubyRogues podcast](http://devchat.tv/ruby-rogues/178-rr-book-club-refactoring-ruby-with-martin-fowler), [Martin Fowler](http://martinfowler.com) and [Jessica Kerr](https://twitter.com/jessitron) literally spoke my mind. They named two concepts that I deeply believe in and care about: Healthy Codebase and Preparatory Refactoring. They expressed them in beautiful words and powerful metaphors, which enable me to share them with you in this article.
+In a [recent episode of the RubyRogues podcast](http://devchat.tv/ruby-rogues/178-rr-book-club-refactoring-ruby-with-martin-fowler), [Martin Fowler](http://martinfowler.com) and [Jessica Kerr](https://twitter.com/jessitron) literally read my mind. They named two concepts that I deeply believe in and care about: Healthy Codebase and Preparatory Refactoring. They expressed them in beautiful words and powerful metaphors, which enabled me to share them with you in this article.
 
 <!-- break -->
 
@@ -22,7 +22,7 @@ After 43 minutes of discussions on the steps of refactoring, Martin introduced t
 
 "*A healthy codebase allows you to keep going fast. You're slowed down by having stuff that's unclear.*", says Martin. *"The analogy is often made between code and writing. And of course, this is part of the theme of [David's RailsConf talk](http://www.confreaks.com/videos/3315-railsconf-keynote-writing-software) that was so controversial, that he thinks of code not as mathematics but as writing. And I'm very much in agreement with him on this. But that has a consequence which says that if code is writing, it means you have to put a lot of effort into making it clear. And ask any good rewriter what they do most of the time, and it's rewriting."*
 
-We have to realise that unclear code slows us down. It is *"an economic judgment"* that code quality results in speed. So the *"Code quality versus Speed"* is a non-sense.
+We have to realize that unclear code slows us down. It is *"an economic judgment"* that code quality results in speed. So the *"Code quality versus Speed"* is nonsense.
 
 *"Many times, I run into teams that say: 'Management isn't allowing us to do a quality job here because it will slow us down. And we've appealed to management and said we need to put more quality in the code, but they've said no, we need to go faster instead'. And my comment to that is that as soon as you're framing it in terms of code quality versus speed, you've lost. Because the whole point of refactoring is to go faster."*
 
