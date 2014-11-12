@@ -11,10 +11,10 @@ tags:
   - process
   - refactoring
 shared_square_image: http://brewhouse.io/images/posts/2014/Nov/preparatory-refactoring-square.jpg
-shared_description: Beautiful words and powerful metaphors illustrate how keeping a Healthy Codebase and doing Prepartory Refactoring speed up development.
+shared_description: Beautiful words and powerful metaphors to illustrate how keeping a Healthy Codebase and doing Prepartory Refactoring speed up development.
 ---
 
-In a [recent episode of the RubyRogues podcast](http://devchat.tv/ruby-rogues/178-rr-book-club-refactoring-ruby-with-martin-fowler), [Martin Fowler](http://martinfowler.com) and [Jessica Kerr](https://twitter.com/jessitron) literally read my mind. They named two concepts that I deeply believe in and care about: Healthy Codebase and Preparatory Refactoring. They expressed them in beautiful words and powerful metaphors, which enabled me to share them with you in this article.
+In a [recent episode of the RubyRogues podcast](http://devchat.tv/ruby-rogues/178-rr-book-club-refactoring-ruby-with-martin-fowler), [Martin Fowler](http://martinfowler.com) and [Jessica Kerr](https://twitter.com/jessitron) literally spoke my mind. They named two concepts that I deeply believe in and care about: Healthy Codebase and Preparatory Refactoring. The fact that they have expressed them in beautiful words and powerful metaphors enables me to share them with you in this article.
 
 <!-- break -->
 
