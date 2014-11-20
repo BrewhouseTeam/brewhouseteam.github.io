@@ -7,7 +7,7 @@ date: 2014-11-20 8:00
 published: true
 tags:
   - rubyconf
-  - what
+  - humanity
 shared_square_image: http://brewhouse.io/images/posts/2014/Nov/rubyconf-logo.png
 shared_description: Several speakers brought humanity and community to their talks. They helped us step back, see the big picture and keep in mind what is really important.
 ---
