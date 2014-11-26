@@ -12,6 +12,8 @@ shared_square_image: http://brewhouse.io/images/posts/2014/Nov/rubyconf-logo.png
 shared_description: Several speakers brought humanity and community to their talks. They helped us step back, see the big picture and keep in mind what is really important.
 ---
 
+![ruby-conf-logo](/images/posts/2014/Nov/ruby-conf.jpg)
+
 There were tons of great technical talks at [Rubyconf 2014](http://rubyconf.org/): performance, testing, architecture, new frameworks and new language features. However, [Matz](https://twitter.com/yukihiro_matz) kicked off the conference from a different perspective: he described the Ruby community being made of sharks who need to be fed with new shiny stuff. Otherwise we may lose interest and move away from Ruby. I'd rather be a dolphin, or a unicorn. But in the end I was quite excited (as a shark might be) to hear about Ruby 3.0.
 
 
