@@ -3,7 +3,7 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2014-11-24T15:58:03-08:00</updated>
+    <updated>2014-11-25T17:36:15-08:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
@@ -20,7 +20,9 @@
           <link href="http://brewhouse.io/blog/2014/11/20/rubyconf-2014-the-human-bits.html"/>
           <updated>2014-11-20T08:00:00-08:00</updated>
           <id>http://brewhouse.io/blog/2014/11/20/rubyconf-2014-the-human-bits</id>
-          <content type="html">&lt;p&gt;There were tons of great technical talks at &lt;a href=&quot;http://rubyconf.org/&quot;&gt;Rubyconf 2014&lt;/a&gt;: performance, testing, architecture, new frameworks and new language features. However, &lt;a href=&quot;https://twitter.com/yukihiro_matz&quot;&gt;Matz&lt;/a&gt; kicked off the conference from a different perspective: he described the Ruby community being made of sharks who need to be fed with new shiny stuff. Otherwise we may lose interest and move away from Ruby. I’d rather be a dolphin, or a unicorn. But in the end I was quite excited (as a shark might be) to hear about Ruby 3.0.&lt;/p&gt;
+          <content type="html">&lt;p&gt;&lt;img src=&quot;/images/posts/2014/Nov/ruby-conf.jpg&quot; alt=&quot;ruby-conf-logo&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;There were tons of great technical talks at &lt;a href=&quot;http://rubyconf.org/&quot;&gt;Rubyconf 2014&lt;/a&gt;: performance, testing, architecture, new frameworks and new language features. However, &lt;a href=&quot;https://twitter.com/yukihiro_matz&quot;&gt;Matz&lt;/a&gt; kicked off the conference from a different perspective: he described the Ruby community being made of sharks who need to be fed with new shiny stuff. Otherwise we may lose interest and move away from Ruby. I’d rather be a dolphin, or a unicorn. But in the end I was quite excited (as a shark might be) to hear about Ruby 3.0.&lt;/p&gt;
 
 &lt;!-- break --&gt;
 
