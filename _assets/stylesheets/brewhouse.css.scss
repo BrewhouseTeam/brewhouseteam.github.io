@@ -583,6 +583,12 @@ img.team-photo {
   .img-author {
     margin: 5px 10px 5px 0;
   }
+
+  img {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
 }
 #navbar-blog {
   background: transparent;
