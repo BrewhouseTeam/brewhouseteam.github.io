@@ -131,7 +131,7 @@ There isn't much magic in this service. It's important to point out that `$modal
 
 app.controller('LoginModalCtrl', function ($scope, UsersApi) {
 
-  this.cancel = $scope.dismiss;
+  this.cancel = $scope.$dismiss;
 
   this.submit = function (email, password) {
     UsersApi.login(email, password).then(function (user) {
