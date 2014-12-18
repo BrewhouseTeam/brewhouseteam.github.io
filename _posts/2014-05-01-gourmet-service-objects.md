@@ -127,7 +127,7 @@ Service objects are likely to be called from controllers as well as:
 * Other service objects:
 
 {% highlight ruby %}
-class BatchSyncUsers do
+class BatchSyncUsers
 
   def self.call(users)
     users.each { |user| SyncUser.call(user) }
