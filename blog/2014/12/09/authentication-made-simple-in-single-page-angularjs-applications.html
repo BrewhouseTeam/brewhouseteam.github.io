@@ -236,7 +236,7 @@ multiple actions can be chained together. These are anonymous functions that we 
 
 <span class="nx">app</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;LoginModalCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">UsersApi</span><span class="p">)</span> <span class="p">{</span>
 
-  <span class="k">this</span><span class="p">.</span><span class="nx">cancel</span> <span class="o">=</span> <span class="nx">$scope</span><span class="p">.</span><span class="nx">dismiss</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">cancel</span> <span class="o">=</span> <span class="nx">$scope</span><span class="p">.</span><span class="nx">$dismiss</span><span class="p">;</span>
 
   <span class="k">this</span><span class="p">.</span><span class="nx">submit</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">email</span><span class="p">,</span> <span class="nx">password</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">UsersApi</span><span class="p">.</span><span class="nx">login</span><span class="p">(</span><span class="nx">email</span><span class="p">,</span> <span class="nx">password</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>

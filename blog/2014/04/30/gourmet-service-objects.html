@@ -239,7 +239,7 @@ modular and I’m ready to Embrace Change™.</p>
   <li>Other service objects:</li>
 </ul>
 
-<div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="nc">BatchSyncUsers</span> <span class="k">do</span>
+<div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="nc">BatchSyncUsers</span>
 
   <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">call</span><span class="p">(</span><span class="n">users</span><span class="p">)</span>
     <span class="n">users</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">user</span><span class="o">|</span> <span class="no">SyncUser</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">user</span><span class="p">)</span> <span class="p">}</span>
