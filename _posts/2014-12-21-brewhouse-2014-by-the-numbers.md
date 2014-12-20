@@ -13,10 +13,10 @@ shared_description: TODO
 ---
 
 
-# **4** parties
+# **4** events
 
 We started with *Cocktails*, we then hosted the *[Vanruby](http://vanruby.org) Summer BBQ*,
-we renamed our office to *Boohouse* for Halloween and collected non-perishable goods for the
+we became *Boohouse* for Halloween and we collected non-perishable goods for the
 food bank at the *Mouthy Mixer*.
 
 ![boohouse](/images/posts/2014/Dec/boohouse.gif)
@@ -62,6 +62,10 @@ We spoke about Ruby, Angular, Rails, Ember, Application Performance and
 Running Start-ups at local events and conferences.
 
 # **25** pounds of non-perishable goods donated to the Food Bank
+
+![food-bank](/images/posts/2014/Dec/food-bank.jpg)
+
+A [Startups Care](http://www.startups-care.com) initiative.
 
 # **40** creative fridays
 
@@ -117,16 +121,16 @@ brought **75,000** visitors.
 
 # **$85,000** average annual salary
 
-We now offer Vancouver market rate salaries.
+We offer Vancouver market rate salary.
 
 # **$100,000** in bank
+
+![money](/images/posts/2014/Dec/money.jpg)
 
 * Initial investment from [Full Stack](http://fullstack.ca/): **+$100,000**
 * Income from client work: **+$335,000**
 * [IRAP](http://www.nrc-cnrc.gc.ca/eng/irap/index.html) contributions: **+$55,000**
 * Salaries: **-$310,000**
 * Other expenses: **-$80,000**
-
-![money](/images/posts/2014/Dec/money.jpg)
 
 See you guys in 2015!
