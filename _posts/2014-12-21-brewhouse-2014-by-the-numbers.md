@@ -12,16 +12,7 @@ shared_square_image: TODO
 shared_description: TODO
 ---
 
-
-# **4** events
-
-We started with *Cocktails*, we then hosted the *[Vanruby](http://vanruby.org) Summer BBQ*,
-we became *Boohouse* for Halloween and we collected non-perishable goods for the
-food bank at the *Mouthy Mixer*.
-
-![boohouse](/images/posts/2014/Dec/boohouse.gif)
-
-# **7** brewers
+# **3** new hires
 
 Brewhouse was founded in January 2014 by
 [Chuck](https://twitter.com/ChuckBergeron),
@@ -31,8 +22,27 @@ Brewhouse was founded in January 2014 by
 [Gabe](https://twitter.com/gabescholz)
 and
 [Lana](https://twitter.com/mstopham)
-joined us along the way and a mysterious new
-brewer is starting right after XMas!
+joined us along the way and [Mark](https://twitter.com/markhazlett)
+has just started this week!
+
+
+# **4** events
+
+We started with *Cocktails*, we then hosted the *[Vanruby](http://vanruby.org) Summer BBQ*,
+we became *Boohouse* for Halloween and we collected non-perishable goods for the
+food bank at the *Mouthy Mixer*.
+
+![boohouse](/images/posts/2014/Dec/boohouse.gif)
+
+# **5** conferences
+
+We've attended
+[Ember conf](http://2014.emberconf.com/) in Portland,
+[Rails conf](http://www.railsconf.com/) in Chicago,
+[Polyglot (un)conf](http://www.polyglotconf.com/) in Vancouver,
+[Ruby Kaigi](http://rubykaigi.org/2014) in Tokyo,
+and
+[Ruby conf](http://rubyconf.org/) in San Diego!
 
 # **12** clients
 
