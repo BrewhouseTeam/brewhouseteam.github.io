@@ -230,3 +230,20 @@ If you're not totally [jacked up](http://media.giphy.com/media/sWBOpINwXnW7K/gip
 Please let us know what you think. Do you have suggestions for how this could be improved further? [Tweet at me](http://twitter.com/gabescholz) or [at us](http://twitter.com/BrewhouseTeam) or leave a comment below.
 
 Special thanks to Godfrey Chan, Philippe Creux and Lana Topham for leaving feedback during the drafting of this post.
+
+#### Edit: December 29, 2014
+
+As per a few requests, here is what a simple `views/loginModalTemplate.html` might look like. I hope it helps to answer some questions.
+
+{% highlight html %}
+<!-- views/loginModalTemplate.html -->
+
+<div>
+  <form ng-submit="LoginModalCtrl.submit(_email, _password)">
+    <input type="email" ng-model="_email" />
+    <input type="password" ng-model="_password" />
+    <button>Submit</button>
+  </form>
+  <button ng-click="LoginModelCtrl.cancel()">Cancel</button>
+</div>
+{% endhighlight %}
