@@ -12,7 +12,7 @@ shared_square_image: http://brewhouse.io/images/posts/2014/Dec/client-vs-product
 shared_description: We love a healthy dose of transparency at Brewhouse. Here's our year end, by the numbers.
 ---
 
-<h2 id="new-hires">
+<h2 class="brewhouse-numbers" id="new-hires">
   <span class="headline--numerals">3</span> <span class="headline--alphas">new hires</span>
 </h2>
 
@@ -21,13 +21,14 @@ Brewhouse was founded in January 2014 by
 [Godfrey](https://twitter.com/chancancode),
 [Kalv](https://twitter.com/kalv) and
 [Philippe](https://twitter.com/pcreux).
+<br>
 [Gabe](https://twitter.com/gabescholz)
 and
 [Lana](https://twitter.com/mstopham)
 joined us along the way and [Mark](https://twitter.com/markhazlett)
 has just started this week!
 
-<h2 id="events">
+<h2 class="brewhouse-numbers" id="events">
   <span class="headline--numerals">4</span> <span class="headline--alphas">events</span>
 </h2>
 
@@ -37,7 +38,7 @@ We started with *Cocktails*, we then hosted the *[Vanruby](http://vanruby.org) S
 we became *Boohouse* for Halloween and we collected non-perishable goods for the
 food bank at the *Mouthy Mixer*.
 
-<h2 id="conferences">
+<h2 class="brewhouse-numbers" id="conferences">
   <span class="headline--numerals">5</span> <span class="headline--alphas">conferences</span>
 </h2>
 
@@ -51,7 +52,7 @@ We've attended
 and
 [Ruby conf](http://rubyconf.org/) in San Diego!
 
-<h2 id="clients">
+<h2 class="brewhouse-numbers" id="clients">
   <span class="headline--numerals">12</span> <span class="headline--alphas">clients</span>
 </h2>
 
@@ -64,11 +65,12 @@ codebases (read, [performance](/blog/2014/11/10/healthy-codebase-and-preparatory
 complete libraries and products.
 Being exposed to so many talented teams was just fabulous!
 
-<h2 id="blog-posts">
+<h2 class="brewhouse-numbers" id="blog-posts">
   <span class="headline--numerals">15</span> <span class="headline--alphas">blog posts</span>
 </h2>
 
-**75,000** readers who wrote **85** comments. The most popular
+They have been read by **75,000** people who left **85** comments.
+The most popular
 ones are
 [What's new in Rails
 4.1](/blog/2013/12/17/whats-new-in-rails-4-1.html),
@@ -76,7 +78,7 @@ ones are
 [Big Data with Elastic
 Search](/blog/2014/11/04/big-data-with-elk-stack.html).
 
-<h2 id="creative-fridays">
+<h2 class="brewhouse-numbers" id="creative-fridays">
   <span class="headline--numerals">24</span> <span class="headline--alphas">(lightning) talks</span>
 </h2>
 
@@ -85,7 +87,7 @@ Search](/blog/2014/11/04/big-data-with-elk-stack.html).
 We spoke about Ruby, Angular, Rails, Ember, Application / Database Performance, and
 how to run start-ups at local events and conferences.
 
-<h2 id="lbs-of-non-perishable-goods-donated">
+<h2 class="brewhouse-numbers" id="lbs-of-non-perishable-goods-donated">
   <span class="headline--numerals">25</span> <span class="headline--alphas">lbs. of non-perishable goods donated</span>
 </h2>
 
@@ -93,7 +95,7 @@ how to run start-ups at local events and conferences.
 
 The terrific [Startups Care](http://www.startups-care.com) initiative.
 
-<h2 id="creative-fridays">
+<h2 class="brewhouse-numbers" id="creative-fridays">
   <span class="headline--numerals">40</span> <span class="headline--alphas">creative fridays</span>
 </h2>
 
@@ -105,7 +107,7 @@ we work on side projects such as [Roundup
 Roger](http://brewhouse.io/2014/06/27/say-hello-to-roundup-roger.html),
 and more!
 
-<h2 id="leads">
+<h2 class="brewhouse-numbers" id="leads">
   <span class="headline--numerals">45</span> <span class="headline--alphas">leads</span>
 </h2>
 
@@ -113,23 +115,23 @@ and more!
 
 12 became clients.
 
-<h2 id="client-iterations">
+<h2 class="brewhouse-numbers" id="client-iterations">
   <span class="headline--numerals">50</span> <span class="headline--alphas">T-shirts shipped</span>
 </h2>
 
 ![tshirts](/images/posts/2014/Dec/tshirts.jpg)
 
-<h2 id="client-iterations">
+<h2 class="brewhouse-numbers" id="client-iterations">
   <span class="headline--numerals">88</span> <span class="headline--alphas">client iterations</span>
 </h2>
 
 ![week](/images/posts/2014/Dec/week.jpg)
 
-We offer 4 day Iterations to our clients. That's 4 full days (Monday to
+We offer 4 day iterations to our clients. That's 4 full days (Monday to
 Thursday) dedicated to client work. Friday can be used as a
 buffer to cover statutory holidays or sick days.
 
-<h2 id="cookies">
+<h2 class="brewhouse-numbers" id="cookies">
   <span class="headline--numerals">100</span> <span class="headline--alphas">cookies</span>
 </h2>
 
@@ -137,23 +139,22 @@ buffer to cover statutory holidays or sick days.
 
 Yes. Ruby Cookies.
 
-<h2 id="product-iterations">
+<h2 class="brewhouse-numbers" id="product-iterations">
   <span class="headline--numerals">104</span> <span class="headline--alphas">product iterations</span>
 </h2>
 
-We plan product work like client work. 4 days / iteration. And we keep
-it simple.
+To keep things simple, we plan product work like client work: 4 day iterations.
 
 ![product-vs-client](/images/posts/2014/Dec/client-vs-product.jpg)
 
-<h2 id="square-feet">
+<h2 class="brewhouse-numbers" id="square-feet">
   <span class="headline--numerals">1,400</span> <span class="headline--alphas">square feet</span>
 </h2>
 
 We loved sharing space at [ChloiHQ](http://chloi.io), however more resources means more space. In
 August we found a comfy office space to call our own.
 
-<h2 id="visits-to-brewhouseio">
+<h2 class="brewhouse-numbers" id="visits-to-brewhouseio">
   <span class="headline--numerals">84,822</span> <span class="headline--alphas">visits to brewhouse.io</span>
 </h2>
 
@@ -162,13 +163,13 @@ August we found a comfy office space to call our own.
 While the landing page accounted for **10,000** visits, our blog posts
 brought a smashing **75,000** unique visitors.
 
-<h2 id="average-annual-salary">
+<h2 class="brewhouse-numbers" id="average-annual-salary">
   <span class="headline--numerals">$85,000</span> <span class="headline--alphas">average annual salary</span>
 </h2>
 
 We offer what we believe is a competitive Vancouver market rate salary.
 
-<h2 id="in-bank">
+<h2 class="brewhouse-numbers" id="in-bank">
   <span class="headline--numerals">$100,000</span> <span class="headline--alphas">in the bank</span>
 </h2>
 
@@ -180,7 +181,7 @@ We offer what we believe is a competitive Vancouver market rate salary.
 * Salaries: **-$310,000**
 * Other expenses: **-$80,000**
 
-<h2>
+<h2 class="brewhouse-numbers">
   <span class="headline--numerals">2015</span> <span class="headline--alphas">here we come!</span>
 </h2>
 
