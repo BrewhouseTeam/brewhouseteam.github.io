@@ -3,7 +3,7 @@ layout: post
 title: "Brewhouse 2014 by the numbers"
 author: "philippe"
 category: blog
-date: 2014-12-21 8:00
+date: 2014-12-30 8:00
 published: true
 tags:
   - brewhouse
