@@ -244,6 +244,6 @@ As per a few requests, here is what a simple `views/loginModalTemplate.html` mig
     <input type="password" ng-model="_password" />
     <button>Submit</button>
   </form>
-  <button ng-click="LoginModelCtrl.cancel()">Cancel</button>
+  <button ng-click="LoginModalCtrl.cancel()">Cancel</button>
 </div>
 {% endhighlight %}
