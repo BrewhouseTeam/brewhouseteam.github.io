@@ -28,13 +28,15 @@ has just started this week!
 
 # **4** events
 
+![boohouse](/images/posts/2014/Dec/boohouse.gif)
+
 We started with *Cocktails*, we then hosted the *[Vanruby](http://vanruby.org) Summer BBQ*,
 we became *Boohouse* for Halloween and we collected non-perishable goods for the
 food bank at the *Mouthy Mixer*.
 
-![boohouse](/images/posts/2014/Dec/boohouse.gif)
-
 # **5** conferences
+
+![conferences](/images/posts/2014/Dec/conferences.jpg)
 
 We've attended
 [Ember conf](http://2014.emberconf.com/) in Portland,
@@ -67,6 +69,8 @@ ones are
 Search](/blog/2014/11/04/big-data-with-elk-stack.html).
 
 # **24** (lightning) talks
+
+![godfrey-talk](/images/posts/2014/Dec/talk.jpg)
 
 We spoke about Ruby, Angular, Rails, Ember, Application Performance and
 Running Start-ups at local events and conferences.
