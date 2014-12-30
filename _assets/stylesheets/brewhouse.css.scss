@@ -28,7 +28,6 @@ body {
     font-size: 14px;
   }
 }
-
 a {
   color: #47A4C2;
   word-wrap: break-word;
@@ -56,7 +55,6 @@ h5,
 h6 {
   font-family: 'bh_proxima', sans-serif;
 }
-
 @media (max-width: 767px) {
   h1 {
     font-size: 26px;
@@ -68,7 +66,25 @@ h6 {
     font-size: 14px;
   }
 }
+.headline--numerals {
+  font-size: 48px;
+  font-style: italic;
+  font-family: 'Times', 'Times New Roman', Georgia, serif;
+  margin-top: 20px;
 
+  @media (max-width: 500px) {
+    font-size: 34px;
+  }
+}
+.headline--alphas {
+  color: #928a97;
+  font-size: 25px;
+  text-transform: lowercase;
+
+  @media (max-width: 500px) {
+    font-size: 18px;
+  }
+}
 .landing {
   h3 {
     color: #444;
@@ -563,7 +579,7 @@ img.team-photo {
     line-height: 33px;
 
     @media (max-width: 767px) {
-      font-size: 13px;
+      font-size: 15px;
       line-height: 26px;
     }
   }
@@ -846,11 +862,13 @@ html.blog {
   #mc_embed_signup input.button {
     transition: all 0.3s;
 
-    background: #FD7E5F;
+    background: #FA5027;
     color: #fff;
     border-radius: 3px;
+    font-weight: 700;
     height: 38px;
     margin-bottom: 0;
+    text-transform: uppercase;
     width: 100%;
   }
   #mc_embed_signup input.button:focus,
@@ -874,7 +892,7 @@ html.blog {
   p {
     color: #fff;
     font-family: 'bh_proxima', sans-serif;
-    font-size: 130%;
+    font-size: 150%;
     font-weight: 700;
     letter-spacing: -0.05em;
     margin-bottom: 10px;
@@ -883,7 +901,6 @@ html.blog {
     padding-top: 4px;
   }
 }
-
 // END BLOG SPECIFIC
 
 footer {

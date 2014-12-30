@@ -12,7 +12,9 @@ shared_square_image: http://brewhouse.io/images/posts/2014/Dec/client-vs-product
 shared_description: Brewhouse by the numbers.
 ---
 
-# **3** new hires
+<h2 id="new-hires">
+  <span class="headline--numerals">3</span> <span class="headline--alphas">new hires</span>
+</h2>
 
 Brewhouse was founded in January 2014 by
 [Chuck](https://twitter.com/ChuckBergeron),
@@ -25,8 +27,9 @@ and
 joined us along the way and [Mark](https://twitter.com/markhazlett)
 has just started this week!
 
-
-# **4** events
+<h2 id="events">
+  <span class="headline--numerals">4</span> <span class="headline--alphas">events</span>
+</h2>
 
 ![boohouse](/images/posts/2014/Dec/boohouse.gif)
 
@@ -34,7 +37,9 @@ We started with *Cocktails*, we then hosted the *[Vanruby](http://vanruby.org) S
 we became *Boohouse* for Halloween and we collected non-perishable goods for the
 food bank at the *Mouthy Mixer*.
 
-# **5** conferences
+<h2 id="conferences">
+  <span class="headline--numerals">5</span> <span class="headline--alphas">conferences</span>
+</h2>
 
 ![conferences](/images/posts/2014/Dec/conferences.jpg)
 
@@ -46,7 +51,9 @@ We've attended
 and
 [Ruby conf](http://rubyconf.org/) in San Diego!
 
-# **12** clients
+<h2 id="clients">
+  <span class="headline--numerals">12</span> <span class="headline--alphas">clients</span>
+</h2>
 
 <!-- break -->
 
@@ -58,7 +65,9 @@ speed](/blog/2014/11/10/healthy-codebase-and-preparatory-refactoring.html)), we'
 complete libraries and products.
 Being exposed to so many talented teams was just fabulous!
 
-# **15** blog posts
+<h2 id="blog-posts">
+  <span class="headline--numerals">15</span> <span class="headline--alphas">blog posts</span>
+</h2>
 
 **75,000** readers who wrote **85** comments. The most popular
 ones are
@@ -68,20 +77,26 @@ ones are
 [Big Data with Elastic
 Search](/blog/2014/11/04/big-data-with-elk-stack.html).
 
-# **24** (lightning) talks
+<h2 id="creative-fridays">
+  <span class="headline--numerals">24</span> <span class="headline--alphas">(lightning) talks</span>
+</h2>
 
 ![godfrey-talk](/images/posts/2014/Dec/talk.jpg)
 
-We spoke about Ruby, Angular, Rails, Ember, Application Performance and
-Running Start-ups at local events and conferences.
+We spoke about Ruby, Angular, Rails, Ember, Application / Database Performance, and
+how to run start-ups at local events and conferences.
 
-# **25** pounds of non-perishable goods donated to the Food Bank
+<h2 id="lbs-of-non-perishable-goods-donated">
+  <span class="headline--numerals">25</span> <span class="headline--alphas">lbs. of non-perishable goods donated</span>
+</h2>
 
 ![food-bank](/images/posts/2014/Dec/food-bank.jpg)
 
-A [Startups Care](http://www.startups-care.com) initiative.
+The terrific [Startups Care](http://www.startups-care.com) initiative.
 
-# **40** creative fridays
+<h2 id="creative-fridays">
+  <span class="headline--numerals">40</span> <span class="headline--alphas">creative fridays</span>
+</h2>
 
 Fridays are about everything but client work:
 we [contribute to open source](https://github.com/rails/rails/commits?author=chancancode),
@@ -91,17 +106,23 @@ we work on side projects such as [Roundup
 Roger](http://brewhouse.io/2014/06/27/say-hello-to-roundup-roger.html),
 and more!
 
-# **45** leads
+<h2 id="leads">
+  <span class="headline--numerals">45</span> <span class="headline--alphas">leads</span>
+</h2>
 
 ![leads](/images/posts/2014/Dec/leads.jpg)
 
 12 became clients.
 
-# **50** T-shirts shipped
+<h2 id="client-iterations">
+  <span class="headline--numerals">50</span> <span class="headline--alphas">T-shirts shipped</span>
+</h2>
 
 ![tshirts](/images/posts/2014/Dec/tshirts.jpg)
 
-# **88** client iterations
+<h2 id="client-iterations">
+  <span class="headline--numerals">88</span> <span class="headline--alphas">client iterations</span>
+</h2>
 
 ![week](/images/posts/2014/Dec/week.jpg)
 
@@ -109,42 +130,59 @@ We offer 4 day Iterations to our clients. That's 4 full days (Monday to
 Thursday) dedicated to client work. Friday can be used as a
 buffer to cover statutory holidays or sick days.
 
-# **100** cookies
+<h2 id="cookies">
+  <span class="headline--numerals">100</span> <span class="headline--alphas">cookies</span>
+</h2>
 
 ![cookies](/images/posts/2014/Dec/cookies.jpg)
 
 Yes. Ruby Cookies.
 
-# **104** product iteration
+<h2 id="product-iterations">
+  <span class="headline--numerals">104</span> <span class="headline--alphas">product iterations</span>
+</h2>
 
-We plan product work like client work. 4 days iterations. Keep
+We plan product work like client work. 4 days / iteration. And we keep
 it simple.
 
 ![product-vs-client](/images/posts/2014/Dec/client-vs-product.jpg)
 
-# **1,400** square feet
+<h2 id="square-feet">
+  <span class="headline--numerals">1,400</span> <span class="headline--alphas">square feet</span>
+</h2>
 
-We've moved from [ChloiHQ](http://chloi.io) to our own office in August.
+We loved sharing space at [ChloiHQ](http://chloi.io), however more resources means more space. In
+August we found a comfy office space to call our own.
 
-# **84,822** visits to brewhouse.io
+<h2 id="visits-to-brewhouseio">
+  <span class="headline--numerals">84,822</span> <span class="headline--alphas">visits to brewhouse.io</span>
+</h2>
 
 ![visits](/images/posts/2014/Dec/visits.png)
 
 While the landing page accounts for **10,000** visits, our blog posts
 brought **75,000** visitors.
 
-# **$85,000** average annual salary
+<h2 id="average-annual-salary">
+  <span class="headline--numerals">$85,000</span> <span class="headline--alphas">average annual salary</span>
+</h2>
 
-We offer Vancouver market rate salary.
+We offer what we believe is a competitive Vancouver market rate salary.
 
-# **$100,000** in bank
+<h2 id="in-bank">
+  <span class="headline--numerals">$100,000</span> <span class="headline--alphas">in the bank</span>
+</h2>
 
 ![money](/images/posts/2014/Dec/money.jpg)
 
-* Initial investment from [Full Stack](http://fullstack.ca/): **+$100,000**
+* Initial investment from [FullStack](http://fullstack.ca/): **+$100,000**
 * Income from client work: **+$335,000**
 * [IRAP](http://www.nrc-cnrc.gc.ca/eng/irap/index.html) contributions: **+$55,000**
 * Salaries: **-$310,000**
 * Other expenses: **-$80,000**
 
-See you guys in 2015!
+<h2>
+  <span class="headline--numerals">2015</span> <span class="headline--alphas">here we come!</span>
+</h2>
+
+<br>
