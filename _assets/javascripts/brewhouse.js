@@ -59,19 +59,23 @@ jQuery(function($) {
 
   }
 
-  if($(window).width() > 750) {
-    $("video.team-video")[0].preload = "auto";
-    $("video.team-video")[0].autoplay = true;
-    $("video.team-video")[0].play();
-  }
+  if ( $("video.team-video").length ){
+    if($(window).width() > 750) {
+      $("video.team-video")[0].preload = "auto";
+      $("video.team-video")[0].autoplay = true;
+      $("video.team-video")[0].play();
+    };
+  };
 
 });
 
 $(window).resize(function() {
-  if($(window).width() > 750) {
-    $("video.team-video")[0].preload = "auto";
-    $("video.team-video")[0].autoplay = true;
-    $("video.team-video")[0].play();
+  if ( $("video.team-video").length ){
+    if($(window).width() > 750) {
+      $("video.team-video")[0].preload = "auto";
+      $("video.team-video")[0].autoplay = true;
+      $("video.team-video")[0].play();
+    };
   };
 });
 
