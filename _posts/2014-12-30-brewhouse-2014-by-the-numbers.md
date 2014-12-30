@@ -21,6 +21,7 @@ Brewhouse was founded in January 2014 by
 [Godfrey](https://twitter.com/chancancode),
 [Kalv](https://twitter.com/kalv) and
 [Philippe](https://twitter.com/pcreux).
+<br>
 [Gabe](https://twitter.com/gabescholz)
 and
 [Lana](https://twitter.com/mstopham)
@@ -68,7 +69,8 @@ Being exposed to so many talented teams was just fabulous!
   <span class="headline--numerals">15</span> <span class="headline--alphas">blog posts</span>
 </h2>
 
-**75,000** readers who wrote **85** comments. The most popular
+They have been read by **75,000** people who left **85** comments.
+The most popular
 ones are
 [What's new in Rails
 4.1](/blog/2013/12/17/whats-new-in-rails-4-1.html),
@@ -141,8 +143,7 @@ Yes. Ruby Cookies.
   <span class="headline--numerals">104</span> <span class="headline--alphas">product iterations</span>
 </h2>
 
-We plan product work like client work. 4 days / iteration. And we keep
-it simple.
+To keep things simple, we plan product work like client work: 4 day iterations.
 
 ![product-vs-client](/images/posts/2014/Dec/client-vs-product.jpg)
 
