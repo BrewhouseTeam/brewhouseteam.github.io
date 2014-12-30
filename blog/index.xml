@@ -3,12 +3,202 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2014-12-19T17:02:58-08:00</updated>
+    <updated>2014-12-29T23:42:10-08:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
         <email>hello@brewhouse.io</email>
     </author>
+    
+    
+      <entry>
+          <title>Brewhouse 2014 - by the numbers</title>
+          <author>
+            <name>Philippe Creux</name>
+            <email>philippe@brewhouse.io</email>
+          </author>
+          <link href="http://brewhouse.io/blog/2014/12/30/brewhouse-2014-by-the-numbers.html"/>
+          <updated>2014-12-30T08:00:00-08:00</updated>
+          <id>http://brewhouse.io/blog/2014/12/30/brewhouse-2014-by-the-numbers</id>
+          <content type="html">&lt;h2 class=&quot;brewhouse-numbers&quot; id=&quot;new-hires&quot;&gt;
+  &lt;span class=&quot;headline--numerals&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;headline--alphas&quot;&gt;new hires&lt;/span&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;Brewhouse was founded in January 2014 by
+&lt;a href=&quot;https://twitter.com/ChuckBergeron&quot;&gt;Chuck&lt;/a&gt;,
+&lt;a href=&quot;https://twitter.com/chancancode&quot;&gt;Godfrey&lt;/a&gt;,
+&lt;a href=&quot;https://twitter.com/kalv&quot;&gt;Kalv&lt;/a&gt; and
+&lt;a href=&quot;https://twitter.com/pcreux&quot;&gt;Philippe&lt;/a&gt;.
+&lt;br /&gt;
+&lt;a href=&quot;https://twitter.com/gabescholz&quot;&gt;Gabe&lt;/a&gt;
+and
+&lt;a href=&quot;https://twitter.com/mstopham&quot;&gt;Lana&lt;/a&gt;
+joined us along the way and &lt;a href=&quot;https://twitter.com/markhazlett&quot;&gt;Mark&lt;/a&gt;
+has just started this week!&lt;/p&gt;
+
+&lt;h2 class=&quot;brewhouse-numbers&quot; id=&quot;events&quot;&gt;
+  &lt;span class=&quot;headline--numerals&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;headline--alphas&quot;&gt;events&lt;/span&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2014/Dec/boohouse.gif&quot; alt=&quot;boohouse&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We started with &lt;em&gt;Cocktails&lt;/em&gt;, we then hosted the &lt;em&gt;&lt;a href=&quot;http://vanruby.org&quot;&gt;Vanruby&lt;/a&gt; Summer BBQ&lt;/em&gt;,
+we became &lt;em&gt;Boohouse&lt;/em&gt; for Halloween and we collected non-perishable goods for the
+food bank at the &lt;em&gt;Mouthy Mixer&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 class=&quot;brewhouse-numbers&quot; id=&quot;conferences&quot;&gt;
+  &lt;span class=&quot;headline--numerals&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;headline--alphas&quot;&gt;conferences&lt;/span&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2014/Dec/conferences.jpg&quot; alt=&quot;conferences&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We’ve attended
+&lt;a href=&quot;http://2014.emberconf.com/&quot;&gt;Ember conf&lt;/a&gt; in Portland,
+&lt;a href=&quot;http://www.railsconf.com/&quot;&gt;Rails conf&lt;/a&gt; in Chicago,
+&lt;a href=&quot;http://www.polyglotconf.com/&quot;&gt;Polyglot (un)conf&lt;/a&gt; in Vancouver,
+&lt;a href=&quot;http://rubykaigi.org/2014&quot;&gt;Ruby Kaigi&lt;/a&gt; in Tokyo,
+and
+&lt;a href=&quot;http://rubyconf.org/&quot;&gt;Ruby conf&lt;/a&gt; in San Diego!&lt;/p&gt;
+
+&lt;h2 class=&quot;brewhouse-numbers&quot; id=&quot;clients&quot;&gt;
+  &lt;span class=&quot;headline--numerals&quot;&gt;12&lt;/span&gt; &lt;span class=&quot;headline--alphas&quot;&gt;clients&lt;/span&gt;
+&lt;/h2&gt;
+
+&lt;!-- break --&gt;
+
+&lt;p&gt;We had the chance to work with &lt;a href=&quot;/#clients&quot;&gt;12 great
+clients&lt;/a&gt;.
+We’ve built MLPs (Minimal &lt;em&gt;Lovable&lt;/em&gt; Products). We’ve improved
+codebases (read, &lt;a href=&quot;/blog/2014/11/10/healthy-codebase-and-preparatory-refactoring.html&quot;&gt;performance&lt;/a&gt;). We’ve delivered
+complete libraries and products.
+Being exposed to so many talented teams was just fabulous!&lt;/p&gt;
+
+&lt;h2 class=&quot;brewhouse-numbers&quot; id=&quot;blog-posts&quot;&gt;
+  &lt;span class=&quot;headline--numerals&quot;&gt;15&lt;/span&gt; &lt;span class=&quot;headline--alphas&quot;&gt;blog posts&lt;/span&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;They have been read by &lt;strong&gt;75,000&lt;/strong&gt; people who left &lt;strong&gt;85&lt;/strong&gt; comments.
+The most popular
+ones are
+&lt;a href=&quot;/blog/2013/12/17/whats-new-in-rails-4-1.html&quot;&gt;What’s new in Rails
+4.1&lt;/a&gt;,
+&lt;a href=&quot;/blog/2014/04/30/gourmet-service-objects.html&quot;&gt;Gourmet Service Objects&lt;/a&gt; and
+&lt;a href=&quot;/blog/2014/11/04/big-data-with-elk-stack.html&quot;&gt;Big Data with Elastic
+Search&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 class=&quot;brewhouse-numbers&quot; id=&quot;creative-fridays&quot;&gt;
+  &lt;span class=&quot;headline--numerals&quot;&gt;24&lt;/span&gt; &lt;span class=&quot;headline--alphas&quot;&gt;(lightning) talks&lt;/span&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2014/Dec/talk.jpg&quot; alt=&quot;godfrey-talk&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We spoke about Ruby, Angular, Rails, Ember, Application / Database Performance, and
+how to run start-ups at local events and conferences.&lt;/p&gt;
+
+&lt;h2 class=&quot;brewhouse-numbers&quot; id=&quot;lbs-of-non-perishable-goods-donated&quot;&gt;
+  &lt;span class=&quot;headline--numerals&quot;&gt;25&lt;/span&gt; &lt;span class=&quot;headline--alphas&quot;&gt;lbs. of non-perishable goods donated&lt;/span&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2014/Dec/food-bank.jpg&quot; alt=&quot;food-bank&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The terrific &lt;a href=&quot;http://www.startups-care.com&quot;&gt;Startups Care&lt;/a&gt; initiative.&lt;/p&gt;
+
+&lt;h2 class=&quot;brewhouse-numbers&quot; id=&quot;creative-fridays&quot;&gt;
+  &lt;span class=&quot;headline--numerals&quot;&gt;40&lt;/span&gt; &lt;span class=&quot;headline--alphas&quot;&gt;creative fridays&lt;/span&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;Fridays are about everything but client work:
+we &lt;a href=&quot;https://github.com/rails/rails/commits?author=chancancode&quot;&gt;contribute to open source&lt;/a&gt;,
+we send &lt;a href=&quot;http://rails-weekly.goodbits.io/archive/&quot;&gt;This Week In Rails&lt;/a&gt;,
+we write &lt;a href=&quot;/blog&quot;&gt;blog posts&lt;/a&gt;,
+we work on side projects such as &lt;a href=&quot;http://brewhouse.io/2014/06/27/say-hello-to-roundup-roger.html&quot;&gt;Roundup
+Roger&lt;/a&gt;,
+and more!&lt;/p&gt;
+
+&lt;h2 class=&quot;brewhouse-numbers&quot; id=&quot;leads&quot;&gt;
+  &lt;span class=&quot;headline--numerals&quot;&gt;45&lt;/span&gt; &lt;span class=&quot;headline--alphas&quot;&gt;leads&lt;/span&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2014/Dec/leads.jpg&quot; alt=&quot;leads&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;12 became clients.&lt;/p&gt;
+
+&lt;h2 class=&quot;brewhouse-numbers&quot; id=&quot;client-iterations&quot;&gt;
+  &lt;span class=&quot;headline--numerals&quot;&gt;50&lt;/span&gt; &lt;span class=&quot;headline--alphas&quot;&gt;T-shirts shipped&lt;/span&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2014/Dec/tshirts.jpg&quot; alt=&quot;tshirts&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 class=&quot;brewhouse-numbers&quot; id=&quot;client-iterations&quot;&gt;
+  &lt;span class=&quot;headline--numerals&quot;&gt;88&lt;/span&gt; &lt;span class=&quot;headline--alphas&quot;&gt;client iterations&lt;/span&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2014/Dec/week.jpg&quot; alt=&quot;week&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We offer 4 day iterations to our clients. That’s 4 full days (Monday to
+Thursday) dedicated to client work. Friday can be used as a
+buffer to cover statutory holidays or sick days.&lt;/p&gt;
+
+&lt;h2 class=&quot;brewhouse-numbers&quot; id=&quot;cookies&quot;&gt;
+  &lt;span class=&quot;headline--numerals&quot;&gt;100&lt;/span&gt; &lt;span class=&quot;headline--alphas&quot;&gt;cookies&lt;/span&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2014/Dec/cookies.jpg&quot; alt=&quot;cookies&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Yes. Ruby Cookies.&lt;/p&gt;
+
+&lt;h2 class=&quot;brewhouse-numbers&quot; id=&quot;product-iterations&quot;&gt;
+  &lt;span class=&quot;headline--numerals&quot;&gt;104&lt;/span&gt; &lt;span class=&quot;headline--alphas&quot;&gt;product iterations&lt;/span&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;To keep things simple, we plan product work like client work: 4 day iterations.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2014/Dec/client-vs-product.jpg&quot; alt=&quot;product-vs-client&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 class=&quot;brewhouse-numbers&quot; id=&quot;square-feet&quot;&gt;
+  &lt;span class=&quot;headline--numerals&quot;&gt;1,400&lt;/span&gt; &lt;span class=&quot;headline--alphas&quot;&gt;square feet&lt;/span&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;We loved sharing space at &lt;a href=&quot;http://chloi.io&quot;&gt;ChloiHQ&lt;/a&gt;, however more resources means more space. In
+August we found a comfy office space to call our own.&lt;/p&gt;
+
+&lt;h2 class=&quot;brewhouse-numbers&quot; id=&quot;visits-to-brewhouseio&quot;&gt;
+  &lt;span class=&quot;headline--numerals&quot;&gt;84,822&lt;/span&gt; &lt;span class=&quot;headline--alphas&quot;&gt;visits to brewhouse.io&lt;/span&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2014/Dec/visits.png&quot; alt=&quot;visits&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;While the landing page accounted for &lt;strong&gt;10,000&lt;/strong&gt; visits, our blog posts
+brought a smashing &lt;strong&gt;75,000&lt;/strong&gt; unique visitors.&lt;/p&gt;
+
+&lt;h2 class=&quot;brewhouse-numbers&quot; id=&quot;average-annual-salary&quot;&gt;
+  &lt;span class=&quot;headline--numerals&quot;&gt;$85,000&lt;/span&gt; &lt;span class=&quot;headline--alphas&quot;&gt;average annual salary&lt;/span&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;We offer what we believe is a competitive Vancouver market rate salary.&lt;/p&gt;
+
+&lt;h2 class=&quot;brewhouse-numbers&quot; id=&quot;in-bank&quot;&gt;
+  &lt;span class=&quot;headline--numerals&quot;&gt;$100,000&lt;/span&gt; &lt;span class=&quot;headline--alphas&quot;&gt;in the bank&lt;/span&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2014/Dec/money.jpg&quot; alt=&quot;money&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Initial investment from &lt;a href=&quot;http://fullstack.ca/&quot;&gt;FullStack&lt;/a&gt;: &lt;strong&gt;+$100,000&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Income from client work: &lt;strong&gt;+$335,000&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.nrc-cnrc.gc.ca/eng/irap/index.html&quot;&gt;IRAP&lt;/a&gt; contributions: &lt;strong&gt;+$55,000&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Salaries: &lt;strong&gt;-$310,000&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Other expenses: &lt;strong&gt;-$80,000&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 class=&quot;brewhouse-numbers&quot;&gt;
+  &lt;span class=&quot;headline--numerals&quot;&gt;2015&lt;/span&gt; &lt;span class=&quot;headline--alphas&quot;&gt;here we come!&lt;/span&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+</content>
+      </entry>
+    
     
     
       <entry>
@@ -230,6 +420,23 @@ is no longer valid. Perhaps the session has expired or perhaps you were never lo
 &lt;p&gt;Please let us know what you think. Do you have suggestions for how this could be improved further? &lt;a href=&quot;http://twitter.com/gabescholz&quot;&gt;Tweet at me&lt;/a&gt; or &lt;a href=&quot;http://twitter.com/BrewhouseTeam&quot;&gt;at us&lt;/a&gt; or leave a comment below.&lt;/p&gt;
 
 &lt;p&gt;Special thanks to Godfrey Chan, Philippe Creux and Lana Topham for leaving feedback during the drafting of this post.&lt;/p&gt;
+
+&lt;h4 id=&quot;edit-december-29-2014&quot;&gt;Edit: December 29, 2014&lt;/h4&gt;
+
+&lt;p&gt;As per a few requests, here is what a simple &lt;code&gt;views/loginModalTemplate.html&lt;/code&gt; might look like. I hope it helps to answer some questions.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- views/loginModalTemplate.html --&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-submit=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;LoginModalCtrl.submit(_email, _password)&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;email&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-model=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;_email&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;password&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-model=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;_password&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&amp;gt;&lt;/span&gt;Submit&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-click=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;LoginModelCtrl.cancel()&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Cancel&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
 </content>
       </entry>
     
