@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Brewhouse 2014 by the numbers"
+title: "Brewhouse 2014 - by the numbers"
 author: "philippe"
 category: blog
 date: 2014-12-30 8:00
@@ -9,7 +9,7 @@ tags:
   - brewhouse
   - numbers
 shared_square_image: http://brewhouse.io/images/posts/2014/Dec/client-vs-product.jpg
-shared_description: Brewhouse by the numbers.
+shared_description: We love a healthy dose of transparency at Brewhouse. Here's our year end, by the numbers.
 ---
 
 <h2 id="new-hires">
