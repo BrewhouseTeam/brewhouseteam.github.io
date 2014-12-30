@@ -8,8 +8,8 @@ published: true
 tags:
   - brewhouse
   - numbers
-shared_square_image: TODO
-shared_description: TODO
+shared_square_image: http://brewhouse.io/images/posts/2014/Dec/client-vs-product.jpg
+shared_description: Brewhouse by the numbers.
 ---
 
 # **3** new hires
