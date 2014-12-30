@@ -32,26 +32,13 @@
     {% include shared_head.html %}
   </head>
   <body>
-    {% include ga.html %}
-
     <div class="container main landing">
       {% include header_and_logo.html %}
 
       {{ content }}
     </div>
 
-    <!-- <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-11 col-xs-offset-1">
-            <p>
-              &copy; 2014 brewhouse software, inc.
-            </p>
-          </div>--><!--col-xs-12-->
-        <!--</div>--><!-- row -->
-      <!--</div>--><!-- container -->
-    <!--</footer> -->
-
     {% javascript app %}
+    {% include ga.html %}
   </body>
 </html>

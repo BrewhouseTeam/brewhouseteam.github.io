@@ -1,7 +1,7 @@
 # Site settings
 title: Brewhouse
 email: hello@brewhouse.io
-description: "Writings from brewhouse.io, makers of goodbits.io and stellar apps for our clients."
+description: "Writings from brewhouse.io, the makers of goodbits.io"
 
 name: brewhouse
 markdown: kramdown

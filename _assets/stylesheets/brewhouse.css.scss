@@ -17,7 +17,6 @@ html.blog {
   }
 }
 body {
-  border-top: 2px solid #42CCEE;
   color: #444;
   font-size: 15px;
   line-height: 1.5em;
@@ -27,6 +26,15 @@ body {
   @media (max-width: 782px) {
     font-size: 14px;
   }
+}
+.body-border-top {
+  background: #42CCEE;
+  height: 2px;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10000;
 }
 a {
   color: #47A4C2;
@@ -138,7 +146,7 @@ hr {
     padding: 0;
   }
   #navbar-links {
-    font-family: 'Lato', sans-serif;
+    font-family: 'bh_proxima', sans-serif;
     font-size: 18px;
     font-weight: 300;
     text-transform: lowercase;
@@ -250,7 +258,7 @@ div.main {
 
   h1 {
     color: #263646;
-    font-family: 'Lato', sans-serif;
+    font-family: 'bh_proxima', sans-serif;
     font-weight: 300;
     font-size: 45px;
     letter-spacing: 2px;
@@ -638,59 +646,53 @@ img.team-photo {
   }
 }
 #banner-blog {
-  overflow: hidden;
+  background: #fff;
+  border-bottom: 3px solid #fcfcfc;
+  min-height: 140px;
 
-  a {
-    color: #76D6F5;
-
-    &:hover {
-      color: #18C3FA;
-      text-decoration: none;
-    }
-  }
-  img {
-    -webkit-transition: margin-top 0.05s ease-in-out;
-    -moz-transition: margin-top 0.05s ease-in-out;
-    transition: margin-top 0.05s ease-in-out;
+  .banner-content {
+    height: 100%;
+    margin: 5px auto;
+    width: 80%;
   }
   section {
-    background-image: linear-gradient(bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
-    background-image: -o-linear-gradient(bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
-    background-image: -moz-linear-gradient(bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
-    background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 100%);
-    background-image: -ms-linear-gradient(bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
-    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(0, 0, 0, 0.85)), color-stop(1, rgba(0, 0, 0, 0)));
-
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-
     h1 {
-      color: #fff;
-      margin-left: 11%;
-      margin-bottom: 0.5%;
-      margin-top: 27%;
-
-      a {
-        color: #fff;
-
-        &:hover {
-          color: #fff;
-        }
-      }
+      color: #63636E;
+      font-family: 'bh_proxima', sans-serif;
     }
-
+    h1 a {
+      color: #63636E;
+      text-decoration: none;
+    }
+    h1 a:hover {
+      color: #63636E;
+      text-decoration: none;
+    }
     h3 {
-      color: #fff;
-      font-size: 20px;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-weight: 300;
-      letter-spacing: 0.05em;
-      margin-left: 11%;
+      color: #0DA9BB;
+      font-family: 'bh_proxima', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.5;
       margin-top: 0;
       text-transform: initial;
+    }
+  }
+  .blog-contact-info {
+    font-family: 'bh_proxima', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-top: 70px;
+    text-align: right;
+
+    a {
+      color: #A9C8CB;
+      text-decoration: none;
+
+      &:hover {
+        color: #A9C8CB;
+      }
     }
   }
 }
@@ -698,39 +700,6 @@ img.team-photo {
 .on-post {
   .content {
     margin: 30px auto;
-  }
-  #banner-blog {
-    height: 95px;
-
-    img {
-      display: block;
-      height: auto;
-      max-width: 100%;
-    }
-    section {
-      background-image: linear-gradient(bottom, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0) 70%);
-      background-image: -o-linear-gradient(bottom, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0) 70%);
-      background-image: -moz-linear-gradient(bottom, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0) 70%);
-      background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0) 70%);
-      background-image: -ms-linear-gradient(bottom, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0) 70%);
-      background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(0, 0, 0, 0.60)), color-stop(1, rgba(0, 0, 0, 0)));
-
-      height: 50%;
-
-      h1 {
-        margin-left: 11%;
-        margin-top: 1%;
-      }
-      h3 {
-        -webkit-font-smoothing: antialiased;
-        font-size: 14px;
-        font-weight: 300;
-        line-height: 1.5;
-        margin-left: 11%;
-        margin-top: 0;
-        width: 60%;
-      }
-    }
   }
 }
 
@@ -741,7 +710,7 @@ html.blog {
     width: 80%;
     max-width: 730px;
     margin: 4rem auto;
-    font-family: 'Lato', sans-serif;
+    font-family: 'bh_proxima', sans-serif;
     font-size: 1.3rem;
     color: #9EABB3;
     text-align: center;
@@ -810,28 +779,15 @@ html.blog {
     }
 
     #banner-blog {
-      height: 150px;
-
-      img {
-        display: block;
-        height: auto;
-        max-width: 100%;
-      }
       section {
-        height: 60%;
-
-        h1 {
-          margin-left: 31%;
-          margin-top: 4.5%;
-        }
         h3 {
           -webkit-font-smoothing: antialiased;
           font-size: 14px;
-          font-weight: 300;
-          line-height: 1.5;
-          margin-left: 31%;
+        }
+        .blog-contact-info {
+          font-size: 14px;
           margin-top: 0;
-          width: 39%;
+          text-align: left;
         }
       }
     }
