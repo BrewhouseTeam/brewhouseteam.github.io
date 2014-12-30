@@ -59,9 +59,8 @@ and
 
 We had the chance to work with [12 great
 clients](/#clients).
-We've built MLP (Minimal *Lovable* Product), we've improved
-their codebase (hence [their
-speed](/blog/2014/11/10/healthy-codebase-and-preparatory-refactoring.html)), we've delivered
+We've built MLPs (Minimal *Lovable* Products). We've improved
+codebases (read, [performance](/blog/2014/11/10/healthy-codebase-and-preparatory-refactoring.html)). We've delivered
 complete libraries and products.
 Being exposed to so many talented teams was just fabulous!
 
@@ -160,8 +159,8 @@ August we found a comfy office space to call our own.
 
 ![visits](/images/posts/2014/Dec/visits.png)
 
-While the landing page accounts for **10,000** visits, our blog posts
-brought **75,000** visitors.
+While the landing page accounted for **10,000** visits, our blog posts
+brought a smashing **75,000** unique visitors.
 
 <h2 id="average-annual-salary">
   <span class="headline--numerals">$85,000</span> <span class="headline--alphas">average annual salary</span>
