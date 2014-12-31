@@ -393,7 +393,7 @@ img.team-photo {
 }
 
 .content {
-  margin: 30px auto;
+  margin: 100px auto;
   width: 80%;
 
   @media (max-width: 500px) {
@@ -561,7 +561,7 @@ img.team-photo {
 }
 
 .map-inner {
-  width: 84%;
+  width: 89%;
 }
 
 .contact-details {
@@ -569,12 +569,8 @@ img.team-photo {
   height: 449px;
   float: right;
   display: block;
-  padding: 20px;
+  padding: 20px 30px;
   width: 230px;
-}
-
-.telephone {
-  color: #7B7F83;
 }
 
 // BLOG SPECIFIC
@@ -672,7 +668,7 @@ img.team-photo {
       text-decoration: none;
     }
     h3 {
-      color: #0DA9BB;
+      color: #555;
       font-family: 'bh_proxima', sans-serif;
       font-size: 15px;
       font-weight: 500;
@@ -682,32 +678,25 @@ img.team-photo {
     }
   }
   .blog-contact-info {
+    color: #999;
     font-family: 'bh_proxima', sans-serif;
     font-size: 15px;
     font-weight: 500;
     line-height: 1.5;
-    margin-top: 70px;
+    margin-top: 72px;
     text-align: right;
 
     a {
-      color: #A9C8CB;
       text-decoration: none;
-
-      &:hover {
-        color: #A9C8CB;
-      }
     }
-  }
-}
-
-.on-post {
-  .content {
-    margin: 30px auto;
   }
 }
 
 // Pagination
 html.blog {
+  .content {
+    margin: 30px auto;
+  }
   .pagination {
     position: relative;
     width: 80%;
@@ -864,10 +853,45 @@ html.blog {
 
 footer {
   color: #bbb;
-  font-size: 14px;
-  padding: 30px 0 60px;
+  padding: 40px 0 80px;
 
   a {
     color: #bbb;
   }
+  p.copyright  {
+    font-size: 13px;
+    margin-top: 60px;
+    text-transform: initial;
+  }
+  nav a {
+    font-family: 'bh_proxima', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    text-transform: uppercase;
+  }
+}
+
+// Responsive Text Alignment
+.text-xs-left { text-align: left; }
+.text-xs-right { text-align: right; }
+.text-xs-center { text-align: center; }
+.text-xs-justify { text-align: justify; }
+
+@media (min-width: 768px) {
+  .text-sm-left { text-align: left; }
+  .text-sm-right { text-align: right; }
+  .text-sm-center { text-align: center; }
+  .text-sm-justify { text-align: justify; }
+}
+@media (min-width: 992px) {
+  .text-md-left { text-align: left; }
+  .text-md-right { text-align: right; }
+  .text-md-center { text-align: center; }
+  .text-md-justify { text-align: justify; }
+}
+@media (min-width: 1200px) {
+ .text-lg-left { text-align: left; }
+ .text-lg-right { text-align: right; }
+ .text-lg-center { text-align: center; }
+ .text-lg-justify { text-align: justify; }
 }
