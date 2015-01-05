@@ -2,7 +2,10 @@ jQuery(function($) {
 
   var $document = $(document),
     $navbar     = $('.navbar-main'),
-    $rootNode   = $('html, body');
+    $rootNode   = $('html, body'),
+    $footer     = $('footer');
+
+  $footer.find('.copyright-year').html('2015');
 
   $document.scroll(function() {
 
