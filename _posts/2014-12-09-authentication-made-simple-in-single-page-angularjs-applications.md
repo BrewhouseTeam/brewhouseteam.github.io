@@ -211,7 +211,6 @@ app.config(function ($httpProvider) {
             $state.go('welcome');
             deferred.reject(rejection);
           });
-        });
 
         return deferred.promise;
       }
