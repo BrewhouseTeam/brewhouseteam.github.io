@@ -117,7 +117,7 @@ app.service('loginModal', function ($modal, $rootScope) {
       controllerAs: 'LoginModalCtrl'
     })
 
-    return instance.then(assignCurrentUser);
+    return instance.result.then(assignCurrentUser);
   };
 
 });
