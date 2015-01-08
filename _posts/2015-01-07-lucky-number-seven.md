@@ -6,8 +6,8 @@ date: 2015-01-07 17:34
 tags:
   - team
   - office
-shared_square_image: http://brewhouse.io/images/posts/2014/Jul/square-400px-img-here.png
-shared_description: Write a sentence or two about the blog post here!
+shared_square_image: http://brewhouse.io/images/posts/2015/jan/mark-square.png
+shared_description: Mark joins Brewhouse as lucky number seven so that we can build even more great products!
 draft: true
 published: true
 ---
