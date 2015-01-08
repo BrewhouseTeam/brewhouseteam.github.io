@@ -21,6 +21,8 @@ He’s our new Product Manager.
 
 Let’s learn even more about him!
 
+<!-- break -->
+
 <p><em><strong>Q:</strong> What appealed to you about Brewhouse? Why did you want to work here?</em>
 <br><strong>A:</strong> Company culture is king and Brewhouse has created an amazing culture.</p>
 
