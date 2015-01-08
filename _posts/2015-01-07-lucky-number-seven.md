@@ -8,7 +8,6 @@ tags:
   - office
 shared_square_image: http://brewhouse.io/images/posts/2015/jan/mark-square.png
 shared_description: Mark joins Brewhouse as lucky number seven so that we can build even more great products!
-draft: true
 published: true
 ---
 
