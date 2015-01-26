@@ -19,6 +19,7 @@ html.blog {
 body {
   color: #444;
   font-size: 15px;
+  font-family: 'bh_proxima', sans-serif;
   line-height: 1.5em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -127,7 +128,9 @@ hr {
   border: 0;
   border-top: 2px solid #333;
 }
-
+.light {
+  border-color: #eee;
+}
 
 .navbar-main {
   background: #fff;
@@ -438,11 +441,13 @@ img.team-photo {
 }
 
 #team {
+  .team-member {
+    margin: 20px 0 30px;
+  }
   .team-member-name {
     display: block;
     font-size: 18px;
-    font-family: 'bh_proxima', sans-serif;
-    margin: 20px auto 30px;
+    margin: 10px auto 15px;
     color: #555;
 
     @media (max-width: 782px) {
@@ -450,20 +455,21 @@ img.team-photo {
     }
   }
   .team-member-name small {
+    color: #b0b0b0;
     display: block;
   }
   .social-buttons {
     display: inline;
-    margin-left: 0.4em;
+    font-size: 24px;
 
     @media (max-width: 782px) {
-      display: inline block;
+      display: inline-block;
       position: relative;
       float: right;
     }
   }
   .bio p {
-    margin-bottom: 30px;
+    margin-bottom: 15px;
   }
 }
 
