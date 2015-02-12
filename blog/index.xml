@@ -3,7 +3,7 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2015-02-12T08:40:09-08:00</updated>
+    <updated>2015-02-12T08:42:58-08:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
@@ -21,7 +21,7 @@
           <updated>2015-02-12T10:00:00-08:00</updated>
           <id>http://brewhouse.io/blog/2015/02/12/ember-vs-angular-authentication</id>
           <content type="html">&lt;div class=&quot;callout callout-info&quot;&gt;
-  &lt;h4&gt;Shamless Plug&lt;/h4&gt;
+  &lt;h4&gt;Shameless Plug&lt;/h4&gt;
   &lt;p&gt;I&#39;ll be &lt;a href=&quot;http://emberconf.com/speakers.html#gchan&quot; target=&quot;_blank&quot;&gt;speaking at EmberConf&lt;/a&gt;
   next month, hope to see you there!&lt;/p&gt;
 &lt;/div&gt;
