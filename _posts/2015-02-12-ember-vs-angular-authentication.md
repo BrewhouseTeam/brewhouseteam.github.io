@@ -1022,6 +1022,4 @@ out how [Ember CLI helps you tie these pieces together, too](https://github.com/
 Interested in Ember.js training? Need help building your next *ambitious* web
 application? [Get in touch](http://brewhouse.io/#hire-us)!
 
-### One More Thing™
-
-If you are in Vancouver, join us at our regular [Ember meetups](http://meetup.com/Vancouver-Ember-js/)!
+P.S. If you are in Vancouver, join us at our regular [Ember meetups](http://meetup.com/Vancouver-Ember-js/)!
