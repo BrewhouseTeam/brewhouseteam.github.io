@@ -593,22 +593,22 @@ img.team-photo {
   }
   li, p, blockquote {
     font-family: Georgia,Cambria,"Times New Roman",Times,serif;
-    font-size: 18px;
-    line-height: 33px;
+    font-size: 16px;
+    line-height: 28px;
 
     @media (max-width: 767px) {
-      font-size: 15px;
-      line-height: 26px;
+      font-size: 14px;
+      line-height: 24px;
     }
   }
   blockquote {
     color: #999;
   }
   p {
-    margin-bottom: 25px;
+    margin-bottom: 24px;
   }
   ul, ol {
-    margin-bottom: 25px;
+    margin-bottom: 24px;
   }
   .social-actions {
     margin-top: 10px;
