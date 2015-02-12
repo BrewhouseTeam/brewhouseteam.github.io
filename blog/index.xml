@@ -3,7 +3,7 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2015-02-12T06:37:10-08:00</updated>
+    <updated>2015-02-12T09:02:59-08:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
@@ -21,7 +21,7 @@
           <updated>2015-02-12T10:00:00-08:00</updated>
           <id>http://brewhouse.io/blog/2015/02/12/ember-vs-angular-authentication</id>
           <content type="html">&lt;div class=&quot;callout callout-info&quot;&gt;
-  &lt;h4&gt;Shamless Plug&lt;/h4&gt;
+  &lt;h4&gt;Shameless Plug&lt;/h4&gt;
   &lt;p&gt;I&#39;ll be &lt;a href=&quot;http://emberconf.com/speakers.html#gchan&quot; target=&quot;_blank&quot;&gt;speaking at EmberConf&lt;/a&gt;
   next month, hope to see you there!&lt;/p&gt;
 &lt;/div&gt;
@@ -493,9 +493,9 @@ you should be able to view the protected page without problems.&lt;/p&gt;
 &lt;h2 id=&quot;step-6-tracking-the-current-user-and-adding-a-logout-button&quot;&gt;Step 6: Tracking the current user and adding a logout button&lt;/h2&gt;
 
 &lt;p&gt;If you have played with the demo from the last step, you might find the user
-experience  quite confusing – there are no visual indictaions to tell the user
-that the login process was sucessful. The “Login” button is also always visible
-on the bottom of the page, even after loggin in, making it impossible for the
+experience quite confusing – there are no visual indicatiors to tell the user
+that the login process was successful. The “Login” button is also always visible
+on the bottom of the page, even after logging in, making it impossible for the
 user to infer the state of the system. Ideally, we would like to know if the
 user is already logged in, and display a “Logout” button instead. We will work
 on addressing this next:&lt;/p&gt;
@@ -811,59 +811,54 @@ existing &lt;code&gt;error&lt;/code&gt; handler would Just Work™ without any c
 
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;content&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;{{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;}}&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
 
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;{{&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;#link&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;index&amp;quot;&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;}}&lt;/span&gt;Go back&lt;span class=&quot;cp&quot;&gt;{{&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;/link&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;}}&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;{&lt;/span&gt;% endhighlight %}
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;{{&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;#link&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;index&amp;quot;&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;}}&lt;/span&gt;Go back&lt;span class=&quot;cp&quot;&gt;{{&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;/link&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;}}&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-As you can see, this was quite easy to do; we didn&amp;#39;t really introduce any new
+&lt;p&gt;As you can see, this was quite easy to do; we didn’t really introduce any new
 concepts here. We defined a route and the corresponding template, then updated
-our index to link to it.
+our index to link to it.&lt;/p&gt;
 
-Just like the `ProtectedRoute`, we took advantage of our domain knowledge (this
+&lt;p&gt;Just like the &lt;code&gt;ProtectedRoute&lt;/code&gt;, we took advantage of our domain knowledge (this
 page is only for admin users) and duplicated the access control checks on the
 client, which allowed us to quickly respond without involving the server. This
 is an entirely an optional optimization of course – everything would still work
-the same way if we removed that check, just a little bit slower.
+the same way if we removed that check, just a little bit slower.&lt;/p&gt;
 
-[Try it out on JS Bin](http://emberjs.jsbin.com/nobizu)
+&lt;p&gt;&lt;a href=&quot;http://emberjs.jsbin.com/nobizu&quot;&gt;Try it out on JS Bin&lt;/a&gt;&lt;/p&gt;
 
-[View the diff on Github](https://github.com/BrewhouseTeam/ember-auth-example/compare/step-7b...step-8)
+&lt;p&gt;&lt;a href=&quot;https://github.com/BrewhouseTeam/ember-auth-example/compare/step-7b...step-8&quot;&gt;View the diff on Github&lt;/a&gt;&lt;/p&gt;
 
-## Step 9: Handling expired sessions
+&lt;h2 id=&quot;step-9-handling-expired-sessions&quot;&gt;Step 9: Handling expired sessions&lt;/h2&gt;
 
-There is one more missing piece before we wrap up – I promised that we will
+&lt;p&gt;There is one more missing piece before we wrap up – I promised that we will
 handled expired sessions, so I guess we still need to implement that. But what
-if I tell you we already did? ;)
+if I tell you we already did? ;)&lt;/p&gt;
 
-Upon encountering an expired session token, our well-mannered sever is going to
-respond with a &amp;quot;401 Unauthorized&amp;quot; error. This happens to be the same error it
-sends when the user didn&amp;#39;t login at all (if you think about it, they are really
+&lt;p&gt;Upon encountering an expired session token, our well-mannered sever is going to
+respond with a “401 Unauthorized” error. This happens to be the same error it
+sends when the user didn’t login at all (if you think about it, they are really
 the same thing as far as the server is concerned). This is great, because our
 app already knows how to handle it – by redirecting the user to the login page –
-which is also exactly what we want here.
+which is also exactly what we want here.&lt;/p&gt;
 
-To see it in action, we will add a button to simulate this scenario:
+&lt;p&gt;To see it in action, we will add a button to simulate this scenario:&lt;/p&gt;
 
-&lt;span class=&quot;err&quot;&gt;{&lt;/span&gt;% highlight js %}
-// routes/application.js
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// routes/application.js&lt;/span&gt;
 
-App.ApplicationRoute = Ember.Route.extend(&lt;span class=&quot;err&quot;&gt;{&lt;/span&gt;
-  actions: &lt;span class=&quot;err&quot;&gt;{&lt;/span&gt;
-    // ...
+&lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ApplicationRoute&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Ember&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;extend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;actions&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
 
-    expireSession: function() &lt;span class=&quot;err&quot;&gt;{&lt;/span&gt;
-      API.token = &amp;#39;expired&amp;#39;;
-    },
+    &lt;span class=&quot;nx&quot;&gt;expireSession&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;API&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;token&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;expired&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
 
-    // ...
-  },
+    &lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
 
-  // ...
-});
-&lt;span class=&quot;err&quot;&gt;{&lt;/span&gt;% endhighlight %}
+  &lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;span class=&quot;err&quot;&gt;{&lt;/span&gt;% highlight html+handlebars %}
-&lt;span class=&quot;err&quot;&gt;{&lt;/span&gt;% raw %}
-&lt;span class=&quot;c&quot;&gt;{{!-- templates/application.hbs --}}&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html-handlebars&quot; data-lang=&quot;html+handlebars&quot;&gt;&lt;span class=&quot;c&quot;&gt;{{!-- templates/application.hbs --}}&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;h2&amp;gt;&lt;/span&gt;Ember.js Authentication Example&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
 
 &lt;span class=&quot;cp&quot;&gt;{{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;outlet&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;}}&lt;/span&gt;
@@ -904,9 +899,7 @@ the login route is entered:&lt;/p&gt;
   &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
 
   &lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;With that, our job is finally done!&lt;/p&gt;
 
@@ -936,9 +929,11 @@ router and how it helps you to build your applications “flow” with minimal
 effort – we are barely scratching the surface here.&lt;/p&gt;
 
 &lt;p&gt;Ember.js &lt;em&gt;Promises&lt;/em&gt; to make writing &lt;em&gt;ambitious&lt;/em&gt; client-side applications easy.
-As a result, there are, by comparison, more concepts and patterns to learn, so
-it might not be for everyone. But once you get past the learning… &lt;em&gt;cliff&lt;/em&gt;, you
-can be &lt;em&gt;really&lt;/em&gt; productive!&lt;/p&gt;
+&lt;em&gt;Ambitious&lt;/em&gt; is the key here – if you are just looking for a quick widgets
+libraries or something to help build a mini app, you might find that there are,
+by comparison, more concepts and patterns to learn. But once you get past the
+learning… &lt;em&gt;cliff&lt;/em&gt;, you can be &lt;em&gt;really&lt;/em&gt; productive in Ember! (Be sure to check
+out how &lt;a href=&quot;https://github.com/BrewhouseTeam/ember-auth-example&quot;&gt;Ember CLI helps you tie these pieces together, too&lt;/a&gt;!)&lt;/p&gt;
 
 &lt;h3 id=&quot;hire-us&quot;&gt;Hire Us!&lt;/h3&gt;
 

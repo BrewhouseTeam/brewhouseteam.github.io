@@ -122,7 +122,7 @@
         </p>
 
         <div class="callout callout-info">
-  <h4>Shamless Plug</h4>
+  <h4>Shameless Plug</h4>
   <p>I'll be <a href="http://emberconf.com/speakers.html#gchan" target="_blank">speaking at EmberConf</a>
   next month, hope to see you there!</p>
 </div>
@@ -594,9 +594,9 @@ you should be able to view the protected page without problems.</p>
 <h2 id="step-6-tracking-the-current-user-and-adding-a-logout-button">Step 6: Tracking the current user and adding a logout button</h2>
 
 <p>If you have played with the demo from the last step, you might find the user
-experience  quite confusing – there are no visual indictaions to tell the user
-that the login process was sucessful. The “Login” button is also always visible
-on the bottom of the page, even after loggin in, making it impossible for the
+experience quite confusing – there are no visual indicatiors to tell the user
+that the login process was successful. The “Login” button is also always visible
+on the bottom of the page, even after logging in, making it impossible for the
 user to infer the state of the system. Ideally, we would like to know if the
 user is already logged in, and display a “Logout” button instead. We will work
 on addressing this next:</p>
@@ -912,59 +912,54 @@ existing <code>error</code> handler would Just Work™ without any changes.</p>
 
 <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;content&quot;</span><span class="nt">&gt;</span><span class="cp">{{</span><span class="nv">content</span><span class="cp">}}</span><span class="nt">&lt;/div&gt;</span>
 
-<span class="nt">&lt;p&gt;</span><span class="cp">{{</span><span class="nf">#link</span><span class="err">-</span><span class="nv">to</span> <span class="s2">&quot;index&quot;</span><span class="cp">}}</span>Go back<span class="cp">{{</span><span class="nf">/link</span><span class="err">-</span><span class="nv">to</span><span class="cp">}}</span><span class="nt">&lt;/p&gt;</span>
-<span class="err">{</span>% endhighlight %}
+<span class="nt">&lt;p&gt;</span><span class="cp">{{</span><span class="nf">#link</span><span class="err">-</span><span class="nv">to</span> <span class="s2">&quot;index&quot;</span><span class="cp">}}</span>Go back<span class="cp">{{</span><span class="nf">/link</span><span class="err">-</span><span class="nv">to</span><span class="cp">}}</span><span class="nt">&lt;/p&gt;</span></code></pre></div>
 
-As you can see, this was quite easy to do; we didn&#39;t really introduce any new
+<p>As you can see, this was quite easy to do; we didn’t really introduce any new
 concepts here. We defined a route and the corresponding template, then updated
-our index to link to it.
+our index to link to it.</p>
 
-Just like the `ProtectedRoute`, we took advantage of our domain knowledge (this
+<p>Just like the <code>ProtectedRoute</code>, we took advantage of our domain knowledge (this
 page is only for admin users) and duplicated the access control checks on the
 client, which allowed us to quickly respond without involving the server. This
 is an entirely an optional optimization of course – everything would still work
-the same way if we removed that check, just a little bit slower.
+the same way if we removed that check, just a little bit slower.</p>
 
-[Try it out on JS Bin](http://emberjs.jsbin.com/nobizu)
+<p><a href="http://emberjs.jsbin.com/nobizu">Try it out on JS Bin</a></p>
 
-[View the diff on Github](https://github.com/BrewhouseTeam/ember-auth-example/compare/step-7b...step-8)
+<p><a href="https://github.com/BrewhouseTeam/ember-auth-example/compare/step-7b...step-8">View the diff on Github</a></p>
 
-## Step 9: Handling expired sessions
+<h2 id="step-9-handling-expired-sessions">Step 9: Handling expired sessions</h2>
 
-There is one more missing piece before we wrap up – I promised that we will
+<p>There is one more missing piece before we wrap up – I promised that we will
 handled expired sessions, so I guess we still need to implement that. But what
-if I tell you we already did? ;)
+if I tell you we already did? ;)</p>
 
-Upon encountering an expired session token, our well-mannered sever is going to
-respond with a &quot;401 Unauthorized&quot; error. This happens to be the same error it
-sends when the user didn&#39;t login at all (if you think about it, they are really
+<p>Upon encountering an expired session token, our well-mannered sever is going to
+respond with a “401 Unauthorized” error. This happens to be the same error it
+sends when the user didn’t login at all (if you think about it, they are really
 the same thing as far as the server is concerned). This is great, because our
 app already knows how to handle it – by redirecting the user to the login page –
-which is also exactly what we want here.
+which is also exactly what we want here.</p>
 
-To see it in action, we will add a button to simulate this scenario:
+<p>To see it in action, we will add a button to simulate this scenario:</p>
 
-<span class="err">{</span>% highlight js %}
-// routes/application.js
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// routes/application.js</span>
 
-App.ApplicationRoute = Ember.Route.extend(<span class="err">{</span>
-  actions: <span class="err">{</span>
-    // ...
+<span class="nx">App</span><span class="p">.</span><span class="nx">ApplicationRoute</span> <span class="o">=</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Route</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+  <span class="nx">actions</span><span class="o">:</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
 
-    expireSession: function() <span class="err">{</span>
-      API.token = &#39;expired&#39;;
-    },
+    <span class="nx">expireSession</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">API</span><span class="p">.</span><span class="nx">token</span> <span class="o">=</span> <span class="s1">&#39;expired&#39;</span><span class="p">;</span>
+    <span class="p">},</span>
 
-    // ...
-  },
+    <span class="c1">// ...</span>
+  <span class="p">},</span>
 
-  // ...
-});
-<span class="err">{</span>% endhighlight %}
+  <span class="c1">// ...</span>
+<span class="p">});</span></code></pre></div>
 
-<span class="err">{</span>% highlight html+handlebars %}
-<span class="err">{</span>% raw %}
-<span class="c">{{!-- templates/application.hbs --}}</span>
+<div class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars"><span class="c">{{!-- templates/application.hbs --}}</span>
 <span class="nt">&lt;h2&gt;</span>Ember.js Authentication Example<span class="nt">&lt;/h2&gt;</span>
 
 <span class="cp">{{</span><span class="nv">outlet</span><span class="cp">}}</span>
@@ -1005,9 +1000,7 @@ the login route is entered:</p>
   <span class="p">},</span>
 
   <span class="c1">// ...</span>
-<span class="p">});</span>
-
-<span class="c1">// ...</span></code></pre></div>
+<span class="p">});</span></code></pre></div>
 
 <p>With that, our job is finally done!</p>
 
@@ -1037,9 +1030,11 @@ router and how it helps you to build your applications “flow” with minimal
 effort – we are barely scratching the surface here.</p>
 
 <p>Ember.js <em>Promises</em> to make writing <em>ambitious</em> client-side applications easy.
-As a result, there are, by comparison, more concepts and patterns to learn, so
-it might not be for everyone. But once you get past the learning… <em>cliff</em>, you
-can be <em>really</em> productive!</p>
+<em>Ambitious</em> is the key here – if you are just looking for a quick widgets
+libraries or something to help build a mini app, you might find that there are,
+by comparison, more concepts and patterns to learn. But once you get past the
+learning… <em>cliff</em>, you can be <em>really</em> productive in Ember! (Be sure to check
+out how <a href="https://github.com/BrewhouseTeam/ember-auth-example">Ember CLI helps you tie these pieces together, too</a>!)</p>
 
 <h3 id="hire-us">Hire Us!</h3>
 
