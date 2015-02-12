@@ -1015,8 +1015,7 @@ Ember.js *Promises* to make writing *ambitious* client-side applications easy.
 libraries or something to help build a mini app, you might find that there are,
 by comparison, more concepts and patterns to learn. But once you get past the
 learning... *cliff*, you can be *really* productive in Ember! (Be sure to check
-out how [Ember CLI helps you tie these pieces together](https://github.com/BrewhouseTeam/ember-auth-example).
-too!)
+out how [Ember CLI helps you tie these pieces together, too](https://github.com/BrewhouseTeam/ember-auth-example)!)
 
 ### Hire Us!
 
