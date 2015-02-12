@@ -1023,4 +1023,4 @@ too!)
 Interested in Ember.js training? Need help building your next *ambitious* web
 application? [Get in touch](http://brewhouse.io/#hire-us)!
 
-P.S. If you are in Vancouver, stop by at our regular [Ember meetups](http://meetup.com/Vancouver-Ember-js/)!
+P.S. If you are in Vancouver, join us at our regular [Ember meetups](http://meetup.com/Vancouver-Ember-js/)!
