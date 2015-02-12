@@ -593,22 +593,22 @@ img.team-photo {
   }
   li, p, blockquote {
     font-family: Georgia,Cambria,"Times New Roman",Times,serif;
-    font-size: 18px;
-    line-height: 33px;
+    font-size: 16px;
+    line-height: 28px;
 
     @media (max-width: 767px) {
-      font-size: 15px;
-      line-height: 26px;
+      font-size: 14px;
+      line-height: 24px;
     }
   }
   blockquote {
     color: #999;
   }
   p {
-    margin-bottom: 25px;
+    margin-bottom: 24px;
   }
   ul, ol {
-    margin-bottom: 25px;
+    margin-bottom: 24px;
   }
   .social-actions {
     margin-top: 10px;
@@ -939,6 +939,30 @@ footer {
     background-color: darken(#47A4C2, 9%);
     color: #fff;
   }
+}
+
+.callout {
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #EEE;
+  border-left-width: 5px;
+  border-radius: 3px;
+}
+.callout h4 {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+.callout p {
+  font-family: 'bh_proxima', sans-serif;
+}
+.callout p:last-child {
+  margin-bottom: 0;
+}
+.callout-info {
+  border-left-color: #1B809E;
+}
+.callout-info h4 {
+  color: #1B809E;
 }
 
 // Responsive Text Alignment

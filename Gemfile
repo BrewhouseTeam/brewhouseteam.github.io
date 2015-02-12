@@ -1,7 +1,9 @@
 source "https://rubygems.org"
 
-gem "jekyll"
+gem "jekyll", "~> 2.1"
 gem "jekyll-assets"
+
+gem "pygments.rb", "~> 0.6"
 
 gem "sass"
 gem "uglifier"
