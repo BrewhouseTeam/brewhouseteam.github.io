@@ -3,7 +3,7 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2015-02-12T09:02:59-08:00</updated>
+    <updated>2015-02-12T13:09:51-08:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
@@ -939,6 +939,8 @@ out how &lt;a href=&quot;https://github.com/BrewhouseTeam/ember-auth-example&quo
 
 &lt;p&gt;Interested in Ember.js training? Need help building your next &lt;em&gt;ambitious&lt;/em&gt; web
 application? &lt;a href=&quot;http://brewhouse.io/#hire-us&quot;&gt;Get in touch&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;P.S. If you are in Vancouver, join us at our regular &lt;a href=&quot;http://meetup.com/Vancouver-Ember-js/&quot;&gt;Ember meetups&lt;/a&gt;!&lt;/p&gt;
 </content>
       </entry>
     
