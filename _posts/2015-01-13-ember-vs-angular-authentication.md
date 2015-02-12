@@ -531,8 +531,8 @@ you should be able to view the protected page without problems.
 ## Step 6: Tracking the current user and adding a logout button
 
 If you have played with the demo from the last step, you might find the user
-experience  quite confusing – there are no visual indications to tell the user
-that the login process was sucessful. The "Login" button is also always visible
+experience quite confusing – there are no visual indicatiors to tell the user
+that the login process was successful. The "Login" button is also always visible
 on the bottom of the page, even after logging in, making it impossible for the
 user to infer the state of the system. Ideally, we would like to know if the
 user is already logged in, and display a "Logout" button instead. We will work
@@ -981,8 +981,6 @@ App.LoginRoute = Ember.Route.extend({
 
   // ...
 });
-
-// ...
 {% endhighlight %}
 
 With that, our job is finally done!
@@ -1013,9 +1011,11 @@ router and how it helps you to build your applications "flow" with minimal
 effort – we are barely scratching the surface here.
 
 Ember.js *Promises* to make writing *ambitious* client-side applications easy.
-As a result, there are, by comparison, more concepts and patterns to learn, so
-it might not be for everyone. But once you get past the learning... *cliff*, you
-can be *really* productive!
+*Ambitious* is the key here – if you are just looking for a quick widgets
+libraries or something to help build a mini app, you might find that there are,
+by comparison, more concepts and patterns to learn. But once you get past the
+learning... *cliff*, you can be *really* productive in Ember! (Be sure to check
+out how [Ember CLI helps you tie these pieces together, too](https://github.com/BrewhouseTeam/ember-auth-example)!)
 
 ### Hire Us!
 
