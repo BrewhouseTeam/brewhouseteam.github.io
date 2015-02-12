@@ -3,55 +3,66 @@ layout:    post
 title:     "Ember vs Angular: Authentication Example"
 author:    "godfrey"
 category:  blog
-date:      2015-01-13 8:00
-published: false
+date:      2015-02-12 10:00
+published: true
 tags:
 - emberjs
 - javascript
 - integration
 - single page application
-shared_square_image:
-shared_description:
 ---
 
-Last month, Gabe showed us [an approach to handling user authentications in AngularJS applications][angular].
-This is a good opportunity to compare the similarity and differences between
-AngularJS and Ember.js applications, so this month we will be looking at how
-you could achieve similar things using Ember.js.
+<div class="callout callout-info">
+  <h4>Shamless Plug</h4>
+  <p>I'll be <a href="http://emberconf.com/speakers.html#gchan" target="_blank">speaking at EmberConf</a>
+  next month, hope to see you there!</p>
+</div>
 
-It is worth mentioning that there are plenty of [plugins][ember-simple-auth] and
-[complete tutorials][embercasts] on the same topic in the Ember world. However,
-we will be building the feature from scratch for comparison sake.
+A while back, Gabe showed us an approach to [handling authentications in AngularJS](http://brewhouse.io/blog/2014/12/09/authentication-made-simple-in-single-page-angularjs-applications.html).
+This is a good opportunity to compare the similarity and differences between [AngularJS](https://angularjs.org/)
+and [Ember.js](http://emberjs.com/), so in this blog post, we will look at how
+you would achieve the same thing with Ember.js.
+
+It is worth mentioning that there are plenty of [plugins](https://github.com/simplabs/ember-simple-auth)
+and [tutorials](www.embercasts.com/episodes/client-side-authentication-part-1)
+on the same topic in the Ember world. However, for comparison's sake, let's
+build this example from scratch.
 
 <!-- break -->
 
 ## The task
 
-Similar to Gabe's example, we will be building a single page application that
-serves both public content and protected content, where the latter would cause
-the applicatino to present a login screen. Just like the AngularJS counterpart,
-we will also handle the case where our server rejects the authentication (e.g.
-expired session), in which case the application would present the login screen
-again.
+Similar to Gabe's example, we will be building a single page app that hosts a
+mix of public and protected content. When the user tries to access a protected
+page, the app should present a login screen. Just like the Angular counterpart,
+the server might choose to reject the authentication anytime (e.g. expired
+session), in which case the app should present the login screen and ask the user
+for their credentials again.
 
-In addition, we will also handle a basic authorization scenario where only admin
-users are allowed to access the resource. On top of all that, we will be a good
-citizen on the web and ensure that URLs and history works correctly (e.g. the
-back button, bookmarking, opening in new tab, sharing links to specific pages
-should all work as expect).
+In addition, we will also handle a basic authorization scenario where one of the
+protected pages can only be accessed by admin users. On top of all that, we will
+be a good citizen on the web and ensure our URLs and browser history works
+correctly throughout the app (e.g. the back button, bookmarking, opening links
+in new tab, sharing links to specific pages should all work as expected).
 
 Finally, to keep things simple, we will opt for regular transitions instead of
 modal dialogs.
 
-The completed application is available as a [JS bin](jsbin), so go ahead and
-poke around! (Open the link in a new window to see the URL changes.)
+The completed app is available on as a [JS bin](http://emberjs.jsbin.com/cisufu),
+so go ahead and poke around!
 
-## The API
+Alternatively, you can also access the code on [Github](https://github.com/BrewhouseTeam/ember-auth-example).
+The Github version uses [Ember CLI](https://ember-cli.com) so there are some
+minor differences in syntax and code organization. It also comes with a complete
+[test suite](https://github.com/BrewhouseTeam/ember-auth-example/tree/master/tests),
+so be sure to check that out!
 
-We will assume that our API supports the following operations:
+## Step 1: Building the API client
 
-* An endpoint to authenticate users with their credentials in exchange for a
-  session token. (e.g. a `POST` request to `/login` with the user's username
+For our app to work, we will need an API that supports the following operations:
+
+* An endpoint to authenticate users by their credentials, in exchange for a
+  session token. (e.g. a `POST` request to `/session` with the user's username
   and password.)
 
 * An endpoint to access a public resource. (e.g. a `GET` request to `/public`)
@@ -60,18 +71,81 @@ We will assume that our API supports the following operations:
   authenticated. (e.g. a `GET` request to `/protected` with a valid session
   token)
 
-* An endpoint to access an admin-only resource. (e.g. a `GET` request to
+* An endpoint to access the admin-only resource. (e.g. a `GET` request to
   `/secret` with an appropriate session token)
 
-* An endpoint to explicitly destroy a session (e.g. a `POST` request to
-  `/logout` with a session token)
+* An endpoint to explicitly destroy a session (e.g. a `DELETE` request to
+  `/session` with a session token)
 
-A client to access such an API might look like this:
+This should be fairly straight forward to implement with your choice of server-
+side technology. For our purpose, we will mock it out with the [Pretender](https://github.com/trek/pretender)
+library:
+
+{% highlight js %}
+// mock-server.js
+
+var server = new Pretender(function() {
+
+  this.post('/session', function(request) {
+    switch(request.requestBody) {
+      case 'username=admin&password=secret':
+        return [201, {'Content-Type': 'application/json'}, '{"token":"admin","user":{"role":"admin","name":"Administrator"}}'];
+
+      case 'username=user&password=secret':
+        return [201, {'Content-Type': 'application/json'}, '{"token":"user","user":{"role":"user","name":"User"}}'];
+
+      default:
+        return [401, {}, 'Incorrect username/password'];
+    }
+  });
+
+  this.delete('/session', function() {
+    return [200, {}, 'You are logged out'];
+  });
+
+  this.get('/public', function() {
+    return [200, {}, 'Lorem ipsum dolor sit amet'];
+  });
+
+  this.get('/protected', function(request) {
+    switch (request.requestHeaders['Authorization']) {
+      case 'Token token=user':
+      case 'Token token=admin':
+        return [200, {}, 'Since you can see this, you must be logged in!'];
+
+      case 'Token token=expired':
+        return [401, {}, 'Your session has expired'];
+
+      default:
+        return [401, {}, 'Please login to access this page'];
+    }
+  });
+
+  this.get('/secret', function(request) {
+    switch (request.requestHeaders['Authorization']) {
+      case 'Token token=user':
+        return [403, {}, 'You are not allowed to access this page'];
+
+      case 'Token token=admin':
+        return [200, {}, 'Since you can see this, you must be an admin!'];
+
+      case 'Token token=expired':
+        return [401, {}, 'Your session has expired'];
+
+      default:
+        return [401, {}, 'Please login to access this page'];
+    }
+  });
+
+});
+{% endhighlight %}
+
+To access this API, we will write a simple API client for it:
 
 {% highlight js %}
 // api.js
 
-API = {
+var API = {
 
   token: null,
 
@@ -83,7 +157,7 @@ API = {
       password: password
     };
 
-    return jQuery.post("/login", payload).then(
+    var deferred = jQuery.post('/session', payload).then(
       function(data) {
         self.token = data.token;
         return data.user;
@@ -92,287 +166,220 @@ API = {
         return { status: error.statusText, message: error.responseText };
       }
     );
+
+    return Ember.RSVP.resolve(deferred);
   },
 
   logout: function() {
     var self = this;
 
-    var settings = { headers: { "Authorization": "Token token=" + this.token } };
+    var settings = { type: 'DELETE', headers: { 'Authorization': 'Token token=' + this.token } };
 
-    return jQuery.post("/logout", settings).then(function() {
+    var deferred = jQuery.ajax('/session', settings).then(function() {
       self.token = null;
     });
+
+    return Ember.RSVP.resolve(deferred);
   },
 
   get: function(resource) {
-    var url = "/" + resource;
+    var url = '/' + resource;
 
     var settings;
 
     if (this.token) {
-      settings = { headers: { "Authorization": "Token token=" + this.token } };
+      settings = { headers: { 'Authorization': 'Token token=' + this.token } };
     } else {
       settings = {};
     }
 
-    return jQuery.ajax(url, settings).fail(function(error) {
+    var deferred = jQuery.ajax(url, settings).then(null, function(error) {
       return { status: error.statusText, message: error.responseText };
     });
+
+    return Ember.RSVP.resolve(deferred);
   }
 
 };
-{% end %}
+{% endhighlight %}
 
-Implementing the server-side component for is left as an exercise for the
-reader. For our purpose, we will just simulate the server-side logical locally:
+Nothing too exciting so far (and none of these are specific to Ember.js). The
+only thing worth mentioning is that we are turning jQuery's [deferred objects](http://api.jquery.com/category/deferred-object/)
+into "real" [Promises](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+via [RSVP.js](https://github.com/tildeio/rsvp.js/), which happens to be one of
+Ember's dependencies.
 
-{% highlight js %}
-// api.js
+[Try it out on JS Bin](http://emberjs.jsbin.com/siwawo/edit)
 
-API = {
+[View the diff on Github](https://github.com/BrewhouseTeam/ember-auth-example/compare/initial...step-1)
 
-  token: null,
-
-  login: function(username, password) {
-    if (username === "admin" && password === "secret") {
-      this.token = "admin";
-      return Ember.RSVP.resolve({ role: "admin", name: "Administrator" });
-    } else if (username === "user" && password === "secret") {
-      this.token = "user";
-      return Ember.RSVP.resolve({ role: "user", name: "User" });
-    } else {
-      return Ember.RSVP.reject({ status: "UNAUTHORIZED", message: "Incorrect username/password" });
-    }
-  },
-
-  logout: function() {
-    this.token = null;
-    return Ember.RSVP.resolve("success");
-  },
-
-  get: function(resource) {
-    switch (resource) {
-
-      case "public":
-        return Ember.RSVP.resolve({ data: "Lorem ipsum dolor sit amet" });
-
-      // Protected page
-      case "protected":
-        if (this.token === "admin" || this.token === "user") {
-          return Ember.RSVP.resolve({ data: "Since you can see this, you must be logged in!" });
-        } else if (this.token === "expired") {
-          return Ember.RSVP.reject({ status: "UNAUTHORIZED", message: "Your session has expired" });
-        } else {
-          return Ember.RSVP.reject({ status: "UNAUTHORIZED", message: "Please login to access this page" });
-        }
-
-      // Admin-only page
-      case "secret":
-        if (this.token === "admin") {
-          return Ember.RSVP.resolve({ data: "Since you can see this, you must be an admin!" });
-        } else if (this.token === "user") {
-          return Ember.RSVP.reject({ status: "FORBIDDEN", message: "You are not allowed to access this page" });
-        } else if (this.token === "expired") {
-          return Ember.RSVP.reject({ status: "UNAUTHORIZED", message: "Your session has expired" });
-        } else {
-          return Ember.RSVP.reject({ status: "UNAUTHORIZED", message: "Please login to access this page" });
-        }
-
-      default:
-        return Ember.RSVP.reject({ status: "NOT FOUND", message: "The page cannot be found" });
-    }
-  }
-
-};
-{% end %}
-
-As you can see, this simulated API client has the same interface and semantics
-as the "real" API client. Instead of making AJAX calls using jQuery, we simply
-return the appropriate Promise objects using the [RSVP library](rsvp), which
-also preserves the asynchronous nature of the AJAX calls.
-
-## The index page
+## Step 2: Adding the index page
 
 Now that we have the API client figured out, we can move on to setting up our
 Ember app and a simple index page. This will be the page that greets our users
-when they first visit our app and where we link to the different sections of our
-app.
+when they first visit our app. From here, we will link to the different sections
+of our app.
 
 {% highlight js %}
-// application.js
+// app.js
 
 App = Ember.Application.create();
-{% end %}
+{% endhighlight %}
 
-{% highlight html %}
-<!-- index.html -->
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>My App</title>
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars-v2.0.0.js"></script>
-    <script src="http://builds.emberjs.com/tags/v1.9.1/ember.js"></script>
-    <script src="api.js"></script>
-    <script src="application.js"></script>
-  </head>
-  <body>
-    <script type="text/x-handlebars" data-template-name="application">
-      <h2>My App</h2>
-      {{outlet}}
-    </script>
+{% highlight html+handlebars %}
+{% raw %}
+{{!-- templates/appliction.hbs --}}
+<h2>Ember.js Authentication Example</h2>
 
-    <script type="text/x-handlebars" data-template-name="index">
-      <p>Public Page</p>
-      <p>Protected Page</p>
-      <p>Admin-only Page</p>
-    </script>
-  </body>
-</html>
-{% end %}
+{{outlet}}
+{% endraw %}
+{% endhighlight %}
+
+{% highlight html+handlebars %}
+{% raw %}
+{{!-- templates/index.hbs --}}
+<p>Public Page</p>
+<p>Protected Page</p>
+<p>Admin-only Page</p>
+{% endraw %}
+{% endhighlight %}
 
 Here, we have a bare-bone Ember app setup with a simple app-wide layout (the
-template called "application" will be rendered for every page, and the page's
-template will be inserted into the `{{outlet}}` placeholder). (If you are
-familiar with Rails, you can think of it as the application's "layout", where
-the `{{outlet}}` is analogous the `<%= yield %>`.)
+template called "application" will be rendered on every page, and the page's
+template will be inserted into the `{% raw %}{{outlet}}{% endraw %}`
+placeholder). If you are familiar with Rails, you can think of `application.hbs`
+as the application's "layout", where `{% raw %}{{outlet}}{% endraw %}` is
+analogous to `<%= yield %>`.
 
-<a class="jsbin-embed" href="http://emberjs.jsbin.com/cecuvu/1/embed?html,js,output&width=960px">See the result</a><script src="http://static.jsbin.com/js/embed.js"></script>
+[Try it out on JS Bin](http://emberjs.jsbin.com/nehana)
+
+[View the diff on Github](https://github.com/BrewhouseTeam/ember-auth-example/compare/step-1...step-2)
 
 When you launch the app in your browser, you should see the index template being
 rendered. Clicking on the links doesn't do anything yet, though, so let's fix
 it!
 
-## Adding the public page
+## Step 3: Adding the public page
 
-To render the public page, we want to call `API.get("public");` to fetch the
+To render the public page, we want to call `API.get('public');` to fetch the
 data we need to populate the page. Because we don't need to authenticate with
 the server, this is pretty straight forward:
 
 {% highlight js %}
-// application.js
-
-App = Ember.Application.create();
+// router.js
 
 App.Router.map(function() {
-  this.route("public");
+  this.route('public');
 });
+{% endhighlight %}
+
+{% highlight js %}
+// routes/public.js
 
 App.PublicRoute = Ember.Route.extend({
   model: function() {
-    return API.get("public");
+    return API.get('public');
   }
 });
-{% end %}
+{% endhighlight %}
 
-{% highlight html %}
-<!-- index.html -->
-<!DOCTYPE html>
-<html>
-  <head>
-    <!-- ... -->
-  </head>
-  <body>
-    <!-- ... -->
+{% highlight html+handlebars %}
+{% raw %}
+{{!-- templates/index.hbs --}}
+<p>{{#link-to "public"}}Public Page{{/link-to}}</p>
+<p>Protected Page</p>
+<p>Admin-only Page</p>
+{% endraw %}
+{% endhighlight %}
 
-    <script type="text/x-handlebars" data-template-name="index">
-      <p>{{#link-to "public"}}Public Page{{/link-to}}</p>
-      <p>Protected Page</p>
-      <p>Admin-only Page</p>
-    </script>
+{% highlight html+handlebars %}
+{% raw %}
+{{!-- templates/public.hbs --}}
+<h4>Public Page</h4>
 
-    <script type="text/x-handlebars" data-template-name="public">
-      <h4>Public Page</h4>
-      <p>{{data}}</p>
-      <p>{{#link-to "index"}}Go back{{/link-to}}</p>
-    </script>
-  </body>
-</html>
-{% end %}
+<div id="content">{{content}}</div>
 
-By returning a Promise in our route (which is what our `API.get` returns), the
-Ember router is smart enough to wait for it to resolve (or reject) before
-rendering the page. This architecture spares us from worrying about the async
-nature of the data-fetching operations, so we can simply refer to the data
+<p>{{#link-to "index"}}Go back{{/link-to}}</p>
+{% endraw %}
+{% endhighlight %}
+
+By returning a Promise in our route (which is what `API.get` returns), the Ember
+router is smart enough to wait for it to resolve (or reject) before attempting
+to render the page. This architecture spares us from having to worry about the
+async nature of the data-fetching operations, so we can simply refer to the data
 returned by the server in our template.
 
-<a class="jsbin-embed" href="http://emberjs.jsbin.com/cecuvu/2/embed?html,js,output&width=960px">See the result</a><script src="http://static.jsbin.com/js/embed.js"></script>
+[Try it out on JS Bin](http://emberjs.jsbin.com/tedufu)
+
+[View the diff on Github](https://github.com/BrewhouseTeam/ember-auth-example/compare/step-2...step-3)
 
 If you refresh the app in the browser, you should now be able to go back and
-forth between the index page and the public page (by clicking the links, the
-back/forward buttons in your browser, or even messing with the URL in the
-address bar directly).  
+forth between the index page and the public page (either by clicking the links,
+using the back/forward buttons in your browser, or even modifying the URL in the
+address bar directly).
 
-## Adding the protected page
+## Step 4: Adding the protected page
 
 With the public page fully functioning, we will move on to tackling the
 protected page.
 
 {% highlight js %}
-// application.js
-
-App = Ember.Application.create();
+// router.js
 
 App.Router.map(function() {
-  this.route("public");
-  this.route("protected");
+  this.route('public');
+  this.route('protected');
 });
+{% endhighlight %}
 
-App.PublicRoute = Ember.Route.extend({
-  model: function() {
-    return API.get("public");
-  }
-});
+{% highlight js %}
+// routes/protected.js
 
 App.ProtectedRoute = Ember.Route.extend({
   model: function() {
-    return API.get("protected");
+    return API.get('protected');
   }
-});  
-{% end %}
+});
+{% endhighlight %}
 
-{% highlight html %}
-<!-- index.html -->
-<!DOCTYPE html>
-<html>
-  <head>
-    <!-- ... -->
-  </head>
-  <body>
-    <!-- ... -->
+{% highlight html+handlebars %}
+{% raw %}
+{{!-- templates/index.hbs --}}
+<p>{{#link-to "public"}}Public Page{{/link-to}}</p>
+<p>{{#link-to "protected"}}Protected Page{{/link-to}}</p>
+<p>Admin-only Page</p>
+{% endraw %}
+{% endhighlight %}
 
-    <script type="text/x-handlebars" data-template-name="index">
-      <p>{{#link-to "public"}}Public Page{{/link-to}}</p>
-      <p>{{#link-to "protected"}}Protected Page{{/link-to}}</p>
-      <p>Admin-only Page</p>
-    </script>
+{% highlight html+handlebars %}
+{% raw %}
+{{!-- templates/protected.hbs --}}
+<h4>Protected Page</h4>
 
-    <!-- ... -->
+<div id="content">{{content}}</div>
 
-    <script type="text/x-handlebars" data-template-name="protected">
-      <h4>Protected Page</h4>
-      <p>{{data}}</p>
-      <p>{{#link-to "index"}}Go back{{/link-to}}</p>
-    </script>
+<p>{{#link-to "index"}}Go back{{/link-to}}</p>
+{% endraw %}
+{% endhighlight %}
 
-    <script type="text/x-handlebars" data-template-name="error">
-      <h4>An error has occured!</h4>
-      <p>
-        {{#if message}}
-          {{message}}
-        {{else}}
-          Unknown Error
-        {{/if}}
-      </p>
-      <p>{{#link-to "index"}}Go back{{/link-to}}</p>
-    </script>
-  </body>
-</html>
-{% end %}
+{% highlight html+handlebars %}
+{% raw %}
+{{!-- templates/error.hbs --}}
+<h4>An error has occured!</h4>
 
-<a class="jsbin-embed" href="http://emberjs.jsbin.com/cecuvu/3/embed?html,js,output&width=960px">See the result</a><script src="http://static.jsbin.com/js/embed.js"></script>
+{{#if message}}
+  <div id="content">{{message}}</div>
+{{else}}
+  <div id="content">Unknown Error</div>
+{{/if}}
+
+<p>{{#link-to "index"}}Go back{{/link-to}}</p>
+{% endraw %}
+{% endhighlight %}
+
+[Try it out on JS Bin](http://emberjs.jsbin.com/yaluho)
+
+[View the diff on Github](https://github.com/BrewhouseTeam/ember-auth-example/compare/step-3...step-4)
 
 If you tried clicking on the link to the protected page, you will see that
 Ember is rendering the `error` template with the error message returned by the
@@ -381,55 +388,56 @@ API yet, this is what we would expect. However, how does Ember know to render
 the `error` template instead of the `protected` template?
 
 You might have guessed it – Promises! When the server refuses to process our
-request due to unfulfilled authentication requirements, our API client will
-reject the promise it returned (this is true for both the jQuery version and the
-stubbed version).
+request, our API client will reject the returned promise. Because Ember's router
+is Promise-aware, it will know that a rejected Promise means that something has
+gone wrong. When this happens, it will abort the original transition (from the
+`index` route into the`protected` route) and transition into the special `error`
+route instead.
 
-Because Ember's router is Promise-aware, it will know that a rejected Promise
-means that something has gone wrong. When this happens, it will abort the
-original transition (into the `protected` route) and transition into a special
-`error` route instead. This in turns causes the `error` template to be rendered
-with the rejection reason being the route's model, which is why we have access
-to the error's `message` in the template.
+This in turns causes the `error` template to be rendered with the rejection
+reason being the route's model, which is why we have access to the error's
+`message` from the template.
 
-## Adding a login page
+## Step 5: Adding a login page
 
-We still haven't seen the fully-functional protected page yet as we don't have
-a way to authenticate with the API via the UI, so let's add that next!
+Since we don't have the UI to authenticate with the API yet, we still haven't
+seen the fully-functional protected page. Let's add that next!
 
 {% highlight js %}
-// application.js
-
-App = Ember.Application.create();
+// router.js
 
 App.Router.map(function() {
-  this.route("login");
-  this.route("public");
-  this.route("protected");
+  this.route('login');
+  this.route('public');
+  this.route('protected');
 });
+{% endhighlight %}
+
+{% highlight js %}
+// routes/login.js
 
 App.LoginRoute = Ember.Route.extend({
   actions: {
     submit: function() {
-      var route = this, controller = this.get("controller");
+      var route = this, controller = this.get('controller');
 
-      var username = controller.get("username"),
-          password = controller.get("password");
+      var username = controller.get('username'),
+          password = controller.get('password');
 
-      controller.set("message", null);
+      controller.set('message', null);
 
       API.login(username, password).then(
         function(user) {
-          route.transitionTo("index");
+          route.transitionTo('index');
         },
         function(error) {
-          controller.set("message", error.message);
+          controller.set('message', error.message);
         }
       );
     },
 
     cancel: function() {
-      this.transitionTo("index");
+      this.transitionTo('index');
     }
   },
 
@@ -441,57 +449,48 @@ App.LoginRoute = Ember.Route.extend({
     });
   }
 });
+{% endhighlight %}
 
-// ...
-{% end %}
+{% highlight html+handlebars %}
+{% raw %}
+{{!-- templates/appliction.hbs --}}
+<h2>Ember.js Authentication Example</h2>
 
-{% highlight html %}
-<!-- index.html -->
-<!DOCTYPE html>
-<html>
-  <head>
-    <!-- ... -->
-  </head>
-  <body>
-    <!-- ... -->
+{{outlet}}
 
-    <script type="text/x-handlebars" data-template-name="application">
-      <h2>My App</h2>
-      {{outlet}}
-      <p>{{#link-to "login" tagName="button"}}Login{{/link-to}}</p>
-    </script>
+<p>{{#link-to "login" tagName="button"}}Login{{/link-to}}</p>
+{% endraw %}
+{% endhighlight %}
 
-    <script type="text/x-handlebars" data-template-name="login">
-      <h4>Please login</h4>
+{% highlight html+handlebars %}
+{% raw %}
+{{!-- templates/login.hbs --}}
+<h4>Please login</h4>
 
-      {{#if message}}
-        <p>{{message}}</p>
-      {{/if}}
+{{#if message}}
+  <div id="content">{{message}}</div>
+{{/if}}
 
-      <p>
-        <small>
-          To login as a user, use <code>user</code> / <code>secret</code>;<br>
-          to login as an admin, use <code>admin</code> / <code>secret</code>.
-        </small>
-      </p>
+<p>
+  <small>
+    To login as a user, use <code>user</code> / <code>secret</code>;<br>
+    to login as an admin, use <code>admin</code> / <code>secret</code>.
+  </small>
+</p>
 
-      <p>Username: {{input value=username}}</p>
-      <p>Password: {{input type="password" value=password}}</p>
+<p>Username: {{input name="username" value=username}}</p>
+<p>Password: {{input type="password" name="password" value=password}}</p>
 
-      <p>
-        <button {{action "submit"}}>Submit</button>
-        <button {{action "cancel"}}>Cancel</button>
-      </p>
-    </script>
+<p>
+  <button {{action "submit"}}>Submit</button>
+  <button {{action "cancel"}}>Cancel</button>
+</p>
+{% endraw %}
+{% endhighlight %}
 
-    <!-- ... -->
-  </body>
-</html>
-{% end %}
+We did quite a lot here, so let's break it down.
 
-We did quite a lot here, so let's break it down a little.
-
-First, we added a `login` route in the router. Just like you would expect,
+First, we added a `login` route to the router. Just like you would expect,
 visiting the `/login` URL would enter this route and render the `login`
 template. Nothing new so far.
 
@@ -502,55 +501,56 @@ handy later. (For the purpose of understanding this example, you Angular folks
 might find it helpful to think of the controller as the template's `$scope`.)
 
 Below the form, we have two buttons that would trigger the `submit` and `cancel`
-actions respectively, which will be bubbled up to the route and invoke the
-appropriately named functions defined inside `LoginRoute`.
+actions, respectively, which will be handled in `LoginRoute` and invoke the
+appropriately named functions.
 
 For the `submit` action, we simply extract the values for the username and
-password from the controller (which is bound to the values of the input fields)
-and pass them to `API.login`. If the authentication is successful (i.e. the
-Promise resolves), then we would redirect the user back to the index page;
-otherwise, we will extract the server's response and display it in the template.
+password from the controller and pass them to `API.login`. If the authentication
+is successful (i.e. the Promise resolves), then we would redirect the user back
+to the index page; otherwise, we will extract the server's response and display
+it in the template.
 
 (If you are curious about the `resetController` hook we implemented, it simply
 clears out the values in the login form when transitioning away from the login
 page.)
 
 Finally, we added a link to the login page. This time, we added the link to the
-`application` template, so it will always be visible across all the pages in our
-app. Instead of rendering it like a normal like (an `a` tag), we told Ember to
-render it as a `button` tag instead, just so it will look a little different
-from the rest of the links.
+`application` template (the "layout"), so it will always visible regardless of
+where you are in the app. We also told Ember to render a `<button>` tag instead
+of the default `<a>` tag, just so we can differentiate it from the rest of the
+links on the page.
 
-<a class="jsbin-embed" href="http://emberjs.jsbin.com/cecuvu/4/embed?html,js,output&width=960px">See the result</a><script src="http://static.jsbin.com/js/embed.js"></script>
+[Try it out on JS Bin](http://emberjs.jsbin.com/webaya)
+
+[View the diff on Github](https://github.com/BrewhouseTeam/ember-auth-example/compare/step-4...step-5)
 
 With these changes, you can try logging in using the hard-coded credentials (or
 use something else to see the error messages in action). Once you are logged in,
 you should be able to view the protected page without problems.
 
-## Tracking the current user and adding a logout link
+## Step 6: Tracking the current user and adding a logout button
 
-If you have played with the result from the last step, you might find the user
-experience of the login page quite confusing – upon completing logging in, there
-are no visual indication to the user that they have successfully completed the
-login procedure. The "Login" button is also always visible on the bottom of the
-page, making it difficult to infer the state of the system. Ideally, we would
-like to know if the user is already logged in, and display a "Logout" button
-there instead. We will work on addressing this next:
+If you have played with the demo from the last step, you might find the user
+experience  quite confusing – there are no visual indictaions to tell the user
+that the login process was sucessful. The "Login" button is also always visible
+on the bottom of the page, even after loggin in, making it impossible for the
+user to infer the state of the system. Ideally, we would like to know if the
+user is already logged in, and display a "Logout" button instead. We will work
+on addressing this next:
 
-{% javascript %}
-// application.js
+{% highlight js %}
+// initializers/inject-session.js
 
-App = Ember.Application.create();
+// Register an observable "session" object for tracking current user, etc
+App.register('service:session', Ember.Object);
 
-App.Router.map(function() {
-  this.route("login");
-  this.route("public");
-  this.route("protected");
-});
+// Make the session object available to all routes and controller
+App.inject('route', 'session', 'service:session');
+App.inject('controller', 'session', 'service:session');
+{% endhighlight %}
 
-App.register("session:main", Ember.Object);
-App.inject("route", "session", "session:main");
-App.inject("controller", "session", "session:main");
+{% highlight js %}
+// routes/application.js
 
 App.ApplicationRoute = Ember.Route.extend({
   actions: {
@@ -558,82 +558,80 @@ App.ApplicationRoute = Ember.Route.extend({
       var route = this;
 
       API.logout().then(function() {
-        route.session.set("user", null);
-        route.transitionTo("index");
+        route.session.set('user', null);
+        route.transitionTo('index');
       });
     }
   }
 });
+{% endhighlight %}
+
+{% highlight js %}
+// routes/login.js
 
 App.LoginRoute = Ember.Route.extend({
   actions: {
     submit: function() {
-      var route = this, controller = this.get("controller");
+      var route = this, controller = this.get('controller');
 
-      var username = controller.get("username"),
-          password = controller.get("password");
+      var username = controller.get('username'),
+          password = controller.get('password');
 
-      controller.set("message", null);
+      controller.set('message', null);
 
       API.login(username, password).then(
         function(user) {
-          route.session.set("user", user);
-          route.transitionTo("index");
+          route.session.set('user', user);
+          route.transitionTo('index');
         },
         function(error) {
-          controller.set("message", error.message);
+          controller.set('message', error.message);
         }
       );
     },
 
     // ...
+  },
+
+  // ...
 });
+{% endhighlight %}
 
-// ...
-{% end %}
+{% highlight html+handlebars %}
+{% raw %}
+{{!-- templates/appliction.hbs --}}
+<h2>Ember.js Authentication Example</h2>
 
-{% highlight html %}
-<!-- index.html -->
-<!DOCTYPE html>
-<html>
-  <head>
-    <!-- ... -->
-  </head>
-  <body>
-    <!-- ... -->
+{{outlet}}
 
-    <script type="text/x-handlebars" data-template-name="application">
-      <h2>My App</h2>
-      {{outlet}}
-      {{#if session.user}}
-        <p><button {{action "logout"}}>Logout</button></p>
-      {{else}}
-        <p>{{#link-to "login" tagName="button"}}Login{{/link-to}}</p>
-      {{/if}}
-    </script>
+{{#if session.user}}
+  <p><button {{action "logout"}}>Logout</button></p>
+{{else}}
+  <p>{{#link-to "login" tagName="button"}}Login{{/link-to}}</p>
+{{/if}}
+{% endraw %}
+{% endhighlight %}
 
-    <!-- ... -->
+{% highlight html+handlebars %}
+{% raw %}
+{{!-- templates/index.hbs --}}
+{{#if session.user}}
+  <h4>You are logged in as {{session.user.name}}</h4>
+{{/if}}
 
-    <script type="text/x-handlebars" data-template-name="index">
-      {{#if session.user}}
-        <h4>You are logged in as {{session.user.name}}</h4>
-      {{/if}}
-      <p>{{#link-to "public"}}Public Page{{/link-to}}</p>
-      <p>{{#link-to "protected"}}Protected Page{{/link-to}}</p>
-      <p>Admin-only Page</p>
-    </script>
-
-    <!-- ... -->
-  </body>
-</html>
-{% end %}
+<p>{{#link-to "public"}}Public Page{{/link-to}}</p>
+<p>{{#link-to "protected"}}Protected Page{{/link-to}}</p>
+<p>Admin-only Page</p>
+{% endraw %}
+{% endhighlight %}
 
 First, we introduced the concept of a shared `session` object and made it
 available to all controllers and routes in our app. This is where we will keep
-transient session states of our app that only last as long as the browser tab
-is open, ideal for tracking the "current user" and similar things. We made it
-an `Ember.Object` so that can be bound in templates, but otherwise it behaves
-just like a "plain-old JavaScript object" (`{}`) for our purpose.
+"transient" states of our app. As these things are only kept in memory for as
+long as our app is open, this is ideal for tracking the "current user" and
+similar states. We made it an `Ember.Object` so that its values can be observed
+and bound in templates, but otherwise it behaves just like a "plain-old
+JavaScript object" (i.e. `{}`) for our purpose.
 
 We then modified our `submit` action in the `LoginRoute` to store the `user`
 object returned by the server in the `session` object upon a successful login.
@@ -642,107 +640,109 @@ Because we made the `session` object available to all controllers, we can now
 access its content in the templates as well. (For you angular developers,
 imagine we have added the `session` object to the root scope.) With that, we
 modified the `application` template to conditionally show a "Login" or "Logout"
-button depends on whether the user has logged in or not. We have also added a
+button depending on whether the user has logged in or not. We also added a
 simple greeting in the `index` template to remind our users who (the system
 thinks) they are.
 
 Finally, since the "Logout" button can be clicked from anywhere in our app, we
 introduced an `ApplicationRoute` to handle the `logout` action. Just like
-templates, routes in Ember is arranged in a nested hierarchy. We won't get into
-the details here, but in a nut shell, the `ApplicationRoute` is always active
-(just like the `application` template is always rendered), making it the ideal
-place to handle global actions like these. The implementation of the action
-handler itself is fairly simple – we just call `API.logout`, set `session.user`
-back to `null` and then transition back to the "index" page.
+templates, routes in Ember can be nested. We won't get into the details here,
+but in a nut shell, the `ApplicationRoute` is always active (just like how the
+`application` template is always rendered), making it the ideal place to handle
+global actions like these. The implementation of the action handler itself is
+fairly simple – we just call `API.logout`, set `session.user` back to `null`
+and then transition back to the "index" page.
 
-<a class="jsbin-embed" href="http://emberjs.jsbin.com/cecuvu/5/embed?html,js,output&width=960px">See the result</a><script src="http://static.jsbin.com/js/embed.js"></script>
+[Try it out on JS Bin](http://emberjs.jsbin.com/mayuwa)
+
+[View the diff on Github](https://github.com/BrewhouseTeam/ember-auth-example/compare/step-5...step-6a)
 
 This is one more minor issue – because the "Login" button is rendered in the
-`application` template (the app's "layout"), it will be visible in the login
-page as well, which make things quite confusing. Fortunately, this is very easy
-to fix. Since we implemented the "Login" button using the `{{link-to}}` helper,
-Ember will automatically add an `active` CSS class to the button when the link
-is active (i.e. we are already on the page that the link is pointed to). This
-makes it trivial to hide the "Login" button on the login page with just a few
-lines of CSS:
+`application` template (the "layout"), it will be visible from the login page as
+well, which made things quite confusing. Fortunately, this is very easy to fix.
+Since we implemented the "Login" button using the `{{link-to}}` helper, Ember
+will automatically add an `active` CSS class to the button when the link is
+active (i.e. we are already on the page that the link is supposed to bring us
+to). This makes it trivial to hide the "Login" button on the login page with
+just a few lines of CSS:
 
 {% highlight css %}
-/* application.css */
+/* app.css */
 
 button.active {
   display: none;
 }
-{% end %}
+{% endhighlight %}
 
-<a class="jsbin-embed" href="http://emberjs.jsbin.com/cecuvu/6/embed?css,output&width=960px">See the result</a><script src="http://static.jsbin.com/js/embed.js"></script>
+[Try it out on JS Bin](http://emberjs.jsbin.com/legiyo)
 
-## Revisiting the protected page
+[View the diff on Github](https://github.com/BrewhouseTeam/ember-auth-example/compare/step-6a...step-6b)
+
+## Step 7: Revisiting the protected page
 
 With our login flow working properly, we can shift our attention back to the
 protected page. Remember how when you visited the protected page without being
-logged in, it would just show the error page? Since we know how to the user can
-solve that problem (by logging in), wouldn't it be great if we just redirect
-them straight to the login page? Better yet, it would be fantastic if we can
-also remember where the user came from, and redirect them back to the same page
-upon a successful login. Let's get to work!
+logged in, it would just show the error page? Since we know what the user need
+to do to resolve the problem (by logging in), wouldn't it be great if we just
+redirect them straight to the login page? Better yet, it would be fantastic if
+we remember where the user came from, so that we can redirect them back to the
+same page upon a successful login. Let's get to work!
 
-{% javascript %}
-// application.js
-
-// ...
+{% highlight js %}
+// routes/application.js
 
 App.ApplicationRoute = Ember.Route.extend({
   actions: {
     logout: function() {
-      var route = this;
-
-      API.logout().then(function() {
-        route.session.set("user", null);
-        route.transitionTo("index");
-        });
+      // ...
     },
 
     error: function(error, transition) {
-      if (error.status === "UNAUTHORIZED") {
-        var loginController = this.controllerFor("login");
+      if (error.status === 'Unauthorized') {
+        var loginController = this.controllerFor('login');
 
         loginController.setProperties({
           message: error.message,
           transition: transition
         });
 
-        this.transitionTo("login");
+        this.transitionTo('login');
       } else {
+        // Allow other error to bubble
         return true;
       }
     }
   }
 });
+{% endhighlight %}
+
+{% highlight js %}
+// routes/login.js
 
 App.LoginRoute = Ember.Route.extend({
   actions: {
     submit: function() {
-      var route = this, controller = this.get("controller");
+      var route = this, controller = this.get('controller');
 
-      var username = controller.get("username"),
-          password = controller.get("password");
+      var username = controller.get('username'),
+          password = controller.get('password');
 
-      controller.set("message", null);
+      controller.set('message', null);
 
       API.login(username, password).then(
         function(user) {
-          var transition = controller.get("transition");
+          var transition = controller.get('transition');
 
-          route.session.set("user", user);
+          route.session.set('user', user);
 
           if (transition) {
             transition.retry();
           } else {
-            route.transitionTo("index");
+            route.transitionTo('index');
           }
         },
         function(error) {
-          controller.set("message", error.message);
+          controller.set('message', error.message);
         }
       );
     },
@@ -759,59 +759,60 @@ App.LoginRoute = Ember.Route.extend({
     });
   }
 });
+{% endhighlight %}
+
+{% highlight js %}
+// controllers/login.js
 
 App.LoginController = Ember.Controller.extend();
-
-// ...
-{% end %}
+{% endhighlight %}
 
 When an error occurs during a route transition (e.g. a Promise was rejected),
-the Ember router will first bubble an `error` action, offering you a chance to
-handle that gracefully before transitioning into the `error` page.
+the Ember router will first invoke the `error` action handler, offering you a
+chance to handle that gracefully before transitioning into the `error` page.
 
 This is exactly what we want to do here. We added a handler for the `error`
 action to the top-level `ApplicationRoute`. From within the handler, we look for
-a specific type of error (an error with the "UNAUTHORIZED" HTTP status returned
-by the server/`API`). If that is indeed what's happening, we capture the error
-message and the current transition so that we can retry it later when the user
-has completed the authentication process. Otherwise, we `return true` to let
-the action continue to bubble (which sends the user to the error page).
+a specific type of error (an error with the "Unauthorized" HTTP status returned
+by the server). If we found what we are looking for, we capture the error
+message and the current transition so that we can retry it later. Otherwise, we
+`return true` to let the action continue to bubble up to the default handler,
+which would send the user to the error page.
 
-In our `LoginRoute`, upon a successful login, we check if we have saved any
-transition from earlier (via the `error` handler we just implemented). If we
-found one, we will retry the same transition (which should work now that the
-user is logged in). Otherwise, we just transition to the "index" page like we
-did before.
+Upon completing a successful login from our `LoginRoute`, we check if we have a
+saved transition from earlier (via the `error` handler we just implemented). If
+we found one, we will retry the same transition (which should work now that the
+user is logged in). Otherwise, we transition to the "index" page like we did
+before.
 
-<a class="jsbin-embed" href="http://emberjs.jsbin.com/cecuvu/7/embed?html,js,output&width=960px">See the result</a><script src="http://static.jsbin.com/js/embed.js"></script>
+[Try it out on JS Bin](http://emberjs.jsbin.com/recatu)
+
+[View the diff on Github](https://github.com/BrewhouseTeam/ember-auth-example/compare/step-6b...step-7a)
 
 If you are paying close attention, there is a minor hiccup here. So far we
-haven't had to explicitly define any controllers ourselves. This is because we
-didn't need to do much with them, so Ember could just infer what we need and
-generate them automatically on demand when the route is entered. However, with
-our changes to the `ApplicationRoute`, we would need to access the controller
-before the `login` route is entered.
+haven't had to define any controllers ourselves. This is because we didn't need
+to do much with them, so Ember could just infer what we need and generate them
+automatically *when the route is first entered*. However, with our changes to
+the `ApplicationRoute`, we would need to access the controller before the
+`login` route has been entered.
 
 In this case, Ember won't be able to infer the type of controller we need (there
 are different kinds of controllers in Ember), so we will need to explicitly
 define it. Since we only need the basic functionality, our `LoginController`
-will just extend from the base `Ember.Controller` class.
+will just extend from the `Ember.Controller` base class.
 
 There is one more improvement we can make to the protected page. Currently, if
-the user is not logged in, we will still make an API request to the server and
-wait for the error response before redirecting the user to our login page. With
-the session object, we can now reliably predict this outcome and avoid that
-wasteful roundtrip:
+the user is not logged in, we will still make an API request to the server, just
+to show an error message on the login page. With the session object, we can now
+eagerly predict this outcome and avoid that wasteful roundtrip:
 
-{% javascript %}
-// application.js
-
-// ...
+{% highlight js %}
+// routes/protected.js
 
 App.ProtectedRoute = Ember.Route.extend({
   beforeModel: function() {
-    if (!this.session.get("user")) {
-      return Ember.RSVP.reject({ status: "UNAUTHORIZED", message: "Please login to access this page" });
+    if (!this.session.get('user')) {
+      return Ember.RSVP.reject({ status: 'Unauthorized', message: 'Please login to access this page' });
     }
   },
 
@@ -819,116 +820,110 @@ App.ProtectedRoute = Ember.Route.extend({
     return API.get("protected");
   }
 });  
-{% end %}
+{% endhighlight %}
 
-All we need to do here is check if we have a `session.user` is present. If not,
-we will immediately return a rejected Promise just like the `API` would. That
-way, our existing `error` handler should Just Work™ without any changes.
+All we need to do here is to check if we have a `session.user`. If not, we can
+immediately return a rejected Promise just like the `API` would. That way, our
+existing `error` handler would Just Work™ without any changes.
 
-<a class="jsbin-embed" href="http://emberjs.jsbin.com/cecuvu/8/embed?html,js,output&width=960px">See the result</a><script src="http://static.jsbin.com/js/embed.js"></script>
+[Try it out on JS Bin](http://emberjs.jsbin.com/tiwapa)
 
-## Adding the admin-only page
+[View the diff on Github](https://github.com/BrewhouseTeam/ember-auth-example/compare/step-7a...step-7b)
 
-Our last task is to add the super-secret admin-only page.
+## Step 8: Adding the admin-only page
 
-{% javascript %}
-// application.js
+Our last task is to add the super-secret, admin-only page.
 
-App = Ember.Application.create();
+{% highlight js %}
+// router.js
 
-App.Router.map(function() {
-  this.route("login");
-  this.route("public");
-  this.route("protected");
-  this.route("secret");
+Router.map(function() {
+  this.route('login');
+  this.route('public');
+  this.route('protected');
+  this.route('secret');
 });
+{% endhighlight %}
 
-// ...
+{% highlight js %}
+// routes/secret.js
 
 App.SecretRoute = Ember.Route.extend({
   beforeModel: function() {
-    if (!this.session.get("user")) {
-      return Ember.RSVP.reject({ status: "UNAUTHORIZED", message: "Please login to access this page" });
-    } else if (this.session.get("user.type") !== "admin") {
-      return Ember.RSVP.reject({ status: "FORBIDDEN", message: "You are not allowed to access this page" });
+    if (!this.session.get('user')) {
+      return Ember.RSVP.reject({ status: 'Unauthorized', message: 'Please login to access this page' });
+    } else if (this.session.get('user.role') !== 'admin') {
+      return Ember.RSVP.reject({ status: 'Forbidden', message: 'You are not allowed to access this page' });
     }
   },
 
   model: function() {
-    return API.get("secret");
+    return API.get('secret');
   }
-});  
-{% end %}
+});
+{% endhighlight %}
 
-{% highlight html %}
-<!-- index.html -->
-<!DOCTYPE html>
-<html>
-  <head>
-    <!-- ... -->
-  </head>
-  <body>
-    <!-- ... -->
+{% highlight html+handlebars %}
+{% raw %}
+{{!-- templates/index.hbs --}}
+{{#if session.user}}
+  <h4>You are logged in as {{session.user.name}}</h4>
+{{/if}}
 
-    <script type="text/x-handlebars" data-template-name="index">
-      {{#if session.user}}
-        <h4>You are logged in as {{session.user.name}}</h4>
-      {{/if}}
-      <p>{{#link-to "public"}}Public Page{{/link-to}}</p>
-      <p>{{#link-to "protected"}}Protected Page{{/link-to}}</p>
-      <p>{{#link-to "secret"}}Admin-only Page{{/link-to}}</p>
-    </script>
+<p>{{#link-to "public"}}Public Page{{/link-to}}</p>
+<p>{{#link-to "protected"}}Protected Page{{/link-to}}</p>
+<p>{{#link-to "secret"}}Admin-only Page{{/link-to}}</p>
+{% endraw %}
+{% endhighlight %}
 
-    <!-- ... -->
+{% highlight html+handlebars %}
+{% raw %}
+{{!-- templates/secret.hbs --}}
+<h4>Admin-only Page</h4>
 
-    <script type="text/x-handlebars" data-template-name="secret">
-      <h4>Admin-only Page</h4>
-      <p>{{data}}</p>
-      <p>{{#link-to "index"}}Go back{{/link-to}}</p>
-    </script>
+<div id="content">{{content}}</div>
 
-    <!-- ... -->
-  </body>
-</html>
-{% end %}
+<p>{{#link-to "index"}}Go back{{/link-to}}</p>
+{% endhighlight %}
 
-As you can see, this was quite easy to do and we didn't really introduce
-anything new here. We defined a route and a corresponding template, and updated
+As you can see, this was quite easy to do; we didn't really introduce any new
+concepts here. We defined a route and the corresponding template, then updated
 our index to link to it.
 
 Just like the `ProtectedRoute`, we took advantage of our domain knowledge (this
 page is only for admin users) and duplicated the access control checks on the
-client, which allowed us to quickly respond to the user without involving the
-server. This is entirely an optional optimization of course – we could have
-removed that check and everything would still functional correctly.
+client, which allowed us to quickly respond without involving the server. This
+is an entirely an optional optimization of course – everything would still work
+the same way if we removed that check, just a little bit slower.
 
-## Handling expired sessions
+[Try it out on JS Bin](http://emberjs.jsbin.com/nobizu)
 
-Before we wrap up, I guess we would still need to handle the case where our
-session (token) has expired. But what if I tell you we already did that? :)
+[View the diff on Github](https://github.com/BrewhouseTeam/ember-auth-example/compare/step-7b...step-8)
+
+## Step 9: Handling expired sessions
+
+There is one more missing piece before we wrap up – I promised that we will
+handled expired sessions, so I guess we still need to implement that. But what
+if I tell you we already did? ;)
 
 Upon encountering an expired session token, our well-mannered sever is going to
-respond with a "401 UNAUTHORIZED" error – which happens to be the same error
-the server sends when the user didn't login at all (semantically, they are
-really the same thing). This is great, because our app already knows that it
-should redirect the user to the login page, which is also exactly what we would
-want here.
+respond with a "401 Unauthorized" error. This happens to be the same error it
+sends when the user didn't login at all (if you think about it, they are really
+the same thing as far as the server is concerned). This is great, because our
+app already knows how to handle it – by redirecting the user to the login page –
+which is also exactly what we want here.
 
-To see it in action, we will add a button to simulate this situation:
+To see it in action, we will add a button to simulate this scenario:
 
-{% javascript %}
-// application.js
-
-App = Ember.Application.create();
-
-// ...
+{% highlight js %}
+// routes/application.js
 
 App.ApplicationRoute = Ember.Route.extend({
   actions: {
     // ...
 
     expireSession: function() {
-      API.token = "expired";
+      API.token = 'expired';
     },
 
     // ...
@@ -936,68 +931,92 @@ App.ApplicationRoute = Ember.Route.extend({
 
   // ...
 });
+{% endhighlight %}
 
-// ...
-{% end %}
+{% highlight html+handlebars %}
+{% raw %}
+{{!-- templates/application.hbs --}}
+<h2>Ember.js Authentication Example</h2>
 
-{% highlight html %}
-<!-- index.html -->
-<!DOCTYPE html>
-<html>
-  <head>
-    <!-- ... -->
-  </head>
-  <body>
-    <!-- ... -->
+{{outlet}}
 
-    <script type="text/x-handlebars" data-template-name="application">
-      <h2>My App</h2>
-      {{outlet}}
-      {{#if session.user}}
-        <p><button {{action "logout"}}>Logout</button></p>
-        <p><button {{action "expireSession"}}>Simulate Expired Session</button></p>
-      {{else}}
-        <p>{{#link-to "login" tagName="button"}}Login{{/link-to}}</p>
-      {{/if}}
-    </script>
-
-    <!-- ... -->
-  </body>
-</html>
-{% end %}
+{{#if session.user}}
+  <p><button {{action "logout"}}>Logout</button></p>
+  <p><button {{action "expireSession"}}>Force session expiration</button></p>
+{{else}}
+  <p>{{#link-to "login" tagName="button"}}Login{{/link-to}}</p>
+{{/if}}
+{% endraw %}
+{% endhighlight %}
 
 We are simulating the expiration of a session by changing our session token to
-"expired", and our `API` wrapper will take care of the rest.
+`expired`, and our mock server will take care of the rest.
 
-We have now introduced a scenario where a user might end up on the login page
-even when `session.user` isn't `null`. If the user chose to click "Cancel" on
-the login form, they will be redirected to the index page and the app will still
-behave as if they are logged in. This does not pose any security risk (because
-the server will just refuse to serve any content and the user will just keep
-hitting the login page), but it would make a pretty confusing experience.
+[Try it out on JS Bin](http://emberjs.jsbin.com/zedeju)
+
+[View the diff on Github](https://github.com/BrewhouseTeam/ember-auth-example/compare/step-8...step-9a)
+
+We have now introduced a scenario where a user can end up on the login page even
+when `session.user` isn't `null`. If the user clicks "Cancel", they will be
+redirected to the index page and the app will still behave as if they are logged
+in (showing the "Logout" button, etc). This does not pose any security risk
+(because the server will keep refusing to serve any content and the user will
+just keep hitting the login page), but it would nevertheless make some pretty
+confusing user experience.
 
 To address this, we will make sure we clear the authentication information when
 the login route is entered:
 
 {% highlight javascript %}
-// application.js
-
-// ...
+// routes/login.js
 
 App.LoginRoute = Ember.Route.extend({
   // ...
 
   beforeModel: function() {
     API.token = null;
-    this.session.set("user", null);
+    this.session.set('user', null);
   },
 
   // ...
 });
 
 // ...
-{% end %}
+{% endhighlight %}
+
+With that, our job is finally done!
+
+[Try it out on JS Bin](http://emberjs.jsbin.com/cisufu)
+
+[View the diff on Github](https://github.com/BrewhouseTeam/ember-auth-example/compare/step-9a...step-9b)
 
 ## Wrapping up
 
+It's time to take a deep breath and relax a little bit. We have come a *long*
+way, and you have learned a lot.
 
+It might *seem* like a lot of code, but it was actually less than 100 lines of
+JavaScript if we exclude the API and comments. In terms of features though, we
+definitely did a lot – we wrote a multi "page" JavaScript app that works with
+a remote server, handles authentication/authorization, errors, URLs, browser
+history and more. We even redirected to the right page after a successful login!
+
+While most front-end JavaScript frameworks/libraries focuses on a nice API for
+individual *widgets* (components) on the page (which is important, and arguably
+the most common use case!), Ember really shines when it comes to tying these
+small pieces together for building full-fleged *applications* (Ember does
+widgets/components too, but that would be another blog post!).
+
+I hope this tutorial gives you a taste of the power of the Promise-based Ember
+router and how it helps you to build your applications "flow" with minimal
+effort – we are barely scratching the surface here.
+
+Ember.js *Promises* to make writing *ambitious* client-side applications easy.
+As a result, there are, by comparison, more concepts and patterns to learn, so
+it might not be for everyone. But once you get past the learning... *cliff*, you
+can be *really* productive!
+
+### Hire Us!
+
+Interested in Ember.js training? Need help building your next *ambitious* web
+application? [Get in touch](http://brewhouse.io/#hire-us)!

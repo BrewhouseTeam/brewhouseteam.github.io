@@ -941,6 +941,30 @@ footer {
   }
 }
 
+.callout {
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #EEE;
+  border-left-width: 5px;
+  border-radius: 3px;
+}
+.callout h4 {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+.callout p {
+  font-family: 'bh_proxima', sans-serif;
+}
+.callout p:last-child {
+  margin-bottom: 0;
+}
+.callout-info {
+  border-left-color: #1B809E;
+}
+.callout-info h4 {
+  color: #1B809E;
+}
+
 // Responsive Text Alignment
 .text-xs-left { text-align: left; }
 .text-xs-right { text-align: right; }
