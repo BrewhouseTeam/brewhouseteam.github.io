@@ -54,11 +54,7 @@
 <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
 <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
 
-<link href="http://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet" type="text/css">
-
-<link rel="stylesheet" href="/assets/application-d23fd63f2f55a6d3311e16df93ecfdf4.css">
-
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css">
+<link rel="stylesheet" href="/assets/application-8d1cf7a745d3c9615a74037d119653db.css">
 
   </head>
   <body class="on-post">
@@ -79,17 +75,23 @@
     </nav>
 
     <div class="container main">
-      <div id="banner-blog" class="row">
-  <div class="col-xs-12 img-full-width">
-    <img src="/images/blog-background.jpg" class="img-responsive">
-
-    <section>
+      <div class="body-border-top">
+</div>
+<div id="banner-blog" class="row">
+  <div class="banner-content">
+    <section class="col-xs-12 col-sm-5">
       <h1 id="brew-pub-start">
-        <a href="/blog/">The Brew Pub</a>
+        <a href="/blog/"><img src="/images/blog-brew-pub-logo.png"></a>
       </h1>
       <h3>
-        Writings from <a href="http://brewhouse.io">brewhouse.io</a>, makers of <a href="https://goodbits.io?utm_source=brewhouse-blog">goodbits.io</a> and stellar apps for our clients.
+        Writings from <a href="http://brewhouse.io">brewhouse.io</a>, makers of <a href="https://goodbits.io?utm_source=brewhouse-blog">Goodbits</a> and superb apps for our clients.
       </h3>
+    </section>
+    <section class="col-xs-12 col-sm-4">
+      <p class="blog-contact-info">
+        email <a href="mailto:hello@brewhouse.io">hello@brewhouse.io</a>
+        <br>or, give us a call <a class="telephone" href="tel:+16046147784">+1 604-757-4242</a>
+      </p>
     </section>
   </div>
 </div>
@@ -126,6 +128,8 @@ While this is a minor release, there are still plenty of handy new features
 that’s worth getting excited about. Here are a few of my favourites, along with
 some thoughts on why I think they are useful.</p>
 
+<!-- break -->
+
 <p>(This post is based on my lightning talk at <a href="http://vanruby.org/">#VANRUBY</a>, the original
 slides can be found <a href="http://www.slideshare.net/godfreykfc/rails-41">here</a>.)</p>
 
@@ -147,7 +151,7 @@ the hard work to integrate the <a href="https://github.com/37signals/mail_view">
 can now easily create previews for your mailers and view them in the browser
 from <code>http://localhost:3000/rails/mailers</code>:</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="c1"># In /test/mailers/previews/notifier_preview.rb</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># In /test/mailers/previews/notifier_preview.rb</span>
 <span class="k">class</span> <span class="nc">NotifierPreview</span> <span class="o">&lt;</span> <span class="no">ActionMailer</span><span class="o">::</span><span class="no">Preview</span>
   <span class="k">def</span> <span class="nf">welcome</span>
     <span class="c1"># Mock up some data for the preview</span>
@@ -156,8 +160,7 @@ from <code>http://localhost:3000/rails/mailers</code>:</p>
     <span class="c1"># Return a Mail::Message here (but don&#39;t deliver it!)</span>
     <span class="no">Notifier</span><span class="o">.</span><span class="n">welcome</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
   <span class="k">end</span>
-<span class="k">end</span>
-</code></pre></div>
+<span class="k">end</span></code></pre></div>
 
 <p>It should be noted that although the preview files live under the test
 directory by default (which can be changed via <code>config.action_mailer.preview_path</code>),
@@ -187,7 +190,7 @@ hand really quickly.</p>
 
 <p>Enums to the rescue!</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="nc">Bug</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Bug</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
   <span class="c1"># Relevant schema change looks like this:</span>
   <span class="c1">#</span>
   <span class="c1"># create_table :bugs do |t|</span>
@@ -196,7 +199,7 @@ hand really quickly.</p>
 
   <span class="n">enum</span> <span class="ss">status</span><span class="p">:</span> <span class="o">[</span> <span class="ss">:new</span><span class="p">,</span> <span class="ss">:assigned</span><span class="p">,</span> <span class="ss">:in_progress</span><span class="p">,</span> <span class="ss">:resolved</span><span class="p">,</span> <span class="ss">:rejected</span><span class="p">,</span> <span class="ss">:reopened</span> <span class="o">]</span>
 
-  <span class="n">belongs_to</span> <span class="ss">:assignee</span><span class="p">,</span> <span class="n">class_name</span><span class="p">:</span> <span class="s1">&#39;Developer&#39;</span>
+  <span class="n">belongs_to</span> <span class="ss">:assignee</span><span class="p">,</span> <span class="ss">class_name</span><span class="p">:</span> <span class="s1">&#39;Developer&#39;</span>
 
   <span class="k">def</span> <span class="nf">assignee</span><span class="o">=</span><span class="p">(</span><span class="n">developer</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">developer</span> <span class="o">&amp;&amp;</span> <span class="nb">self</span><span class="o">.</span><span class="n">new?</span>
@@ -217,8 +220,7 @@ hand really quickly.</p>
 
 <span class="n">bug</span><span class="o">.</span><span class="n">status</span>             <span class="c1"># =&gt; a symbol describing the bug&#39;s status</span>
 
-<span class="n">bug</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="ss">:resolved</span> <span class="c1"># =&gt; set the bug&#39;s status to :resolved</span>
-</code></pre></div>
+<span class="n">bug</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="ss">:resolved</span> <span class="c1"># =&gt; set the bug&#39;s status to :resolved</span></code></pre></div>
 
 <p>Internally, these states are mapped to integers in the database to
 save space. It’s also worth mentioning that the methods added by the <code>enum</code>
@@ -233,36 +235,33 @@ your model and use <code>super</code> to reach the original implementation.</p>
    This means that you should not change the order of the <code>enum</code> symbols once
    they are added. To remove unused states, you can use an explicit mapping:</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="nc">Bug</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Bug</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
   <span class="n">enum</span> <span class="ss">status</span><span class="p">:</span> <span class="p">{</span>
     <span class="kp">new</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="n">in_progress</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="ss">in_progress</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
     <span class="ss">resolved</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
     <span class="ss">rejected</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
     <span class="ss">reopened</span><span class="p">:</span> <span class="mi">5</span>
   <span class="p">}</span>
-<span class="k">end</span>
-</code></pre></div>
+<span class="k">end</span></code></pre></div>
 
 <p><strong>II</strong>. Avoid using the same names inside different enums in the same class!
    Doing so will leave Active Record very confused!</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="nc">Bug</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Bug</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
   <span class="n">enum</span> <span class="ss">status</span><span class="p">:</span> <span class="o">[</span> <span class="ss">:new</span><span class="p">,</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="o">]</span>
-  <span class="n">enum</span> <span class="n">code_review_status</span><span class="p">:</span> <span class="o">[</span> <span class="ss">:new</span><span class="p">,</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="o">]</span> <span class="c1"># WARNING: Don&#39;t do this!</span>
-<span class="k">end</span>
-</code></pre></div>
+  <span class="n">enum</span> <span class="ss">code_review_status</span><span class="p">:</span> <span class="o">[</span> <span class="ss">:new</span><span class="p">,</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="o">]</span> <span class="c1"># WARNING: Don&#39;t do this!</span>
+<span class="k">end</span></code></pre></div>
 
 <p><strong>III</strong>. If you need to write custom scopes to query the enum columns, you would have
    to pass the integers instead of the symbols. You can access the enum-integer
    mapping via a constant added by the macro:</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="nc">Bug</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Bug</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
   <span class="n">scope</span> <span class="ss">:open</span><span class="p">,</span> <span class="o">-&gt;</span> <span class="p">{</span>
     <span class="n">where</span><span class="p">(</span><span class="s1">&#39;status &lt;&gt; ? OR status &lt;&gt; ?&#39;</span><span class="p">,</span> <span class="no">STATUS</span><span class="o">[</span><span class="ss">:resolved</span><span class="o">]</span><span class="p">,</span> <span class="no">STATUS</span><span class="o">[</span><span class="ss">:rejected</span><span class="o">]</span><span class="p">)</span>
   <span class="p">}</span>
-<span class="k">end</span>
-</code></pre></div>
+<span class="k">end</span></code></pre></div>
 
 <p><strong>IV</strong>. Currently, the dirty tracking methods (e.g. <code>status_was?</code>) have not been
    updated to work with enums yet (they currently return the mapped integer
@@ -287,7 +286,7 @@ for specific device categories.</p>
 
 <p>With <strong>Action Pack Variants</strong>, this will become much easier in Rails 4.1:</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
   <span class="n">before_action</span> <span class="ss">:detect_device_variant</span>
 
   <span class="kp">private</span>
@@ -315,8 +314,7 @@ for specific device categories.</p>
       <span class="k">end</span>
     <span class="k">end</span>
   <span class="k">end</span>
-<span class="k">end</span>
-</code></pre></div>
+<span class="k">end</span></code></pre></div>
 
 <p>This example sets up a <code>before_action</code> filter to match the <code>User-Agent</code> HTTP
 header against certain keywords, and assign the <code>request.variant</code> accordingly.
@@ -358,7 +356,7 @@ signed cookies, but it is now much easier to use it for other purposes.</p>
 <p>For example, you can implement a stateless “reset password” feature without
 having to store any tokens in the database:</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
   <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
     <span class="k">def</span> <span class="nf">verifier_for</span><span class="p">(</span><span class="n">purpose</span><span class="p">)</span>
       <span class="vi">@verifiers</span> <span class="o">||=</span> <span class="p">{}</span>
@@ -394,8 +392,7 @@ having to store any tokens in the database:</p>
     <span class="vi">@reset_password_url</span> <span class="o">=</span> <span class="n">password_reset_url</span><span class="p">(</span><span class="ss">token</span><span class="p">:</span> <span class="vi">@user</span><span class="o">.</span><span class="n">reset_password_token</span><span class="p">)</span>
     <span class="n">mail</span><span class="p">(</span><span class="ss">to</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span> <span class="ss">subject</span><span class="p">:</span> <span class="s2">&quot;Your have requested to reset your password&quot;</span><span class="p">)</span>
   <span class="k">end</span>
-<span class="k">end</span>
-</code></pre></div>
+<span class="k">end</span></code></pre></div>
 
 <p>That way, everything that is required to fufill the password reset request is
 included in the link, nothing need to be stored in the database. This can also
@@ -467,15 +464,15 @@ today. Stop by and say hi if you are in town!</p>
 
         <div class="mailchimp-form text-center">
           <p>
-            Enter your email below and receive more from the BrewPub:
+            Stay up to date with us here at the BrewPub:
           </p>
           <!-- Begin MailChimp Signup Form -->
           <link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
           <div id="mc_embed_signup" class="row">
             <form action="http://brewhouse.us8.list-manage.com/subscribe/post?u=c524f6473f5901cae1230a052&amp;id=14f9de4be1" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 
-              <div class="col-sm-8">
-                <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required style="width: 100%; margin: 0 0 4% 0">
+              <div class="col-sm-offset-1 col-sm-6">
+                <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="your email address" required style="width: 100%; margin: 0 0 4% 0">
               </div>
               <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
               <div style="position: absolute; left: -5000px;">
@@ -483,7 +480,7 @@ today. Stop by and say hi if you are in town!</p>
               </div>
 
               <div class="col-sm-4 subscribe-button">
-                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+                <input type="submit" value="SIGN UP NOW" name="subscribe" id="mc-embedded-subscribe" class="button">
               </div>
             </form>
           </div>
@@ -520,15 +517,23 @@ today. Stop by and say hi if you are in town!</p>
     <footer>
       <div class="container">
         <div class="row">
+          <section class="col-xs-11 col-xs-offset-1">
+            <p class="blog-contact-info">
+              email <a href="mailto:hello@brewhouse.io">hello@brewhouse.io</a>
+              <br>or, give us a call <a class="telephone" href="tel:+16046147784">+1 604-757-4242</a>
+            </p>
+          </section>
+        </div>
+        <div class="row">
           <div class="col-xs-11 col-xs-offset-1">
             <p>
-              &copy; 2014 <a href="http://brewhouse.io">brewhouse software, inc.</a>
+              &copy; <span class="copyright-year"></span> <a href="http://brewhouse.io">brewhouse software, inc.</a>
             </p>
           </div><!--col-xs-12 -->
         </div><!-- row -->
       </div><!-- container -->
     </footer>
 
-    <script src="/assets/app-d2b50542eb2234dffdd5932a70b4af3b.js"></script>
+    <script src="/assets/app-cc3981e2c3b790fd87a89c93a99433de.js"></script>
   </body>
 </html>
