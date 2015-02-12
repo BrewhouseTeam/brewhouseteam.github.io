@@ -531,9 +531,9 @@ you should be able to view the protected page without problems.
 ## Step 6: Tracking the current user and adding a logout button
 
 If you have played with the demo from the last step, you might find the user
-experience  quite confusing – there are no visual indictaions to tell the user
+experience  quite confusing – there are no visual indications to tell the user
 that the login process was sucessful. The "Login" button is also always visible
-on the bottom of the page, even after loggin in, making it impossible for the
+on the bottom of the page, even after logging in, making it impossible for the
 user to infer the state of the system. Ideally, we would like to know if the
 user is already logged in, and display a "Logout" button instead. We will work
 on addressing this next:
@@ -819,7 +819,7 @@ App.ProtectedRoute = Ember.Route.extend({
   model: function() {
     return API.get("protected");
   }
-});  
+});
 {% endhighlight %}
 
 All we need to do here is to check if we have a `session.user`. If not, we can
@@ -884,6 +884,7 @@ App.SecretRoute = Ember.Route.extend({
 <div id="content">{{content}}</div>
 
 <p>{{#link-to "index"}}Go back{{/link-to}}</p>
+{% endraw %}
 {% endhighlight %}
 
 As you can see, this was quite easy to do; we didn't really introduce any new
