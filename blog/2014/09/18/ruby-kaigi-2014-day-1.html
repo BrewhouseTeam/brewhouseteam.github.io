@@ -1,0 +1,478 @@
+
+
+<!-- Nice to see you took a peek here, hello -->
+<!-- send us an email at hello at brewhouse dot io if you want to talk tech -->
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+
+<html lang="en-us" class="blog">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# business: http://ogp.me/ns/business#">
+
+    <title>Ruby Kaigi 2014: Day 1</title>
+    <meta property="og:title" content="Ruby Kaigi 2014: Day 1">
+    <meta property="og:site_name" content="brewhouse">
+    <meta property="og:url" content="http://brewhouse.io/blog/2014/09/18/ruby-kaigi-2014-day-1.html">
+
+    <meta property="og:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png">
+
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:site" content="@brewhouseteam" />
+    <meta property="twitter:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png">
+    <meta property="twitter:url" content="http://brewhouse.io//blog/2014/09/18/ruby-kaigi-2014-day-1.html">
+
+    <link rel="alternate" type="application/atom+xml" href="/blog/index.xml" title="The Brew Pub atom feed">
+
+    
+      <meta property="og:type" content="article">
+      <meta property="article:published_time" content="2014-09-18">
+      <meta property="article:tag" content="Godfrey Chan">
+
+      <meta property="twitter:title" content="Ruby Kaigi 2014: Day 1">
+
+      
+    
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="robots" content="INDEX, FOLLOW">
+
+<link rel="shortcut icon" href="/images/icons/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
+
+<link rel="stylesheet" href="/assets/application-ee85ef52cce627226087eb281a277b8e.css">
+
+  </head>
+  <body class="on-post">
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46725009-2', 'brewhouse.io');
+  ga('send', 'pageview');
+
+</script>
+
+
+    <nav id="navbar-blog" class="navbar navbar-default navbar-main" role="navigation">
+      <a id="brewhouse-logo" class="navbar-brand internal" rel="home" href="/" title="brewhouse logo"><img src="/images/brewhouse-logo-blog-2.png"></a>
+    </nav>
+
+    <div class="container main">
+      <div class="body-border-top">
+</div>
+<div id="banner-blog" class="row">
+  <div class="banner-content">
+    <section class="col-xs-12 col-sm-5">
+      <h1 id="brew-pub-start">
+        <a href="/blog/"><img src="/images/blog-brew-pub-logo.png"></a>
+      </h1>
+      <h3>
+        Writings from <a href="http://brewhouse.io">brewhouse.io</a>, makers of <a href="https://goodbits.io?utm_source=brewhouse-blog">Goodbits</a> and superb apps for our clients.
+      </h3>
+    </section>
+    <section class="col-xs-12 col-sm-4">
+      <p class="blog-contact-info">
+        email <a href="mailto:hello@brewhouse.io">hello@brewhouse.io</a>
+        <br>or, give us a call <a class="telephone" href="tel:+16046147784">+1 604-757-4242</a>
+      </p>
+    </section>
+  </div>
+</div>
+
+
+      
+
+<div id="article-start" class="content">
+  <div class="row">
+    <div class="col-xs-12 col-sm-9">
+
+      <div class="post">
+        <div class="social-actions">
+          <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io/blog/2014/09/18/ruby-kaigi-2014-day-1.html" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="">Tweet</a>
+        </div>
+
+        <h1>
+          Ruby Kaigi 2014: Day 1
+        </h1>
+        <p class="meta">
+          
+            <span>
+              <img class="img-circle img-author" src="//www.gravatar.com/avatar/560f36d69534a1a58d0f12dad39b0396?s=135" alt="A photo of Godfrey Chan" width="55">
+
+              <a href="http://twitter.com/chancancode" target="_blank">Godfrey Chan</a> wrote this on 18 Sep 2014
+            </span>
+          
+        </p>
+
+        <p>
+  <a href="/images/posts/ruby-kaigi-2014/japan.jpg">
+    <img class="img-responsive" alt="I'm in Japan!" src="/images/posts/ruby-kaigi-2014/japan.jpg" />
+  </a>
+</p>
+
+<p>ZOMG! I’m in Japan!</p>
+
+<p>This year, I am fortunate enough to be one of the 750 attendees at Ruby Kaigi in
+Tokyo. If you are among one of them, I’d love to meet you and chat about Ruby,
+Rails, etc. Just look for my name tag!</p>
+
+<p><img class="img-responsive img-right" alt="My name tag" src="/images/posts/ruby-kaigi-2014/name-tag.jpg" /></p>
+
+<p>For those of you who couldn’t make it this year, don’t feel left out! I’ll be
+writing a three-part blog post (one for each day) to cover the things I’ve
+learned here, so you can watch the talks online that interestes you when they
+become available. (You can also watch the <a href="http://rubykaigi.org/2014">live streams</a>!)</p>
+
+<p>Without further ado, here is day 1 at Ruby Kaigi!</p>
+
+<!-- break -->
+
+<h2 id="cool-stuff">Cool Stuff</h2>
+
+<p>
+  <a href="/images/posts/ruby-kaigi-2014/headset.jpg">
+    <img class="img-responsive" alt="Translation headset" src="/images/posts/ruby-kaigi-2014/headset.jpg" />
+  </a>
+</p>
+
+<p>All the talks are real-time translated into English and Japanese via these
+headsets.</p>
+
+<p>
+  <a href="/images/posts/ruby-kaigi-2014/goodies.jpg">
+    <img class="img-responsive" alt="This machine sells the goodies" src="/images/posts/ruby-kaigi-2014/goodies.jpg" />
+  </a>
+</p>
+
+<p>You can purchase some Ruby Kaigi goodies from this veding machine.</p>
+
+<p>
+  <a href="/images/posts/ruby-kaigi-2014/bento-box.jpg">
+    <img class="img-responsive" alt="A bento box!" src="/images/posts/ruby-kaigi-2014/bento-box.jpg" />
+  </a>
+</p>
+
+<p>Bento boxes for lunch!</p>
+
+<p>
+  <a href="/images/posts/ruby-kaigi-2014/ios8.jpg">
+    <img class="img-responsive" alt="iOS 8: The biggest release ever." src="/images/posts/ruby-kaigi-2014/ios8.jpg" />
+  </a>
+</p>
+
+<p>Rule #1 and #2 of Ruby Kaigi – don’t upgrade your iPhone with the conference wifi!</p>
+
+<h2 id="cruby-committers-whos-who-in-2014">CRuby Committers Who’s Who in 2014</h2>
+
+<p>
+  <a href="/images/posts/ruby-kaigi-2014/zzak.jpg">
+    <img class="img-responsive" alt="It's @_zzak!" src="/images/posts/ruby-kaigi-2014/zzak.jpg" />
+  </a>
+</p>
+
+<p><a href="https://twitter.com/nagachika">@nogachika</a>, who is known for his <a href="http://d.hatena.ne.jp/nagachika/searchdiary?word=%2A%5Bchanges%5D">ruby-trunk-changes</a>
+commentary (it’s like <a href="http://rails-weekly.goodbits.io">Rails weekly</a> but for
+Ruby trunk), gave a behind-the-scene view of CRuby development.</p>
+
+<p>There are 84 registered accounts on SVN (including a bot), 50 of which who had
+at least one commit since Ruby Kaigi 2013. @nogachika introduced some of them in
+his talk, including:</p>
+
+<ul>
+  <li><a href="https://twitter.com/yukihiro_matz">@matz</a> who invented Ruby (and
+<a href="https://github.com/mruby/mruby">mruby</a>), whose only commit of the year was to
+<a href="https://github.com/ruby/ruby/commit/ae9bda718da8181d47f379a243e384f892448c50">bump the Ruby version</a>
+(Matz focuses more on the design aspect of Ruby as well as mruby development
+these days).</li>
+  <li><a href="https://twitter.com/koichisasada">@ko1</a> who introduced incremental GC in Ruby 2.2</li>
+  <li><a href="https://twitter.com/nari3">@nari</a> who introduced Symbol GC, which played a key role in Rails’ plan to target 2.2+ exclusively in Rails 5</li>
+  <li><a href="https://twitter.com/tmm1">@tmm1</a> who introduced many performance optimizations, including speeding up <code>Hash#[]</code></li>
+  <li><a href="https://twitter.com/znz">@kazu</a> the typo fixer</li>
+</ul>
+
+<p>Watch the talk online to get to know more of these people who built the language
+we love!</p>
+
+<h2 id="building-the-ruby-interpreter--what-is-easy-and-what-is-difficult">Building the Ruby interpreter – What is easy and what is difficult?</h2>
+
+<p>
+  <a href="/images/posts/ruby-kaigi-2014/ko1.jpg">
+    <img class="img-responsive" alt="@ko1 giving his talk" src="/images/posts/ruby-kaigi-2014/ko1.jpg" />
+  </a>
+</p>
+
+<p><a href="https://twitter.com/koichisasada">@ko1</a> works on Matz’s Ruby team at Heroku.
+Over the years, he has accumulated an impressive list of contributions to the
+Ruby language/implementation, including native thread locking, fibers, the new
+method cache, flonum, RGenGC and incremental GC in Ruby 2.2 (more about it in
+vol 0048 of the <a href="http://magazine.rubyist.net/">Rubyist Magazine</a> and his talk
+at the upcoming <a href="http://rubyconf.org/">RubyConf 2014</a>).</p>
+
+<h3 id="tradeoffs">Tradeoffs</h3>
+
+<p>The overarching theme of his talk is about making tradeoffs. Like many things in
+life, most decisions we make as programmers are tradeoffs that affects multiple
+intertwined goals that are often in conflict with each other. As engineers, it
+is our job to understand about these tradeoffs, carefully consider the factors
+in-play and overcome these challenges.</p>
+
+<h3 id="parallel-execution">Parallel Execution</h3>
+
+<p>One of the specific example @ko1 talked about is the problem of supporting
+parallel execution in Ruby.</p>
+
+<p>Simply providing parallel threads (i.e. getting rid of the GVL) to enable
+parallel execution is actually a relatively easy task. The difficulties here is
+to maintain good programming experience, good serial execution performance (due
+to increased synchronization) and CRuby source code quality/maintainability.</p>
+
+<p>Running multiple threads in parallel under the typical “share everything”
+programming model often results in subtle bugs that falls under the following
+categories: race conditions, atomicity violation and order violation. Making
+matters worse, the non-deterministic nature of parallel execution make these bugs
+very difficult to reproduce. All of these problems contribute negatively to the
+“programmer happiness”, which is a very important cornerstone of the Ruby
+language.</p>
+
+<p>
+  <a href="/images/posts/ruby-kaigi-2014/thread-wizards.jpg">
+    <img class="img-responsive" alt="Wizards use threads" src="/images/posts/ruby-kaigi-2014/thread-wizards.jpg" />
+  </a>
+</p>
+
+<p>@ko1 believes that the tradeoff here is not unlike other problems we faced in
+the past, such as the safety/performance tradeoff of garbage collection vs
+manual memory management. In this case, parallel threads is like manual memory
+management – while it’s highly performant and flexible, it’s also extremely
+error-prone and very difficult to reason about. He believes that Ruby’s job is
+to provide an alternative programming model for parallel execution that is safe
+and programmer-friendly, as well as good debugging tools. Ultimately these will
+be preferred over utilizing threads directly for most applications, just like
+how garbage collection is now preferred by many programmers.</p>
+
+<p>He then briefly introduced a few ideas for implementing such models in Ruby and
+some academic research on making parallel execution deterministic.</p>
+
+<h3 id="gc-benchmarking-community-and-more">GC, Benchmarking, Community and more!</h3>
+
+<p>In the rest of his talk, @ko1 did a similar analysis on other topics such as
+Ruby garbage collection, making measurements and becoming a CRuby committer. If
+those topics interests you, be sure to check out this talk!</p>
+
+<h2 id="symbol-gc">Symbol GC</h2>
+
+<p>
+  <a href="/images/posts/ruby-kaigi-2014/symbols.jpg">
+    <img class="img-responsive" alt="@nari talking about symbol GC" src="/images/posts/ruby-kaigi-2014/symbols.jpg" />
+  </a>
+</p>
+
+<p><a href="https://twitter.com/nari3">@nari</a> is a CRuby committer from NaCl. He gave an
+overview of the “Symbol GC” feature he implemented for Ruby 2.2.</p>
+
+<p>As I mentioned earlier, this is one of the key drivers for the Rails team to
+target Ruby 2.2 in Rails 5. A common misconception about this feature is to
+think that all symbols will be GC-ed so we don’t have to worry about it anymore.
+As @nari shows us in this talk, it turns out this is not entirely correct.</p>
+
+<p>To understand this, we first have to understand the problems associated with
+using symbols in CRuby 2.1 and below. Currently, once a symbol is allocated,
+they are associated with a fixed numeric ID internally, and are never garbage
+collected. This includes symbol literals (<code>:a_literal</code> in Ruby code), dynamic
+symbols created in Ruby land (e.g. <code>"a string".to_sym</code>) and other side-effects
+(e.g. defining a method “foo” allocates a symbol <code>:foo</code> for use in the methods
+table).</p>
+
+<p>The pitfall associated with this approach is that over the execution time of
+your program, you could accumulate many symbols that you no longer need, thus
+leaking memory. This is particularly problematic for programs that have a long
+lifetime and handles a lot of user inputs, as it has the potential to be
+exploited by malicious users and cause DOS attacks.</p>
+
+<p>Web applications written in Ruby (e.g. Rails applications) happens to fit this
+description perfectly. For example, the following piece of pseudo-code is bad:</p>
+
+<p><code>
+value = store.fetch(params[:key].to_sym)
+</code></p>
+
+<p>As you can see, a user supplied string is being converted into a symbol (a
+dynamic symbol allocation). This is problematic, because an attack could send
+a bunch of different strings under this parameter and eventually cause the
+server to crash when it runs out of memory. In fact, this has been a common
+source of security issue in Rails (e.g. CVE-2012-3424), which explains the
+desire to require Ruby 2.2 in Rails 5.</p>
+
+<p>Currently, symbols cannot be GC’ed because they need to maintain the same ID
+for the C code that depends on it (for example, if the corresponding symbol has
+been GC’ed as the C code looks it up via <code>ID2SYM</code>, then things would break).</p>
+
+<p>To solve this problem, symbols are now classified into two categories – immortal
+symbols and mortal symbols. As the name implies, immortal symbols are not
+garbage collected by the runtime and have a stable ID, so baiscally how symbols
+work today. Mortal symbols, on the other hand, can be garbage collected by the
+runtime just like any other objects. They don’t have an ID, so they are usually
+only useful in Ruby-land.</p>
+
+<p>As it becomes necessary, mortal symbols will be “pinned-down” by the runtime and
+becomes immortal symbols. Because they are marked as “uncollectable”, their
+memory address becomes their IDs and hence they can be used in C code. For
+example, consider this piece of code:</p>
+
+<p><code>
+define_method(method_name.to_sym) { ... }
+</code></p>
+
+<p>Here, the runtime first allocates a mortal symbol (from <code>method_name.to_sym</code>)
+that can be garbage collected. As it is passed into <code>define_method</code>, however,
+the runtime would convert it into a immortal symbol so that it could be used in
+the methods table. Once this happens, the symbol can no longer be garbage
+collected – it is impossible to convert an immortal symbol back into a mortal
+symbol. Also, if an immortal symbol with the same name has previously been
+allocated from a different place, the same symbol will be reused here instead.</p>
+
+<p>While this approach eliminates a entire class of potential bugs, it also
+introduces some new pitfalls. In particular, if a dynamic symbol (mortal by
+default) is converted into an immortal symbol, your program will suffer from the
+same vulnerability as before.</p>
+
+<p>Therefore, as application programmers, we still need to be mindful of when a
+dynamic symbol might be converted into an immortal symbol. While you probably
+aren’t defining dynamic methods based on user inputs (if you are, you might
+have bigger problems to worry about!), it is possible that passing a dynamic
+symbol into a C function might cause it to become immortalized (e.g. when the C
+code calls <code>SYM2ID</code> on it). While most of the CRuby C code has been refactored
+to avoid this landmine, it is still a common problem in third-party extensions.
+@nari noted that our ecosystem is still undergoing a transition period, and
+things would get better overtime (Rails 5 is probably going to help accelerate
+that as well).</p>
+
+<p>I highly recommend that you watch this talk, especially if you maintain a gem
+and/or C-extension.</p>
+
+<h2 id="transactional-memory-and-ruby">Transactional Memory and Ruby</h2>
+
+<p><a href="https://twitter.com/ReiOdaira">@ReiOdaira</a> and <a href="https://twitter.com/brucehsu">@brucehsu</a>
+did two different talks on how transactional memory can benefit the Ruby
+language.</p>
+
+<p>Transactional memory is similar to how a database transaction works. It allows
+the programmer to place a block of code inside a memory transaction, during
+which all memory operations will be perceived as a single atomic operation from
+other threads (or fails and the operations are rolledback and aren’t observable
+from outside of the thread that requested the transaction).</p>
+
+<p>@ReiOdaira’s talk focuses on his research at IBM that utilize hardware-based
+transactional memory to reduce Ruby’s dependency on the global VM lock (GVL)
+thus improving the degree of achievable parallization.</p>
+
+<p>@brucehsu’s talk focuses on software-based transactional memory techniques, and
+showed the world how it could be done by writing a new Ruby VM in Go, aptly
+called <a href="https://github.com/brucehsu/GobiesVM">Gobies</a>.</p>
+
+<p>If you are interested in how these cutting edge technologies can be used in
+Ruby, these talks are for you!</p>
+
+<h2 id="wrapping-up">Wrapping Up</h2>
+
+<p>That about wraps up my notes for Day 1 of Ruby Kaigi 2014. Of course, there are
+many other talks that are equally interesting. However, it’s already 3AM here in
+Japan and I should probably get some rest ;) I encourage you to check out the
+<a href="http://rubykaigi.org/2014/schedule">conference schedule</a> for a full list of
+talks.</p>
+
+<p>Stay tuned for part 2 &amp; 3!</p>
+
+
+        <div class="mailchimp-form text-center">
+          <p>
+            Stay up to date with us here at the BrewPub:
+          </p>
+          <!-- Begin MailChimp Signup Form -->
+          <link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+          <div id="mc_embed_signup" class="row">
+            <form action="http://brewhouse.us8.list-manage.com/subscribe/post?u=c524f6473f5901cae1230a052&amp;id=14f9de4be1" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+
+              <div class="col-sm-offset-1 col-sm-6">
+                <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="your email address" required style="width: 100%; margin: 0 0 4% 0">
+              </div>
+              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+              <div style="position: absolute; left: -5000px;">
+                <input type="text" name="b_c524f6473f5901cae1230a052_14f9de4be1" value="">
+              </div>
+
+              <div class="col-sm-4 subscribe-button">
+                <input type="submit" value="SIGN UP NOW" name="subscribe" id="mc-embedded-subscribe" class="button">
+              </div>
+            </form>
+          </div>
+          <!--End mc_embed_signup-->
+        </div>
+
+        <div id="disqus_thread"></div>
+
+        <!-- disqus -->
+        <script type="text/javascript">
+            var disqus_shortname = 'brewhouse';
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        <!-- /disqus -->
+
+      </div><!-- /post -->
+
+    </div>
+  </div><!-- /row -->
+</div><!-- /content-->
+
+<script>
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+</script>
+
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <section class="col-xs-11 col-xs-offset-1">
+            <p class="blog-contact-info">
+              email <a href="mailto:hello@brewhouse.io">hello@brewhouse.io</a>
+              <br>or, give us a call <a class="telephone" href="tel:+16046147784">+1 604-757-4242</a>
+            </p>
+          </section>
+        </div>
+        <div class="row">
+          <div class="col-xs-11 col-xs-offset-1">
+            <p>
+              &copy; <span class="copyright-year"></span> <a href="http://brewhouse.io">brewhouse software, inc.</a>
+            </p>
+          </div><!--col-xs-12 -->
+        </div><!-- row -->
+      </div><!-- container -->
+    </footer>
+
+    <script src="/assets/app-cc3981e2c3b790fd87a89c93a99433de.js"></script>
+  </body>
+</html>
