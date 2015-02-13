@@ -3,7 +3,7 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2015-02-12T13:44:59-08:00</updated>
+    <updated>2015-02-12T17:01:25-08:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
@@ -32,7 +32,7 @@ and &lt;a href=&quot;http://emberjs.com/&quot;&gt;Ember.js&lt;/a&gt;, so in this
 you would achieve the same thing with Ember.js.&lt;/p&gt;
 
 &lt;p&gt;It is worth mentioning that there are plenty of &lt;a href=&quot;https://github.com/simplabs/ember-simple-auth&quot;&gt;plugins&lt;/a&gt;
-and &lt;a href=&quot;www.embercasts.com/episodes/client-side-authentication-part-1&quot;&gt;tutorials&lt;/a&gt;
+and &lt;a href=&quot;http://www.embercasts.com/episodes/client-side-authentication-part-1&quot;&gt;tutorials&lt;/a&gt;
 on the same topic in the Ember world. However, for comparison’s sake, let’s
 build this example from scratch.&lt;/p&gt;
 
