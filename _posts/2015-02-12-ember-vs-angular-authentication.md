@@ -24,7 +24,7 @@ and [Ember.js](http://emberjs.com/), so in this blog post, we will look at how
 you would achieve the same thing with Ember.js.
 
 It is worth mentioning that there are plenty of [plugins](https://github.com/simplabs/ember-simple-auth)
-and [tutorials](www.embercasts.com/episodes/client-side-authentication-part-1)
+and [tutorials](http://www.embercasts.com/episodes/client-side-authentication-part-1)
 on the same topic in the Ember world. However, for comparison's sake, let's
 build this example from scratch.
 
