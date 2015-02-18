@@ -3,7 +3,7 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2015-02-12T17:01:25-08:00</updated>
+    <updated>2015-02-18T15:25:36-08:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
@@ -39,6 +39,8 @@ build this example from scratch.&lt;/p&gt;
 &lt;!-- break --&gt;
 
 &lt;h2 id=&quot;the-task&quot;&gt;The task&lt;/h2&gt;
+
+&lt;p&gt;&lt;a class=&quot;jsbin-embed&quot; href=&quot;http://jsbin.com/cisufu/embed?output&quot;&gt;JS Bin&lt;/a&gt;&lt;script src=&quot;http://static.jsbin.com/js/embed.js&quot;&gt;&lt;/script&gt;&lt;/p&gt;
 
 &lt;p&gt;Similar to Gabe’s example, we will be building a single page app that hosts a
 mix of public and protected content. When the user tries to access a protected
