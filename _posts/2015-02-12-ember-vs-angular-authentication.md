@@ -32,6 +32,8 @@ build this example from scratch.
 
 ## The task
 
+<a class="jsbin-embed" href="http://jsbin.com/cisufu/embed?output">JS Bin</a><script src="http://static.jsbin.com/js/embed.js"></script>
+
 Similar to Gabe's example, we will be building a single page app that hosts a
 mix of public and protected content. When the user tries to access a protected
 page, the app should present a login screen. Just like the Angular counterpart,
