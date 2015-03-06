@@ -5,7 +5,7 @@ description: "Writings from brewhouse.io, the makers of goodbits.io"
 
 name: brewhouse
 markdown: kramdown
-pygments: true
+highlighter: pygments
 
 paginate: 8
 paginate_path: "/blog/page/:num"

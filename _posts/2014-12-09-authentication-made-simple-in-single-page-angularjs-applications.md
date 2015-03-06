@@ -246,3 +246,9 @@ As per a few requests, here is what a simple `views/loginModalTemplate.html` mig
   <button ng-click="LoginModalCtrl.cancel()">Cancel</button>
 </div>
 {% endhighlight %}
+
+#### Edit: Feburary 12, 2015
+
+Godfrey did a write-up about [implemented the same thing using Ember.js](http://brewhouse.io/blog/2015/02/12/ember-vs-angular-authentication)
+to help compare the two frameworks. If you enjoyed this blog post, you might
+like that too!

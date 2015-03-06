@@ -65,4 +65,6 @@
 .highlight .il { color: #de935f } /* Literal.Number.Integer.Long */
 
 /* Custom Additions */
-.highlight .erb { color: #ffffff }
+.highlight .language-html-handlebars,
+.highlight .language-erb,
+.highlight .x { color: #c5c8c6 }
