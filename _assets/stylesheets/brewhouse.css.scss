@@ -128,7 +128,6 @@ hr {
   border-top: 2px solid #333;
 }
 
-
 .navbar-main {
   background: #fff;
   border: 0;
@@ -193,21 +192,21 @@ hr {
   }
   .logo-container {
     @media (max-width: 767px) {
-      margin: 0 auto;
-      width: 200px;
+      margin: 7px 25px;
+      width: 150px;
     }
   }
 }
 
-#navbar-main {
+.navbar-main {
   -webkit-transition: background 0.15s ease-in;
   -moz-transition: background 0.15s ease-in;
   transition: background 0.15s ease-in;
 }
 
-#navbar-main.sticky {
+.navbar-main.sticky {
   background: #47A4C2;
-  background: rgba(71, 164, 194, 0.95);
+  background: rgba(71, 164, 194, 0.98);
   left: 0;
   position: fixed;
   top: 0;
@@ -292,7 +291,6 @@ div.main {
     margin: 0 auto;
     padding: 9px 5px 6px;
     position: relative;
-    // width: 100%;
 
     a {
       color: #F8DCC9;
@@ -302,6 +300,11 @@ div.main {
       }
     }
 
+    @media (max-width: 768px) {
+      font-size: 18px;
+      height: auto;
+      padding: 9px 15px 6px;
+    }
     @media (min-width: 768px) {
       font-size: 23px;
       padding-top: 17px;
@@ -399,7 +402,7 @@ img.team-photo {
   width: 80%;
 
   @media (max-width: 500px) {
-    margin: 45px auto 35px auto;
+    margin: 65px auto 55px auto;
   }
 }
 
@@ -545,6 +548,11 @@ img.team-photo {
 
     img#blacktusk-logo {
       height: 42px;
+    }
+
+    @media (max-width: 767px) {
+      height: auto;
+      margin-bottom: 10px;
     }
   }
 }
