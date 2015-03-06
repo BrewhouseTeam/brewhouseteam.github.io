@@ -129,6 +129,10 @@ hr {
 }
 
 .navbar-main {
+  -webkit-transition: background 0.15s ease-in;
+  -moz-transition: background 0.15s ease-in;
+  transition: background 0.15s ease-in;
+
   background: #fff;
   border: 0;
   border-radius: 0;
@@ -168,7 +172,7 @@ hr {
       border-radius: 0;
       color: #888;
       line-height: 9px;
-      padding: 27px 22px 24px;
+      padding: 27px 18px 24px;
     }
 
     .highlight-link {
@@ -192,21 +196,18 @@ hr {
   }
   .logo-container {
     @media (max-width: 767px) {
-      margin: 7px 25px;
+      margin: 7px 30px;
       width: 150px;
     }
   }
 }
-
-.navbar-main {
-  -webkit-transition: background 0.15s ease-in;
-  -moz-transition: background 0.15s ease-in;
-  transition: background 0.15s ease-in;
+.navbar-main .navbar-toggle-offcanvas {
+  opacity: 0;
 }
-
 .navbar-main.sticky {
   background: #47A4C2;
   background: rgba(71, 164, 194, 0.98);
+  box-shadow: 0 0 3px rgba(30, 40, 60, 0.4);
   left: 0;
   position: fixed;
   top: 0;
@@ -231,6 +232,14 @@ hr {
       }
     }
   }
+}
+.navbar-main.sticky .navbar-toggle-offcanvas {
+  opacity: 0.8;
+}
+.navbar-main.sticky .navbar-toggle-offcanvas:hover,
+.navbar-main.sticky .navbar-toggle-offcanvas:focus,
+.navbar-main.sticky .navbar-toggle-offcanvas:active {
+  opacity: 1;
 }
 
 // Bootstrap Overrides:
