@@ -67,4 +67,6 @@
 /* Custom Additions */
 .highlight .language-html-handlebars,
 .highlight .language-erb,
-.highlight .x { color: #c5c8c6 }
+.highlight .language-text,
+.highlight .x,
+ { color: #c5c8c6 }
