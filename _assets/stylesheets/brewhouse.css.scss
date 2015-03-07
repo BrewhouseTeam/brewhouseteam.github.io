@@ -648,6 +648,7 @@ img.team-photo {
   position: fixed;
   top: 2px;
   width: 55px;
+  box-shadow: none;
 
   @media (max-width: 767px) {
     display: none;
