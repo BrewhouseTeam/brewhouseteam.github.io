@@ -24,6 +24,8 @@ Video is live!
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/PXB93Z8azZE?list=PLE7tQUdRKcyacwiUPs0CjPYt6tJub4xXU" frameborder="0" allowfullscreen></iframe>
 
+<!-- break -->
+
 * * *
 
 ## Real-world Adapters
