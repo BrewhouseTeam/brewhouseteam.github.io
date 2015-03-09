@@ -12,13 +12,17 @@ tags:
 - single page application
 ---
 
-If you couldn't wait for the video to be uploaded, here is a write-up of the
+<del>If you couldn't wait for the video to be uploaded,</del> here is a write-up of the
 talk I gave at [EmberConf 2015](http://emberconf.com/) earlier this week, sans
 the jokes. You can find the slides [here](https://speakerdeck.com/chancancode/hijacking-hacker-news-with-ember-dot-js).
 For those at the conference, [the last section](#the-possibilities) has a little
 bit of new content that I couldn't fit into original presentation.
 
-This post will be updated with a link to the video when it is available.
+<del>This post will be updated with a link to the video when it is available.</del>
+
+Video is live!
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PXB93Z8azZE?list=PLE7tQUdRKcyacwiUPs0CjPYt6tJub4xXU" frameborder="0" allowfullscreen></iframe>
 
 * * *
 
