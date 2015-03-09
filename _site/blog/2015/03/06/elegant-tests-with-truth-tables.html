@@ -13,26 +13,26 @@
 <html lang="en-us" class="blog">
   <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# business: http://ogp.me/ns/business#">
 
-    <title>Ember vs Angular: Authentication Example</title>
-    <meta property="og:title" content="Ember vs Angular: Authentication Example">
+    <title>Elegant tests with Truth Tables</title>
+    <meta property="og:title" content="Elegant tests with Truth Tables">
     <meta property="og:site_name" content="brewhouse">
-    <meta property="og:url" content="http://brewhouse.io/blog/2015/02/12/ember-vs-angular-authentication.html">
+    <meta property="og:url" content="http://brewhouse.io/blog/2015/03/06/elegant-tests-with-truth-tables.html">
 
     <meta property="og:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png">
 
     <meta property="twitter:card" content="summary" />
     <meta property="twitter:site" content="@brewhouseteam" />
     <meta property="twitter:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png">
-    <meta property="twitter:url" content="http://brewhouse.io/blog/2015/02/12/ember-vs-angular-authentication.html">
+    <meta property="twitter:url" content="http://brewhouse.io/blog/2015/03/06/elegant-tests-with-truth-tables.html">
 
     <link rel="alternate" type="application/atom+xml" href="/blog/index.xml" title="The Brew Pub atom feed">
 
     
       <meta property="og:type" content="article">
-      <meta property="article:published_time" content="2015-02-12">
-      <meta property="article:tag" content="Godfrey Chan">
+      <meta property="article:published_time" content="2015-03-06">
+      <meta property="article:tag" content="Philippe Creux">
 
-      <meta property="twitter:title" content="Ember vs Angular: Authentication Example">
+      <meta property="twitter:title" content="Elegant tests with Truth Tables">
 
       
     
@@ -105,18 +105,18 @@
 
       <div class="post">
         <div class="social-actions">
-          <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io/blog/2015/02/12/ember-vs-angular-authentication.html" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="">Tweet</a>
+          <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io/blog/2015/03/06/elegant-tests-with-truth-tables.html" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="">Tweet</a>
         </div>
 
         <h1>
-          Ember vs Angular: Authentication Example
+          Elegant tests with Truth Tables
         </h1>
         <p class="meta">
           
             <span>
-              <img class="img-circle img-author" src="//www.gravatar.com/avatar/560f36d69534a1a58d0f12dad39b0396?s=135" alt="A photo of Godfrey Chan" width="55">
+              <img class="img-circle img-author" src="//www.gravatar.com/avatar/cf8db14764d6420698b0ed9c9ed1ba93?s=135" alt="A photo of Philippe Creux" width="55">
 
-              <a href="http://twitter.com/chancancode" target="_blank">Godfrey Chan</a> wrote this on 12 Feb 2015
+              <a href="http://twitter.com/pcreux" target="_blank">Philippe Creux</a> wrote this on 06 Mar 2015
             </span>
           
         </p>
@@ -133,15 +133,13 @@ and <a href="http://emberjs.com/">Ember.js</a>, so in this blog post, we will lo
 you would achieve the same thing with Ember.js.</p>
 
 <p>It is worth mentioning that there are plenty of <a href="https://github.com/simplabs/ember-simple-auth">plugins</a>
-and <a href="http://www.embercasts.com/episodes/client-side-authentication-part-1">tutorials</a>
+and <a href="www.embercasts.com/episodes/client-side-authentication-part-1">tutorials</a>
 on the same topic in the Ember world. However, for comparison’s sake, let’s
 build this example from scratch.</p>
 
 <!-- break -->
 
 <h2 id="the-task">The task</h2>
-
-<p><a class="jsbin-embed" href="http://jsbin.com/cisufu/embed?output">JS Bin</a><script src="http://static.jsbin.com/js/embed.js"></script></p>
 
 <p>Similar to Gabe’s example, we will be building a single page app that hosts a
 mix of public and protected content. When the user tries to access a protected
@@ -596,8 +594,8 @@ you should be able to view the protected page without problems.</p>
 <h2 id="step-6-tracking-the-current-user-and-adding-a-logout-button">Step 6: Tracking the current user and adding a logout button</h2>
 
 <p>If you have played with the demo from the last step, you might find the user
-experience quite confusing – there are no visual indicatiors to tell the user
-that the login process was successful. The “Login” button is also always visible
+experience  quite confusing – there are no visual indications to tell the user
+that the login process was sucessful. The “Login” button is also always visible
 on the bottom of the page, even after logging in, making it impossible for the
 user to infer the state of the system. Ideally, we would like to know if the
 user is already logged in, and display a “Logout” button instead. We will work
@@ -1002,7 +1000,9 @@ the login route is entered:</p>
   <span class="p">},</span>
 
   <span class="c1">// ...</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span>
+
+<span class="c1">// ...</span></code></pre></div>
 
 <p>With that, our job is finally done!</p>
 
@@ -1032,18 +1032,14 @@ router and how it helps you to build your applications “flow” with minimal
 effort – we are barely scratching the surface here.</p>
 
 <p>Ember.js <em>Promises</em> to make writing <em>ambitious</em> client-side applications easy.
-<em>Ambitious</em> is the key here – if you are just looking for a quick widgets
-libraries or something to help build a mini app, you might find that there are,
-by comparison, more concepts and patterns to learn. But once you get past the
-learning… <em>cliff</em>, you can be <em>really</em> productive in Ember! (Be sure to check
-out how <a href="https://github.com/BrewhouseTeam/ember-auth-example">Ember CLI helps you tie these pieces together, too</a>!)</p>
+As a result, there are, by comparison, more concepts and patterns to learn, so
+it might not be for everyone. But once you get past the learning… <em>cliff</em>, you
+can be <em>really</em> productive!</p>
 
 <h3 id="hire-us">Hire Us!</h3>
 
 <p>Interested in Ember.js training? Need help building your next <em>ambitious</em> web
 application? <a href="http://brewhouse.io/#hire-us">Get in touch</a>!</p>
-
-<p>P.S. If you are in Vancouver, join us at our regular <a href="http://meetup.com/Vancouver-Ember-js/">Ember meetups</a>!</p>
 
 
         <div class="mailchimp-form text-center">
@@ -1076,7 +1072,7 @@ application? <a href="http://brewhouse.io/#hire-us">Get in touch</a>!</p>
         <!-- disqus -->
         <script type="text/javascript">
             var disqus_shortname = 'brewhouse';
-            var disqus_url = 'http://brewhouse.io/blog/2015/02/12/ember-vs-angular-authentication.html';
+            var disqus_url = 'http://brewhouse.io/blog/2015/03/06/elegant-tests-with-truth-tables.html';
 
             (function() {
                 var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
