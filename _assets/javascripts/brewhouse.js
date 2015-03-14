@@ -49,7 +49,7 @@ jQuery(function($) {
 
     $rootNode.animate({
       scrollTop: $(href).offset().top
-    }, 2500, 'easeInOutExpo', addHrefToHash);
+    }, 1500, 'easeInOutCirc', addHrefToHash);
 
     return false;
   });

@@ -1,4 +1,4 @@
-{% include doctypes.html %}
+{% include _doctypes.html %}
 <html lang="en-us">
   <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# business: http://ogp.me/ns/business#">
     <title>Brewhouse - Vancouver's leading Rails web development agency</title>
@@ -29,7 +29,7 @@
     <meta property="twitter:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png">
     <meta property="twitter:url" content="http://brewhouse.io">
 
-    {% include shared_head.html %}
+    {% include _shared_head.html %}
   </head>
   <body>
     <aside class="offcanvas-menu">
@@ -44,7 +44,7 @@
     </aside>
 
     <div class="container-fluid main landing">
-      {% include header_and_logo.html %}
+      {% include _header_and_logo.html %}
 
       {{ content }}
 
@@ -82,6 +82,6 @@
     </div>
 
     {% javascript app %}
-    {% include ga.html %}
+    {% include _ga.html %}
   </body>
 </html>

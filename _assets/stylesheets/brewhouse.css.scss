@@ -18,14 +18,14 @@ html.blog {
 }
 body {
   color: #444;
-  font-size: 15px;
+  font-size: 17px;
   font-family: 'bh_proxima', sans-serif;
   line-height: 1.5em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
   @media (max-width: 782px) {
-    font-size: 14px;
+    font-size: 15px;
   }
 }
 .body-border-top {
@@ -119,14 +119,23 @@ h3.header-small {
 h4 {
   color: #444;
   font-size: 22px;
+  line-height: 1.5;
   display: block;
+
+  @media (max-width: 767px) {
+    font-size: 17px;
+  }
 }
 
 hr {
   margin-top: 20px;
   margin-bottom: 20px;
   border: 0;
-  border-top: 2px solid #333;
+  border-top: 2px solid #98D0E2;
+}
+hr.hr--extra-push {
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 .light {
   border-color: #eee;
@@ -380,24 +389,8 @@ div.main {
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
-.learn-more.button {
-  color: #32BFDA;
-  border: 1px solid #32BFDA;
-  padding: 10px 20px;
-  text-align: center;
-  width: 50%;
 
-  &:hover {
-    -webkit-transition: all 0.15s ease-in-out;
-    -moz-transition: all 0.15s ease-in-out;
-    transition: all 0.15s ease-in-out;
-
-    color: #F39914;
-  }
-}
-
-//time-lapse
-
+// time-lapse
 .team-video {
   @media (max-width: 750px) {
     display: none;
@@ -413,6 +406,14 @@ img.team-photo {
 .content {
   margin: 100px auto;
   width: 80%;
+
+  @media (max-width: 500px) {
+    margin: 65px auto 55px auto;
+  }
+}
+.content--extra-push {
+  margin-bottom: 100px;
+  margin-top: 300px;
 
   @media (max-width: 500px) {
     margin: 65px auto 55px auto;
@@ -455,21 +456,26 @@ img.team-photo {
 
 #team {
   .team-member {
-    margin: 20px 0 30px;
+    margin: 20px -15px 30px;
   }
   .team-member-name {
     display: block;
-    font-size: 18px;
+    font-size: 23px;
     margin: 10px auto 15px;
-    color: #555;
+    color: #41330C;
 
     @media (max-width: 782px) {
-      font-size: 16px;
+      font-size: 18px;
     }
   }
   .team-member-name small {
     color: #b0b0b0;
     display: block;
+    font-size: 17px;
+
+    @media (max-width: 782px) {
+      font-size: 15px;
+    }
   }
   .social-buttons {
     display: inline;
@@ -655,6 +661,7 @@ img.team-photo {
   position: fixed;
   top: 2px;
   width: 55px;
+  box-shadow: none;
 
   @media (max-width: 767px) {
     display: none;
@@ -958,7 +965,7 @@ footer {
   font-family: 'bh_proxima', sans-serif;
   font-size: 18px;
   font-weight: bold;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.02em;
   padding: 15px 22px 14px;
   text-align: center;
   text-decoration: none;
@@ -970,6 +977,11 @@ footer {
   &:active {
     background-color: darken(#47A4C2, 9%);
     color: #fff;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 16px;
+    padding: 10px 15px 9px;
   }
 }
 
@@ -995,6 +1007,13 @@ footer {
 }
 .callout-info h4 {
   color: #1B809E;
+}
+
+.text-red {
+  color: #C20202;
+}
+.text-orange {
+  color: #FB8B41;
 }
 
 // Responsive Text Alignment

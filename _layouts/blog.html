@@ -1,6 +1,6 @@
 {% capture on_post %}{% if page.path contains '_posts' %}on-post{% else %}on-blog{% endif %}{% endcapture %}
 
-{% include doctypes.html %}
+{% include _doctypes.html %}
 <html lang="en-us" class="blog">
   <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# business: http://ogp.me/ns/business#">
 
@@ -40,17 +40,17 @@
       <meta name="description" content="{{ site.description }}">
     {% endif %}
 
-    {% include shared_head.html %}
+    {% include _shared_head.html %}
   </head>
   <body class="{{ on_post }}">
-    {% include ga.html %}
+    {% include _ga.html %}
 
     <nav id="navbar-blog" class="navbar navbar-default navbar-main" role="navigation">
       <a id="brewhouse-logo" class="navbar-brand internal" rel="home" href="/" title="brewhouse logo"><img src="/images/brewhouse-logo-blog-2.png"></a>
     </nav>
 
     <div class="container main">
-      {% include header_and_logo_blog.html %}
+      {% include _header_and_logo_blog.html %}
 
       {{ content }}
     </div>
