@@ -17,12 +17,13 @@ html.blog {
   }
 }
 body {
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: grayscale;
+
   color: #444;
   font-size: 17px;
   font-family: 'bh_proxima', sans-serif;
   line-height: 1.5em;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 
   @media (max-width: 782px) {
     font-size: 15px;
@@ -413,10 +414,10 @@ img.team-photo {
 }
 .content--extra-push {
   margin-bottom: 100px;
-  margin-top: 300px;
+  margin-top: 250px;
 
   @media (max-width: 500px) {
-    margin: 65px auto 55px auto;
+    margin: 85px auto 45px auto;
   }
 }
 
@@ -906,7 +907,7 @@ footer {
   padding: 40px 0 80px;
 
   a {
-    color: #bbb;
+    color: #999;
   }
   p.copyright  {
     font-size: 13px;
@@ -915,7 +916,6 @@ footer {
   }
   nav a {
     font-family: 'bh_proxima', sans-serif;
-    font-weight: 700;
     font-size: 17px;
     text-transform: uppercase;
   }
@@ -938,14 +938,16 @@ footer {
 }
 .form-group-lg .form-control--brew,
 .form-control--brew {
-  border-radius: 0;
+  border-radius: 3px;
 }
 .form-control--brew-textarea {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 18px;
 }
 .form-label--brewhouse {
+  -webkit-font-smoothing: auto;
   font-family: 'bh_proxima', sans-serif;
+  font-weight: normal;
 }
 .form-control:focus {
   border-color: #ff6813;
@@ -954,6 +956,7 @@ footer {
           box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(255, 140, 30, .6);
 }
 .btn--blue {
+  -webkit-font-smoothing: auto;
   transition: all 0.2s linear;
 
   background-color: #47A4C2;
@@ -964,7 +967,6 @@ footer {
   display: inline-block;
   font-family: 'bh_proxima', sans-serif;
   font-size: 18px;
-  font-weight: bold;
   letter-spacing: 0.02em;
   padding: 15px 22px 14px;
   text-align: center;
@@ -1039,4 +1041,269 @@ footer {
  .text-lg-right { text-align: right; }
  .text-lg-center { text-align: center; }
  .text-lg-justify { text-align: justify; }
+}
+
+
+
+
+/*
+*   CSS file with Bootstrap grid classes for screens bigger than 1600px. Just add this file after the Bootstrap CSS file and you will be able to juse col-xl, col-xl-push, hidden-xl, etc.
+*
+*   Author: Marc van Nieuwenhuijzen
+*   Company: WebVakman
+*   Site: WebVakman.nl
+*
+*/
+
+.visible-xl-block,
+.visible-xl-inline,
+.visible-xl-inline-block,
+.visible-xl{
+  display: none !important;
+}
+
+@media (min-width: 1600px) {
+  .container {
+      width: 1570px;
+  }
+
+  .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12 {
+      float: left;
+  }
+
+  .col-xl-12 {
+      width: 100%;
+  }
+
+  .col-xl-11 {
+      width: 91.66666667%;
+  }
+
+  .col-xl-10 {
+      width: 83.33333333%;
+  }
+
+  .col-xl-9 {
+      width: 75%;
+  }
+
+  .col-xl-8 {
+      width: 66.66666667%;
+  }
+
+  .col-xl-7 {
+      width: 58.33333333%;
+  }
+
+  .col-xl-6 {
+      width: 50%;
+  }
+
+  .col-xl-5 {
+      width: 41.66666667%;
+  }
+
+  .col-xl-4 {
+      width: 33.33333333%;
+  }
+
+  .col-xl-3 {
+      width: 25%;
+  }
+
+  .col-xl-2 {
+      width: 16.66666667%;
+  }
+
+  .col-xl-1 {
+      width: 8.33333333%;
+  }
+
+  .col-xl-pull-12 {
+      right: 100%;
+  }
+
+  .col-xl-pull-11 {
+      right: 91.66666667%;
+  }
+
+  .col-xl-pull-10 {
+      right: 83.33333333%;
+  }
+
+  .col-xl-pull-9 {
+      right: 75%;
+  }
+
+  .col-xl-pull-8 {
+      right: 66.66666667%;
+  }
+
+  .col-xl-pull-7 {
+      right: 58.33333333%;
+  }
+
+  .col-xl-pull-6 {
+      right: 50%;
+  }
+
+  .col-xl-pull-5 {
+      right: 41.66666667%;
+  }
+
+  .col-xl-pull-4 {
+      right: 33.33333333%;
+  }
+
+  .col-xl-pull-3 {
+      right: 25%;
+  }
+
+  .col-xl-pull-2 {
+      right: 16.66666667%;
+  }
+
+  .col-xl-pull-1 {
+      right: 8.33333333%;
+  }
+
+  .col-xl-pull-0 {
+      right: auto;
+  }
+
+  .col-xl-push-12 {
+      left: 100%;
+  }
+
+  .col-xl-push-11 {
+      left: 91.66666667%;
+  }
+
+  .col-xl-push-10 {
+      left: 83.33333333%;
+  }
+
+  .col-xl-push-9 {
+      left: 75%;
+  }
+
+  .col-xl-push-8 {
+      left: 66.66666667%;
+  }
+
+  .col-xl-push-7 {
+      left: 58.33333333%;
+  }
+
+  .col-xl-push-6 {
+      left: 50%;
+  }
+
+  .col-xl-push-5 {
+      left: 41.66666667%;
+  }
+
+  .col-xl-push-4 {
+      left: 33.33333333%;
+  }
+
+  .col-xl-push-3 {
+      left: 25%;
+  }
+
+  .col-xl-push-2 {
+      left: 16.66666667%;
+  }
+
+  .col-xl-push-1 {
+      left: 8.33333333%;
+  }
+
+  .col-xl-push-0 {
+      left: auto;
+  }
+
+  .col-xl-offset-12 {
+      margin-left: 100%;
+  }
+
+  .col-xl-offset-11 {
+      margin-left: 91.66666667%;
+  }
+
+  .col-xl-offset-10 {
+      margin-left: 83.33333333%;
+  }
+
+  .col-xl-offset-9 {
+      margin-left: 75%;
+  }
+
+  .col-xl-offset-8 {
+      margin-left: 66.66666667%;
+  }
+
+  .col-xl-offset-7 {
+      margin-left: 58.33333333%;
+  }
+
+  .col-xl-offset-6 {
+      margin-left: 50%;
+  }
+
+  .col-xl-offset-5 {
+      margin-left: 41.66666667%;
+  }
+
+  .col-xl-offset-4 {
+      margin-left: 33.33333333%;
+  }
+
+  .col-xl-offset-3 {
+      margin-left: 25%;
+  }
+
+  .col-xl-offset-2 {
+      margin-left: 16.66666667%;
+  }
+
+  .col-xl-offset-1 {
+      margin-left: 8.33333333%;
+  }
+
+  .col-xl-offset-0 {
+      margin-left: 0;
+  }
+
+  .visible-xl {
+      display: block !important;
+  }
+
+  table.visible-xl {
+      display: table;
+  }
+
+  tr.visible-xl {
+      display: table-row !important;
+  }
+
+  th.visible-xl, td.visible-xl {
+      display: table-cell !important;
+  }
+
+  .visible-xl-block {
+      display: block !important;
+  }
+
+  .visible-xl-inline {
+      display: inline !important;
+  }
+
+  .visible-xl-inline-block {
+      display: inline-block !important;
+  }
+
+  .hidden-xl {
+      display: none !important;
+  }
 }
