@@ -281,15 +281,15 @@ div.main {
   }
 }
 
+img.img-centered {
+  margin: 0 auto;
+}
+
 #banner {
   padding-top: 110px;
   padding-bottom: 130px;
   margin: 0 auto;
   max-width: 1280px;
-
-  img.img-responsive {
-    margin: 0 auto;
-  }
 
   h1 {
     color: #263646;
@@ -421,8 +421,8 @@ img.team-photo {
   }
 }
 .content--extra-push {
-  margin-bottom: 100px;
-  margin-top: 250px;
+  margin-bottom: 50px;
+  margin-top: 125px;
 
   @media (max-width: 500px) {
     margin: 85px auto 45px auto;
@@ -464,6 +464,10 @@ img.team-photo {
 }
 
 #team {
+  .logo--brewhouse {
+    margin-bottom: 20px;
+    width: 80px;
+  }
   .team-member {
     margin: 20px -15px 30px;
   }
