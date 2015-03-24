@@ -51,6 +51,19 @@ a:hover {
   text-decoration: none;
 }
 
+::-webkit-input-placeholder {
+  color: #ccc;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #ccc;
+}
+::-moz-placeholder {  /* Firefox 19+ */
+  color: #ccc;
+}
+input:-ms-input-placeholder {
+  color: #ccc;
+}
+
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
@@ -869,47 +882,48 @@ html.blog {
 }
 
 .mailchimp-form {
-  margin: 0 0 30px 0;
+  border: solid 1px #e7e7e7;
+  background: #fff;
+  margin: 20px 0 70px 0;
   padding: 20px;
-  border: solid 1px #ddd;
-  background: #42CCEE;
 
   #mc_embed_signup input.button {
     transition: all 0.3s;
 
-    background: #FA5027;
+    background-color: #47A4C2;
     color: #fff;
     border-radius: 3px;
-    font-weight: 700;
-    height: 38px;
+    font-weight: 300;
+    height: 45px;
+    margin-top: -5px;
     margin-bottom: 0;
+    padding-top: 11px;
+    font-size: 17px;
     text-transform: uppercase;
     width: 100%;
   }
   #mc_embed_signup input.button:focus,
   #mc_embed_signup input.button:active,
   #mc_embed_signup input.button:hover {
-    background: #F5380B;
+    background-color: darken(#47A4C2, 9%);
     color: #fff;
   }
   #mc_embed_signup input.email {
-    border: 0;
+    border: solid 1px #ddd;
     border-radius: 3px;
     font-family: 'bh_proxima', sans-serif;
+    height: 45px;
     padding-left: 10px;
-  }
-  .subscribe-button {
-    padding-top: 0 !important;
   }
   #mc_embed_signup form {
     padding: 10px 0;
   }
   p {
-    color: #fff;
+    color: #C0C3C3;
     font-family: 'bh_proxima', sans-serif;
     font-size: 150%;
-    font-weight: 700;
-    letter-spacing: -0.05em;
+    font-weight: 300;
+    letter-spacing: -0.01em;
     margin-bottom: 10px;
   }
   .subscribe-button {
@@ -995,6 +1009,7 @@ footer {
   &:active {
     background-color: darken(#47A4C2, 9%);
     color: #fff;
+    outline: true;
   }
 
   @media (max-width: 767px) {
@@ -1059,7 +1074,9 @@ footer {
  .text-lg-justify { text-align: justify; }
 }
 
-
+.col-no-padding {
+  padding: 0;
+}
 
 
 /*
@@ -1323,3 +1340,4 @@ footer {
       display: none !important;
   }
 }
+
