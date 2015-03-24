@@ -202,10 +202,26 @@ Following the previous two rules, this one should already be in place; however, 
 
 Do I need to concatenate the `firstName` and `lastName` prop? Move it to the render function. Which classes does my component need to use? Decide in the render function. Should I show placeholder text if I don't have any items on my todo list? Decide in the render function. Do I need to format a phone number so that it looks more presentable? Do it in the render function. How should I render out subcomponents? Decide in the render function.\* What am I having for lunch today? Decide in the render function.
 
-Of course, you don't have to cram all of code into a single function. On the contrary, it's best to extract helper functions (with good names) when appropriate. The point is still that you should reduce complexity in your state by allowing the render function to do most of the decision making.
+Of course, you don't have to cram all of code into a single function. On the contrary, it's best to extract helper functions (with good names) when appropriate. The point is still that you should reduce complexity in your state by allowing the render function to do most of the decision making. You might decide to prefix these helpers with `render` as in the following example:\*\*
+
+{% highlight js %}
+// GOOD: Helper function to render fullName
+renderFullName () {
+  return `${this.props.firstName} ${this.props.lastName}`;
+}
+
+render () {
+  var fullName = this.renderFullName();
+  // ...
+}
+{% endhighlight %}
+
+<small style="font-size:10px; margin-bottom: -30px; display: block;">
+\*For the love of all that is holy, please do not store components in the state.
+</small>
 
 <small style="font-size:10px;">
-\*For the love of all that is holy, please do not store components in the state.
+\*\*Thanks [Eric Kryski](https://twitter.com/ekryski) and [Brent Vatne](https://twitter.com/notbrent) for comments on this.
 </small>
 
 ## CPU intensive calculations
