@@ -200,17 +200,9 @@ Imagine being a third party and trying to observe the state of a component which
 
 Following the previous two rules, this one should already be in place; however, it's still worth noting. Whenever possible, make decisions and do calculations at the last possible moment: in the render function. Though perhaps slightly slower than other approaches, it ensures the least amount of redirection in the component. Enhanced readability and extensibility should always come before micro-optimizations.
 
-Do I need to concatenate the `firstName` and `lastName` prop? Move it to the render function.
+Do I need to concatenate the `firstName` and `lastName` prop? Move it to the render function. Which classes does my component need to use? Decide in the render function. Should I show placeholder text if I don't have any items on my todo list? Decide in the render function. Do I need to format a phone number so that it looks more presentable? Do it in the render function. How should I render out subcomponents? Decide in the render function.\* What am I having for lunch today? Decide in the render function.
 
-Which classes does my component need to use? Decide in the render function.
-
-Should I show placeholder text if I don't have any items on my todo list? Decide in the render function.
-
-Do I need to format a phone number so that it looks more presentable? Do it in the render function.
-
-How should I render out subcomponents? Decide in the render function.\*
-
-What am I having for lunch today? Decide in the render function.
+Of course, you don't have to cram all of code into a single function. On the contrary, it's best to extract helper functions (with good names) when appropriate. The point is still that you should reduce complexity in your state by allowing the render function to do most of the decision making.
 
 <small style="font-size:12px;">
 \* For the love of all that is holy, please do not store components in the state.
