@@ -18,11 +18,11 @@ When writing React applications, it's important to know when and when not to use
 2. Store the simplest possible values to describe a component's state.
 3. Leave calculations and conditionals to the render function.
 
-These rules obviously have exceptions and should be violated when appropriate; though if you're able to follow them most of the time, you will find that your components will be easier to break down, the tests will be easier to write, and the entire application will have fewer bugs. Let's take a closer look at each of these rules.
+These rules obviously have exceptions and should be violated when appropriate; though if you're able to follow them most of the time, you will find that your components will be easier to break down. Tests will be easier to write, and the entire application will have fewer bugs. Let's take a closer look at each of these rules.
 
 <!-- break -->
 
-## If a component does not own a datum, then that datum should not influence it's state
+## 1) If a component does not own a datum, then that datum should not influence it's state
 
 First, and probably the most important of all, the state of a component should not depend on the props passed in. Of course props may pass down state-like ideas - for example, on a custom input component, I may choose to have a `disabled` prop which disables some internal text input - but when I say "state", I'm referring specifically to the state attribute of the component. You may begin to notice a code smell when the state starts to depend on it's props. Take a look at the following snippet:
 
@@ -53,34 +53,34 @@ class UserWidget extends React.Component {
 }
 {% endhighlight %}
 
-What's wrong with this? It may not be obvious at first, but if `firstName` or `lastName` change, the view of this `UserWidget` will not change. The constructor function only runs when the component is mounted and thus `fullName` is forever whatever it was when the component mounted.\* Developers who are new to React will often make this mistake, perhaps because `setState` is the easiest and most obvious way to update the component view.
+What's wrong with this? It may not be obvious at first, but if `firstName` or `lastName` change, the view of this `UserWidget` will not change. The constructor function only runs when the component is mounted and thus `fullName` is forever what it was when the component mounted\*. Developers who are new to React will often make this mistake, perhaps because `setState` is the easiest and most obvious way to update the component view.
 
-You should ask yourself whether this component owns this data. Were `firstName` and `lastName` created internally? If not, then the state should not depend on it.\*\* And what is the best way to avoid this? Calculate `fullName` as a part of the `render` function.
+You should ask yourself whether this component owns this data. Were `firstName` and `lastName` created internally? If not, then the state should not depend on it\*\*. And what is the best way to avoid this? Calculate `fullName` as a part of the `render` function.
 
 {% highlight js %}
 render () {
-  var fullName = `${this.props.firstName} ${this.props.lastName}`;
+  var fullName = "${this.props.firstName} ${this.props.lastName}";
   // ...
 }
 {% endhighlight %}
 
-By moving this to the render function, we are now never again concerned about whether `fullName` will be updated. React has hooks to run a function whenever props are updated - _i.e._ `componentWillReceiveProps` - however, I would consider using this an anti-pattern because it adds complexity when it's not needed.
+By moving this to the render function, we are never again concerned whether `fullName` will be updated. React has hooks to run a function whenever props are updated - _i.e._ `componentWillReceiveProps` - however, I would consider using this an anti-pattern because it adds complexity when it's not needed.
 
-[Of course, if you don't care about props after the component is initialized, then this entire rule doesn't apply](http://facebook.github.io/react/tips/props-in-getInitialState-as-anti-pattern.html).
+Of course, if you don't care about props after the component is initialized, [then this entire rule doesn't apply](http://facebook.github.io/react/tips/props-in-getInitialState-as-anti-pattern.html).
 
-<small style="font-size:10px; margin-bottom: -30px; display: block;">
+<small style="font-size:12px; margin-bottom: -20px; display: block;">
 \*When using `React.createClass` instead of `extends React.Component`, replace `constructor` with `getInitialState`.
 </small>
 
-<small style="font-size:10px;">
+<small style="font-size:12px; margin-bottom: 30px; display: block">
 \*\*At some point, "state" will need to be set within something. In the flux pattern this may be a root "controller" component listening to a bunch of stores.
 </small>
 
-## Store the simplest possible values to describe a component's state
+## 2) Store the simplest possible values to describe a component's state
 
 When describing the component's state, you should do it with the simplest possible representation. In many cases, this means preferring the use of boolean flags.
 
-Consider the following example where we have some component which stores a list of classes in its state based on whether it was clicked or hovered. (And for what it's worth, I have seen this kind of thing a lot in the wild):
+Consider the following example where we have some component which stores a list of classes in it's state based on whether it was clicked or hovered. (And for what it's worth, I have seen this kind of thing a lot in the wild):
 
 {% highlight js %}
 var React = require('react/addons');
@@ -196,7 +196,7 @@ I'd like to repeat that you should always aim for the simplest representation of
 
 Imagine being a third party and trying to observe the state of a component which returns an array of classes. Is this useful to you? Of course not. It's woefully brittle. Contrasted that with a boolean `isActive` is much more actionable. I hope you understand what I mean.
 
-## Leave calculations and conditionals to the render function
+## 3) Leave calculations and conditionals to the render function
 
 Following the previous two rules, this one should already be in place; however, it's still worth noting. Whenever possible, make decisions and do calculations at the last possible moment: in the render function. Though perhaps slightly slower than other approaches, it ensures the least amount of redirection in the component. Enhanced readability and extensibility should always come before micro-optimizations.
 
@@ -204,8 +204,8 @@ Do I need to concatenate the `firstName` and `lastName` prop? Move it to the ren
 
 Of course, you don't have to cram all of code into a single function. On the contrary, it's best to extract helper functions (with good names) when appropriate. The point is still that you should reduce complexity in your state by allowing the render function to do most of the decision making.
 
-<small style="font-size:10px;">
-\*For the love of all that is holy, please do not store components in the state.
+<small style="font-size:12px;">
+\* For the love of all that is holy, please do not store components in the state.
 </small>
 
 ## CPU intensive calculations
@@ -241,7 +241,7 @@ This is particularly bad, not only because you're breaking the obvious conventio
 
 ## Unit Testing
 
-As an added bonus, the component unit tests are easier to write because all of the cruft falls down to the render function. Said cruft becomes a view concern and decision making is offset to the user. (Of course testing the view is still very important, but in my opinion you should do this with end to end tests.) Things are less likely to break when you're only checking for the simplest possible values rather than complex ones that require many conditions to reproduce and only describe concerns of the display.
+As an added bonus, the component unit tests are easier to write because all of the cruft falls down to the render function. Said cruft becomes a view concern and decision making is offset to the user. Of course, testing the view is still very important, but in my opinion you should do this with end to end tests. Things are less likely to break when you're only checking for the simplest possible values rather than complex ones that require many conditions to reproduce and only describe concerns of the display.
 
 ## Exceptional Cases
 
