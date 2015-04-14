@@ -26,7 +26,7 @@ describe "#to_dollars" do
     [   -23_00,   "$-23.00"],
     [  1230_00, "$1,230.00"]
   ].each do |amount, dollars|
-    it "converts #{amount.inspect} to #{human.inspect}" do
+    it "converts #{amount.inspect} to #{dollars.inspect}" do
       expect(to_dollars(amount)).to eq dollars
     end
   end
