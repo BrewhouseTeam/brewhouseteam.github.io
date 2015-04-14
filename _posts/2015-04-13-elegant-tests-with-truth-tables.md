@@ -8,6 +8,8 @@ published: true
 tags:
 - test
 - cleancode
+shared_square_image: http://brewhouse.io/images/posts/2015/apr/truthtables.png
+shared_description: Truth Tables help writing readable tests that are easy to maintain.
 ---
 
 Truth Tables help writing readable tests that are easy to maintain.
