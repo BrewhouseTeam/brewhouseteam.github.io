@@ -10,7 +10,7 @@ tags:
 - cleancode
 ---
 
-Truth Tables helps writing readable tests that are easy to maintain.
+Truth Tables help writing readable tests that are easy to maintain.
 
 Here is an example:
 
@@ -103,4 +103,4 @@ In my opinion, Truth Tables are really easy to read and they are also great to m
 {% endhighlight %}
 
 
-All right, what do you think about all this? Are Truth Tables easy to read? Did I convince you to write tests with Truth Tables? Or maybe you already use Truth Tables and I missed something... And yes, I can write another sentence with **Truth Tables**, and in bold this time! :) Leave a comment below, I'm always happy to discuss things!
+Alright, what do you think about all this? Are Truth Tables easy to read? Did I convince you to write tests with Truth Tables? Or maybe you already use Truth Tables and I missed something... And yes, I can write another sentence with **Truth Tables**, and in bold this time! :) Leave a comment below, I'm always happy to discuss it!
