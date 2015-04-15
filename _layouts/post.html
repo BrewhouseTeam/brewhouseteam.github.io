@@ -28,29 +28,7 @@ layout: blog
 
         {{ content }}
 
-        <div class="mailchimp-form text-center">
-          <p>
-            Get the latest from Brewhouse:
-          </p>
-          <!-- Begin MailChimp Signup Form -->
-          <div id="mc_embed_signup" class="row">
-            <form action="http://brewhouse.us8.list-manage.com/subscribe/post?u=c524f6473f5901cae1230a052&amp;id=14f9de4be1" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-
-              <div class="col-sm-offset-1 col-sm-6">
-                <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="your email address" required style="width: 100%; margin: 0 0 4% 0">
-              </div>
-              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-              <div style="position: absolute; left: -5000px;">
-                <input type="text" name="b_c524f6473f5901cae1230a052_14f9de4be1" value="">
-              </div>
-
-              <div class="col-sm-4 subscribe-button">
-                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button btn btn--blue">
-              </div>
-            </form>
-          </div>
-          <!--End mc_embed_signup-->
-        </div>
+        {% include _hire_us.html %}
 
         <div id="disqus_thread"></div>
 
