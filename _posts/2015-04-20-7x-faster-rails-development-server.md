@@ -12,29 +12,29 @@ shared_square_image: http://brewhouse.io/images/posts/2015/apr/faster-rails-dev.
 shared_description: Truth Tables help writing readable tests that are easy to maintain.
 ---
 
-We've recently helped one of our client to speed up there Rails app by 3x to 17x in development mode.
+We've recently helped one of our clients speed up their Rails app by 3x to 17x in development mode.
 
-It is a large Rails 3.2 application running on Ruby 2.1 with 200+ models and 1,500+ routes.
+It is a large Rails 3.2 application running on Ruby 2.1, with 200+ models and 1,500+ routes.
 Rendering a page in development mode would take about **12 seconds**. After a couple of hours, it would go up to **30 seconds**.
 
-While the application is fairly large, those numbers were quite high so we knew there were something wrong going on.
+While the application is fairly large, those numbers were quite high, so we knew there were something wrong going on.
 
 We followed the following process:
 
 1. Measure response time using the Chrome Developer Tools and [ApacheBench](http://httpd.apache.org/docs/2.2/programs/ab.html).
 2. Find bottlenecks with [rack-mini-profiler](https://github.com/MiniProfiler/rack-mini-profiler) and [Flame Graphs](https://github.com/SamSaffron/flamegraph).
 3. Fix the bottleneck.
-4. Go to 1.
+4. Go to step 1.
 
-Please join us on this journey towards better performance, developer happiness and saving $$$!
+Please join us on this journey towards better performance, developer-happiness, and saving $$$!
 
 ## Speed up assets by 14x
 
-Visiting the home page would take about 4 seconds to render the page and 7 more seconds to serve about 100 assets.
+Visiting the home page would take about 4 seconds to render and 7 more seconds to serve about 100 assets.
 
 Serving 100 asset files should not be that slow to serve. We used [Flame Graphs](https://github.com/SamSaffron/flamegraph) with [rack-mini-profiler](https://github.com/MiniProfiler/rack-mini-profiler) to dig into this.
 
-Setting those up is easy. Just add the following to your `Gemfile`:
+Setting it up was easy. Just add the following to your `Gemfile`:
 
 {% highlight ruby %}
 gem 'flamegraph'
@@ -43,38 +43,38 @@ gem 'rack-mini-profiler'
 
 Visit a page with `?pp=flamegraph` and instead of displaying the page, it displays a Flame Graph!
 
-Flame Graphs are disable for assets by default, so comment out [this line](https://github.com/MiniProfiler/rack-mini-profiler/blob/a0117654f02e97db999ba41a20c8c4c5d5291ace/lib/mini_profiler_rails/railtie.rb#L23) to render a Flame Graph for assets.
+Flame Graphs are disabled for assets by default, so comment out [this line](https://github.com/MiniProfiler/rack-mini-profiler/blob/a0117654f02e97db999ba41a20c8c4c5d5291ace/lib/mini_profiler_rails/railtie.rb#L23) to render a Flame Graph for assets.
 
 Here is a Flame Graph for rendering `/assets/jquery.js`:
 
 ![Original Flame Graph](/images/posts/2015/apr/perf-flamegraph-assets.png)
 
 
-90% of the time serving assets is spent running the garbage collector because of a OutOfBandGC rack middleware. While this middleware had a positive impact in production, it was responsible for slowing down serving assets in development environment by 14x.
+90% of the time, serving assets was spent running the garbage collector because of an OutOfBandGC rack middleware. While this middleware had a positive impact in production, it was also responsible for slowing down serving assets in the development environment by 14x.
 
-We disabled the OutOfBandGC in development environment to serve assets in 0.5 seconds instead of 7 seconds. Serving a page with assets would take 5 seconds instead of 10. That's an overall **2x speed up!**
+We disabled the OutOfBandGC in the development environment to serve assets in 0.5 seconds, instead of 7 seconds. Serving a page with assets would take 5 seconds instead of 10. That's **2x faster!**
 
 ## ActiveAdmin, Y U RELOAD?
 
-Now that the asset issue is fixed, let see what we can do to speed up page rendering. We decide to focus on rendering a page without changing any file.
+Now that the asset issue is fixed, let's see what we can do to speed up page rendering. We decide to focus on rendering a page without changing any files.
 
 ![Flame graph serve page](/images/posts/2015/apr/perf-flamegraph-before.png)
 
-As you can see, ActiveAdmin reloads its configuration files while this is unecessary. We've [submitted a patch](https://github.com/activeadmin/activeadmin/pull/3783) which saves about a second to render a page. **1.2x speed up!**
+As you can see, ActiveAdmin reloads its configuration files which isn't necessary. We've [submitted a patch](https://github.com/activeadmin/activeadmin/pull/3783) which saves about a second to render a page. **1.2x faster!**
 
 ## Routes, Y U RELOAD?
 
-The previous Flame Graph shows that the routes were reloaded with no reason as well. Digging into the Flame Graph, we figured that [rails_dev_tweaks](https://github.com/wavii/rails-dev-tweaks) was responsible of this. Upgrading it to the latest version fixed that bug and saved another two seconds. **1.4x speed-up!**
+The previous Flame Graph shows that the routes were reloaded with no reason, as well. Digging into the Flame Graph, we figured out that [rails_dev_tweaks](https://github.com/wavii/rails-dev-tweaks) was responsible for this. Upgrading to the latest version fixed that bug and saved another two seconds. **1.4x faster!**
 
 ## One worker is enough!
 
-Seven unicorn workers were used in dev environment in order to mitigate the slow asset issue. Now it's fixed, we get similar performances with a webrick server to run one request.
+Seven unicorn workers were used in dev environment in order to mitigate the slow asset issue. Now that it's fixed, we get similar performances with a webrick server to run one request.
 
-Using one worker is obviously better for memory usage as it uses about 7x less memory. That prevents swapping and it speeds up the entire system.
+Using one worker is obviously better for memory usage as it uses about 7x less memory. That prevents swapping and speeds up the entire system.
 
-It is also better for Rails code reloading and caching. When you change a ruby file, Rails reloads this file which take an extra 2 seconds. When you change an asset file, Rails has to recompile the assets which takes another extra 2 seconds on average. With multiple workers, each worker has to reload and recompile the first time you hit it after a change. So changing a file is likely to not only impact the next request you perform but also the subsequent requests that hit a worker that's out of date.
+It is also better for Rails code reloading and caching. When you change a ruby file, Rails reloads this file which take an extra 2 seconds. When you change an asset file, Rails has to recompile the assets which takes another extra 2 seconds, on average. With multiple workers, each worker has to reload and recompile the first time you hit it after a change. So changing a file is likely to not only impact the next request you perform but also the subsequent requests that hit a worker that's out-of-date.
 
-Here is a chart that demonstrate this problem using seven workers:
+Here is a chart that demonstrates this problem using seven workers:
 
 ![Response time for 7 workers](/images/posts/2015/apr/perf-chart-7-workers.png)
 
@@ -84,12 +84,12 @@ With one webrick worker:
 
 ## What about that memory leak?
 
-Those fixes mitigated the memory leak that was slowing down Garbage Collection. After 250 requests, it would take about 30 seconds to serve a page and its assets - the fixes we introduced brought that number down to 2 seconds. **15x speed up!**
+Those fixes mitigated the memory leak that was slowing down Garbage Collection. After 250 requests, it would take about 30 seconds to serve a page and its assets -- the fixes we introduced brought that number down to 2 seconds. **15x faster!**
 
 ![Chart response time after 250 requests](/images/posts/2015/apr/perf-chart-250-requests.png)
 
-## Measure it, spot it, fix it, make it better, faster, stronger
+## Measure it, spot it, fix it = make it better, faster, stronger
 
-We've been able to spot and fix bottlenecks one after the other until the performance were ok. Rack Mini Profiler and Flame Graph helped us a bunch to find bottlenecks. In the end, this process was pretty straightforward.
+We've been able to spot and fix bottlenecks, one after the other, until the performance was okay. Rack Mini Profiler and Flame Graph helped us a bunch to find bottlenecks. In the end, this process was pretty straightforward.
 
-It took us a couple of days to make this application 7 times faster on average in dev environment. Knowing that 10 developers work on it full time... I let you do the math!
+It took us a couple of days to make this application 7 times faster on average in dev environment. Knowing that 10 developers worked on it full-time... I'll let you do the math!
