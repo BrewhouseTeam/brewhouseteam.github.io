@@ -12,14 +12,14 @@ shared_square_image: http://brewhouse.io/images/posts/2015/apr/faster-rails-dev.
 shared_description: Truth Tables help writing readable tests that are easy to maintain.
 ---
 
-We've recently helped one of our clients speed up their Rails app by 3x to 17x in development mode.
+We recently helped one of our clients speed up their Rails app by 3x - 17x, in development mode.
 
 It is a large Rails 3.2 application running on Ruby 2.1, with 200+ models and 1,500+ routes.
 Rendering a page in development mode would take about **12 seconds**. After a couple of hours, it would go up to **30 seconds**.
 
-While the application is fairly large, those numbers were quite high, so we knew there were something wrong going on.
+While the application is fairly large, those numbers were quite high, so we knew there was something wrong going on.
 
-We followed the following process:
+We followed this process:
 
 1. Measure response time using the Chrome Developer Tools and [ApacheBench](http://httpd.apache.org/docs/2.2/programs/ab.html).
 2. Find bottlenecks with [rack-mini-profiler](https://github.com/MiniProfiler/rack-mini-profiler) and [Flame Graphs](https://github.com/SamSaffron/flamegraph).
@@ -50,9 +50,9 @@ Here is a Flame Graph for rendering `/assets/jquery.js`:
 ![Original Flame Graph](/images/posts/2015/apr/perf-flamegraph-assets.png)
 
 
-90% of the time, serving assets was spent running the garbage collector because of an OutOfBandGC rack middleware. While this middleware had a positive impact in production, it was also responsible for slowing down serving assets in the development environment by 14x.
+90% of the time, serving assets was spent running the Garbage Collector because of an OutOfBandGC rack middleware. While this middleware had a positive impact in production, it was also responsible for slowing down serving assets in the development environment by 14x.
 
-We disabled the OutOfBandGC in the development environment to serve assets in 0.5 seconds, instead of 7 seconds. Serving a page with assets would take 5 seconds instead of 10. That's **2x faster!**
+We disabled the OutOfBandGC in the development environment to serve assets in 0.5 seconds, instead of 7 seconds. Serving a page with assets would take 5 seconds, instead of 10. That's **2x faster!**
 
 ## ActiveAdmin, Y U RELOAD?
 
@@ -72,7 +72,7 @@ Seven unicorn workers were used in dev environment in order to mitigate the slow
 
 Using one worker is obviously better for memory usage as it uses about 7x less memory. That prevents swapping and speeds up the entire system.
 
-It is also better for Rails code reloading and caching. When you change a ruby file, Rails reloads this file which take an extra 2 seconds. When you change an asset file, Rails has to recompile the assets which takes another extra 2 seconds, on average. With multiple workers, each worker has to reload and recompile the first time you hit it after a change. So changing a file is likely to not only impact the next request you perform but also the subsequent requests that hit a worker that's out-of-date.
+It is also better for Rails code reloading and caching. When you change a ruby file, Rails reloads this file which take an extra 2 seconds. When you change an asset file, Rails has to recompile the assets which takes another extra 2 seconds, on average. With multiple workers, each worker has to reload and recompile the first time you hit it after a change. So changing a file is likely to not only impact the next request you perform but also the subsequent requests that hit a worker that's out of date.
 
 Here is a chart that demonstrates this problem using seven workers:
 
@@ -88,7 +88,7 @@ Those fixes mitigated the memory leak that was slowing down Garbage Collection. 
 
 ![Chart response time after 250 requests](/images/posts/2015/apr/perf-chart-250-requests.png)
 
-## Measure it, spot it, fix it = make it better, faster, stronger
+## Measure it, spot it, fix it and make it better, faster, stronger
 
 We've been able to spot and fix bottlenecks, one after the other, until the performance was okay. Rack Mini Profiler and Flame Graph helped us a bunch to find bottlenecks. In the end, this process was pretty straightforward.
 
