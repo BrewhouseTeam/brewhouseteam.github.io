@@ -16,7 +16,7 @@ We recently helped one of our clients speed up their Rails app in development mo
 
 This Rails 3.2 application runs on Ruby 2.1, it has 200+ models, 1,500+ routes and rendering a page in development mode takes about **12 seconds**. After a couple of hours, this number goes up to **30 seconds**!
 
-Within a couple of days, we succeeded to speed it up by **3x - 17x** in development environment.
+Within a couple of days, we succeeded to make it 7 times faster on average in development environment.
 
 ![Success chart](/images/posts/2015/apr/perf-chart-over-fixes.png)
 
@@ -66,9 +66,7 @@ The previous Flame Graph shows that the routes were reloaded with no reason, as 
 
 Seven unicorn workers were used in dev environment in order to mitigate the slow asset issue. Now that it's fixed, we get similar performances with a webrick server to run one request.
 
-Using one worker is obviously better for memory usage as it uses about 7x less memory. That prevents swapping and speeds up the entire system.
-
-It is also better for Rails code reloading and caching. When you change a ruby file, Rails reloads this file which take an extra 2 seconds. When you change an asset file, Rails has to recompile the assets which takes another extra 2 seconds, on average. With multiple workers, each worker has to reload and recompile the first time you hit it after a change. So changing a file is likely to not only impact the next request you perform but also the subsequent requests that hit a worker that's out of date.
+Using one worker is obviously better for memory usage as it uses about 7x less memory. That prevents swapping and speeds up the entire system. It is also better for Rails code reloading and caching since having seven workers means that each worker will have to reload the code or recompile an asset when you perform a change.
 
 Here is a chart that demonstrates this problem using seven workers:
 
@@ -93,4 +91,4 @@ The process we followed was pretty straightforward:
 3. Fix it
 4. Repeat until the performances are good enough
 
-It took us a couple of days to make this application 7 times faster on average in development environment. Knowing that 10 developers work on it full-time... I'll let you do the math!
+We fixed a rack middleware that was forcing GC runs, we improved ActiveAdmin to only reload code when necessary, we upgraded a rack middleware (rails_dev_tweaks) that was forcing code reloads, and we finally used only one web worker to reload code once after a file change. In the end, the app is 3x faster when loading a page after a code change and up to 17x faster when loading a page without code change and after 250 requests. It took us a couple of days to make this application 3 to 17 times faster in development environment. With 10 developers working on it full-time... I'll let you do the math!
