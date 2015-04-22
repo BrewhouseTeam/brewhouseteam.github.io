@@ -76,9 +76,9 @@ With one webrick worker:
 
 ![Response time for 1 worker](/images/posts/2015/apr/perf-chart-1-worker.png)
 
-## What about that memory leak?
+## Less code reloads = less memory leaks
 
-Those fixes mitigated the memory leak that was slowing down Garbage Collection. After 250 requests, it would take about 30 seconds to serve a page and its assets -- the fixes we introduced brought that number down to 2 seconds. **15x faster!**
+After 250 requests, it would take about 30 seconds to serve a page and the web server would take about 1gb of memory. The fixes we introduced which prevent unecessary code reloads helped mitigate the memory leak. After 250 requests, it would only take 2 seconds to serve a page. **15x faster!**
 
 ![Chart response time after 250 requests](/images/posts/2015/apr/perf-chart-250-requests.png)
 
