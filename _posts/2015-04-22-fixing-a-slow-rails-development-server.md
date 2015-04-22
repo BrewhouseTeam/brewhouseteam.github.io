@@ -24,7 +24,7 @@ Please join us on this journey towards better performance, developer-happiness, 
 
 <!-- break -->
 
-## Speed up assets by 14x
+## Speed up serving individual assets by 14x
 
 Visiting the home page would take about 4 seconds to render and 7 more seconds to serve about 100 assets.
 
