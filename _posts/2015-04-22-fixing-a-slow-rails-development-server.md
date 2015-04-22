@@ -3,7 +3,7 @@ layout:    post
 title:     "Fixing a slow Rails development server"
 author:    "philippe"
 category:  blog
-date:      2015-04-10 10:00
+date:      2015-04-22 10:00
 published: true
 tags:
 - performance
@@ -12,21 +12,17 @@ shared_square_image: http://brewhouse.io/images/posts/2015/apr/faster-rails-dev.
 shared_description: Truth Tables help writing readable tests that are easy to maintain.
 ---
 
-We recently helped one of our clients speed up their Rails app by 3x - 17x, in development mode.
+We recently helped one of our clients speed up their Rails app in development mode.
 
-It is a large Rails 3.2 application running on Ruby 2.1, with 200+ models and 1,500+ routes.
-Rendering a page in development mode would take about **12 seconds**. After a couple of hours, it would go up to **30 seconds**.
+This Rails 3.2 application runs on Ruby 2.1, it has 200+ models, 1,500+ routes and rendering a page in development mode takes about **12 seconds**. After a couple of hours, this number goes up to **30 seconds**!
 
-While the application is fairly large, those numbers were quite high, so we knew there was something wrong going on.
+Within a couple of days, we succeeded to speed it up by **3x - 17x** in development environment.
 
-We followed this process:
+![Success chart](/images/posts/2015/apr/perf-chart-over-fixes.png)
 
-1. Measure response time using the Chrome Developer Tools and [ApacheBench](http://httpd.apache.org/docs/2.2/programs/ab.html).
-2. Find bottlenecks with [rack-mini-profiler](https://github.com/MiniProfiler/rack-mini-profiler) and [Flame Graphs](https://github.com/SamSaffron/flamegraph).
-3. Fix the bottleneck.
-4. Go to step 1.
+Please join us on this journey towards better performance, developer-happiness, and saving **$$$**!
 
-Please join us on this journey towards better performance, developer-happiness, and saving $$$!
+<!-- break -->
 
 ## Speed up assets by 14x
 
@@ -90,6 +86,11 @@ Those fixes mitigated the memory leak that was slowing down Garbage Collection. 
 
 ## Measure it, spot it, fix it and make it better, faster, stronger
 
-We've been able to spot and fix bottlenecks, one after the other, until the performance was okay. Rack Mini Profiler and Flame Graph helped us a bunch to find bottlenecks. In the end, this process was pretty straightforward.
+The process we followed was pretty straightforward:
 
-It took us a couple of days to make this application 7 times faster on average in dev environment. Knowing that 10 developers worked on it full-time... I'll let you do the math!
+1. Measure response time using the Chrome Developer Tools and [ApacheBench](http://httpd.apache.org/docs/2.2/programs/ab.html)
+2. Find a bottleneck with [rack-mini-profiler](https://github.com/MiniProfiler/rack-mini-profiler) and [Flame Graphs](https://github.com/SamSaffron/flamegraph)
+3. Fix it
+4. Repeat until the performances are good enough
+
+It took us a couple of days to make this application 7 times faster on average in development environment. Knowing that 10 developers work on it full-time... I'll let you do the math!
