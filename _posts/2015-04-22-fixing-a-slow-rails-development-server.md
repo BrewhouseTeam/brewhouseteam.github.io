@@ -1,6 +1,6 @@
 ---
 layout:    post
-title:     "7x faster Rails development server"
+title:     "Fixing a slow Rails development server"
 author:    "philippe"
 category:  blog
 date:      2015-04-10 10:00
@@ -50,9 +50,9 @@ Here is a Flame Graph for rendering `/assets/jquery.js`:
 ![Original Flame Graph](/images/posts/2015/apr/perf-flamegraph-assets.png)
 
 
-90% of the time, serving assets was spent running the Garbage Collector because of an OutOfBandGC rack middleware. While this middleware had a positive impact in production, it was also responsible for slowing down serving assets in the development environment by 14x.
+90% of the time serving assets is spent running the garbage collector (GC) because of a custom rack middleware. This custom rack middleware would disable the Garbage Collector for the duration of the request and trigger a Garbage Collection at the end of it. While this middleware had a positive impact in production, it was responsible for slowing down serving assets in development environment by 14x.
 
-We disabled the OutOfBandGC in the development environment to serve assets in 0.5 seconds, instead of 7 seconds. Serving a page with assets would take 5 seconds, instead of 10. That's **2x faster!**
+Disabling this middleware in development environment brought serving 100 assets from 7 seconds down to 0.5 seconds. Serving a page with assets would take 5 seconds, instead of 10. That's **2x faster!**
 
 ## ActiveAdmin, Y U RELOAD?
 
