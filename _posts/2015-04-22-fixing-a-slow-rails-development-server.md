@@ -52,7 +52,7 @@ Disabling this middleware in development environment brought serving 100 assets 
 
 ## ActiveAdmin, Y U RELOAD?
 
-Now that the asset issue is fixed, let's see what we can do to speed up page rendering. We decide to focus on rendering a page without changing any files.
+Now that the asset issue is fixed, let's see what we can do to speed up page rendering. We decided to focus on rendering a page without changing any files.
 
 ![Flame graph serve page](/images/posts/2015/apr/perf-flamegraph-before.png)
 
@@ -60,7 +60,7 @@ As you can see, ActiveAdmin reloads its configuration files which isn't necessar
 
 ## Routes, Y U RELOAD?
 
-The previous Flame Graph shows that the routes were reloaded with no reason, as well. Digging into the Flame Graph, we figured out that [rails_dev_tweaks](https://github.com/wavii/rails-dev-tweaks) was responsible for this. Upgrading to the latest version fixed that bug and saved another two seconds. **1.4x faster!**
+The previous Flame Graph shows that the routes were reloaded with no reason. Digging into the Flame Graph, we figured out that [rails_dev_tweaks](https://github.com/wavii/rails-dev-tweaks) was responsible for this. Upgrading to the latest version fixed that bug and saved another two seconds. **1.4x faster!**
 
 ## One worker is enough!
 
@@ -68,7 +68,7 @@ Seven unicorn workers were used in dev environment in order to mitigate the slow
 
 Using one worker is obviously better for memory usage as it uses about 7x less memory. That prevents swapping and speeds up the entire system. It is also better for Rails code reloading and caching since having seven workers means that each worker will have to reload the code or recompile an asset when you perform a change.
 
-Here is a chart that demonstrates this problem using seven workers. We perform a code change, and then refresh the page 10 times. The first request hits a unicorn worker that reloads the code (4 seconds). The second request hits another unicorn worker that reloads the code (4 seconds). The third request is lucky and it hits a worker that has already reloaded the code (2 seconds). And so on... After the tenth request, 6 out of 7 workers have reloaded the code.
+Here is a chart that demonstrates this problem using seven workers. We perform a code change, and then refresh the page 10 times. The first request hits a unicorn worker that reloads the code (4 seconds). The second request hits another unicorn worker that reloads the code (4 seconds). The third request is lucky and hits a worker that has already reloaded the code (2 seconds). And so on... After the tenth request, 6 out of 7 workers have reloaded the code.
 
 ![Response time for 7 workers](/images/posts/2015/apr/perf-chart-7-workers.png)
 
@@ -78,7 +78,7 @@ With one webrick worker, the code is reloaded once at the first request:
 
 ## Less code reloads = less memory leaks
 
-After 250 requests, it would take about 30 seconds to serve a page and the web server would take about 1gb of memory. The fixes we introduced which prevent unecessary code reloads helped mitigate the memory leak. After 250 requests, it would only take 2 seconds to serve a page. **15x faster!**
+After 250 requests, it would take about 30 seconds to serve a page and the web server would take about 1gb of memory. The fixes we introduced which prevented unnecessary code reloads helped mitigate the memory leak. After 250 requests, it would only take 2 seconds to serve a page. **15x faster!**
 
 ![Chart response time after 250 requests](/images/posts/2015/apr/perf-chart-250-requests.png)
 
