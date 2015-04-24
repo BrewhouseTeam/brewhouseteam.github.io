@@ -124,10 +124,12 @@ h2.brewhouse-numbers {
     }
   }
 }
-// To get the site out the door, remove this when redesigning / refactoring
+// Refactor this
 h3.header-small {
-  font-size: 26px;
-  margin-top: 50px;
+  color: #c0c0c0;
+  font-size: 24px;
+  margin-top: 80px;
+  margin-bottom: 15px;
 }
 
 h4 {
@@ -551,22 +553,9 @@ img.team-photo {
       height: 120px;
       margin-bottom: 30px;
     }
-    img#medeo-logo {
-      padding-top: 16px;
-    }
-    img#perch-logo {
-      padding-top: 12px;
-    }
-    img#go-free-range-logo {
-      margin-top: -16px;
-    }
-    img#steamclock-logo {
-      margin-top: 10px;
-    }
   }
-
   .project {
-    padding: 20px;
+    padding: 20px 40px 20px 0;
   }
 
   .project-logo {
@@ -595,10 +584,6 @@ img.team-photo {
     }
 
     img#commandwear-logo {
-      height: 42px;
-    }
-
-    img#blacktusk-logo {
       height: 42px;
     }
 
