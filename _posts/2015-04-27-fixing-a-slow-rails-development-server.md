@@ -8,7 +8,7 @@ published: true
 tags:
 - performance
 - rails
-shared_square_image: http://brewhouse.io/images/posts/2015/04/faster-rails-dev.png
+shared_square_image: http://brewhouse.io/images/posts/2015/04/faster-rails-dev.jpg
 shared_description: How we've fixed a slow Rails dev environment and made it 7 times faster
 ---
 
