@@ -1,7 +1,5 @@
 #!/bin/sh
 
-set -e # stop on error
-
 # git checkout source
 # git add --all
 # git ci -m "auto deploy"
