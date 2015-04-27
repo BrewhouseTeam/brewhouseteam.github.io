@@ -3,7 +3,7 @@ layout:    post
 title:     "Fixing a slow Rails development server"
 author:    "philippe"
 category:  blog
-date:      2015-04-22 10:00
+date:      2015-04-27 10:00
 published: true
 tags:
 - performance
