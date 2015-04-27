@@ -8,8 +8,8 @@ published: true
 tags:
 - performance
 - rails
-shared_square_image: http://brewhouse.io/images/posts/2015/apr/faster-rails-dev.png
-shared_description: Truth Tables help writing readable tests that are easy to maintain.
+shared_square_image: http://brewhouse.io/images/posts/2015/04/faster-rails-dev.png
+shared_description: How we've fixed a slow Rails dev environment and made it 7 times faster
 ---
 
 We recently helped one of our clients speed up their Rails app in development mode.
