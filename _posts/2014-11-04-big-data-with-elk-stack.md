@@ -210,7 +210,7 @@ We decided to use a hosted solution to manage the ElasticSearch cluster. The top
 
 Kibana comes as a plugin on all hosted ElasticSearch services, so you just have to tick a checkbox and you're ready to go!
 
-Performance wise, an ElasticSearch cluster with 4x [Amazon EC2 c3.xlarge](http://aws.amazon.com/ec2/instance-types/#Compute_Optimized) is sufficient to run Kibana reports on the last 30 days. This is about 3 billion data entries.
+Performance wise, an ElasticSearch cluster with 4x [Amazon EC2 c3.xlarge](http://aws.amazon.com/ec2/instance-types/#Compute_Optimized) is sufficient to run Kibana reports on the last 30 days. This is about 300 million data entries.
 
 ## ELK - to store and visualize huge amounts of data in minutes
 
