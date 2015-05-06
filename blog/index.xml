@@ -12,18 +12,24 @@
         <email>hello@brewhouse.io</email>
     </author>
     {% for post in site.posts %}
-    {% unless post.draft %}
-      <entry>
-          <title>{{ post.title }}</title>
-          <author>
-            <name>{{ site.data.authors[post.author].name }}</name>
-            <email>{{ site.data.authors[post.author].email }}</email>
-          </author>
-          <link href="http://brewhouse.io{{ post.url }}"/>
-          <updated>{{ post.date | date_to_xmlschema }}</updated>
-          <id>http://brewhouse.io{{ post.id }}</id>
-          <content type="html">{{ post.content | xml_escape }}</content>
-      </entry>
-    {% endunless %}
+      {% unless post.draft %}
+        <entry>
+            <title>{{ post.title }}</title>
+            <author>
+              <name>{{ site.data.authors[post.author].name }}</name>
+              <email>{{ site.data.authors[post.author].email }}</email>
+            </author>
+            <link href="http://brewhouse.io{{ post.url }}"/>
+            <updated>{{ post.date | date_to_xmlschema }}</updated>
+            <id>http://brewhouse.io{{ post.id }}</id>
+            <content type="html">{{ post.content | xml_escape }}</content>
+
+            {% if post.shared_square_image %}
+              <content type="image" src="{{ post.shared_square_image }}" />
+            {% else %}
+              <content type="image" src="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png" />
+            {% endif %}
+        </entry>
+      {% endunless %}
     {% endfor %}
 </feed>
