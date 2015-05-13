@@ -11,13 +11,15 @@ tags:
 - javascript
 - single page application
 shared_square_image: http://brewhouse.io/images/posts/2015/05/hype-fatigue-social.jpg
-shared_description: "Ember.js, and antidote to your JS Framework Hype Fatigue"
+shared_description: "Ember.js: An Antidote To Your Hype Fatigue"
 ---
 
 This is a write-up of the talk I gave at [VanJS](http://www.meetup.com/vancouver-javascript-developers/)
 this month. You can find the slides [here](https://speakerdeck.com/chancancode/ember-dot-js-an-antidote-to-your-hype-fatigue).
 
-This is also the talk I'll be giving at the Seattle meetup Thursday May 28th, [Ember.JS Seattle](http://www.meetup.com/Ember-js-Seattle-Meetup/events/222195632/).
+If you happen to be in Seattle, I'll be giving a version of this talk on
+Thursday May 28th at the [Ember.JS Seattle](http://www.meetup.com/Ember-js-Seattle-Meetup/events/222195632/)
+meetup.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ASxwoyg40L4" frameborder="0" allowfullscreen></iframe>
 
@@ -1168,6 +1170,9 @@ releases, and simply remove all the deprecated features and compatibility layers
 in the 2.0 release. Combined with Ember's semantic versioning guarentee, this
 means any Ember app that runs fine on the latest 1.13 release (without
 deprecations) will be able to upgrade to smoothly upgrade to Ember 2.x.
+
+You can read more about the plans for Ember 2.0 in the [RFC](https://github.com/emberjs/rfcs/pull/15)
+and this [blog post](http://emberjs.com/blog/2015/05/10/run-up-to-two-oh.html).
 
 ## Conclusions
 
