@@ -17,6 +17,8 @@ shared_description: "Ember.js, and antidote to your JS Framework Hype Fatigue"
 This is a write-up of the talk I gave at [VanJS](http://www.meetup.com/vancouver-javascript-developers/)
 this month. You can find the slides [here](https://speakerdeck.com/chancancode/ember-dot-js-an-antidote-to-your-hype-fatigue).
 
+This is also the talk I'll be giving at the Seattle meetup Thursday May 28th, [Ember.JS Seattle](http://www.meetup.com/Ember-js-Seattle-Meetup/events/222195632/).
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ASxwoyg40L4" frameborder="0" allowfullscreen></iframe>
 
 <!-- break -->
