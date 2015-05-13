@@ -1,0 +1,441 @@
+
+
+<!-- Nice to see you took a peek here, hello -->
+<!-- send us an email at hello at brewhouse dot io if you want to talk tech -->
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+
+<html lang="en-us" class="blog">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# business: http://ogp.me/ns/business#">
+
+    <title>Best Practices for Component State in React.js</title>
+    <meta property="og:title" content="Best Practices for Component State in React.js">
+    <meta property="og:site_name" content="brewhouse">
+    <meta property="og:url" content="http://brewhouse.io/blog/2015/03/24/best-practices-for-component-state-in-reactjs.html">
+
+    <meta property="og:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png">
+
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:site" content="@brewhouseteam" />
+    <meta property="twitter:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png">
+    <meta property="twitter:url" content="http://brewhouse.io/blog/2015/03/24/best-practices-for-component-state-in-reactjs.html">
+
+    <link rel="alternate" type="application/atom+xml" href="/blog/index.xml" title="The Brew Pub atom feed">
+
+    
+      <meta property="og:type" content="article">
+      <meta property="article:published_time" content="2015-03-24 10:00:00 -0800">
+      <meta property="article:tag" content="Gabe Scholz">
+
+      <meta property="twitter:title" content="Best Practices for Component State in React.js">
+
+      
+    
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="robots" content="INDEX, FOLLOW">
+
+<link rel="shortcut icon" href="/images/icons/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
+
+<link rel="stylesheet" href="/assets/application-c24646464e921b2a614dd353a7e8b85a.css">
+
+  </head>
+  <body class="on-post">
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46725009-2', 'brewhouse.io');
+  ga('send', 'pageview');
+
+</script>
+
+
+    <nav id="navbar-blog" class="navbar navbar-default navbar-main" role="navigation">
+      <a id="brewhouse-logo" class="navbar-brand internal" rel="home" href="/" title="brewhouse logo"><img src="/images/brewhouse-logo-blog-2.png"></a>
+    </nav>
+
+    <div class="container main">
+      <div class="body-border-top">
+</div>
+<div id="banner-blog" class="row">
+  <div class="banner-content">
+    <section class="col-xs-12 col-sm-5">
+      <h1 id="brew-pub-start">
+        <a href="/blog/"><img src="/images/blog-brew-pub-logo.png"></a>
+      </h1>
+      <h3>
+        Writings from <a href="http://brewhouse.io">brewhouse.io</a>, makers of <a href="https://goodbits.io?utm_source=brewhouse-blog">Goodbits</a>.
+        <br>
+        We partner with teams to build superb apps.
+      </h3>
+    </section>
+    <section class="col-xs-12 col-sm-4">
+      <p class="blog-contact-info">
+        Need help today with a project?
+        <br><a href="http://brewhouse.io/#hire-us">Hire us.</a>
+      </p>
+    </section>
+  </div>
+</div>
+
+
+      
+
+<div id="article-start" class="content">
+  <div class="row">
+    <div class="col-xs-12 col-sm-9">
+
+      <div class="post">
+        <div class="social-actions">
+          <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io/blog/2015/03/24/best-practices-for-component-state-in-reactjs.html" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="">Tweet</a>
+        </div>
+
+        <h1>
+          Best Practices for Component State in React.js
+        </h1>
+        <p class="meta">
+          
+            <span>
+              <img class="img-circle img-author" src="//www.gravatar.com/avatar/667f2b767c362d9291bf2e7afa3de5fd?s=135" alt="A photo of Gabe Scholz" width="55">
+
+              <a href="http://twitter.com/gabescholz" target="_blank">Gabe Scholz</a> wrote this on 24 Mar 2015
+            </span>
+          
+        </p>
+
+        <p>When writing React applications, it’s important to know when and when not to use state in components. In this post, I will review what I consider to be best practices for working with state. TL;DR:</p>
+
+<ol>
+  <li>If a component does not own a datum, then that datum should not influence it’s state.</li>
+  <li>Store the simplest possible values to describe a component’s state.</li>
+  <li>Leave calculations and conditionals to the render function.</li>
+</ol>
+
+<p>These rules obviously have exceptions and should be violated when appropriate; though if you’re able to follow them most of the time, you will find that your components will be easier to break down, the tests will be easier to write, and the entire application will have fewer bugs. Let’s take a closer look at each of these rules.</p>
+
+<!-- break -->
+
+<h2 id="if-a-component-does-not-own-a-datum-then-that-datum-should-not-influence-its-state">If a component does not own a datum, then that datum should not influence it’s state</h2>
+
+<p>First, and probably the most important of all, the state of a component should not depend on the props passed in. Of course props may pass down state-like ideas - for example, on a custom input component, I may choose to have a <code>disabled</code> prop which disables some internal text input - but when I say “state”, I’m referring specifically to the state attribute of the component. You may begin to notice a code smell when the state starts to depend on it’s props. Take a look at the following snippet:</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">React</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;react/addons&#39;</span><span class="p">);</span>
+
+<span class="kr">class</span> <span class="nx">UserWidget</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+
+  <span class="c1">// BAD: set this.state.fullName with values received through props</span>
+  <span class="nx">constructor</span> <span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">fullName</span><span class="o">:</span> <span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">firstName</span><span class="p">}</span> <span class="nx">$</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">lastName</span><span class="p">}</span><span class="err">`</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+
+  <span class="nx">render</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">fullName</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">fullName</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">picture</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">picture</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">img</span> <span class="nx">src</span><span class="o">=</span><span class="p">{</span><span class="nx">picture</span><span class="p">}</span> <span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">fullName</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/h2&gt;</span>
+      <span class="o">&lt;</span><span class="err">/div&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>What’s wrong with this? It may not be obvious at first, but if <code>firstName</code> or <code>lastName</code> change, the view of this <code>UserWidget</code> will not change. The constructor function only runs when the component is mounted and thus <code>fullName</code> is forever whatever it was when the component mounted.* Developers who are new to React will often make this mistake, perhaps because <code>setState</code> is the easiest and most obvious way to update the component view.</p>
+
+<p>You should ask yourself whether this component owns this data. Were <code>firstName</code> and <code>lastName</code> created internally? If not, then the state should not depend on it.** And what is the best way to avoid this? Calculate <code>fullName</code> as a part of the <code>render</code> function.</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">render</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">fullName</span> <span class="o">=</span> <span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">firstName</span><span class="p">}</span> <span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">lastName</span><span class="p">}</span><span class="err">`</span><span class="p">;</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span></code></pre></div>
+
+<p>By moving this to the render function, we are now never again concerned about whether <code>fullName</code> will be updated. React has hooks to run a function whenever props are updated - <em>i.e.</em> <code>componentWillReceiveProps</code> - however, I would consider using this an anti-pattern because it adds complexity when it’s not needed.</p>
+
+<p><a href="http://facebook.github.io/react/tips/props-in-getInitialState-as-anti-pattern.html">Of course, if you don’t care about props after the component is initialized, then this entire rule doesn’t apply</a>.</p>
+
+<p><small style="font-size:10px; margin-bottom: -30px; display: block;">
+*When using <code>React.createClass</code> instead of <code>extends React.Component</code>, replace <code>constructor</code> with <code>getInitialState</code>.
+</small></p>
+
+<p><small style="font-size:10px;">
+**At some point, “state” will need to be set within something. In the flux pattern this may be a root “controller” component listening to a bunch of stores.
+</small></p>
+
+<h2 id="store-the-simplest-possible-values-to-describe-a-components-state">Store the simplest possible values to describe a component’s state</h2>
+
+<p>When describing the component’s state, you should do it with the simplest possible representation. In many cases, this means preferring the use of boolean flags.</p>
+
+<p>Consider the following example where we have some component which stores a list of classes in its state based on whether it was clicked or hovered. (And for what it’s worth, I have seen this kind of thing a lot in the wild):</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">React</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;react/addons&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">cx</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">classSet</span><span class="p">;</span>
+
+<span class="kr">class</span> <span class="nx">ArbitraryWidget</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+
+  <span class="nx">constructor</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">classes</span><span class="o">:</span> <span class="p">[]</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+
+  <span class="c1">// BAD: push &#39;hover&#39; into this.state.classes when mousing over the component</span>
+  <span class="nx">handleMouseOver</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">classes</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">classes</span><span class="p">;</span>
+    <span class="nx">classes</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;hover&#39;</span><span class="p">);</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="nx">classes</span><span class="o">:</span> <span class="nx">classes</span> <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="c1">// BAD: remove &#39;hover&#39; from this.state.classes when the mouse leaves the component</span>
+  <span class="nx">handleMouseOut</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">classes</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">classes</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="nx">classes</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;hover&#39;</span><span class="p">);</span>
+    <span class="nx">classes</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="nx">classes</span><span class="o">:</span> <span class="nx">classes</span> <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="c1">// BAD: toggle &#39;active&#39; in this.state.classes when the component is clicked</span>
+  <span class="nx">handleClick</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">classes</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">classes</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="nx">classes</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;active&#39;</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">index</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">classes</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">classes</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;active&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="nx">classes</span><span class="o">:</span> <span class="nx">classes</span> <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="nx">render</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">classes</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">classes</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span>
+        <span class="nx">className</span><span class="o">=</span><span class="p">{</span><span class="nx">cx</span><span class="p">(</span><span class="nx">classes</span><span class="p">)}</span>
+        <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleClick</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">)}</span>
+        <span class="nx">onMouseOver</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleMouseOver</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">)}</span>
+        <span class="nx">onMouseOut</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleMouseOut</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">)}</span> <span class="o">/&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>This component works; however, I do have some serious reservations. It’s state is now an awkward array of strings. <code>this.state.classes = ['active', 'hover']</code>. Not only does this format hurt the readability of the code, but it makes it more difficult to change. Having other components relying on whether or not my array of classes contains <code>hover</code> isn’t quite the same as checking a boolean flag. Consider this refactoring where we instead store boolean values that represent whether or not the component should have a class - <em>e.g.</em> <code>isHovering === true</code> implies that I should use the <code>hover</code> class:</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">React</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;react/addons&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">cx</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">classSet</span><span class="p">;</span>
+
+<span class="kr">class</span> <span class="nx">ArbitraryWidget</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+
+  <span class="nx">constructor</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">isHovering</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="nx">isActive</span><span class="o">:</span> <span class="kc">false</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+
+  <span class="c1">// GOOD: set this.state.isHovering to true on mouse over</span>
+  <span class="nx">handleMouseOver</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="nx">isHovering</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="c1">// GOOD: set this.state.isHovering to false on mouse leave</span>
+  <span class="nx">handleMouseOut</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="nx">isHovering</span><span class="o">:</span> <span class="kc">false</span> <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="c1">// GOOD: toggle this.state.isActive on click</span>
+  <span class="nx">handleClick</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">active</span> <span class="o">=</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">isActive</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="nx">isActive</span><span class="o">:</span> <span class="nx">active</span> <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="nx">render</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// use the classSet addon to concat an array of class names together</span>
+    <span class="kd">var</span> <span class="nx">classes</span> <span class="o">=</span> <span class="nx">cx</span><span class="p">([</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">isHovering</span> <span class="o">&amp;&amp;</span> <span class="s1">&#39;hover&#39;</span><span class="p">,</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">isActive</span> <span class="o">&amp;&amp;</span> <span class="s1">&#39;active&#39;</span>
+    <span class="p">]);</span>
+
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span>
+        <span class="nx">className</span><span class="o">=</span><span class="p">{</span><span class="nx">cx</span><span class="p">(</span><span class="nx">classes</span><span class="p">)}</span>
+        <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleClick</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">)}</span>
+        <span class="nx">onMouseOver</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleMouseOver</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">)}</span>
+        <span class="nx">onMouseOut</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleMouseOut</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">)}</span> <span class="o">/&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Whoa! By boiling the state concerns down to boolean values we must calculate the array of classes from within the render function; though, we also enhance the readability of the component. <code>this.state.isHovering</code> is a far better representation of the <strong>actual</strong> component state than <code>this.state.classes.indexOf('hover') != -1</code>. The component can be more easily extended and tested because we’re not concerned with the construction of some array.</p>
+
+<p>I’d like to repeat that you should always aim for the simplest representation of the state. This does <em>not</em> necessarily mean you’re only storing boolean values. It may very well be that deeply nested objects are the only option. It may also be that you can get away with storing a number. Or a string. Or a function.</p>
+
+<p>Imagine being a third party and trying to observe the state of a component which returns an array of classes. Is this useful to you? Of course not. It’s woefully brittle. Contrasted that with a boolean <code>isActive</code> is much more actionable. I hope you understand what I mean.</p>
+
+<h2 id="leave-calculations-and-conditionals-to-the-render-function">Leave calculations and conditionals to the render function</h2>
+
+<p>Following the previous two rules, this one should already be in place; however, it’s still worth noting. Whenever possible, make decisions and do calculations at the last possible moment: in the render function. Though perhaps slightly slower than other approaches, it ensures the least amount of redirection in the component. Enhanced readability and extensibility should always come before micro-optimizations.</p>
+
+<p>Do I need to concatenate the <code>firstName</code> and <code>lastName</code> prop? Move it to the render function. Which classes does my component need to use? Decide in the render function. Should I show placeholder text if I don’t have any items on my todo list? Decide in the render function. Do I need to format a phone number so that it looks more presentable? Do it in the render function. How should I render out subcomponents? Decide in the render function.* What am I having for lunch today? Decide in the render function.</p>
+
+<p>Of course, you don’t have to cram all of code into a single function. On the contrary, it’s best to extract helper functions (with good names) when appropriate. The point is still that you should reduce complexity in your state by allowing the render function to do most of the decision making. You might decide to prefix these helpers with <code>render</code> as in the following example:**</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// GOOD: Helper function to render fullName</span>
+<span class="nx">renderFullName</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">firstName</span><span class="p">}</span> <span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">lastName</span><span class="p">}</span><span class="err">`</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">render</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">fullName</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">renderFullName</span><span class="p">();</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span></code></pre></div>
+
+<p><small style="font-size:10px; margin-bottom: -30px; display: block;">
+*For the love of all that is holy, please do not store components in the state.
+</small></p>
+
+<p><small style="font-size:10px;">
+**Thanks <a href="https://twitter.com/ekryski">Eric Kryski</a> and <a href="https://twitter.com/notbrent">Brent Vatne</a> for comments on this.
+</small></p>
+
+<h2 id="cpu-intensive-calculations">CPU intensive calculations</h2>
+
+<p>Because I’m suggesting that you defer just about everything to the render function, it would follow that even CPU intensive calculations are deferred as well. To avoid repeated complex renderings, consider a <a href="https://lodash.com/docs#memoize">memoization function</a>.</p>
+
+<h2 id="do-not-store-values-on-the-instance-of-the-component">Do not store values on the instance of the component</h2>
+
+<p>Just don’t. Storing values on the instance of a component is doing this:</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">React</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;react/addons&#39;</span><span class="p">);</span>
+
+<span class="kr">class</span> <span class="nx">ArbitraryWidget</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+
+  <span class="nx">constructor</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">derp</span> <span class="o">=</span> <span class="s1">&#39;something&#39;</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">handleClick</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">derp</span> <span class="o">=</span> <span class="s1">&#39;somethingElse&#39;</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">render</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">something</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">derp</span><span class="p">;</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>This is particularly bad, not only because you’re breaking the obvious convention of storing state on <code>this.state</code>, but because <code>render</code> won’t automatically trigger when <code>this.derp</code> is updated.</p>
+
+<h2 id="unit-testing">Unit Testing</h2>
+
+<p>As an added bonus, the component unit tests are easier to write because all of the cruft falls down to the render function. Said cruft becomes a view concern and decision making is offset to the user. (Of course testing the view is still very important, but in my opinion you should do this with end to end tests.) Things are less likely to break when you’re only checking for the simplest possible values rather than complex ones that require many conditions to reproduce and only describe concerns of the display.</p>
+
+<h2 id="exceptional-cases">Exceptional Cases</h2>
+
+<p>As my mother says, “You should be careful with your always and nevers.” Please take what you’ve read here with a grain of salt. Forcing yourself to adhere to these practices in truly exceptional cases may hurt more than help. Though, if you do find yourself unable to follow these rules, it may be a sign that you need to break the component down into smaller ones. By keeping the component simple and deferring to the render function, groupings begin to appear which assist with this exercise.</p>
+
+<h2 id="anything-else">Anything else?</h2>
+
+<p>Is there something I’ve missed? Do you disagree? See a typo? What should I write about next? Leave a comment below or <a href="https://twitter.com/gabescholz">@ me on twitter</a>. If you’re in the Vancouver, BC area we should grab a coffee and talk about JavaScript!</p>
+
+<h2 id="hire-us">Hire Us!</h2>
+
+<p>Interested in React.js training for your team? Need help building your next ambitious web application? We’re a Rails and JavaScript shop located in beautiful Vancouver, BC. <a href="http://brewhouse.io/#hire-us">Get in touch!</a></p>
+
+
+        <div class="hire-us-form text-center">
+  <h3>
+    Need help with a project?
+  </h3>
+
+  <p>We work with teams on Rails &amp; Javascript products, whether it be feature delivery or code refactoring.</p>
+
+  <a class="button btn btn--blue" href="http://brewhouse.io/#hire-us">Get in touch now!</a>
+
+</div>
+
+
+        <div id="disqus_thread"></div>
+
+        <!-- disqus -->
+        <script type="text/javascript">
+            var disqus_shortname = 'brewhouse';
+            var disqus_url = 'http://brewhouse.io/blog/2015/03/24/best-practices-for-component-state-in-reactjs.html';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        <!-- /disqus -->
+
+      </div><!-- /post -->
+
+    </div>
+  </div><!-- /row -->
+</div><!-- /content-->
+
+<script>
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+</script>
+
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+
+          <section class="col-xs-11 col-xs-offset-1 col-no-padding">
+            <p class="blog-contact-info">
+              Email <a href="mailto:hello@brewhouse.io">hello@brewhouse.io</a> or give us a call <a class="telephone" href="tel:+16046147784">+1 604-757-4242</a>
+              to talk about your project and hiring us.
+            </p>
+          </section>
+
+        </div>
+        <div class="row">
+          <div class="col-xs-11 col-xs-offset-1 col-no-padding">
+            <p>
+              &copy; <span class="copyright-year"></span> <a href="http://brewhouse.io">brewhouse software, inc.</a>
+            </p>
+          </div><!--col-xs-12 -->
+        </div><!-- row -->
+      </div><!-- container -->
+    </footer>
+
+    <script src="/assets/app-195c2a3eee86ef59262b132e2e9aabc4.js"></script>
+  </body>
+</html>
