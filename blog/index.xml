@@ -3,7 +3,7 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2015-05-13T10:59:15-07:00</updated>
+    <updated>2015-05-13T12:09:23-07:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
@@ -22,6 +22,10 @@
             <id>http://brewhouse.io/blog/2015/05/13/emberjs-an-antidote-to-your-hype-fatigue</id>
             <content type="html">&lt;p&gt;This is a write-up of the talk I gave at &lt;a href=&quot;http://www.meetup.com/vancouver-javascript-developers/&quot;&gt;VanJS&lt;/a&gt;
 this month. You can find the slides &lt;a href=&quot;https://speakerdeck.com/chancancode/ember-dot-js-an-antidote-to-your-hype-fatigue&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you happen to be in Seattle, I’ll be giving a version of this talk on
+Thursday May 28th at the &lt;a href=&quot;http://www.meetup.com/Ember-js-Seattle-Meetup/events/222195632/&quot;&gt;Ember.JS Seattle&lt;/a&gt;
+meetup.&lt;/p&gt;
 
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/ASxwoyg40L4&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
@@ -1130,6 +1134,9 @@ in the 2.0 release. Combined with Ember’s semantic versioning guarentee, this
 means any Ember app that runs fine on the latest 1.13 release (without
 deprecations) will be able to upgrade to smoothly upgrade to Ember 2.x.&lt;/p&gt;
 
+&lt;p&gt;You can read more about the plans for Ember 2.0 in the &lt;a href=&quot;https://github.com/emberjs/rfcs/pull/15&quot;&gt;RFC&lt;/a&gt;
+and this &lt;a href=&quot;http://emberjs.com/blog/2015/05/10/run-up-to-two-oh.html&quot;&gt;blog post&lt;/a&gt;.&lt;/p&gt;
+
 &lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h2&gt;
 
 &lt;p&gt;So, that’s Ember.js, &lt;em&gt;the antidote to your hype fatigue&lt;/em&gt;. It is actually quite
@@ -1146,7 +1153,7 @@ stick around.&lt;/p&gt;
 </content>
 
             
-              <content type="image" src="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png" />
+              <content type="image" src="http://brewhouse.io/images/posts/2015/05/hype-fatigue-social.jpg" />
             
         </entry>
       
