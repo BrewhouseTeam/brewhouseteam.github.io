@@ -6,6 +6,7 @@ category:  blog
 date:      2015-03-06 16:00
 published: true
 tags:
+- talks
 - emberjs
 - emberconf
 - javascript
