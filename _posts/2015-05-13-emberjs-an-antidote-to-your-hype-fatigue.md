@@ -1143,17 +1143,17 @@ feature which solves the SEO problem for Ember apps (and then some).
 Likewise, one-way bindings (readonly attributes for components by default),
 routable components (use components everywhere to replace controllers/views) and
 many other similar improvements are coming to Ember in the near future. These
-advancements is a result of distilling the collective app-writing experience
-from both the inside the Ember community as well as the wider front-end
+advancements are a result of distilling the collective app-writing experience
+from both inside of the Ember community as well as from the wider front-end
 JavaScript community, and I think it's safe to say that you should expect a lot
 more to come.
 
 ### Ember 2.0
 
-You might have heard about this upcoming Ember 2.0 release. That's sounds pretty
+You might have heard about this upcoming Ember 2.0 release. That sounds pretty
 exciting! What is that about?
 
-Well, let's with looking at the major features planned for this release:
+Well, let's start by looking at the major features planned for this release:
 
 * <small>*This list is intentionally left blank.*</small>
 
