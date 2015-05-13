@@ -12,7 +12,7 @@ tags:
 - single page application
 ---
 
-This is a write-up of the talk I gave at [VanJS](www.meetup.com/vancouver-javascript-developers/)
+This is a write-up of the talk I gave at [VanJS](http://www.meetup.com/vancouver-javascript-developers/)
 this month. You can find the slides [here](https://speakerdeck.com/chancancode/ember-dot-js-an-antidote-to-your-hype-fatigue).
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ASxwoyg40L4" frameborder="0" allowfullscreen></iframe>
@@ -27,8 +27,8 @@ about the churns in the front-end JavaScript landscape. You really should read
 it yourself, but I'll summarize it for you here:
 
 <p>
-  <a href="/images/posts/hype-fatigue/pop-quiz.png">
-    <img class="img-responsive" alt="Pop quiz!" src="/images/posts/hype-fatigue/pop-quiz.png">
+  <a href="/images/posts/2015/05/pop-quiz.png">
+    <img class="img-responsive" alt="Pop quiz!" src="/images/posts/2015/05/pop-quiz.png">
   </a>
 </p>
 
@@ -45,8 +45,8 @@ As you can imagine, having to add support for a new framework every sixteen
 minutes does not make a very scalable business.
 
 <p>
-  <a href="/images/posts/hype-fatigue/frameworks-1-0.png">
-    <img class="img-responsive" alt="JavaScript frameworks: 1.0 release dates" src="/images/posts/hype-fatigue/frameworks-1-0.png">
+  <a href="/images/posts/2015/05/frameworks-1-0.png">
+    <img class="img-responsive" alt="JavaScript frameworks: 1.0 release dates" src="/images/posts/2015/05/frameworks-1-0.png">
   </a>
 </p>
 
@@ -59,13 +59,13 @@ means, so this visualization didn't quite match my mental timeline.
 So I tried something else.
 
 <p>
-  <a href="/images/posts/hype-fatigue/frameworks-critical-mass.png">
-    <img class="img-responsive" alt="JavaScript frameworks: reaching critical mass" src="/images/posts/hype-fatigue/frameworks-critical-mass.png">
+  <a href="/images/posts/2015/05/frameworks-critical-mass.png">
+    <img class="img-responsive" alt="JavaScript frameworks: reaching critical mass" src="/images/posts/2015/05/frameworks-critical-mass.png">
   </a>
 </p>
 
 Here, I consulted [Google Trends](https://www.google.com/trends/) and plotted
-the month that each frameworks first reached a arbitrary threshold of "interest"
+the month that each framework first reached a arbitrary threshold of "interest"
 based on Google search queries. This turned out to be a pretty good
 approximation of "when did I first hear about X?", and it is pretty close to the
 mental timeline I have in mind.
@@ -81,7 +81,7 @@ everyone with a more functional approach to view rendering.
 If you are a person with a lot of free time and curiosity, this is an excellent
 time to be a front-end developer. If you are running a consulting agency, this
 might even be good for business. Unfortunately, if you have a real job and a
-product to maintain, then these new development doesn't really benefit you that
+product to maintain, then these new developments doesn't really benefit you that
 much unless you rewrite your project using the latest framework every three
 months. Worse, even if you managed to resist the temptation to do that, you will
 keep hearing people around you raving about their shiny new toys, making you
@@ -92,8 +92,8 @@ That, my friend, is what hype does to you.
 ## Hype Fatigue
 
 <p>
-  <a href="/images/posts/hype-fatigue/hype-cycle.png">
-    <img class="img-responsive" alt="The Hype Cycle by Brandon Hays" src="/images/posts/hype-fatigue/hype-cycle.png">
+  <a href="/images/posts/2015/05/hype-cycle.png">
+    <img class="img-responsive" alt="The Hype Cycle by Brandon Hays" src="/images/posts/2015/05/hype-cycle.png">
   </a>
 </p>
 
@@ -125,8 +125,8 @@ I'd like to introduce you to [an antidote to your hype fatigue](https://twitter.
 It's called [Ember.js](http://emberjs.com/).
 
 <p>
-  <a href="/images/posts/hype-fatigue/ember-hype.png">
-    <img class="img-responsive" alt="The Ember hype chart" src="/images/posts/hype-fatigue/ember-hype.png">
+  <a href="/images/posts/2015/05/ember-hype.png">
+    <img class="img-responsive" alt="The Ember hype chart" src="/images/posts/2015/05/ember-hype.png">
   </a>
 </p>
 
@@ -165,8 +165,8 @@ work. It also means a much steeper learning curve, and severely restricts pool
 of potential users.
 
 <p>
-  <a href="/images/posts/hype-fatigue/companies.png">
-    <img class="img-responsive" alt="Some serious Ember users" src="/images/posts/hype-fatigue/companies.png">
+  <a href="/images/posts/2015/05/companies.png">
+    <img class="img-responsive" alt="Some serious Ember users" src="/images/posts/2015/05/companies.png">
   </a>
 </p>
 
@@ -207,11 +207,10 @@ code you are going to use, so you need a sane way to share code between the
 wider community as well.
 
 Of course, these problems are probably Not That Hard™. After all, anyone who
-uses using smaller libraries to build JavaScript applications would have to
-solve these problems themselves.
-
-So perhaps, we should just say, focusing on applications forces you to solve a
-lot of <del>Hard</del> Real World Problems™.
+builds JavaScript applications using smaller libraries would have to solve these
+problems themselves, so we know that could be done. So perhaps, we should just
+say, focusing on applications forces you to solve a lot of <del>Hard</del> Real
+World Problems™.
 
 But as you can see, these Real World Problems™ are very boring, so they get a
 lot less spotlight attention than, say, new programming paradigms. After all,
@@ -236,20 +235,20 @@ development experience a lot nicer.
 #### Ember Inspector
 
 <p style="position: relative; overflow: hidden">
-  <a href="/images/posts/hype-fatigue/ember-inspector-1.png" style="float: left; width: 25%">
-    <img class="img-responsive" alt="The Ember Inspector" src="/images/posts/hype-fatigue/ember-inspector-1.png">
+  <a href="/images/posts/2015/05/ember-inspector-1.png" style="float: left; width: 25%">
+    <img class="img-responsive" alt="The Ember Inspector" src="/images/posts/2015/05/ember-inspector-1.png">
   </a>
 
-  <a href="/images/posts/hype-fatigue/ember-inspector-2.png" style="float: left; width: 25%">
-    <img class="img-responsive" alt="The Ember Inspector" src="/images/posts/hype-fatigue/ember-inspector-2.png">
+  <a href="/images/posts/2015/05/ember-inspector-2.png" style="float: left; width: 25%">
+    <img class="img-responsive" alt="The Ember Inspector" src="/images/posts/2015/05/ember-inspector-2.png">
   </a>
 
-  <a href="/images/posts/hype-fatigue/ember-inspector-3.png" style="float: left; width: 25%">
-    <img class="img-responsive" alt="The Ember Inspector" src="/images/posts/hype-fatigue/ember-inspector-3.png">
+  <a href="/images/posts/2015/05/ember-inspector-3.png" style="float: left; width: 25%">
+    <img class="img-responsive" alt="The Ember Inspector" src="/images/posts/2015/05/ember-inspector-3.png">
   </a>
 
-  <a href="/images/posts/hype-fatigue/ember-inspector-4.png" style="float: left; width: 25%">
-    <img class="img-responsive" alt="The Ember Inspector" src="/images/posts/hype-fatigue/ember-inspector-4.png">
+  <a href="/images/posts/2015/05/ember-inspector-4.png" style="float: left; width: 25%">
+    <img class="img-responsive" alt="The Ember Inspector" src="/images/posts/2015/05/ember-inspector-4.png">
   </a>
 </p>
 
@@ -429,17 +428,17 @@ TreeMerger (67)                               | 17ms (0 ms)
 The development server probably deserves a special call out. Under the hood,
 Ember CLI uses [Broccoli](https://github.com/broccolijs/broccoli) for the build
 pipeline. Whenever you change a file, it'll automatically rebuild that part of
-your app bundle incrementally. When that's done, Ember automatically reload your
-app in any open browser tabs – all out of the box with zero configuration.
+your app bundle incrementally. When that's done, Ember automatically reloads
+your app in any open browser tabs – all out of the box with zero configuration.
 
 #### Testing
 
-Your could design your architecture in a way that makes your components very
-unit-testable in theory, but that's usually not where the difficult lies – the
+You could design your architecture in a way that makes your components very
+unit-testable in theory, but that's usually not where the difficulty lies – the
 most difficult part about testing is getting into the habit of writing them,
 100% of the time.
 
-How many of you writes test for your front-end JavaScript projects? Do you write
+How many of you write tests for your front-end JavaScript projects? Do you write
 unit tests? Do you write end-to-end acceptance tests? What about testing them in
 multiple browsers? Continuously running them during development? Do you do all
 of those things for your side projects too?
@@ -536,9 +535,9 @@ ok 11 PhantomJS 1.9 - route:post: it exists
 {% endhighlight %}
 
 As you can see, JSHint is also integrated into the testing pipeline. By default,
-a failing a JSHint rule would result in a failing test.
+a failing JSHint rule would result in a failing test.
 
-Or you can run a test server, which automatically rerun your tests in multiple
+Or you can run a test server, which automatically reruns your tests in multiple
 browsers whenever you make changes to your files:
 
 {% highlight text %}
@@ -567,7 +566,7 @@ http://localhost:7357/
 
 While generators and all the goodies that EmberCLI gives you in the standard
 stack are pretty cool, the real breakthrough here is that we finally agreed on a
-*conical*/*conventional* way set up for Ember applications. This enables to
+*conical*/*conventional* set up for Ember applications. This enables the
 community to augment the framework and extend its functionality through Ember
 Addons.
 
@@ -593,8 +592,8 @@ with new ones being added daily.
 ## Big Bet: Future Standards Foresight
 
 <p>
-  <a href="/images/posts/hype-fatigue/wycats.png">
-    <img class="img-responsive" alt="Yehuda Katz, a JavaScript thought leader" src="/images/posts/hype-fatigue/wycats.png">
+  <a href="/images/posts/2015/05/wycats.png">
+    <img class="img-responsive" alt="Yehuda Katz, a JavaScript thought leader" src="/images/posts/2015/05/wycats.png">
   </a>
 </p>
 
@@ -733,8 +732,8 @@ Oh. And of course there will be a helpful view in the Ember inspector to help
 you track down and debug these promises:
 
 <p>
-  <a href="/images/posts/hype-fatigue/ember-inspector-promise.png">
-    <img class="img-responsive" alt="Promises in the Ember Inspector" src="/images/posts/hype-fatigue/ember-inspector-promise.png">
+  <a href="/images/posts/2015/05/ember-inspector-promise.png">
+    <img class="img-responsive" alt="Promises in the Ember Inspector" src="/images/posts/2015/05/ember-inspector-promise.png">
   </a>
 </p>
 
@@ -750,7 +749,7 @@ introduced in Ember, this is how you would explain them to your Angular friends:
 
 > *A directive that is restricted to element names with an isolated scope that uses transclusion.*
 
-Because not a lot of browsers actually has support for web components natively,
+Because not a lot of browsers actually have support for web components natively,
 Ember component is the stand-in for them in the current stack. They are designed
 in a way that is conceptually and functionally pretty close to what web
 components would look like in the future, so that the Ember version can
@@ -790,7 +789,7 @@ Out of the box, Ember CLI also sets up the [Babel ES6 transpiler](http://babeljs
 so most of the Ember community has already been writing the next version of
 JavaScript for over half a year.
 
-ES6 also provides (finally) a class system for JavaSciprt. Historically, Ember
+ES6 also provides (finally) a class system for JavaScript. Historically, Ember
 (and almost every other framework) has shipped with its own class system. You
 cannot use ES6 classes for Ember objects today, but no worries, it's already [in
 the works](https://github.com/emberjs/ember.js/issues/10341). Presumably, the
@@ -840,8 +839,8 @@ quirks that could otherwise be hidden until shipped. Synergy™.
 ## Big Bet: Stability Without Stagnation
 
 <p>
-  <a href="/images/posts/hype-fatigue/companies.png">
-    <img class="img-responsive" alt="Some serious Ember users" src="/images/posts/hype-fatigue/companies.png">
+  <a href="/images/posts/2015/05/companies.png">
+    <img class="img-responsive" alt="Some serious Ember users" src="/images/posts/2015/05/companies.png">
   </a>
 </p>
 
@@ -853,8 +852,8 @@ up falling behind either.
 ### Release Channels
 
 <p>
-  <a href="/images/posts/hype-fatigue/release-channels.png">
-    <img class="img-responsive" alt="Ember Release Channels" src="/images/posts/hype-fatigue/release-channels.png">
+  <a href="/images/posts/2015/05/release-channels.png">
+    <img class="img-responsive" alt="Ember Release Channels" src="/images/posts/2015/05/release-channels.png">
   </a>
 </p>
 
@@ -867,8 +866,8 @@ channel, this is where you would find the stable releases that comes out every
 six weeks or so which are Ready For Production™.
 
 <p>
-  <a href="/images/posts/hype-fatigue/release-waterfall.png">
-    <img class="img-responsive" alt="Release Waterfall" src="/images/posts/hype-fatigue/release-waterfall.png">
+  <a href="/images/posts/2015/05/release-waterfall.png">
+    <img class="img-responsive" alt="Release Waterfall" src="/images/posts/2015/05/release-waterfall.png">
   </a>
 </p>
 
@@ -879,10 +878,10 @@ individually at either runtime or build time.
 
 At the beginning of each beta cycle, the core team will review all the new
 features that were added behind a flag. Those that are deemed stable enough will
-enabled on the beta build by default. If major regessions are discovered during
-the beta cycle, they will be switched off and deferred for future releases. By
-the end of the beta cycle, whatever remains on the last beta build will get
-released into the stable channel.
+be enabled on the beta build by default. If major regessions are discovered
+during the beta cycle, they will be switched off and deferred for future
+releases. By the end of the beta cycle, whatever remains on the last beta build
+will get released into the stable channel.
 
 Let's look at an example:
 
@@ -921,15 +920,15 @@ up to 1.11 with relatively few issues.
 The way they do this is to incrementally deprecate things in the framework that
 they plan to remove, but they will keep the features (and tests) around for the
 entire 1.x series or otherwise shim them with compatibility layers. So while you
-are encouraged to fix resolve these deprecations as soon as possible, you are
-given a very long time frame to do so.
+are encouraged to resolve these deprecations as soon as possible, you are given
+a very long timeframe to do so.
 
 Of course, for Synergy™ points, there is a helpful tab in the inspector to help
 you find and fix these deprecation warnings in your app.
 
 <p>
-  <a href="/images/posts/hype-fatigue/ember-inspector-deprecations.png">
-    <img class="img-responsive" alt="Deprecations in the Ember Inspector" src="/images/posts/hype-fatigue/ember-inspector-deprecations.png">
+  <a href="/images/posts/2015/05/ember-inspector-deprecations.png">
+    <img class="img-responsive" alt="Deprecations in the Ember Inspector" src="/images/posts/2015/05/ember-inspector-deprecations.png">
   </a>
 </p>
 
@@ -1128,9 +1127,10 @@ and is on track for landing in the next Beta series.
 ### Fast Boot™, One-way Bindings, Routable Components, etc
 
 During the last two years, the front-end JavaScript community (especially from
-the React community) has came up other innovative ideas. A lot of these ideas
-intersects perfectly with problems that the Ember community was solving, and
-they will eventually make their way to Ember similar to the Glimmer story.
+the React community) has came up with many other innovative ideas. A lot of
+these ideas intersect perfectly with problems that the Ember community was
+solving, and they will eventually make their way to Ember similar to the Glimmer
+story.
 
 For example, React had a pretty good solution to SEO that is often a problem
 for front-end JavaScript apps. Because React uses a Virtual DOM, they have a
