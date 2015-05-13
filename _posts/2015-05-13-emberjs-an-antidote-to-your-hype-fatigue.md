@@ -10,6 +10,8 @@ tags:
 - emberjs
 - javascript
 - single page application
+shared_square_image: http://brewhouse.io/images/posts/2015/05/hype-fatigue-social.jpg
+shared_description: "Ember.js, and antidote to your JS Framework Hype Fatigue"
 ---
 
 This is a write-up of the talk I gave at [VanJS](http://www.meetup.com/vancouver-javascript-developers/)
