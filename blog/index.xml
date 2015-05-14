@@ -3,7 +3,7 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2015-05-13T12:09:23-07:00</updated>
+    <updated>2015-05-14T11:20:32-07:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
@@ -68,6 +68,9 @@ As you can see, one of them &lt;a href=&quot;https://github.com/batmanjs/batman/
 It also turns out these project all have pretty different views on what “1.0”
 means, so this visualization didn’t quite match my mental timeline.&lt;/p&gt;
 
+&lt;p&gt;(&lt;strong&gt;Correction:&lt;/strong&gt; in an earlier version of this post, Meteor was incorrectly put
+on the pre-1.0 column)&lt;/p&gt;
+
 &lt;p&gt;So I tried something else.&lt;/p&gt;
 
 &lt;p&gt;
@@ -77,7 +80,7 @@ means, so this visualization didn’t quite match my mental timeline.&lt;/p&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Here, I consulted &lt;a href=&quot;https://www.google.com/trends/&quot;&gt;Google Trends&lt;/a&gt; and plotted
-the month that each framework first reached a arbitrary threshold of “interest”
+the month that each framework first reached an arbitrary threshold of “interest”
 based on Google search queries. This turned out to be a pretty good
 approximation of “when did I first hear about X?”, and it is pretty close to the
 mental timeline I have in mind.&lt;/p&gt;
@@ -175,8 +178,8 @@ and immediately benefit from it.&lt;/p&gt;
 
 &lt;p&gt;By contrast, Ember sets out to provide a wholesale solution to the client-side
 application problem. This came at a high cost. For one thing, it is a lot more
-work. It also means a much steeper learning curve, and severely restricts pool
-of potential users.&lt;/p&gt;
+work. It also means a much steeper learning curve, and severely restricts the
+pool of potential users.&lt;/p&gt;
 
 &lt;p&gt;
   &lt;a href=&quot;/images/posts/2015/05/companies.png&quot;&gt;
@@ -193,8 +196,8 @@ on the scale that Ember operates on.&lt;/p&gt;
 
 &lt;p&gt;Solving “the application problem” is easier said than done, though. Focusing on
 the big picture forces you to take on a lot of extra responsibilities and edge
-cases that you could otherwise delegate to the endusers. In the end, that forces
-you to solve a lot of Hard Problems™ in a generic fashion.&lt;/p&gt;
+cases that you could otherwise delegate to the end users. In the end, that
+forces you to solve a lot of Hard Problems™ in a generic fashion.&lt;/p&gt;
 
 &lt;p&gt;For example, let’s say you decided you that you would provide a solution to the
 entire MVC cross-section. But you will quickly realize that “MVC” is just a
@@ -322,7 +325,7 @@ many comments.&lt;/p&gt;
 &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Ember Data also manages your models while they are kept in-memory. It would make
-sure that there is only one conical copy of each model instance in the store,
+sure that there is only one canonical copy of each model instance in the store,
 and keep them in-sync with the server whenever data comes in over the wire.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// app/adapters/application.js&lt;/span&gt;
@@ -558,7 +561,7 @@ http://localhost:7357/
 
 &lt;p&gt;While generators and all the goodies that EmberCLI gives you in the standard
 stack are pretty cool, the real breakthrough here is that we finally agreed on a
-&lt;em&gt;conical&lt;/em&gt;/&lt;em&gt;conventional&lt;/em&gt; set up for Ember applications. This enables the
+&lt;em&gt;canonical&lt;/em&gt;/&lt;em&gt;conventional&lt;/em&gt; set up for Ember applications. This enables the
 community to augment the framework and extend its functionality through Ember
 Addons.&lt;/p&gt;
 
@@ -743,7 +746,7 @@ components would look like in the future, so that the Ember version can
 &lt;p&gt;Ember also bets pretty heavily on the future version of JavaScript. It is
 sometimes referred to as ES6 or ES2015.&lt;/p&gt;
 
-&lt;p&gt;In fact, Ember CLI apps has been using ES6 modules syntax since day one:&lt;/p&gt;
+&lt;p&gt;In fact, Ember CLI apps have been using ES6 modules syntax since day one:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// app/models/post.js&lt;/span&gt;
 
