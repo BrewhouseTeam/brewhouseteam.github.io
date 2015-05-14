@@ -62,6 +62,9 @@ As you can see, one of them [didn't even make it to 1.0](https://github.com/batm
 It also turns out these project all have pretty different views on what "1.0"
 means, so this visualization didn't quite match my mental timeline.
 
+(**Correction:** in an earlier version of this post, Meteor was incorrectly put
+on the pre-1.0 column)
+
 So I tried something else.
 
 <p>
@@ -71,7 +74,7 @@ So I tried something else.
 </p>
 
 Here, I consulted [Google Trends](https://www.google.com/trends/) and plotted
-the month that each framework first reached a arbitrary threshold of "interest"
+the month that each framework first reached an arbitrary threshold of "interest"
 based on Google search queries. This turned out to be a pretty good
 approximation of "when did I first hear about X?", and it is pretty close to the
 mental timeline I have in mind.
@@ -167,8 +170,8 @@ and immediately benefit from it.
 
 By contrast, Ember sets out to provide a wholesale solution to the client-side
 application problem. This came at a high cost. For one thing, it is a lot more
-work. It also means a much steeper learning curve, and severely restricts pool
-of potential users.
+work. It also means a much steeper learning curve, and severely restricts the
+pool of potential users.
 
 <p>
   <a href="/images/posts/2015/05/companies.png">
@@ -185,8 +188,8 @@ on the scale that Ember operates on.
 
 Solving "the application problem" is easier said than done, though. Focusing on
 the big picture forces you to take on a lot of extra responsibilities and edge
-cases that you could otherwise delegate to the endusers. In the end, that forces
-you to solve a lot of Hard Problems™ in a generic fashion.
+cases that you could otherwise delegate to the end users. In the end, that
+forces you to solve a lot of Hard Problems™ in a generic fashion.
 
 For example, let’s say you decided you that you would provide a solution to the
 entire MVC cross-section. But you will quickly realize that "MVC" is just a
@@ -318,7 +321,7 @@ store.createRecord("post", {
 {% endhighlight %}
 
 Ember Data also manages your models while they are kept in-memory. It would make
-sure that there is only one conical copy of each model instance in the store,
+sure that there is only one canonical copy of each model instance in the store,
 and keep them in-sync with the server whenever data comes in over the wire.
 
 {% highlight js %}
@@ -572,7 +575,7 @@ http://localhost:7357/
 
 While generators and all the goodies that EmberCLI gives you in the standard
 stack are pretty cool, the real breakthrough here is that we finally agreed on a
-*conical*/*conventional* set up for Ember applications. This enables the
+*canonical*/*conventional* set up for Ember applications. This enables the
 community to augment the framework and extend its functionality through Ember
 Addons.
 
@@ -767,7 +770,7 @@ components would look like in the future, so that the Ember version can
 Ember also bets pretty heavily on the future version of JavaScript. It is
 sometimes referred to as ES6 or ES2015.
 
-In fact, Ember CLI apps has been using ES6 modules syntax since day one:
+In fact, Ember CLI apps have been using ES6 modules syntax since day one:
 
 {% highlight javascript %}
 // app/models/post.js
