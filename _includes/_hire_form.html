@@ -1,169 +1,53 @@
-<div class="content">
-  <h3>
-    All Set?
-  </h3>
+<!-- info on this here, as well as further details re: validation, etc: http://morning.am/tutorials/how-to-style-google-forms/ -->
+<script type="text/javascript">
+  var submitted = false;
+</script>
 
-  <h5 class="subheader">
-    Share some info about your project to have Brewhouse start working with your team:
-  </h5>
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {window.location='http://brewhouse.io/thanks.html';}"></iframe>
 
-  <div class="form-container clearfix">
-    <!-- info on this here, as well as further details re: validation, etc: http://morning.am/tutorials/how-to-style-google-forms/ -->
-    <script type="text/javascript">
-      var submitted = false;
-    </script>
+<form accept-charset="UTF-8" action="https://docs.google.com/a/brewhouse.io/forms/d/1REQEAU8bM5sOYzV_iOjwOssmiWVclVDPlHGdeZhF3m4/formResponse" method="post" target="hidden_iframe" onsubmit="submitted=true;" class="form">
+  <div class="form-group">
+    <input type="text" class="form-control" name="entry.198792335" value="" id="entry_198792335" dir="auto" aria-label="What's Your Name?" placeholder="What's Your Name?" aria-required="true" required="true" title=""> 
+  </div>
+  <div class="form-group">
+    <input type="email" class="form-control" name="entry.1691412198" value="" id="entry_1691412198" dir="auto" aria-label="What's Your Email Address?" placeholder="What's Your Email Address?" aria-required="true" required="true" title="">
+  </div>
+  <div class="form-group">
+    <textarea class="form-control" name="entry.1701421508" value="" cols="0" rows="3" id="entry_1701421508" dir="auto" aria-label="What would you like our help in building?" placeholder="What would you like our help in building?" aria-required="true" required="true" title=""></textarea>
+  </div>
 
-    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {window.location='http://brewhouse.io/thanks.html';}"></iframe>
+  <!-- <div class="form-group">
 
-    <div class="row">
-      <form accept-charset="UTF-8" action="https://docs.google.com/a/brewhouse.io/forms/d/1REQEAU8bM5sOYzV_iOjwOssmiWVclVDPlHGdeZhF3m4/formResponse" method="post" target="hidden_iframe" onsubmit="submitted=true;" class="form">
+    <label class="form-label sr-only" for="group_347804019_1">What is three plus six? (Sorry we only talk to humans for now)</label>
 
-        <div class="clearfix">
-          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="form-group form-group-lg">
-              <p class="lil-push">
-                <label class="form-label form-label--brewhouse" for="entry_198792335">What’s your name?</label>
+    <div class="radio">
+      <label>
+        <input type="radio" name="entry.347804019" value="Don't know" id="group_347804019_1" role="radio" class="ss-q-radio" aria-label="Don't know" required="" aria-required="true">
+        Don't know
+      </label>
+    </div>
+    <div class="radio">
+      <label>
+        <input type="radio" name="entry.347804019" value="10" id="group_347804019_2" role="radio" class="ss-q-radio" aria-label="10" required="" aria-required="true">
+        10
+      </label>
+    </div>
+    <div class="radio">
+      <label>
+        <input type="radio" name="entry.347804019" value="7" id="group_347804019_3" role="radio" class="ss-q-radio" aria-label="7" required="" aria-required="true">
+        7
+      </label>
+    </div>
+    <div class="radio">
+      <label>
+        <input type="radio" name="entry.347804019" value="9" id="group_347804019_4" role="radio" class="ss-q-radio" aria-label="9" required="" aria-required="true">
+        9
+      </label>
+    </div>
+  </div> -->
 
-                <input type="text" name="entry.198792335" value="" class="form-control form-control--brew" id="entry_198792335" dir="auto" aria-label="What's Your Name?" aria-required="true" required="true" title="">
-              </p>
-            </div>
-          </div>
+  <div class="form-group">
+    <input class="btn btn-block btn--blue" name="submit" type="submit" value="Send Details">
+  </div>
 
-          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="form-group form-group-lg">
-              <p class="lil-push">
-                <label class="form-label form-label--brewhouse" for="entry_1691412198">What’s your email address?</label>
-
-                <input type="email" name="entry.1691412198" value="" class="form-control form-control--brew" id="entry_1691412198" dir="auto" aria-label="What's Your Email Address?" aria-required="true" required="true" title="">
-              </p>
-            </div>
-          </div>
-        </div><!-- /.clearfix -->
-
-        <div class="clearfix">
-          <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6">
-            <div class="form-group">
-              <p class="lil-push">
-                <label class="form-label form-label--brewhouse" for="entry_1701421508">What can we help you build?</label>
-
-                <textarea name="entry.1701421508" rows="5" cols="0" class="form-control form-control--brew form-control--brew-textarea" id="entry_1701421508" dir="auto" aria-label="What would you like our help in building?" aria-required="true" required="true"></textarea>
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="clearfix">
-          <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6">
-            <div class="form-group">
-
-              <label class="form-label form-label--brewhouse" for="group_347804019_1">What is three plus six? (Sorry we only talk to humans for now)</label>
-
-              <div class="radio">
-                <label>
-                  <input type="radio" name="entry.347804019" value="Don't know" id="group_347804019_1" role="radio" class="ss-q-radio" aria-label="Don't know" required="" aria-required="true">
-                  Don't know
-                </label>
-              </div>
-              <div class="radio">
-                <label>
-                  <input type="radio" name="entry.347804019" value="10" id="group_347804019_2" role="radio" class="ss-q-radio" aria-label="10" required="" aria-required="true">
-                  10
-                </label>
-              </div>
-              <div class="radio">
-                <label>
-                  <input type="radio" name="entry.347804019" value="7" id="group_347804019_3" role="radio" class="ss-q-radio" aria-label="7" required="" aria-required="true">
-                  7
-                </label>
-              </div>
-              <div class="radio">
-                <label>
-                  <input type="radio" name="entry.347804019" value="9" id="group_347804019_4" role="radio" class="ss-q-radio" aria-label="9" required="" aria-required="true">
-                  9
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-xs-offset-0 col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-2 col-md-4 col-lg-offset-3 col-lg-3">
-          <div class="form-group">
-            <p class="lil-push">
-              <input class="btn btn-block btn--blue" name="submit" type="submit" value="Send Details">
-            </p>
-          </div>
-        </div>
-
-      </form>
-    </div><!-- /.row -->
-
-  </div><!-- /.form-container -->
-</div><!-- /.content -->
-<!--
-
-
-        <form action="https://docs.google.com/a/brewhouse.io/forms/d/1REQEAU8bM5sOYzV_iOjwOssmiWVclVDPlHGdeZhF3m4/formResponse" method="post" id="ss-form" target="_self" onsubmit="">
-            <ol role="list" class="ss-question-list" style="padding-left: 0">
-                <li style="list-style: none; display: inline">
-                    <div class="ss-form-question errorbox-good" role="listitem">
-                        <div dir="ltr" class="ss-item ss-item-required ss-text">
-                            <div class="ss-form-entry">
-                                <div class="ss-q-title">
-                                    <label class="ss-q-item-label" for="entry_198792335">What's Your Name? <span class="ss-required-asterisk" aria-hidden="true">*</span></label>
-                                </div>
-                                <div class="ss-q-help ss-secondary-text" dir="ltr"></div><input type="text" name="entry.198792335" value="" class="ss-q-short" id="entry_198792335" dir="auto" aria-label="What's Your Name?" aria-required="true" required="" title="">
-                                <div class="error-message" id="158045779_errorMessage"></div>
-                                <div class="required-message">
-                                    This is a required question
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ss-form-question errorbox-good" role="listitem">
-                        <div dir="ltr" class="ss-item ss-item-required ss-text">
-                            <div class="ss-form-entry">
-                                <div class="ss-q-title">
-                                    <label class="ss-q-item-label" for="entry_1691412198">What's Your Email Address? <span class="ss-required-asterisk" aria-hidden="true">*</span></label>
-                                </div>
-                                <div class="ss-q-help ss-secondary-text" dir="ltr"></div><input type="text" name="entry.1691412198" value="" class="ss-q-short" id="entry_1691412198" dir="auto" aria-label="What's Your Email Address?" aria-required="true" required="" title="">
-                                <div class="error-message" id="1924994885_errorMessage"></div>
-                                <div class="required-message">
-                                    This is a required question
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ss-form-question errorbox-good" role="listitem">
-                        <div dir="ltr" class="ss-item ss-item-required ss-paragraph-text">
-                            <div class="ss-form-entry">
-                                <div class="ss-q-title">
-                                    <label class="ss-q-item-label" for="entry_1701421508">What would you like our help to build? <span class="ss-required-asterisk" aria-hidden="true">*</span></label>
-                                </div>
-                                <div class="ss-q-help ss-secondary-text" dir="ltr"></div>
-                                <textarea name="entry.1701421508" rows="8" cols="0" class="ss-q-long" id="entry_1701421508" dir="auto" aria-label="What would you like our help to build?" aria-required="true" required="">
-</textarea>
-                                <div class="error-message" id="1062857735_errorMessage"></div>
-                                <div class="required-message">
-                                    This is a required question
-                                </div>
-                            </div>
-                        </div>
-                    </div><input type="hidden" name="draftResponse" value="[,,&quot;7791849760456491432&quot;] "> <input type="hidden" name="pageHistory" value="0"> <input type="hidden" name="fbzx" value="7791849760456491432">
-                    <div class="ss-item ss-navigate">
-                        <table id="navigation-table">
-                            <tbody>
-                                <tr>
-                                    <td class="ss-form-entry goog-inline-block" id="navigation-buttons" dir="ltr">
-                                        <input type="submit" name="submit" value="Submit" id="ss-submit" class="jfk-button jfk-button-action">
-                                        <div class="ss-password-warning ss-secondary-text">
-                                            Never submit passwords through Google Forms.
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </li>
-            </ol>
-        </form>
- -->
+</form>

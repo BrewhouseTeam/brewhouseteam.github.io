@@ -31,13 +31,13 @@ jQuery(function($) {
 
 
   // Set Sticky on scroll (should also be on page load)
-  $document.scroll(function() {
-    if ($document.scrollTop() >= 5) {
-      $navbar.addClass('sticky');
-    } else {
-      $navbar.removeClass('sticky');
-    }
-  });
+  // $document.scroll(function() {
+  //   if ($document.scrollTop() >= 5) {
+  //     $navbar.addClass('sticky');
+  //   } else {
+  //     $navbar.removeClass('sticky');
+  //   }
+  // });
 
   // Have menu items which point to content on this page scroll the body
   $('a.internal').on('click', function(){

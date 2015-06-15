@@ -3,111 +3,23 @@ layout: application
 title:
 ---
 
-<div id="banner" class="row text-center">
-  <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1">
-    <h1>
-      <img src="/images/brewhouse-symbol-large.png" class="img-responsive img-centered">
-      <img src="/images/brewhouse-logo-large.png" class="img-responsive img-centered">
-    </h1>
-    <h2>
-      Vancouver's <em>leading</em> <br class="visible-xs">Rails development team
-    </h2>
-
-    <p class="sub-heading">
-      We partner with businesses to bring their products and ideas to life through good conversation and a flexible, transparent process.
-    </p>
-
-    <p class="learn-more">
-      <a class="internal btn btn--blue" href="#hire-us">Work With Us</a>
-    </p>
-  </div>
-</div>
-
-<div class="row">
-  <div class="clearfix">
-    <div class="col-xs-12 img-full-width">
-
-      <video class="team-video" width="100%" poster="/images/team.jpg" preload="none" muted loop>
-        <source src="http://s3-us-west-2.amazonaws.com/brewhouse-io/timelapse/time-lapse-1080-345k.mp4"  type="video/mp4">
-        <source src="http://s3-us-west-2.amazonaws.com/brewhouse-io/timelapse/time-lapse-1080-345k.webm" type="video/webm">
-        <source src="http://s3-us-west-2.amazonaws.com/brewhouse-io/timelapse/time-lapse-1080-345k.ogv"  type="video/ogv">
-        <img src="/images/team.jpg" class="img-responsive">
-      </video>
-
-      <img class="team-photo" src="/images/team.jpg" class="img-responsive">
-    </div>
-  </div>
-
-  <div>
-    <div class="content">
-      {% include _our_team.html %}
+<div id="banner" class="page-header">
+  <div class="container">
+    <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 text-center">
+      <h1>We design and develop products people love.</h1>
     </div>
   </div>
 </div>
+<img src="/images/bg-banner.jpg" alt="The Brewhouse Team" class="img-responsive">
 
 <div id="services">
-  <div class="row">
-    <div class="col-xs-12 img-full-width">
-      <img src="/images/services.jpg" class="img-responsive">
-    </div>
-  </div>
+    {% include _services.html %}
+</div>
 
-  <div class="row">
-    <div class="content">
-      {% include _services.html %}
-    </div>
-  </div>
+<div id="goodbits" class="cover">
+{% include _goodbits.html %}
 </div>
 
 <div id="projects">
-  <div class="row">
-    <div class="col-xs-12 img-full-width">
-      <img src="/images/projects-temporary.jpg" class="img-responsive">
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="content">
-      {% include _projects.html %}
-    </div>
-  </div>
+  {% include _projects.html %}
 </div>
-
-<div id="community">
-  <div class="row">
-    <div class="col-xs-12 img-full-width">
-      <img src="/images/community.jpg" class="img-responsive">
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="content">
-      {% include _community.html %}
-    </div>
-  </div>
-</div>
-
-<div id="hire-us-parent">
-  <div class="row">
-    <div class="col-xs-12 img-full-width">
-      <img src="/images/hire-us.jpg" class="img-responsive">
-    </div>
-  </div>
-
-  <div id="hire-us" class="row">
-    {% include _hire_form.html %}
-  </div>
-</div>
-
-<div id="contact">
-  <div class="row">
-    <div class="col-xs-12 img-full-width">
-      <img src="/images/contact-temporary.jpg" class="img-responsive">
-    </div>
-  </div>
-
-  <div class="row">
-    {% include _contact.html %}
-  </div>
-</div>
-

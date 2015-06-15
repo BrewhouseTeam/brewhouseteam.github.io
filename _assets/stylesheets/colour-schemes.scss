@@ -1,0 +1,39 @@
+@mixin theme($name, $colour) {
+  .#{$name} {
+    .content h2,
+    .navbar-btn {
+      color: $colour;
+    }
+    #banner .btn--blue {
+      background: darken($colour, 20);
+      &:hover,
+      &:focus,
+      &:active {
+        background: darken($colour, 30);
+      }
+    }
+    #lets-talk:after {
+      background: rgba($colour, .7);
+    }
+    .navbar-main,
+    .page-header,
+    .navbar-default .navbar-toggle:hover .icon-bar,
+    .navbar-default .navbar-toggle:focus .icon-bar {
+    	background: $colour;
+    	color: #fff;
+    }
+    .offcanvas-menu {
+      background: lighten($colour, 3);
+      ul li a:hover {
+        color: lighten($colour, 3);
+      }
+    }
+    #footer {
+      background: darken($colour, 50);
+    }
+  }
+}
+
+@include theme(url_index, #4CA5C2);
+@include theme(url_meet_the_team, #F56741);
+@include theme(url_work_with_us, #F5A941);

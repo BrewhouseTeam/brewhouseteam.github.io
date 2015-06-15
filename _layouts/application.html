@@ -29,59 +29,63 @@
     <meta property="twitter:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png">
     <meta property="twitter:url" content="http://brewhouse.io">
 
+    <script src="//use.typekit.net/scl6izu.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+
     <link rel="alternate" type="application/atom+xml" href="/blog/index.xml" title="The Brew Pub atom feed">
 
     {% include _shared_head.html %}
   </head>
-  <body>
+  <body class="{% body_class %}">
     <aside class="offcanvas-menu">
-      <h2>The Brewhouse Menu</h2>
       <ul>
         <li><a href="/meet-the-team.html">Our Team</a></li>
         <li><a class="internal" href="http://brewhouse.io/#services">Services</a></li>
         <li><a class="internal" href="http://brewhouse.io/#projects">Projects</a></li>
-        <li class="highlight-link"><a class="internal" href="http://brewhouse.io/#hire-us">Hire Us</a></li>
+        <li class="highlight-link"><a class="internal" href="/work-with-us.html">Work With Us</a></li>
         <li><a href="/blog">Blog</a></li>
       </ul>
     </aside>
 
-    <div class="container-fluid main landing">
+    <div class="main landing">
       {% include _header_and_logo.html %}
 
       {{ content }}
 
-      <footer>
-        <div class="row">
-          <div class="content">
-            <nav>
-              <div class="col-xs-12 col-md-2">
-                <a href="/meet-the-team.html">Our Team</a>
-              </div>
-              <div class="col-xs-12 col-md-2">
-                <a class="internal" href="http://brewhouse.io/#services">Services</a>
-              </div>
-              <div class="col-xs-12 col-md-2">
-                <a class="internal" href="http://brewhouse.io/#projects">Projects</a>
-              </div>
-              <div class="col-xs-12 col-md-2">
-                <a class="internal" href="http://brewhouse.io/#hire-us">Hire Us</a>
-              </div>
-              <div class="col-xs-12 col-md-4 text-md-right">
-                <a href="/blog">Read Our Blog</a>
-              </div>
-            </nav>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-xs-12">
-            <p class="copyright text-center">
-              &copy; <span class="copyright-year"></span> <a href="http://brewhouse.io">brewhouse software, inc.</a>
-            </p>
-          </div><!--col-xs-12 -->
-        </div>
-      </footer>
     </div>
+
+    <aside id="lets-talk" class="cover">
+      {% include _lets_talk.html %}
+    </aside>
+
+    <footer id="footer">
+      <div class="container">
+        <nav role="navigation" class="col-sm-8">
+            <ul>
+              <li>
+                <a href="/meet-the-team.html">Our Team</a>
+              </li>
+              <li>
+                <a class="internal" href="/#services">Services</a>
+              </li>
+              <li>
+                <a class="internal" href="/#projects">Projects</a>
+              </li>
+              <li>
+                <a class="internal" href="/work-with-us.html">Work With Us</a>
+              </li>
+              <li>
+                <a href="/blog">Read Our Blog</a>
+              </li>
+            </ul>
+        </nav>
+        <div class="col-sm-4">
+          <p class="copyright text-sm-right">
+            &copy; <span class="copyright-year"></span> <a href="http://brewhouse.io">brewhouse software, inc.</a>
+          </p>
+        </div>
+      </div>
+    </footer>
 
     {% javascript app %}
     {% include _ga.html %}
