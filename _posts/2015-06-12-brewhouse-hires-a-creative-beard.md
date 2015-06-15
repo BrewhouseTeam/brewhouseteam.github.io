@@ -13,7 +13,7 @@ shared_square_image: http://brewhouse.io/images/posts/2015/06/pat-bearday.jpg
 shared_description: Brewhouse Software’s eighth hire, Pat Dryburgh, is the newest to join the team. He accompanies a deep bench of talent and adds design as a core competency for Brewhouse. He will be focusing on the design process from a visual, user experience, and strategic branding perspective. And growing his mighty beard.
 ---
 
-Feel free to pat us on the back -- we’ve greatly increased the beard-to-face ratio of the office. And now we officially feel like we belong in Gastown, with the addition of [Pat Dryburgh](https://twitter.com/patdryburgh).
+Feel free to pat us on the back -- we’ve greatly increased the beard-to-face ratio of the office. And now we officially feel like we belong in [Gastown](https://en.wikipedia.org/wiki/Gastown), with the addition of [Pat Dryburgh](https://twitter.com/patdryburgh).
 
 ![Pat Dryburgh celebrating his bearday](/images/posts/2015/06/pat-bearday.jpg)
 
@@ -42,9 +42,9 @@ Credit: [Edward Platero](http://edwardplatero.com)
 
 It took me a while to come around to the idea that this newfound passion for designing and building websites could actually be turned into a career. I'd never been an “art” guy in school and can't draw a stick figure to save my life. However, I did understand problem solving and communication, which in my mind is what design is all about. After leaving a music director position at a church and deciding I didn't want to pursue religious work any longer, I asked to meet with a friend's father who ran a small design studio in London, Ontario. What I lacked in formal education I made up with passion and hard-work, and after two years of designing websites and managing the in-house digital printing, I left the studio and set off on my own to become a freelancer.
 
-Two years later, I found myself moving out to Vancouver to join Perch.
+Two years later, I found myself moving out to Vancouver to join [Perch](http://perch.co).
 
-While my time at Perch was the most challenging and exhilarating experience of my professional career, it also coincided with one of the most traumatic experiences of my life. In July of 2010, my mother was diagnosed with Mesothelioma. Beating all of the odds, she survived several years beyond the average prognosis, but after 18 months of living with the stress of startup life and the weight of seeing from a distance the demise of the woman who raised me I simply couldn't take the pressure any longer. I ended up [driving home](http://adrivehome.tumblr.com) so I could slow things down in my professional life and spend more time being with her. She passed on July 7, 2014, two weeks after I officially launched my [new freelance business](http://dryburgh.co).
+While my time at [Perch](http://perch.co) was the most challenging and exhilarating experience of my professional career, it also coincided with one of the most traumatic experiences of my life. In July of 2010, my mother was diagnosed with Mesothelioma. Beating all of the odds, she survived several years beyond the average prognosis, but after 18 months of living with the stress of startup life and the weight of seeing from a distance the demise of the woman who raised me I simply couldn't take the pressure any longer. I ended up [driving home](http://adrivehome.tumblr.com) so I could slow things down in my professional life and spend more time being with her. She passed on July 7, 2014, two weeks after I officially launched my [new freelance business](http://dryburgh.co).
 
 It was only a matter of time before I moved back to Vancouver, and I did so thinking I would be coming to continue to build my freelancing business and perhaps grow it into a full-fledged studio. However, shortly after arriving I received an email from Kalv inviting me to have lunch with him, and now here we are. :)
 
