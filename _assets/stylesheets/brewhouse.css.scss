@@ -221,6 +221,15 @@ hr.hr--extra-push {
     }
   }
 
+  // Adding padding to the navbar in order to keep things aligned to the grid
+
+  @media (min-width: 768px) {
+    .navbar-inner-wrapper {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
   // Philippe and I decided to forego using Boostrap's column system
   // to do this and set it up manually
   .navbar-inner-wrapper {
@@ -432,6 +441,7 @@ img.team-photo {
         vertical-align: bottom;
         img {
           margin: auto;
+          vertical-align: bottom;
         }
       }
     }
@@ -515,8 +525,8 @@ img.team-photo {
   }
 
   .client-logos {
-    margin-top: 4em;
-    margin-bottom: 4em;
+    padding-top: 4em;
+    padding-bottom: 4em;
     .col-sm-3:nth-child(4n+1) {
       clear: left;
     }
@@ -528,6 +538,9 @@ img.team-photo {
       -webkit-border-radius: 4px;
       -moz-border-radius: 4px;
       border-radius: 4px;
+      -webkit-transition: all .15s ease-in-out;
+      -moz-transition: all .15s ease-in-out;
+      transition: all .15s ease-in-out;
       img {
         height: auto;
         width: auto;
@@ -586,13 +599,44 @@ img.team-photo {
   }
   a {
     color: rgba(#fff, .7);
+    display: block;
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: .25s ease-in-out;
+    transition: .25s ease-in-out;
+    img {
+      -webkit-transition: .25s ease-in-out;
+      -moz-transition: .25s ease-in-out;
+      transition: .25s ease-in-out;
+      opacity: .8;
+    }
     &:hover,
     &:focus {
       color: #fff;
+      img {
+        opacity: 1
+      }
     }
+  }
+  .bh-product {
+    background: #fff;
+    border: 1px solid #383C4A;
+    display: inline-block;
+    font-family: 'proxima-nova', Helvetica, Arial, sans-serif;
+    font-size: .75em;
+    font-weight: 700;
+    letter-spacing: .125em;
+    padding: .5em 1em;
+    margin: 0 auto;
+    position: relative;
+    text-transform: uppercase;
+    top: -6.325em;
+    z-index: 3;
   }
   @media (min-width: 768px) {
     padding: 8em 0;
+    .bh-product {
+      top: -11.75em;
+    }
   }
 }
 
@@ -604,6 +648,9 @@ img.team-photo {
 #goodbits {
   background-color: #383C4A;
   background-image: url('/images/bg-goodbits.jpg');
+  img {
+    height: 42px;
+  }
   h2 {
     font-size: 1.5em;
     font-weight: 400;
@@ -612,23 +659,6 @@ img.team-photo {
   &:after {
     background-color: rgba(#383C4A, .7);
   }
-}
-
-.main .bh-product {
-  background: #fff;
-  border: 1px solid #383C4A;
-  display: inline-block;
-  font-size: .75em;
-  font-weight: 700;
-  margin: 0 0 0 -6.25em;
-  padding: .5em 1em;
-  text-transform: none;
-
-  position: absolute;
-  left: 50%;
-  top: -1em;
-  z-index: 3;
-
 }
 
 // BLOG SPECIFIC
@@ -747,7 +777,7 @@ img.team-photo {
     font-size: .925em;
     font-weight: 500;
     line-height: 1.5;
-    margin-top: 70px;
+    margin-top: 74px;
     text-align: right;
 
     a {

@@ -6,6 +6,8 @@ jQuery(function($) {
     $footer     = $('footer'),
     $offcanvasToggle = $('.js-navbar-toggle-offcanvas');
 
+    $navbarHeight    = $navbar.height();
+
 
   // All offcanvas related code
   var toggleOffcanvasMenu = function(){
@@ -25,7 +27,6 @@ jQuery(function($) {
   $('.offcanvas-menu').find('a.internal').on('click', toggleOffcanvasMenu);
 
 
-
   // Set Copyright Year
   $footer.find('.copyright-year').html('2015');
 
@@ -39,20 +40,20 @@ jQuery(function($) {
   //   }
   // });
 
-  // Have menu items which point to content on this page scroll the body
-  $('a.internal').on('click', function(){
-    var href = $.attr(this, 'href');
+  // // Have menu items which point to content on this page scroll the body
+  // $('a.internal').on('click', function(){
+  //   var href = $.attr(this, 'href');
 
-    var addHrefToHash = function() {
-      window.location.hash = href;
-    };
+  //   var addHrefToHash = function() {
+  //     window.location.hash = href;
+  //   };
 
-    $rootNode.animate({
-      scrollTop: $(href).offset().top
-    }, 1500, 'ease-in-out', addHrefToHash);
+  //   $rootNode.animate({
+  //     scrollTop: $(href).offset().top
+  //   }, 1500, 'ease-in-out', addHrefToHash);
 
-    return false;
-  });
+  //   return false;
+  // });
 
   // A hack for pushing people down to the content, I think this can be removed now but needs testing
   if(window.location.search.indexOf("brewPubStart") > -1){
@@ -72,6 +73,21 @@ jQuery(function($) {
       $("video.team-video")[0].play();
     };
   };
+
+  // smooth scroll self-referential links
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        var scrollToPosition = $(target).offset().top - $navbarHeight;
+        $('html,body').animate({
+          scrollTop: scrollToPosition
+        }, 850);
+        return false;
+      }
+    }
+  });
 
 });
 
