@@ -1,5 +1,5 @@
 {% include _doctypes.html %}
-<html lang="en-us">
+<html lang="en-us" class="{% body_class %}">
   <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# business: http://ogp.me/ns/business#">
     <title>Brewhouse - Vancouver's leading Rails web development agency</title>
 
@@ -36,7 +36,7 @@
 
     {% include _shared_head.html %}
   </head>
-  <body class="{% body_class %}">
+  <body>
     <aside class="offcanvas-menu">
       <ul>
         <li><a href="/meet-the-team.html">Our Team</a></li>
@@ -53,10 +53,6 @@
       {{ content }}
 
     </div>
-
-    <aside id="lets-talk" class="cover">
-      {% include _lets_talk.html %}
-    </aside>
 
     <footer id="footer">
       <div class="container">

@@ -1,15 +1,23 @@
 @mixin theme($name, $colour) {
   .#{$name} {
+    background: darken($colour, 50);
     .content h2,
     .navbar-btn {
       color: $colour;
     }
-    #banner .btn--blue {
-      background: darken($colour, 20);
+    .btn--header {
+      background: #fff;
+      color: $colour !important;
       &:hover,
       &:focus,
       &:active {
-        background: darken($colour, 30);
+        background: lighten($colour, 50);
+        background: rgba(#fff, .9);
+      }
+      &:active {
+        -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.225), inset 0 4px 8px rgba(0,0,0,0.15), inset 0 -1px 0 lighten($colour, 0), 0 1px 0 rgba(255,255,255,0.225);
+        -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.225), inset 0 4px 8px rgba(0,0,0,0.15), inset 0 -1px 0 lighten($colour, 0), 0 1px 0 rgba(255,255,255,0.225);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.225), inset 0 4px 8px rgba(0,0,0,0.15), inset 0 -1px 0 lighten($colour, 0), 0 1px 0 rgba(255,255,255,0.225);
       }
     }
     #lets-talk:after {
@@ -22,8 +30,11 @@
     	background: $colour;
     	color: #fff;
     }
+    .navbar-main {
+      background: rgba($colour, .99);
+    }
     .offcanvas-menu {
-      background: lighten($colour, 3);
+      background: $colour;
       ul li a:hover {
         color: lighten($colour, 3);
       }
@@ -37,3 +48,5 @@
 @include theme(url_index, #4CA5C2);
 @include theme(url_meet_the_team, #F56741);
 @include theme(url_work_with_us, #3FBA68);
+@include theme(url_thanks, #3FBA68);
+@include theme(url_404, #000);
