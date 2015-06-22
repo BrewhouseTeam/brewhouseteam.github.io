@@ -80,7 +80,7 @@ jQuery(function($) {
       var target = $(this.hash);
       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
       if (target.length) {
-        var scrollToPosition = $(target).offset().top - $navbarHeight;
+        var scrollToPosition = $(target).offset().top - $navbarHeight + 2;
         $('html,body').animate({
           scrollTop: scrollToPosition
         }, 850);
