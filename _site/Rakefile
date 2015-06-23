@@ -29,6 +29,7 @@ task :new_post, :title do |t, args|
     post.puts "title: \"#{title.gsub(/&/,'&amp;')}\""
     post.puts "author: \"#{author}\""
     post.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M')}"
+<<<<<<< HEAD
 
     post.puts "tags:"
     post.puts "  - example"
@@ -39,6 +40,8 @@ task :new_post, :title do |t, args|
     post.puts "draft: true"
     post.puts "published: false"
 
+=======
+>>>>>>> origin/master
     post.puts "---"
   end
 end

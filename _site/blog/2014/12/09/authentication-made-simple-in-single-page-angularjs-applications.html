@@ -58,7 +58,15 @@
 <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
 <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
 
+<<<<<<< HEAD
 <link rel="stylesheet" href="/assets/application-8d1cf7a745d3c9615a74037d119653db.css">
+=======
+<link href="http://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" href="/assets/application-3b6dee2199d0c897aeba823c77bc7b72.css">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css">
+>>>>>>> origin/master
 
   </head>
   <body class="on-post">
@@ -79,6 +87,7 @@
     </nav>
 
     <div class="container main">
+<<<<<<< HEAD
       <div class="body-border-top">
 </div>
 <div id="banner-blog" class="row">
@@ -97,6 +106,20 @@
         <br>or, give us a call <a class="telephone" href="tel:+16046147784">+1 604-757-4242</a>
       </p>
     </section>
+=======
+      <div id="banner-blog" class="row">
+  <div class="col-xs-12 img-full-width">
+    <img src="/images/blog-background.jpg" class="img-responsive">
+
+    <section>
+      <h1 id="brew-pub-start">
+        <a href="/blog/">The Brew Pub</a>
+      </h1>
+      <h3>
+        Writings from <a href="http://brewhouse.io">brewhouse.io</a>, makers of <a href="https://goodbits.io?utm_source=brewhouse-blog">goodbits.io</a> and stellar apps for our clients.
+      </h3>
+    </section>
+>>>>>>> origin/master
   </div>
 </div>
 
@@ -149,7 +172,11 @@ authenticated and resorting to explicit checks all over the place. Here we lay t
 <p>There are many advantages to using <code>ui-router</code> over <code>ngRoute</code> and in this case we will be taking advantage of how we can attach additional properties to a route and how those properties will cascade
 down to the children of that route. In the following code, we make sure to set a <code>requireLogin</code> property for each state.</p>
 
+<<<<<<< HEAD
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// routes.js</span>
+=======
+<div class="highlight"><pre><code class="js"><span class="c1">// routes.js</span>
+>>>>>>> origin/master
 
 <span class="nx">app</span><span class="p">.</span><span class="nx">config</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">$stateProvider</span><span class="p">)</span> <span class="p">{</span>
 
@@ -173,7 +200,12 @@ down to the children of that route. In the following code, we make sure to set a
       <span class="c1">// requireLogin === true</span>
     <span class="p">})</span>
 
+<<<<<<< HEAD
 <span class="p">});</span></code></pre></div>
+=======
+<span class="p">});</span>
+</code></pre></div>
+>>>>>>> origin/master
 
 <p>Clearly, for routes that do not require a login we set <code>requireLogin</code> to false. We could leave this <code>undefined</code>, but I prefer to show my intent.</p>
 
@@ -181,7 +213,11 @@ down to the children of that route. In the following code, we make sure to set a
 
 <p>At this point, we can start capturing attempted state changes and inspecting them for our <code>requireLogin</code> property. The following shows how we are going to subscribe to <code>ui-router</code>’s <code>$stateChangeStart</code> event.</p>
 
+<<<<<<< HEAD
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// app.js</span>
+=======
+<div class="highlight"><pre><code class="js"><span class="c1">// app.js</span>
+>>>>>>> origin/master
 
 <span class="nx">app</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">$rootScope</span><span class="p">)</span> <span class="p">{</span>
 
@@ -194,7 +230,12 @@ down to the children of that route. In the following code, we make sure to set a
     <span class="p">}</span>
   <span class="p">});</span>
 
+<<<<<<< HEAD
 <span class="p">});</span></code></pre></div>
+=======
+<span class="p">});</span>
+</code></pre></div>
+>>>>>>> origin/master
 
 <p>As you can see, if the route requires a login and <code>$rootScope.currentUser</code> is not yet set, we will prevent the attempted state change and show the modal. (I prefer to attach the <code>currentUser</code> to the <code>$rootScope</code> only because it’s an application-wide
 concept. All new scopes will inherit the <code>currentUser</code> property and I can always call it from the view. Whether or not you choose to do the same is for another discussion.)</p>
@@ -207,7 +248,11 @@ concept. All new scopes will inherit the <code>currentUser</code> property and I
 with the <code>$ionicModal</code> service. An important caveat here is that we must be able to tell the modal what to do after authentication is successful or cancelled. Preferably this is done with a promise, so that
 multiple actions can be chained together. These are anonymous functions that we will use to re-submit state changes and requests after authenticating. The following is a example of how I might write such a wrapper for the <code>$modal</code> service.</p>
 
+<<<<<<< HEAD
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// loginModal.js</span>
+=======
+<div class="highlight"><pre><code class="js"><span class="c1">// loginModal.js</span>
+>>>>>>> origin/master
 
 <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;loginModal&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$modal</span><span class="p">,</span> <span class="nx">$rootScope</span><span class="p">)</span> <span class="p">{</span>
 
@@ -223,19 +268,35 @@ multiple actions can be chained together. These are anonymous functions that we 
       <span class="nx">controllerAs</span><span class="o">:</span> <span class="s1">&#39;LoginModalCtrl&#39;</span>
     <span class="p">})</span>
 
+<<<<<<< HEAD
     <span class="k">return</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">result</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">assignCurrentUser</span><span class="p">);</span>
   <span class="p">};</span>
 
 <span class="p">});</span></code></pre></div>
+=======
+    <span class="k">return</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">assignCurrentUser</span><span class="p">);</span>
+  <span class="p">};</span>
+
+<span class="p">});</span>
+</code></pre></div>
+>>>>>>> origin/master
 
 <p>There isn’t much magic in this service. It’s important to point out that <code>$modal.open</code> returns a promise which is either resolved or rejected when the modal is closed or dismissed. When a scope is instantiated for the
 <code>LoginModalCtrl</code>, the <code>$close()</code> and <code>$dismiss()</code> methods are attached to it.</p>
 
+<<<<<<< HEAD
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// LoginModalCtrl.js</span>
 
 <span class="nx">app</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;LoginModalCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">UsersApi</span><span class="p">)</span> <span class="p">{</span>
 
   <span class="k">this</span><span class="p">.</span><span class="nx">cancel</span> <span class="o">=</span> <span class="nx">$scope</span><span class="p">.</span><span class="nx">$dismiss</span><span class="p">;</span>
+=======
+<div class="highlight"><pre><code class="js"><span class="c1">// LoginModalCtrl.js</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;LoginModalCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">UsersApi</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="k">this</span><span class="p">.</span><span class="nx">cancel</span> <span class="o">=</span> <span class="nx">$scope</span><span class="p">.</span><span class="nx">dismiss</span><span class="p">;</span>
+>>>>>>> origin/master
 
   <span class="k">this</span><span class="p">.</span><span class="nx">submit</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">email</span><span class="p">,</span> <span class="nx">password</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">UsersApi</span><span class="p">.</span><span class="nx">login</span><span class="p">(</span><span class="nx">email</span><span class="p">,</span> <span class="nx">password</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
@@ -243,7 +304,12 @@ multiple actions can be chained together. These are anonymous functions that we 
     <span class="p">});</span>
   <span class="p">};</span>
 
+<<<<<<< HEAD
 <span class="p">});</span></code></pre></div>
+=======
+<span class="p">});</span>
+</code></pre></div>
+>>>>>>> origin/master
 
 <p>After a successful login, the modal is closed, the <code>$rootScope.currentUser</code> is set, and the on success action will be triggered. If the user clicks the cancel button or attempts to click away from the modal, the on cancel action will step in.</p>
 
@@ -251,7 +317,11 @@ multiple actions can be chained together. These are anonymous functions that we 
 
 <p>At this point the <code>loginModal</code> can be added to the event listener. What makes this approach so slick is being able to capture the desired state transitions in anonymous functions. After authenticating, the SPA will implicitly redirect to the requested state as you would expect with a traditional web app. Additionally, notice how we will redirect to the welcome screen if a dismissal happens.</p>
 
+<<<<<<< HEAD
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// app.js</span>
+=======
+<div class="highlight"><pre><code class="js"><span class="c1">// app.js</span>
+>>>>>>> origin/master
 
 <span class="nx">app</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">$rootScope</span><span class="p">,</span> <span class="nx">$state</span><span class="p">,</span> <span class="nx">loginModal</span><span class="p">)</span> <span class="p">{</span>
 
@@ -271,7 +341,12 @@ multiple actions can be chained together. These are anonymous functions that we 
     <span class="p">}</span>
   <span class="p">});</span>
 
+<<<<<<< HEAD
 <span class="p">});</span></code></pre></div>
+=======
+<span class="p">});</span>
+</code></pre></div>
+>>>>>>> origin/master
 
 <h2 id="handling-unauthorized-requests">Handling unauthorized requests</h2>
 
@@ -280,7 +355,11 @@ is no longer valid. Perhaps the session has expired or perhaps you were never lo
 
 <p>AngularJS makes <em>intercepting</em> incoming responses pretty easy with <em>interceptors</em>. Below we call the login modal when we receive a <code>401</code> response. (For the sake of brevity, we’ll assume that a <code>401</code> is the only precondition required to verify that a user is not logged in.)</p>
 
+<<<<<<< HEAD
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// app.js</span>
+=======
+<div class="highlight"><pre><code class="js"><span class="c1">// app.js</span>
+>>>>>>> origin/master
 
 <span class="nx">app</span><span class="p">.</span><span class="nx">config</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">$httpProvider</span><span class="p">)</span> <span class="p">{</span>
 
@@ -311,13 +390,22 @@ is no longer valid. Perhaps the session has expired or perhaps you were never lo
             <span class="nx">$state</span><span class="p">.</span><span class="nx">go</span><span class="p">(</span><span class="s1">&#39;welcome&#39;</span><span class="p">);</span>
             <span class="nx">deferred</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="nx">rejection</span><span class="p">);</span>
           <span class="p">});</span>
+<<<<<<< HEAD
+=======
+        <span class="p">});</span>
+>>>>>>> origin/master
 
         <span class="k">return</span> <span class="nx">deferred</span><span class="p">.</span><span class="nx">promise</span><span class="p">;</span>
       <span class="p">}</span>
     <span class="p">};</span>
   <span class="p">});</span>
 
+<<<<<<< HEAD
 <span class="p">});</span></code></pre></div>
+=======
+<span class="p">});</span>
+</code></pre></div>
+>>>>>>> origin/master
 
 <p>With this code, a <code>401</code> rejected request will be re-submitted when a successful authentication occurs. In fact, the entity that made the original request will hang until our secondary request is completed. It’s completely oblivious to the fact that the original request was even rejected!</p>
 
@@ -329,6 +417,7 @@ is no longer valid. Perhaps the session has expired or perhaps you were never lo
 
 <p>Special thanks to Godfrey Chan, Philippe Creux and Lana Topham for leaving feedback during the drafting of this post.</p>
 
+<<<<<<< HEAD
 <h4 id="edit-december-29-2014">Edit: December 29, 2014</h4>
 
 <p>As per a few requests, here is what a simple <code>views/loginModalTemplate.html</code> might look like. I hope it helps to answer some questions.</p>
@@ -349,6 +438,12 @@ is no longer valid. Perhaps the session has expired or perhaps you were never lo
         <div class="mailchimp-form text-center">
           <p>
             Stay up to date with us here at the BrewPub:
+=======
+
+        <div class="mailchimp-form text-center">
+          <p>
+            Stay updated with more from the BrewPub:
+>>>>>>> origin/master
           </p>
           <!-- Begin MailChimp Signup Form -->
           <link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
@@ -356,7 +451,11 @@ is no longer valid. Perhaps the session has expired or perhaps you were never lo
             <form action="http://brewhouse.us8.list-manage.com/subscribe/post?u=c524f6473f5901cae1230a052&amp;id=14f9de4be1" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 
               <div class="col-sm-offset-1 col-sm-6">
+<<<<<<< HEAD
                 <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="your email address" required style="width: 100%; margin: 0 0 4% 0">
+=======
+                <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required style="width: 100%; margin: 0 0 4% 0">
+>>>>>>> origin/master
               </div>
               <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
               <div style="position: absolute; left: -5000px;">
@@ -364,7 +463,11 @@ is no longer valid. Perhaps the session has expired or perhaps you were never lo
               </div>
 
               <div class="col-sm-4 subscribe-button">
+<<<<<<< HEAD
                 <input type="submit" value="SIGN UP NOW" name="subscribe" id="mc-embedded-subscribe" class="button">
+=======
+                <input type="submit" value="Join Now!" name="subscribe" id="mc-embedded-subscribe" class="button">
+>>>>>>> origin/master
               </div>
             </form>
           </div>
@@ -401,6 +504,7 @@ is no longer valid. Perhaps the session has expired or perhaps you were never lo
     <footer>
       <div class="container">
         <div class="row">
+<<<<<<< HEAD
           <section class="col-xs-11 col-xs-offset-1">
             <p class="blog-contact-info">
               email <a href="mailto:hello@brewhouse.io">hello@brewhouse.io</a>
@@ -412,12 +516,21 @@ is no longer valid. Perhaps the session has expired or perhaps you were never lo
           <div class="col-xs-11 col-xs-offset-1">
             <p>
               &copy; <span class="copyright-year"></span> <a href="http://brewhouse.io">brewhouse software, inc.</a>
+=======
+          <div class="col-xs-11 col-xs-offset-1">
+            <p>
+              &copy; 2014 <a href="http://brewhouse.io">brewhouse software, inc.</a>
+>>>>>>> origin/master
             </p>
           </div><!--col-xs-12 -->
         </div><!-- row -->
       </div><!-- container -->
     </footer>
 
+<<<<<<< HEAD
     <script src="/assets/app-cc3981e2c3b790fd87a89c93a99433de.js"></script>
+=======
+    <script src="/assets/app-d2b50542eb2234dffdd5932a70b4af3b.js"></script>
+>>>>>>> origin/master
   </body>
 </html>

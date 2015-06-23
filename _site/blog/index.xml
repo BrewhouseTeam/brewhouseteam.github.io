@@ -3,7 +3,11 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
+<<<<<<< HEAD
     <updated>2014-09-26T18:28:47+09:00</updated>
+=======
+    <updated>2014-04-11T12:50:19-07:00</updated>
+>>>>>>> origin/master
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
@@ -12,6 +16,7 @@
     
     
       <entry>
+<<<<<<< HEAD
           <title>Ruby Kaigi 2014: Day 3</title>
           <author>
             <name>Godfrey Chan</name>
@@ -1461,6 +1466,11 @@ a spin and let us know what you think!&lt;/p&gt;
           </author>
           <link href="http://brewhouse.io/2014/04/04/welcome-to-brewhouse.html"/>
           <updated>2014-04-04T16:34:00+09:00</updated>
+=======
+          <title>Welcome to Brewhouse</title>
+          <link href="http://brewhouse.io/2014/04/04/welcome-to-brewhouse.html"/>
+          <updated>2014-04-04T16:34:00-07:00</updated>
+>>>>>>> origin/master
           <id>http://brewhouse.io/2014/04/04/welcome-to-brewhouse</id>
           <content type="html">&lt;p&gt;Hello, we’re Brewhouse. We are a group of creative developers who have come together to continue building great products for ourselves and others.&lt;/p&gt;
 
@@ -1515,12 +1525,17 @@ internally and with clients. We’ve implemented this and are very happy with th
     
       <entry>
           <title>What's new in Rails 4.1</title>
+<<<<<<< HEAD
           <author>
             <name>Godfrey Chan</name>
             <email>godfrey@brewhouse.io</email>
           </author>
           <link href="http://brewhouse.io/blog/2013/12/17/whats-new-in-rails-4-1.html"/>
           <updated>2013-12-17T19:32:40+09:00</updated>
+=======
+          <link href="http://brewhouse.io/blog/2013/12/17/whats-new-in-rails-4-1.html"/>
+          <updated>2013-12-17T10:32:40Z</updated>
+>>>>>>> origin/master
           <id>http://brewhouse.io/blog/2013/12/17/whats-new-in-rails-4-1</id>
           <content type="html">&lt;blockquote&gt;&lt;em&gt;This was originally published on the Coherence blog on December 17th, 2013. It has been migrated here for historical purposes.&lt;/em&gt;&lt;/blockquote&gt;
 

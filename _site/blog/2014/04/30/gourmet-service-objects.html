@@ -12,6 +12,7 @@
 
 <html lang="en-us" class="blog">
   <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# business: http://ogp.me/ns/business#">
+<<<<<<< HEAD
 
     <title>Gourmet Service Objects</title>
     <meta property="og:title" content="Gourmet Service Objects">
@@ -37,13 +38,39 @@
       
     
 
+=======
+    <title>Gourmet Service Objects - the brew pub - brewhouse software blog</title>
+    <meta property="og:title" content="Gourmet Service Objects - the brew pub - brewhouse software blog">
+
+    <link rel="alternate" type="application/atom+xml" href="/blog/index.xml" title="The Brew Pub atom feed">
+
+>>>>>>> origin/master
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<<<<<<< HEAD
 <meta name="robots" content="INDEX, FOLLOW">
 
+=======
+<meta name="author" content="brewhouse.io">
+<meta name="copyright" content="brewhouse software inc. 2014">
+<meta name="robots" content="INDEX, FOLLOW">
+
+<meta property="og:site_name" content="brewhouse">
+<meta property="og:url" content="http://brewhouse.io/blog/2014/04/30/gourmet-service-objects.html">
+<meta property="og:type" content="business.business">
+<meta property="og:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png">
+<meta property="og:description" content="dedicated to building superb software">
+<meta property="business:contact_data:street_address" content="55 E Cordova St - Unit 604">
+<meta property="business:contact_data:locality" content="Vancouver, BC">
+<meta property="business:contact_data:postal_code" content="V6A 0A5">
+<meta property="business:contact_data:country_name" content="Canada">
+<meta property="place:location:latitude" content="49.282471">
+<meta property="place:location:longitude" content="-123.103046">
+
+>>>>>>> origin/master
 <link rel="shortcut icon" href="/images/icons/favicon.ico" type="image/x-icon">
 <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
 <link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png">
@@ -56,7 +83,11 @@
 
 <link href="http://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet" type="text/css">
 
+<<<<<<< HEAD
 <link rel="stylesheet" href="/assets/application-d23fd63f2f55a6d3311e16df93ecfdf4.css">
+=======
+<link rel="stylesheet" href="/assets/application-187011c2e8f80735efb36a1988ed9268.css">
+>>>>>>> origin/master
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css">
 
@@ -85,10 +116,17 @@
 
     <section>
       <h1 id="brew-pub-start">
+<<<<<<< HEAD
         <a href="/blog/">The Brew Pub</a>
       </h1>
       <h3>
         Writings from <a href="http://brewhouse.io">brewhouse.io</a>, makers of <a href="https://goodbits.io?utm_source=brewhouse-blog">goodbits.io</a> and stellar apps for our clients.
+=======
+        <a href="http://brewhouse.io/blog/">The Brew Pub</a>
+      </h1>
+      <h3>
+        Writings from <a href="http://brewhouse.io">brewhouse.io</a>, makers of <a href="https://goodbits.io?utm_source=brewhouse-blog">goodbits.io</a> and other stellar apps for clients.
+>>>>>>> origin/master
       </h3>
     </section>
   </div>
@@ -428,8 +466,13 @@ simple <code>proc</code> does the job.</p>
 <div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="nc">InviteController</span> <span class="o">&lt;</span> <span class="no">LoggedInController</span>
 
   <span class="k">def</span> <span class="nf">create</span>
+<<<<<<< HEAD
     <span class="n">attributes</span> <span class="o">=</span> <span class="n">invite_params</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="ss">creator</span><span class="p">:</span> <span class="n">current_user</span><span class="p">)</span>
     <span class="vi">@invite</span> <span class="o">=</span> <span class="no">CreateInvite</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">attributes</span><span class="p">)</span>
+=======
+    <span class="n">attributes</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="ss">:invite</span><span class="p">)</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="ss">creator</span><span class="p">:</span> <span class="n">current_user</span><span class="p">)</span>
+    <span class="vi">@invite</span>    <span class="o">=</span> <span class="no">CreateInvite</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">attributes</span><span class="p">)</span>
+>>>>>>> origin/master
 
     <span class="k">if</span> <span class="vi">@invite</span><span class="o">.</span><span class="n">persisted?</span>
       <span class="n">redirect_to</span> <span class="vi">@invite</span>
@@ -438,12 +481,15 @@ simple <code>proc</code> does the job.</p>
     <span class="k">end</span>
   <span class="k">end</span>
 
+<<<<<<< HEAD
   <span class="kp">private</span>
 
   <span class="k">def</span> <span class="nf">invite_params</span>
     <span class="n">params</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="ss">:invite</span><span class="p">)</span><span class="o">.</span><span class="n">permit</span><span class="p">(</span><span class="ss">:token</span><span class="p">)</span>
   <span class="k">end</span>
 
+=======
+>>>>>>> origin/master
 <span class="k">end</span>
 </code></pre></div>
 
@@ -454,15 +500,26 @@ simple <code>proc</code> does the job.</p>
 <div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="nc">InviteController</span> <span class="o">&lt;</span> <span class="no">LoggedInController</span>
 
   <span class="k">def</span> <span class="nf">accept</span>
+<<<<<<< HEAD
     <span class="n">result</span> <span class="o">=</span> <span class="no">AcceptInvitation</span><span class="o">.</span><span class="n">call</span><span class="p">(</span>
+=======
+    <span class="n">response</span> <span class="o">=</span> <span class="no">AcceptInvitation</span><span class="o">.</span><span class="n">call</span><span class="p">(</span>
+>>>>>>> origin/master
       <span class="ss">invite</span><span class="p">:</span> <span class="no">Invite</span><span class="o">.</span><span class="n">find_by_token!</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:token</span><span class="o">]</span><span class="p">),</span>
       <span class="ss">user</span><span class="p">:</span> <span class="n">current_user</span>
     <span class="p">)</span>
 
+<<<<<<< HEAD
     <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">success?</span>
       <span class="n">redirect_to</span> <span class="n">root_path</span><span class="p">,</span> <span class="ss">notice</span><span class="p">:</span> <span class="s2">&quot;Welcome!&quot;</span>
     <span class="k">else</span>
       <span class="n">redirect_to</span> <span class="n">root_path</span><span class="p">,</span> <span class="ss">alert</span><span class="p">:</span> <span class="n">result</span><span class="o">.</span><span class="n">error</span>
+=======
+    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">success?</span>
+      <span class="n">redirect_to</span> <span class="n">root_path</span><span class="p">,</span> <span class="ss">notice</span><span class="p">:</span> <span class="s2">&quot;Welcome!&quot;</span>
+    <span class="k">else</span>
+      <span class="n">redirect_to</span> <span class="n">root_path</span><span class="p">,</span> <span class="ss">alert</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">error</span>
+>>>>>>> origin/master
     <span class="k">end</span>
   <span class="k">end</span>
 
@@ -480,7 +537,11 @@ leave a comment below. &lt;3 &lt;3 &lt;3</p>
 
         <div class="mailchimp-form text-center">
           <p>
+<<<<<<< HEAD
             Enter your email below and receive more from the BrewPub:
+=======
+            Drop your email below to receive Brew Pub's writings in your mailbox.
+>>>>>>> origin/master
           </p>
           <!-- Begin MailChimp Signup Form -->
           <link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
@@ -542,6 +603,10 @@ leave a comment below. &lt;3 &lt;3 &lt;3</p>
       </div><!-- container -->
     </footer>
 
+<<<<<<< HEAD
     <script src="/assets/app-d2b50542eb2234dffdd5932a70b4af3b.js"></script>
+=======
+    <script src="/assets/app-bb7a7839973c4b2fe85c66ec1aae43c4.js"></script>
+>>>>>>> origin/master
   </body>
 </html>
