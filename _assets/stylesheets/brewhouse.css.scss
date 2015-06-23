@@ -176,7 +176,7 @@ hr.hr--extra-push {
   .navbar-brand {
     display: block;
     float: none;
-    height: auto;
+    height: 48px;
     margin-top: 7px;
     padding: 0;
     width: 48px;
@@ -428,6 +428,7 @@ img.img-centered {
         img {
           margin: auto;
           vertical-align: bottom;
+          width: 100%;
         }
       }
     }
@@ -578,12 +579,13 @@ img.img-centered {
     left: 0;
     z-index: 1;
   }
-  .container {
+  .container,
+  .clearfix {
     position: relative;
     z-index: 2;
   }
   a {
-    color: rgba(#fff, .7);
+    color: rgba(#fff, .8);
     -webkit-transition: .25s ease-in-out;
     -moz-transition: .25s ease-in-out;
     transition: .25s ease-in-out;
@@ -635,26 +637,14 @@ img.img-centered {
   }
 }
 
-#lets-talk {
-  background-color: #2F2D2C;
-  background-image: url('/images/ye-olde-vancouver.jpg');
-  padding-top: 0;
+.lets-talk {
+  color: #fff;
+  padding-bottom: 2em;
+  padding-top: 1em;
 }
 
-#lets-talk h4 {
-  font-size: 1.5em;
-  font-weight: 700;
-}
-
-#work-with-us {
-  background: rgba(0,0,0,.4);
-  border-bottom: 1px solid rgba(255,255,255,.125);
-  padding: 4em 0;
-  margin-bottom: 4em;
-  @media (min-width: 768px) {
-    padding: 8em 0;
-    margin-bottom: 8em;
-  }
+.lets-talk .container > div {
+  margin-top: 1em;
 }
 
 // BLOG SPECIFIC
