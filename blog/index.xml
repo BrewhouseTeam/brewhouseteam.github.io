@@ -3,11 +3,7 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-<<<<<<< HEAD
-    <updated>2015-06-05T10:43:02-07:00</updated>
-=======
-    <updated>2015-06-15T09:57:17-07:00</updated>
->>>>>>> origin/master
+    <updated>2015-06-23T08:36:18-07:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
@@ -16,8 +12,6 @@
     
       
         <entry>
-<<<<<<< HEAD
-=======
             <title>Brewhouse hires a creative beard</title>
             <author>
               <name>Lana Topham</name>
@@ -108,7 +102,6 @@
     
       
         <entry>
->>>>>>> origin/master
             <title>Ember.js: An Antidote To Your Hype Fatigue</title>
             <author>
               <name>Godfrey Chan</name>
