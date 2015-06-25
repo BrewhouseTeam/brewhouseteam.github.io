@@ -39,23 +39,23 @@
     .page-header,
     .navbar-default .navbar-toggle:hover .icon-bar,
     .navbar-default .navbar-toggle:focus .icon-bar {
-    	background: $colour;
+    	background-color: $colour;
     	color: #fff;
     }
     .navbar-main {
-      background: rgba($colour, .99);
+      background-color: rgba($colour, .99);
     }
     .offcanvas-menu {
-      background: $colour;
+      background-color: $colour;
       ul li a:hover {
         color: lighten($colour, 3);
       }
     }
     .lets-talk {
-      background: darken($colour, 40);
+      background-color: darken($colour, 40);
     }
     #footer {
-      background: darken($colour, 45);
+      background-color: darken($colour, 45);
     }
   }
 }
