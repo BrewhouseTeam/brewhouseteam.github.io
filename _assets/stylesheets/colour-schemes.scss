@@ -11,8 +11,8 @@
       &:hover,
       &:focus,
       &:active {
-        background: lighten($colour, 50);
-        background: rgba(#fff, .9);
+        background-color: lighten($colour, 50);
+        background-color: rgba(#fff, .9);
       }
       &:active {
         -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.225), inset 0 4px 8px rgba(0,0,0,0.15), inset 0 -1px 0 $colour, 0 1px 0 rgba(255,255,255,0.225);
@@ -26,8 +26,8 @@
       &:hover,
       &:focus,
       &:active {
-        background: lighten($colour, 50);
-        background: rgba(#fff, .9);
+        background-color: lighten($colour, 50);
+        background-color: rgba(#fff, .9);
       }
       &:active {
         -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.225), inset 0 4px 8px rgba(0,0,0,0.15), inset 0 -1px 0 darken($colour, 40), 0 1px 0 rgba(255,255,255,0.225);
@@ -39,28 +39,28 @@
     .page-header,
     .navbar-default .navbar-toggle:hover .icon-bar,
     .navbar-default .navbar-toggle:focus .icon-bar {
-    	background: $colour;
+    	background-color: $colour;
     	color: #fff;
     }
     .navbar-main {
-      background: rgba($colour, .99);
+      background-color: rgba($colour, .99);
     }
     .offcanvas-menu {
-      background: $colour;
+      background-color: $colour;
       ul li a:hover {
         color: lighten($colour, 3);
       }
     }
     .lets-talk {
-      background: darken($colour, 40);
+      background-color: darken($colour, 40);
     }
     #footer {
-      background: darken($colour, 45);
+      background-color: darken($colour, 45);
     }
   }
 }
 
-@include theme(url_index, #47a5c4);
+@include theme(url_index, #02A5C6);
 @include theme(url_meet_the_team, #F56741);
 @include theme(url_work_with_us, #3FBA68);
 @include theme(url_thanks, #3FBA68);

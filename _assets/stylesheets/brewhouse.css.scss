@@ -244,6 +244,13 @@ hr.hr--extra-push {
   }
 }
 
+// homepage background colour hack
+
+.url_index .navbar-main,
+.url_index .page-header {
+  background: url('/images/bg-home.jpg');
+}
+
 // .navbar-main.sticky {
 //   background: #47A4C2;
 //   background: rgba(71, 164, 194, 0.98);
