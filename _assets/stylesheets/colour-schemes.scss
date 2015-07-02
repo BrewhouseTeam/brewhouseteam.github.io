@@ -39,11 +39,11 @@
     .page-header,
     .navbar-default .navbar-toggle:hover .icon-bar,
     .navbar-default .navbar-toggle:focus .icon-bar {
-    	background-color: $colour;
+    	background: $colour;
     	color: #fff;
     }
     .navbar-main {
-      background-color: rgba($colour, .99);
+      background: rgba($colour, .99);
     }
     .offcanvas-menu {
       background-color: $colour;
