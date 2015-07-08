@@ -18,9 +18,9 @@ We wanted this meeting to be a relaxed version of a retrospective but we found t
 
 We decided to experiment with a weather forecast method, giving others a sense of how our week went by associating it to a weather condition, e.g. sunny, cloudy, stormy, etc.
 
-<!-- break -->
-
 ![weather-forecast-retrospective](/images/posts/2015/07/weather-retro.jpg)
+
+<!-- break -->
 
 By using this technique, our comments went from:
 
