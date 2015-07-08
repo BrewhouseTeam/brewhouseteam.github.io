@@ -3,7 +3,7 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2015-07-08T10:08:24-07:00</updated>
+    <updated>2015-07-08T10:10:11-07:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
@@ -26,9 +26,9 @@
 
 &lt;p&gt;We decided to experiment with a weather forecast method, giving others a sense of how our week went by associating it to a weather condition, e.g. sunny, cloudy, stormy, etc.&lt;/p&gt;
 
-&lt;!-- break --&gt;
-
 &lt;p&gt;&lt;img src=&quot;/images/posts/2015/07/weather-retro.jpg&quot; alt=&quot;weather-forecast-retrospective&quot; /&gt;&lt;/p&gt;
+
+&lt;!-- break --&gt;
 
 &lt;p&gt;By using this technique, our comments went from:&lt;/p&gt;
 
