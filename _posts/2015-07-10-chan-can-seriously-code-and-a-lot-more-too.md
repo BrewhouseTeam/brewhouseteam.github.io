@@ -5,8 +5,8 @@ author: "kalv"
 date: 2015-07-10 16:13
 tags:
   - team
-shared_square_image: http://brewhouse.io/images/posts/2014/Jul/square-400px-img-here.png
-shared_description: Write a sentence or two about the blog post here!
+shared_square_image: http://brewhouse.io/images/posts/2015/07/horse-chan-social.jpg
+shared_description: Chan can seriously code and a lot more too! Godfrey Chan is moving on from Brewhouse.
 draft: false
 published: true
 ---
