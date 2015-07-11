@@ -3,7 +3,7 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2015-07-11T11:20:57-07:00</updated>
+    <updated>2015-07-11T11:25:15-07:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
@@ -29,6 +29,8 @@
 &lt;p&gt;Godfrey has been an essential member of the team that has helped build Brewhouse to what it is today. His passion for the development community both digitally and through in-person meetups has helped build the foundation on how Brewhouse works with the community today.&lt;/p&gt;
 
 &lt;p&gt;He is an active &lt;a href=&quot;http://rubyonrails.org/core/&quot;&gt;core team member of Rails&lt;/a&gt; and helped get the developer nights going and mentored a number of developers in town.&lt;/p&gt;
+
+&lt;!-- break --&gt;
 
 &lt;p&gt;When I first saw him speak at a &lt;a href=&quot;https://vanruby.org&quot;&gt;VanRuby&lt;/a&gt; lightning talk event, his talk was more of a conference quality presentation, entertaining and educating. I knew at that moment he would give talks to even larger audience—he did that and much more; this year alone he’s spoken at  &lt;a href=&quot;https://www.youtube.com/watch?v=PXB93Z8azZE&quot;&gt;EmberConf&lt;/a&gt;, &lt;a href=&quot;https://www.youtube.com/watch?v=IjbYhE9mWuk&quot;&gt;RailsConf&lt;/a&gt;, &lt;a href=&quot;http://www.rubynation.org/&quot;&gt;Ruby Nation&lt;/a&gt; and &lt;a href=&quot;http://goruco.com/&quot;&gt;GoRuCo&lt;/a&gt;.&lt;/p&gt;
 
@@ -64,7 +66,7 @@
     var bottom_of_teams = $(&quot;#teams&quot;).offset().top + $(&quot;#teams&quot;).outerHeight();
     var bottom_of_window = $(window).scrollTop() + $(window).height();
 
-    if(bottom_of_window &gt; bottom_of_teams + $(window).height() * 0.2){
+    if(bottom_of_window &gt; bottom_of_teams + $(window).height() * 0.1){
       to_tilde();
     } else {
       to_brewhouse();

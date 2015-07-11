@@ -135,94 +135,11 @@
 
 <p>He is an active <a href="http://rubyonrails.org/core/">core team member of Rails</a> and helped get the developer nights going and mentored a number of developers in town.</p>
 
-<p>When I first saw him speak at a <a href="https://vanruby.org">VanRuby</a> lightning talk event, his talk was more of a conference quality presentation, entertaining and educating. I knew at that moment he would give talks to even larger audience—he did that and much more; this year alone he’s spoken at  <a href="https://www.youtube.com/watch?v=PXB93Z8azZE">EmberConf</a>, <a href="https://www.youtube.com/watch?v=IjbYhE9mWuk">RailsConf</a>, <a href="http://www.rubynation.org/">Ruby Nation</a> and <a href="http://goruco.com/">GoRuCo</a>.</p>
 
-<p>He dogfooded our own product, <a href="https://goodbits.io">Goodbits.io</a> by starting <a href="https://rails-weekly.ongoodbits.com/">This Week in Rails</a>—the best email roundup focused on what’s happening with Rails and the Rails community. (<a href="https://rails-weekly.ongoodbits.com/">Sign up</a> if you want to know what’s going on with edge Rails!)</p>
-
-<p>Amongst the many things we’ll miss, we’ll miss these the most:</p>
-
-<ul>
-  <li>The many uses of emoji icons in our team Slack, even more now that they’ve <a href="http://slackhq.com/post/123561085920/reactions">released emoji reactions</a>!</li>
-  <li>His quick puns that truly are priceless, we’re going to have to make a bot from all his previous replies</li>
-  <li>Bowling with Godfrey, which was like watching a ballerina break dance (you have to see it to believe it)</li>
-  <li>His ability to pull the best face in all photos (below was our first Brewhouse meeting photo, I think he was trying to pull the trollface)</li>
-</ul>
-
-<p><img src="/images/posts/2015/07/1st-team-meeting.jpg" alt="First BrewhouseTeam meeting" /></p>
-
-<p>As for where Godfrey is going, he’ll be heading to Portland (so still cascadia!) to work with leaders in the open source community at <a href="http://www.tilde.io/about-us/">Tilde</a>.</p>
-
-<div id="teams" class="brewhouse">
-  <img id="godfrey" src="/images/posts/2015/07/godfrey.png" />
-</div>
-<audio id="power-up">
-  <source src="/images/posts/2015/07/power-up.mp3" />
-  <source src="/images/posts/2015/07/power-up.ogg" />beep
-</audio>
-
-<p>The Brewhouse team—and Vancouver’s development community at-large—will truly miss Godfrey, but we’re very happy and incredibly proud to have been able to work with him. Good luck with your next chapter in Portland, mate!</p>
-
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-
-<script>
-  $(window).scroll( function() {
-    var bottom_of_teams = $("#teams").offset().top + $("#teams").outerHeight();
-    var bottom_of_window = $(window).scrollTop() + $(window).height();
-
-    if(bottom_of_window > bottom_of_teams + $(window).height() * 0.2){
-      to_tilde();
-    } else {
-      to_brewhouse();
-    };
-  });
-
-  var to_tilde = function() {
-    if($("#teams.brewhouse").length) {
-      $("#power-up")[0].play();
-    }
-    $("#teams").removeClass("brewhouse").addClass("tilde");
-  }
-
-  var to_brewhouse = function() {
-    $("#teams").removeClass("tilde").addClass("brewhouse");
-  }
-</script>
-
-<style>
-  #teams {
-    height: 396px;
-    width: 680px;
-    background: url('/images/posts/2015/07/brewhouse-tilde-bkg.png');
-    transition: background-position 1s;
-    position: relative;
-    margin-bottom: 50px;
-  }
-
-  #teams.tilde {
-    background-position: -733px 0;
-  }
-
-  #godfrey {
-    position: absolute;
-    bottom: 0;
-    transition: height 1s, opacity 1s, left 1s;
-    transition-timing-function: ease-out;
-  }
-
-  #teams.brewhouse #godfrey {
-    opacity: 0.5;
-    height: 155px;
-    left: -22px;
-  }
-
-  #teams.tilde #godfrey {
-    opacity: 1;
-    height: 210px;
-    left: -46px;
-  }
-</style>
-
-
+            
+              <div class="continue-reading">
+                <a href="/2015/07/10/chan-can-seriously-code-and-a-lot-more-too.html">Continue reading ...</a>
+              </div>
             
           </div><!-- /post -->
 
