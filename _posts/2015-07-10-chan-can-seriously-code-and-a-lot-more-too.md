@@ -36,4 +36,73 @@ Amongst the many things we’ll miss, we’ll miss these the most:
 
 As for where Godfrey is going, he’ll be heading to Portland (so still cascadia!) to work with leaders in the open source community at [Tilde](http://www.tilde.io/about-us/).
 
+<div id="teams" class="brewhouse">
+  <img id="godfrey" src="/images/posts/2015/07/godfrey.png"></img>
+</div>
+<audio id="power-up">
+  <source src="/images/posts/2015/07/power-up.mp3"></source>
+  <source src="/images/posts/2015/07/power-up.ogg">beep</source>
+</audio>
+
+
 The Brewhouse team—and Vancouver’s development community at-large—will truly miss Godfrey, but we're very happy and incredibly proud to have been able to work with him. Good luck with your next chapter in Portland, mate!
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script>
+  $(window).scroll( function() {
+    var bottom_of_teams = $("#teams").offset().top + $("#teams").outerHeight();
+    var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+    if(bottom_of_window > bottom_of_teams + $(window).height() * 0.1){
+      to_tilde();
+    } else {
+      to_brewhouse();
+    };
+  });
+
+  var to_tilde = function() {
+    if($("#teams.brewhouse").length) {
+      $("#power-up")[0].play();
+    }
+    $("#teams").removeClass("brewhouse").addClass("tilde");
+  }
+
+  var to_brewhouse = function() {
+    $("#teams").removeClass("tilde").addClass("brewhouse");
+  }
+</script>
+
+<style>
+  #teams {
+    height: 396px;
+    width: 680px;
+    background: url('/images/posts/2015/07/brewhouse-tilde-bkg.png');
+    transition: background-position 1s;
+    position: relative;
+    margin-bottom: 50px;
+  }
+
+  #teams.tilde {
+    background-position: -733px 0;
+  }
+
+  #godfrey {
+    position: absolute;
+    bottom: 0;
+    transition: height 1s, opacity 1s, left 1s;
+    transition-timing-function: ease-out;
+  }
+
+  #teams.brewhouse #godfrey {
+    opacity: 0.5;
+    height: 155px;
+    left: -22px;
+  }
+
+  #teams.tilde #godfrey {
+    opacity: 1;
+    height: 210px;
+    left: -46px;
+  }
+</style>
