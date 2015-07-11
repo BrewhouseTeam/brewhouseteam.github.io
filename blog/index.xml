@@ -3,12 +3,127 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2015-07-08T10:10:11-07:00</updated>
+    <updated>2015-07-11T11:20:57-07:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
         <email>hello@brewhouse.io</email>
     </author>
+    
+      
+        <entry>
+            <title>Chan can seriously code and a lot more too!</title>
+            <author>
+              <name>Kalvir Sandhu</name>
+              <email>kalv@brewhouse.io</email>
+            </author>
+            <link href="http://brewhouse.io/2015/07/10/chan-can-seriously-code-and-a-lot-more-too.html"/>
+            <updated>2015-07-10T16:13:00-07:00</updated>
+            <id>http://brewhouse.io/2015/07/10/chan-can-seriously-code-and-a-lot-more-too</id>
+            <content type="html">&lt;p&gt;&lt;img src=&quot;/images/posts/2015/07/horse-chan.jpg&quot; alt=&quot;HorseChan&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Today is a bittersweet day for us, Godfrey Chan is moving on from Brewhouse and also Vancouver.&lt;/p&gt;
+
+&lt;p&gt;I first met Godfrey when he came back to Vancouver from some time away, he became very involved with the &lt;a href=&quot;http://vanruby.org/&quot;&gt;Vancouver Ruby meetup&lt;/a&gt; I was helping to organize. We found a similar interest with disrupting the web application monitoring space and very soon found ourselves working together on &lt;a href=&quot;http://caliper.io&quot;&gt;Caliper&lt;/a&gt; (a Javascript monitoring startup) and then Brewhouse the end of 2013.&lt;/p&gt;
+
+&lt;p&gt;Godfrey has been an essential member of the team that has helped build Brewhouse to what it is today. His passion for the development community both digitally and through in-person meetups has helped build the foundation on how Brewhouse works with the community today.&lt;/p&gt;
+
+&lt;p&gt;He is an active &lt;a href=&quot;http://rubyonrails.org/core/&quot;&gt;core team member of Rails&lt;/a&gt; and helped get the developer nights going and mentored a number of developers in town.&lt;/p&gt;
+
+&lt;p&gt;When I first saw him speak at a &lt;a href=&quot;https://vanruby.org&quot;&gt;VanRuby&lt;/a&gt; lightning talk event, his talk was more of a conference quality presentation, entertaining and educating. I knew at that moment he would give talks to even larger audience—he did that and much more; this year alone he’s spoken at  &lt;a href=&quot;https://www.youtube.com/watch?v=PXB93Z8azZE&quot;&gt;EmberConf&lt;/a&gt;, &lt;a href=&quot;https://www.youtube.com/watch?v=IjbYhE9mWuk&quot;&gt;RailsConf&lt;/a&gt;, &lt;a href=&quot;http://www.rubynation.org/&quot;&gt;Ruby Nation&lt;/a&gt; and &lt;a href=&quot;http://goruco.com/&quot;&gt;GoRuCo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;He dogfooded our own product, &lt;a href=&quot;https://goodbits.io&quot;&gt;Goodbits.io&lt;/a&gt; by starting &lt;a href=&quot;https://rails-weekly.ongoodbits.com/&quot;&gt;This Week in Rails&lt;/a&gt;—the best email roundup focused on what’s happening with Rails and the Rails community. (&lt;a href=&quot;https://rails-weekly.ongoodbits.com/&quot;&gt;Sign up&lt;/a&gt; if you want to know what’s going on with edge Rails!)&lt;/p&gt;
+
+&lt;p&gt;Amongst the many things we’ll miss, we’ll miss these the most:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The many uses of emoji icons in our team Slack, even more now that they’ve &lt;a href=&quot;http://slackhq.com/post/123561085920/reactions&quot;&gt;released emoji reactions&lt;/a&gt;!&lt;/li&gt;
+  &lt;li&gt;His quick puns that truly are priceless, we’re going to have to make a bot from all his previous replies&lt;/li&gt;
+  &lt;li&gt;Bowling with Godfrey, which was like watching a ballerina break dance (you have to see it to believe it)&lt;/li&gt;
+  &lt;li&gt;His ability to pull the best face in all photos (below was our first Brewhouse meeting photo, I think he was trying to pull the trollface)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2015/07/1st-team-meeting.jpg&quot; alt=&quot;First BrewhouseTeam meeting&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As for where Godfrey is going, he’ll be heading to Portland (so still cascadia!) to work with leaders in the open source community at &lt;a href=&quot;http://www.tilde.io/about-us/&quot;&gt;Tilde&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div id=&quot;teams&quot; class=&quot;brewhouse&quot;&gt;
+  &lt;img id=&quot;godfrey&quot; src=&quot;/images/posts/2015/07/godfrey.png&quot; /&gt;
+&lt;/div&gt;
+&lt;audio id=&quot;power-up&quot;&gt;
+  &lt;source src=&quot;/images/posts/2015/07/power-up.mp3&quot; /&gt;
+  &lt;source src=&quot;/images/posts/2015/07/power-up.ogg&quot; /&gt;beep
+&lt;/audio&gt;
+
+&lt;p&gt;The Brewhouse team—and Vancouver’s development community at-large—will truly miss Godfrey, but we’re very happy and incredibly proud to have been able to work with him. Good luck with your next chapter in Portland, mate!&lt;/p&gt;
+
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;script&gt;
+  $(window).scroll( function() {
+    var bottom_of_teams = $(&quot;#teams&quot;).offset().top + $(&quot;#teams&quot;).outerHeight();
+    var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+    if(bottom_of_window &gt; bottom_of_teams + $(window).height() * 0.2){
+      to_tilde();
+    } else {
+      to_brewhouse();
+    };
+  });
+
+  var to_tilde = function() {
+    if($(&quot;#teams.brewhouse&quot;).length) {
+      $(&quot;#power-up&quot;)[0].play();
+    }
+    $(&quot;#teams&quot;).removeClass(&quot;brewhouse&quot;).addClass(&quot;tilde&quot;);
+  }
+
+  var to_brewhouse = function() {
+    $(&quot;#teams&quot;).removeClass(&quot;tilde&quot;).addClass(&quot;brewhouse&quot;);
+  }
+&lt;/script&gt;
+
+&lt;style&gt;
+  #teams {
+    height: 396px;
+    width: 680px;
+    background: url(&#39;/images/posts/2015/07/brewhouse-tilde-bkg.png&#39;);
+    transition: background-position 1s;
+    position: relative;
+    margin-bottom: 50px;
+  }
+
+  #teams.tilde {
+    background-position: -733px 0;
+  }
+
+  #godfrey {
+    position: absolute;
+    bottom: 0;
+    transition: height 1s, opacity 1s, left 1s;
+    transition-timing-function: ease-out;
+  }
+
+  #teams.brewhouse #godfrey {
+    opacity: 0.5;
+    height: 155px;
+    left: -22px;
+  }
+
+  #teams.tilde #godfrey {
+    opacity: 1;
+    height: 210px;
+    left: -46px;
+  }
+&lt;/style&gt;
+
+</content>
+
+            
+              <content type="image" src="http://brewhouse.io/images/posts/2015/07/horse-chan-social.jpg" />
+            
+        </entry>
+      
     
       
         <entry>
