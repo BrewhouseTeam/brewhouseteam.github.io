@@ -21,6 +21,8 @@ Godfrey has been an essential member of the team that has helped build Brewhouse
 
 He is an active [core team member of Rails](http://rubyonrails.org/core/) and helped get the developer nights going and mentored a number of developers in town.
 
+<!-- break -->
+
 When I first saw him speak at a [VanRuby](https://vanruby.org) lightning talk event, his talk was more of a conference quality presentation, entertaining and educating. I knew at that moment he would give talks to even larger audience—he did that and much more; this year alone he’s spoken at  [EmberConf](https://www.youtube.com/watch?v=PXB93Z8azZE), [RailsConf](https://www.youtube.com/watch?v=IjbYhE9mWuk), [Ruby Nation](http://www.rubynation.org/) and [GoRuCo](http://goruco.com/).
 
 He dogfooded our own product, [Goodbits.io](https://goodbits.io) by starting [This Week in Rails](https://rails-weekly.ongoodbits.com/)—the best email roundup focused on what’s happening with Rails and the Rails community. ([Sign up](https://rails-weekly.ongoodbits.com/) if you want to know what’s going on with edge Rails!)
