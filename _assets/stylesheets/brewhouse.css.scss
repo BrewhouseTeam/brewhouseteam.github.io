@@ -214,34 +214,18 @@ hr.hr--extra-push {
       }
     }
   }
-
-  // Adding padding to the navbar in order to keep things aligned to the grid
-
-  @media (min-width: 768px) {
-    .navbar-inner-wrapper {
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-  }
-
-  // Philippe and I decided to forego using Boostrap's column system
-  // to do this and set it up manually
-  .navbar-inner-wrapper {
-    @media (min-width: 1230px) {
-      margin: 0 auto;
-      width: 1170px;
-    }
-    @media (max-width: 1230px) {
-      margin: 0 auto;
-      width: 95%;
-    }
-  }
   .logo-container {
     float: left;
     @media (max-width: 767px) {
       width: 150px;
     }
   }
+}
+
+// Removing margin from bootstrap's .navbar-brand class
+.navbar>.container .navbar-brand, 
+.navbar>.container-fluid .navbar-brand {
+  margin-left: 0;
 }
 
 // homepage background colour hack
@@ -687,7 +671,7 @@ img.img-centered {
   }
   li, p, blockquote {
     font-size: 1.125em;
-    line-height: 1.5;
+    line-height: 1.625;
 
     @media (max-width: 767px) {
       font-size: .875em;
@@ -696,6 +680,8 @@ img.img-centered {
   }
   blockquote {
     color: #999;
+    font-family: $serif;
+    font-style: italic;
   }
   p {
     margin-bottom: 24px;
