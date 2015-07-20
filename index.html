@@ -24,4 +24,36 @@ title:
   {% include _projects.html %}
 </div>
 
+<div id="blog">
+
+  <div class="container">
+
+  	<h2 class="col-xs-12 text-center">Recent Writing</h2>
+
+    <ul class="col-xs-12 post-list">
+
+    {% for post in site.posts limit:5 %}
+    {% unless post.draft %}
+    {% assign author = site.data.authors[post.author] %}
+
+      <li class="text-center">
+        
+          <h3>
+            <a href="{{ post.url }}">{{ post.title }}</a>
+          </h3>
+          <p class="meta">
+            {{ post.date | date_to_string }}
+          </p>
+
+      </li>
+    
+    {% endunless %}
+    {% endfor %}
+
+    </ul>
+  
+  </div>
+
+</div>
+
 {% include _lets_talk.html %}

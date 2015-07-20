@@ -742,26 +742,26 @@ img.img-centered {
 p.meta {
   font-family: $sans-serif;
   font-size: 1em;
-  text-align: center;
 }
 .page-header .meta {
   margin-top: 2.5em;
 }
-p.meta a {
+.blog p.meta a {
   display: block;
 }
-p.meta img {
+.blog p.meta img {
   margin-bottom: .5em;
 }
+
 @media (min-width: 992px) {
-  .post .meta {
+  .blog .post .meta {
     position: absolute;
     top: 0;
     left: 100%;
     text-align: center;
     width: 60%;
   }
-  p.meta a {
+  .blog p.meta a {
     display: block;
   }
 }
@@ -823,6 +823,31 @@ p.meta img {
       text-decoration: none;
     }
   }
+}
+
+// Post List
+
+#blog {
+  background: #f9f9f9;
+  padding: 3em 0;
+}
+.post-list {
+  list-style: none;
+}
+.post-list li {
+  border-top: 1px solid #eee;
+  padding: 3em 0 2em;
+  &:first-child {
+    border: 0;
+  }
+}
+.post-list h3 {
+  font-family: $serif;
+  font-size: 1.75em;
+  margin: 0;
+}
+.post-list .meta {
+  margin-top: .725em
 }
 
 // Pagination
