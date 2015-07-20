@@ -110,7 +110,7 @@ h4 {
 .headline--numerals {
   font-size: 3em;
   font-style: italic;
-  font-family: 'Times', 'Times New Roman', Georgia, serif;
+  font-family: $serif;
   margin-top: 20px;
 
   @media (max-width: 500px) {
@@ -368,6 +368,13 @@ img.img-centered {
   p {
     font: 18px/1.5 $serif;
     margin-bottom: 1em;
+  }
+  a {
+    color: #fff;
+    &:hover,
+    &:focus {
+      color: #fff;
+    }
   }
   @media (min-width: 768px) {
     p {
@@ -657,15 +664,29 @@ img.img-centered {
 }
 
 // BLOG SPECIFIC
+
+.blog .post a {
+  color: #4760c3;
+  &:hover,
+  &:focus {
+    color: #F56741;
+  }
+}
+
 .post {
   margin: 0 0 60px 0;
+  position: relative;
+
+  h1 {
+    margin-bottom: .5em;
+  }
 
   h1, h2, h3 {
-    color: #3a3a3a;
+    color: #3a3a3a !important;
+    font-weight: 700;
   }
   li, p, blockquote {
-    font-family: $serif;
-    font-size: 1em;
+    font-size: 1.125em;
     line-height: 1.5;
 
     @media (max-width: 767px) {
@@ -717,6 +738,34 @@ img.img-centered {
     }
   }
 }
+
+p.meta {
+  font-family: $sans-serif;
+  font-size: 1em;
+  text-align: center;
+}
+.page-header .meta {
+  margin-top: 2.5em;
+}
+p.meta a {
+  display: block;
+}
+p.meta img {
+  margin-bottom: .5em;
+}
+@media (min-width: 992px) {
+  .post .meta {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    text-align: center;
+    width: 60%;
+  }
+  p.meta a {
+    display: block;
+  }
+}
+
 .highlight {
   pre, code {
     background-color: #1d1f21;
@@ -741,11 +790,6 @@ img.img-centered {
   border-bottom: 3px solid #fcfcfc;
   min-height: 140px;
 
-  .banner-content {
-    height: 100%;
-    margin: 5px auto;
-    width: 80%;
-  }
   section {
     h1 {
       color: #63636E;
@@ -783,9 +827,7 @@ img.img-centered {
 
 // Pagination
 html.blog {
-  .content {
-    margin: 30px auto;
-  }
+
   .pagination {
     position: relative;
     width: 80%;
@@ -796,8 +838,16 @@ html.blog {
     text-align: center;
   }
 
+  // .pagination a {
+  //   color: #4760c3
+  //   &:hover,
+  //   &:focus {
+  //     color: #F56741
+  //   }
+  // }
+
   .pagination a {
-    // color: #9EABB3;
+    border-color: #4760c3
   }
 
   .pagination a:hover {
@@ -847,12 +897,6 @@ html.blog {
     .post > h1 {
       text-align: center;
     }
-    p.meta {
-      text-align: center;
-    }
-    p.meta span a {
-      display: block;
-    }
     .social-actions {
       float: none;
       text-align: center;
@@ -870,16 +914,6 @@ html.blog {
           text-align: left;
         }
       }
-    }
-  }
-}
-
-@media (min-width: 768px) {
-  body.on-blog,
-  body.on-post {
-
-    .content {
-      width: 80%;
     }
   }
 }
@@ -908,6 +942,11 @@ html.blog {
     color: #909393;
     font-family: $sans-serif;
   }
+}
+
+.content .hire-us-form .btn--blue {
+  background: #4760c3;
+  color: #fff;
 }
 
 .mailchimp-form {
