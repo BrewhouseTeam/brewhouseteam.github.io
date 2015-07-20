@@ -110,7 +110,7 @@ h4 {
 .headline--numerals {
   font-size: 3em;
   font-style: italic;
-  font-family: 'Times', 'Times New Roman', Georgia, serif;
+  font-family: $serif;
   margin-top: 20px;
 
   @media (max-width: 500px) {
@@ -664,9 +664,8 @@ img.img-centered {
     color: #3a3a3a;
   }
   li, p, blockquote {
-    font-family: $serif;
-    font-size: 1em;
-    line-height: 1.5;
+    font-size: 1.125em;
+    line-height: 1.625;
 
     @media (max-width: 767px) {
       font-size: .875em;
@@ -675,6 +674,7 @@ img.img-centered {
   }
   blockquote {
     color: #999;
+    font-family: $serif;
   }
   p {
     margin-bottom: 24px;
