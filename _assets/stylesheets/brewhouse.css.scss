@@ -863,32 +863,26 @@ html.blog {
     text-align: center;
   }
 
-  // .pagination a {
-  //   color: #4760c3
-  //   &:hover,
-  //   &:focus {
-  //     color: #F56741
-  //   }
-  // }
-
-  .pagination a {
-    border-color: #4760c3
-  }
-
-  .pagination a:hover {
-    text-decoration: none;
-  }
-
-  /* Push the previous/next links out to the left/right */
-  .older-posts,
-  .newer-posts {
-    position: absolute;
+  .pagination a,
+  .continue-reading a {
+    color: #4760c3;
     display: inline-block;
     padding: 0 15px;
-    border: #47A4C2 1px solid;
+    border: #4760c3 1px solid;
     text-decoration: none;
     border-radius: 30px;
     transition: border ease 0.3s;
+    &:hover,
+    &:focus {
+      background: #4760c3;
+      border-color: #4760c3;
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+
+  .pagination a {
+    position: absolute;
   }
 
   .older-posts {
@@ -901,7 +895,7 @@ html.blog {
   }
 
   .newer-posts {
-    left: 0;
+    left: 20px;
   }
 
   .older-posts:hover,
