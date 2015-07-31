@@ -13,11 +13,11 @@ published: true
 ---
 
 
-In Ruby, hashes and arrays are the goto data structures. For example, Rails turns http params into a hash and a json payload is hash with nested arrays and hashes. The flexibility those primitives offer is undeniable and is key to developer happiness.
+In Ruby, hashes and arrays are the goto data structures. For example, Rails turns http params into a hash and a json payload is a hash with nested arrays and hashes. The flexibility those primitives offer is undeniable and is key to developer happiness.
 
-There are times where those data structures become too complex and we have to dig quite deep into the codebase to figure what a hash is supposed to contain. This is where Data Objects can help us a great deal.
+There are times where those data structures become too complex and we have to dig deeper into the codebase to figure what a hash is supposed to contain. This is where Data Objects can help us a great deal.
 
-Data Objects contains data. They don’t implement any behaviour. A Struct is the simplest data object you can think of. It has a defined set of attributes that are publicly available as instance methods.
+Data Objects contain data; they don’t implement any behaviour. A Struct is the simplest data object you can think of. It has a defined set of attributes that are publicly available as instance methods.
 
 {% highlight ruby %}
 class Email < Struct.new(:from, :to, :subject, :body)
@@ -26,7 +26,7 @@ end
 
 The main benefit of Data Objects is that they explicitly define the attributes available.
 
-Such a documentation is a great gift you give to other developers (and your future self). A quick look at the data object definition tells us what attributes are available. No need to go through those four classes where a hash that's returned by a third-party API is transformed, filtered, reduced, deleted, symbolized keys and recursively flattened wait what?!
+Documentation such as this is a great gift for other developers (and your future-self). A quick look at the data object definition tells us what attributes are available. No need to go through those four classes where a hash that's returned by a third-party API is transformed, filtered, reduced, deleted, symbolized keys and recursively flattened wait what?!
 
 It also leads to a nicer syntax and better error messages:
 
@@ -40,7 +40,7 @@ user.signup_time.to_date # => undefined method signup_time for user
 
 ## Virtus, the data object best friend
 
-I fall in love with [Virtus](https://github.com/solnic/virtus) a couple of years ago. It has a great syntax to define object attributes.
+I fell in love with [Virtus](https://github.com/solnic/virtus) a couple years ago. It has a great syntax to define object attributes.
 
 {% highlight ruby %}
 class User
@@ -94,9 +94,9 @@ user.attributes
 ## Wrapping API responses with Virtus
 
 Let’s take the [Mandrill API](https://mandrillapp.com/api/docs/index.ruby.html) as an example here. The
-[end-point `/messages/info.json`](https://mandrillapp.com/api/docs/messages.JSON.html#method=info) returns informations about an email you sent including sender, subject, opens, clicks as well as a list of all open and click events.
+[end-point `/messages/info.json`](https://mandrillapp.com/api/docs/messages.JSON.html#method=info) returns information about an email you sent including sender, subject, opens, clicks as well as all open and click events.
 
-The ruby wrapper turns that json into (oh surprise!) a large hash. You could query the hash via `reponse.fetch('metadata').fetch('user_id')` and look up the online documentation to figure what's available. Let's create a Data Object to wrap the API responses here. Using Virtus and some code-editing-fu it takes a couple of seconds to turn the documentation into a Data Object class.
+The ruby wrapper turns that json into (oh surprise!) a large hash. You could query the hash via `reponse.fetch('metadata').fetch('user_id')` and look up the online documentation to determine what's available. Let's create a Data Object to wrap the API responses here. Using Virtus and some code-editing-fu it takes a couple of seconds to turn the documentation into a Data Object class.
 
 ![turn-text-doc-into-virtus](/images/posts/2015/07/vim-macros.gif)
 
@@ -184,4 +184,4 @@ email.report
 
 ## Data Objects > Hashes
 
-Hashes and primitives are great but they can be obscure or hard to manage at times. I find Data Objects way easier to reason about. Data objects self-document the code and make it more reliable. So the next time you deal with a complex data structure, make yourself a favor and turn it into a data object with Virtus. You'll thank yourself later.
+Hashes and primitives are great but they can be obscure or hard to manage at times. I find Data Objects way easier to reason about. Data objects self-document the code and make it more reliable. So the next time you deal with a complex data structure, do yourself a favor and turn it into a Data Object with Virtus. You'll thank yourself later.
