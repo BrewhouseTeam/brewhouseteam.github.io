@@ -1,21 +1,22 @@
 ---
 layout: post
-title: "Be nice with others and your future self: use Data Objects."
+title: "Be nice to others and your future-self: use Data Objects."
 author: pcreux
 date: 2015-07-31 12:00
 tags:
   - ruby
   - virtus
-shared_square_image:
-shared_description:
+shared_square_image: http://brewhouse.io/images/posts/2015/07/data-objects-social.jpg
+shared_description: "Data Objects are easier to understand and to manipulate than hashes. Do yourself a favor: use Data Objects."
 draft: false
 published: true
 ---
 
-
 In Ruby, hashes and arrays are the go-to data structures. For example, Rails turns http params into a hash and a json payload is a hash with nested arrays and hashes. The flexibility those primitives offer is undeniable and is key to developer happiness.
 
 There are times where those data structures become too complex and we have to dig deeper into the codebase to figure what a hash is supposed to contain. This is where Data Objects can help us a great deal.
+
+<!-- break -->
 
 Data Objects contain data; they don’t implement any behaviour. A Struct is the simplest Data Object you can think of. It has a defined set of attributes that are publicly available as instance methods.
 
