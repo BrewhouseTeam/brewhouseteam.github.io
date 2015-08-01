@@ -3,7 +3,7 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2015-07-31T17:15:57-07:00</updated>
+    <updated>2015-07-31T22:52:44-07:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
@@ -14,8 +14,8 @@
         <entry>
             <title>Be nice to others and your future-self: use Data Objects.</title>
             <author>
-              <name></name>
-              <email></email>
+              <name>Philippe Creux</name>
+              <email>philippe@brewhouse.io</email>
             </author>
             <link href="http://brewhouse.io/2015/07/31/be-nice-to-others-and-your-future-self-use-data-objects.html"/>
             <updated>2015-07-31T12:00:00-07:00</updated>
