@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Be nice to others and your future-self: use Data Objects."
-author: pcreux
+author: philippe
 date: 2015-07-31 12:00
 tags:
   - ruby
