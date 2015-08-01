@@ -3,12 +3,184 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2015-07-11T11:25:15-07:00</updated>
+    <updated>2015-07-31T17:02:52-07:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
         <email>hello@brewhouse.io</email>
     </author>
+    
+      
+        <entry>
+            <title>Be nice to others and your future-self: use Data Objects.</title>
+            <author>
+              <name></name>
+              <email></email>
+            </author>
+            <link href="http://brewhouse.io/2015/07/31/be-nice-to-others-and-your-future-self-use-data-objects.html"/>
+            <updated>2015-07-31T12:00:00-07:00</updated>
+            <id>http://brewhouse.io/2015/07/31/be-nice-to-others-and-your-future-self-use-data-objects</id>
+            <content type="html">&lt;p&gt;In Ruby, hashes and arrays are the go-to data structures. For example, Rails turns http params into a hash and a json payload is a hash with nested arrays and hashes. The flexibility those primitives offer is undeniable and is key to developer happiness.&lt;/p&gt;
+
+&lt;p&gt;There are times where those data structures become too complex and we have to dig deeper into the codebase to figure what a hash is supposed to contain. This is where Data Objects can help us a great deal.&lt;/p&gt;
+
+&lt;!-- break --&gt;
+
+&lt;p&gt;Data Objects contain data; they don’t implement any behaviour. A Struct is the simplest Data Object you can think of. It has a defined set of attributes that are publicly available as instance methods.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Email&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Struct&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:to&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:subject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The main benefit of Data Objects is that they explicitly define the attributes available.&lt;/p&gt;
+
+&lt;p&gt;Documentation such as this is a great gift for other developers (and your future-self). A quick look at the Data Object definition tells us what attributes are available. No need to go through those four classes where a hash that’s returned by a third-party API is transformed, filtered, reduced, deleted, symbolized keys and recursively flattened… wait, what?!&lt;/p&gt;
+
+&lt;p&gt;It also leads to a nicer syntax and better error messages:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# with a hash&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;user_hash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:signup_time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_date&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; undefined method to_date for nil&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# with a Data Object&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;signup_time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_date&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; undefined method signup_time for user&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;virtus-the-data-objects-best-friend&quot;&gt;Virtus, the Data Object’s best friend&lt;/h2&gt;
+
+&lt;p&gt;I fell in love with &lt;a href=&quot;https://github.com/solnic/virtus&quot;&gt;Virtus&lt;/a&gt; a couple years ago. It has a great syntax to define object attributes.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Virtus&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:verified&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Boolean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:created_at&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Time&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The class &lt;code&gt;User&lt;/code&gt; has setters and getters for the attributes defined and it can be initialized with a hash of attributes (using symbols or strings as keys):&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;bob@example.com&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;created_at&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;2015-01-01 12:00:00&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# =&amp;gt; #&amp;lt;User:0x007f97e0cca928&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#       @email=&amp;quot;bob@example.com&amp;quot;,&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#       @created_at=2015-01-01 12:00:00 -0800,&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#       @verified=false&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The syntax to define attributes works as an excellent documentation. Ruby is not a typed language, but Virtus provides &lt;em&gt;some sort of a feel of optional typing&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;As you can see in the example above, Virtus attempts to coerce values to the type passed in. This is great for consuming APIs or http params: &lt;code&gt;Strings&lt;/code&gt; will be converted to &lt;code&gt;Integer&lt;/code&gt;, &lt;code&gt;Boolean&lt;/code&gt; or &lt;code&gt;Time&lt;/code&gt; if you’ve defined your attribute to be so. Even better, nested arrays and hashes can be coerced to other Virtus model.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Account&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Virtus&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:plan&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Account&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;bob@example.com&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;plan&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;pro&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# =&amp;gt; #&amp;lt;Account:0x007f97e0d1a0b8&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#      @user=#&amp;lt;User:0x007f97e0d1ab08&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#        @email=&amp;quot;bob@example.com&amp;quot;,&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#        @created_at=nil,&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#        @verified=false&amp;gt;,&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#      @plan=&amp;quot;pro&amp;quot;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Last but not least, the &lt;code&gt;#attributes&lt;/code&gt; method turns your Virtus Data Objects back into primitives making Virtus a great serializer.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attributes&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# =&amp;gt; {:email=&amp;gt;&amp;quot;bob@example.com&amp;quot;, :verified=&amp;gt;false, :created_at=&amp;gt;2015-01-01 12:00:00 -0800}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;wrapping-api-responses-with-virtus&quot;&gt;Wrapping API responses with Virtus&lt;/h2&gt;
+
+&lt;p&gt;Let’s take the &lt;a href=&quot;https://mandrillapp.com/api/docs/index.ruby.html&quot;&gt;Mandrill API&lt;/a&gt; as an example here. The
+&lt;a href=&quot;https://mandrillapp.com/api/docs/messages.JSON.html#method=info&quot;&gt;end-point &lt;code&gt;/messages/info.json&lt;/code&gt;&lt;/a&gt; returns information about an email you sent including sender, subject, opens, clicks as well as all open and click events.&lt;/p&gt;
+
+&lt;p&gt;The ruby wrapper turns that json into (oh, surprise!) a large hash. You could query the hash via &lt;code&gt;reponse.fetch(&#39;metadata&#39;).fetch(&#39;user_id&#39;)&lt;/code&gt; and look up the online documentation to determine what’s available. Let’s create a Data Object to wrap the API responses here. Using Virtus and some code-editing-fu it takes a couple of seconds to turn the documentation into a Data Object class.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2015/07/vim-macros.gif&quot; alt=&quot;turn-text-doc-into-virtus&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Below is an excerpt of the &lt;code&gt;MandrillMessage&lt;/code&gt; definition. The types and comments are just taken out of the html documentation. The list of “open details” will turn into a nested array of &lt;code&gt;OpenDetail&lt;/code&gt; objects.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MandrillMessage&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Virtus&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:ts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Integer&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# the Unix timestamp from when this message was sent&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# the message&amp;#39;s unique id&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:sender&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# the email address of the sender&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:template&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# the unique name of the template used, if any&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:subject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# the message&amp;#39;s subject line&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# the recipient email address&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# list of tags on this message&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:opens&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Integer&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# how many times has this message been opened&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:opens_detail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;OpenDetail&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# list of individual opens for the message&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:clicks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Integer&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# how many times has a link been clicked in this message&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OpenDetail&lt;/span&gt;
+    &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Virtus&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:ts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Integer&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# the unix timestamp from when the message was opened&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:ip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# the IP address that generated the open&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# the approximate region and country that the opening IP is located&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:ua&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# the email client or browser data of the open&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Let’s give this a try and turn the hash returned by the API client into a &lt;code&gt;MandrillMessage&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;MandrillMessage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mandrill_api&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;messages&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;123&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# =&amp;gt; #&amp;lt;MandrillMessage:0x007f97e0d1a0b8&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#     @ts=2015-02-03 12:00:01 -8000,&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#     @_id=&amp;#39;123&amp;#39;,&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#     @sender=&amp;quot;bob@example.com&amp;quot;,&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#     ...&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;serializing-data-with-virtus&quot;&gt;Serializing data with Virtus&lt;/h2&gt;
+
+&lt;p&gt;It is really easy to serialize a Virtus object into a database or a cache store. Say you want to persist a Report in an ActiveRecord model. We define the &lt;code&gt;report&lt;/code&gt; attribute as a &lt;code&gt;:json&lt;/code&gt; column and wrap it with a &lt;code&gt;Report&lt;/code&gt; Data Object.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Report&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Virtus&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:opens&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Integer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;defaut&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:clicks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Integer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;defaut&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Email&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# report is a jsonb attribute&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;report&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;report&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;report&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;report&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is_a?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Report&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;report&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attributes&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;report&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;report&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;Report&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;report&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;report&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;report&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;opens&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;clicks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# or&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;report&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Report&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;opens&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;clicks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# =&amp;gt; #&amp;lt;Email&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#   id: 3,&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#   report: {&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#     &amp;quot;opens&amp;quot;=&amp;gt;3,&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#     &amp;quot;clicks&amp;quot;=&amp;gt;2&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#   },&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#   created_at: &amp;quot;2015-07-31 19:08:35&amp;quot;,&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#   updated_at: &amp;quot;2015-07-31 19:08:35&amp;quot;&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;report&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# =&amp;gt; #&amp;lt;Email::Report:0x007f97e0c2afb8 @opens=3, @clicks=2&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;data-objects--hashes&quot;&gt;Data Objects &amp;gt; Hashes&lt;/h2&gt;
+
+&lt;p&gt;Hashes and primitives are great but they can be obscure or hard to manage at times. I find Data Objects way easier to reason about. Data Objects self-document the code and make it more reliable. So the next time you deal with a complex data structure, do yourself a favor and turn it into a Data Object with Virtus. You’ll thank yourself later.&lt;/p&gt;
+</content>
+
+            
+              <content type="image" src="http://brewhouse.io/images/posts/2015/07/data-objects-social.jpg" />
+            
+        </entry>
+      
     
       
         <entry>
