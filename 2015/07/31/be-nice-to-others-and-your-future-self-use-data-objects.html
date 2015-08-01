@@ -124,7 +124,7 @@
           
         </p>
 
-        <p>In Ruby, hashes and arrays are the go-to data structures. For example, Rails turns http params into a hash and a json payload is a hash with nested arrays and hashes. The flexibility those primitives offer is undeniable and is key to developer happiness.</p>
+        <p>In Ruby, hashes and arrays are the go-to data structures. For example, Rails turns http params into a hash and a JSON payload is a hash with nested arrays and hashes. The flexibility those primitives offer is undeniable and is key to developer happiness.</p>
 
 <p>There are times where those data structures become too complex and we have to dig deeper into the codebase to figure what a hash is supposed to contain. This is where Data Objects can help us a great deal.</p>
 
@@ -132,12 +132,11 @@
 
 <p>Data Objects contain data; they don’t implement any behaviour. A Struct is the simplest Data Object you can think of. It has a defined set of attributes that are publicly available as instance methods.</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Email</span> <span class="o">&lt;</span> <span class="no">Struct</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">:from</span><span class="p">,</span> <span class="ss">:to</span><span class="p">,</span> <span class="ss">:subject</span><span class="p">,</span> <span class="ss">:body</span><span class="p">)</span>
-<span class="k">end</span></code></pre></div>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">Email</span> <span class="o">=</span> <span class="no">Struct</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">:from</span><span class="p">,</span> <span class="ss">:to</span><span class="p">,</span> <span class="ss">:subject</span><span class="p">,</span> <span class="ss">:body</span><span class="p">)</span></code></pre></div>
 
 <p>The main benefit of Data Objects is that they explicitly define the attributes available.</p>
 
-<p>Documentation such as this is a great gift for other developers (and your future-self). A quick look at the Data Object definition tells us what attributes are available. No need to go through those four classes where a hash that’s returned by a third-party API is transformed, filtered, reduced, deleted, symbolized keys and recursively flattened… wait, what?!</p>
+<p>This self-documentation is a great gift for other developers (and your future-self). A quick look at the Data Object definition tells us what attributes are available. No need to go through those four classes where a hash that’s returned by a third-party API is transformed, filtered, reduced, deleted, symbolized keys and recursively flattened… wait, what?!</p>
 
 <p>It also leads to a nicer syntax and better error messages:</p>
 
@@ -168,9 +167,9 @@
 <span class="c1">#       @created_at=2015-01-01 12:00:00 -0800,</span>
 <span class="c1">#       @verified=false&gt;</span></code></pre></div>
 
-<p>The syntax to define attributes works as an excellent documentation. Ruby is not a typed language, but Virtus provides <em>some sort of a feel of optional typing</em>.</p>
+<p>The syntax to define attributes works as excellent documentation. Ruby is not a typed language, but Virtus provides <em>some sort of a feel of optional typing</em>.</p>
 
-<p>As you can see in the example above, Virtus attempts to coerce values to the type passed in. This is great for consuming APIs or http params: <code>Strings</code> will be converted to <code>Integer</code>, <code>Boolean</code> or <code>Time</code> if you’ve defined your attribute to be so. Even better, nested arrays and hashes can be coerced to other Virtus model.</p>
+<p>As you can see in the example above, Virtus attempts to coerce values to the type passed in. This is great for consuming APIs or http params: <code>Strings</code> will be converted to <code>Integer</code>, <code>Boolean</code> or <code>Time</code> if you’ve defined your attribute to be so. Even better, nested arrays and hashes can be coerced to another Virtus model.</p>
 
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Account</span>
   <span class="kp">include</span> <span class="no">Virtus</span><span class="o">.</span><span class="n">model</span>
@@ -197,7 +196,7 @@
 <p>Let’s take the <a href="https://mandrillapp.com/api/docs/index.ruby.html">Mandrill API</a> as an example here. The
 <a href="https://mandrillapp.com/api/docs/messages.JSON.html#method=info">end-point <code>/messages/info.json</code></a> returns information about an email you sent including sender, subject, opens, clicks as well as all open and click events.</p>
 
-<p>The ruby wrapper turns that json into (oh, surprise!) a large hash. You could query the hash via <code>reponse.fetch('metadata').fetch('user_id')</code> and look up the online documentation to determine what’s available. Let’s create a Data Object to wrap the API responses here. Using Virtus and some code-editing-fu it takes a couple of seconds to turn the documentation into a Data Object class.</p>
+<p>The ruby wrapper turns that JSON into (oh, surprise!) a large hash. You could query the hash via <code>reponse.fetch('metadata').fetch('user_id')</code> and look up the online documentation to determine what’s available. Let’s create a Data Object to wrap the API responses here. Using Virtus and some code-editing-fu it takes a couple of seconds to turn the documentation into a Data Object class.</p>
 
 <p><img src="/images/posts/2015/07/vim-macros.gif" alt="turn-text-doc-into-virtus" /></p>
 
@@ -249,8 +248,6 @@
 <span class="k">end</span>
 
 <span class="k">class</span> <span class="nc">Email</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
-  <span class="c1"># report is a jsonb attribute</span>
-
   <span class="k">def</span> <span class="nf">report</span><span class="o">=</span><span class="p">(</span><span class="n">report</span><span class="p">)</span>
     <span class="nb">self</span><span class="o">[</span><span class="s1">&#39;report&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="n">report</span><span class="o">.</span><span class="n">is_a?</span><span class="p">(</span><span class="no">Report</span><span class="p">)</span> <span class="p">?</span> <span class="n">report</span><span class="o">.</span><span class="n">attributes</span> <span class="p">:</span> <span class="n">report</span>
   <span class="k">end</span>

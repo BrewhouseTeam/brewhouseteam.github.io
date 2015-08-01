@@ -3,7 +3,7 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2015-07-31T17:02:52-07:00</updated>
+    <updated>2015-07-31T17:15:57-07:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
@@ -20,7 +20,7 @@
             <link href="http://brewhouse.io/2015/07/31/be-nice-to-others-and-your-future-self-use-data-objects.html"/>
             <updated>2015-07-31T12:00:00-07:00</updated>
             <id>http://brewhouse.io/2015/07/31/be-nice-to-others-and-your-future-self-use-data-objects</id>
-            <content type="html">&lt;p&gt;In Ruby, hashes and arrays are the go-to data structures. For example, Rails turns http params into a hash and a json payload is a hash with nested arrays and hashes. The flexibility those primitives offer is undeniable and is key to developer happiness.&lt;/p&gt;
+            <content type="html">&lt;p&gt;In Ruby, hashes and arrays are the go-to data structures. For example, Rails turns http params into a hash and a JSON payload is a hash with nested arrays and hashes. The flexibility those primitives offer is undeniable and is key to developer happiness.&lt;/p&gt;
 
 &lt;p&gt;There are times where those data structures become too complex and we have to dig deeper into the codebase to figure what a hash is supposed to contain. This is where Data Objects can help us a great deal.&lt;/p&gt;
 
@@ -28,12 +28,11 @@
 
 &lt;p&gt;Data Objects contain data; they don’t implement any behaviour. A Struct is the simplest Data Object you can think of. It has a defined set of attributes that are publicly available as instance methods.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Email&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Struct&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:to&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:subject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;Email&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Struct&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:to&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:subject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;The main benefit of Data Objects is that they explicitly define the attributes available.&lt;/p&gt;
 
-&lt;p&gt;Documentation such as this is a great gift for other developers (and your future-self). A quick look at the Data Object definition tells us what attributes are available. No need to go through those four classes where a hash that’s returned by a third-party API is transformed, filtered, reduced, deleted, symbolized keys and recursively flattened… wait, what?!&lt;/p&gt;
+&lt;p&gt;This self-documentation is a great gift for other developers (and your future-self). A quick look at the Data Object definition tells us what attributes are available. No need to go through those four classes where a hash that’s returned by a third-party API is transformed, filtered, reduced, deleted, symbolized keys and recursively flattened… wait, what?!&lt;/p&gt;
 
 &lt;p&gt;It also leads to a nicer syntax and better error messages:&lt;/p&gt;
 
@@ -64,9 +63,9 @@
 &lt;span class=&quot;c1&quot;&gt;#       @created_at=2015-01-01 12:00:00 -0800,&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;#       @verified=false&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;The syntax to define attributes works as an excellent documentation. Ruby is not a typed language, but Virtus provides &lt;em&gt;some sort of a feel of optional typing&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;The syntax to define attributes works as excellent documentation. Ruby is not a typed language, but Virtus provides &lt;em&gt;some sort of a feel of optional typing&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;As you can see in the example above, Virtus attempts to coerce values to the type passed in. This is great for consuming APIs or http params: &lt;code&gt;Strings&lt;/code&gt; will be converted to &lt;code&gt;Integer&lt;/code&gt;, &lt;code&gt;Boolean&lt;/code&gt; or &lt;code&gt;Time&lt;/code&gt; if you’ve defined your attribute to be so. Even better, nested arrays and hashes can be coerced to other Virtus model.&lt;/p&gt;
+&lt;p&gt;As you can see in the example above, Virtus attempts to coerce values to the type passed in. This is great for consuming APIs or http params: &lt;code&gt;Strings&lt;/code&gt; will be converted to &lt;code&gt;Integer&lt;/code&gt;, &lt;code&gt;Boolean&lt;/code&gt; or &lt;code&gt;Time&lt;/code&gt; if you’ve defined your attribute to be so. Even better, nested arrays and hashes can be coerced to another Virtus model.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Account&lt;/span&gt;
   &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Virtus&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;
@@ -93,7 +92,7 @@
 &lt;p&gt;Let’s take the &lt;a href=&quot;https://mandrillapp.com/api/docs/index.ruby.html&quot;&gt;Mandrill API&lt;/a&gt; as an example here. The
 &lt;a href=&quot;https://mandrillapp.com/api/docs/messages.JSON.html#method=info&quot;&gt;end-point &lt;code&gt;/messages/info.json&lt;/code&gt;&lt;/a&gt; returns information about an email you sent including sender, subject, opens, clicks as well as all open and click events.&lt;/p&gt;
 
-&lt;p&gt;The ruby wrapper turns that json into (oh, surprise!) a large hash. You could query the hash via &lt;code&gt;reponse.fetch(&#39;metadata&#39;).fetch(&#39;user_id&#39;)&lt;/code&gt; and look up the online documentation to determine what’s available. Let’s create a Data Object to wrap the API responses here. Using Virtus and some code-editing-fu it takes a couple of seconds to turn the documentation into a Data Object class.&lt;/p&gt;
+&lt;p&gt;The ruby wrapper turns that JSON into (oh, surprise!) a large hash. You could query the hash via &lt;code&gt;reponse.fetch(&#39;metadata&#39;).fetch(&#39;user_id&#39;)&lt;/code&gt; and look up the online documentation to determine what’s available. Let’s create a Data Object to wrap the API responses here. Using Virtus and some code-editing-fu it takes a couple of seconds to turn the documentation into a Data Object class.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/posts/2015/07/vim-macros.gif&quot; alt=&quot;turn-text-doc-into-virtus&quot; /&gt;&lt;/p&gt;
 
@@ -145,8 +144,6 @@
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Email&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;# report is a jsonb attribute&lt;/span&gt;
-
   &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;report&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;report&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;report&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;report&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is_a?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Report&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;report&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attributes&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;report&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
