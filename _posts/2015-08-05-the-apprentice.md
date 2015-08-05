@@ -10,7 +10,7 @@ published: true
 ---
 ![the apprentice logo](/images/posts/2015/08/the_apprentice.jpg)
 
-We aspire to do the best we can at Brewhouse -- whether that’s developing code for our clients, brewing up the best cup of joe or throwing an epic party and things don’t change as we hire our very first apprentice. 
+We aspire to do the best we can at Brewhouse -- whether that’s developing code for our clients, brewing up the best cup of joe or throwing an epic party. And things don’t change as we hire our very first apprentice. 
 
 But Paulo is no regular apprentice. Yes, he’s a bit green when it comes to writing code but when we delve into his resume we see he has mastered so many other skills that there is no doubt in our minds that this student will one day become the teacher. 
 
@@ -45,9 +45,8 @@ A: I cooked for [Ming Tsai](https://www.ming.com/about-ming/biography.htm). Not 
 
 ![chef ming tsai](/images/posts/2015/08/chef-ming-tsai.png) 
 
-**Q: We can’t wait for you to cook for Brewhouse! :) In fact, I think it’s a part of your training here...ya.**
+**Q: We can’t wait for you to cook for Brewhouse! :) In fact, I think it’s a part of your training here...ya. So besides coding and cooking, do you have any other talents/hobbies?**
 
- So besides coding and cooking, do you have any other talents/hobbies?
 A: I like to draw portraits. 
 
 ![portraits](/images/posts/2015/08/portraits.jpg)
@@ -63,11 +62,10 @@ A: BATMAN! And that is because I am a big Batman fan. Yes, he is the coolest sup
 
 **Q: And Superman fans everywhere pump their fists, “We’ll see about that March, 2016!” Speaking of quotes, what’s your favourite?**
 
-A:
-
+A: 
 ![quote lance](/images/posts/2015/08/quote-lance.jpg)
 I am a motivational junkie. I love watching motivational videos on youtube and this particular one really struck me because this summarizes what I have been through in the past couple of months.
 
-Paulo will apprentice at Brewhouse for the next three months to take steps in pursuing his dream of becoming a software developer. 
+We're hoping Paulo grows significantly as a developer in the next three months. He will be learning some of the finer points of software craftsmanship and coffee snobbery, while taking steps to pursue his dream of becoming a software developer.
 
 *If you would like to ask Paulo what’s it’s like to work at Brewhouse or to elaborate on why he likes Batman better than Superman, comment below.*
