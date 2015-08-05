@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The apprentice"
+title: "The Apprentice"
 date: 2015-08-05 12:00
 tags: 
   - "the apprentice"
@@ -8,12 +8,14 @@ draft: false
 published: true
 ---
 ![the apprentice logo](../images/posts/2015/08/the_apprentice.jpg)
-The Apprentice
 
 We aspire to do the best we can at Brewhouse -- whether that’s developing code for our clients, brewing up the best cup of joe or throwing an epic party and things don’t change as we hire our very first apprentice. 
 
 But Paulo is no regular apprentice. Yes, he’s a bit green when it comes to writing code but when we delve into his resume we see he has mastered so many other skills that there is no doubt in our minds that this student will one day become the teacher. 
 
+<!-- break -->
+
+## The Apprentice ##
 Let’s learn a little about [Paulo](https://twitter.com/pauloancheta). 
 
 **Q**: Welcome, Paulo! Let’s start with learning a little bit about your educational background. 
