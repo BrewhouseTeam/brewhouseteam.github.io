@@ -175,7 +175,7 @@ hr.hr--extra-push {
 
   .navbar-brand {
     display: block;
-    float: none;
+    float: left;
     height: 48px;
     margin-top: 7px;
     padding: 0;
@@ -216,11 +216,37 @@ hr.hr--extra-push {
   }
   .logo-container {
     float: left;
-    @media (max-width: 767px) {
-      width: 150px;
+    .navbar-btn {
+      float: right;
+      margin-left: 15px;
     }
   }
 }
+
+.arrow {
+  position: relative;
+}
+
+.arrow--left:before {
+  border: solid transparent;
+  border-right-color: #fff;
+  border-width: .5em;
+  content: "";
+  height: 0;
+  margin-top: -.5em;
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  width: 0;
+  -webkit-transition: all 0.15s ease-in-out;
+  -moz-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+.arrow--left:hover:before,
+.arrow--left:focus:before {
+    border-right-color: rgba(255,255,255,.9);
+  }
 
 // Removing margin from bootstrap's .navbar-brand class
 .navbar>.container .navbar-brand, 
@@ -646,6 +672,10 @@ img.img-centered {
   margin-top: 1em;
 }
 
+.lets-talk .btn {
+  margin-right: 1em;
+}
+
 // BLOG SPECIFIC
 
 .blog .post a {
@@ -681,6 +711,10 @@ img.img-centered {
     color: #999;
     font-family: $serif;
     font-style: italic;
+    font-weight: 400;
+    i, em {
+      font-style: normal;
+    }
   }
   p {
     margin-bottom: 24px;
