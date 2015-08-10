@@ -9,17 +9,14 @@
   {% assign author = site.data.authors[post.author] %}
 
     <li class="text-center">
-      
+        <div class="post-date">
+          {{ post.date | date_to_string }}
+        </div>
         <h3>
           <a href="{{ post.url }}">{{ post.title }}</a>
         </h3>
-        <div class="meta">
-          <div class="post-date">
-            {{ post.date | date_to_string }}
-          </div>
-          <div class="social-actions">
-            <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io{{ post.url }}" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="{{ page.counturl }}">Tweet</a>
-          </div>
+        <div class="social-actions">
+          <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io{{ post.url }}" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="{{ page.counturl }}">Tweet</a>
         </div>
 
     </li>
