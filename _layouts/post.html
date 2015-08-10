@@ -12,15 +12,18 @@ layout: blog
         <h1>{{ page.title }}</h1>
       </div>
       <div class="col-xs-12 col-sm-4 text-xs-center">
-        <p class="meta text-center">
+        <div class="meta text-center">
           {% if author %}
-            <span>
+            <div class="author">
               <img class="img-circle img-author" src="{{ author.email | to_gravatar }}" alt="A photo of {{ author.name }}" width="55">
 
               <a href="{{ author.web }}" target="_blank">{{ author.name }}</a> wrote this on {{ page.date | date_to_string }}
-            </span>
+            </div>
           {% endif %}
-        </p>
+          <div class="social-actions">
+            <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io{{ page.url }}" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="{{ page.counturl }}">Tweet</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -32,10 +35,6 @@ layout: blog
         <div class="post clearfix">
 
           {{ content }}
-
-          <div class="social-actions">
-            <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io{{ page.url }}" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="{{ page.counturl }}">Tweet</a>
-          </div>   
 
         </div><!-- /post -->
 

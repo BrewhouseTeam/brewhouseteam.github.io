@@ -650,7 +650,7 @@ img.img-centered {
 // BLOG SPECIFIC
 
 .blog .post a {
-  color: #4760c3;
+  color: #398FAB;
   &:hover,
   &:focus {
     color: #F56741;
@@ -689,10 +689,6 @@ img.img-centered {
   ul, ol {
     margin-bottom: 24px;
   }
-  .social-actions {
-    margin-top: 10px;
-    float: right;
-  }
   .img-author {
     margin: 5px 10px 5px 0;
   }
@@ -725,18 +721,22 @@ img.img-centered {
   }
 }
 
-p.meta {
+div.meta {
   font-family: $sans-serif;
   font-size: 1em;
 }
 .page-header .meta {
-  margin-top: 2.5em;
+  margin-top: 1.5em;
 }
-.blog p.meta a {
+.blog div.meta a {
   display: block;
 }
-.blog p.meta img {
+.blog div.meta img {
   margin-bottom: .5em;
+}
+
+ .social-actions {
+  margin-top: 10px;
 }
 
 @media (min-width: 992px) {
@@ -747,7 +747,7 @@ p.meta {
     text-align: center;
     width: 60%;
   }
-  .blog p.meta a {
+  .blog div.meta a {
     display: block;
   }
 }
@@ -851,17 +851,17 @@ html.blog {
 
   .pagination a,
   .continue-reading a {
-    color: #4760c3;
+    color: #398FAB;
     display: inline-block;
     padding: 0 15px;
-    border: #4760c3 1px solid;
+    border: #398FAB 1px solid;
     text-decoration: none;
     border-radius: 30px;
     transition: border ease 0.3s;
     &:hover,
     &:focus {
-      background: #4760c3;
-      border-color: #4760c3;
+      background: #398FAB;
+      border-color: #398FAB;
       color: #fff;
       text-decoration: none;
     }
@@ -950,7 +950,7 @@ html.blog {
 }
 
 .content .hire-us-form .btn--blue {
-  background: #4760c3;
+  background: #398FAB;
   color: #fff;
 }
 
