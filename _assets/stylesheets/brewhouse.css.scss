@@ -678,14 +678,6 @@ img.img-centered {
 
 // BLOG SPECIFIC
 
-.blog .post a {
-  color: #398FAB;
-  &:hover,
-  &:focus {
-    color: #F56741;
-  }
-}
-
 .post {
   margin: 0 0 60px 0;
   position: relative;
@@ -884,18 +876,12 @@ html.blog {
 
   .pagination a,
   .continue-reading a {
-    color: #398FAB;
     display: inline-block;
     padding: 0 15px;
-    border: #398FAB 1px solid;
     text-decoration: none;
     border-radius: 30px;
-    transition: border ease 0.3s;
     &:hover,
     &:focus {
-      background: #398FAB;
-      border-color: #398FAB;
-      color: #fff;
       text-decoration: none;
     }
   }
@@ -980,11 +966,6 @@ html.blog {
     color: #909393;
     font-family: $sans-serif;
   }
-}
-
-.content .hire-us-form .btn--blue {
-  background: #398FAB;
-  color: #fff;
 }
 
 .mailchimp-form {
