@@ -61,7 +61,7 @@
 <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
 <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
 
-<link rel="stylesheet" href="/assets/application-370e6b954098fcb55ba49d11f7412806.css">
+<link rel="stylesheet" href="/assets/application-7aff8112582eaf50d93915343040ea91.css">
 
   </head>
   <body class="on-post">
@@ -77,60 +77,74 @@
 </script>
 
 
-    <nav id="navbar-blog" class="navbar navbar-default navbar-main" role="navigation">
-      <a id="brewhouse-logo" class="navbar-brand internal" rel="home" href="/" title="brewhouse logo"><img src="/images/brewhouse-logo-blog-2.png"></a>
-    </nav>
+    <nav id="navbar-main" class="navbar navbar-default navbar-main navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="col-xs-12">
 
-    <div class="container main">
-      <div class="body-border-top">
-</div>
-<div id="banner-blog" class="row">
-  <div class="banner-content">
-    <section class="col-xs-12 col-sm-5">
-      <h1 id="brew-pub-start">
-        <a href="/blog/"><img src="/images/blog-brew-pub-logo.png"></a>
-      </h1>
-      <h3>
-        Writings from <a href="http://brewhouse.io">brewhouse.io</a>, makers of <a href="https://goodbits.io?utm_source=brewhouse-blog">Goodbits</a>.
-        <br>
-        We partner with teams to build superb apps.
-      </h3>
-    </section>
-    <section class="col-xs-12 col-sm-4">
-      <p class="blog-contact-info">
-        Need help today with a project?
-        <br><a href="/work-with-us.html">Hire us.</a>
-      </p>
-    </section>
+      <div class="logo-container">
+        <a id="brewhouse-logo" class="navbar-brand internal" rel="home" href="/" title="brewhouse logo"><img src="/images/brewhouse-logo.svg" alt="Brewhouse" class="img-responsive"></a>
+        <a class="btn navbar-btn navbar-right btn--header arrow arrow--left" href="https://gist.github.com/kalv/0b4ec7a8ea476f56186b" rel="nofollow">Now Hiring</a>
+      </div>
+
+      <button type="button" class="navbar-toggle navbar-toggle-offcanvas js-navbar-toggle-offcanvas">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <div class="main-menu">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <a class="internal btn navbar-btn navbar-right btn--header" href="/work-with-us.html">Hire Us</a>
+          <ul id="navbar-links" class="nav navbar-nav navbar-right">
+            <li><a class="internal" href="/#services">Services</a></li>
+            <li><a class="internal" href="/#projects">Projects</a></li>
+            <li><a href="/meet-the-team.html">Team</a></li>
+            <li><a href="/blog">Blog</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div>
+
+    </div>
+
   </div>
-</div>
+</nav>
 
+
+    <div class="main">
 
       
 
-<div id="article-start" class="content">
-  <div class="row">
-    <div class="col-xs-12 col-sm-9">
+<article>
 
-      <div class="post">
-        <div class="social-actions">
-          <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io/blog/2015/05/13/emberjs-an-antidote-to-your-hype-fatigue.html" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="">Tweet</a>
-        </div>
-
-        <h1>
-          Ember.js: An Antidote To Your Hype Fatigue
-        </h1>
-        <p class="meta">
+  <div class="page-header">
+    <div class="container">
+      <div class="col-xs-12 col-sm-8 text-xs-center text-sm-left">
+        <h1>Ember.js: An Antidote To Your Hype Fatigue</h1>
+      </div>
+      <div class="col-xs-12 col-sm-4 text-xs-center">
+        <div class="meta text-center">
           
-            <span>
+            <div class="author">
               <img class="img-circle img-author" src="//www.gravatar.com/avatar/560f36d69534a1a58d0f12dad39b0396?s=135" alt="A photo of Godfrey Chan" width="55">
 
               <a href="http://twitter.com/chancancode" target="_blank">Godfrey Chan</a> wrote this on 13 May 2015
-            </span>
+            </div>
           
-        </p>
+          <div class="social-actions">
+            <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io/blog/2015/05/13/emberjs-an-antidote-to-your-hype-fatigue.html" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="">Tweet</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        <p>This is a write-up of the talk I gave at <a href="http://www.meetup.com/vancouver-javascript-developers/">VanJS</a>
+  <div id="article-start" class="container content">
+
+      <div class="col-xs-12 col-sm-8">
+
+        <div class="post clearfix">
+
+          <p>This is a write-up of the talk I gave at <a href="http://www.meetup.com/vancouver-javascript-developers/">VanJS</a>
 this month. You can find the slides <a href="https://speakerdeck.com/chancancode/ember-dot-js-an-antidote-to-your-hype-fatigue">here</a>.</p>
 
 <p>If you happen to be in Seattle, I’ll be giving a version of this talk on
@@ -1265,62 +1279,94 @@ stick around.</p>
 <p>You be the judge ;)</p>
 
 
-      </div><!-- /post -->
+        </div><!-- /post -->
 
-      <div class="hire-us-form text-center">
+        <div class="hire-us-form text-center">
   <h2>Let's Work Together</h2>
   <h3>Find out why our transparent, collaborative process is the best way to make well-loved products.</h3>
   <a href="/work-with-us.html" class="btn btn--blue">Get in touch today</a>
 </div>
 
 
-      <div id="disqus_thread"></div>
+        <div id="disqus_thread"></div>
 
-      <!-- disqus -->
-      <script type="text/javascript">
-          var disqus_shortname = 'brewhouse';
-          var disqus_url = 'http://brewhouse.io/blog/2015/05/13/emberjs-an-antidote-to-your-hype-fatigue.html';
+        <!-- disqus -->
+        <script type="text/javascript">
+            var disqus_shortname = 'brewhouse';
+            var disqus_url = 'http://brewhouse.io/blog/2015/05/13/emberjs-an-antidote-to-your-hype-fatigue.html';
 
-          (function() {
-              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-          })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-      <!-- /disqus -->
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        <!-- /disqus -->
 
-    </div>
-  </div><!-- /row -->
-</div><!-- /content-->
+      </div>
+    
+  </div><!-- /content-->
+
+</article>
 
 <script>
   !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 </script>
 
+
     </div>
 
-    <footer>
+    <aside class="lets-talk cover">
+  <div class="container">
+    <div class="col-sm-6">
+      <h4>Let&apos;s Talk</h4>
+      <p class="lede">We partner with businesses to design and develop well-loved products through a flexible and transparent process. We'd love to discuss how our process can help your idea become a reality.</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="col-sm-6">
+      <a href="http://maps.apple.com/?q=210 Carrall,+Vancouver,+Canada">#303 - 210 Carrall St, Vancouver, BC
+      V6B 2J1</a><br>
+      <a href="tel:+1 604-757-4242">+1 604-757-4242</a> &middot;
+      <a href="mailto:hello@brewhouse.io">hello@brewhouse.io</a> &middot;
+      <a href="http://twitter.com/brewhouseteam">@brewhouseteam</a>
+    </div>
+    <div class="col-sm-4 col-sm-offset-2">
+      <a href="/work-with-us.html" class="btn btn--footer">Hire Us</a>
+      <a href="/work-with-us.html" class="btn btn--footer">Now Hiring</a>
+    </div>
+  </div>
+</aside>
+
+    <footer id="footer">
       <div class="container">
-        <div class="row">
-
-          <section class="col-xs-11 col-xs-offset-1 col-no-padding">
-            <p class="blog-contact-info">
-              Email <a href="mailto:hello@brewhouse.io">hello@brewhouse.io</a> or give us a call <a class="telephone" href="tel:+16046147784">+1 604-757-4242</a>
-              to talk about your project and hiring us.
-            </p>
-          </section>
-
+        <nav role="navigation" class="col-sm-8">
+            <ul>
+              <li>
+                <a href="/meet-the-team.html">Our Team</a>
+              </li>
+              <li>
+                <a class="internal" href="/#services">Services</a>
+              </li>
+              <li>
+                <a class="internal" href="/#projects">Projects</a>
+              </li>
+              <li>
+                <a class="internal" href="/work-with-us.html">Work With Us</a>
+              </li>
+              <li>
+                <a href="/blog">Read Our Blog</a>
+              </li>
+            </ul>
+        </nav>
+        <div class="col-sm-4">
+          <p class="copyright">
+            &copy; <span class="copyright-year"></span> <a href="http://brewhouse.io">brewhouse software, inc.</a>
+          </p>
         </div>
-        <div class="row">
-          <div class="col-xs-11 col-xs-offset-1 col-no-padding">
-            <p>
-              &copy; <span class="copyright-year"></span> <a href="http://brewhouse.io">brewhouse software, inc.</a>
-            </p>
-          </div><!--col-xs-12 -->
-        </div><!-- row -->
-      </div><!-- container -->
+      </div>
     </footer>
 
     <script src="/assets/app-1e16ae59a909ca2225c513b0b3dde774.js"></script>
