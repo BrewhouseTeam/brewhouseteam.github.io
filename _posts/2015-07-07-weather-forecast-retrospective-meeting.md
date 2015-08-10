@@ -1,7 +1,7 @@
 ---
 layout:    post
 title:     "Weather forecast retrospective meeting"
-author:    "pcreux"
+author:    "philippe"
 category:  blog
 date:      2015-07-07 09:00
 published: true
