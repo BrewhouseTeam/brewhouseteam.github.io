@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Colour Me Good: Brewhouse adds a new Product Designer to the mix"
+title: "Colour Me Good: Brewhouse Adds a New Product Designer to the Mix"
 date: 2015-09-21 11:11
 draft: false
 author: lana
