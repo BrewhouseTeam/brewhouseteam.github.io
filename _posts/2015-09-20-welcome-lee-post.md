@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Welcome Lee Post"
+title: "Color Me Good: Brewhouse adds a new Product Designer to the mix"
 date: 2015-09-21 11:11
 draft: false
 author: lana
