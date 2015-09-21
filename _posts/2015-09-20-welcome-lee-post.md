@@ -11,7 +11,7 @@ As Brewhouse Software continues to grow, we’re finding more and more of our hi
  
 ![Lee3](/images/posts/2015/09/Lee3.png)
 
-Meet, [Lee](https://twitter.com/leemnelson_). He’s our new **Product Designer**. And his former life as a deejay enables him to fit in perfectly with our musically inclined bunch. This coupled with the fact that he is an ace designer make him the perfect addition to the Brewhouse team -- we couldn’t have designed this better ourselves! 
+Meet, [Lee](https://twitter.com/leemnelson_). He’s our new **Product Designer**. And his former life as a DJ enables him to fit in perfectly with our musically inclined bunch. This coupled with the fact that he is an ace designer makes him the perfect addition to the Brewhouse team -- we couldn’t have designed this better ourselves! 
 
 
 > *&ldquo;Lee joining the team is a huge milestone for us; it signifies the continued investment we’re making in our efforts to promote design within the process of making products people love.&rdquo;* - [Pat](https://twitter.com/patdryburgh), Design Director 
@@ -36,7 +36,7 @@ A: As a deejay, this has happened a handful of times; having the music cut out w
 
 **Q: Out of control, like your deejay skillz! As a designer, what single project or task would you consider your most significant career accomplishment to date?**
 
-A: [Medeo](http://web.medeohealth.com/medeohealth/) was the last project I worked on and I consider it to be a great success. Not just because I got to work with a great group of people and learn from some great mentors, but because it taught me so much about myself. One of the great things about working on products is learning the domain of each industry. Working on healthcare from a professional level directly translated into my personal life. I became proactive about my health and was a regular user of Medeo myself. When working on a product improves your wellbeing and increases your understanding of society, it truly is a great feeling. 
+A: [Medeo](http://web.medeohealth.com/medeohealth/) was the last project I worked on and I consider it to be a great success. Not just because I got to work with a fantastic group of people and learn from some impressive mentors, but because it taught me so much about myself. One of the cool things about working on products is learning the domain of each industry. Working on healthcare from a professional level directly translated into my personal life. I became proactive about my health and was a regular user of Medeo myself. When working on a product improves your wellbeing and increases your understanding of society, it truly is a great feeling. 
 
 One particularly memorable project from the past was the day we decided to add secure messaging to Medeo. Up until then, Medeo had been built for desktop resolutions. Messaging is inherently mobile, thus came the challenge of making the web app adaptive. Designing a new yet simple experience, with just the use of media queries and some Angular magic was a fun challenge. 
 
@@ -46,7 +46,7 @@ One particularly memorable project from the past was the day we decided to add s
 
 A: The team and culture are what appealed to me most about Brewhouse. They are built on transparency and understand the importance of working relationships. They aren't afraid to test contemporary approaches to building a healthier workspace. I had met most of the team before joining. I knew they were masters of their crafts with great ambitions. 
 
-**Q: You’re already hired, Lee! ;) So looking out 3 - 5 years, beyond the obvious trends, what do you think will be the next big change in our industry? That could apply to anything.**
+**Q: You’re already hired, Lee! ;) So looking out 3 - 5 years, beyond the obvious trends, what do you think will be the next big change in our industry?**
 
 A: Advancements in [voice user interface](https://en.wikipedia.org/wiki/Voice_user_interface) will be interesting. Programs like Siri and [Google Now](https://en.wikipedia.org/wiki/Voice_user_interface) will become very sophisticated and begin to replace trivial interfaces. They already are, but I feel that in 3-5 years society may start to overcome the social anxiety aspect of regularly talking to your phone. Virtual assistants will literally become virtual.
 
@@ -59,7 +59,7 @@ A: I don't follow any blogs religiously. I mainly use Twitter as a curation tool
  
 **Q: And do you have a favourite twitter handle?**
 
-A: @_happy_gilmore Self explanatory. It makes me chuckle.
+A: [@_happy_gilmore](http://twitter.com/_happy_gilmore) Self explanatory. It makes me chuckle.
 
 **Q: And one last question -- what is your favourite quote?**
 
@@ -69,4 +69,4 @@ A: Or anything by [Dale Carnegie](http://www.goodreads.com/author/show/3317.Dale
 
 - - - -
 
-Lee's focus will be on leading the design effort of various client and internal projects, collaborating with our Developers and Design Director to create irresistible experiences for our users. And rest assured, the music playlists for future Brewhouse events just got an upgrade!
+Lee's focus will be on leading the design effort of various client and internal projects, and collaborating with our Developers and Design Director to create irresistible experiences for our users. Rest assured, the music playlists for future Brewhouse events just got an upgrade!
