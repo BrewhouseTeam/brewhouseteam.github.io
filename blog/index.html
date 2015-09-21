@@ -2,20 +2,21 @@
 layout: blog
 ---
 
-<div class="content">
+{% include _header_and_logo_blog.html %}
+
+<div class="container content">
 
   {% for post in paginator.posts %}
     {% unless post.draft %}
       {% assign author = site.data.authors[post.author] %}
 
-      <div class="row">
-        <div class="col-xs-12 col-sm-9">
+        <div class="col-xs-12 col-md-8">
 
           <div class="post">
-            <h1>
+            <h1 class="text-xs-center text-md-left">
               <a href="{{ post.url }}">{{ post.title }}</a>
             </h1>
-            <p class="meta">
+            <div class="meta text-center">
               {% if author %}
                 <span>
                   <img class="img-circle img-author" src="{{ author.email | to_gravatar }}" alt="A photo of {{ author.name }}" width="55">
@@ -23,18 +24,21 @@ layout: blog
                   <a href="{{ author.web }}" target="_blank">{{ author.name }}</a> wrote this on {{ post.date | date_to_string }}
                 </span>
               {% endif %}
-            </p>
+              <div class="social-actions">
+                <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io{{ post.url }}" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="{{ page.counturl }}">Tweet</a>
+              </div>
+            </div>
 
             {{ post.content | split:'<!-- break -->' | first }}
             {% if post.content contains '<!-- break -->' %}
               <div class="continue-reading">
-                <a href="{{ post.url }}">Continue reading ...</a>
+                <a href="{{ post.url }}">Continue reading &rarr;</a>
               </div>
             {% endif %}
           </div><!-- /post -->
 
         </div>
-      </div><!-- /row -->
+
     {% endunless %}
   {% endfor %}
 
@@ -42,9 +46,9 @@ layout: blog
   <nav class="pagination" role="pagination">
     {% if paginator.previous_page %}
       {% if paginator.previous_page == 1 %}
-        <a class="newer-posts" href="/blog/">← Newer Posts</a>
+        <a class="newer-posts" href="/blog/">&larr; Newer Posts</a>
       {% else %}
-        <a class="newer-posts" href="/blog/page/{{ paginator.previous_page }}">← Newer Posts</a>
+        <a class="newer-posts" href="/blog/page/{{ paginator.previous_page }}">&larr; Newer Posts</a>
       {% endif %}
 
     {% endif %}
@@ -52,8 +56,12 @@ layout: blog
     <span class="page-number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
 
     {% if paginator.next_page %}
-      <a class="older-posts" href="/blog/page/{{ paginator.next_page }}">Older Posts →</a>
+      <a class="older-posts" href="/blog/page/{{ paginator.next_page }}">Older Posts &rarr;</a>
     {% endif %}
   </nav>
 
 </div>
+
+<script>
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+</script>

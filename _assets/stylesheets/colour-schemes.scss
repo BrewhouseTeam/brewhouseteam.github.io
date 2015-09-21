@@ -57,11 +57,41 @@
     #footer {
       background-color: darken($colour, 45);
     }
+    .content .pagination a,
+    .content .continue-reading a {
+      color: lighten($colour, 20%);
+      border: lighten($colour, 20%) 1px solid;
+      &:hover,
+      &:focus {
+        background: $colour;
+        border-color: $colour;
+        color: #fff !important;
+      }
+    }
+    .content .hire-us-form .btn--blue {
+      background: $colour;
+      color: #fff;
+    }
+    .content .post a {
+      color: lighten($colour, 20%);
+      &:hover,
+      &:focus {
+        color: #F56741;
+      }
+    }
+    .content .post h1 a {
+      color: $colour;
+      &:hover,
+      &:focus {
+        color: #F56741;
+      }
+    }
   }
 }
 
-@include theme(url_index, #02A5C6);
+@include theme(url_index, #47a4c3);
 @include theme(url_meet_the_team, #F56741);
 @include theme(url_work_with_us, #3FBA68);
+@include theme(blog, #1C6178);
 @include theme(url_thanks, #3FBA68);
 @include theme(url_404, #000);

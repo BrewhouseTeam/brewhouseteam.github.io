@@ -4,54 +4,64 @@ layout: blog
 
 {% assign author = site.data.authors[page.author] %}
 
-<div id="article-start" class="content">
-  <div class="row">
-    <div class="col-xs-12 col-sm-9">
+<article>
 
-      <div class="post">
-        <div class="social-actions">
-          <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io{{ page.url }}" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="{{ page.counturl }}">Tweet</a>
-        </div>
-
-        <h1>
-          {{ page.title }}
-        </h1>
-        <p class="meta">
+  <div class="page-header">
+    <div class="container">
+      <div class="col-xs-12 col-sm-8 text-xs-center text-sm-left">
+        <h1>{{ page.title }}</h1>
+      </div>
+      <div class="col-xs-12 col-sm-4 text-xs-center">
+        <div class="meta text-center">
           {% if author %}
-            <span>
+            <div class="author">
               <img class="img-circle img-author" src="{{ author.email | to_gravatar }}" alt="A photo of {{ author.name }}" width="55">
 
               <a href="{{ author.web }}" target="_blank">{{ author.name }}</a> wrote this on {{ page.date | date_to_string }}
-            </span>
+            </div>
           {% endif %}
-        </p>
-
-        {{ content }}
-
-      </div><!-- /post -->
-
-      {% include _hire_us.html %}
-
-      <div id="disqus_thread"></div>
-
-      <!-- disqus -->
-      <script type="text/javascript">
-          var disqus_shortname = 'brewhouse';
-          var disqus_url = 'http://brewhouse.io{{page.url}}';
-
-          (function() {
-              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-          })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-      <!-- /disqus -->
-
+          <div class="social-actions">
+            <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io{{ page.url }}" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="{{ page.counturl }}">Tweet</a>
+          </div>
+        </div>
+      </div>
     </div>
-  </div><!-- /row -->
-</div><!-- /content-->
+  </div>
+
+  <div id="article-start" class="container content">
+
+      <div class="col-xs-12 col-sm-8">
+
+        <div class="post clearfix">
+
+          {{ content }}
+
+        </div><!-- /post -->
+
+        {% include _hire_us.html %}
+
+        <div id="disqus_thread"></div>
+
+        <!-- disqus -->
+        <script type="text/javascript">
+            var disqus_shortname = 'brewhouse';
+            var disqus_url = 'http://brewhouse.io{{page.url}}';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        <!-- /disqus -->
+
+      </div>
+    
+  </div><!-- /content-->
+
+</article>
 
 <script>
   !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
