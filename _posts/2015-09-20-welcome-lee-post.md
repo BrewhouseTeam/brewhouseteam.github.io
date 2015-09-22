@@ -26,15 +26,15 @@ A: I was one of the lost souls who jumped into post secondary without knowing wh
 
 **Q: Nice. So when did you know that design was your passion?**
 
-A: It was 2009 and I had an epiphany, or maybe it was just the late nights. Either way, I had been a resident deejay for nearly three years and I remember asking myself, &ldquo;Is this what you want to do for the rest of your life?&rdquo;. I always knew that one day I would like to lead a more conventional lifestyle and I was only getting older. At the time I had been making posters for various shows in town and I always enjoyed messing around in Photoshop. I knew I had a passion for digital media so I made the move to Vancouver and studied at BCIT.
+A: It was 2009 and I had an epiphany, or maybe it was just the late nights. Either way, I had been a resident DJ for nearly three years and I remember asking myself, &ldquo;Is this what you want to do for the rest of your life?&rdquo;. I always knew that one day I would like to lead a more conventional lifestyle and I was only getting older. At the time I had been making posters for various shows in town and I always enjoyed messing around in Photoshop. I knew I had a passion for digital media so I made the move to Vancouver and studied at BCIT.
 
-**Q: Good move! What is the most embarrassing professional screw-up as a deejay or designer? What did you learn from it?**
+**Q: Good move! What is the most embarrassing professional screw-up as a DJ or designer? What did you learn from it?**
 
-A: As a deejay, this has happened a handful of times; having the music cut out while mid-set. Whether it's a loose cord, faulty needles, or your computer crashing, it inevitably happens. Hearing a venue full of people "boo" at you is not the most wonderful feeling in the world. You learn to just shake it off. Sometimes things happen that are out of your control. 
+A: As a DJ, this has happened a handful of times; having the music cut out while mid-set. Whether it's a loose cord, faulty needles, or your computer crashing, it inevitably happens. Hearing a venue full of people "boo" at you is not the most wonderful feeling in the world. You learn to just shake it off. Sometimes things happen that are out of your control. 
 
 ![Lee2](/images/posts/2015/09/Lee 2.png)
 
-**Q: Out of control, like your deejay skillz! As a designer, what single project or task would you consider your most significant career accomplishment to date?**
+**Q: Out of control, like your DJ skillz! As a designer, what single project or task would you consider your most significant career accomplishment to date?**
 
 A: [Medeo](http://web.medeohealth.com/medeohealth/) was the last project I worked on and I consider it to be a great success. Not just because I got to work with a fantastic group of people and learn from some impressive mentors, but because it taught me so much about myself. One of the cool things about working on products is learning the domain of each industry. Working on healthcare from a professional level directly translated into my personal life. I became proactive about my health and was a regular user of Medeo myself. When working on a product improves your wellbeing and increases your understanding of society, it truly is a great feeling. 
 
@@ -42,7 +42,7 @@ One particularly memorable project from the past was the day we decided to add s
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VfqwGb_zSZc" frameborder="0" allowfullscreen></iframe>
 
-**Q: Sounds like that project had quite an impact on your life. What do you hope to contribute at Brewhouse?**
+**Q: Sounds like that project had quite an impact on your life. What made you interested in working with the Brewhouse team?**
 
 A: The team and culture are what appealed to me most about Brewhouse. They are built on transparency and understand the importance of working relationships. They aren't afraid to test contemporary approaches to building a healthier workspace. I had met most of the team before joining. I knew they were masters of their crafts with great ambitions. 
 
@@ -51,7 +51,7 @@ A: The team and culture are what appealed to me most about Brewhouse. They are b
 A: Advancements in [voice user interface](https://en.wikipedia.org/wiki/Voice_user_interface) will be interesting. Programs like Siri and [Google Now](https://en.wikipedia.org/wiki/Voice_user_interface) will become very sophisticated and begin to replace trivial interfaces. They already are, but I feel that in 3-5 years society may start to overcome the social anxiety aspect of regularly talking to your phone. Virtual assistants will literally become virtual.
 
 Besides that, I am very excited about all of the new advancements in the health sector.
-&ldquo;Your doctor is a lifeguard, not a swim instructor&rdquo; -- Greg Glassman. I hope there will be a fundamental shift in the way society thinks about their health. The combination of affordable hardware and software will allow us to become proactive about our health and begin thinking about preventing diseases rather than curing them. 
+&ldquo;Your doctor is a lifeguard, not a swim instructor&rdquo; -- *Greg Glassman.* I hope there will be a fundamental shift in the way society thinks about their health. The combination of affordable hardware and software will allow us to become proactive about our health and begin thinking about preventing diseases rather than curing them. 
 
 **Q: Maintaining health seems to be very important to you, too. I’m sure working at Medeo had something to do with that as well. What publications or blogs do you read to stay up-to-date about issues important to you?**
 
@@ -69,4 +69,4 @@ A: Or anything by [Dale Carnegie](http://www.goodreads.com/author/show/3317.Dale
 
 - - - -
 
-Lee's focus will be on leading the design effort of various client and internal projects, and collaborating with our Developers and Design Director to create irresistible experiences for our users. Rest assured, the music playlists for future Brewhouse events just got an upgrade!
+Lee's focus will be on leading the design effort of various client and internal projects, and collaborating with our Developers and Design Director to create irresistible experiences for our users. Rest assured, the music playlists for future Brewhouse events just got an upgrade as well!
