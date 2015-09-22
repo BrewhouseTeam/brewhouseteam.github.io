@@ -9,7 +9,7 @@ published: true
 
 As Brewhouse Software continues to grow, we’re finding more and more of our hires seem to have music in their souls. This certainly isn’t a prerequisite but if this *developing tasty software* thing doesn’t work out, we’re definitely forming a band! 
  
-![Lee3](/images/posts/2015/09/Lee3.png)
+![Lee3](/images/posts/2015/09/lee.png)
 
 Meet, [Lee](https://twitter.com/leemnelson_). He’s our new **Product Designer**. And his former life as a DJ enables him to fit in perfectly with our musically inclined bunch. This coupled with the fact that he is an ace designer makes him the perfect addition to the Brewhouse team -- we couldn’t have designed this better ourselves! 
 
