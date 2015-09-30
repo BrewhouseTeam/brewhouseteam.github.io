@@ -1,17 +1,19 @@
 ---
 layout: post
-title: "Game Programming, Design Patterns, and You (a Book Review)"
+title: "Game Programming, Design Patterns, and You -- A Book Review"
 author: "chuck"
-date: 2015-07-21 08:13
+date: 2015-09-25 08:13
 tags:
   - software
   - books
   - programming
 shared_square_image: http://brewhouse.io/images/posts/2015/07/horse-chan-social.jpg
-shared_description: Chan can seriously code and a lot more too! Godfrey Chan is moving on from Brewhouse.
+shared_description: Into web development? Learn how design patterns used in other fields such as videogame programming can help you.
 draft: false
 published: true
 ---
+
+![ReinventTheWheel](/images/posts/2015/09/reinvent-the-wheel.png)
 
 Programming is one truly interesting skill. Many choose to study it for years in University, while other's can pick it up in their spare time simply by reading and completing tutorials online. Learning to build things quickly can be both lucrative and life-improving. However, knowing more of the theory behind programming will help you write great code and comparing your style of programming to others can be a terrific eye-opener.
 
@@ -73,4 +75,5 @@ It's also available to read for free online: [gameprogrammingpatterns.com/conten
 What are you waiting for? Brush up or learn some new design patterns now!
 
 
-![HorseChan](/images/posts/2015/07/horse-chan.jpg)
+
+// Mention our traffic
