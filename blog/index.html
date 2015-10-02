@@ -1,9 +1,8 @@
 
 
-<!-- Nice to see you took a peek here, hello -->
-<!-- send us an email at hello at brewhouse dot io if you want to talk tech -->
-
 <!DOCTYPE html>
+<!-- Hello, nice to see you took a peek here :) -->
+<!-- Send us an email at hello at brewhouse dot io if you'd like to talk tech -->
 <!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
 <!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
@@ -73,7 +72,7 @@
 </script>
 
 
-    <nav id="navbar-main" class="navbar navbar-default navbar-main navbar-fixed-top" role="navigation">
+    <nav id="navbar-main" class="navbar navbar-default navbar-main navbar-fixed-top">
   <div class="container">
     <div class="col-xs-12">
 
@@ -118,6 +117,52 @@
 
 <div class="container content">
 
+  
+    
+      
+
+        <div class="col-xs-12 col-md-8">
+
+          <div class="post">
+            <h1 class="text-xs-center text-md-left">
+              <a href="/2015/09/21/welcome-lee-post.html">Colour Me Good: Brewhouse Adds a New Product Designer to the Mix</a>
+            </h1>
+            <div class="meta text-center">
+              
+                <span>
+                  <img class="img-circle img-author" src="//www.gravatar.com/avatar/1660f4acd02f0f24a9cccf5a7f3d6f5c?s=135" alt="A photo of Lana Topham" width="55">
+
+                  <a href="http://twitter.com/mstopham" target="_blank">Lana Topham</a> wrote this on 21 Sep 2015
+                </span>
+              
+              <div class="social-actions">
+                <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io/2015/09/21/welcome-lee-post.html" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="">Tweet</a>
+              </div>
+            </div>
+
+            <p>As Brewhouse Software continues to grow, we’re finding more and more of our hires seem to have music in their souls. This certainly isn’t a prerequisite but if this <em>developing tasty software</em> thing doesn’t work out, we’re definitely forming a band!</p>
+
+<p><img src="/images/posts/2015/09/lee.png" alt="Lee3" /></p>
+
+<p>Meet, <a href="https://twitter.com/leemnelson_">Lee</a>. He’s our new <strong>Product Designer</strong>. And his former life as a DJ enables him to fit in perfectly with our musically inclined bunch. This coupled with the fact that he is an ace designer makes him the perfect addition to the Brewhouse team – we couldn’t have designed this better ourselves!</p>
+
+<blockquote>
+  <p><em>“Lee joining the team is a huge milestone for us; it signifies the continued investment we’re making in our efforts to promote design within the process of making products people love.”</em> - <a href="https://twitter.com/patdryburgh">Pat</a>, Design Director</p>
+</blockquote>
+
+<p>Let’s learn a little more about Lee.</p>
+
+
+            
+              <div class="continue-reading">
+                <a href="/2015/09/21/welcome-lee-post.html">Continue reading &rarr;</a>
+              </div>
+            
+          </div><!-- /post -->
+
+        </div>
+
+    
   
     
       
@@ -414,59 +459,6 @@ meetup.</p>
 
     
   
-    
-      
-
-        <div class="col-xs-12 col-md-8">
-
-          <div class="post">
-            <h1 class="text-xs-center text-md-left">
-              <a href="/blog/2015/04/13/elegant-tests-with-truth-tables.html">Elegant tests with Truth Tables</a>
-            </h1>
-            <div class="meta text-center">
-              
-                <span>
-                  <img class="img-circle img-author" src="//www.gravatar.com/avatar/cf8db14764d6420698b0ed9c9ed1ba93?s=135" alt="A photo of Philippe Creux" width="55">
-
-                  <a href="http://twitter.com/pcreux" target="_blank">Philippe Creux</a> wrote this on 13 Apr 2015
-                </span>
-              
-              <div class="social-actions">
-                <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io/blog/2015/04/13/elegant-tests-with-truth-tables.html" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="">Tweet</a>
-              </div>
-            </div>
-
-            <p>Truth Tables help writing readable tests that are easy to maintain.</p>
-
-<p>Here is an example:</p>
-
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">describe</span> <span class="s2">&quot;#to_dollars&quot;</span> <span class="k">do</span>
-  <span class="o">[</span>
-    <span class="o">[</span>      <span class="kp">nil</span><span class="p">,</span>         <span class="kp">nil</span><span class="o">]</span><span class="p">,</span>
-    <span class="o">[</span>        <span class="mi">0</span><span class="p">,</span>     <span class="s2">&quot;$0.00&quot;</span><span class="o">]</span><span class="p">,</span>
-    <span class="o">[</span>       <span class="mi">12</span><span class="p">,</span>     <span class="s2">&quot;$0.12&quot;</span><span class="o">]</span><span class="p">,</span>
-    <span class="o">[</span>     <span class="mi">4_10</span><span class="p">,</span>     <span class="s2">&quot;$4.10&quot;</span><span class="o">]</span><span class="p">,</span>
-    <span class="o">[</span>   <span class="o">-</span><span class="mi">23_00</span><span class="p">,</span>   <span class="s2">&quot;$-23.00&quot;</span><span class="o">]</span><span class="p">,</span>
-    <span class="o">[</span>  <span class="mi">1230_00</span><span class="p">,</span> <span class="s2">&quot;$1,230.00&quot;</span><span class="o">]</span>
-  <span class="o">].</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">amount</span><span class="p">,</span> <span class="n">dollars</span><span class="o">|</span>
-    <span class="n">it</span> <span class="s2">&quot;converts </span><span class="si">#{</span><span class="n">amount</span><span class="o">.</span><span class="n">inspect</span><span class="si">}</span><span class="s2"> to </span><span class="si">#{</span><span class="n">dollars</span><span class="o">.</span><span class="n">inspect</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">do</span>
-      <span class="n">expect</span><span class="p">(</span><span class="n">to_dollars</span><span class="p">(</span><span class="n">amount</span><span class="p">))</span><span class="o">.</span><span class="n">to</span> <span class="n">eq</span> <span class="n">dollars</span>
-    <span class="k">end</span>
-  <span class="k">end</span>
-<span class="k">end</span></code></pre></div>
-
-
-            
-              <div class="continue-reading">
-                <a href="/blog/2015/04/13/elegant-tests-with-truth-tables.html">Continue reading &rarr;</a>
-              </div>
-            
-          </div><!-- /post -->
-
-        </div>
-
-    
-  
 
   <!-- Pagination links -->
   <nav class="pagination" role="pagination">
@@ -496,9 +488,9 @@ meetup.</p>
   </div>
   <div class="container">
     <div class="col-sm-6">
-      <a href="http://maps.apple.com/?q=210 Carrall,+Vancouver,+Canada">#303 - 210 Carrall St, Vancouver, BC
+      <a href="http://maps.apple.com/?q=210%20Carrall,+Vancouver,+Canada">#303 - 210 Carrall St, Vancouver, BC
       V6B 2J1</a><br>
-      <a href="tel:+1 604-757-4242">+1 604-757-4242</a> &middot;
+      <a href="tel:+16047574242">+1 604-757-4242</a> &middot;
       <a href="mailto:hello@brewhouse.io">hello@brewhouse.io</a> &middot;
       <a href="http://twitter.com/brewhouseteam">@brewhouseteam</a>
     </div>
