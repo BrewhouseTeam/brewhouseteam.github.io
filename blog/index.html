@@ -7,7 +7,7 @@ layout: blog
 <div class="container content">
 
   {% for post in paginator.posts %}
-    {% unless post.draft or post.podcast %}
+    {% unless post.draft %}
       {% assign author = site.data.authors[post.author] %}
 
         <div class="col-xs-12 col-md-8">
