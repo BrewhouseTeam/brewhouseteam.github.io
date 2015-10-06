@@ -1,37 +1,56 @@
 ---
 ---
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+  
+  <channel>
+    
     <title>The Brewhouse Show</title>
-    <link href="http://brewhouse.io/show/index.xml" rel="self"/>
-    <link href="http://brewhouse.io"/>
-    <updated>{{ site.time | date_to_xmlschema }}</updated>
-    <id>http://brewhouse.io/show/</id>
-    <author>
-        <name>Brewhouse Team</name>
-        <email>hello@brewhouse.io</email>
-    </author>
+    <description>The Brewhouse Show is about designing and developing products people love.</description>
+    <link>http://brewhouse.io/</link>
+    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
+    <language>en-us</language>
+
+    <itunes:author>Brewhouse Software, Inc.</itunes:author>
+    <itunes:subtitle>Designing and developing products people love.</itunes:subtitle>
+    <itunes:summary>The Brewhouse Show is about designing and developing products people love.</itunes:summary>
+
+    <itunes:owner>
+      <itunes:name>Brewhouse Software, Inc.</itunes:name>
+      <itunes:email>hello@brewhouse.io</itunes:email>
+    </itunes:owner>
+
+    <itunes:explicit>No</itunes:explicit>
+
+    <itunes:image href="http://brewhouse.io/images/show/artwork.jpg"/>
+        
+    <itunes:category text="Technology">
+    </itunes:category>
+
     {% for post in site.posts limit:10 %}
       {% if post.podcast %}
         {% unless post.draft %}
-          <entry>
+          <item>
               <title>{{ post.title }}</title>
-              <author>
-                <name>{{ site.data.authors[post.author].name }}</name>
-                <email>{{ site.data.authors[post.author].email }}</email>
-              </author>
-              <link href="http://brewhouse.io{{ post.url }}"/>
-              <updated>{{ post.date | date_to_xmlschema }}</updated>
-              <id>http://brewhouse.io{{ post.id }}</id>
-              <content type="html">{{ post.content | xml_escape }}</content>
+              <link>http://brewhouse.io{{ post.id }}</link>
+              <guid>{{ post.episode_link }}</guid>
+              <description>{{ post.content | xml_escape }}</description>
+              <enclosure url="{{ post.episode_link }}" length="{{ post.episode_seconds | xml_escape }}" type="audio/mpeg"/>
+              <category>Technology</category>
+              <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
 
-              {% if post.shared_square_image %}
-                <content type="image" src="{{ post.shared_square_image }}" />
-              {% else %}
-                <content type="image" src="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png" />
-              {% endif %}
-          </entry>
+              <itunes:author>Brewhouse Software, Inc.</itunes:author>
+
+              <itunes:explicit>No</itunes:explicit>
+              <itunes:subtitle>Welcome to The Brewhouse Show</itunes:subtitle>
+              <itunes:summary>{{ post.content | xml_escape }}</itunes:summary>
+              <itunes:duration>{{ post.episode_length | xml_escape }}</itunes:duration>
+              <itunes:keywords>brewhouse, software, product, products, design, development, ruby, rails</itunes:keywords>
+          </item>
         {% endunless %}
       {% endif %}
     {% endfor %}
-</feed>
+
+  </channel>
+</rss>

@@ -13,9 +13,11 @@ layout: blog
         <div class="col-xs-12 col-md-8">
 
           <div class="post">
+
             <h1 class="text-xs-center text-md-left">
               <a href="{{ post.url }}">{{ post.title }}</a>
             </h1>
+            
             <div class="meta text-center">
               {% if author %}
                 <span>
@@ -24,17 +26,26 @@ layout: blog
                   <a href="{{ author.web }}" target="_blank">{{ author.name }}</a> wrote this on {{ post.date | date_to_string }}
                 </span>
               {% endif %}
+              
               <div class="social-actions">
                 <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io{{ post.url }}" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="{{ page.counturl }}">Tweet</a>
-              </div>
-            </div>
+              </div><!-- /social-actions -->
+
+            </div><!-- /meta -->
 
             {{ post.content | split:'<!-- break -->' | first }}
+            {% if post.episode_link %}
+            <audio controls>
+              <source src="{{ post.episode_link }}" type="audio/mp3">
+              Your browser does not support the audio element.
+            </audio>
+            {% endif %}
             {% if post.content contains '<!-- break -->' %}
               <div class="continue-reading">
                 <a href="{{ post.url }}">Continue reading &rarr;</a>
               </div>
             {% endif %}
+
           </div><!-- /post -->
 
         </div>
