@@ -7,6 +7,7 @@ layout: show
 <div class="container content">
 
   {% for post in paginator.posts %}
+   {% if post.podcast %}
     {% unless post.draft %}
       {% assign author = site.data.authors[post.author] %}
 
@@ -39,7 +40,8 @@ layout: show
 
         </div>
 
-    {% endunless %}
+      {% endunless %}
+    {% endif %}
   {% endfor %}
 
   <!-- Pagination links -->
