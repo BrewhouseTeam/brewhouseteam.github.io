@@ -1,0 +1,37 @@
+---
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>The Brewhouse Show</title>
+    <link href="http://brewhouse.io/show/index.xml" rel="self"/>
+    <link href="http://brewhouse.io"/>
+    <updated>{{ site.time | date_to_xmlschema }}</updated>
+    <id>http://brewhouse.io/show/</id>
+    <author>
+        <name>Brewhouse Team</name>
+        <email>hello@brewhouse.io</email>
+    </author>
+    {% for post in site.posts %}
+      {% if post.podcast %}
+        {% unless post.draft %}
+          <entry>
+              <title>{{ post.title }}</title>
+              <author>
+                <name>{{ site.data.authors[post.author].name }}</name>
+                <email>{{ site.data.authors[post.author].email }}</email>
+              </author>
+              <link href="http://brewhouse.io{{ post.url }}"/>
+              <updated>{{ post.date | date_to_xmlschema }}</updated>
+              <id>http://brewhouse.io{{ post.id }}</id>
+              <content type="html">{{ post.content | xml_escape }}</content>
+
+              {% if post.shared_square_image %}
+                <content type="image" src="{{ post.shared_square_image }}" />
+              {% else %}
+                <content type="image" src="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png" />
+              {% endif %}
+          </entry>
+        {% endunless %}
+      {% endif %}
+    {% endfor %}
+</feed>

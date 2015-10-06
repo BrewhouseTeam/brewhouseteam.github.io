@@ -1,0 +1,92 @@
+{% capture on_post %}{% if page.path contains '_posts' %}on-episode{% else %}on-show{% endif %}{% endcapture %}
+
+{% include _doctypes.html %}
+<html lang="en-us" class="blog show">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# business: http://ogp.me/ns/business#">
+
+    <title>{% if page.title %}{{ page.title }}{% else %}the brewhouse show{% endif %}</title>
+    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}the brewhouse show{% endif %}">
+    <meta property="og:site_name" content="brewhouse">
+    <meta property="og:url" content="http://brewhouse.io{{ page.url | replace: 'index.html', ''}}">
+
+    <meta property="og:image" content="{% if page.shared_square_image %}{{ page.shared_square_image }}{% else %}http://brewhouse.io/images/brewhouse-symbol-large-200x200.png{% endif %}">
+
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:site" content="@brewhouseteam" />
+    <meta property="twitter:image" content="{% if page.shared_square_image %}{{ page.shared_square_image }}{% else %}http://brewhouse.io/images/brewhouse-symbol-large-200x200.png{% endif %}">
+    <meta property="twitter:url" content="http://brewhouse.io{{page.url}}">
+
+    <link rel="alternate" type="application/atom+xml" href="/show/index.xml" title="The Brewhouse Show atom feed">
+
+    {% if page.id %}
+      <meta property="og:type" content="article">
+      <meta property="article:published_time" content="{{page.date | date: "%Y-%m-%d %H:%M:%S -0800" }}">
+      <meta property="article:tag" content="{{ site.data.authors[page.author].name }}">
+
+      <meta property="twitter:title" content="{{ page.title }}">
+
+      {% if page.shared_description %}
+        <meta name="description" content="{{ page.shared_description }}">
+        <meta property="twitter:description" content="{{ page.shared_description }}">
+        <meta property="og:description" content="{{page.shared_description}}">
+      {% endif %}
+    {% else %}
+      <meta property="og:description" content="{{ site.description }}">
+      <meta property="og:type" content="website">
+
+      <meta property="twitter:description" content="{{ site.description }}">
+      <meta property="twitter:title" content="The BrewPub">
+
+      <meta name="description" content="{{ site.description }}">
+    {% endif %}
+
+    <script src="//use.typekit.net/scl6izu.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+
+    {% include _shared_head.html %}
+  </head>
+  <body class="{{ on_post }}">
+    {% include _ga.html %}
+
+    {% include _header_and_logo.html %}
+
+    <div class="main">
+
+      {{ content }}
+
+    </div>
+
+    {% include _lets_talk.html %}
+
+    <footer id="footer">
+      <div class="container">
+        <nav role="navigation" class="col-sm-8">
+            <ul>
+              <li>
+                <a href="/meet-the-team.html">Our Team</a>
+              </li>
+              <li>
+                <a class="internal" href="/#services">Services</a>
+              </li>
+              <li>
+                <a class="internal" href="/#projects">Projects</a>
+              </li>
+              <li>
+                <a class="internal" href="/work-with-us.html">Work With Us</a>
+              </li>
+              <li>
+                <a href="/blog">Read Our Blog</a>
+              </li>
+            </ul>
+        </nav>
+        <div class="col-sm-4">
+          <p class="copyright">
+            &copy; <span class="copyright-year"></span> <a href="http://brewhouse.io">brewhouse software, inc.</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    {% javascript app %}
+  </body>
+</html>
