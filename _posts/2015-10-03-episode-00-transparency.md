@@ -2,7 +2,7 @@
 layout: episode
 title: "Episode 00: Transparency"
 date: 2015-10-03 10:00
-draft: true
+draft: false
 author: pat
 published: true
 podcast: true
