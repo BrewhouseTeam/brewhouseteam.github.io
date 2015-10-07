@@ -48,6 +48,8 @@
   <body class="{{ on_post }}">
     {% include _ga.html %}
 
+    {% include _mobile_nav.html %}
+
     {% include _header_and_logo.html %}
 
     <div class="main">
@@ -58,34 +60,7 @@
 
     {% include _lets_talk.html %}
 
-    <footer id="footer">
-      <div class="container">
-        <nav role="navigation" class="col-sm-8">
-            <ul>
-              <li>
-                <a href="/meet-the-team.html">Our Team</a>
-              </li>
-              <li>
-                <a class="internal" href="/#services">Services</a>
-              </li>
-              <li>
-                <a class="internal" href="/#projects">Projects</a>
-              </li>
-              <li>
-                <a class="internal" href="/work-with-us.html">Work With Us</a>
-              </li>
-              <li>
-                <a href="/blog">Read Our Blog</a>
-              </li>
-            </ul>
-        </nav>
-        <div class="col-sm-4">
-          <p class="copyright">
-            &copy; <span class="copyright-year"></span> <a href="http://brewhouse.io">brewhouse software, inc.</a>
-          </p>
-        </div>
-      </div>
-    </footer>
+    {% include _site_footer.html %}
 
     {% javascript app %}
   </body>

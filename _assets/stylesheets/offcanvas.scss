@@ -54,22 +54,17 @@
   transition: all 0.2s;
 
   background: transparent;
-  border: 1px solid #fff;
+  border: 0;
   border-radius: 2px;
   height: 35px;
-  margin: 0;
+  margin: .825em 0 0;
   // opacity: 0.6; // set on .sticky
-  padding: 9px 6px;
-  position: fixed;
-  right: 15px;
-  top: 13px;
-  width: 36px;
+  padding: 9px 7px;
   z-index: 1020323483;
 }
 .navbar-toggle-offcanvas:hover,
 .navbar-toggle-offcanvas:focus {
   background: transparent;
-  border: 1px solid #fff;
   opacity: 1;
 }
 .navbar-default .navbar-toggle:hover,
@@ -81,7 +76,7 @@
 }
 .navbar-default .navbar-toggle .icon-bar {
   background: #fff;
-  height: 1px;
+  height: 2px;
 }
 .navbar-default .navbar-toggle:hover .icon-bar,
 .navbar-default .navbar-toggle:focus .icon-bar {
@@ -89,4 +84,24 @@
 }
 .navbar-toggle .icon-bar + .icon-bar {
   margin-top: 6px;
+}
+
+// hide navbar on table-sized screens
+
+@media (min-width: 768px) {
+  .navbar-collapse.collapse {
+    display: none !important;
+  }
+  .navbar-toggle {
+    display: inline-block !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-collapse.collapse {
+    display: block !important;
+  }
+  .navbar-toggle {
+    display: none !important;
+  }
 }

@@ -38,16 +38,8 @@
 
   </head>
   <body>
-    <aside class="offcanvas-menu">
-      <ul>
-        <li><a href="/meet-the-team.html">Our Team</a></li>
-        <li><a class="internal" href="http://brewhouse.io/#services">Services</a></li>
-        <li><a class="internal" href="http://brewhouse.io/#projects">Projects</a></li>
-        <li class="highlight-link"><a class="internal" href="/work-with-us.html">Work With Us</a></li>
-        <li><a href="/blog">Blog</a></li>
-      </ul>
-      <a class="internal btn btn--header" href="/work-with-us.html">Work With Us</a>
-    </aside>
+    
+    {% include _mobile_nav.html %}
 
     <div class="main landing">
       {% include _header_and_logo.html %}
@@ -56,34 +48,7 @@
 
     </div>
 
-    <footer id="footer">
-      <div class="container">
-        <nav class="col-sm-8">
-            <ul>
-              <li>
-                <a href="/meet-the-team.html">Our Team</a>
-              </li>
-              <li>
-                <a class="internal" href="/#services">Services</a>
-              </li>
-              <li>
-                <a class="internal" href="/#projects">Projects</a>
-              </li>
-              <li>
-                <a class="internal" href="/work-with-us.html">Work With Us</a>
-              </li>
-              <li>
-                <a href="/blog">Read Our Blog</a>
-              </li>
-            </ul>
-        </nav>
-        <div class="col-sm-4">
-          <p class="copyright">
-            &copy; <span class="copyright-year"></span> <a href="http://brewhouse.io">brewhouse software, inc.</a>
-          </p>
-        </div>
-      </div>
-    </footer>
+    {% include _site_footer.html %}
 
     {% javascript app %}
     {% include _ga.html %}
