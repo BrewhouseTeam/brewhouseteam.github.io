@@ -1,7 +1,7 @@
 ---
 ---
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+<rss  version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
   
   <channel>
     
@@ -35,8 +35,14 @@
               <title>{{ post.title }}</title>
               <link>http://brewhouse.io{{ post.id }}</link>
               <guid>{{ post.episode_link }}</guid>
-              <description>{{ post.content | xml_escape }}</description>
+              
+              <description>
+                {{ post.content | xml_escape }}
+                <![CDATA[<a href="{{ post.episode_link }}"><strong>Download</strong> {{ post.title }}</a>]]>
+              </description>
+
               <enclosure url="{{ post.episode_link }}" length="{{ post.episode_seconds | xml_escape }}" type="audio/mpeg"/>
+              
               <category>Technology</category>
               <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
 

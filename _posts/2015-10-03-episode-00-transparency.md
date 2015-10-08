@@ -13,6 +13,8 @@ episode_seconds: 3198
 
 One of our core values here at Brewhouse is &ldquo;Test Everything&rdquo;, so when Kalv and I began bandying about the idea of doing a podcast we knew we'd need to test it. And so, with as little fanfare and (hopefully) technical issues as possible, it is my pleasure to share with you Episode 00: Transparency (we couldn't possibly do a pilot episode about transparency and not share it, could we?).
 
+The show should be available in iTunes in the next couple of days. In the meantime, you can [subscribe to the show](http://feedpress.me/brewhouse-show) in your podcatcher or RSS reader.
+
 ## Show Notes
 
 - [Inspiration Labs - VPL](http://www.vpl.ca/programs/cat/C1051/)
