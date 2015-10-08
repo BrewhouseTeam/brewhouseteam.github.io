@@ -3,12 +3,47 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2015-10-02T12:22:47-07:00</updated>
+    <updated>2015-10-07T17:19:25-07:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
         <email>hello@brewhouse.io</email>
     </author>
+    
+      
+        <entry>
+            <title>Episode 00: Transparency</title>
+            <author>
+              <name>Pat Dryburgh</name>
+              <email>pat@brewhouse.io</email>
+            </author>
+            <link href="http://brewhouse.io/2015/10/03/episode-00-transparency.html"/>
+            <updated>2015-10-03T10:00:00-07:00</updated>
+            <id>http://brewhouse.io/2015/10/03/episode-00-transparency</id>
+            <content type="html">&lt;p&gt;One of our core values here at Brewhouse is “Test Everything”, so when Kalv and I began bandying about the idea of doing a podcast we knew we’d need to test it. And so, with as little fanfare and (hopefully) technical issues as possible, it is my pleasure to share with you Episode 00: Transparency (we couldn’t possibly do a pilot episode about transparency and not share it, could we?).&lt;/p&gt;
+
+&lt;h2 id=&quot;show-notes&quot;&gt;Show Notes&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.vpl.ca/programs/cat/C1051/&quot;&gt;Inspiration Labs - VPL&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLfA33-E9P7FC0AoARnMLvgFgESJe4_Ngs&quot;&gt;The #AskGaryVee Show&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://twitter.com/kalv/status/651544809371373568&quot;&gt;The Recording Studio&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.b2bnn.com/2015/09/should-your-b2b-company-be-as-transparent-as-possible/&quot;&gt;Should your B2B company be as transparent as possible?&lt;/a&gt; by Mark Evans&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://gofreerange.com&quot;&gt;Go Free Range&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://signalvnoise.com&quot;&gt;The Blog of The Artist Formerly Known as 37signals&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://24Ways.org&quot;&gt;24Ways.org&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://alistapart.com&quot;&gt;alistapart.com&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.campaignmonitor.com/blog/email-marketing/2009/06/promoting-with-banners-ads/&quot;&gt;Promoting your product or service with banner ads – is it worth it?&lt;/a&gt; by Campaign Monitor&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://trello.com&quot;&gt;Trello&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.teslamotors.com/modelx&quot;&gt;Tesla X&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+
+            
+              <content type="image" src="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png" />
+            
+        </entry>
+      
     
       
         <entry>
