@@ -13,7 +13,14 @@ draft: false
 published: true
 ---
 
-![DesignPatternsAnimaion](/images/posts/2015/09/design-patterns.gif)
+<!-- ![DesignPatternsAnimaion](/images/posts/2015/09/design-patterns.gif) -->
+
+<figure>
+  <iframe style="border: 0" width="740" height="300" src="https://s3-us-west-2.amazonaws.com/brewhouse-io/blog/cubes.framer/index.html"></iframe>
+</figure>
+<figcaption>Animation built with <a href="http://framerjs.com/">FramerJS</a>, source code <a href="https://github.com/BrewhouseTeam/cubes-framer">here</a></figcaption>
+
+<br><br>
 
 Programming is one truly interesting skill. Many choose to study it for years in University, while other's can pick it up in their spare time simply by reading and completing tutorials online. Learning to build things quickly can be both lucrative and life-improving. However, knowing more of the theory behind programming will help you write great code and comparing your style of programming to others can be a terrific eye-opener.
 
@@ -25,7 +32,7 @@ For the past ten years I’ve been coding professionally, I’ve neglected to sp
 
 If you're not familiar with the concept of Design Patterns, they loosely outline various architectural methods you could employ to solve common problems anyone working on software could encounter. One of the more notable collections of Design Patterns is the book [Design Patterns: Elements of Reusable Object-Oriented Software](http://www.amazon.ca/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612) by four authors, appropratiely dubbed the "Gang of Four".
 
-Nystrom has compiled almost twenty of the [Design Patterns](http://www.blackwasp.co.uk/GofPatterns.aspx) written about by the Gang of Four, including some of the more popular ones used today by web developers (**Event Queue**, **Service**, **Dirty Flag**, **Singleton**, **State**, **Observer** and **Prototype**, for instance). They’ve been written from the perspective of how best to organize a video game codebase, though he’s also taken care to craft them so they can be easily digested by programmers of any skill level.
+Nystrom has compiled almost twenty of the [Design Patterns](http://www.blackwasp.co.uk/GofPatterns.aspx) written about by the Gang of Four, including some of the more popular ones used today by web developers (**[Event Queue](http://gameprogrammingpatterns.com/event-queue.html)**, **[Service](https://en.wikipedia.org/wiki/Service_layers_pattern)**, **[Dirty Flag](http://gameprogrammingpatterns.com/dirty-flag.html)**, **[Factory](https://en.wikipedia.org/wiki/Factory_method_pattern)**, **[State](https://sourcemaking.com/design_patterns/state)**, **[Observer](http://gameprogrammingpatterns.com/observer.html)** and **[Prototype](https://sourcemaking.com/design_patterns/prototype)**, for instance). They’ve been written from the perspective of how best to organize a video game codebase, though he’s also taken care to craft them so they can be easily digested by programmers of any skill level.
 
 Although a ton of these concepts were new to me, it was the crossover between the two worlds (Web Development, which I know rather will and Videogame Development, which I know nothing about) that I found most interesting. For instance, reading about [the Double Buffer pattern](http://gameprogrammingpatterns.com/double-buffer.html) and how it's used when rendering graphics had clear similarities in my mind to the typical app deployment strategy used by [Capistrano](http://capistranorb.com/) (for running commands on and deploying your web apps to remote servers). Let's dive into some of these comparisons:
 
