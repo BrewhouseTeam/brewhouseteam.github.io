@@ -15,14 +15,14 @@ published: true
 
 <!-- ![DesignPatternsAnimaion](/images/posts/2015/09/design-patterns.gif) -->
 
-<figure>
-  <iframe style="border: 0" width="740" height="300" src="https://s3-us-west-2.amazonaws.com/brewhouse-io/blog/cubes.framer/index.html"></iframe>
+<figure style="display: block; max-width: 100%;height: auto;">
+  <iframe style="border: 0" width="100%" height="300" src="https://s3-us-west-2.amazonaws.com/brewhouse-io/blog/cubes.framer/index.html"></iframe>
 </figure>
 <figcaption>Animation built with <a href="http://framerjs.com/">FramerJS</a>, source code <a href="https://github.com/BrewhouseTeam/cubes-framer">here</a></figcaption>
 
 <br><br>
 
-Programming is one truly interesting skill. Many choose to study it for years in University, while other's can pick it up in their spare time simply by reading and completing tutorials online. Learning to build things quickly can be both lucrative and life-improving. However, knowing more of the theory behind programming will help you write great code and comparing your style of programming to others can be a terrific eye-opener.
+Programming is one truly interesting skill. Many choose to study it for years in University, while others can pick it up in their spare time simply by reading and completing tutorials online. Learning to build things quickly can be both lucrative and life-improving. However, knowing more of the theory behind programming will help you write great code and comparing your style of programming to others can be a terrific eye-opener.
 
 Over time, as many developers work on a codebase the software will typically suffer from some common problems: tightly coupled code and spaghetti code are recurrent topics amongst developers -- and create messes most will want to avoid.
 
@@ -40,7 +40,12 @@ Although a ton of these concepts were new to me, it was the crossover between th
 
 What is a Buffer?
 
-> "In computer science, a data buffer (or just buffer) is a region of a physical memory storage used to temporarily store data while it is being moved from one place to another." [Wikipedia](https://en.wikipedia.org/wiki/Data_buffer)
+<blockquote>
+  <p>
+    “In computer science, a data buffer (or just buffer) is a region of a physical memory storage used to temporarily store data while it is being moved from one place to another.”
+    <br><small>Source: <a href="https://en.wikipedia.org/wiki/Data_buffer">Wikipedia</a></small>
+  </p>
+</blockquote>
 
 In the web app world, we need to deploy our programs to remote servers to run in production mode for any people or other programs to use and abuse. Our tool of choice for this is called Capistrano. When deploying via Capistrano, each release (a snapshot of code at a specific time) is stored in multiple directories on the server. The webserver (Apache, nginx, etc.) points to the `current` symlink on your filesystem, which in turn points to the most recent release directory. This is what's served up to end users on the requesting side. The last step when completing a new deploy is to essentially flick a switch, and direct the `current` symlink from the old, outdated directory to the brand new release directory. Following that the end users will now see the newly updated code coming down from your server.
 
@@ -51,7 +56,13 @@ This bait and switch trick is not only brilliant, but a great solution to a comm
 
 ## The Command Pattern
 
-> "Commands are an object-oriented replacement for callbacks." -- Source: Game Programming Patterns http://gameprogrammingpatterns.com/command.html
+<blockquote>
+  <p>
+    “Commands are an object-oriented replacement for callbacks.”
+    <br><small>Source: <a href="http://gameprogrammingpatterns.com/command.html">Game Programming Patterns</a></small>
+  </p>
+</blockquote>
+
 
 You've been given the task to create a spreadsheet application, and you're working on the Undo / Redo functionality for this spreadsheet. Or, you're building an turn-based strategy game, and you need an Undo / Redo feature to allow the player to step back in time. I imagine you can already see the correlation between the application world and videogame world here.
 
@@ -79,8 +90,6 @@ For more, the book Game Programming Patterns is available for purchase in print,
 
 It's also available to read for free online: [gameprogrammingpatterns.com/contents.html](http://gameprogrammingpatterns.com/contents.html)
 
-What are you waiting for? Brush up or learn some new design patterns now!
+What are you waiting for? Brush up on or learn some new design patterns now!
 
 
-
-// Mention our traffic
