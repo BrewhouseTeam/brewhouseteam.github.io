@@ -36,6 +36,11 @@ Nystrom has compiled almost twenty of the [Design Patterns](http://www.blackwasp
 
 Although a ton of these concepts were new to me, it was the crossover between the two worlds (Web Development, which I know rather will and Videogame Development, which I know nothing about) that I found most interesting. For instance, reading about [the Double Buffer pattern](http://gameprogrammingpatterns.com/double-buffer.html) and how it's used when rendering graphics had clear similarities in my mind to the typical app deployment strategy used by [Capistrano](http://capistranorb.com/) (for running commands on and deploying your web apps to remote servers). Let's dive into some of these comparisons:
 
+
+<figure style="border: 1px solid #dedede; padding-bottom: 1px; margin-top: 50px;">
+  <img src="/images/posts/2015/10/double-buffer-swap-sm.png" />
+</figure>
+
 ## The Double Buffer Pattern
 
 What is a Buffer?
@@ -70,6 +75,9 @@ Receiving commands from a user, whether to command units to move around a game b
 
 Nystrom goes into depth on how to implement an Undo / Redo feature using the Command pattern (which he says is one of his favourite patterns), and the pseudocode he's written can be applied in any subfield of computer programming. It's another terrific example of just how transferrable these design patterns are from one area of expertise to another.
 
+<figure style="border: 1px solid #dedede; padding-bottom: 1px; margin-top: 50px;">
+  <img src="/images/posts/2015/10/event-listener-nodes-sm.png" />
+</figure>
 
 ## The Observer Pattern
 
