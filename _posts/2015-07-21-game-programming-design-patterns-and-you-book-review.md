@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Game Programming, Design Patterns, and You -- A Book Review"
+title: "Game Design Patterns -- A Book Review"
 author: "chuck"
 date: 2015-09-25 08:13
 tags:
@@ -13,7 +13,7 @@ draft: false
 published: true
 ---
 
-![ReinventTheWheel](/images/posts/2015/09/reinvent-the-wheel.png)
+![DesignPatternsAnimaion](/images/posts/2015/09/design-patterns.gif)
 
 Programming is one truly interesting skill. Many choose to study it for years in University, while other's can pick it up in their spare time simply by reading and completing tutorials online. Learning to build things quickly can be both lucrative and life-improving. However, knowing more of the theory behind programming will help you write great code and comparing your style of programming to others can be a terrific eye-opener.
 
