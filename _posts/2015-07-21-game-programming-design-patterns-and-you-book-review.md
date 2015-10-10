@@ -7,7 +7,7 @@ tags:
   - software
   - books
   - programming
-shared_square_image: http://brewhouse.io/images/posts/2015/07/horse-chan-social.jpg
+shared_square_image: http://brewhouse.io/images/posts/2015/10/event-listener-nodes-square.png
 shared_description: Into web development? Learn how design patterns used in other fields such as videogame programming can help you.
 draft: false
 published: true
