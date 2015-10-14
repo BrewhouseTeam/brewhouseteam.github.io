@@ -2,7 +2,7 @@
 layout: post
 title: "Game Design Patterns -- A Book Review"
 author: "chuck"
-date: 2015-09-25 08:13
+date: 2015-10-14 09:53
 tags:
   - software
   - books
