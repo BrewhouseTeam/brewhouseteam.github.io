@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Game Design Patterns -- A Book Review"
+title: "Game Programming Design Patterns"
 author: "chuck"
 date: 2015-10-14 09:53
 tags:
