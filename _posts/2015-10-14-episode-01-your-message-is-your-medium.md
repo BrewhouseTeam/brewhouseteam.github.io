@@ -34,4 +34,4 @@ Oh, and good news! The Brewhouse Show is now [available on iTunes](https://itune
 - [Pat's Twitter](http://twitter.com/patdryburgh)
 - [Jon Lax interview](http://spec.fm/podcasts/design-details/17554) on Design Details
 - [Teehan &amp; Lax](http://teehanlax.com)
-- [Steve Job's Responding to a critic](https://www.youtube.com/watch?v=FF-tKLISfPE)
+- [Steve Jobs responding to a critic](https://www.youtube.com/watch?v=FF-tKLISfPE)
