@@ -28,3 +28,7 @@ The show should be available in iTunes in the next couple of days. In the meanti
 - [Promoting your product or service with banner ads – is it worth it?](https://www.campaignmonitor.com/blog/email-marketing/2009/06/promoting-with-banners-ads/) by Campaign Monitor
 - [Trello](http://trello.com)
 - [Tesla X](http://www.teslamotors.com/modelx)
+
+*The Brewhouse Show is proudly hosted by [Feedpress][FP], a simple, intuitive, and powerful RSS analytics and podcast hosting platform. Use the promo code **brewhouse** at checkout for 10% off your first year.*
+
+[FP]: http://feed.press

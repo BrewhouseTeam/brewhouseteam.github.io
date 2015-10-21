@@ -35,3 +35,7 @@ Oh, and good news! The Brewhouse Show is now [available on iTunes](https://itune
 - [Jon Lax interview](http://spec.fm/podcasts/design-details/17554) on Design Details
 - [Teehan &amp; Lax](http://teehanlax.com)
 - [Steve Jobs responding to a critic](https://www.youtube.com/watch?v=FF-tKLISfPE)
+
+*The Brewhouse Show is proudly hosted by [Feedpress][FP], a simple, intuitive, and powerful RSS analytics and podcast hosting platform. Use the promo code **brewhouse** at checkout for 10% off your first year.*
+
+[FP]: http://feed.press
