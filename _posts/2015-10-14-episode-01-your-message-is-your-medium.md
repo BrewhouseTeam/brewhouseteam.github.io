@@ -3,7 +3,6 @@ layout: episode
 title: "Episode 01: Your Message is Your Medium"
 date: 2015-10-14 11:00
 draft: false
-author: pat
 published: true
 podcast: true
 episode_link: http://podcasts-1.feedpress.co/13375/Episode-1.mp3
@@ -11,7 +10,7 @@ episode_length: "00:39:56"
 episode_seconds: 2396
 ---
 
-This week, Kalv &amp; I hit the ground running&hellip; well, once the turkey coma wore off, that is. We talk about how crucial the simple act of writing can be to many phases of the product design and development process, what it means to create a character for your product, how to use writing during the design process, and how to visualize your audience.
+This week, Kalv &amp; Pat hit the ground running (once the turkey coma wore off, that is) and discuss how crucial the simple act of writing can be to all phases of the product design and development process, creating a character for your product, writing during the design process, and visualizing your audience.
 
 Oh, and good news! The Brewhouse Show is now [available on iTunes](https://itunes.apple.com/ca/podcast/the-brewhouse-show/id1047009983?mt=2).
 
