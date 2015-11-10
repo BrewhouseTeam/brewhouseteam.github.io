@@ -1,7 +1,7 @@
 ---
 layout: episode
 title: "Episode 05: Quality"
-date: 2015-11-10 11:00
+date: 2015-11-10 9:15
 draft: false
 published: true
 podcast: true
