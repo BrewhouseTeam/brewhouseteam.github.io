@@ -370,7 +370,6 @@ img.img-centered {
   h1 {
     color: #fff;
     font-size: 2em;
-    font-style: italic;
     font-weight: 700;
     @media (min-width: 768px) {
       font-size: 3em;
@@ -843,26 +842,25 @@ div.meta {
 // Post List
 
 #blog {
-  background: #f9f9f9;
-  padding: 3em 0;
+  background: lighten(#42a4c5, 45%);
 }
-.post-list {
-  list-style: none;
+.post-list > div {
+  padding-bottom: 3em;
+  padding-top: 3em;
 }
-.post-list li {
-  border-top: 1px solid #eee;
-  padding: 3em 0 2em;
-  &:first-child {
-    border: 0;
-  }
+.post-link {
+  display: block;
+  margin: 1.5em 0;
 }
-.post-list h3 {
+.post-list .post-title {
   font-family: $serif;
-  font-size: 1.75em;
   margin: 0;
 }
-.post-list .meta {
-  margin-top: .725em
+.post-list h3 {
+  font-size: 1.75em;
+}
+.post-list .post-date {
+  color: #222;
 }
 
 // Pagination

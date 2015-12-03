@@ -2,7 +2,7 @@
 layout: episode
 title: "Episode 02: Collaboration"
 date: 2015-10-20 16:00
-draft: false
+hidden: true
 published: true
 podcast: true
 episode_link: http://podcasts-1.feedpress.co/13375/Episode-2.mp3
@@ -11,6 +11,8 @@ episode_seconds: 3749
 ---
 
 This week on [The Brewhouse Show][TBS], Kalv &amp; Pat sit in front of properly-positioned microphones to chat about collaboration. How do we work together at Brewhouse? What tools do we use to enable collaboration between us and our clients? How do we argue? Is it ok to disagree with our CEO?
+
+<!-- break -->
 
 ## Show Notes
 

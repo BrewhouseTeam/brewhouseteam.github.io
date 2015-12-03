@@ -2,7 +2,7 @@
 layout: episode
 title: "Episode 06: Design"
 date: 2015-11-23 10:11
-draft: false
+hidden: true
 published: true
 podcast: true
 episode_link: http://podcasts-1.feedpress.co/13375/Episode-6.mp3
@@ -11,6 +11,8 @@ episode_seconds: 2918
 ---
 
 This week, Kalv and Pat chat about design. Is design hanging pretty ornaments on a tree, or is it establishing thoughtful systems to help users with a problem? What's the difference between a Creative Director and a Design Director? How does design theory apply to design practice? And what the heck was Web 2.0?
+
+<!-- break -->
 
 ## Show Notes
 

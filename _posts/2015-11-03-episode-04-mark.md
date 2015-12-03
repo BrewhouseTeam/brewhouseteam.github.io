@@ -2,7 +2,7 @@
 layout: episode
 title: "Episode 04: Mark"
 date: 2015-11-03 23:00
-draft: false
+hidden: true
 published: true
 podcast: true
 episode_link: http://podcasts-1.feedpress.co/13375/Episode-4.mp3
@@ -11,6 +11,8 @@ episode_seconds: 2540
 ---
 
 Mark Hazlett has been a tech support agent for Apple, product engineer for iStockPhoto and Expedia, and founder of his own gaming and tech startups. As Brewhouse's product manager, he oversees the planning and execution of our design and development process for both client and internal projects. This week on [The Brewhouse Show][TBS], learn how a former studio of biology became a complete product nut.
+
+<!-- break -->
 
 ## Show Notes
 

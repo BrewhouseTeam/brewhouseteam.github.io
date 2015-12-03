@@ -2,7 +2,7 @@
 layout: episode
 title: "Episode 07: Mission Statements"
 date: 2015-11-24 16:30
-draft: false
+hidden: true
 published: true
 podcast: true
 episode_link: http://podcasts-1.feedpress.co/13375/Episode-7.mp3
@@ -11,6 +11,8 @@ episode_seconds: 2557
 ---
 
 Every company needs a purpose for existing. Here at Brewhouse, we have continually refined our purpose as we've gained a better understanding of who we are and what we want to do. Over the past month we've been having a number of discussions around our purpose, or mission, and how our values serve that mission. On the eve of leaving for a company retreat up in beautiful Whistler, BC, Kalv and Pat share some of the thinking that's been happening around who we are as a company and what our purpose is.
+
+<!-- break -->
 
 ## Show Notes
 

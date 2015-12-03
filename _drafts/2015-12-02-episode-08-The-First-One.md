@@ -1,8 +1,8 @@
 ---
 layout: episode
-title: "Episode 08: The First One"
+title: "Episode 08: What's the First Thing You Made?"
 date: 2015-12-02 09:30
-draft: true
+hidden: true
 published: true
 podcast: true
 episode_link: http://podcasts-1.feedpress.co/13375/Episode-8.mp3
@@ -13,6 +13,8 @@ episode_seconds: 2411
 There is a moment in everyone's life when you understand that much of the environment surrounding you was made by someone else. Be it a house, a painting, a song, or a computer game, the tools and toys we use and enjoy all came to be when someone figured out how to make it.
 
 This week, Kalv and Pat think back to their early days and reminisce about their adventures in making things. What was the first tool Pat discovered and understood? What 5000+ year old problem did Kalv try and solve at the age of 16? And how did the process of trying to solve those early problems influence the kind of makers we are today?
+
+<!-- break -->
 
 ## Show Notes
 

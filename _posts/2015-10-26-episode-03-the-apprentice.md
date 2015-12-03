@@ -2,7 +2,7 @@
 layout: episode
 title: "Episode 03: The Apprentice"
 date: 2015-10-26 9:00
-draft: false
+hidden: true
 published: true
 podcast: true
 episode_link: http://podcasts-1.feedpress.co/13375/Episode-3.mp3
@@ -11,6 +11,8 @@ episode_seconds: 3237
 ---
 
 This week on [The Brewhouse Show][TBS], [Kalv](https://twitter.com/kalv) and [Pat](https://twitter.com/patdryburgh) sit down with [Gabe Scholz](https://twitter.com/gabescholz) and his [Apprentice](http://brewhouse.io/2015/08/05/the-apprentice.html)-turned-Jr. Developer [Paulo Ancheta](https://twitter.com/pauloancheta) to discuss the experience of bringing an apprentice onto the Brewhouse team, what was learned through the process, and how other companies might go about initiating their own apprenticeship programs.
+
+<!-- break -->
 
 ## Show Notes
 

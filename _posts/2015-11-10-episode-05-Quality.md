@@ -2,7 +2,7 @@
 layout: episode
 title: "Episode 05: Quality"
 date: 2015-11-10 9:15
-draft: false
+hidden: true
 published: true
 podcast: true
 episode_link: http://podcasts-1.feedpress.co/13375/Episode-5.mp3
@@ -17,6 +17,8 @@ Here at Brewhouse, we've begun an evaluation of the values of our company. This 
 We want to be a company who is uniquely different, whose values permeate every aspect of our business, and who chooses the pursuit of quality over quantity.
 
 So, what exactly is quality?
+
+<!-- break -->
 
 ## Show Notes
 
