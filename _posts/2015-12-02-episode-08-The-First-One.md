@@ -22,9 +22,14 @@ This week, Kalv and Pat think back to their early days and reminisce about their
 - [Brewhouse Restaurant](http://www.mjg.ca/brewhouse/)
 - [Puma Disc](http://about.puma.com/en/this-is-puma/history#90s)
 - [Fischer-Price Tape Recorder](http://www.thisoldtoy.com/l_fp_set/toy-pages/3000s/3818-taperecorder.html)
+- [LogoWriter](https://archive.org/details/LogoWriterScreencast)
 - [BBC Micro](https://en.wikipedia.org/wiki/BBC_Micro)
 - [Sonic Pi](http://sonic-pi.net)
 - [Raspberry Pi Zero: The $5 Computer](https://www.raspberrypi.org/blog/raspberry-pi-zero/)
+- [Periscope](https://www.periscope.tv)
+
+- [Kalv on Twitter](http://twitter.com/kalv)
+- [Pat on Twitter](http://twitter.com/patdryburgh)
 
 *The Brewhouse Show is proudly hosted by [Feedpress][FP], a simple, intuitive, and powerful RSS analytics and podcast hosting platform. Use the promo code **brewhouse** at checkout for 10% off your first year.*
 
