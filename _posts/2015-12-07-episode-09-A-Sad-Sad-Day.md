@@ -12,6 +12,10 @@ episode_seconds: 2606
 
 Today, Dropbox dropped the news that they plan to shutter both Mailbox and Carousel. As apps that we are big fans of, we couldn't let the news go by without taking time to mourn our loss.
 
+<!-- break -->
+
+## Show Notes
+
 - [Dropbox is shutting down its Mailbox and Carousel Apps](http://www.theverge.com/2015/12/7/9862470/dropbox-shutting-down-mailbox-carousel-apps) on The Verge
 - [Saying Goodbye](https://blogs.dropbox.com/mailbox/2015/12/saying-goodbye/) on The Mailbox Blog
 - [IKEA SKARSTA sit/stand desk](http://www.ikea.com/ca/en/catalog/products/S49084965/)
