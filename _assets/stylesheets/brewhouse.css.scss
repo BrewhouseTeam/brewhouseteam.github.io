@@ -25,12 +25,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  color: #383C4A;
+  color: $text-black;
   font: 1.6em/1.5 $sans-serif;
 
   // max-width: 1280px;
   margin: 0 auto;
-  
+
 }
 p.lede {
   font-size: 1.125em;
@@ -109,6 +109,13 @@ h4 {
   @media (max-width: 767px) {
     font-size: 17px;
   }
+}
+
+h5 {
+  color: lighten($text-black, 40);
+  font-size: .75em;
+  margin-bottom: .25em;
+  text-transform: uppercase;
 }
 
 .headline--numerals {
@@ -253,55 +260,9 @@ hr.hr--extra-push {
   }
 
 // Removing margin from bootstrap's .navbar-brand class
-.navbar>.container .navbar-brand, 
+.navbar>.container .navbar-brand,
 .navbar>.container-fluid .navbar-brand {
   margin-left: 0;
-}
-
-// homepage background colour hack
-
-.url_index .navbar-main,
-.url_index .page-header,
-.url_index .offcanvas-menu {
-  background: url('/images/bg-home.jpg');
-}
-
-// .navbar-main.sticky {
-//   background: #47A4C2;
-//   background: rgba(71, 164, 194, 0.98);
-//   box-shadow: 0 0 3px rgba(30, 40, 60, 0.4);
-//   left: 0;
-//   position: fixed;
-//   top: 0;
-
-//   #brewhouse-logo {
-//     display: block;
-//   }
-//   #navbar-links {
-//     a {
-//       border-bottom: 0 solid #fff;
-//       color: #fff;
-//       display:block;
-
-//       &:hover {
-//         border-bottom-width: 3px;
-//       }
-//     }
-
-//     .highlight-link {
-//       a {
-//         color: #fff;
-//       }
-//     }
-//   }
-// }
-.navbar-main .navbar-toggle-offcanvas {
-  opacity: 0.7;
-}
-.navbar-main .navbar-toggle-offcanvas:hover,
-.navbar-main .navbar-toggle-offcanvas:focus,
-.navbar-main .navbar-toggle-offcanvas:active {
-  opacity: 1;
 }
 
 // Bootstrap Overrides:
@@ -367,6 +328,7 @@ img.img-centered {
   border: 0;
   margin: 0;
   padding: 120px 0 60px;
+
   h1 {
     color: #fff;
     font-size: 2em;
@@ -396,6 +358,20 @@ img.img-centered {
   }
 }
 
+.page-title {
+  font-size: 2em;
+  font-weight: 700;
+  @media (min-width: 768px) {
+    font-size: 3em;
+  }
+  @media (min-width: 992px) {
+    font-size: 4em;
+  }
+}
+
+.page-title + p {
+  margin-top: 3em;
+}
 
 @media screen and (min-width: 768px) {
   .img-full-width img {
@@ -580,6 +556,46 @@ img.img-centered {
   }
 }
 
+.work-link {
+  img {
+    -webkit-filter: grayscale(1);
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: url(#greyscale);
+    filter: gray;
+    -webkit-transition: all .25s ease-in-out;
+    -moz-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out;
+  }
+  &:hover,
+  &:focus {
+    img {
+      -webkit-filter: grayscale(0);
+      -webkit-filter: grayscale(0%);
+      filter: grayscale(0%);
+      filter: none;
+    }
+  }
+}
+
+.project-hero {
+  margin-bottom: 4em;
+}
+
+.project-details ul {
+  padding: 0;
+  li {
+    display: inline;
+    list-style: none;
+    &:after {
+      content: ", "
+    }
+    &:last-child:after {
+      content: "";
+    }
+  }
+}
+
 #privacy-policy-section {
   padding:80px 0;
   h2 {
@@ -624,8 +640,8 @@ img.img-centered {
   }
   .bh-product {
     background: #fff;
-    border: 1px solid #383C4A;
-    color: #383C4A;
+    border: 1px solid $text-black;
+    color: $text-black;
     display: inline-block;
     font-family: $sans-serif;
     font-size: .75em;
@@ -650,7 +666,7 @@ img.img-centered {
 }
 
 #goodbits {
-  background-color: #383C4A;
+  background-color: $text-black;
   background-image: url('/images/bg-goodbits.jpg');
   img {
     height: 42px;
@@ -661,7 +677,7 @@ img.img-centered {
     line-height: 1.5;
   }
   &:after {
-    background-color: rgba(#383C4A, .7);
+    background-color: rgba($text-black, .7);
   }
 }
 
@@ -720,32 +736,10 @@ img.img-centered {
   .img-author {
     margin: 5px 10px 5px 0;
   }
-
   img {
     margin: 0 auto;
-    max-width: 100%;
+    max-width: 1170px;
     height: auto;
-  }
-}
-#navbar-blog {
-  background: transparent;
-  left: 10px;
-  margin-bottom: 0;
-  position: fixed;
-  top: 2px;
-  width: 55px;
-  box-shadow: none;
-
-  @media (max-width: 767px) {
-    display: none;
-  }
-
-  #brewhouse-logo {
-    display: block;
-
-    img {
-      height: 55px;
-    }
   }
 }
 
@@ -841,7 +835,7 @@ div.meta {
 
 // Post List
 
-#blog {
+#sharing {
   background: lighten(#42a4c5, 45%);
 }
 .post-list > div {

@@ -1,9 +1,10 @@
 .offcanvas-menu {
   transition: all 0.5s;
 
-  background: #E9F2F3;
+  background: white;
+  background: rgba(255,255,255,.96);
   left: 0;
-  padding-top: 70px;
+  padding-top: 90px;
   position: fixed;
   text-align: center;
   top: -1600px;
@@ -35,17 +36,15 @@
   ul li a {
     transition: all 0.1s linear;
 
-    color: #fff;
-    color: rgba(255,255,255,.7);
+    color: lighten($text-black, 20);
     display: block;
     font-family: 'proxima-nova', sans-serif;
-    font-size: 1.125em;
+    font-size: 1.25em;
     padding: 1em;
     outline: none;
 
     &:hover {
-      background: #fff;
-      color: #fff;
+      color: $text-black;
       text-decoration: none;
     }
   }
@@ -75,7 +74,7 @@
   border-color: #fff;
 }
 .navbar-default .navbar-toggle .icon-bar {
-  background: #fff;
+  background: $text-black;
   height: 2px;
 }
 .navbar-default .navbar-toggle:hover .icon-bar,
@@ -101,7 +100,8 @@
   .navbar-collapse.collapse {
     display: block !important;
   }
-  .navbar-toggle {
+  .navbar-toggle,
+  .offcanvas-menu {
     display: none !important;
   }
 }

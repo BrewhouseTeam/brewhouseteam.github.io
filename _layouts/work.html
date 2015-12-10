@@ -1,0 +1,49 @@
+---
+layout: application
+---
+
+<article>
+
+  <div class="page-header">
+    <div class="container">
+      <div class="col-xs-12 col-sm-8">
+        <h1 class="page-title">{{ page.title }}</h1>
+      </div>
+    </div>
+  </div>
+
+  <div id="article-start" class="container content">
+
+    <div class="project-hero">
+      <img src="/images/work/{{ page.hero }}" alt="{{ page.title }}" class="img-responsive">
+    </div>
+
+    <div class="col-sm-8 col-md-6">
+
+      <div class="project-description clearfix">
+
+        {{ content }}
+
+      </div><!-- /post -->
+
+    </div>
+
+    <aside class="col-sm-4 col-md-push-1 project-details">
+      {% if page.tags %}
+        <h5>Responsibilities</h5>
+        <ul>
+          {% for tag in page.tags %}
+            <li>{{ tag }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+      {% if page.ship_date %}
+        <h5 class="">Ship Date</h5>
+        <p>{{ page.ship_date }}</p>
+      {% endif %}
+      {% if page.project_link %}
+        <a href="{{ page.project_link }}" class="btn btn-sm btn-default">Launch Project</a>
+      {% endif %}
+    </aside>
+
+</article>
