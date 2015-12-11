@@ -2,6 +2,7 @@
 layout:       work
 collection:   work
 title:        "Retarget Links"
+headline:     "We architected Retarget Links to receive 200 requests per second using just 2 Heroku dynos"
 thumbnail:    retargetlinks.svg
 hero:         retargetlinks-desktop.png
 ship_date:    March 1, 2014

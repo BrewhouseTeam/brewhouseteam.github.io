@@ -504,6 +504,7 @@ img.img-centered {
 }
 
 #projects {
+  // GIT CONFLICT
   ul {
     color: #999;
     list-style: none;
@@ -516,7 +517,15 @@ img.img-centered {
   }
 
   .client-logos {
-    .col-sm-3:nth-child(4n+1) {
+    color: #999;
+    list-style: none;
+    margin: 4em 0;
+    padding-left: 0;
+
+    li {
+      height: 90px;
+    }
+    li:nth-child(4n+1) {
       clear: left;
     }
     a {
@@ -542,6 +551,9 @@ img.img-centered {
         -webkit-transition: all .15s ease-in-out;
         -moz-transition: all .15s ease-in-out;
         transition: all .15s ease-in-out;
+      }
+      #contour-logo {
+        max-height: 42px;
       }
       &:hover,
       &:focus {
@@ -584,6 +596,7 @@ img.img-centered {
 
 .project-details ul {
   padding: 0;
+  margin-bottom: 2em;
   li {
     display: inline;
     list-style: none;
@@ -738,7 +751,7 @@ img.img-centered {
   }
   img {
     margin: 0 auto;
-    max-width: 1170px;
+    max-width: 100%;
     height: auto;
   }
 }
