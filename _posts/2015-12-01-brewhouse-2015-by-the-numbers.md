@@ -11,7 +11,10 @@ tags:
 shared_description: We love a healthy dose of transparency at Brewhouse. Here's our year end, by the numbers.
 ---
 
-{% for highlight in site.data.recap %}
+<p class="excerpt">{{ site.data.recap.excerpt }}</p>
+
+<!-- break -->
+{% for highlight in site.data.recap.highlights %}
 <section class="recap-section">
   <div class="container content">
     <div class="row flex">
@@ -39,5 +42,3 @@ shared_description: We love a healthy dose of transparency at Brewhouse. Here's 
   </div>
 </section>
 {% endfor %}
-
-

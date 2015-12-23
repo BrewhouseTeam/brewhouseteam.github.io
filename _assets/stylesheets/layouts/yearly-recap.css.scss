@@ -3,6 +3,12 @@ $recap-badge-bg:                  #fff;
 $recap-badge-icon-color:          #F56741;
 $recap-counter-block-color:       #F56741;
 
+/*  hides the excerpt on the post page but is
+    visible on all other pages. */
+.excerpt {
+  display: none;
+}
+
 .flex {
   display: flex;
   align-items: center;
