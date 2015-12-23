@@ -1,5 +1,5 @@
 //
-// Add classes to section when visible for animation
+// Add classes to section when visible in Window
 //
 
 var sections = [];
