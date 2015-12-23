@@ -1,0 +1,33 @@
+# 2015 Yearly Recap.
+
+- title: Apprentices Hired
+  icon: zmdi-code
+  amount: [0,1]
+
+- title: Designers Hired
+  icon: zmdi-brush
+  amount: [0,2]
+
+- title: Litres of Beer Brewed
+  icon: zmdi-drink
+  amount: [1,5]
+
+- title: Family Feast
+  icon: zmdi-pizza
+  amount: [2,0]
+
+- title: Shipped Products
+  icon: zmdi-store
+  amount: [1,2]
+
+- title: Hours of Product Discovery
+  icon: zmdi-search
+  amount: [1,5,0]
+
+- title: Unique Visitors
+  icon: zmdi-face
+  amount: [1,5,0,2,1,4]
+
+- title: Hours of Mentorship
+  icon: zmdi-graduation-cap
+  amount: [1,5,6]

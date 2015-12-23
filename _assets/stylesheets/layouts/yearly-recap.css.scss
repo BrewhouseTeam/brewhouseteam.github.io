@@ -1,0 +1,136 @@
+$recap-title-color:               #1C6178;
+$recap-badge-bg:                  #fff;
+$recap-badge-icon-color:          #F56741;
+$recap-counter-block-color:       #F56741;
+
+
+.recap-section:nth-of-type(even) {
+  background: #fafafa;
+}
+h2.recap-title {
+  font-size: 56px;
+  text-align: center;
+  font-weight: 400;
+  font-style: italic;
+  color: $recap-title-color !important;
+  position: relative;
+  margin-top: 35px;
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateX(-200px);
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    display: block;
+    height: 1px;
+    background: $recap-title-color;
+    opacity: 1;
+  }
+  &:before {
+    top: -5px;
+    right: 0;
+    width: 240px;
+  }
+  &:after {
+    left: 0;
+    bottom: -5px;
+    width: 200px;
+  }
+}
+.recap-badge {
+  margin: 0 auto;
+  width: 84px;
+  height: 94px;
+  background-image: url('../../images/posts/polygon.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+.recap-badge-icon {
+  opacity: 0;
+  color: $recap-badge-icon-color;
+  font-size: 38px !important;
+  position: relative;
+  top: 29px;
+}
+.recap-counter-blocks {
+  margin: 20px 0;
+}
+.recap-counter-blocks > li {
+  padding: 5px 14px 10px;
+  font-size: 47px;
+  border: 1px solid $recap-title-color;
+  color: $recap-counter-block-color;
+  margin: 0 2px;
+  background: #fff;
+  line-height: 50px;
+  font-family: georgia;
+}
+.recap-desc {
+  margin-top: 15px;
+}
+
+//
+// Animations
+//
+
+.recap-section.animate-section {
+  h2.recap-title {
+    opacity: 1;
+    transition: opacity 2s ease-out, transform 200ms ease-out;
+    transform: translateX(0);
+    &:after {
+      opacity: 1;
+      transition: opacity 2s ease-out, transform 400ms ease-in;
+      transform: translateX(200px);
+    }
+    &:before {
+      opacity: 1;
+      transition: opacity 2s ease-out, transform 400ms ease-in;
+      transform: translateX(-200px);
+    }
+  }
+  .recap-badge-icon {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-name: bounceIn;
+    animation-delay: 500ms;
+  }
+}
+
+
+
+
+@keyframes bounceIn {
+  from, 20%, 40%, 60%, 80%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    transform: scale3d(.3, .3, .3);
+  }
+
+  20% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    transform: scale3d(.9, .9, .9);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    transform: scale3d(.97, .97, .97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}

@@ -1,0 +1,38 @@
+---
+layout: yearly_recap
+title: "Brewhouse 2015 - by the numbers"
+author: "kalv"
+category: blog
+date: 2015-12-30 8:00
+published: true
+tags:
+  - brewhouse
+  - numbers
+shared_description: We love a healthy dose of transparency at Brewhouse. Here's our year end, by the numbers.
+---
+
+{% for highlight in site.data.recap %}
+<section class="recap-section">
+  <div class="container content">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <div class="recap-heading">
+          <div class="recap-badge">
+            <i class="recap-badge-icon zmdi {{ highlight.icon }}"></i>
+          </div>
+          <h2 class="recap-title">{{ highlight.title }}</h2>
+          <div class="recap-counter">
+            <ul class="recap-counter-blocks list-inline text-center">
+              {% for number in highlight.amount %}
+              <li>{{ number }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endfor %}
+
+
