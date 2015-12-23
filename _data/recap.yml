@@ -4,7 +4,8 @@
 # Use any icons from the link below. Click on the icon for the code.
 # http://zavoloklom.github.io/material-design-iconic-font/icons.html#social
 
-
+# excerpt is visible on blog index but is hidden on the post show page.
+# if we want the excerpt on the show page we should add styles for it
 excerpt: Edit me to make me sound good.
 
 highlights:
