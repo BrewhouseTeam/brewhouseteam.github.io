@@ -1,28 +1,42 @@
 # 2015 Yearly Recap.
 
 # Icons are from Google Material Design.
-# Use any icons from the link below.
+# Use any icons from the link below. Click on the icon for the code.
 # http://zavoloklom.github.io/material-design-iconic-font/icons.html#social
 
 - title: Apprentices Hired
   icon: zmdi-code
   amount: [0,1]
+  desc: >
+        We are proud to have hired our first apprentice Paulo!
+        What an amazing addition to the team he has been.
 
 - title: Designers Hired
   icon: zmdi-brush
   amount: [0,2]
+  desc: >
+        To redifine ourselves as a product shop and not just a development
+        shop, we added a Design Director and Product Designer this year.
 
 - title: Litres of Beer Brewed
   icon: zmdi-drink
   amount: [1,5]
+  desc: >
+        We decided it was time to live up to our name and take a shot at
+        brewing our first batch of beer. It was delicious.
 
 - title: Family Feast
   icon: zmdi-pizza
   amount: [2,0]
+  desc: >
+        We put our kitchen to the test and took turns cooking for one
+        another. Safe to say, Paulo was the winner.
 
 - title: Shipped Products
   icon: zmdi-store
   amount: [1,2]
+  desc: >
+        It was another great year of shipping products for our clients.
 
 - title: Hours of Product Discovery
   icon: zmdi-search

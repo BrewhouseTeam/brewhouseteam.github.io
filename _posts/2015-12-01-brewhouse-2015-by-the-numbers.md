@@ -14,8 +14,8 @@ shared_description: We love a healthy dose of transparency at Brewhouse. Here's 
 {% for highlight in site.data.recap %}
 <section class="recap-section">
   <div class="container content">
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
+    <div class="row flex">
+      <div class="col-sm-6">
         <div class="recap-heading">
           <div class="recap-badge">
             <i class="recap-badge-icon zmdi {{ highlight.icon }}"></i>
@@ -28,6 +28,11 @@ shared_description: We love a healthy dose of transparency at Brewhouse. Here's 
               {% endfor %}
             </ul>
           </div>
+        </div>
+      </div>
+      <div class="col-sm-5">
+        <div class="recap-desc">
+          <p>{{ highlight.desc }}</p>
         </div>
       </div>
     </div>
