@@ -29,6 +29,7 @@ This week, Kalv and Pat look back on some of the cool technology released in 201
 - [Swift](https://developer.apple.com/swift/)
 - [Ubuntu on Phones](http://ubuntu.com/phone)
 - [VRML - Virtual Reality Modeling Language](https://en.wikipedia.org/wiki/VRML)
+- [Elsa 3D Revelator 3D Glasses](http://www.xbitlabs.com/articles/graphics/display/elsa-revelator.html)
 - [Futurama - Eyephone](https://www.youtube.com/watch?v=eJyMEkb_8to)
 - [Minority Report](http://www.imdb.com/title/tt0181689/)
 - [Oculus Touch](https://www.oculus.com/en-us/rift/#oculus-touch)
