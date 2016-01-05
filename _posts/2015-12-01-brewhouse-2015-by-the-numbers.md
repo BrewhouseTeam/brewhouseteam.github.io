@@ -8,7 +8,7 @@ published: true
 tags:
   - brewhouse
   - numbers
-shared_description: We love a healthy dose of transparency at Brewhouse. Here's our year end, by the numbers.
+shared_description: We love a healthy dose of transparency at Brewhouse. Here's our 2015 year end, by the numbers.
 ---
 
 <p class="excerpt">{{ site.data.recap.excerpt }}</p>
@@ -35,7 +35,7 @@ shared_description: We love a healthy dose of transparency at Brewhouse. Here's 
       </div>
       <div class="col-xs-12 col-md-5">
         <div class="recap-desc">
-          <p>{{ highlight.desc }}</p>
+          {{ highlight.desc | markdownify}}
         </div>
       </div>
     </div>

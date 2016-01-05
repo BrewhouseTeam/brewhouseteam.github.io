@@ -6,7 +6,7 @@
 
 # excerpt is visible on blog index but is hidden on the post show page.
 # if we want the excerpt on the show page we should add styles for it
-excerpt: Edit me to make me sound good.
+excerpt:
 
 highlights:
 
@@ -14,7 +14,7 @@ highlights:
   icon: zmdi-code
   amount: [0,1]
   desc: >
-        We are proud to have hired our first apprentice Paulo!
+        We are proud to have hired our first [apprentice Paulo](/2015/08/05/the-apprentice.html)!
         What an amazing addition to the team he has been.
 
 - title: Designers Hired
@@ -47,11 +47,30 @@ highlights:
 - title: Hours of Product Discovery
   icon: zmdi-search
   amount: [1,5,0]
+  desc: >
+        We've loved spending 150 hours with clients to refine their product
 
 - title: Unique Visitors
   icon: zmdi-face
   amount: [1,5,0,2,1,4]
+  desc: >
+        Thank you all 150,214 unique readers of our blog this year.
 
 - title: Hours of Mentorship
   icon: zmdi-graduation-cap
   amount: [1,5,6]
+  desc: >
+        We gave back with 150 hours of mentorship this year and hope to give
+        back to the community even more in 2016!
+
+- title: Net Profit
+  icon: zmdi-money
+  amount: [2,0,2,1,5,7]
+  desc: |
+        We made a profit of $202,157, 4x our net profit from last year. We made $42,710 in net profit.
+
+        - Income from Clients: $771,067
+        - Income from Goodbits (yay!): $9000
+        - IRAP contributions: $92,790
+        - Salaries: $502,236
+        - Other expenses: $120,037
