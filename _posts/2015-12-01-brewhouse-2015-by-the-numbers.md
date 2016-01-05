@@ -18,24 +18,30 @@ shared_description: We love a healthy dose of transparency at Brewhouse. Here's 
 <section class="recap-section">
   <div class="container content">
     <div class="row flex">
-      <div class="col-xs-12 col-md-6">
-        <div class="recap-heading">
+      <div class="col-md-6">
+        <div class="recap-heading text-center">
           <div class="recap-badge">
             <i class="recap-badge-icon zmdi {{ highlight.icon }}"></i>
           </div>
-          <h2 class="recap-title">{{ highlight.title }}</h2>
-          <div class="recap-counter">
-            <ul class="recap-counter-blocks list-inline text-center">
-              {% for number in highlight.amount %}
-              <li>{{ number }}</li>
-              {% endfor %}
-            </ul>
-          </div>
+          <h2 class="recap-counter">{% for number in highlight.amount %}{{ number }}{% endfor %}</h2>
+          <h3 class="recap-title">{{ highlight.title }}</h3>
         </div>
       </div>
       <div class="col-xs-12 col-md-5">
         <div class="recap-desc">
-          {{ highlight.desc | markdownify}}
+          <blockquote>
+            {{ highlight.desc | markdownify }}
+            <div class="social-actions">
+              <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io{{ page.url }}" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="{{ page.counturl }}" data-text="{{ highlight.desc }}">Tweet</a>
+            </div>
+          </blockquote>
+
+          {% if highlight.details %}
+            <div class="recap-details">
+              {{ highlight.details | markdownify }}
+            </div>
+          {% endif %}
+
         </div>
       </div>
     </div>

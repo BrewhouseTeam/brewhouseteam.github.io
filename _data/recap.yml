@@ -68,7 +68,8 @@ highlights:
   amount: [2,0,2,1,5,7]
   desc: |
         We made a profit of $202,157, 4x our net profit from last year. We made $42,710 in net profit.
-
+  details:
+        |
         - Income from Clients: $771,067
         - Income from Goodbits (yay!): $9000
         - IRAP contributions: $92,790
