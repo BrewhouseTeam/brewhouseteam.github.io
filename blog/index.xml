@@ -3,7 +3,7 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2016-01-06T15:13:22-08:00</updated>
+    <updated>2016-01-06T15:38:25-08:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
@@ -402,10 +402,10 @@
         &lt;div class=&quot;col-xs-12 col-md-5&quot;&gt;
           &lt;div class=&quot;recap-desc&quot;&gt;
             &lt;blockquote&gt;
-              &lt;p&gt;At the end of 2015, Goodbits was at $2,452 MRR. We hit our goal of 100 paying customers and getting over 2k in MRR. Our growth is sitting at 22% MOM.&lt;/p&gt;
+              &lt;p&gt;At the end of 2015, &lt;a href=&quot;https://goodbits.io&quot;&gt;Goodbits&lt;/a&gt; was at $2,452 MRR. We hit our goal of 100 paying customers and getting over 2k in MRR. Our growth is sitting at 22% MOM.&lt;/p&gt;
 
               &lt;div class=&quot;social-actions&quot;&gt;
-                &lt;a href=&quot;https://twitter.com/share?via=BrewhouseTeam&quot; class=&quot;twitter-share-button&quot; data-lang=&quot;en&quot; data-url=&quot;http://brewhouse.io/blog/2016/01/06/brewhouse-2015-by-the-numbers.html&quot; data-related=&quot;chancancode,kalv,pcreux,chuckbergeron&quot; data-counturl=&quot;&quot; data-text=&quot;Brewhouse finished 2015 with Goodbits making $2,452 MRR and is now growing 22% MOM!&quot;&gt;Tweet&lt;/a&gt;
+                &lt;a href=&quot;https://twitter.com/share?via=BrewhouseTeam&quot; class=&quot;twitter-share-button&quot; data-lang=&quot;en&quot; data-url=&quot;http://brewhouse.io/blog/2016/01/06/brewhouse-2015-by-the-numbers.html&quot; data-related=&quot;chancancode,kalv,pcreux,chuckbergeron&quot; data-counturl=&quot;&quot; data-text=&quot;Brewhouse finished 2015 with @goodbitsio making $2,452 MRR and is now growing 22% MOM!&quot;&gt;Tweet&lt;/a&gt;
               &lt;/div&gt;
             &lt;/blockquote&gt;
 
