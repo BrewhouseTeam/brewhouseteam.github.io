@@ -591,7 +591,7 @@ img.img-centered {
 }
 
 .project-hero {
-  margin-bottom: 4em;
+  margin: 0 auto 4em;
 }
 
 .project-details ul {
@@ -695,6 +695,7 @@ img.img-centered {
 }
 
 .lets-talk {
+  background-color: darken($brand-primary, 40);
   color: #fff;
   padding-bottom: 2em;
   padding-top: 1em;
@@ -1017,6 +1018,7 @@ html.blog {
 // END BLOG SPECIFIC
 
 #footer {
+  background-color: darken($brand-primary, 40);
   color: rgba(#fff, .7);
   font-size: 0.925em;
   padding: .75em 0;

@@ -4,7 +4,7 @@ collection:   work
 title:        "Goodbits"
 headline:     "We built Goodbits to help content curators share the best content in the world."
 thumbnail:    goodbits.svg
-hero:         goodbits-desktop.png
+hero:         goodbits-desktop.jpg
 ship_date:    March 1, 2014 
 project_link: http://goodbits.io
 tags:

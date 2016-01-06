@@ -4,7 +4,7 @@ collection:   work
 title:        "Retarget Links"
 headline:     "We architected Retarget Links to receive 200 requests per second using just 2 Heroku dynos"
 thumbnail:    retargetlinks.svg
-hero:         retargetlinks-desktop.png
+hero:         retargetlinks-desktop.jpg
 ship_date:    March 1, 2014
 project_link: http://retargetlinks.com
 tags:
