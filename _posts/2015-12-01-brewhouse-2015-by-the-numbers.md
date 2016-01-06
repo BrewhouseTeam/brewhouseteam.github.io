@@ -3,7 +3,7 @@ layout: yearly_recap
 title: "Brewhouse 2015 - by the numbers"
 author: "kalv"
 category: blog
-date: 2015-12-30 8:00
+date: 2016-01-06 13:30
 published: true
 tags:
   - brewhouse

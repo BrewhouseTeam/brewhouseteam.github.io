@@ -6,7 +6,7 @@
 
 # excerpt is visible on blog index but is hidden on the post show page.
 # if we want the excerpt on the show page we should add styles for it
-excerpt:
+excerpt: We loved 2015! Here are the numbers that excited us in 2015. Let us know which number you liked by tweeting it out!
 
 highlights:
 
