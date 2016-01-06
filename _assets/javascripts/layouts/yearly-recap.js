@@ -2,26 +2,30 @@
 // Add classes to section when visible in Window
 //
 
-var sections = [];
-var topOffset = 460;
-
-$('.recap-section').each(function() {
-  var section = $(this)
-  sections.push(section);
-})
-
 $(document).ready(function() {
-  animateSection();
+  showRecapSections()
 });
 
 $(window).scroll(function() {
-  animateSection();
+  showRecapSections()
 })
 
-function animateSection() {
-  var scroll = $(window).scrollTop() + topOffset;
-  if(scroll > sections[0].offset().top) {
-    $(sections[0]).addClass('animate-section');
-    sections.shift();
-  }
+
+function isScrolledIntoView(e) {
+  var $e = $(e);
+  var $window = $(window);
+
+  var docView = $window.scrollTop() + $window.height();
+
+  var eTop = $e.offset().top;
+
+  return (eTop <= docView);
+}
+
+function showRecapSections() {
+  $('.recap-section').each(function(i) {
+    if (isScrolledIntoView(this) === true) {
+      $(this).addClass('animate-section');
+    }
+  });
 }
