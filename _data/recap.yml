@@ -42,6 +42,13 @@ highlights:
   desc: >
         Brewhouse finally lived up to our name and brewed our first batch of beer! It was delicious.
 
+- title: Community Events
+  icon: zmdi-pizza
+  amount: 4
+  desc: >
+        Keeping in line with our desire to celebrate community, we hosted 4 community events
+        here at Brehwouse HQ.
+
 - title: Shipped Products
   icon: zmdi-flight-takeoff
   amount: 5
@@ -60,7 +67,7 @@ highlights:
         we do and what we want from our work at Brewhouse in 2016.
 
 - title: Clients
-  icon: zmdi-drink
+  icon: zmdi-male-female
   amount: 15
   desc: >
         We were fortunate to work with 15 lovely clients in 2015 and we look forward
@@ -70,7 +77,7 @@ highlights:
         to speaking with you in 2016 about future product development.
 
 - title: Family Feasts
-  icon: zmdi-pizza
+  icon: zmdi-local-dining
   amount: 17
   desc: >
         To encourage team discussion and trust for great collaboration, we hosted 17
@@ -100,7 +107,7 @@ highlights:
   tweet: At the end of 2015, Goodbits was at $2,452 MRR. We hit our goal of 100 paying customers and getting over 2k in MRR.
 
 - title: Unique Visitors
-  icon: zmdi-face
+  icon: zmdi-rss
   amount: "197,668"
   desc: >
         Thank you for reading our blog; we had 197,668 unique readers in 2015. In 2016, we'll
@@ -108,7 +115,7 @@ highlights:
   tweet: Thank you for reading our blog; we had 197,668 unique readers in 2015.
 
 - title: Revenue
-  icon: zmdi-money
+  icon: zmdi-trending-up
   amount: "$787,988"
   desc: |
         We made $787,988 in revenue in 2015, over 2x what we made in 2014! This does not include IRAP contributions.
