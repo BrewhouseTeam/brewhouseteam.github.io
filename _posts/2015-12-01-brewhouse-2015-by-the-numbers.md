@@ -17,7 +17,7 @@ shared_description: We love a healthy dose of transparency at Brewhouse. Here's 
 {% for highlight in site.data.recap.highlights %}
 {% if highlight.image %}
   <section class="recap-image">
-    <image src="{{ highlight.image }}">
+    <image src="{{ highlight.image }}" alt="{{ highlight.title }}" class="img-responsive">
   </section>
 {% else %}
   <section class="recap-section">
