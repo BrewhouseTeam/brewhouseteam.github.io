@@ -44,6 +44,13 @@
     <script>try{Typekit.load();}catch(e){}</script>
 
     {% include _shared_head.html %}
+
+    <!-- needs to be refactored when we have more layouts -->
+    {% if page.layout_css %}
+      {% stylesheet layouts/yearly-recap %}
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    {% endif %}
+
   </head>
   <body class="{{ on_post }}">
     {% include _ga.html %}
@@ -63,5 +70,11 @@
     {% include _site_footer.html %}
 
     {% javascript app %}
+
+    <!-- needs to be refactored when we have more layouts -->
+    {% if page.layout_js %}
+      {% javascript layouts/yearly-recap %}
+    {% endif %}
+
   </body>
 </html>

@@ -1,0 +1,136 @@
+# 2015 Yearly Recap.
+
+# Icons are from Google Material Design.
+# Use any icons from the link below. Click on the icon for the code.
+# http://zavoloklom.github.io/material-design-iconic-font/icons.html#social
+
+# excerpt is visible on blog index but is hidden on the post show page.
+# if we want the excerpt on the show page we should add styles for it
+excerpt: We loved 2015! Here are the numbers that excited us in 2015. Let us know which number you liked by tweeting it out!
+
+highlights:
+
+- title: Apprentice Hired
+  icon: zmdi-code
+  amount: 1
+  desc: >
+        We hired our first [apprentice, Paulo,](/2015/08/05/the-apprentice.html) in 2015!
+        What an amazing addition to the team he has been.
+  tweet: Brewhouse hired their first apprentice, @pauloancheta, in 2015!
+
+- title: Brewhouse Baby Born
+  icon: zmdi-face
+  amount: 1
+  desc: >
+        Philippe and his partner brought Léo, a beautiful baby boy, into the world this year.
+        The team has loved all the great baby photos!
+  tweet: Lovely, @pcreux and his partner brought Léo, a beautiful baby boy, into the world in 2015.
+
+- title: Designers Hired
+  icon: zmdi-brush
+  amount: 2
+  desc: >
+        Design is essential for building quality products. We hired
+        a [Design Director](/blog/2015/06/12/brewhouse-hires-a-creative-beard.html)
+        and [Product Designer](2015/09/21/welcome-lee-post.html) in 2015.
+  tweet: >
+         Design is essential for building quality products. Brewhouse hired 2 great designers in 2015.
+
+- title: Litres of Beer Brewed
+  icon: zmdi-drink
+  amount: 4
+  desc: Brewhouse finally lived up to our name and brewed our first batch of beer! It was delicious.
+  tweet: Brewhouse finally lived up to their name and brewed their first batch of beer!
+
+- image: /images/posts/2015/12/events-2015.jpg
+
+- title: Community Events
+  icon: zmdi-pizza
+  amount: 4
+  desc: >
+        Keeping in line with our desire to celebrate community, we hosted 4 community events
+        here at Brehwouse HQ.
+  tweet: Brewhouse continued to celebrate with the community with 4 community events in 2015
+
+- title: Shipped Products
+  icon: zmdi-flight-takeoff
+  amount: 5
+  desc: >
+        We never miss a deadline. We shipped 5 brand new products for businesses
+        in 2015. [Avenue](http://avenuespaces.com), [Contour](http://joincontour.com/), Sutton (private), [Retarget Links](http://www.retargetlinks.com/) & [Loft 47](http://loft47.com/).
+  tweet: Brewhouse never misses a deadline. They shipped 5 brand new products in 2015.
+
+- image: /images/posts/2015/12/whistler-2015.jpg
+
+- title: Snowshoed
+  icon: zmdi-run
+  amount: 8km
+  desc: >
+        We went on our first company retreat to Whistler to discuss why we all do what
+        we do and what we want from our work at Brewhouse in 2016.
+  tweet: Brewhouse took their team on a retreat to Whistler for the first time in 2015
+
+- title: Clients
+  icon: zmdi-male-female
+  amount: 15
+  desc: >
+        We were fortunate to work with 15 lovely clients in 2015 and we look forward
+        to [speaking with you](/work-with-us.html) in 2016 about future product development.
+  tweet: Brewhouse worked with 15 lovely clients in 2015, maybe you're the next, get in touch with them
+
+- image: /images/posts/2015/12/feast-2015.jpg
+
+- title: Family Feasts
+  icon: zmdi-local-dining
+  amount: 17
+  desc: >
+        To encourage team discussion and trust for great collaboration, we hosted 17
+        Friday family feasts.
+  tweet: Brewhouse hosted 17 family feast lunches to encourage discussion and collaboration
+
+- title: Hours of Product Discovery
+  icon: zmdi-search
+  amount: 180
+  desc: >
+        We performed 180 hours of product design discovery with projects in 2015. It was great
+        working with our clients to refine their product and ship higher quality work.
+  tweet: We performed 180 hours of product design discovery with projects in 2015.
+
+- title: Hours of Mentorship
+  icon: zmdi-graduation-cap
+  amount: 212
+  desc: >
+        We gave back to the community this year with 212 hours of mentorship and plan to give
+        even more in 2016!
+  tweet: Brewhouse gave back to the community with 212 hours of mentorship and plan to give even more in 2016!
+
+- title: Goodbits MRR
+  icon: zmdi-email
+  amount: "$2,452"
+  desc: >
+        At the end of 2015, Goodbits was at $2,452 MRR. We hit our goal of 100 paying customers
+        and getting over 2k in MRR. Our growth is sitting at 22% MOM.
+  tweet: Brewhouse finished 2015 with Goodbits making $2,452 MRR and is now growing 22% MOM!
+
+- title: Unique Visitors
+  icon: zmdi-rss
+  amount: "197,668"
+  desc: >
+        Thank you for reading our blog; we had 197,668 unique readers in 2015. In 2016, we'll
+        be spending even more time writing up what we learn in Product, Design and Development.
+  tweet: Brewhouse had 197,668 unique readers in 2015 to their blog
+
+- title: Revenue
+  icon: zmdi-trending-up
+  amount: "$787,988"
+  desc: |
+        We made $787,988 in revenue in 2015, over 2x what we made in 2014! This does not include IRAP contributions.
+  tweet: Brewhouse made $787,988 in revenue in 2015, over 2x what they made in 2014!
+  details:
+        |
+        - Income from Clients: $771,067
+        - Income from Goodbits: $16,921
+        - IRAP contributions: $88,728
+        - Salaries: $689,195
+        - Other expenses: $120,407
+        - Net Profit: $67,115

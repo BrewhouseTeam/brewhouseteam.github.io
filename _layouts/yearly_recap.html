@@ -1,0 +1,39 @@
+---
+layout: blog
+layout_css: yearly-recap
+layout_js: yearly-recap
+---
+
+{% assign author = site.data.authors[page.author] %}
+
+<article class="yearly-recap">
+
+  <div class="page-header">
+    <div class="container">
+      <div class="col-xs-12 col-sm-8 text-xs-center text-sm-left">
+        <h1>{{ page.title }}</h1>
+      </div>
+      <div class="col-xs-12 col-sm-4 text-xs-center">
+        <div class="meta text-center">
+          {% if author %}
+            <div class="author">
+              <img class="img-circle img-author" src="{{ author.email | to_gravatar }}" alt="A photo of {{ author.name }}" width="55">
+
+              <a href="{{ author.web }}" target="_blank">{{ author.name }}</a> wrote this on {{ page.date | date_to_string }}
+            </div>
+          {% endif %}
+          <div class="social-actions">
+            <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io{{ page.url }}" data-related="kalv,pcreux,patdryburgh" data-counturl="{{ page.counturl }}">Tweet</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{ content }}
+
+</article>
+
+<script>
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+</script>
