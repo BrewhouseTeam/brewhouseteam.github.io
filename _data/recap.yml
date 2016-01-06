@@ -14,40 +14,40 @@ highlights:
   icon: zmdi-code
   amount: 1
   desc: >
-        We hired our first [apprentice Paulo](/2015/08/05/the-apprentice.html) in 2015!
+        We hired our first [apprentice, Paulo,](/2015/08/05/the-apprentice.html) in 2015!
         What an amazing addition to the team he has been.
-  tweet: We hired our first apprentice Paulo in 2015!
+  tweet: We hired our first apprentice, @pauloancheta, in 2015!
 
 - title: Brewhouse Baby Born
   icon: zmdi-face
   amount: 1
   desc: >
-        We've loved seeing baby photos in the team slack in 2015. Philippe and
-        his partner brought a lovely baby boy, Léo into the world this year.
+        Philippe and his partner brought a beautiful baby boy, Léo, into the world this year
+        and the team has loved all the great baby photos!
 
 - title: Designers Hired
   icon: zmdi-brush
   amount: 2
   desc: >
-        Design is essential for building quality products. We added
-        a [Design Director](/blog/2015/06/12/brewhouse-hires-a-creative-beard.html) and [Product Designer](2015/09/21/welcome-lee-post.html) in 2015.
+        Design is essential for building quality products. We hired
+        a [Design Director](/blog/2015/06/12/brewhouse-hires-a-creative-beard.html) 
+        and [Product Designer](2015/09/21/welcome-lee-post.html) in 2015.
   tweet: >
-         Design is essential for building quality products. We added
+         Design is essential for building quality products. @brewhouseteam hired
          a Design Director and Product Designer in 2015.
 
 - title: Litres of Beer Brewed
   icon: zmdi-drink
   amount: 4
   desc: >
-        Being Brewhouse Software, we thought we'd live up to our name and brew
-        our own beer. It was delicious.
+        Brewhouse finally lived up to our name and brewed our first batch of beer! It was delicious.
 
 - title: Shipped Products
   icon: zmdi-flight-takeoff
   amount: 5
   desc: >
         We never miss a deadline. We shipped 5 brand new products for businesses
-        in 2015. [Avenue](http://avenuespaces.com), [Contour](http://joincontour.com/), Sutton (not public), [Retarget Links](http://www.retargetlinks.com/) & [Loft47](http://loft47.com/).
+        in 2015. [Avenue](http://avenuespaces.com), [Contour](http://joincontour.com/), Sutton (private), [Retarget Links](http://www.retargetlinks.com/) & [Loft47](http://loft47.com/).
   tweet: We never miss a deadline. We shipped 5 brand new products for businesses in 2015.
 
 - title: Snowshoed
@@ -57,26 +57,26 @@ highlights:
         We went on our first company retreat to Whistler to discuss why we all do what
         we do and want to get from our work at Brewhouse.
 
-- title: Clients worked with (hours?)
+- title: Clients
   icon: zmdi-drink
   amount: 15
   desc: >
-        We were fortunate to work with 15 lovely clients in 2015, we look forward
-        to speaking with you in 2016 about product development.
+        We were fortunate to work with 15 lovely clients in 2015 and we look forward
+        to speaking with you in 2016 about future product development.
 
 - title: Family Feast
   icon: zmdi-pizza
   amount: 17
   desc: >
-        To encourage team discussion and trust for great collaboration we had 17
-        team cook offs. Safe to say, Paulo was the winner.
+        To encourage team discussion and trust for great collaboration, we hosted 17
+        Friday family feasts.
 
 - title: Hours of Mentorship
   icon: zmdi-graduation-cap
   amount: 156
   desc: >
-        We gave back with 150 hours of mentorship this year and hope to give
-        back to the community even more in 2016!
+        We gave back to the community this year with 150 hours of mentorship and plan to give
+        even more in 2016!
 
 - title: Hours of Product Discovery
   icon: zmdi-search
@@ -96,9 +96,9 @@ highlights:
   icon: zmdi-face
   amount: "197,668"
   desc: >
-        Thank you for reading our blog, we had 197,668 unique readers in 2015. We'll
-        be spending more time writing up what we learn this year in Product, Design and Development.
-  tweet: Thank you for reading our blog, we had 197,668 unique readers in 2015.
+        Thank you for reading our blog; we had 197,668 unique readers in 2015. In 2016, we'll
+        be spending even more time writing up what we learn in Product, Design and Development.
+  tweet: Thank you for reading our blog; we had 197,668 unique readers in 2015.
 
 - title: Net Profit
   icon: zmdi-money
