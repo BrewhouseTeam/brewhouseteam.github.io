@@ -42,6 +42,8 @@ highlights:
   desc: >
         Brewhouse finally lived up to our name and brewed our first batch of beer! It was delicious.
 
+- image: /images/posts/2015/12/events-2015.jpg
+
 - title: Community Events
   icon: zmdi-pizza
   amount: 4
@@ -75,6 +77,8 @@ highlights:
   tweet: >
         We were fortunate to work with 15 lovely clients in 2015 and we look forward
         to speaking with you in 2016 about future product development.
+
+- image: /images/posts/2015/12/feast-2015.jpg
 
 - title: Family Feasts
   icon: zmdi-local-dining
