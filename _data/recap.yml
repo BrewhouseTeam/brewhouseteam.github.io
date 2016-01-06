@@ -50,6 +50,8 @@ highlights:
         in 2015. [Avenue](http://avenuespaces.com), [Contour](http://joincontour.com/), Sutton (private), [Retarget Links](http://www.retargetlinks.com/) & [Loft 47](http://loft47.com/).
   tweet: We never miss a deadline. We shipped 5 brand new products for businesses in 2015.
 
+- image: /images/posts/2015/12/whistler-2015.jpg
+
 - title: Snowshoed
   icon: zmdi-run
   amount: 8km
@@ -62,9 +64,12 @@ highlights:
   amount: 15
   desc: >
         We were fortunate to work with 15 lovely clients in 2015 and we look forward
+        to [speaking with you](/work-with-us.html) in 2016 about future product development.
+  tweet: >
+        We were fortunate to work with 15 lovely clients in 2015 and we look forward
         to speaking with you in 2016 about future product development.
 
-- title: Family Feast
+- title: Family Feasts
   icon: zmdi-pizza
   amount: 17
   desc: >
@@ -77,6 +82,7 @@ highlights:
   desc: >
         We performed 180 hours of product design discovery with projects in 2015. It was great
         working with our clients to refine their product and ship higher quality work.
+  tweet: We performed 180 hours of product design discovery with projects in 2015.
 
 - title: Hours of Mentorship
   icon: zmdi-graduation-cap
