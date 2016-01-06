@@ -37,7 +37,7 @@ shared_description: We love a healthy dose of transparency at Brewhouse. Here's 
             <blockquote>
               {{ highlight.desc | markdownify }}
               <div class="social-actions">
-                <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io{{ page.url }}" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="{{ page.counturl }}" data-text="{{ highlight.tweet ? highlight.tweet : highlight.desc }}">Tweet</a>
+                <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io{{ page.url }}" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="{{ page.counturl }}" data-text="{% if highlight.tweet %}{{ highlight.tweet }}{% else %}{{highlight.desc}}{% endif %}">Tweet</a>
               </div>
             </blockquote>
 
