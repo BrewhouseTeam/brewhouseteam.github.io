@@ -22,6 +22,7 @@ $recap-counter-block-color:       #F56741;
 }
 .recap-section {
   border-bottom: 1px solid #eee;
+  opacity: 0;
 }
 .recap-section:nth-of-type(even){
   background: #fafafa;
@@ -105,6 +106,8 @@ $recap-counter-block-color:       #F56741;
 //
 
 .recap-section.animate-section {
+  opacity: 1;
+  transition: opacity 1s ease-out;
   .recap-title {
     opacity: 1;
     transition: opacity 2s ease-out, transform 200ms ease-out;
