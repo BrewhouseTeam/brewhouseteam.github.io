@@ -23,7 +23,7 @@ shared_description: We love a healthy dose of transparency at Brewhouse. Here's 
           <div class="recap-badge">
             <i class="recap-badge-icon zmdi {{ highlight.icon }}"></i>
           </div>
-          <h2 class="recap-counter">{% for number in highlight.amount %}{{ number }}{% endfor %}</h2>
+          <h2 class="recap-counter">{{ highlight.amount }}</h2>
           <h3 class="recap-title">{{ highlight.title }}</h3>
         </div>
       </div>
@@ -32,7 +32,7 @@ shared_description: We love a healthy dose of transparency at Brewhouse. Here's 
           <blockquote>
             {{ highlight.desc | markdownify }}
             <div class="social-actions">
-              <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io{{ page.url }}" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="{{ page.counturl }}" data-text="{{ highlight.desc }}">Tweet</a>
+              <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io{{ page.url }}" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="{{ page.counturl }}" data-text="{{ highlight.tweet ? highlight.tweet : highlight.desc }}">Tweet</a>
             </div>
           </blockquote>
 

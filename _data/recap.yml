@@ -12,66 +12,104 @@ highlights:
 
 - title: Apprentices Hired
   icon: zmdi-code
-  amount: [0,1]
+  amount: 1
   desc: >
-        We are proud to have hired our first [apprentice Paulo](/2015/08/05/the-apprentice.html)!
+        We hired our first [apprentice Paulo](/2015/08/05/the-apprentice.html) in 2015!
         What an amazing addition to the team he has been.
+  tweet: We hired our first apprentice Paulo in 2015!
+
+- title: Brewhouse Baby Born
+  icon: zmdi-face
+  amount: 1
+  desc: >
+        We've loved seeing baby photos in the team slack in 2015. Philippe and
+        his partner brought a lovely baby boy, Léo into the world this year.
 
 - title: Designers Hired
   icon: zmdi-brush
-  amount: [0,2]
+  amount: 2
   desc: >
-        To redifine ourselves as a product shop and not just a development
-        shop, we added a Design Director and Product Designer this year.
+        Design is essential for building quality products. We added
+        a [Design Director](/blog/2015/06/12/brewhouse-hires-a-creative-beard.html) and [Product Designer](2015/09/21/welcome-lee-post.html) in 2015.
+  tweet: >
+         Design is essential for building quality products. We added
+         a Design Director and Product Designer in 2015.
 
 - title: Litres of Beer Brewed
   icon: zmdi-drink
-  amount: [1,5]
+  amount: 4
   desc: >
-        We decided it was time to live up to our name and take a shot at
-        brewing our first batch of beer. It was delicious.
+        Being Brewhouse Software, we thought we'd live up to our name and brew
+        our own beer. It was delicious.
+
+- title: Shipped Products
+  icon: zmdi-flight-takeoff
+  amount: 5
+  desc: >
+        We never miss a deadline. We shipped 5 brand new products for businesses
+        in 2015. [Avenue](http://avenuespaces.com), [Contour](http://joincontour.com/), Sutton (not public), [Retarget Links](http://www.retargetlinks.com/) & [Loft47](http://loft47.com/).
+  tweet: We never miss a deadline. We shipped 5 brand new products for businesses in 2015.
+
+- title: Snowshoed
+  icon: zmdi-run
+  amount: 8km
+  desc: >
+        We went on our first company retreat to Whistler to discuss why we all do what
+        we do and want to get from our work at Brewhouse.
+
+- title: Clients worked with (hours?)
+  icon: zmdi-drink
+  amount: 15
+  desc: >
+        We were fortunate to work with 15 lovely clients in 2015, we look forward
+        to speaking with you in 2016 about product development.
 
 - title: Family Feast
   icon: zmdi-pizza
-  amount: [2,0]
+  amount: 17
   desc: >
-        We put our kitchen to the test and took turns cooking for one
-        another. Safe to say, Paulo was the winner.
-
-- title: Shipped Products
-  icon: zmdi-store
-  amount: [1,2]
-  desc: >
-        It was another great year of shipping products for our clients.
-
-- title: Hours of Product Discovery
-  icon: zmdi-search
-  amount: [1,5,0]
-  desc: >
-        We've loved spending 150 hours with clients to refine their product
-
-- title: Unique Visitors
-  icon: zmdi-face
-  amount: [1,5,0,2,1,4]
-  desc: >
-        Thank you all 150,214 unique readers of our blog this year.
+        To encourage team discussion and trust for great collaboration we had 17
+        team cook offs. Safe to say, Paulo was the winner.
 
 - title: Hours of Mentorship
   icon: zmdi-graduation-cap
-  amount: [1,5,6]
+  amount: 156
   desc: >
         We gave back with 150 hours of mentorship this year and hope to give
         back to the community even more in 2016!
 
+- title: Hours of Product Discovery
+  icon: zmdi-search
+  amount: 180
+  desc: >
+        We performed 180 hours of product design discovery with projects in 2015. It was great
+        working with our clients to refine their product and ship higher quality work.
+
+- title: Goodbits MRR
+  icon: zmdi-email
+  amount: "> $2,000"
+  desc: >
+        We started to generate revenue on Goodbits and hit our goal of 100 paying customers
+        and over 2k in MRR. Our growth is sitting at 22% MOM.
+
+- title: Unique Visitors
+  icon: zmdi-face
+  amount: "197,668"
+  desc: >
+        Thank you for reading our blog, we had 197,668 unique readers in 2015. We'll
+        be spending more time writing up what we learn this year in Product, Design and Development.
+  tweet: Thank you for reading our blog, we had 197,668 unique readers in 2015.
+
 - title: Net Profit
   icon: zmdi-money
-  amount: [2,0,2,1,5,7]
+  amount: "$202,157"
   desc: |
-        We made a profit of $202,157, 4x our net profit from last year. We made $42,710 in net profit.
+        We made a profit of $202,157, 4x our net profit from last year! We made $42,710 in [net profit in 2015]().
+  tweet: We made a profit of $202,157, 4x our net profit from last year!
   details:
         |
         - Income from Clients: $771,067
-        - Income from Goodbits (yay!): $9000
+        - Income from Goodbits: $9,000
         - IRAP contributions: $92,790
         - Salaries: $502,236
         - Other expenses: $120,037
