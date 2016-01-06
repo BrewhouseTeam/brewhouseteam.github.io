@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+<rss  version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
   
   <channel>
     
     <title>The Brewhouse Show</title>
     <description>The Brewhouse Show is about designing and developing products people love.</description>
     <link>http://brewhouse.io/</link>
-    <lastBuildDate>Wed, 07 Oct 2015 17:40:35 -0700</lastBuildDate>
-    <pubDate>Wed, 07 Oct 2015 17:40:35 -0700</pubDate>
+    <lastBuildDate>Wed, 06 Jan 2016 13:42:32 -0800</lastBuildDate>
+    <pubDate>Wed, 06 Jan 2016 13:42:32 -0800</pubDate>
     <language>en-us</language>
 
     <itunes:author>Brewhouse Software, Inc.</itunes:author>
@@ -28,77 +28,607 @@
 
     
       
+    
+      
         
           <item>
-              <title>Episode 00: Transparency</title>
-              <link>http://brewhouse.io/2015/10/03/episode-00-transparency</link>
-              <guid>http://podcasts-1.feedpress.co/13375/Episode%200.mp3</guid>
-              <description>&lt;p&gt;One of our core values here at Brewhouse is “Test Everything”, so when Kalv and I began bandying about the idea of doing a podcast we knew we’d need to test it. And so, with as little fanfare and (hopefully) technical issues as possible, it is my pleasure to share with you Episode 00: Transparency (we couldn’t possibly do a pilot episode about transparency and not share it, could we?).&lt;/p&gt;
+              <title>Episode 10: 2016 Predictions</title>
+              <link>http://brewhouse.io/2015/12/24/episode-10-2016-predictions</link>
+              <guid>http://podcasts-1.feedpress.co/13375/Episode-10.mp3</guid>
+              
+              <description>
+                &lt;p&gt;This week, Kalv and Pat look back on some of the cool technology released in 2015 and look forward to what’s to come in the new year.&lt;/p&gt;
+
+&lt;!-- break --&gt;
 
 &lt;h2 id=&quot;show-notes&quot;&gt;Show Notes&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.vpl.ca/programs/cat/C1051/&quot;&gt;Inspiration Labs - VPL&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLfA33-E9P7FC0AoARnMLvgFgESJe4_Ngs&quot;&gt;The #AskGaryVee Show&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://twitter.com/kalv/status/651544809371373568&quot;&gt;The Recording Studio&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.b2bnn.com/2015/09/should-your-b2b-company-be-as-transparent-as-possible/&quot;&gt;Should your B2B company be as transparent as possible?&lt;/a&gt; by Mark Evans&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://gofreerange.com&quot;&gt;Go Free Range&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://signalvnoise.com&quot;&gt;The Blog of The Artist Formerly Known as 37signals&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://24Ways.org&quot;&gt;24Ways.org&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://alistapart.com&quot;&gt;alistapart.com&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.campaignmonitor.com/blog/email-marketing/2009/06/promoting-with-banners-ads/&quot;&gt;Promoting your product or service with banner ads – is it worth it?&lt;/a&gt; by Campaign Monitor&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://trello.com&quot;&gt;Trello&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.teslamotors.com/modelx&quot;&gt;Tesla X&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://wire.com&quot;&gt;Wire&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://bitcoin.org/en/&quot;&gt;Bitcoin&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.coindesk.com/price/&quot;&gt;Bitcoin Prices&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Block_chain_(database)&quot;&gt;Beginner’s Guide to Blockchain Technology&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.subtraction.com/2015/12/23/design-tools-news-no-8/&quot;&gt;Khoi Vinh’s Design Tools Series&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.invisionapp.com&quot;&gt;Invision&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://framerjs.com&quot;&gt;Framer&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://soundcloud.com/lets-make-mistakes/163-weird-and-unsafe-with-dr-chuck&quot;&gt;Weird and Unsafe with Dr Chuck&lt;/a&gt; on Let’s Make Mistakes&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://reactjs.com&quot;&gt;React&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://elixir-lang.org&quot;&gt;Elixir&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.apple.com/swift/&quot;&gt;Swift&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://ubuntu.com/phone&quot;&gt;Ubuntu on Phones&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/VRML&quot;&gt;VRML - Virtual Reality Modeling Language&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.xbitlabs.com/articles/graphics/display/elsa-revelator.html&quot;&gt;Elsa 3D Revelator 3D Glasses&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=eJyMEkb_8to&quot;&gt;Futurama - Eyephone&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.imdb.com/title/tt0181689/&quot;&gt;Minority Report&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.oculus.com/en-us/rift/#oculus-touch&quot;&gt;Oculus Touch&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.ishuman.co&quot;&gt;Human&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://thoughts.ishuman.co/our-first-product-graduation-proxxi-67228b8ecb04#.cr5et8fnr&quot;&gt;Proxxi&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://hammerandtusk.com&quot;&gt;Hammer + Tusk&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=ueBCC1PCf84&quot;&gt;No Man’s Sky&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.amazon.com/Ready-Player-One-A-Novel/dp/0307887448&quot;&gt;Ready Player One&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-              <enclosure url="http://podcasts-1.feedpress.co/13375/Episode%200.mp3" length="3198" type="audio/mpeg"/>
+
+&lt;p&gt;&lt;em&gt;The Brewhouse Show is proudly hosted by &lt;a href=&quot;http://feed.press&quot;&gt;Feedpress&lt;/a&gt;, a simple, intuitive, and powerful RSS analytics and podcast hosting platform. Use the promo code &lt;strong&gt;brewhouse&lt;/strong&gt; at checkout for 10% off your first year.&lt;/em&gt;&lt;/p&gt;
+
+
+                <![CDATA[<a href="http://podcasts-1.feedpress.co/13375/Episode-10.mp3"><strong>Download</strong> Episode 10: 2016 Predictions</a>]]>
+              </description>
+
+              <enclosure url="http://podcasts-1.feedpress.co/13375/Episode-10.mp3" length="3122" type="audio/mpeg"/>
+              
               <category>Technology</category>
-              <pubDate>Sat, 03 Oct 2015 10:00:00 -0700</pubDate>
+              <pubDate>Thu, 24 Dec 2015 14:30:00 -0800</pubDate>
 
               <itunes:author>Brewhouse Software, Inc.</itunes:author>
 
               <itunes:explicit>No</itunes:explicit>
               <itunes:subtitle>Welcome to The Brewhouse Show</itunes:subtitle>
-              <itunes:summary>&lt;p&gt;One of our core values here at Brewhouse is “Test Everything”, so when Kalv and I began bandying about the idea of doing a podcast we knew we’d need to test it. And so, with as little fanfare and (hopefully) technical issues as possible, it is my pleasure to share with you Episode 00: Transparency (we couldn’t possibly do a pilot episode about transparency and not share it, could we?).&lt;/p&gt;
+              <itunes:summary>&lt;p&gt;This week, Kalv and Pat look back on some of the cool technology released in 2015 and look forward to what’s to come in the new year.&lt;/p&gt;
+
+&lt;!-- break --&gt;
 
 &lt;h2 id=&quot;show-notes&quot;&gt;Show Notes&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.vpl.ca/programs/cat/C1051/&quot;&gt;Inspiration Labs - VPL&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLfA33-E9P7FC0AoARnMLvgFgESJe4_Ngs&quot;&gt;The #AskGaryVee Show&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://twitter.com/kalv/status/651544809371373568&quot;&gt;The Recording Studio&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.b2bnn.com/2015/09/should-your-b2b-company-be-as-transparent-as-possible/&quot;&gt;Should your B2B company be as transparent as possible?&lt;/a&gt; by Mark Evans&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://gofreerange.com&quot;&gt;Go Free Range&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://signalvnoise.com&quot;&gt;The Blog of The Artist Formerly Known as 37signals&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://24Ways.org&quot;&gt;24Ways.org&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://alistapart.com&quot;&gt;alistapart.com&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.campaignmonitor.com/blog/email-marketing/2009/06/promoting-with-banners-ads/&quot;&gt;Promoting your product or service with banner ads – is it worth it?&lt;/a&gt; by Campaign Monitor&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://trello.com&quot;&gt;Trello&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.teslamotors.com/modelx&quot;&gt;Tesla X&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://wire.com&quot;&gt;Wire&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://bitcoin.org/en/&quot;&gt;Bitcoin&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.coindesk.com/price/&quot;&gt;Bitcoin Prices&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Block_chain_(database)&quot;&gt;Beginner’s Guide to Blockchain Technology&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.subtraction.com/2015/12/23/design-tools-news-no-8/&quot;&gt;Khoi Vinh’s Design Tools Series&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.invisionapp.com&quot;&gt;Invision&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://framerjs.com&quot;&gt;Framer&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://soundcloud.com/lets-make-mistakes/163-weird-and-unsafe-with-dr-chuck&quot;&gt;Weird and Unsafe with Dr Chuck&lt;/a&gt; on Let’s Make Mistakes&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://reactjs.com&quot;&gt;React&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://elixir-lang.org&quot;&gt;Elixir&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.apple.com/swift/&quot;&gt;Swift&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://ubuntu.com/phone&quot;&gt;Ubuntu on Phones&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/VRML&quot;&gt;VRML - Virtual Reality Modeling Language&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.xbitlabs.com/articles/graphics/display/elsa-revelator.html&quot;&gt;Elsa 3D Revelator 3D Glasses&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=eJyMEkb_8to&quot;&gt;Futurama - Eyephone&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.imdb.com/title/tt0181689/&quot;&gt;Minority Report&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.oculus.com/en-us/rift/#oculus-touch&quot;&gt;Oculus Touch&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.ishuman.co&quot;&gt;Human&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://thoughts.ishuman.co/our-first-product-graduation-proxxi-67228b8ecb04#.cr5et8fnr&quot;&gt;Proxxi&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://hammerandtusk.com&quot;&gt;Hammer + Tusk&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=ueBCC1PCf84&quot;&gt;No Man’s Sky&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.amazon.com/Ready-Player-One-A-Novel/dp/0307887448&quot;&gt;Ready Player One&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;The Brewhouse Show is proudly hosted by &lt;a href=&quot;http://feed.press&quot;&gt;Feedpress&lt;/a&gt;, a simple, intuitive, and powerful RSS analytics and podcast hosting platform. Use the promo code &lt;strong&gt;brewhouse&lt;/strong&gt; at checkout for 10% off your first year.&lt;/em&gt;&lt;/p&gt;
+
 </itunes:summary>
-              <itunes:duration>00:53:18</itunes:duration>
+              <itunes:duration>00:51:02</itunes:duration>
               <itunes:keywords>brewhouse, software, product, products, design, development, ruby, rails</itunes:keywords>
           </item>
         
       
     
       
-    
+        
+          <item>
+              <title>Episode 09: A Sad, Sad Day</title>
+              <link>http://brewhouse.io/2015/12/07/episode-09-A-Sad-Sad-Day</link>
+              <guid>http://podcasts-1.feedpress.co/13375/Episode-9.mp3</guid>
+              
+              <description>
+                &lt;p&gt;Today, Dropbox dropped the news that they plan to shutter both Mailbox and Carousel. As apps that we are big fans of, we couldn’t let the news go by without taking time to mourn our loss.&lt;/p&gt;
+
+&lt;!-- break --&gt;
+
+&lt;h2 id=&quot;show-notes&quot;&gt;Show Notes&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.theverge.com/2015/12/7/9862470/dropbox-shutting-down-mailbox-carousel-apps&quot;&gt;Dropbox is shutting down its Mailbox and Carousel Apps&lt;/a&gt; on The Verge&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://blogs.dropbox.com/mailbox/2015/12/saying-goodbye/&quot;&gt;Saying Goodbye&lt;/a&gt; on The Mailbox Blog&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.ikea.com/ca/en/catalog/products/S49084965/&quot;&gt;IKEA SKARSTA sit/stand desk&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.crunchbase.com/product/google-wave#/entity&quot;&gt;Google Wave&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://elixir-lang.org&quot;&gt;Elixir&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=xrIjfIjssLE&quot;&gt;Erlang: The Movie&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;The Brewhouse Show is proudly hosted by &lt;a href=&quot;http://feed.press&quot;&gt;Feedpress&lt;/a&gt;, a simple, intuitive, and powerful RSS analytics and podcast hosting platform. Use the promo code &lt;strong&gt;brewhouse&lt;/strong&gt; at checkout for 10% off your first year.&lt;/em&gt;&lt;/p&gt;
+
+
+                <![CDATA[<a href="http://podcasts-1.feedpress.co/13375/Episode-9.mp3"><strong>Download</strong> Episode 09: A Sad, Sad Day</a>]]>
+              </description>
+
+              <enclosure url="http://podcasts-1.feedpress.co/13375/Episode-9.mp3" length="2606" type="audio/mpeg"/>
+              
+              <category>Technology</category>
+              <pubDate>Mon, 07 Dec 2015 15:30:00 -0800</pubDate>
+
+              <itunes:author>Brewhouse Software, Inc.</itunes:author>
+
+              <itunes:explicit>No</itunes:explicit>
+              <itunes:subtitle>Welcome to The Brewhouse Show</itunes:subtitle>
+              <itunes:summary>&lt;p&gt;Today, Dropbox dropped the news that they plan to shutter both Mailbox and Carousel. As apps that we are big fans of, we couldn’t let the news go by without taking time to mourn our loss.&lt;/p&gt;
+
+&lt;!-- break --&gt;
+
+&lt;h2 id=&quot;show-notes&quot;&gt;Show Notes&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.theverge.com/2015/12/7/9862470/dropbox-shutting-down-mailbox-carousel-apps&quot;&gt;Dropbox is shutting down its Mailbox and Carousel Apps&lt;/a&gt; on The Verge&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://blogs.dropbox.com/mailbox/2015/12/saying-goodbye/&quot;&gt;Saying Goodbye&lt;/a&gt; on The Mailbox Blog&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.ikea.com/ca/en/catalog/products/S49084965/&quot;&gt;IKEA SKARSTA sit/stand desk&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.crunchbase.com/product/google-wave#/entity&quot;&gt;Google Wave&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://elixir-lang.org&quot;&gt;Elixir&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=xrIjfIjssLE&quot;&gt;Erlang: The Movie&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;The Brewhouse Show is proudly hosted by &lt;a href=&quot;http://feed.press&quot;&gt;Feedpress&lt;/a&gt;, a simple, intuitive, and powerful RSS analytics and podcast hosting platform. Use the promo code &lt;strong&gt;brewhouse&lt;/strong&gt; at checkout for 10% off your first year.&lt;/em&gt;&lt;/p&gt;
+
+</itunes:summary>
+              <itunes:duration>00:43:26</itunes:duration>
+              <itunes:keywords>brewhouse, software, product, products, design, development, ruby, rails</itunes:keywords>
+          </item>
+        
       
     
       
-    
+        
+          <item>
+              <title>Episode 08: What's the First Thing You Made?</title>
+              <link>http://brewhouse.io/2015/12/02/episode-08-The-First-One</link>
+              <guid>http://podcasts-1.feedpress.co/13375/Episode-8.mp3</guid>
+              
+              <description>
+                &lt;p&gt;There is a moment in everyone’s life when you understand that much of the environment surrounding you was made by someone else. Be it a house, a painting, a song, or a computer game, the tools and toys we use and enjoy all came to be when someone figured out how to make it.&lt;/p&gt;
+
+&lt;p&gt;This week, Kalv and Pat think back to their early days and reminisce about their adventures in making things. What was the first tool Pat discovered and understood? What 5000+ year old problem did Kalv try and solve at the age of 16? And how did the process of trying to solve those early problems influence the kind of makers we are today?&lt;/p&gt;
+
+&lt;!-- break --&gt;
+
+&lt;h2 id=&quot;show-notes&quot;&gt;Show Notes&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://twitter.com/whistlerolympic/status/669972532124999680&quot;&gt;The Brewhouse Snowshoers&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.mjg.ca/brewhouse/&quot;&gt;Brewhouse Restaurant&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://about.puma.com/en/this-is-puma/history#90s&quot;&gt;Puma Disc&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.thisoldtoy.com/l_fp_set/toy-pages/3000s/3818-taperecorder.html&quot;&gt;Fischer-Price Tape Recorder&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://archive.org/details/LogoWriterScreencast&quot;&gt;LogoWriter&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/BBC_Micro&quot;&gt;BBC Micro&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://sonic-pi.net&quot;&gt;Sonic Pi&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.raspberrypi.org/blog/raspberry-pi-zero/&quot;&gt;Raspberry Pi Zero: The $5 Computer&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.periscope.tv&quot;&gt;Periscope&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://twitter.com/kalv&quot;&gt;Kalv on Twitter&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://twitter.com/patdryburgh&quot;&gt;Pat on Twitter&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;The Brewhouse Show is proudly hosted by &lt;a href=&quot;http://feed.press&quot;&gt;Feedpress&lt;/a&gt;, a simple, intuitive, and powerful RSS analytics and podcast hosting platform. Use the promo code &lt;strong&gt;brewhouse&lt;/strong&gt; at checkout for 10% off your first year.&lt;/em&gt;&lt;/p&gt;
+
+
+                <![CDATA[<a href="http://podcasts-1.feedpress.co/13375/Episode-8.mp3"><strong>Download</strong> Episode 08: What's the First Thing You Made?</a>]]>
+              </description>
+
+              <enclosure url="http://podcasts-1.feedpress.co/13375/Episode-8.mp3" length="2411" type="audio/mpeg"/>
+              
+              <category>Technology</category>
+              <pubDate>Wed, 02 Dec 2015 09:30:00 -0800</pubDate>
+
+              <itunes:author>Brewhouse Software, Inc.</itunes:author>
+
+              <itunes:explicit>No</itunes:explicit>
+              <itunes:subtitle>Welcome to The Brewhouse Show</itunes:subtitle>
+              <itunes:summary>&lt;p&gt;There is a moment in everyone’s life when you understand that much of the environment surrounding you was made by someone else. Be it a house, a painting, a song, or a computer game, the tools and toys we use and enjoy all came to be when someone figured out how to make it.&lt;/p&gt;
+
+&lt;p&gt;This week, Kalv and Pat think back to their early days and reminisce about their adventures in making things. What was the first tool Pat discovered and understood? What 5000+ year old problem did Kalv try and solve at the age of 16? And how did the process of trying to solve those early problems influence the kind of makers we are today?&lt;/p&gt;
+
+&lt;!-- break --&gt;
+
+&lt;h2 id=&quot;show-notes&quot;&gt;Show Notes&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://twitter.com/whistlerolympic/status/669972532124999680&quot;&gt;The Brewhouse Snowshoers&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.mjg.ca/brewhouse/&quot;&gt;Brewhouse Restaurant&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://about.puma.com/en/this-is-puma/history#90s&quot;&gt;Puma Disc&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.thisoldtoy.com/l_fp_set/toy-pages/3000s/3818-taperecorder.html&quot;&gt;Fischer-Price Tape Recorder&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://archive.org/details/LogoWriterScreencast&quot;&gt;LogoWriter&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/BBC_Micro&quot;&gt;BBC Micro&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://sonic-pi.net&quot;&gt;Sonic Pi&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.raspberrypi.org/blog/raspberry-pi-zero/&quot;&gt;Raspberry Pi Zero: The $5 Computer&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.periscope.tv&quot;&gt;Periscope&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://twitter.com/kalv&quot;&gt;Kalv on Twitter&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://twitter.com/patdryburgh&quot;&gt;Pat on Twitter&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;The Brewhouse Show is proudly hosted by &lt;a href=&quot;http://feed.press&quot;&gt;Feedpress&lt;/a&gt;, a simple, intuitive, and powerful RSS analytics and podcast hosting platform. Use the promo code &lt;strong&gt;brewhouse&lt;/strong&gt; at checkout for 10% off your first year.&lt;/em&gt;&lt;/p&gt;
+
+</itunes:summary>
+              <itunes:duration>00:40:11</itunes:duration>
+              <itunes:keywords>brewhouse, software, product, products, design, development, ruby, rails</itunes:keywords>
+          </item>
+        
       
     
       
-    
+        
+          <item>
+              <title>Episode 07: Mission Statements</title>
+              <link>http://brewhouse.io/2015/11/24/episode-07-Mission-Statements</link>
+              <guid>http://podcasts-1.feedpress.co/13375/Episode-7.mp3</guid>
+              
+              <description>
+                &lt;p&gt;Every company needs a purpose for existing. Here at Brewhouse, we have continually refined our purpose as we’ve gained a better understanding of who we are and what we want to do. Over the past month we’ve been having a number of discussions around our purpose, or mission, and how our values serve that mission. On the eve of leaving for a company retreat up in beautiful Whistler, BC, Kalv and Pat share some of the thinking that’s been happening around who we are as a company and what our purpose is.&lt;/p&gt;
+
+&lt;!-- break --&gt;
+
+&lt;h2 id=&quot;show-notes&quot;&gt;Show Notes&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.missionstatements.com/fortune_500_mission_statements.html&quot;&gt;Fortune 500 Mission Statements&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.google.com/slides/about/&quot;&gt;Google Slides&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.cocospure.com&quot;&gt;Cocos Pure Coconut Water&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;The Brewhouse Show is proudly hosted by &lt;a href=&quot;http://feed.press&quot;&gt;Feedpress&lt;/a&gt;, a simple, intuitive, and powerful RSS analytics and podcast hosting platform. Use the promo code &lt;strong&gt;brewhouse&lt;/strong&gt; at checkout for 10% off your first year.&lt;/em&gt;&lt;/p&gt;
+
+
+                <![CDATA[<a href="http://podcasts-1.feedpress.co/13375/Episode-7.mp3"><strong>Download</strong> Episode 07: Mission Statements</a>]]>
+              </description>
+
+              <enclosure url="http://podcasts-1.feedpress.co/13375/Episode-7.mp3" length="2557" type="audio/mpeg"/>
+              
+              <category>Technology</category>
+              <pubDate>Tue, 24 Nov 2015 16:30:00 -0800</pubDate>
+
+              <itunes:author>Brewhouse Software, Inc.</itunes:author>
+
+              <itunes:explicit>No</itunes:explicit>
+              <itunes:subtitle>Welcome to The Brewhouse Show</itunes:subtitle>
+              <itunes:summary>&lt;p&gt;Every company needs a purpose for existing. Here at Brewhouse, we have continually refined our purpose as we’ve gained a better understanding of who we are and what we want to do. Over the past month we’ve been having a number of discussions around our purpose, or mission, and how our values serve that mission. On the eve of leaving for a company retreat up in beautiful Whistler, BC, Kalv and Pat share some of the thinking that’s been happening around who we are as a company and what our purpose is.&lt;/p&gt;
+
+&lt;!-- break --&gt;
+
+&lt;h2 id=&quot;show-notes&quot;&gt;Show Notes&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.missionstatements.com/fortune_500_mission_statements.html&quot;&gt;Fortune 500 Mission Statements&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.google.com/slides/about/&quot;&gt;Google Slides&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.cocospure.com&quot;&gt;Cocos Pure Coconut Water&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;The Brewhouse Show is proudly hosted by &lt;a href=&quot;http://feed.press&quot;&gt;Feedpress&lt;/a&gt;, a simple, intuitive, and powerful RSS analytics and podcast hosting platform. Use the promo code &lt;strong&gt;brewhouse&lt;/strong&gt; at checkout for 10% off your first year.&lt;/em&gt;&lt;/p&gt;
+
+</itunes:summary>
+              <itunes:duration>00:42:37</itunes:duration>
+              <itunes:keywords>brewhouse, software, product, products, design, development, ruby, rails</itunes:keywords>
+          </item>
+        
       
     
       
-    
+        
+          <item>
+              <title>Episode 06: Design</title>
+              <link>http://brewhouse.io/2015/11/23/episode-06-Design</link>
+              <guid>http://podcasts-1.feedpress.co/13375/Episode-6.mp3</guid>
+              
+              <description>
+                &lt;p&gt;This week, Kalv and Pat chat about design. Is design hanging pretty ornaments on a tree, or is it establishing thoughtful systems to help users with a problem? What’s the difference between a Creative Director and a Design Director? How does design theory apply to design practice? And what the heck was Web 2.0?&lt;/p&gt;
+
+&lt;!-- break --&gt;
+
+&lt;h2 id=&quot;show-notes&quot;&gt;Show Notes&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://manifesto.softwarecraftsmanship.org&quot;&gt;Manifesto of Software Craftsmenship&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.amazon.com/Design-Everyday-Things-Donald-Norman/dp/1452654123&quot;&gt;The Design of Everyday Things&lt;/a&gt; by Donald A. Norman&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.udacity.com/course/intro-to-the-design-of-everyday-things--design101&quot;&gt;Intro to the Design of Everyday Things: Principles of Design&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.elliotjaystocks.com/blog/destroy-the-web-20-look-future-of-web-design-new-york/&quot;&gt;Destroy the Web 2.0 Look&lt;/a&gt; by Elliot Jay Stocks&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.akaipro.com/product/eiepro&quot;&gt;Akai EIE Pro&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.google.com/inbox/&quot;&gt;Google Inbox&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://mashable.com/2015/10/28/microsoft-outlook-sunrise/&quot;&gt;Microsoft will replace Sunrise calendar app with Outlook&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;The Brewhouse Show is proudly hosted by &lt;a href=&quot;http://feed.press&quot;&gt;Feedpress&lt;/a&gt;, a simple, intuitive, and powerful RSS analytics and podcast hosting platform. Use the promo code &lt;strong&gt;brewhouse&lt;/strong&gt; at checkout for 10% off your first year.&lt;/em&gt;&lt;/p&gt;
+
+
+                <![CDATA[<a href="http://podcasts-1.feedpress.co/13375/Episode-6.mp3"><strong>Download</strong> Episode 06: Design</a>]]>
+              </description>
+
+              <enclosure url="http://podcasts-1.feedpress.co/13375/Episode-6.mp3" length="2918" type="audio/mpeg"/>
+              
+              <category>Technology</category>
+              <pubDate>Mon, 23 Nov 2015 10:11:00 -0800</pubDate>
+
+              <itunes:author>Brewhouse Software, Inc.</itunes:author>
+
+              <itunes:explicit>No</itunes:explicit>
+              <itunes:subtitle>Welcome to The Brewhouse Show</itunes:subtitle>
+              <itunes:summary>&lt;p&gt;This week, Kalv and Pat chat about design. Is design hanging pretty ornaments on a tree, or is it establishing thoughtful systems to help users with a problem? What’s the difference between a Creative Director and a Design Director? How does design theory apply to design practice? And what the heck was Web 2.0?&lt;/p&gt;
+
+&lt;!-- break --&gt;
+
+&lt;h2 id=&quot;show-notes&quot;&gt;Show Notes&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://manifesto.softwarecraftsmanship.org&quot;&gt;Manifesto of Software Craftsmenship&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.amazon.com/Design-Everyday-Things-Donald-Norman/dp/1452654123&quot;&gt;The Design of Everyday Things&lt;/a&gt; by Donald A. Norman&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.udacity.com/course/intro-to-the-design-of-everyday-things--design101&quot;&gt;Intro to the Design of Everyday Things: Principles of Design&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.elliotjaystocks.com/blog/destroy-the-web-20-look-future-of-web-design-new-york/&quot;&gt;Destroy the Web 2.0 Look&lt;/a&gt; by Elliot Jay Stocks&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.akaipro.com/product/eiepro&quot;&gt;Akai EIE Pro&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.google.com/inbox/&quot;&gt;Google Inbox&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://mashable.com/2015/10/28/microsoft-outlook-sunrise/&quot;&gt;Microsoft will replace Sunrise calendar app with Outlook&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;The Brewhouse Show is proudly hosted by &lt;a href=&quot;http://feed.press&quot;&gt;Feedpress&lt;/a&gt;, a simple, intuitive, and powerful RSS analytics and podcast hosting platform. Use the promo code &lt;strong&gt;brewhouse&lt;/strong&gt; at checkout for 10% off your first year.&lt;/em&gt;&lt;/p&gt;
+
+</itunes:summary>
+              <itunes:duration>00:48:38</itunes:duration>
+              <itunes:keywords>brewhouse, software, product, products, design, development, ruby, rails</itunes:keywords>
+          </item>
+        
       
     
+      
+        
+          <item>
+              <title>Episode 05: Quality</title>
+              <link>http://brewhouse.io/2015/11/10/episode-05-Quality</link>
+              <guid>http://podcasts-1.feedpress.co/13375/Episode-5.mp3</guid>
+              
+              <description>
+                &lt;p&gt;If you walk along the many of the beaches surrounding the city of Vancouver, you might find someone slowly and methodically scanning the stones along the shore. She is looking for a stone that catches her eye, not because it is all that different from the rest but because it has a certain quality that uniquely identifies it from others around it. Maybe it’s perfectly smooth and beautifully rounded, or perhaps it is shiny and shimmery with sharp edges. For certain, there is a unique quality that draws her specifically to it.&lt;/p&gt;
+
+&lt;p&gt;Here at Brewhouse, we’ve begun an evaluation of the values of our company. This year has brought the team both wonderful opportunities and a few bumps along the way. As we begin to look toward 2016 we are asking ourselves what type of company we want to be, what goals we want to accomplish, what types of projects we want to be a part of, and how we can improve how we work with one another. In short, what qualities will Brewhouse embody over the coming years to come?&lt;/p&gt;
+
+&lt;p&gt;We want to be a company who is uniquely different, whose values permeate every aspect of our business, and who chooses the pursuit of quality over quantity.&lt;/p&gt;
+
+&lt;p&gt;So, what exactly is quality?&lt;/p&gt;
+
+&lt;!-- break --&gt;
+
+&lt;h2 id=&quot;show-notes&quot;&gt;Show Notes&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.smallgiantsbook.com/about.html&quot;&gt;Small Giants&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://calendar.sunrise.am/&quot;&gt;Sunrise&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://rinik.net/zonebox/&quot;&gt;Zonebox for Mac&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;The Brewhouse Show is proudly hosted by &lt;a href=&quot;http://feed.press&quot;&gt;Feedpress&lt;/a&gt;, a simple, intuitive, and powerful RSS analytics and podcast hosting platform. Use the promo code &lt;strong&gt;brewhouse&lt;/strong&gt; at checkout for 10% off your first year.&lt;/em&gt;&lt;/p&gt;
+
+
+                <![CDATA[<a href="http://podcasts-1.feedpress.co/13375/Episode-5.mp3"><strong>Download</strong> Episode 05: Quality</a>]]>
+              </description>
+
+              <enclosure url="http://podcasts-1.feedpress.co/13375/Episode-5.mp3" length="2285" type="audio/mpeg"/>
+              
+              <category>Technology</category>
+              <pubDate>Tue, 10 Nov 2015 09:15:00 -0800</pubDate>
+
+              <itunes:author>Brewhouse Software, Inc.</itunes:author>
+
+              <itunes:explicit>No</itunes:explicit>
+              <itunes:subtitle>Welcome to The Brewhouse Show</itunes:subtitle>
+              <itunes:summary>&lt;p&gt;If you walk along the many of the beaches surrounding the city of Vancouver, you might find someone slowly and methodically scanning the stones along the shore. She is looking for a stone that catches her eye, not because it is all that different from the rest but because it has a certain quality that uniquely identifies it from others around it. Maybe it’s perfectly smooth and beautifully rounded, or perhaps it is shiny and shimmery with sharp edges. For certain, there is a unique quality that draws her specifically to it.&lt;/p&gt;
+
+&lt;p&gt;Here at Brewhouse, we’ve begun an evaluation of the values of our company. This year has brought the team both wonderful opportunities and a few bumps along the way. As we begin to look toward 2016 we are asking ourselves what type of company we want to be, what goals we want to accomplish, what types of projects we want to be a part of, and how we can improve how we work with one another. In short, what qualities will Brewhouse embody over the coming years to come?&lt;/p&gt;
+
+&lt;p&gt;We want to be a company who is uniquely different, whose values permeate every aspect of our business, and who chooses the pursuit of quality over quantity.&lt;/p&gt;
+
+&lt;p&gt;So, what exactly is quality?&lt;/p&gt;
+
+&lt;!-- break --&gt;
+
+&lt;h2 id=&quot;show-notes&quot;&gt;Show Notes&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.smallgiantsbook.com/about.html&quot;&gt;Small Giants&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://calendar.sunrise.am/&quot;&gt;Sunrise&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://rinik.net/zonebox/&quot;&gt;Zonebox for Mac&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;The Brewhouse Show is proudly hosted by &lt;a href=&quot;http://feed.press&quot;&gt;Feedpress&lt;/a&gt;, a simple, intuitive, and powerful RSS analytics and podcast hosting platform. Use the promo code &lt;strong&gt;brewhouse&lt;/strong&gt; at checkout for 10% off your first year.&lt;/em&gt;&lt;/p&gt;
+
+</itunes:summary>
+              <itunes:duration>00:38:05</itunes:duration>
+              <itunes:keywords>brewhouse, software, product, products, design, development, ruby, rails</itunes:keywords>
+          </item>
+        
+      
+    
+      
+        
+          <item>
+              <title>Episode 04: Mark</title>
+              <link>http://brewhouse.io/2015/11/03/episode-04-mark</link>
+              <guid>http://podcasts-1.feedpress.co/13375/Episode-4.mp3</guid>
+              
+              <description>
+                &lt;p&gt;Mark Hazlett has been a tech support agent for Apple, product engineer for iStockPhoto and Expedia, and founder of his own gaming and tech startups. As Brewhouse’s product manager, he oversees the planning and execution of our design and development process for both client and internal projects. This week on &lt;a href=&quot;http://brewhouse.io/show/&quot;&gt;The Brewhouse Show&lt;/a&gt;, learn how a former studio of biology became a complete product nut.&lt;/p&gt;
+
+&lt;!-- break --&gt;
+
+&lt;h2 id=&quot;show-notes&quot;&gt;Show Notes&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://twitter.com/markhazlett&quot;&gt;Mark on Twitter&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://steveblank.com/2012/02/09/two-giant-steps-forward-for-entrepreneurs/&quot;&gt;The Startup Owner’s Manual&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.metabase.com&quot;&gt;Metabase&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://austinmann.com/trek/iphone-6s-camera-review-switzerland&quot;&gt;Austin Mann’s iPhone 6s Camera Review&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.starwars.com/video/star-wars-the-force-awakens-trailer-official&quot;&gt;Star Wars Trailer&lt;/a&gt; (as if you haven’t seen it already)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;The Brewhouse Show is proudly hosted by &lt;a href=&quot;http://feed.press&quot;&gt;Feedpress&lt;/a&gt;, a simple, intuitive, and powerful RSS analytics and podcast hosting platform. Use the promo code &lt;strong&gt;brewhouse&lt;/strong&gt; at checkout for 10% off your first year.&lt;/em&gt;&lt;/p&gt;
+
+
+                <![CDATA[<a href="http://podcasts-1.feedpress.co/13375/Episode-4.mp3"><strong>Download</strong> Episode 04: Mark</a>]]>
+              </description>
+
+              <enclosure url="http://podcasts-1.feedpress.co/13375/Episode-4.mp3" length="2540" type="audio/mpeg"/>
+              
+              <category>Technology</category>
+              <pubDate>Tue, 03 Nov 2015 23:00:00 -0800</pubDate>
+
+              <itunes:author>Brewhouse Software, Inc.</itunes:author>
+
+              <itunes:explicit>No</itunes:explicit>
+              <itunes:subtitle>Welcome to The Brewhouse Show</itunes:subtitle>
+              <itunes:summary>&lt;p&gt;Mark Hazlett has been a tech support agent for Apple, product engineer for iStockPhoto and Expedia, and founder of his own gaming and tech startups. As Brewhouse’s product manager, he oversees the planning and execution of our design and development process for both client and internal projects. This week on &lt;a href=&quot;http://brewhouse.io/show/&quot;&gt;The Brewhouse Show&lt;/a&gt;, learn how a former studio of biology became a complete product nut.&lt;/p&gt;
+
+&lt;!-- break --&gt;
+
+&lt;h2 id=&quot;show-notes&quot;&gt;Show Notes&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://twitter.com/markhazlett&quot;&gt;Mark on Twitter&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://steveblank.com/2012/02/09/two-giant-steps-forward-for-entrepreneurs/&quot;&gt;The Startup Owner’s Manual&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.metabase.com&quot;&gt;Metabase&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://austinmann.com/trek/iphone-6s-camera-review-switzerland&quot;&gt;Austin Mann’s iPhone 6s Camera Review&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.starwars.com/video/star-wars-the-force-awakens-trailer-official&quot;&gt;Star Wars Trailer&lt;/a&gt; (as if you haven’t seen it already)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;The Brewhouse Show is proudly hosted by &lt;a href=&quot;http://feed.press&quot;&gt;Feedpress&lt;/a&gt;, a simple, intuitive, and powerful RSS analytics and podcast hosting platform. Use the promo code &lt;strong&gt;brewhouse&lt;/strong&gt; at checkout for 10% off your first year.&lt;/em&gt;&lt;/p&gt;
+
+</itunes:summary>
+              <itunes:duration>00:42:20</itunes:duration>
+              <itunes:keywords>brewhouse, software, product, products, design, development, ruby, rails</itunes:keywords>
+          </item>
+        
+      
+    
+      
+        
+          <item>
+              <title>Episode 03: The Apprentice</title>
+              <link>http://brewhouse.io/2015/10/26/episode-03-the-apprentice</link>
+              <guid>http://podcasts-1.feedpress.co/13375/Episode-3.mp3</guid>
+              
+              <description>
+                &lt;p&gt;This week on &lt;a href=&quot;http://brewhouse.io/show/&quot;&gt;The Brewhouse Show&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/kalv&quot;&gt;Kalv&lt;/a&gt; and &lt;a href=&quot;https://twitter.com/patdryburgh&quot;&gt;Pat&lt;/a&gt; sit down with &lt;a href=&quot;https://twitter.com/gabescholz&quot;&gt;Gabe Scholz&lt;/a&gt; and his &lt;a href=&quot;http://brewhouse.io/2015/08/05/the-apprentice.html&quot;&gt;Apprentice&lt;/a&gt;-turned-Jr. Developer &lt;a href=&quot;https://twitter.com/pauloancheta&quot;&gt;Paulo Ancheta&lt;/a&gt; to discuss the experience of bringing an apprentice onto the Brewhouse team, what was learned through the process, and how other companies might go about initiating their own apprenticeship programs.&lt;/p&gt;
+
+&lt;!-- break --&gt;
+
+&lt;h2 id=&quot;show-notes&quot;&gt;Show Notes&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.ianwwalker.com/blog/2013/7/3/the-q-debate&quot;&gt;The Great Intern Debate&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://glowforge.com&quot;&gt;Glowforge&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.bluemic.com/yeti/&quot;&gt;Blue Yeti&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.trudeaumetre.ca&quot;&gt;Trudeau Metre&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;The Brewhouse Show is proudly hosted by &lt;a href=&quot;http://feed.press&quot;&gt;Feedpress&lt;/a&gt;, a simple, intuitive, and powerful RSS analytics and podcast hosting platform. Use the promo code &lt;strong&gt;brewhouse&lt;/strong&gt; at checkout for 10% off your first year.&lt;/em&gt;&lt;/p&gt;
+
+
+                <![CDATA[<a href="http://podcasts-1.feedpress.co/13375/Episode-3.mp3"><strong>Download</strong> Episode 03: The Apprentice</a>]]>
+              </description>
+
+              <enclosure url="http://podcasts-1.feedpress.co/13375/Episode-3.mp3" length="3237" type="audio/mpeg"/>
+              
+              <category>Technology</category>
+              <pubDate>Mon, 26 Oct 2015 09:00:00 -0700</pubDate>
+
+              <itunes:author>Brewhouse Software, Inc.</itunes:author>
+
+              <itunes:explicit>No</itunes:explicit>
+              <itunes:subtitle>Welcome to The Brewhouse Show</itunes:subtitle>
+              <itunes:summary>&lt;p&gt;This week on &lt;a href=&quot;http://brewhouse.io/show/&quot;&gt;The Brewhouse Show&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/kalv&quot;&gt;Kalv&lt;/a&gt; and &lt;a href=&quot;https://twitter.com/patdryburgh&quot;&gt;Pat&lt;/a&gt; sit down with &lt;a href=&quot;https://twitter.com/gabescholz&quot;&gt;Gabe Scholz&lt;/a&gt; and his &lt;a href=&quot;http://brewhouse.io/2015/08/05/the-apprentice.html&quot;&gt;Apprentice&lt;/a&gt;-turned-Jr. Developer &lt;a href=&quot;https://twitter.com/pauloancheta&quot;&gt;Paulo Ancheta&lt;/a&gt; to discuss the experience of bringing an apprentice onto the Brewhouse team, what was learned through the process, and how other companies might go about initiating their own apprenticeship programs.&lt;/p&gt;
+
+&lt;!-- break --&gt;
+
+&lt;h2 id=&quot;show-notes&quot;&gt;Show Notes&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.ianwwalker.com/blog/2013/7/3/the-q-debate&quot;&gt;The Great Intern Debate&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://glowforge.com&quot;&gt;Glowforge&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.bluemic.com/yeti/&quot;&gt;Blue Yeti&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.trudeaumetre.ca&quot;&gt;Trudeau Metre&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;The Brewhouse Show is proudly hosted by &lt;a href=&quot;http://feed.press&quot;&gt;Feedpress&lt;/a&gt;, a simple, intuitive, and powerful RSS analytics and podcast hosting platform. Use the promo code &lt;strong&gt;brewhouse&lt;/strong&gt; at checkout for 10% off your first year.&lt;/em&gt;&lt;/p&gt;
+
+</itunes:summary>
+              <itunes:duration>00:53:57</itunes:duration>
+              <itunes:keywords>brewhouse, software, product, products, design, development, ruby, rails</itunes:keywords>
+          </item>
+        
+      
+    
+      
+        
+          <item>
+              <title>Episode 02: Collaboration</title>
+              <link>http://brewhouse.io/2015/10/20/episode-02-collaboration</link>
+              <guid>http://podcasts-1.feedpress.co/13375/Episode-2.mp3</guid>
+              
+              <description>
+                &lt;p&gt;This week on &lt;a href=&quot;http://brewhouse.io/show/&quot;&gt;The Brewhouse Show&lt;/a&gt;, Kalv &amp;amp; Pat sit in front of properly-positioned microphones to chat about collaboration. How do we work together at Brewhouse? What tools do we use to enable collaboration between us and our clients? How do we argue? Is it ok to disagree with our CEO?&lt;/p&gt;
+
+&lt;!-- break --&gt;
+
+&lt;h2 id=&quot;show-notes&quot;&gt;Show Notes&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://invisionapp.com&quot;&gt;Invision&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.google.com/work/apps/business/products/docs/&quot;&gt;Google Docs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://techcrunch.com/2010/08/04/wave-goodbye-to-google-wave/&quot;&gt;Wave Goodbye to Google Wave&lt;/a&gt; by Michael Arrington&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=TRZAJY23xio&quot;&gt;Steve Jobs: The Lost Interview&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.productboard.com&quot;&gt;Product Board&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;The Brewhouse Show is proudly hosted by &lt;a href=&quot;http://feed.press&quot;&gt;Feedpress&lt;/a&gt;, a simple, intuitive, and powerful RSS analytics and podcast hosting platform. Use the promo code &lt;strong&gt;brewhouse&lt;/strong&gt; at checkout for 10% off your first year.&lt;/em&gt;&lt;/p&gt;
+
+
+                <![CDATA[<a href="http://podcasts-1.feedpress.co/13375/Episode-2.mp3"><strong>Download</strong> Episode 02: Collaboration</a>]]>
+              </description>
+
+              <enclosure url="http://podcasts-1.feedpress.co/13375/Episode-2.mp3" length="3749" type="audio/mpeg"/>
+              
+              <category>Technology</category>
+              <pubDate>Tue, 20 Oct 2015 16:00:00 -0700</pubDate>
+
+              <itunes:author>Brewhouse Software, Inc.</itunes:author>
+
+              <itunes:explicit>No</itunes:explicit>
+              <itunes:subtitle>Welcome to The Brewhouse Show</itunes:subtitle>
+              <itunes:summary>&lt;p&gt;This week on &lt;a href=&quot;http://brewhouse.io/show/&quot;&gt;The Brewhouse Show&lt;/a&gt;, Kalv &amp;amp; Pat sit in front of properly-positioned microphones to chat about collaboration. How do we work together at Brewhouse? What tools do we use to enable collaboration between us and our clients? How do we argue? Is it ok to disagree with our CEO?&lt;/p&gt;
+
+&lt;!-- break --&gt;
+
+&lt;h2 id=&quot;show-notes&quot;&gt;Show Notes&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://invisionapp.com&quot;&gt;Invision&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.google.com/work/apps/business/products/docs/&quot;&gt;Google Docs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://techcrunch.com/2010/08/04/wave-goodbye-to-google-wave/&quot;&gt;Wave Goodbye to Google Wave&lt;/a&gt; by Michael Arrington&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=TRZAJY23xio&quot;&gt;Steve Jobs: The Lost Interview&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.productboard.com&quot;&gt;Product Board&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;The Brewhouse Show is proudly hosted by &lt;a href=&quot;http://feed.press&quot;&gt;Feedpress&lt;/a&gt;, a simple, intuitive, and powerful RSS analytics and podcast hosting platform. Use the promo code &lt;strong&gt;brewhouse&lt;/strong&gt; at checkout for 10% off your first year.&lt;/em&gt;&lt;/p&gt;
+
+</itunes:summary>
+              <itunes:duration>01:02:29</itunes:duration>
+              <itunes:keywords>brewhouse, software, product, products, design, development, ruby, rails</itunes:keywords>
+          </item>
+        
       
     
 

@@ -1,0 +1,352 @@
+
+
+<!DOCTYPE html>
+<!-- Hello, nice to see you took a peek here :) -->
+<!-- Send us an email at hello at brewhouse dot io if you'd like to talk tech -->
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+
+<html lang="en-us" class="blog">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# business: http://ogp.me/ns/business#">
+
+    <title>Game Programming Design Patterns</title>
+    <meta property="og:title" content="Game Programming Design Patterns">
+    <meta property="og:site_name" content="brewhouse">
+    <meta property="og:url" content="http://brewhouse.io/2015/10/14/game-programming-design-patterns.html">
+
+    <meta property="og:image" content="http://brewhouse.io/images/posts/2015/10/event-listener-nodes-square.png">
+
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:site" content="@brewhouseteam" />
+    <meta property="twitter:image" content="http://brewhouse.io/images/posts/2015/10/event-listener-nodes-square.png">
+    <meta property="twitter:url" content="http://brewhouse.io/2015/10/14/game-programming-design-patterns.html">
+
+    <link rel="alternate" type="application/atom+xml" href="/blog/index.xml" title="The Brew Pub atom feed">
+
+    
+      <meta property="og:type" content="article">
+      <meta property="article:published_time" content="2015-10-14 09:53:00 -0800">
+      <meta property="article:tag" content="Chuck Bergeron">
+
+      <meta property="twitter:title" content="Game Programming Design Patterns">
+
+      
+        <meta name="description" content="Into web development? Learn how design patterns used in other fields such as videogame programming can help you.">
+        <meta property="twitter:description" content="Into web development? Learn how design patterns used in other fields such as videogame programming can help you.">
+        <meta property="og:description" content="Into web development? Learn how design patterns used in other fields such as videogame programming can help you.">
+      
+    
+
+    <script src="//use.typekit.net/scl6izu.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="robots" content="INDEX, FOLLOW">
+
+<link rel="shortcut icon" href="/images/icons/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
+
+<link rel="stylesheet" href="/assets/application-896a79d9ededda8066f38e28d03d7060.css">
+
+
+    <!-- needs to be refactored when we have more layouts -->
+    
+
+  </head>
+  <body class="on-post">
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46725009-2', 'brewhouse.io');
+  ga('send', 'pageview');
+
+</script>
+
+
+    <aside class="offcanvas-menu">
+  <ul>
+    <li>
+      <a class="internal" href="http://brewhouse.io/#services">Services</a>
+    </li>
+    <li>
+      <a class="internal" href="http://brewhouse.io/#projects">Projects</a>
+    </li>
+    <li>
+      <a href="/meet-the-team.html">Team</a>
+    </li>
+    <li>
+      <a href="/blog">Blog</a>
+    </li>
+    <li>
+      <a href="/show">Show</a>
+    </li>
+  </ul>
+  <a class="btn btn--header" href="/work-with-us.html">Hire Us</a>
+</aside>
+
+    <nav id="navbar-main" class="navbar navbar-default navbar-main navbar-fixed-top">
+  <div class="container">
+    <div class="col-xs-12">
+
+      <div class="logo-container">
+        <a id="brewhouse-logo" class="navbar-brand internal" rel="home" href="/" title="brewhouse logo"><img src="/images/brewhouse-logo.svg" alt="Brewhouse" class="img-responsive"></a>
+      </div>
+
+      <button type="button" class="navbar-toggle navbar-toggle-offcanvas js-navbar-toggle-offcanvas">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <div class="main-menu">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <a class="internal btn navbar-btn navbar-right btn--header" href="/work-with-us.html">Hire Us</a>
+          <ul id="navbar-links" class="nav navbar-nav navbar-right">
+            <li><a class="internal" href="/#services">Services</a></li>
+            <li><a class="internal" href="/#projects">Projects</a></li>
+            <li><a href="/meet-the-team.html">Team</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/show">Show</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div>
+
+    </div>
+
+  </div>
+</nav>
+
+
+    <div class="main">
+
+      
+
+<article>
+
+  <div class="page-header">
+    <div class="container">
+      <div class="col-xs-12 col-sm-8 text-xs-center text-sm-left">
+        <h1>Game Programming Design Patterns</h1>
+      </div>
+      <div class="col-xs-12 col-sm-4 text-xs-center">
+        <div class="meta text-center">
+          
+            <div class="author">
+              <img class="img-circle img-author" src="//www.gravatar.com/avatar/b9c5a5cd9c1da090e3b72be857ab9f91?s=135" alt="A photo of Chuck Bergeron" width="55">
+
+              <a href="http://twitter.com/chuckbergeron" target="_blank">Chuck Bergeron</a> wrote this on 14 Oct 2015
+            </div>
+          
+          <div class="social-actions">
+            <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io/2015/10/14/game-programming-design-patterns.html" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="">Tweet</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="article-start" class="container content">
+
+      <div class="col-xs-12 col-sm-8">
+
+        <div class="post clearfix">
+
+          <!-- ![DesignPatternsAnimaion](/images/posts/2015/09/design-patterns.gif) -->
+
+<figure style="display: block; max-width: 100%;height: auto;">
+  <iframe style="border: 0" width="100%" height="300" src="https://s3-us-west-2.amazonaws.com/brewhouse-io/blog/cubes.framer/index.html"></iframe>
+</figure>
+<figcaption>Animation built with <a href="http://framerjs.com/">FramerJS</a>, source code <a href="https://github.com/BrewhouseTeam/cubes-framer">here</a></figcaption>
+
+<p><br /><br /></p>
+
+<p>Programming is one truly interesting skill. Many choose to study it for years in University, while others can pick it up in their spare time simply by reading and completing tutorials online. Learning to build things quickly can be both lucrative and life-improving. However, knowing more of the theory behind programming will help you write great code and comparing your style of programming to others can be a terrific eye-opener.</p>
+
+<p>As multiple developers work on a codebase over time, the software will typically suffer from some common problems: tightly coupled code and spaghetti code are recurring topics amongst developers – and create messes most will want to avoid.</p>
+
+<p>For the past ten years I’ve been coding professionally, I’ve neglected to spend more time learning the underlying theories behind programming. Always preferring the hungry route of digging into the practical parts of development, blazing ahead while building tools and apps. That was until I took an interest in creating video games, which is when Robert Nystrom’s <a href="http://gameprogrammingpatterns.com">Game Programming Patterns</a> caught my attention.</p>
+
+<!-- break -->
+
+<p>If you’re not familiar with the concept of Design Patterns, they loosely outline various architectural methods you could employ to solve common problems anyone working on software could encounter. One of the more notable collections of Design Patterns is the book <a href="http://www.amazon.ca/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612">Design Patterns: Elements of Reusable Object-Oriented Software</a> by four authors, appropratiely dubbed the “Gang of Four”.</p>
+
+<p>Nystrom has compiled nineteen <a href="http://www.blackwasp.co.uk/GofPatterns.aspx">Design Patterns</a> (six of which were written about by the Gang of Four) including some of the more popular ones used today by web developers (<strong><a href="http://gameprogrammingpatterns.com/event-queue.html">Event Queue</a></strong>, <strong><a href="https://en.wikipedia.org/wiki/Service_layers_pattern">Service</a></strong>, <strong><a href="http://gameprogrammingpatterns.com/dirty-flag.html">Dirty Flag</a></strong>, <strong><a href="https://en.wikipedia.org/wiki/Factory_method_pattern">Factory</a></strong>, <strong><a href="https://sourcemaking.com/design_patterns/state">State</a></strong>, <strong><a href="http://gameprogrammingpatterns.com/observer.html">Observer</a></strong> and <strong><a href="https://sourcemaking.com/design_patterns/prototype">Prototype</a></strong>, for instance). They’ve been written from the perspective of how best to organize a video game codebase, though he’s also taken care to craft them so they can be easily digested by programmers of any skill level.</p>
+
+<p>Although a ton of these concepts were new to me, it was the crossover between the two worlds (web development, which I know pretty good and video game development, which I know next to nothing about) that I found most interesting. For instance, reading about <a href="http://gameprogrammingpatterns.com/double-buffer.html">the Double Buffer pattern</a> and how it’s used when rendering graphics brought to mind the typical app deployment strategy used by <a href="http://capistranorb.com/">Capistrano</a> (for running commands on and deploying your web apps to remote servers). Let’s dive into some of these comparisons:</p>
+
+<figure style="border: 1px solid #dedede; padding-bottom: 1px; margin-top: 50px;">
+  <img src="/images/posts/2015/10/double-buffer-swap-sm.png" />
+</figure>
+
+<h2 id="the-double-buffer-pattern">The Double Buffer Pattern</h2>
+
+<p>What is a Buffer?</p>
+
+<blockquote>
+  <p>
+    “In computer science, a data buffer (or just buffer) is a region of a physical memory storage used to temporarily store data while it is being moved from one place to another.”
+    <br /><small>Source: <a href="https://en.wikipedia.org/wiki/Data_buffer">Wikipedia</a></small>
+  </p>
+</blockquote>
+
+<p>In the web app world, we need to deploy our programs to remote servers to run in production mode for any people or other programs to use and abuse. Our tool of choice for this is called Capistrano. When deploying via Capistrano, each release (a snapshot of code at a specific time) is stored in multiple directories on the server. The webserver (Apache, nginx, etc.) points to the <code>current</code> symlink on your filesystem, which in turn points to the most recent release directory. This is what’s served up to end users on the requesting side. The last step when completing a new deploy is to essentially flick a switch and direct the <code>current</code> symlink from the old, outdated directory to the brand new release directory. Following that the end users will now see the newly updated code coming down from your server.</p>
+
+<p>When rendering graphics for a video game most often you would start by running physics calculations, realizing the new position of entities (bullets, players, etc) in the game’s worldspace, then drawing these changes in a new frame for the screen. However, you want to avoid showing this new frame until the physics calculations have completed. Otherwise, you may end up with some entities in the correct locations while others are in incorrect locations, <a href="https://en.wikipedia.org/wiki/Screen_tearing">graphics tearing</a>, or worse. Therefore, it’s best to be drawing the next frame ahead of time, and storing it in a buffer for later use. Then, when it’s done being drawn, you switch the old frame out for the new one.</p>
+
+<p>This bait and switch trick is not only brilliant, but a great solution to a common problem in computing which the Double Buffer pattern solves eloquently.</p>
+
+<h2 id="the-command-pattern">The Command Pattern</h2>
+
+<blockquote>
+  <p>
+    “Commands are an object-oriented replacement for callbacks.”
+    <br /><small>Source: <a href="http://gameprogrammingpatterns.com/command.html">Game Programming Patterns</a></small>
+  </p>
+</blockquote>
+
+<p>You’ve been given the task to create a spreadsheet application and you’re working on the Undo / Redo feature for this spreadsheet. Or, you’re building a turn-based strategy game and you need a history feature to allow the player to step back in time. The correlation between the app world and video game world is clear.</p>
+
+<p>Receiving commands from a user — whether to command units moving around a game board or entering a formula into a spreadsheet — is a fantastic feature of computers (remember pencils &amp; erasers?). What’s needed is the ability to store the history of those commands, queued up in the order they were given. Then, a way of rolling back through each command one by one or all at once.</p>
+
+<p>Nystrom goes into depth on how to implement an Undo / Redo feature using the Command pattern (which he says is one of his favourite patterns), and the pseudocode he’s written can be applied in any subfield of computer programming. It’s another terrific example of just how transferable these design patterns are from one area of expertise to another.</p>
+
+<figure style="border: 1px solid #dedede; padding-bottom: 1px; margin-top: 50px;">
+  <img src="/images/posts/2015/10/event-listener-nodes-sm.png" />
+</figure>
+
+<h2 id="the-observer-pattern">The Observer Pattern</h2>
+
+<p>You’re playing a game and you just found a new secret cave, or killed your billionth goblin (or both, at the same time). A ding sounds and a message appears to let you know you’ve unlocked one of those nifty coveted trophies. The mechanics here require a sort of publish/subscribe system (sometimes shortened to PubSub). This typically involves a section of code in the system broadcasting a message to other parts of the system. The code that sends the message isn’t calling another method defined somewhere directly, but rather sends a broadcast on a channel to space to proclaim “this happened!”.</p>
+
+<p>Observers, which have been registered ahead of time (usually when the app is initialized), subscribe to specific channels they care about and listen for messages being sent. If a message of interest is heard by the observer — say, a bit of code responsible for physics broadcasts a message when the player walks into that secret area — then the observer responds by providing the player with the trophy.</p>
+
+<p>In the past, Rails had a basic observer system built-in. This was typically used for “sweeping” the cache (removing expired cache data). Essentially, when a record was updated in the database, a message was sent out about it and any listening observers would remove the data they had retained about the record’s previous version. However, <a href="http://blog.remarkablelabs.com/2012/12/observers-gem-extraction-rails-4-countdown-to-2013">it was removed</a> along with page and action caching — you can still <a href="https://github.com/rails/rails-observers">use and install it from here</a>.</p>
+
+<p>I’ve also heard that the <a href="https://en.wikipedia.org/wiki/Reactive_programming">reactive programming paradigm</a> relies heavily on Observables, though I have yet to jump into the beauty of reactive programming.</p>
+
+<h2 id="wrapping-up">Wrapping Up</h2>
+
+<p>I’m hoping this has inspired you to dig deeper into programming design patterns and instilled a deep and loving desire to learn all you can about the world of beautiful software architecture. If not, then that’s okay, too.</p>
+
+<p>For more, the book Game Programming Patterns is available for purchase in print, ebook, and pdf from the website: <a href="http://gameprogrammingpatterns.com/">gameprogrammingpatterns.com</a></p>
+
+<p>It’s also available to read for free online: <a href="http://gameprogrammingpatterns.com/contents.html">gameprogrammingpatterns.com/contents.html</a></p>
+
+<p>What are you waiting for? Brush up on or learn some new design patterns now!</p>
+
+
+
+        </div><!-- /post -->
+
+        <div class="hire-us-form text-center">
+  <h2>Let's Work Together</h2>
+  <h3>Find out why our transparent, collaborative process is the best way to make well-loved products.</h3>
+  <a href="/work-with-us.html" class="btn btn--blue">Get in touch today</a>
+</div>
+
+
+        <div id="disqus_thread"></div>
+
+        <!-- disqus -->
+        <script type="text/javascript">
+            var disqus_shortname = 'brewhouse';
+            var disqus_url = 'http://brewhouse.io/2015/10/14/game-programming-design-patterns.html';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        <!-- /disqus -->
+
+      </div>
+
+  </div><!-- /content-->
+
+</article>
+
+<script>
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+</script>
+
+
+    </div>
+
+    <aside class="lets-talk cover">
+  <div class="container">
+    <div class="col-md-6">
+      <h4>Let&apos;s Talk</h4>
+      <p class="lede">We partner with businesses to design and develop well-loved products through a flexible and transparent process. We'd love to discuss how our process can help your idea become a reality.</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="col-md-6">
+      <a href="http://maps.apple.com/?q=210%20Carrall,+Vancouver,+Canada">#303 - 210 Carrall St, Vancouver, BC
+      V6B 2J1</a><br>
+      <a href="tel:+16047574242">+1 604-757-4242</a> &middot;
+      <a href="mailto:hello@brewhouse.io">hello@brewhouse.io</a> &middot;
+      <a href="http://twitter.com/brewhouseteam">@brewhouseteam</a>
+    </div>
+    <div class="col-md-5 col-md-offset-1">
+      <a href="/work-with-us.html" class="btn btn--footer">Hire Us</a>
+    </div>
+  </div>
+</aside>
+
+
+    <footer id="footer">
+  <div class="container">
+    <nav role="navigation" class="col-md-6">
+        <ul>
+          <li>
+            <a href="/meet-the-team.html">Our Team</a>
+          </li>
+          <li>
+            <a class="internal" href="/#services">Services</a>
+          </li>
+          <li>
+            <a class="internal" href="/#projects">Projects</a>
+          </li>
+          <li>
+            <a class="internal" href="/work-with-us.html">Work With Us</a>
+          </li>
+          <li>
+            <a href="/blog">Read Our Blog</a>
+          </li>
+        </ul>
+    </nav>
+    <div class="col-md-5 col-md-push-1">
+      <p class="copyright"> 
+        &copy; <span class="copyright-year"></span> <a href="http://brewhouse.io">brewhouse software, inc.</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+    <script src="/assets/app-535a82bee3349c97d71afb2bb205208d.js"></script>
+
+    <!-- needs to be refactored when we have more layouts -->
+    
+
+  </body>
+</html>
