@@ -10,7 +10,7 @@ episode_length: "00:42:20"
 episode_seconds: 2540
 ---
 
-Mark Hazlett has been a tech support agent for Apple, product engineer for iStockPhoto and Expedia, and founder of his own gaming and tech startups. As Brewhouse's product manager, he oversees the planning and execution of our design and development process for both client and internal projects. This week on [The Brewhouse Show][TBS], learn how a former studio of biology became a complete product nut.
+Mark Hazlett has been a tech support agent for Apple, product engineer for iStockPhoto and Expedia, and founder of his own gaming and tech startups. As Brewhouse's product manager, he oversees the planning and execution of our design and development process for both client and internal projects. This week on [The Brewhouse Show][TBS], learn how a former student of biology became a complete product nut.
 
 <!-- break -->
 
