@@ -52,7 +52,7 @@ KISS - Keep it simple stupid
 YAGNI - You aren’t going to need it https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it
 DRY - Don’t Repeat Yourself. Follow conventions and methods used by computer science theory built over the last 70 years.
 
-Feedback
+# Constant Feedback
 Our value of Collaboration encourages this to occur as frequently as possible with the customer, team and application.
 
 - Feedback from the application:
@@ -67,11 +67,11 @@ Our value of Collaboration encourages this to occur as frequently as possible wi
      - When requirements are discussed, we do this openly with the developers, designers and client.
      - The team provides feedback on implemented code by reviewing Github Pull Requests
 
-Respect
+# Respect
 - We respect that everyone has something to contribute irrelevant of their experience.
 - Providing respect to those that know the business domain so that they we can [listen], [design] and [code] to the best of our ability.
 
-Embracing change
+# Embracing change
 - Provide flexibility to change based on feedback
 - By testing our code it allows things to change and give the developers confidence to know that important areas of the product remain working to the highest possible quality
 - Knowing that everything can be better and never perfect
@@ -79,16 +79,22 @@ Embracing change
 
 (Yes to those of you that know our field these are based off the XP Principles kindly put together by Kent Beck)
 
-# Services
+# Our Services
 
 ## Product Design Sprint
 - Based off Google Ventures and Thoughtbot
 - In 5 days we can help refine what you’re looking to build or extend on your product
 Here’s a little overview of how that works...
 
-## Development
+## Shipping MVP or Product
+
+### Development
 Ruby / Javascript / React.js
 Every software product, needs developers. We are continually pushing ourselves to be better beyond just the code. Our [methodologies] guide us.
+
+### Design
+Ask why
+
 
 ## Staff Augmentation
 Let us help deliver your features while you grow your team or take on larger complex rebuilds..
