@@ -4,3 +4,4 @@ _site
 .listen_test
 .sass-cache
 .ruby-version
+.asset-cache
