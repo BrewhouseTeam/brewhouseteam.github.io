@@ -326,9 +326,7 @@ img.img-centered {
 
 .page-header {
   border: 0;
-  margin: 0;
-  padding: 120px 0 0;
-
+  margin: 120px 0 60px;
   p {
     font: 18px/1.5 $serif;
     margin-bottom: 1em;
@@ -602,6 +600,13 @@ img.img-centered {
   }
 }
 
+.hire-us {
+  margin-bottom: 4em;
+  h2 {
+    margin: 0 0 .5em;
+  }
+}
+
 #privacy-policy-section {
   padding:80px 0;
   h2 {
@@ -644,22 +649,6 @@ img.img-centered {
       color: #fff;
     }
   }
-  .bh-product {
-    background: #fff;
-    border: 1px solid $text-black;
-    color: $text-black;
-    display: inline-block;
-    font-family: $sans-serif;
-    font-size: .75em;
-    font-weight: 700;
-    letter-spacing: .125em;
-    padding: .5em 1em;
-    margin: 0 auto;
-    position: relative;
-    text-transform: uppercase;
-    top: -6.325em;
-    z-index: 3;
-  }
   .project-logo {
     display: block;
   }
@@ -668,22 +657,6 @@ img.img-centered {
     .bh-product {
       top: -11.75em;
     }
-  }
-}
-
-#goodbits {
-  background-color: $text-black;
-  background-image: url('/images/bg-goodbits.jpg');
-  img {
-    height: 42px;
-  }
-  h2 {
-    font-size: 1.5em;
-    font-weight: 400;
-    line-height: 1.5;
-  }
-  &:after {
-    background-color: rgba($text-black, .7);
   }
 }
 
