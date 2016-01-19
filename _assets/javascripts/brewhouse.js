@@ -28,7 +28,7 @@ jQuery(function($) {
 
 
   // Set Copyright Year
-  $footer.find('.copyright-year').html('2015');
+  $footer.find('.copyright-year').html('2016');
 
 
   // Set Sticky on scroll (should also be on page load)
@@ -65,15 +65,6 @@ jQuery(function($) {
 
   }
 
-  // Refactor this video stuff into one func
-  if ( $("video.team-video").length ){
-    if($(window).width() > 750) {
-      $("video.team-video")[0].preload = "auto";
-      $("video.team-video")[0].autoplay = true;
-      $("video.team-video")[0].play();
-    };
-  };
-
   // smooth scroll self-referential links
   $('a[href*=#]:not([href=#])').click(function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -90,15 +81,3 @@ jQuery(function($) {
   });
 
 });
-
-$(window).resize(function() {
-  // Refactor this video stuff into one func
-  if ( $("video.team-video").length ){
-    if($(window).width() > 750) {
-      $("video.team-video")[0].preload = "auto";
-      $("video.team-video")[0].autoplay = true;
-      $("video.team-video")[0].play();
-    };
-  };
-});
-
