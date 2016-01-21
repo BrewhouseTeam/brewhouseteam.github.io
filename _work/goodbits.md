@@ -12,8 +12,6 @@ tags:
 - Product Management
 ---
 
-# Overview
-
 Goodbits is a product we develop and maintain alongside our client work.
 
 It allows users to build email newsletters in minutes by focusing their time on collecting content through automatic collection, team members or a chrome extension.

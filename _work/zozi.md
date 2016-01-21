@@ -9,10 +9,7 @@ tags:
 - Code curation
 ---
 
-# Overview
-
-We worked with Zozi over 2014 and 2015 to augment their team with our staff.
-The goal was to accelerate their projects and improving the overall application by reducing complexity and increasing performance.
+We've been working with Zozi to augment their team. The goal always being to accelerate their projects and improving their overall application by reducing complexity and increasing site performance.
 
 # How did we work
 
