@@ -4,7 +4,6 @@ collection:   work
 title:        "Contour"
 headline:     "We shipped a PO system with realtime chat in 10 weeks"
 thumbnail:    contour.svg
-hero:         contour-desktop.jpg
 project_link: http://retargetlinks.com
 tags:
 - MVP Build

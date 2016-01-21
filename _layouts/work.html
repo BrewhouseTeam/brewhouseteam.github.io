@@ -37,7 +37,9 @@ layout: application
 
   <div id="article-start" class="content">
 
-    <img src="/images/work/{{ page.hero }}" alt="{{ page.title }}" class="project-hero img-responsive">
+    {% if page.hero %}
+      <img src="/images/work/{{ page.hero }}" alt="{{ page.title }}" class="project-hero img-responsive">
+    {% endif %}
 
     <div class="container">
 
