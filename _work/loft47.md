@@ -2,12 +2,12 @@
 layout:       work
 collection:   work
 title:        "Loft 47"
-headline:     "We designed and developed an application for processing real estate transactions in a simple and transparent way"
+headline:     "We designed and developed a product for processing real estate transactions in a simple and transparent way"
 thumbnail:    loft47.svg
 hero:         loft47-desktop.jpg
 project_link: http://loft47.com
 tags:
-- Design
+- MVP Build
 - Development
 - Deployment
 - Recruitment
@@ -21,7 +21,7 @@ Our process started by interviewing people in the real estate industry — agent
 
 From the moment an agent signs with a new client to the time a deal is made, the agent's primary role is to be in constant communication with their client. Sometimes this is to pass along important information, other times it's to assuage any fears the client develops along the way. Generally, agents are in contact with their client at least once a week leading up to the closing of a deal.
 
-However, once a deal has been reached and the conveyancing process begins, clients tend to find themselves inside of a black box where information regarding their deal is no longer accessible. The conveyancing process involves multiple parties, from brokers to conveyancers to lawyers and more, all of whom have tasks that need to be completed before a deal can be completed. In today's system, the client has no insight into who is responsible for ensuring their deal is being taken care of. 
+However, once a deal has been reached and the conveyancing process begins, clients tend to find themselves inside of a black box where information regarding their deal is no longer accessible. The conveyancing process involves multiple parties, from brokers to conveyancers to lawyers and more, all of whom have tasks that need to be completed before a deal can be completed. In today's system, the client has no insight into who is responsible for ensuring their deal is being taken care of.
 
 Loft 47 solves this problem by making the conveyancing process transparent to everyone involved. Each party is invited to a page which tracks the status of everyone's tasks bringing everyone into alignment. People are held accountable, deals are processed faster, and clients feel secure knowing their deal is in good hands.
 
