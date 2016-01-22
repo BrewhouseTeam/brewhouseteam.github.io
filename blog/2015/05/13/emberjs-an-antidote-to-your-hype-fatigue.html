@@ -60,7 +60,7 @@
 <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
 <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
 
-<link rel="stylesheet" href="/assets/application-896a79d9ededda8066f38e28d03d7060.css">
+<link type="text/css" rel="stylesheet" href="/assets/application.css">
 
 
     <!-- needs to be refactored when we have more layouts -->
@@ -83,10 +83,7 @@
     <aside class="offcanvas-menu">
   <ul>
     <li>
-      <a class="internal" href="http://brewhouse.io/#services">Services</a>
-    </li>
-    <li>
-      <a class="internal" href="http://brewhouse.io/#projects">Projects</a>
+      <a class="internal" href="http://brewhouse.io/#work">Work</a>
     </li>
     <li>
       <a href="/meet-the-team.html">Team</a>
@@ -101,7 +98,7 @@
   <a class="btn btn--header" href="/work-with-us.html">Hire Us</a>
 </aside>
 
-    <nav id="navbar-main" class="navbar navbar-default navbar-main navbar-fixed-top">
+    <nav id="navbar-main" class="navbar navbar-default navbar-main">
   <div class="container">
     <div class="col-xs-12">
 
@@ -119,8 +116,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <a class="internal btn navbar-btn navbar-right btn--header" href="/work-with-us.html">Hire Us</a>
           <ul id="navbar-links" class="nav navbar-nav navbar-right">
-            <li><a class="internal" href="/#services">Services</a></li>
-            <li><a class="internal" href="/#projects">Projects</a></li>
+            <li><a class="internal" href="/#work">Work</a></li>
             <li><a href="/meet-the-team.html">Team</a></li>
             <li><a href="/blog">Blog</a></li>
             <li><a href="/show">Show</a></li>
@@ -142,8 +138,8 @@
 
   <div class="page-header">
     <div class="container">
-      <div class="col-xs-12 col-sm-8 text-xs-center text-sm-left">
-        <h1>Ember.js: An Antidote To Your Hype Fatigue</h1>
+      <div class="col-xs-12 col-sm-8">
+        <h1 class="page-title">Ember.js: An Antidote To Your Hype Fatigue</h1>
       </div>
       <div class="col-xs-12 col-sm-4 text-xs-center">
         <div class="meta text-center">
@@ -441,7 +437,7 @@ follow their relationship and so on.</p>
 <p>That brings us to <a href="https://github.com/emberjs/data">Ember Data</a>, the “official”
 persistance/model layer for Ember.</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// app/models/post.js</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// app/models/post.js</span>
 
 <span class="kr">export</span> <span class="k">default</span> <span class="nx">DS</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
 
@@ -452,14 +448,14 @@ persistance/model layer for Ember.</p>
   <span class="nx">author</span><span class="o">:</span> <span class="nx">DS</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="s2">&quot;user&quot;</span><span class="p">),</span>
   <span class="nx">comments</span><span class="o">:</span> <span class="nx">DS</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="s2">&quot;comment&quot;</span><span class="p">)</span>
 
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <p>This is how you would define your model objects in Ember Data. Just like you
 would expect, a model can have attributes and relationships. For example, a blog
 post would probably have a title, body, published at timestamp, an author and
 many comments.</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">store</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">&quot;post&quot;</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">store</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">&quot;post&quot;</span><span class="p">);</span>
 
 <span class="nx">store</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">&quot;post&quot;</span><span class="p">,</span> <span class="p">{</span><span class="nx">q</span><span class="o">:</span> <span class="s2">&quot;Rails&quot;</span><span class="p">});</span>
 
@@ -470,13 +466,13 @@ many comments.</p>
 <span class="nx">store</span><span class="p">.</span><span class="nx">createRecord</span><span class="p">(</span><span class="s2">&quot;post&quot;</span><span class="p">,</span> <span class="p">{</span>
   <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;Rails is Omakase&quot;</span><span class="p">,</span>
   <span class="nx">body</span><span class="o">:</span> <span class="s2">&quot;...&quot;</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <p>Ember Data also manages your models while they are kept in-memory. It would make
 sure that there is only one canonical copy of each model instance in the store,
 and keep them in-sync with the server whenever data comes in over the wire.</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// app/adapters/application.js</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// app/adapters/application.js</span>
 
 <span class="kr">export</span> <span class="k">default</span> <span class="nx">DS</span><span class="p">.</span><span class="nx">RestAdapter</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
   <span class="nx">host</span><span class="o">:</span> <span class="s2">&quot;https://...&quot;</span>
@@ -486,7 +482,7 @@ and keep them in-sync with the server whenever data comes in over the wire.</p>
 
 <span class="kr">export</span> <span class="k">default</span> <span class="nx">FirebaseAdapter</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
   <span class="nx">firebase</span><span class="o">:</span> <span class="s2">&quot;https://...&quot;</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <p>Of course, you can specify where your data comes from and how you communicate
 with those data sources. <a href="http://jsonapi.org/">JSON API</a> will soon become the
@@ -503,7 +499,7 @@ set of command line tools for generating and developing your Ember apps, but
 it also refers to the conventional setup generated by Ember CLI, the tooling
 and ecosystem around it.</p>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">% ember new test-app
+<figure class="highlight"><pre><code class="language-text" data-lang="text">% ember new test-app
 version: 0.2.3
 installing
   create .bowerrc
@@ -541,7 +537,7 @@ installing
   create vendor/.gitkeep
 Installed packages for tooling via npm.
 Installed browser packages via Bower.
-Successfully initialized git.</code></pre></div>
+Successfully initialized git.</code></pre></figure>
 
 <p>For example, running <code>ember new APP_NAME</code> generates a new Ember app with the
 default stack – which includes the conventional file/folder structure for your
@@ -549,7 +545,7 @@ app, Git, ES6 modules transpiler, a module loader, a development server, an
 asset pipeline, test harness, module loader, package management, JSHint, Babel,
 etc.</p>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">% ember serve
+<figure class="highlight"><pre><code class="language-text" data-lang="text">% ember serve
 version: 0.2.3
 Livereload server on port 35729
 Serving on http://localhost:4200/
@@ -578,7 +574,7 @@ Slowest Trees (cumulative)                    | Total (avg)
 Concat: Vendor (1)                            | 103ms
 Funnel (32)                                   | 37ms (1 ms)
 SourcemapConcat (3)                           | 22ms (7 ms)
-TreeMerger (67)                               | 17ms (0 ms)</code></pre></div>
+TreeMerger (67)                               | 17ms (0 ms)</code></pre></figure>
 
 <p>The development server probably deserves a special call out. Under the hood,
 Ember CLI uses <a href="https://github.com/broccolijs/broccoli">Broccoli</a> for the build
@@ -605,7 +601,7 @@ to set it up in the first place.</p>
 harness for your app. When you use the generator, it always generates the
 corresponding test files for you:</p>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">% ember generate resource post
+<figure class="highlight"><pre><code class="language-text" data-lang="text">% ember generate resource post
 version: 0.2.3
 installing
   create app/models/post.js
@@ -615,20 +611,20 @@ installing
   create app/routes/post.js
   create app/templates/post.hbs
 installing
-  create tests/unit/routes/post-test.js</code></pre></div>
+  create tests/unit/routes/post-test.js</code></pre></figure>
 
 <p>This is what your unit test might look like for a model:</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">moduleForModel</span><span class="p">(</span><span class="s1">&#39;post&#39;</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">moduleForModel</span><span class="p">(</span><span class="s1">&#39;post&#39;</span><span class="p">);</span>
 
 <span class="nx">test</span><span class="p">(</span><span class="s1">&#39;slug&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">assert</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">post</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">subject</span><span class="p">({</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Rails is omakase&#39;</span> <span class="p">});</span>
   <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">post</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;slug&#39;</span><span class="p">),</span> <span class="s1">&#39;rails-is-omakase&#39;</span><span class="p">);</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <p>For a component:</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">moduleForComponent</span><span class="p">(</span><span class="s1">&#39;delete-button&#39;</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">moduleForComponent</span><span class="p">(</span><span class="s1">&#39;delete-button&#39;</span><span class="p">);</span>
 
 <span class="nx">test</span><span class="p">(</span><span class="s1">&#39;delete confirmation&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">assert</span><span class="p">)</span> <span class="p">{</span>
 
@@ -639,11 +635,11 @@ installing
   <span class="nx">component</span><span class="p">.</span><span class="nx">$</span><span class="p">().</span><span class="nx">click</span><span class="p">();</span>
 
   <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">component</span><span class="p">.</span><span class="nx">$</span><span class="p">().</span><span class="nx">text</span><span class="p">(),</span> <span class="s1">&#39;Are you sure?&#39;</span><span class="p">);</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <p>End-to-end integration tests:</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;Acceptance: check out&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="p">...</span> <span class="p">});</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;Acceptance: check out&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="p">...</span> <span class="p">});</span>
 
 <span class="nx">test</span><span class="p">(</span><span class="s1">&#39;Express checkout&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">assert</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">visit</span><span class="p">(</span><span class="s1">&#39;/products/agile-web-development-with-rails&#39;</span><span class="p">);</span>
@@ -660,11 +656,11 @@ installing
 
     <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">confirmation</span><span class="p">,</span> <span class="s1">&#39;Thank you for your order&#39;</span><span class="p">);</span>
   <span class="p">});</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <p>You can run them from the command-line using a headless browser:</p>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">% ember test
+<figure class="highlight"><pre><code class="language-text" data-lang="text">% ember test
 version: 0.2.3
 Built project successfully.
 ok 1 PhantomJS 1.9 - JSHint - .: app.js should pass jshint
@@ -677,7 +673,7 @@ ok 11 PhantomJS 1.9 - route:post: it exists
 # pass  11
 # fail  0
 
-# ok</code></pre></div>
+# ok</code></pre></figure>
 
 <p>As you can see, JSHint is also integrated into the testing pipeline. By default,
 a failing JSHint rule would result in a failing test.</p>
@@ -685,7 +681,7 @@ a failing JSHint rule would result in a failing test.</p>
 <p>Or you can run a test server, which automatically reruns your tests in multiple
 browsers whenever you make changes to your files:</p>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">% ember test --server
+<figure class="highlight"><pre><code class="language-text" data-lang="text">% ember test --server
 
 TEST&#39;EM &#39;SCRIPTS!
 Open the URL below in a browser to connect.
@@ -703,7 +699,7 @@ http://localhost:7357/
 
 
 ✔ 5 tests complete.
-[Press ENTER to run tests; q to quit; p to pause]</code></pre></div>
+[Press ENTER to run tests; q to quit; p to pause]</code></pre></figure>
 
 <h4 id="ember-addons">Ember Addons</h4>
 
@@ -764,7 +760,7 @@ is backed by <a href="https://github.com/tildeio/route-recognizer">the same rout
 extracted from Ember, and react-router is also <a href="https://github.com/rackt/react-router#thanks-ember">heavily inspired</a>
 by the Ember router.</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/routes/post.js</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/routes/post.js</span>
 
 <span class="kr">export</span> <span class="k">default</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Route</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
 
@@ -772,7 +768,7 @@ by the Ember router.</p>
     <span class="k">return</span> <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="s2">&quot;/posts/&quot;</span> <span class="o">+</span> <span class="nx">params</span><span class="p">.</span><span class="nx">post_id</span><span class="p">);</span>
   <span class="p">}</span>
 
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <p>This is how you define a route in Ember. You can implement the <code>model</code> hook,
 which receives the parameters extracted from the URL. If you return a Promise
@@ -781,9 +777,9 @@ state. When the promise resolves, it will continue loading the route and
 rendering its templates; if it rejects, it will transition the app into an error
 state.</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">store</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">&quot;post&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">post</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">store</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">&quot;post&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">post</span><span class="p">)</span> <span class="p">{</span>
   <span class="p">...</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <p>Similarly, Ember Data uses Promises everywhere too. When you try to fetch a
 model from your server, it will return a promise as it waits for the response.</p>
@@ -793,7 +789,7 @@ Since the Ember Data store returns a Promise and the router expects you to
 return one from the <code>model</code> hook, the common async operations are very
 economical:</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/routes/post.js</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/routes/post.js</span>
 
 <span class="kr">export</span> <span class="k">default</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Route</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
 
@@ -801,23 +797,23 @@ economical:</p>
     <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">store</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">&quot;post&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">.</span><span class="nx">post_id</span><span class="p">);</span>
   <span class="p">}</span>
 
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <p>In fact, since Ember knows that you are inside the <code>PostRoute</code>, and you have a
 <code>Post</code> model, and you have a <code>post_id</code> in your URL param, Ember can basically
 figure out what you want to do anyway, so you could have skipped the model hook
 altogether if you want:</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/routes/post.js</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/routes/post.js</span>
 
 <span class="kr">export</span> <span class="k">default</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Route</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
 
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <p>Likewise, Ember uses Promises in acceptance tests, since all user interactions
 are async in the browser:</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;Acceptance: check out&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="p">...</span> <span class="p">});</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;Acceptance: check out&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="p">...</span> <span class="p">});</span>
 
 <span class="nx">test</span><span class="p">(</span><span class="s1">&#39;Express checkout&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">assert</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">visit</span><span class="p">(</span><span class="s1">&#39;/products/agile-web-development-with-rails&#39;</span><span class="p">)</span>
@@ -835,12 +831,12 @@ are async in the browser:</p>
       <span class="kd">var</span> <span class="nx">confirmation</span> <span class="o">=</span> <span class="nx">find</span><span class="p">(</span><span class="s1">&#39;#notice h3&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">();</span>
       <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">confirmation</span><span class="p">,</span> <span class="s1">&#39;Thank you for your order&#39;</span><span class="p">);</span>
     <span class="p">});</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <p>But since Ember has knowledge about the whole stack, it can spare you for those
 noisy syntax and just queue them up automatically:</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;Acceptance: check out&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="p">...</span> <span class="p">});</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;Acceptance: check out&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="p">...</span> <span class="p">});</span>
 
 <span class="nx">test</span><span class="p">(</span><span class="s1">&#39;Express checkout&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">assert</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">visit</span><span class="p">(</span><span class="s1">&#39;/products/agile-web-development-with-rails&#39;</span><span class="p">);</span>
@@ -857,7 +853,7 @@ noisy syntax and just queue them up automatically:</p>
 
     <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">confirmation</span><span class="p">,</span> <span class="s1">&#39;Thank you for your order&#39;</span><span class="p">);</span>
   <span class="p">});</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <p>Oh. And of course there will be a helpful view in the Ember inspector to help
 you track down and debug these promises:</p>
@@ -896,7 +892,7 @@ sometimes referred to as ES6 or ES2015.</p>
 
 <p>In fact, Ember CLI apps have been using ES6 modules syntax since day one:</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/models/post.js</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/models/post.js</span>
 
 <span class="kr">import</span> <span class="nx">DS</span> <span class="nx">from</span> <span class="err">“</span><span class="nx">ember</span><span class="o">-</span><span class="nx">data</span><span class="err">”</span><span class="p">;</span>
 
@@ -914,7 +910,7 @@ sometimes referred to as ES6 or ES2015.</p>
 
 <span class="kr">import</span> <span class="nx">Post</span> <span class="nx">from</span> <span class="s1">&#39;test-app/models/post&#39;</span><span class="p">;</span>
 
-<span class="c1">// ...</span></code></pre></div>
+<span class="c1">// ...</span></code></pre></figure>
 
 <p>Out of the box, Ember CLI also sets up the <a href="http://babeljs.io/">Babel ES6 transpiler</a>,
 so most of the Ember community has already been writing the next version of
@@ -933,12 +929,12 @@ a bit easier ;)</p>
 proposal for JavaScript decorators have already been implemented on Babel, we
 can begin experimenting with that today:</p>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">&gt; ember install ember-cli-computed-decorators</code></pre></div>
+<figure class="highlight"><pre><code class="language-text" data-lang="text">&gt; ember install ember-cli-computed-decorators</code></pre></figure>
 
 <p>That’s all you need to do to experiment with the proposed syntax today. It looks
 like this:</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/models/user.js</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/models/user.js</span>
 
 <span class="kr">import</span> <span class="nx">DS</span> <span class="nx">from</span> <span class="s1">&#39;ember-data&#39;</span><span class="p">;</span>
 <span class="kr">import</span> <span class="nx">computed</span> <span class="nx">from</span> <span class="s1">&#39;ember-computed-decorators&#39;</span><span class="p">;</span>
@@ -953,7 +949,7 @@ like this:</p>
     <span class="k">return</span> <span class="err">`</span><span class="nx">$</span><span class="p">{</span> <span class="nx">firstName</span> <span class="p">}</span> <span class="nx">$</span><span class="p">{</span> <span class="nx">lastName</span> <span class="p">}</span><span class="err">`</span><span class="p">;</span>
   <span class="p">}</span>
 
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <p>In particular, that line beginning with the @ symbol is the proposed decorators
 feature that would allow Ember to eventually use native ES6 classes.</p>
@@ -1117,7 +1113,7 @@ apps.</p>
 
 <p>This is what templates look like in Ember Handlebars:</p>
 
-<div class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars">// app/templates/post.hbs
+<figure class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars">// app/templates/post.hbs
 
 <span class="nt">&lt;h1&gt;</span><span class="cp">{{</span> <span class="nv">post.title</span> <span class="cp">}}</span><span class="nt">&lt;/h1&gt;</span>
 
@@ -1125,11 +1121,11 @@ apps.</p>
 
   <span class="cp">{{</span><span class="nv">markdownToHTML</span> <span class="nv">post.body</span><span class="cp">}}</span>
 
-<span class="nt">&lt;/div&gt;</span></code></pre></div>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
 
 <p>And this is what templates look like in HTMLBars:</p>
 
-<div class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars">// app/templates/post.hbs
+<figure class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars">// app/templates/post.hbs
 
 <span class="nt">&lt;h1&gt;</span><span class="cp">{{</span> <span class="nv">post.title</span> <span class="cp">}}</span><span class="nt">&lt;/h1&gt;</span>
 
@@ -1137,7 +1133,7 @@ apps.</p>
 
   <span class="cp">{{</span><span class="nv">markdownToHTML</span> <span class="nv">post.body</span><span class="cp">}}</span>
 
-<span class="nt">&lt;/div&gt;</span></code></pre></div>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
 
 <p>You probably don’t see any differences, because there are none. They literally
 completely swapped out the string-based Handlebars engine, with a DOM-based
@@ -1155,7 +1151,7 @@ enabled by HTMLBars called bound attributes.</p>
 
 <p>This is what your templates might look like in 1.10:</p>
 
-<div class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars">// app/templates/post.hbs
+<figure class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars">// app/templates/post.hbs
 
 <span class="nt">&lt;h1&gt;</span><span class="cp">{{</span> <span class="nv">post.title</span> <span class="cp">}}</span><span class="nt">&lt;/h1&gt;</span>
 
@@ -1163,11 +1159,11 @@ enabled by HTMLBars called bound attributes.</p>
 
   <span class="cp">{{</span><span class="nv">markdownToHTML</span> <span class="nv">post.body</span><span class="cp">}}</span>
 
-<span class="nt">&lt;/div&gt;</span></code></pre></div>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
 
 <p>And this is what it would look like in 1.11:</p>
 
-<div class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars">// app/templates/post.hbs
+<figure class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars">// app/templates/post.hbs
 
 <span class="nt">&lt;h1&gt;</span><span class="cp">{{</span> <span class="nv">post.title</span> <span class="cp">}}</span><span class="nt">&lt;/h1&gt;</span>
 
@@ -1175,7 +1171,7 @@ enabled by HTMLBars called bound attributes.</p>
 
   <span class="cp">{{</span><span class="nv">markdownToHTML</span> <span class="nv">post.body</span><span class="cp">}}</span>
 
-<span class="nt">&lt;/div&gt;</span></code></pre></div>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
 
 <p>Once again, you probably didn’t notice any differences, because there are none.
 Your existing template just kept working as you would expect. The difference is
@@ -1188,7 +1184,7 @@ the limitations in the string-based Handlebars engine.</p>
 
 <p>With the new HTMLBars engine, Ember have a much easier time doing that for you:</p>
 
-<div class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars">// app/templates/post.hbs
+<figure class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars">// app/templates/post.hbs
 
 <span class="nt">&lt;h1&gt;</span><span class="cp">{{</span> <span class="nv">post.title</span> <span class="cp">}}</span><span class="nt">&lt;/h1&gt;</span>
 
@@ -1196,7 +1192,7 @@ the limitations in the string-based Handlebars engine.</p>
 
   <span class="cp">{{</span><span class="nv">markdownToHTML</span> <span class="nv">post.body</span><span class="cp">}}</span>
 
-<span class="nt">&lt;/div&gt;</span></code></pre></div>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
 
 <p>Much nicer. But remember – you can take your time to do the refactor. The old
 <code>bind-attr</code> helper will continue to work in the rest of the 1.x releases.</p>
@@ -1345,7 +1341,6 @@ stick around.</p>
     <aside class="lets-talk cover">
   <div class="container">
     <div class="col-md-6">
-      <h4>Let&apos;s Talk</h4>
       <p class="lede">We partner with businesses to design and develop well-loved products through a flexible and transparent process. We'd love to discuss how our process can help your idea become a reality.</p>
     </div>
   </div>
@@ -1369,7 +1364,7 @@ stick around.</p>
     <nav role="navigation" class="col-md-6">
         <ul>
           <li>
-            <a href="/meet-the-team.html">Our Team</a>
+            <a class="internal" href="/#work">Work</a>
           </li>
           <li>
             <a class="internal" href="/#services">Services</a>
@@ -1386,14 +1381,15 @@ stick around.</p>
         </ul>
     </nav>
     <div class="col-md-5 col-md-push-1">
-      <p class="copyright"> 
+      <p class="copyright">
         &copy; <span class="copyright-year"></span> <a href="http://brewhouse.io">brewhouse software, inc.</a>
       </p>
     </div>
   </div>
 </footer>
 
-    <script src="/assets/app-535a82bee3349c97d71afb2bb205208d.js"></script>
+
+    <script type="text/javascript" src="/assets/app.js"></script>
 
     <!-- needs to be refactored when we have more layouts -->
     

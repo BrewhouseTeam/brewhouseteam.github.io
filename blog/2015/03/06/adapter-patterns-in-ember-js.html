@@ -56,7 +56,7 @@
 <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
 <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
 
-<link rel="stylesheet" href="/assets/application-896a79d9ededda8066f38e28d03d7060.css">
+<link type="text/css" rel="stylesheet" href="/assets/application.css">
 
 
     <!-- needs to be refactored when we have more layouts -->
@@ -79,10 +79,7 @@
     <aside class="offcanvas-menu">
   <ul>
     <li>
-      <a class="internal" href="http://brewhouse.io/#services">Services</a>
-    </li>
-    <li>
-      <a class="internal" href="http://brewhouse.io/#projects">Projects</a>
+      <a class="internal" href="http://brewhouse.io/#work">Work</a>
     </li>
     <li>
       <a href="/meet-the-team.html">Team</a>
@@ -97,7 +94,7 @@
   <a class="btn btn--header" href="/work-with-us.html">Hire Us</a>
 </aside>
 
-    <nav id="navbar-main" class="navbar navbar-default navbar-main navbar-fixed-top">
+    <nav id="navbar-main" class="navbar navbar-default navbar-main">
   <div class="container">
     <div class="col-xs-12">
 
@@ -115,8 +112,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <a class="internal btn navbar-btn navbar-right btn--header" href="/work-with-us.html">Hire Us</a>
           <ul id="navbar-links" class="nav navbar-nav navbar-right">
-            <li><a class="internal" href="/#services">Services</a></li>
-            <li><a class="internal" href="/#projects">Projects</a></li>
+            <li><a class="internal" href="/#work">Work</a></li>
             <li><a href="/meet-the-team.html">Team</a></li>
             <li><a href="/blog">Blog</a></li>
             <li><a href="/show">Show</a></li>
@@ -138,8 +134,8 @@
 
   <div class="page-header">
     <div class="container">
-      <div class="col-xs-12 col-sm-8 text-xs-center text-sm-left">
-        <h1>Adapter Patterns in Ember.js</h1>
+      <div class="col-xs-12 col-sm-8">
+        <h1 class="page-title">Adapter Patterns in Ember.js</h1>
       </div>
       <div class="col-xs-12 col-sm-4 text-xs-center">
         <div class="meta text-center">
@@ -225,7 +221,7 @@ temperature. Unfortunately, the driver is hardcoded to report temperatures in
 Celsius codebase you are working with expects Fahrenheit everywhere. What do you
 do?</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">CelsiusSensor</span> <span class="o">=</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">CelsiusSensor</span> <span class="o">=</span> <span class="p">{</span>
   <span class="nx">getTemperature</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// Measures temperature in °C</span>
   <span class="p">}</span>
@@ -238,7 +234,7 @@ do?</p>
       <span class="p">...</span>
     <span class="p">}</span>
   <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
-<span class="p">};</span></code></pre></div>
+<span class="p">};</span></code></pre></figure>
 
 <p>Now, you can go ahead and rewrite all those parts of your codebase. Whether that
 is a feasible or not depends on the complexity of your existing code, but it is
@@ -248,7 +244,7 @@ probably the digital-equivilant of rewiring your house to use a vacuum cleaner.<
 your adapter code would expose an interface that the consuming end expects, and
 internally use another object to fulfill these requests:</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">CelsiusSensorAdapter</span><span class="p">(</span><span class="nx">sensor</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">CelsiusSensorAdapter</span><span class="p">(</span><span class="nx">sensor</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">this</span><span class="p">.</span><span class="nx">sensor</span> <span class="o">=</span> <span class="nx">sensor</span><span class="p">;</span>
 <span class="p">};</span>
 
@@ -259,7 +255,7 @@ internally use another object to fulfill these requests:</p>
 <span class="p">};</span>
 
 <span class="c1">// Use it!</span>
-<span class="k">new</span> <span class="nx">FahrenheitMonitor</span><span class="p">(</span> <span class="k">new</span> <span class="nx">CelsiusSensorAdapter</span><span class="p">(</span><span class="nx">CelsiusSensor</span><span class="p">)</span> <span class="p">);</span></code></pre></div>
+<span class="k">new</span> <span class="nx">FahrenheitMonitor</span><span class="p">(</span> <span class="k">new</span> <span class="nx">CelsiusSensorAdapter</span><span class="p">(</span><span class="nx">CelsiusSensor</span><span class="p">)</span> <span class="p">);</span></code></pre></figure>
 
 <h2 id="real-world-adapter-patterns">Real-world Adapter Patterns</h2>
 
@@ -314,7 +310,7 @@ user to be authenticated.)</p>
 
 <p>That’s exactly what I did.</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/news&quot;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span> <span class="kd">function</span><span class="p">(</span><span class="nx">html</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/news&quot;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span> <span class="kd">function</span><span class="p">(</span><span class="nx">html</span><span class="p">)</span> <span class="p">{</span>
 <span class="err"> </span>
   <span class="kd">var</span> <span class="nx">stories</span> <span class="o">=</span> <span class="p">[];</span>
 <span class="err"> </span>
@@ -331,7 +327,7 @@ user to be authenticated.)</p>
 
   <span class="k">return</span> <span class="nx">stories</span><span class="p">;</span>
 <span class="err"> </span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <p>As you can see, I first make an AJAX request to retrieve the HTML page, then run
 it through an HTML parser and extract the elements I need to build the JSON
@@ -367,7 +363,7 @@ drop an adapter between them to help them talk to each other. This in such a
 common pattern that Ember data already has built-in support for it via the
 <code>DS.Adapter</code> and <code>DS.Serializer</code> classes:</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">App</span><span class="p">.</span><span class="nx">StoryAdapter</span> <span class="o">=</span> <span class="nx">DS</span><span class="p">.</span><span class="nx">Adapter</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">App</span><span class="p">.</span><span class="nx">StoryAdapter</span> <span class="o">=</span> <span class="nx">DS</span><span class="p">.</span><span class="nx">Adapter</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
 <span class="err"> </span>
   <span class="nx">findAll</span><span class="p">(</span><span class="nx">store</span><span class="p">,</span> <span class="nx">type</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/news&quot;</span><span class="p">);</span>
@@ -386,7 +382,7 @@ common pattern that Ember data already has built-in support for it via the
     <span class="k">return</span> <span class="nx">stories</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="err"> </span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <p>Without getting into too much details, the adapter is responsible for fetching
 the data from the server, and the serializer is responsible for interpreting the
@@ -404,13 +400,13 @@ and conventions around how you should structure your URLs.</p>
 <p>For a page like <a href="http://chancancode.github.io/hn-reader/item?id=9158222">this</a>,
 you would probably have a URL structure that resembles this:</p>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">/                                      |  The application route (the &quot;gutter&quot; on the left)
+<figure class="highlight"><pre><code class="language-text" data-lang="text">/                                      |  The application route (the &quot;gutter&quot; on the left)
                                        |
 /stories                               |  The sidebar that shows the list of stories
                                        |
 /stories/:story_id                     |  The header on the main content panel on the right
                                        |
-/stories/:story_id/{article,comments}  |  The content of the article/comments tab</code></pre></div>
+/stories/:story_id/{article,comments}  |  The content of the article/comments tab</code></pre></figure>
 
 <p>The router API does offer you some flexibility to control how you want to name
 each of these segments, but in general, you need to have one segment per nested
@@ -428,7 +424,7 @@ is the “ideal” URL structure for the Ember router, based on the nesting in t
 UI; on the right are the actual URLs for the equivalent pages on the Hacker News
 website:</p>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">“IDEAL” URL                                  |  ACTUAL URL
+<figure class="highlight"><pre><code class="language-text" data-lang="text">“IDEAL” URL                                  |  ACTUAL URL
 ---------------------------------------------+---------------------------------------------
                                              |
 /stories                                     |  /news
@@ -437,7 +433,7 @@ website:</p>
                                              |
 /stories/9132815/comments                    |  /item?id=9132815
                                              |
-/stories/9132815/comments?highlight=9133317  |  /item?id=9133317</code></pre></div>
+/stories/9132815/comments?highlight=9133317  |  /item?id=9133317</code></pre></figure>
 
 <p>You probably saw this coming – I can just write an adapter for this!</p>
 
@@ -463,7 +459,7 @@ actually shown to the user.</p>
 already support two ways to read and write the URLs out-of-the-box: the “normal”
 URLs using the history API, and the hash URLs to support older browsers:</p>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">HISTORY LOCATION                             |  HASH LOCATION
+<figure class="highlight"><pre><code class="language-text" data-lang="text">HISTORY LOCATION                             |  HASH LOCATION
 ---------------------------------------------+----------------------------------------------
                                              |
 /stories                                     |  #/stories
@@ -472,7 +468,7 @@ URLs using the history API, and the hash URLs to support older browsers:</p>
                                              |
 /stories/9132815/comments                    |  #/stories/9132815/comments
                                              |
-/stories/9132815/comments?highlight=9133317  |  #/stories/9132815/comments?highlight=9133317</code></pre></div>
+/stories/9132815/comments?highlight=9133317  |  #/stories/9132815/comments?highlight=9133317</code></pre></figure>
 
 <p>To support these two types of URLs, Ember is once again using the adapter
 pattern. These two mechanisms are encapsulated inside the <code>HistoryLocation</code> and
@@ -481,7 +477,7 @@ stack regardless of which concrete implementation is being used.</p>
 
 <p>This is great news, because I can just as easily write my own adapter, too!</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">App</span><span class="p">.</span><span class="nx">HackerNewsLocation</span> <span class="o">=</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">HistoryLocation</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">App</span><span class="p">.</span><span class="nx">HackerNewsLocation</span> <span class="o">=</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">HistoryLocation</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
 <span class="err"> </span>
   <span class="nx">getURL</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">actualURL</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_super</span><span class="p">();</span>
@@ -517,7 +513,7 @@ stack regardless of which concrete implementation is being used.</p>
 <span class="err"> </span>
 <span class="nx">App</span><span class="p">.</span><span class="nx">Router</span><span class="p">.</span><span class="nx">reopen</span><span class="p">({</span>
   <span class="nx">location</span><span class="o">:</span> <span class="s2">&quot;hacker-news&quot;</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <p>Because Ember already has to support the two different URL types across the
 entire stack, once I implemented this adapter correctly, everything Just Works™
@@ -558,18 +554,18 @@ more accurately the <code>Ember.Observable</code> mixin that is included in <cod
 
 <p>If we put the two APIs side-by-side, you might notice some similarities:</p>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">LOCAL STORAGE                        |  Ember.Observable
+<figure class="highlight"><pre><code class="language-text" data-lang="text">LOCAL STORAGE                        |  Ember.Observable
 -------------------------------------+-------------------------------------
                                      |
 localStorage.getItem(&quot;key&quot;);         |  obj.get(&quot;key&quot;);
                                      |
 localStorage.setItem(&quot;key&quot;, value);  |  obj.set(&quot;key&quot;, value);
                                      |
-$(window).on(&quot;storage&quot;, ...);        |  obj.addObserver( ... );</code></pre></div>
+$(window).on(&quot;storage&quot;, ...);        |  obj.addObserver( ... );</code></pre></figure>
 
 <p>This seems like a textbook example for the adapter pattern:</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">App</span><span class="p">.</span><span class="nx">LocalStorage</span> <span class="o">=</span> <span class="nx">Ember</span><span class="p">.</span><span class="nb">Object</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">App</span><span class="p">.</span><span class="nx">LocalStorage</span> <span class="o">=</span> <span class="nx">Ember</span><span class="p">.</span><span class="nb">Object</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
 
   <span class="nx">init</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;storage&quot;</span><span class="p">,</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">run</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s2">&quot;_onStorageEvent&quot;</span><span class="p">)</span> <span class="p">);</span>
@@ -592,7 +588,7 @@ $(window).on(&quot;storage&quot;, ...);        |  obj.addObserver( ... );</code>
     <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">off</span><span class="p">(</span><span class="s2">&quot;storage&quot;</span><span class="p">);</span>
   <span class="p">}</span>
 
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <p>Indeed, all I have to do is to write an adapter that exposes the same interface
 as an <code>Ember.Object</code> (<code>Ember.Observable</code>), with that, the rest of the Ember
@@ -687,7 +683,6 @@ amazing conference! &lt;3 &lt;3 &lt;3 &lt;3 &lt;3)</p>
     <aside class="lets-talk cover">
   <div class="container">
     <div class="col-md-6">
-      <h4>Let&apos;s Talk</h4>
       <p class="lede">We partner with businesses to design and develop well-loved products through a flexible and transparent process. We'd love to discuss how our process can help your idea become a reality.</p>
     </div>
   </div>
@@ -711,7 +706,7 @@ amazing conference! &lt;3 &lt;3 &lt;3 &lt;3 &lt;3)</p>
     <nav role="navigation" class="col-md-6">
         <ul>
           <li>
-            <a href="/meet-the-team.html">Our Team</a>
+            <a class="internal" href="/#work">Work</a>
           </li>
           <li>
             <a class="internal" href="/#services">Services</a>
@@ -728,14 +723,15 @@ amazing conference! &lt;3 &lt;3 &lt;3 &lt;3 &lt;3)</p>
         </ul>
     </nav>
     <div class="col-md-5 col-md-push-1">
-      <p class="copyright"> 
+      <p class="copyright">
         &copy; <span class="copyright-year"></span> <a href="http://brewhouse.io">brewhouse software, inc.</a>
       </p>
     </div>
   </div>
 </footer>
 
-    <script src="/assets/app-535a82bee3349c97d71afb2bb205208d.js"></script>
+
+    <script type="text/javascript" src="/assets/app.js"></script>
 
     <!-- needs to be refactored when we have more layouts -->
     

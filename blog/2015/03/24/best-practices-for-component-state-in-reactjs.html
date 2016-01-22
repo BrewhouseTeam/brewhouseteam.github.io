@@ -56,7 +56,7 @@
 <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
 <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
 
-<link rel="stylesheet" href="/assets/application-896a79d9ededda8066f38e28d03d7060.css">
+<link type="text/css" rel="stylesheet" href="/assets/application.css">
 
 
     <!-- needs to be refactored when we have more layouts -->
@@ -79,10 +79,7 @@
     <aside class="offcanvas-menu">
   <ul>
     <li>
-      <a class="internal" href="http://brewhouse.io/#services">Services</a>
-    </li>
-    <li>
-      <a class="internal" href="http://brewhouse.io/#projects">Projects</a>
+      <a class="internal" href="http://brewhouse.io/#work">Work</a>
     </li>
     <li>
       <a href="/meet-the-team.html">Team</a>
@@ -97,7 +94,7 @@
   <a class="btn btn--header" href="/work-with-us.html">Hire Us</a>
 </aside>
 
-    <nav id="navbar-main" class="navbar navbar-default navbar-main navbar-fixed-top">
+    <nav id="navbar-main" class="navbar navbar-default navbar-main">
   <div class="container">
     <div class="col-xs-12">
 
@@ -115,8 +112,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <a class="internal btn navbar-btn navbar-right btn--header" href="/work-with-us.html">Hire Us</a>
           <ul id="navbar-links" class="nav navbar-nav navbar-right">
-            <li><a class="internal" href="/#services">Services</a></li>
-            <li><a class="internal" href="/#projects">Projects</a></li>
+            <li><a class="internal" href="/#work">Work</a></li>
             <li><a href="/meet-the-team.html">Team</a></li>
             <li><a href="/blog">Blog</a></li>
             <li><a href="/show">Show</a></li>
@@ -138,8 +134,8 @@
 
   <div class="page-header">
     <div class="container">
-      <div class="col-xs-12 col-sm-8 text-xs-center text-sm-left">
-        <h1>Best Practices for Component State in React.js</h1>
+      <div class="col-xs-12 col-sm-8">
+        <h1 class="page-title">Best Practices for Component State in React.js</h1>
       </div>
       <div class="col-xs-12 col-sm-4 text-xs-center">
         <div class="meta text-center">
@@ -180,7 +176,7 @@
 
 <p>First, and probably the most important of all, the state of a component should not depend on the props passed in. Of course props may pass down state-like ideas - for example, on a custom input component, I may choose to have a <code>disabled</code> prop which disables some internal text input - but when I say “state”, I’m referring specifically to the state attribute of the component. You may begin to notice a code smell when the state starts to depend on it’s props. Take a look at the following snippet:</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">React</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;react/addons&#39;</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">React</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;react/addons&#39;</span><span class="p">);</span>
 
 <span class="kr">class</span> <span class="nx">UserWidget</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
   <span class="c1">// ...</span>
@@ -203,16 +199,16 @@
       <span class="o">&lt;</span><span class="err">/div&gt;</span>
     <span class="p">);</span>
   <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></figure>
 
 <p>What’s wrong with this? It may not be obvious at first, but if <code>firstName</code> or <code>lastName</code> change, the view of this <code>UserWidget</code> will not change. The constructor function only runs when the component is mounted and thus <code>fullName</code> is forever whatever it was when the component mounted.* Developers who are new to React will often make this mistake, perhaps because <code>setState</code> is the easiest and most obvious way to update the component view.</p>
 
 <p>You should ask yourself whether this component owns this data. Were <code>firstName</code> and <code>lastName</code> created internally? If not, then the state should not depend on it.** And what is the best way to avoid this? Calculate <code>fullName</code> as a part of the <code>render</code> function.</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">render</span> <span class="p">()</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">render</span> <span class="p">()</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">fullName</span> <span class="o">=</span> <span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">firstName</span><span class="p">}</span> <span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">lastName</span><span class="p">}</span><span class="err">`</span><span class="p">;</span>
   <span class="c1">// ...</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></figure>
 
 <p>By moving this to the render function, we are now never again concerned about whether <code>fullName</code> will be updated. React has hooks to run a function whenever props are updated - <em>i.e.</em> <code>componentWillReceiveProps</code> - however, I would consider using this an anti-pattern because it adds complexity when it’s not needed.</p>
 
@@ -232,7 +228,7 @@
 
 <p>Consider the following example where we have some component which stores a list of classes in its state based on whether it was clicked or hovered. (And for what it’s worth, I have seen this kind of thing a lot in the wild):</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">React</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;react/addons&#39;</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">React</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;react/addons&#39;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">cx</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">classSet</span><span class="p">;</span>
 
 <span class="kr">class</span> <span class="nx">ArbitraryWidget</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
@@ -286,11 +282,11 @@
         <span class="nx">onMouseOut</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleMouseOut</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">)}</span> <span class="o">/&gt;</span>
     <span class="p">);</span>
   <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></figure>
 
 <p>This component works; however, I do have some serious reservations. It’s state is now an awkward array of strings. <code>this.state.classes = ['active', 'hover']</code>. Not only does this format hurt the readability of the code, but it makes it more difficult to change. Having other components relying on whether or not my array of classes contains <code>hover</code> isn’t quite the same as checking a boolean flag. Consider this refactoring where we instead store boolean values that represent whether or not the component should have a class - <em>e.g.</em> <code>isHovering === true</code> implies that I should use the <code>hover</code> class:</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">React</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;react/addons&#39;</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">React</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;react/addons&#39;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">cx</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">classSet</span><span class="p">;</span>
 
 <span class="kr">class</span> <span class="nx">ArbitraryWidget</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
@@ -334,7 +330,7 @@
         <span class="nx">onMouseOut</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleMouseOut</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">)}</span> <span class="o">/&gt;</span>
     <span class="p">);</span>
   <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></figure>
 
 <p>Whoa! By boiling the state concerns down to boolean values we must calculate the array of classes from within the render function; though, we also enhance the readability of the component. <code>this.state.isHovering</code> is a far better representation of the <strong>actual</strong> component state than <code>this.state.classes.indexOf('hover') != -1</code>. The component can be more easily extended and tested because we’re not concerned with the construction of some array.</p>
 
@@ -350,7 +346,7 @@
 
 <p>Of course, you don’t have to cram all of code into a single function. On the contrary, it’s best to extract helper functions (with good names) when appropriate. The point is still that you should reduce complexity in your state by allowing the render function to do most of the decision making. You might decide to prefix these helpers with <code>render</code> as in the following example:**</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// GOOD: Helper function to render fullName</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// GOOD: Helper function to render fullName</span>
 <span class="nx">renderFullName</span> <span class="p">()</span> <span class="p">{</span>
   <span class="k">return</span> <span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">firstName</span><span class="p">}</span> <span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">lastName</span><span class="p">}</span><span class="err">`</span><span class="p">;</span>
 <span class="p">}</span>
@@ -358,7 +354,7 @@
 <span class="nx">render</span> <span class="p">()</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">fullName</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">renderFullName</span><span class="p">();</span>
   <span class="c1">// ...</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></figure>
 
 <p><small style="font-size:10px; margin-bottom: -30px; display: block;">
 *For the love of all that is holy, please do not store components in the state.
@@ -376,7 +372,7 @@
 
 <p>Just don’t. Storing values on the instance of a component is doing this:</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">React</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;react/addons&#39;</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">React</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;react/addons&#39;</span><span class="p">);</span>
 
 <span class="kr">class</span> <span class="nx">ArbitraryWidget</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
   <span class="c1">// ...</span>
@@ -393,7 +389,7 @@
     <span class="kd">var</span> <span class="nx">something</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">derp</span><span class="p">;</span>
     <span class="c1">// ...</span>
   <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></figure>
 
 <p>This is particularly bad, not only because you’re breaking the obvious convention of storing state on <code>this.state</code>, but because <code>render</code> won’t automatically trigger when <code>this.derp</code> is updated.</p>
 
@@ -456,7 +452,6 @@
     <aside class="lets-talk cover">
   <div class="container">
     <div class="col-md-6">
-      <h4>Let&apos;s Talk</h4>
       <p class="lede">We partner with businesses to design and develop well-loved products through a flexible and transparent process. We'd love to discuss how our process can help your idea become a reality.</p>
     </div>
   </div>
@@ -480,7 +475,7 @@
     <nav role="navigation" class="col-md-6">
         <ul>
           <li>
-            <a href="/meet-the-team.html">Our Team</a>
+            <a class="internal" href="/#work">Work</a>
           </li>
           <li>
             <a class="internal" href="/#services">Services</a>
@@ -497,14 +492,15 @@
         </ul>
     </nav>
     <div class="col-md-5 col-md-push-1">
-      <p class="copyright"> 
+      <p class="copyright">
         &copy; <span class="copyright-year"></span> <a href="http://brewhouse.io">brewhouse software, inc.</a>
       </p>
     </div>
   </div>
 </footer>
 
-    <script src="/assets/app-535a82bee3349c97d71afb2bb205208d.js"></script>
+
+    <script type="text/javascript" src="/assets/app.js"></script>
 
     <!-- needs to be refactored when we have more layouts -->
     

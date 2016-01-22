@@ -60,7 +60,7 @@
 <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
 <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
 
-<link rel="stylesheet" href="/assets/application-896a79d9ededda8066f38e28d03d7060.css">
+<link type="text/css" rel="stylesheet" href="/assets/application.css">
 
 
     <!-- needs to be refactored when we have more layouts -->
@@ -83,10 +83,7 @@
     <aside class="offcanvas-menu">
   <ul>
     <li>
-      <a class="internal" href="http://brewhouse.io/#services">Services</a>
-    </li>
-    <li>
-      <a class="internal" href="http://brewhouse.io/#projects">Projects</a>
+      <a class="internal" href="http://brewhouse.io/#work">Work</a>
     </li>
     <li>
       <a href="/meet-the-team.html">Team</a>
@@ -101,7 +98,7 @@
   <a class="btn btn--header" href="/work-with-us.html">Hire Us</a>
 </aside>
 
-    <nav id="navbar-main" class="navbar navbar-default navbar-main navbar-fixed-top">
+    <nav id="navbar-main" class="navbar navbar-default navbar-main">
   <div class="container">
     <div class="col-xs-12">
 
@@ -119,8 +116,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <a class="internal btn navbar-btn navbar-right btn--header" href="/work-with-us.html">Hire Us</a>
           <ul id="navbar-links" class="nav navbar-nav navbar-right">
-            <li><a class="internal" href="/#services">Services</a></li>
-            <li><a class="internal" href="/#projects">Projects</a></li>
+            <li><a class="internal" href="/#work">Work</a></li>
             <li><a href="/meet-the-team.html">Team</a></li>
             <li><a href="/blog">Blog</a></li>
             <li><a href="/show">Show</a></li>
@@ -142,8 +138,8 @@
 
   <div class="page-header">
     <div class="container">
-      <div class="col-xs-12 col-sm-8 text-xs-center text-sm-left">
-        <h1>Authentication made simple in Single Page AngularJS Applications</h1>
+      <div class="col-xs-12 col-sm-8">
+        <h1 class="page-title">Authentication made simple in Single Page AngularJS Applications</h1>
       </div>
       <div class="col-xs-12 col-sm-4 text-xs-center">
         <div class="meta text-center">
@@ -192,7 +188,7 @@ authenticated and resorting to explicit checks all over the place. Here we lay t
 <p>There are many advantages to using <code>ui-router</code> over <code>ngRoute</code> and in this case we will be taking advantage of how we can attach additional properties to a route and how those properties will cascade
 down to the children of that route. In the following code, we make sure to set a <code>requireLogin</code> property for each state.</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// routes.js</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// routes.js</span>
 
 <span class="nx">app</span><span class="p">.</span><span class="nx">config</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">$stateProvider</span><span class="p">)</span> <span class="p">{</span>
 
@@ -216,7 +212,7 @@ down to the children of that route. In the following code, we make sure to set a
       <span class="c1">// requireLogin === true</span>
     <span class="p">})</span>
 
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <p>Clearly, for routes that do not require a login we set <code>requireLogin</code> to false. We could leave this <code>undefined</code>, but I prefer to show my intent.</p>
 
@@ -224,7 +220,7 @@ down to the children of that route. In the following code, we make sure to set a
 
 <p>At this point, we can start capturing attempted state changes and inspecting them for our <code>requireLogin</code> property. The following shows how we are going to subscribe to <code>ui-router</code>’s <code>$stateChangeStart</code> event.</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// app.js</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// app.js</span>
 
 <span class="nx">app</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">$rootScope</span><span class="p">)</span> <span class="p">{</span>
 
@@ -237,7 +233,7 @@ down to the children of that route. In the following code, we make sure to set a
     <span class="p">}</span>
   <span class="p">});</span>
 
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <p>As you can see, if the route requires a login and <code>$rootScope.currentUser</code> is not yet set, we will prevent the attempted state change and show the modal. (I prefer to attach the <code>currentUser</code> to the <code>$rootScope</code> only because it’s an application-wide
 concept. All new scopes will inherit the <code>currentUser</code> property and I can always call it from the view. Whether or not you choose to do the same is for another discussion.)</p>
@@ -250,7 +246,7 @@ concept. All new scopes will inherit the <code>currentUser</code> property and I
 with the <code>$ionicModal</code> service. An important caveat here is that we must be able to tell the modal what to do after authentication is successful or cancelled. Preferably this is done with a promise, so that
 multiple actions can be chained together. These are anonymous functions that we will use to re-submit state changes and requests after authenticating. The following is a example of how I might write such a wrapper for the <code>$modal</code> service.</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// loginModal.js</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// loginModal.js</span>
 
 <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;loginModal&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$modal</span><span class="p">,</span> <span class="nx">$rootScope</span><span class="p">)</span> <span class="p">{</span>
 
@@ -269,12 +265,12 @@ multiple actions can be chained together. These are anonymous functions that we 
     <span class="k">return</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">result</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">assignCurrentUser</span><span class="p">);</span>
   <span class="p">};</span>
 
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <p>There isn’t much magic in this service. It’s important to point out that <code>$modal.open</code> returns a promise which is either resolved or rejected when the modal is closed or dismissed. When a scope is instantiated for the
 <code>LoginModalCtrl</code>, the <code>$close()</code> and <code>$dismiss()</code> methods are attached to it.</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// LoginModalCtrl.js</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// LoginModalCtrl.js</span>
 
 <span class="nx">app</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;LoginModalCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">UsersApi</span><span class="p">)</span> <span class="p">{</span>
 
@@ -286,7 +282,7 @@ multiple actions can be chained together. These are anonymous functions that we 
     <span class="p">});</span>
   <span class="p">};</span>
 
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <p>After a successful login, the modal is closed, the <code>$rootScope.currentUser</code> is set, and the on success action will be triggered. If the user clicks the cancel button or attempts to click away from the modal, the on cancel action will step in.</p>
 
@@ -294,7 +290,7 @@ multiple actions can be chained together. These are anonymous functions that we 
 
 <p>At this point the <code>loginModal</code> can be added to the event listener. What makes this approach so slick is being able to capture the desired state transitions in anonymous functions. After authenticating, the SPA will implicitly redirect to the requested state as you would expect with a traditional web app. Additionally, notice how we will redirect to the welcome screen if a dismissal happens.</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// app.js</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// app.js</span>
 
 <span class="nx">app</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">$rootScope</span><span class="p">,</span> <span class="nx">$state</span><span class="p">,</span> <span class="nx">loginModal</span><span class="p">)</span> <span class="p">{</span>
 
@@ -314,7 +310,7 @@ multiple actions can be chained together. These are anonymous functions that we 
     <span class="p">}</span>
   <span class="p">});</span>
 
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <h2 id="handling-unauthorized-requests">Handling unauthorized requests</h2>
 
@@ -323,7 +319,7 @@ is no longer valid. Perhaps the session has expired or perhaps you were never lo
 
 <p>AngularJS makes <em>intercepting</em> incoming responses pretty easy with <em>interceptors</em>. Below we call the login modal when we receive a <code>401</code> response. (For the sake of brevity, we’ll assume that a <code>401</code> is the only precondition required to verify that a user is not logged in.)</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// app.js</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// app.js</span>
 
 <span class="nx">app</span><span class="p">.</span><span class="nx">config</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">$httpProvider</span><span class="p">)</span> <span class="p">{</span>
 
@@ -360,7 +356,7 @@ is no longer valid. Perhaps the session has expired or perhaps you were never lo
     <span class="p">};</span>
   <span class="p">});</span>
 
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <p>With this code, a <code>401</code> rejected request will be re-submitted when a successful authentication occurs. In fact, the entity that made the original request will hang until our secondary request is completed. It’s completely oblivious to the fact that the original request was even rejected!</p>
 
@@ -376,7 +372,7 @@ is no longer valid. Perhaps the session has expired or perhaps you were never lo
 
 <p>As per a few requests, here is what a simple <code>views/loginModalTemplate.html</code> might look like. I hope it helps to answer some questions.</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- views/loginModalTemplate.html --&gt;</span>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- views/loginModalTemplate.html --&gt;</span>
 
 <span class="nt">&lt;div&gt;</span>
   <span class="nt">&lt;form</span> <span class="na">ng-submit=</span><span class="s">&quot;LoginModalCtrl.submit(_email, _password)&quot;</span><span class="nt">&gt;</span>
@@ -385,7 +381,7 @@ is no longer valid. Perhaps the session has expired or perhaps you were never lo
     <span class="nt">&lt;button&gt;</span>Submit<span class="nt">&lt;/button&gt;</span>
   <span class="nt">&lt;/form&gt;</span>
   <span class="nt">&lt;button</span> <span class="na">ng-click=</span><span class="s">&quot;LoginModalCtrl.cancel()&quot;</span><span class="nt">&gt;</span>Cancel<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;/div&gt;</span></code></pre></div>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
 
 <h4 id="edit-feburary-12-2015">Edit: Feburary 12, 2015</h4>
 
@@ -436,7 +432,6 @@ like that too!</p>
     <aside class="lets-talk cover">
   <div class="container">
     <div class="col-md-6">
-      <h4>Let&apos;s Talk</h4>
       <p class="lede">We partner with businesses to design and develop well-loved products through a flexible and transparent process. We'd love to discuss how our process can help your idea become a reality.</p>
     </div>
   </div>
@@ -460,7 +455,7 @@ like that too!</p>
     <nav role="navigation" class="col-md-6">
         <ul>
           <li>
-            <a href="/meet-the-team.html">Our Team</a>
+            <a class="internal" href="/#work">Work</a>
           </li>
           <li>
             <a class="internal" href="/#services">Services</a>
@@ -477,14 +472,15 @@ like that too!</p>
         </ul>
     </nav>
     <div class="col-md-5 col-md-push-1">
-      <p class="copyright"> 
+      <p class="copyright">
         &copy; <span class="copyright-year"></span> <a href="http://brewhouse.io">brewhouse software, inc.</a>
       </p>
     </div>
   </div>
 </footer>
 
-    <script src="/assets/app-535a82bee3349c97d71afb2bb205208d.js"></script>
+
+    <script type="text/javascript" src="/assets/app.js"></script>
 
     <!-- needs to be refactored when we have more layouts -->
     

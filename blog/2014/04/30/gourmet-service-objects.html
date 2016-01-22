@@ -56,7 +56,7 @@
 <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
 <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
 
-<link rel="stylesheet" href="/assets/application-896a79d9ededda8066f38e28d03d7060.css">
+<link type="text/css" rel="stylesheet" href="/assets/application.css">
 
 
     <!-- needs to be refactored when we have more layouts -->
@@ -79,10 +79,7 @@
     <aside class="offcanvas-menu">
   <ul>
     <li>
-      <a class="internal" href="http://brewhouse.io/#services">Services</a>
-    </li>
-    <li>
-      <a class="internal" href="http://brewhouse.io/#projects">Projects</a>
+      <a class="internal" href="http://brewhouse.io/#work">Work</a>
     </li>
     <li>
       <a href="/meet-the-team.html">Team</a>
@@ -97,7 +94,7 @@
   <a class="btn btn--header" href="/work-with-us.html">Hire Us</a>
 </aside>
 
-    <nav id="navbar-main" class="navbar navbar-default navbar-main navbar-fixed-top">
+    <nav id="navbar-main" class="navbar navbar-default navbar-main">
   <div class="container">
     <div class="col-xs-12">
 
@@ -115,8 +112,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <a class="internal btn navbar-btn navbar-right btn--header" href="/work-with-us.html">Hire Us</a>
           <ul id="navbar-links" class="nav navbar-nav navbar-right">
-            <li><a class="internal" href="/#services">Services</a></li>
-            <li><a class="internal" href="/#projects">Projects</a></li>
+            <li><a class="internal" href="/#work">Work</a></li>
             <li><a href="/meet-the-team.html">Team</a></li>
             <li><a href="/blog">Blog</a></li>
             <li><a href="/show">Show</a></li>
@@ -138,8 +134,8 @@
 
   <div class="page-header">
     <div class="container">
-      <div class="col-xs-12 col-sm-8 text-xs-center text-sm-left">
-        <h1>Gourmet Service Objects</h1>
+      <div class="col-xs-12 col-sm-8">
+        <h1 class="page-title">Gourmet Service Objects</h1>
       </div>
       <div class="col-xs-12 col-sm-4 text-xs-center">
         <div class="meta text-center">
@@ -176,7 +172,7 @@
 
 <p>A service object (aka method object) performs one action. It holds the business logic to perform that action. Here is an example:</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/services/accept_invite.rb</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/services/accept_invite.rb</span>
 <span class="k">class</span> <span class="nc">AcceptInvite</span>
 
   <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">call</span><span class="p">(</span><span class="n">invite</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span>
@@ -184,7 +180,7 @@
     <span class="no">UserMailer</span><span class="o">.</span><span class="n">invite_accepted</span><span class="p">(</span><span class="n">invite</span><span class="p">)</span><span class="o">.</span><span class="n">deliver</span>
   <span class="k">end</span>
 
-<span class="k">end</span></code></pre></div>
+<span class="k">end</span></code></pre></figure>
 
 <p>The three conventions I follow are:</p>
 
@@ -211,7 +207,7 @@
 
 <p>Controllers turn the request (params, session, cookies) into arguments, pass them down to the service and redirect or render according to the service response.</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">InviteController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">InviteController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
 
   <span class="k">def</span> <span class="nf">accept</span>
     <span class="n">invite</span> <span class="o">=</span> <span class="no">Invite</span><span class="o">.</span><span class="n">find_by_token!</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:token</span><span class="o">]</span><span class="p">)</span>
@@ -223,11 +219,11 @@
     <span class="k">end</span>
   <span class="k">end</span>
 
-<span class="k">end</span></code></pre></div>
+<span class="k">end</span></code></pre></figure>
 
 <p>Models only deal with associations, scopes, validations and persistence.</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Invite</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Invite</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
 
   <span class="k">def</span> <span class="nf">accept!</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
     <span class="n">update_attributes!</span><span class="p">(</span>
@@ -236,7 +232,7 @@
     <span class="p">)</span>
   <span class="k">end</span>
 
-<span class="k">end</span></code></pre></div>
+<span class="k">end</span></code></pre></figure>
 
 <p>This makes models and controllers much easier to test and maintain!</p>
 
@@ -246,7 +242,7 @@
 objects with other service objects, and I reuse them. My code is quite
 modular and I’m ready to Embrace Change™.</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">SendTestNewsletter</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">SendTestNewsletter</span>
 
   <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">call</span><span class="p">(</span><span class="n">newsletter</span><span class="p">)</span>
     <span class="n">campaign</span> <span class="o">=</span> <span class="no">CreateMailchimpCampaign</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">newsletter</span><span class="p">)</span>
@@ -264,7 +260,7 @@ modular and I’m ready to Embrace Change™.</p>
     <span class="c1"># Could easily delete here as well, but we want to retain the legit campaigns</span>
   <span class="k">end</span>
 
-<span class="k">end</span></code></pre></div>
+<span class="k">end</span></code></pre></figure>
 
 <h3 id="clean-up-and-speed-up-your-test-suite">Clean up and speed up your test suite</h3>
 
@@ -280,54 +276,54 @@ modular and I’m ready to Embrace Change™.</p>
   <li>Other service objects:</li>
 </ul>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">BatchSyncUsers</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">BatchSyncUsers</span>
 
   <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">call</span><span class="p">(</span><span class="n">users</span><span class="p">)</span>
     <span class="n">users</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">user</span><span class="o">|</span> <span class="no">SyncUser</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">user</span><span class="p">)</span> <span class="p">}</span>
   <span class="k">end</span>
 
-<span class="k">end</span></code></pre></div>
+<span class="k">end</span></code></pre></figure>
 
 <ul>
   <li>DelayedJob / Rescue / Sidekiq Jobs:</li>
 </ul>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">SyncInvoicesJob</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">SyncInvoicesJob</span>
   <span class="k">def</span> <span class="nf">work</span>
     <span class="no">SyncInvoices</span><span class="o">.</span><span class="n">call</span>
   <span class="k">end</span>
-<span class="k">end</span></code></pre></div>
+<span class="k">end</span></code></pre></figure>
 
 <ul>
   <li>Rake tasks:</li>
 </ul>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">task</span> <span class="ss">:sync</span> <span class="k">do</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">task</span> <span class="ss">:sync</span> <span class="k">do</span>
   <span class="no">SyncInvoices</span><span class="o">.</span><span class="n">call</span>
-<span class="k">end</span></code></pre></div>
+<span class="k">end</span></code></pre></figure>
 
 <ul>
   <li>The console:</li>
 </ul>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="vg">$&gt;</span> <span class="no">ApproveTransaction</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">transaction</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="mi">2</span><span class="o">.</span><span class="n">days</span><span class="o">.</span><span class="n">ago</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="vg">$&gt;</span> <span class="no">ApproveTransaction</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">transaction</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="mi">2</span><span class="o">.</span><span class="n">days</span><span class="o">.</span><span class="n">ago</span><span class="p">)</span></code></pre></figure>
 
 <ul>
   <li>Even from test helpers to setup my integration tests!</li>
 </ul>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">create_approved_transaction</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">create_approved_transaction</span>
   <span class="n">transaction</span> <span class="o">=</span> <span class="no">FactoryGirl</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:transaction</span><span class="p">)</span>
   <span class="no">ApproveTransaction</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">transaction</span><span class="p">,</span> <span class="no">FactoryGirl</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:user</span><span class="p">))</span>
 
   <span class="n">transaction</span>
-<span class="k">end</span></code></pre></div>
+<span class="k">end</span></code></pre></figure>
 
 <h2 id="real-world-services">Real world services</h2>
 
 <p>I like to use instances of service objects to take advantage of private methods. I add Virtus into the mix to handle parameters. For instance:</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">AcceptInvite</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">AcceptInvite</span>
 
   <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">call</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
     <span class="kp">new</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span><span class="o">.</span><span class="n">call</span>
@@ -361,11 +357,11 @@ modular and I’m ready to Embrace Change™.</p>
     <span class="c1"># ...</span>
   <span class="k">end</span>
 
-<span class="k">end</span></code></pre></div>
+<span class="k">end</span></code></pre></figure>
 
 <p>I extracted the <code>def self.call</code> into a helper module <code>Service</code>:</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">module</span> <span class="nn">Service</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">module</span> <span class="nn">Service</span>
   <span class="kp">extend</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Concern</span>
 
   <span class="n">included</span> <span class="k">do</span>
@@ -396,13 +392,13 @@ modular and I’m ready to Embrace Change™.</p>
 
   <span class="c1"># ...</span>
 
-<span class="k">end</span></code></pre></div>
+<span class="k">end</span></code></pre></figure>
 
 <p>I sometimes inject dependencies to test services that orchestrate
 complex operations. Since services respond to the <code>call</code> method, a
 simple <code>proc</code> does the job.</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Trumpet</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Trumpet</span>
   <span class="kp">include</span> <span class="no">Service</span>
   <span class="c1"># ...</span>
 <span class="k">end</span>
@@ -434,7 +430,7 @@ simple <code>proc</code> does the job.</p>
 <span class="n">expect</span><span class="p">(</span><span class="no">Conductor</span><span class="o">.</span><span class="n">call</span><span class="p">(</span>
   <span class="ss">trumpet</span><span class="p">:</span>  <span class="nb">proc</span> <span class="p">{</span> <span class="s2">&quot;onk! onk!&quot;</span> <span class="p">},</span>
   <span class="ss">bass</span><span class="p">:</span>     <span class="nb">proc</span> <span class="p">{</span> <span class="k">raise</span> <span class="no">OutOfTuneError</span> <span class="p">}</span>
-<span class="p">))</span><span class="o">.</span><span class="n">to</span> <span class="n">sound_awful</span></code></pre></div>
+<span class="p">))</span><span class="o">.</span><span class="n">to</span> <span class="n">sound_awful</span></code></pre></figure>
 
 <h2 id="values-the-return">Values: The Return</h2>
 
@@ -444,7 +440,7 @@ simple <code>proc</code> does the job.</p>
 
 <p>Most services are not supposed to fail. They do not return anything (meaningful) but they raise an exception when something goes wrong. Those services are likely to use methods that fail loudly such as <code>Hash#fetch</code>, <code>create!</code>, <code>save!</code>, <code>find_by_name!</code> etc.</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">ContractController</span> <span class="o">&lt;</span> <span class="no">LoggedInController</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">ContractController</span> <span class="o">&lt;</span> <span class="no">LoggedInController</span>
 
   <span class="k">def</span> <span class="nf">sign</span>
     <span class="n">contract</span> <span class="o">=</span> <span class="n">current_user</span><span class="o">.</span><span class="n">contracts</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="ss">:id</span><span class="p">))</span>
@@ -453,13 +449,13 @@ simple <code>proc</code> does the job.</p>
     <span class="n">redirect_to</span> <span class="n">contract</span>
   <span class="k">end</span>
 
-<span class="k">end</span></code></pre></div>
+<span class="k">end</span></code></pre></figure>
 
 <h3 id="flavour-2-return-a-persisted-activerecord-model">Flavour #2: Return a persisted ActiveRecord model</h3>
 
 <p>The caller can check if an AR instance is persisted and then has access to its errors.</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">InviteController</span> <span class="o">&lt;</span> <span class="no">LoggedInController</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">InviteController</span> <span class="o">&lt;</span> <span class="no">LoggedInController</span>
 
   <span class="k">def</span> <span class="nf">create</span>
     <span class="n">attributes</span> <span class="o">=</span> <span class="n">invite_params</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="ss">creator</span><span class="p">:</span> <span class="n">current_user</span><span class="p">)</span>
@@ -478,13 +474,13 @@ simple <code>proc</code> does the job.</p>
     <span class="n">params</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="ss">:invite</span><span class="p">)</span><span class="o">.</span><span class="n">permit</span><span class="p">(</span><span class="ss">:token</span><span class="p">)</span>
   <span class="k">end</span>
 
-<span class="k">end</span></code></pre></div>
+<span class="k">end</span></code></pre></figure>
 
 <h3 id="flavour-3-response-object">Flavour #3: Response object</h3>
 
 <p>Some services have several outcomes and complex error handling. They return a response object which responds to <code>success?</code> and <code>error(s)</code>.</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">InviteController</span> <span class="o">&lt;</span> <span class="no">LoggedInController</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">InviteController</span> <span class="o">&lt;</span> <span class="no">LoggedInController</span>
 
   <span class="k">def</span> <span class="nf">accept</span>
     <span class="n">result</span> <span class="o">=</span> <span class="no">AcceptInvitation</span><span class="o">.</span><span class="n">call</span><span class="p">(</span>
@@ -499,7 +495,7 @@ simple <code>proc</code> does the job.</p>
     <span class="k">end</span>
   <span class="k">end</span>
 
-<span class="k">end</span></code></pre></div>
+<span class="k">end</span></code></pre></figure>
 
 <p>That’s it for service objects for now. Experiment with them, as I
 believe they will make your codebase more expressive and easier to
@@ -552,7 +548,6 @@ leave a comment below. &lt;3 &lt;3 &lt;3</p>
     <aside class="lets-talk cover">
   <div class="container">
     <div class="col-md-6">
-      <h4>Let&apos;s Talk</h4>
       <p class="lede">We partner with businesses to design and develop well-loved products through a flexible and transparent process. We'd love to discuss how our process can help your idea become a reality.</p>
     </div>
   </div>
@@ -576,7 +571,7 @@ leave a comment below. &lt;3 &lt;3 &lt;3</p>
     <nav role="navigation" class="col-md-6">
         <ul>
           <li>
-            <a href="/meet-the-team.html">Our Team</a>
+            <a class="internal" href="/#work">Work</a>
           </li>
           <li>
             <a class="internal" href="/#services">Services</a>
@@ -593,14 +588,15 @@ leave a comment below. &lt;3 &lt;3 &lt;3</p>
         </ul>
     </nav>
     <div class="col-md-5 col-md-push-1">
-      <p class="copyright"> 
+      <p class="copyright">
         &copy; <span class="copyright-year"></span> <a href="http://brewhouse.io">brewhouse software, inc.</a>
       </p>
     </div>
   </div>
 </footer>
 
-    <script src="/assets/app-535a82bee3349c97d71afb2bb205208d.js"></script>
+
+    <script type="text/javascript" src="/assets/app.js"></script>
 
     <!-- needs to be refactored when we have more layouts -->
     

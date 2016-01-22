@@ -56,7 +56,7 @@
 <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
 <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
 
-<link rel="stylesheet" href="/assets/application-896a79d9ededda8066f38e28d03d7060.css">
+<link type="text/css" rel="stylesheet" href="/assets/application.css">
 
 
     <!-- needs to be refactored when we have more layouts -->
@@ -79,10 +79,7 @@
     <aside class="offcanvas-menu">
   <ul>
     <li>
-      <a class="internal" href="http://brewhouse.io/#services">Services</a>
-    </li>
-    <li>
-      <a class="internal" href="http://brewhouse.io/#projects">Projects</a>
+      <a class="internal" href="http://brewhouse.io/#work">Work</a>
     </li>
     <li>
       <a href="/meet-the-team.html">Team</a>
@@ -97,7 +94,7 @@
   <a class="btn btn--header" href="/work-with-us.html">Hire Us</a>
 </aside>
 
-    <nav id="navbar-main" class="navbar navbar-default navbar-main navbar-fixed-top">
+    <nav id="navbar-main" class="navbar navbar-default navbar-main">
   <div class="container">
     <div class="col-xs-12">
 
@@ -115,8 +112,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <a class="internal btn navbar-btn navbar-right btn--header" href="/work-with-us.html">Hire Us</a>
           <ul id="navbar-links" class="nav navbar-nav navbar-right">
-            <li><a class="internal" href="/#services">Services</a></li>
-            <li><a class="internal" href="/#projects">Projects</a></li>
+            <li><a class="internal" href="/#work">Work</a></li>
             <li><a href="/meet-the-team.html">Team</a></li>
             <li><a href="/blog">Blog</a></li>
             <li><a href="/show">Show</a></li>
@@ -138,8 +134,8 @@
 
   <div class="page-header">
     <div class="container">
-      <div class="col-xs-12 col-sm-8 text-xs-center text-sm-left">
-        <h1>What's new in Rails 4.1</h1>
+      <div class="col-xs-12 col-sm-8">
+        <h1 class="page-title">What's new in Rails 4.1</h1>
       </div>
       <div class="col-xs-12 col-sm-4 text-xs-center">
         <div class="meta text-center">
@@ -194,7 +190,7 @@ the hard work to integrate the <a href="https://github.com/37signals/mail_view">
 can now easily create previews for your mailers and view them in the browser
 from <code>http://localhost:3000/rails/mailers</code>:</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># In /test/mailers/previews/notifier_preview.rb</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># In /test/mailers/previews/notifier_preview.rb</span>
 <span class="k">class</span> <span class="nc">NotifierPreview</span> <span class="o">&lt;</span> <span class="no">ActionMailer</span><span class="o">::</span><span class="no">Preview</span>
   <span class="k">def</span> <span class="nf">welcome</span>
     <span class="c1"># Mock up some data for the preview</span>
@@ -203,7 +199,7 @@ from <code>http://localhost:3000/rails/mailers</code>:</p>
     <span class="c1"># Return a Mail::Message here (but don&#39;t deliver it!)</span>
     <span class="no">Notifier</span><span class="o">.</span><span class="n">welcome</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
   <span class="k">end</span>
-<span class="k">end</span></code></pre></div>
+<span class="k">end</span></code></pre></figure>
 
 <p>It should be noted that although the preview files live under the test
 directory by default (which can be changed via <code>config.action_mailer.preview_path</code>),
@@ -233,7 +229,7 @@ hand really quickly.</p>
 
 <p>Enums to the rescue!</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Bug</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Bug</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
   <span class="c1"># Relevant schema change looks like this:</span>
   <span class="c1">#</span>
   <span class="c1"># create_table :bugs do |t|</span>
@@ -263,7 +259,7 @@ hand really quickly.</p>
 
 <span class="n">bug</span><span class="o">.</span><span class="n">status</span>             <span class="c1"># =&gt; a symbol describing the bug&#39;s status</span>
 
-<span class="n">bug</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="ss">:resolved</span> <span class="c1"># =&gt; set the bug&#39;s status to :resolved</span></code></pre></div>
+<span class="n">bug</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="ss">:resolved</span> <span class="c1"># =&gt; set the bug&#39;s status to :resolved</span></code></pre></figure>
 
 <p>Internally, these states are mapped to integers in the database to
 save space. It’s also worth mentioning that the methods added by the <code>enum</code>
@@ -278,7 +274,7 @@ your model and use <code>super</code> to reach the original implementation.</p>
    This means that you should not change the order of the <code>enum</code> symbols once
    they are added. To remove unused states, you can use an explicit mapping:</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Bug</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Bug</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
   <span class="n">enum</span> <span class="ss">status</span><span class="p">:</span> <span class="p">{</span>
     <span class="kp">new</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="ss">in_progress</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
@@ -286,25 +282,25 @@ your model and use <code>super</code> to reach the original implementation.</p>
     <span class="ss">rejected</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
     <span class="ss">reopened</span><span class="p">:</span> <span class="mi">5</span>
   <span class="p">}</span>
-<span class="k">end</span></code></pre></div>
+<span class="k">end</span></code></pre></figure>
 
 <p><strong>II</strong>. Avoid using the same names inside different enums in the same class!
    Doing so will leave Active Record very confused!</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Bug</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Bug</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
   <span class="n">enum</span> <span class="ss">status</span><span class="p">:</span> <span class="o">[</span> <span class="ss">:new</span><span class="p">,</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="o">]</span>
   <span class="n">enum</span> <span class="ss">code_review_status</span><span class="p">:</span> <span class="o">[</span> <span class="ss">:new</span><span class="p">,</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="o">]</span> <span class="c1"># WARNING: Don&#39;t do this!</span>
-<span class="k">end</span></code></pre></div>
+<span class="k">end</span></code></pre></figure>
 
 <p><strong>III</strong>. If you need to write custom scopes to query the enum columns, you would have
    to pass the integers instead of the symbols. You can access the enum-integer
    mapping via a constant added by the macro:</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Bug</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Bug</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
   <span class="n">scope</span> <span class="ss">:open</span><span class="p">,</span> <span class="o">-&gt;</span> <span class="p">{</span>
     <span class="n">where</span><span class="p">(</span><span class="s1">&#39;status &lt;&gt; ? OR status &lt;&gt; ?&#39;</span><span class="p">,</span> <span class="no">STATUS</span><span class="o">[</span><span class="ss">:resolved</span><span class="o">]</span><span class="p">,</span> <span class="no">STATUS</span><span class="o">[</span><span class="ss">:rejected</span><span class="o">]</span><span class="p">)</span>
   <span class="p">}</span>
-<span class="k">end</span></code></pre></div>
+<span class="k">end</span></code></pre></figure>
 
 <p><strong>IV</strong>. Currently, the dirty tracking methods (e.g. <code>status_was?</code>) have not been
    updated to work with enums yet (they currently return the mapped integer
@@ -329,7 +325,7 @@ for specific device categories.</p>
 
 <p>With <strong>Action Pack Variants</strong>, this will become much easier in Rails 4.1:</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
   <span class="n">before_action</span> <span class="ss">:detect_device_variant</span>
 
   <span class="kp">private</span>
@@ -357,7 +353,7 @@ for specific device categories.</p>
       <span class="k">end</span>
     <span class="k">end</span>
   <span class="k">end</span>
-<span class="k">end</span></code></pre></div>
+<span class="k">end</span></code></pre></figure>
 
 <p>This example sets up a <code>before_action</code> filter to match the <code>User-Agent</code> HTTP
 header against certain keywords, and assign the <code>request.variant</code> accordingly.
@@ -399,7 +395,7 @@ signed cookies, but it is now much easier to use it for other purposes.</p>
 <p>For example, you can implement a stateless “reset password” feature without
 having to store any tokens in the database:</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
   <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
     <span class="k">def</span> <span class="nf">verifier_for</span><span class="p">(</span><span class="n">purpose</span><span class="p">)</span>
       <span class="vi">@verifiers</span> <span class="o">||=</span> <span class="p">{}</span>
@@ -435,7 +431,7 @@ having to store any tokens in the database:</p>
     <span class="vi">@reset_password_url</span> <span class="o">=</span> <span class="n">password_reset_url</span><span class="p">(</span><span class="ss">token</span><span class="p">:</span> <span class="vi">@user</span><span class="o">.</span><span class="n">reset_password_token</span><span class="p">)</span>
     <span class="n">mail</span><span class="p">(</span><span class="ss">to</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span> <span class="ss">subject</span><span class="p">:</span> <span class="s2">&quot;Your have requested to reset your password&quot;</span><span class="p">)</span>
   <span class="k">end</span>
-<span class="k">end</span></code></pre></div>
+<span class="k">end</span></code></pre></figure>
 
 <p>That way, everything that is required to fufill the password reset request is
 included in the link, nothing need to be stored in the database. This can also
@@ -547,7 +543,6 @@ today. Stop by and say hi if you are in town!</p>
     <aside class="lets-talk cover">
   <div class="container">
     <div class="col-md-6">
-      <h4>Let&apos;s Talk</h4>
       <p class="lede">We partner with businesses to design and develop well-loved products through a flexible and transparent process. We'd love to discuss how our process can help your idea become a reality.</p>
     </div>
   </div>
@@ -571,7 +566,7 @@ today. Stop by and say hi if you are in town!</p>
     <nav role="navigation" class="col-md-6">
         <ul>
           <li>
-            <a href="/meet-the-team.html">Our Team</a>
+            <a class="internal" href="/#work">Work</a>
           </li>
           <li>
             <a class="internal" href="/#services">Services</a>
@@ -588,14 +583,15 @@ today. Stop by and say hi if you are in town!</p>
         </ul>
     </nav>
     <div class="col-md-5 col-md-push-1">
-      <p class="copyright"> 
+      <p class="copyright">
         &copy; <span class="copyright-year"></span> <a href="http://brewhouse.io">brewhouse software, inc.</a>
       </p>
     </div>
   </div>
 </footer>
 
-    <script src="/assets/app-535a82bee3349c97d71afb2bb205208d.js"></script>
+
+    <script type="text/javascript" src="/assets/app.js"></script>
 
     <!-- needs to be refactored when we have more layouts -->
     

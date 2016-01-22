@@ -56,7 +56,7 @@
 <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
 <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
 
-<link rel="stylesheet" href="/assets/application-896a79d9ededda8066f38e28d03d7060.css">
+<link type="text/css" rel="stylesheet" href="/assets/application.css">
 
 
     <!-- needs to be refactored when we have more layouts -->
@@ -79,10 +79,7 @@
     <aside class="offcanvas-menu">
   <ul>
     <li>
-      <a class="internal" href="http://brewhouse.io/#services">Services</a>
-    </li>
-    <li>
-      <a class="internal" href="http://brewhouse.io/#projects">Projects</a>
+      <a class="internal" href="http://brewhouse.io/#work">Work</a>
     </li>
     <li>
       <a href="/meet-the-team.html">Team</a>
@@ -97,7 +94,7 @@
   <a class="btn btn--header" href="/work-with-us.html">Hire Us</a>
 </aside>
 
-    <nav id="navbar-main" class="navbar navbar-default navbar-main navbar-fixed-top">
+    <nav id="navbar-main" class="navbar navbar-default navbar-main">
   <div class="container">
     <div class="col-xs-12">
 
@@ -115,8 +112,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <a class="internal btn navbar-btn navbar-right btn--header" href="/work-with-us.html">Hire Us</a>
           <ul id="navbar-links" class="nav navbar-nav navbar-right">
-            <li><a class="internal" href="/#services">Services</a></li>
-            <li><a class="internal" href="/#projects">Projects</a></li>
+            <li><a class="internal" href="/#work">Work</a></li>
             <li><a href="/meet-the-team.html">Team</a></li>
             <li><a href="/blog">Blog</a></li>
             <li><a href="/show">Show</a></li>
@@ -138,8 +134,8 @@
 
   <div class="page-header">
     <div class="container">
-      <div class="col-xs-12 col-sm-8 text-xs-center text-sm-left">
-        <h1>Ember vs Angular: Authentication Example</h1>
+      <div class="col-xs-12 col-sm-8">
+        <h1 class="page-title">Ember vs Angular: Authentication Example</h1>
       </div>
       <div class="col-xs-12 col-sm-4 text-xs-center">
         <div class="meta text-center">
@@ -243,7 +239,7 @@ token)</p>
 side technology. For our purpose, we will mock it out with the <a href="https://github.com/trek/pretender">Pretender</a>
 library:</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// mock-server.js</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// mock-server.js</span>
 
 <span class="kd">var</span> <span class="nx">server</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Pretender</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 
@@ -298,11 +294,11 @@ library:</p>
     <span class="p">}</span>
   <span class="p">});</span>
 
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <p>To access this API, we will write a simple API client for it:</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// api.js</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// api.js</span>
 
 <span class="kd">var</span> <span class="nx">API</span> <span class="o">=</span> <span class="p">{</span>
 
@@ -359,7 +355,7 @@ library:</p>
     <span class="k">return</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">RSVP</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">deferred</span><span class="p">);</span>
   <span class="p">}</span>
 
-<span class="p">};</span></code></pre></div>
+<span class="p">};</span></code></pre></figure>
 
 <p>Nothing too exciting so far (and none of these are specific to Ember.js). The
 only thing worth mentioning is that we are turning jQuery’s <a href="http://api.jquery.com/category/deferred-object/">deferred objects</a>
@@ -378,19 +374,19 @@ Ember app and a simple index page. This will be the page that greets our users
 when they first visit our app. From here, we will link to the different sections
 of our app.</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// app.js</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// app.js</span>
 
-<span class="nx">App</span> <span class="o">=</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Application</span><span class="p">.</span><span class="nx">create</span><span class="p">();</span></code></pre></div>
+<span class="nx">App</span> <span class="o">=</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Application</span><span class="p">.</span><span class="nx">create</span><span class="p">();</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars"><span class="c">{{!-- templates/appliction.hbs --}}</span>
+<figure class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars"><span class="c">{{!-- templates/appliction.hbs --}}</span>
 <span class="nt">&lt;h2&gt;</span>Ember.js Authentication Example<span class="nt">&lt;/h2&gt;</span>
 
-<span class="cp">{{</span><span class="nv">outlet</span><span class="cp">}}</span></code></pre></div>
+<span class="cp">{{</span><span class="nv">outlet</span><span class="cp">}}</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars"><span class="c">{{!-- templates/index.hbs --}}</span>
+<figure class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars"><span class="c">{{!-- templates/index.hbs --}}</span>
 <span class="nt">&lt;p&gt;</span>Public Page<span class="nt">&lt;/p&gt;</span>
 <span class="nt">&lt;p&gt;</span>Protected Page<span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;p&gt;</span>Admin-only Page<span class="nt">&lt;/p&gt;</span></code></pre></div>
+<span class="nt">&lt;p&gt;</span>Admin-only Page<span class="nt">&lt;/p&gt;</span></code></pre></figure>
 
 <p>Here, we have a bare-bone Ember app setup with a simple app-wide layout (the
 template called “application” will be rendered on every page, and the page’s
@@ -413,31 +409,31 @@ it!</p>
 data we need to populate the page. Because we don’t need to authenticate with
 the server, this is pretty straight forward:</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// router.js</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// router.js</span>
 
 <span class="nx">App</span><span class="p">.</span><span class="nx">Router</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   <span class="k">this</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;public&#39;</span><span class="p">);</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// routes/public.js</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// routes/public.js</span>
 
 <span class="nx">App</span><span class="p">.</span><span class="nx">PublicRoute</span> <span class="o">=</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Route</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
   <span class="nx">model</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">API</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;public&#39;</span><span class="p">);</span>
   <span class="p">}</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars"><span class="c">{{!-- templates/index.hbs --}}</span>
+<figure class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars"><span class="c">{{!-- templates/index.hbs --}}</span>
 <span class="nt">&lt;p&gt;</span><span class="cp">{{</span><span class="nf">#link</span><span class="err">-</span><span class="nv">to</span> <span class="s2">&quot;public&quot;</span><span class="cp">}}</span>Public Page<span class="cp">{{</span><span class="nf">/link</span><span class="err">-</span><span class="nv">to</span><span class="cp">}}</span><span class="nt">&lt;/p&gt;</span>
 <span class="nt">&lt;p&gt;</span>Protected Page<span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;p&gt;</span>Admin-only Page<span class="nt">&lt;/p&gt;</span></code></pre></div>
+<span class="nt">&lt;p&gt;</span>Admin-only Page<span class="nt">&lt;/p&gt;</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars"><span class="c">{{!-- templates/public.hbs --}}</span>
+<figure class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars"><span class="c">{{!-- templates/public.hbs --}}</span>
 <span class="nt">&lt;h4&gt;</span>Public Page<span class="nt">&lt;/h4&gt;</span>
 
 <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;content&quot;</span><span class="nt">&gt;</span><span class="cp">{{</span><span class="nv">content</span><span class="cp">}}</span><span class="nt">&lt;/div&gt;</span>
 
-<span class="nt">&lt;p&gt;</span><span class="cp">{{</span><span class="nf">#link</span><span class="err">-</span><span class="nv">to</span> <span class="s2">&quot;index&quot;</span><span class="cp">}}</span>Go back<span class="cp">{{</span><span class="nf">/link</span><span class="err">-</span><span class="nv">to</span><span class="cp">}}</span><span class="nt">&lt;/p&gt;</span></code></pre></div>
+<span class="nt">&lt;p&gt;</span><span class="cp">{{</span><span class="nf">#link</span><span class="err">-</span><span class="nv">to</span> <span class="s2">&quot;index&quot;</span><span class="cp">}}</span>Go back<span class="cp">{{</span><span class="nf">/link</span><span class="err">-</span><span class="nv">to</span><span class="cp">}}</span><span class="nt">&lt;/p&gt;</span></code></pre></figure>
 
 <p>By returning a Promise in our route (which is what <code>API.get</code> returns), the Ember
 router is smart enough to wait for it to resolve (or reject) before attempting
@@ -459,34 +455,34 @@ address bar directly).</p>
 <p>With the public page fully functioning, we will move on to tackling the
 protected page.</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// router.js</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// router.js</span>
 
 <span class="nx">App</span><span class="p">.</span><span class="nx">Router</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   <span class="k">this</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;public&#39;</span><span class="p">);</span>
   <span class="k">this</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;protected&#39;</span><span class="p">);</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// routes/protected.js</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// routes/protected.js</span>
 
 <span class="nx">App</span><span class="p">.</span><span class="nx">ProtectedRoute</span> <span class="o">=</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Route</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
   <span class="nx">model</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">API</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;protected&#39;</span><span class="p">);</span>
   <span class="p">}</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars"><span class="c">{{!-- templates/index.hbs --}}</span>
+<figure class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars"><span class="c">{{!-- templates/index.hbs --}}</span>
 <span class="nt">&lt;p&gt;</span><span class="cp">{{</span><span class="nf">#link</span><span class="err">-</span><span class="nv">to</span> <span class="s2">&quot;public&quot;</span><span class="cp">}}</span>Public Page<span class="cp">{{</span><span class="nf">/link</span><span class="err">-</span><span class="nv">to</span><span class="cp">}}</span><span class="nt">&lt;/p&gt;</span>
 <span class="nt">&lt;p&gt;</span><span class="cp">{{</span><span class="nf">#link</span><span class="err">-</span><span class="nv">to</span> <span class="s2">&quot;protected&quot;</span><span class="cp">}}</span>Protected Page<span class="cp">{{</span><span class="nf">/link</span><span class="err">-</span><span class="nv">to</span><span class="cp">}}</span><span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;p&gt;</span>Admin-only Page<span class="nt">&lt;/p&gt;</span></code></pre></div>
+<span class="nt">&lt;p&gt;</span>Admin-only Page<span class="nt">&lt;/p&gt;</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars"><span class="c">{{!-- templates/protected.hbs --}}</span>
+<figure class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars"><span class="c">{{!-- templates/protected.hbs --}}</span>
 <span class="nt">&lt;h4&gt;</span>Protected Page<span class="nt">&lt;/h4&gt;</span>
 
 <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;content&quot;</span><span class="nt">&gt;</span><span class="cp">{{</span><span class="nv">content</span><span class="cp">}}</span><span class="nt">&lt;/div&gt;</span>
 
-<span class="nt">&lt;p&gt;</span><span class="cp">{{</span><span class="nf">#link</span><span class="err">-</span><span class="nv">to</span> <span class="s2">&quot;index&quot;</span><span class="cp">}}</span>Go back<span class="cp">{{</span><span class="nf">/link</span><span class="err">-</span><span class="nv">to</span><span class="cp">}}</span><span class="nt">&lt;/p&gt;</span></code></pre></div>
+<span class="nt">&lt;p&gt;</span><span class="cp">{{</span><span class="nf">#link</span><span class="err">-</span><span class="nv">to</span> <span class="s2">&quot;index&quot;</span><span class="cp">}}</span>Go back<span class="cp">{{</span><span class="nf">/link</span><span class="err">-</span><span class="nv">to</span><span class="cp">}}</span><span class="nt">&lt;/p&gt;</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars"><span class="c">{{!-- templates/error.hbs --}}</span>
+<figure class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars"><span class="c">{{!-- templates/error.hbs --}}</span>
 <span class="nt">&lt;h4&gt;</span>An error has occured!<span class="nt">&lt;/h4&gt;</span>
 
 <span class="cp">{{</span><span class="k">#if</span> <span class="nv">message</span><span class="cp">}}</span>
@@ -495,7 +491,7 @@ protected page.</p>
   <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;content&quot;</span><span class="nt">&gt;</span>Unknown Error<span class="nt">&lt;/div&gt;</span>
 <span class="cp">{{</span><span class="k">/if</span><span class="cp">}}</span>
 
-<span class="nt">&lt;p&gt;</span><span class="cp">{{</span><span class="nf">#link</span><span class="err">-</span><span class="nv">to</span> <span class="s2">&quot;index&quot;</span><span class="cp">}}</span>Go back<span class="cp">{{</span><span class="nf">/link</span><span class="err">-</span><span class="nv">to</span><span class="cp">}}</span><span class="nt">&lt;/p&gt;</span></code></pre></div>
+<span class="nt">&lt;p&gt;</span><span class="cp">{{</span><span class="nf">#link</span><span class="err">-</span><span class="nv">to</span> <span class="s2">&quot;index&quot;</span><span class="cp">}}</span>Go back<span class="cp">{{</span><span class="nf">/link</span><span class="err">-</span><span class="nv">to</span><span class="cp">}}</span><span class="nt">&lt;/p&gt;</span></code></pre></figure>
 
 <p><a href="http://emberjs.jsbin.com/yaluho">Try it out on JS Bin</a></p>
 
@@ -523,15 +519,15 @@ reason being the route’s model, which is why we have access to the error’s
 <p>Since we don’t have the UI to authenticate with the API yet, we still haven’t
 seen the fully-functional protected page. Let’s add that next!</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// router.js</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// router.js</span>
 
 <span class="nx">App</span><span class="p">.</span><span class="nx">Router</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   <span class="k">this</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;login&#39;</span><span class="p">);</span>
   <span class="k">this</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;public&#39;</span><span class="p">);</span>
   <span class="k">this</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;protected&#39;</span><span class="p">);</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// routes/login.js</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// routes/login.js</span>
 
 <span class="nx">App</span><span class="p">.</span><span class="nx">LoginRoute</span> <span class="o">=</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Route</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
   <span class="nx">actions</span><span class="o">:</span> <span class="p">{</span>
@@ -565,16 +561,16 @@ seen the fully-functional protected page. Let’s add that next!</p>
       <span class="nx">message</span><span class="o">:</span>  <span class="kc">null</span>
     <span class="p">});</span>
   <span class="p">}</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars"><span class="c">{{!-- templates/appliction.hbs --}}</span>
+<figure class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars"><span class="c">{{!-- templates/appliction.hbs --}}</span>
 <span class="nt">&lt;h2&gt;</span>Ember.js Authentication Example<span class="nt">&lt;/h2&gt;</span>
 
 <span class="cp">{{</span><span class="nv">outlet</span><span class="cp">}}</span>
 
-<span class="nt">&lt;p&gt;</span><span class="cp">{{</span><span class="nf">#link</span><span class="err">-</span><span class="nv">to</span> <span class="s2">&quot;login&quot;</span> <span class="na">tagName</span><span class="o">=</span><span class="s2">&quot;button&quot;</span><span class="cp">}}</span>Login<span class="cp">{{</span><span class="nf">/link</span><span class="err">-</span><span class="nv">to</span><span class="cp">}}</span><span class="nt">&lt;/p&gt;</span></code></pre></div>
+<span class="nt">&lt;p&gt;</span><span class="cp">{{</span><span class="nf">#link</span><span class="err">-</span><span class="nv">to</span> <span class="s2">&quot;login&quot;</span> <span class="na">tagName</span><span class="o">=</span><span class="s2">&quot;button&quot;</span><span class="cp">}}</span>Login<span class="cp">{{</span><span class="nf">/link</span><span class="err">-</span><span class="nv">to</span><span class="cp">}}</span><span class="nt">&lt;/p&gt;</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars"><span class="c">{{!-- templates/login.hbs --}}</span>
+<figure class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars"><span class="c">{{!-- templates/login.hbs --}}</span>
 <span class="nt">&lt;h4&gt;</span>Please login<span class="nt">&lt;/h4&gt;</span>
 
 <span class="cp">{{</span><span class="k">#if</span> <span class="nv">message</span><span class="cp">}}</span>
@@ -594,7 +590,7 @@ seen the fully-functional protected page. Let’s add that next!</p>
 <span class="nt">&lt;p&gt;</span>
   <span class="nt">&lt;button</span> <span class="cp">{{</span><span class="nv">action</span> <span class="s2">&quot;submit&quot;</span><span class="cp">}}</span><span class="nt">&gt;</span>Submit<span class="nt">&lt;/button&gt;</span>
   <span class="nt">&lt;button</span> <span class="cp">{{</span><span class="nv">action</span> <span class="s2">&quot;cancel&quot;</span><span class="cp">}}</span><span class="nt">&gt;</span>Cancel<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;/p&gt;</span></code></pre></div>
+<span class="nt">&lt;/p&gt;</span></code></pre></figure>
 
 <p>We did quite a lot here, so let’s break it down.</p>
 
@@ -646,16 +642,16 @@ user to infer the state of the system. Ideally, we would like to know if the
 user is already logged in, and display a “Logout” button instead. We will work
 on addressing this next:</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// initializers/inject-session.js</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// initializers/inject-session.js</span>
 
 <span class="c1">// Register an observable &quot;session&quot; object for tracking current user, etc</span>
 <span class="nx">App</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s1">&#39;service:session&#39;</span><span class="p">,</span> <span class="nx">Ember</span><span class="p">.</span><span class="nb">Object</span><span class="p">);</span>
 
 <span class="c1">// Make the session object available to all routes and controller</span>
 <span class="nx">App</span><span class="p">.</span><span class="nx">inject</span><span class="p">(</span><span class="s1">&#39;route&#39;</span><span class="p">,</span> <span class="s1">&#39;session&#39;</span><span class="p">,</span> <span class="s1">&#39;service:session&#39;</span><span class="p">);</span>
-<span class="nx">App</span><span class="p">.</span><span class="nx">inject</span><span class="p">(</span><span class="s1">&#39;controller&#39;</span><span class="p">,</span> <span class="s1">&#39;session&#39;</span><span class="p">,</span> <span class="s1">&#39;service:session&#39;</span><span class="p">);</span></code></pre></div>
+<span class="nx">App</span><span class="p">.</span><span class="nx">inject</span><span class="p">(</span><span class="s1">&#39;controller&#39;</span><span class="p">,</span> <span class="s1">&#39;session&#39;</span><span class="p">,</span> <span class="s1">&#39;service:session&#39;</span><span class="p">);</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// routes/application.js</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// routes/application.js</span>
 
 <span class="nx">App</span><span class="p">.</span><span class="nx">ApplicationRoute</span> <span class="o">=</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Route</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
   <span class="nx">actions</span><span class="o">:</span> <span class="p">{</span>
@@ -668,9 +664,9 @@ on addressing this next:</p>
       <span class="p">});</span>
     <span class="p">}</span>
   <span class="p">}</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// routes/login.js</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// routes/login.js</span>
 
 <span class="nx">App</span><span class="p">.</span><span class="nx">LoginRoute</span> <span class="o">=</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Route</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
   <span class="nx">actions</span><span class="o">:</span> <span class="p">{</span>
@@ -697,9 +693,9 @@ on addressing this next:</p>
   <span class="p">},</span>
 
   <span class="c1">// ...</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars"><span class="c">{{!-- templates/appliction.hbs --}}</span>
+<figure class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars"><span class="c">{{!-- templates/appliction.hbs --}}</span>
 <span class="nt">&lt;h2&gt;</span>Ember.js Authentication Example<span class="nt">&lt;/h2&gt;</span>
 
 <span class="cp">{{</span><span class="nv">outlet</span><span class="cp">}}</span>
@@ -708,16 +704,16 @@ on addressing this next:</p>
   <span class="nt">&lt;p&gt;&lt;button</span> <span class="cp">{{</span><span class="nv">action</span> <span class="s2">&quot;logout&quot;</span><span class="cp">}}</span><span class="nt">&gt;</span>Logout<span class="nt">&lt;/button&gt;&lt;/p&gt;</span>
 <span class="cp">{{</span><span class="k">else</span><span class="cp">}}</span>
   <span class="nt">&lt;p&gt;</span><span class="cp">{{</span><span class="nf">#link</span><span class="err">-</span><span class="nv">to</span> <span class="s2">&quot;login&quot;</span> <span class="na">tagName</span><span class="o">=</span><span class="s2">&quot;button&quot;</span><span class="cp">}}</span>Login<span class="cp">{{</span><span class="nf">/link</span><span class="err">-</span><span class="nv">to</span><span class="cp">}}</span><span class="nt">&lt;/p&gt;</span>
-<span class="cp">{{</span><span class="k">/if</span><span class="cp">}}</span></code></pre></div>
+<span class="cp">{{</span><span class="k">/if</span><span class="cp">}}</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars"><span class="c">{{!-- templates/index.hbs --}}</span>
+<figure class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars"><span class="c">{{!-- templates/index.hbs --}}</span>
 <span class="cp">{{</span><span class="k">#if</span> <span class="nv">session.user</span><span class="cp">}}</span>
   <span class="nt">&lt;h4&gt;</span>You are logged in as <span class="cp">{{</span><span class="nv">session.user.name</span><span class="cp">}}</span><span class="nt">&lt;/h4&gt;</span>
 <span class="cp">{{</span><span class="k">/if</span><span class="cp">}}</span>
 
 <span class="nt">&lt;p&gt;</span><span class="cp">{{</span><span class="nf">#link</span><span class="err">-</span><span class="nv">to</span> <span class="s2">&quot;public&quot;</span><span class="cp">}}</span>Public Page<span class="cp">{{</span><span class="nf">/link</span><span class="err">-</span><span class="nv">to</span><span class="cp">}}</span><span class="nt">&lt;/p&gt;</span>
 <span class="nt">&lt;p&gt;</span><span class="cp">{{</span><span class="nf">#link</span><span class="err">-</span><span class="nv">to</span> <span class="s2">&quot;protected&quot;</span><span class="cp">}}</span>Protected Page<span class="cp">{{</span><span class="nf">/link</span><span class="err">-</span><span class="nv">to</span><span class="cp">}}</span><span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;p&gt;</span>Admin-only Page<span class="nt">&lt;/p&gt;</span></code></pre></div>
+<span class="nt">&lt;p&gt;</span>Admin-only Page<span class="nt">&lt;/p&gt;</span></code></pre></figure>
 
 <p>First, we introduced the concept of a shared <code>session</code> object and made it
 available to all controllers and routes in our app. This is where we will keep
@@ -760,11 +756,11 @@ active (i.e. we are already on the page that the link is supposed to bring us
 to). This makes it trivial to hide the “Login” button on the login page with
 just a few lines of CSS:</p>
 
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="c">/* app.css */</span>
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="c">/* app.css */</span>
 
 <span class="nt">button</span><span class="nc">.active</span> <span class="p">{</span>
   <span class="k">display</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></figure>
 
 <p><a href="http://emberjs.jsbin.com/legiyo">Try it out on JS Bin</a></p>
 
@@ -780,7 +776,7 @@ redirect them straight to the login page? Better yet, it would be fantastic if
 we remember where the user came from, so that we can redirect them back to the
 same page upon a successful login. Let’s get to work!</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// routes/application.js</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// routes/application.js</span>
 
 <span class="nx">App</span><span class="p">.</span><span class="nx">ApplicationRoute</span> <span class="o">=</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Route</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
   <span class="nx">actions</span><span class="o">:</span> <span class="p">{</span>
@@ -804,9 +800,9 @@ same page upon a successful login. Let’s get to work!</p>
       <span class="p">}</span>
     <span class="p">}</span>
   <span class="p">}</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// routes/login.js</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// routes/login.js</span>
 
 <span class="nx">App</span><span class="p">.</span><span class="nx">LoginRoute</span> <span class="o">=</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Route</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
   <span class="nx">actions</span><span class="o">:</span> <span class="p">{</span>
@@ -847,11 +843,11 @@ same page upon a successful login. Let’s get to work!</p>
       <span class="nx">transition</span><span class="o">:</span> <span class="kc">null</span>
     <span class="p">});</span>
   <span class="p">}</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// controllers/login.js</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// controllers/login.js</span>
 
-<span class="nx">App</span><span class="p">.</span><span class="nx">LoginController</span> <span class="o">=</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Controller</span><span class="p">.</span><span class="nx">extend</span><span class="p">();</span></code></pre></div>
+<span class="nx">App</span><span class="p">.</span><span class="nx">LoginController</span> <span class="o">=</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Controller</span><span class="p">.</span><span class="nx">extend</span><span class="p">();</span></code></pre></figure>
 
 <p>When an error occurs during a route transition (e.g. a Promise was rejected),
 the Ember router will first invoke the <code>error</code> action handler, offering you a
@@ -892,7 +888,7 @@ the user is not logged in, we will still make an API request to the server, just
 to show an error message on the login page. With the session object, we can now
 eagerly predict this outcome and avoid that wasteful roundtrip:</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// routes/protected.js</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// routes/protected.js</span>
 
 <span class="nx">App</span><span class="p">.</span><span class="nx">ProtectedRoute</span> <span class="o">=</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Route</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
   <span class="nx">beforeModel</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
@@ -904,7 +900,7 @@ eagerly predict this outcome and avoid that wasteful roundtrip:</p>
   <span class="nx">model</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">API</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;protected&quot;</span><span class="p">);</span>
   <span class="p">}</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <p>All we need to do here is to check if we have a <code>session.user</code>. If not, we can
 immediately return a rejected Promise just like the <code>API</code> would. That way, our
@@ -918,16 +914,16 @@ existing <code>error</code> handler would Just Work™ without any changes.</p>
 
 <p>Our last task is to add the super-secret, admin-only page.</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// router.js</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// router.js</span>
 
 <span class="nx">Router</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   <span class="k">this</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;login&#39;</span><span class="p">);</span>
   <span class="k">this</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;public&#39;</span><span class="p">);</span>
   <span class="k">this</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;protected&#39;</span><span class="p">);</span>
   <span class="k">this</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;secret&#39;</span><span class="p">);</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// routes/secret.js</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// routes/secret.js</span>
 
 <span class="nx">App</span><span class="p">.</span><span class="nx">SecretRoute</span> <span class="o">=</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Route</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
   <span class="nx">beforeModel</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
@@ -941,23 +937,23 @@ existing <code>error</code> handler would Just Work™ without any changes.</p>
   <span class="nx">model</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">API</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;secret&#39;</span><span class="p">);</span>
   <span class="p">}</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars"><span class="c">{{!-- templates/index.hbs --}}</span>
+<figure class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars"><span class="c">{{!-- templates/index.hbs --}}</span>
 <span class="cp">{{</span><span class="k">#if</span> <span class="nv">session.user</span><span class="cp">}}</span>
   <span class="nt">&lt;h4&gt;</span>You are logged in as <span class="cp">{{</span><span class="nv">session.user.name</span><span class="cp">}}</span><span class="nt">&lt;/h4&gt;</span>
 <span class="cp">{{</span><span class="k">/if</span><span class="cp">}}</span>
 
 <span class="nt">&lt;p&gt;</span><span class="cp">{{</span><span class="nf">#link</span><span class="err">-</span><span class="nv">to</span> <span class="s2">&quot;public&quot;</span><span class="cp">}}</span>Public Page<span class="cp">{{</span><span class="nf">/link</span><span class="err">-</span><span class="nv">to</span><span class="cp">}}</span><span class="nt">&lt;/p&gt;</span>
 <span class="nt">&lt;p&gt;</span><span class="cp">{{</span><span class="nf">#link</span><span class="err">-</span><span class="nv">to</span> <span class="s2">&quot;protected&quot;</span><span class="cp">}}</span>Protected Page<span class="cp">{{</span><span class="nf">/link</span><span class="err">-</span><span class="nv">to</span><span class="cp">}}</span><span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;p&gt;</span><span class="cp">{{</span><span class="nf">#link</span><span class="err">-</span><span class="nv">to</span> <span class="s2">&quot;secret&quot;</span><span class="cp">}}</span>Admin-only Page<span class="cp">{{</span><span class="nf">/link</span><span class="err">-</span><span class="nv">to</span><span class="cp">}}</span><span class="nt">&lt;/p&gt;</span></code></pre></div>
+<span class="nt">&lt;p&gt;</span><span class="cp">{{</span><span class="nf">#link</span><span class="err">-</span><span class="nv">to</span> <span class="s2">&quot;secret&quot;</span><span class="cp">}}</span>Admin-only Page<span class="cp">{{</span><span class="nf">/link</span><span class="err">-</span><span class="nv">to</span><span class="cp">}}</span><span class="nt">&lt;/p&gt;</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars"><span class="c">{{!-- templates/secret.hbs --}}</span>
+<figure class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars"><span class="c">{{!-- templates/secret.hbs --}}</span>
 <span class="nt">&lt;h4&gt;</span>Admin-only Page<span class="nt">&lt;/h4&gt;</span>
 
 <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;content&quot;</span><span class="nt">&gt;</span><span class="cp">{{</span><span class="nv">content</span><span class="cp">}}</span><span class="nt">&lt;/div&gt;</span>
 
-<span class="nt">&lt;p&gt;</span><span class="cp">{{</span><span class="nf">#link</span><span class="err">-</span><span class="nv">to</span> <span class="s2">&quot;index&quot;</span><span class="cp">}}</span>Go back<span class="cp">{{</span><span class="nf">/link</span><span class="err">-</span><span class="nv">to</span><span class="cp">}}</span><span class="nt">&lt;/p&gt;</span></code></pre></div>
+<span class="nt">&lt;p&gt;</span><span class="cp">{{</span><span class="nf">#link</span><span class="err">-</span><span class="nv">to</span> <span class="s2">&quot;index&quot;</span><span class="cp">}}</span>Go back<span class="cp">{{</span><span class="nf">/link</span><span class="err">-</span><span class="nv">to</span><span class="cp">}}</span><span class="nt">&lt;/p&gt;</span></code></pre></figure>
 
 <p>As you can see, this was quite easy to do; we didn’t really introduce any new
 concepts here. We defined a route and the corresponding template, then updated
@@ -988,7 +984,7 @@ which is also exactly what we want here.</p>
 
 <p>To see it in action, we will add a button to simulate this scenario:</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// routes/application.js</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// routes/application.js</span>
 
 <span class="nx">App</span><span class="p">.</span><span class="nx">ApplicationRoute</span> <span class="o">=</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Route</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
   <span class="nx">actions</span><span class="o">:</span> <span class="p">{</span>
@@ -1002,9 +998,9 @@ which is also exactly what we want here.</p>
   <span class="p">},</span>
 
   <span class="c1">// ...</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars"><span class="c">{{!-- templates/application.hbs --}}</span>
+<figure class="highlight"><pre><code class="language-html-handlebars" data-lang="html+handlebars"><span class="c">{{!-- templates/application.hbs --}}</span>
 <span class="nt">&lt;h2&gt;</span>Ember.js Authentication Example<span class="nt">&lt;/h2&gt;</span>
 
 <span class="cp">{{</span><span class="nv">outlet</span><span class="cp">}}</span>
@@ -1014,7 +1010,7 @@ which is also exactly what we want here.</p>
   <span class="nt">&lt;p&gt;&lt;button</span> <span class="cp">{{</span><span class="nv">action</span> <span class="s2">&quot;expireSession&quot;</span><span class="cp">}}</span><span class="nt">&gt;</span>Force session expiration<span class="nt">&lt;/button&gt;&lt;/p&gt;</span>
 <span class="cp">{{</span><span class="k">else</span><span class="cp">}}</span>
   <span class="nt">&lt;p&gt;</span><span class="cp">{{</span><span class="nf">#link</span><span class="err">-</span><span class="nv">to</span> <span class="s2">&quot;login&quot;</span> <span class="na">tagName</span><span class="o">=</span><span class="s2">&quot;button&quot;</span><span class="cp">}}</span>Login<span class="cp">{{</span><span class="nf">/link</span><span class="err">-</span><span class="nv">to</span><span class="cp">}}</span><span class="nt">&lt;/p&gt;</span>
-<span class="cp">{{</span><span class="k">/if</span><span class="cp">}}</span></code></pre></div>
+<span class="cp">{{</span><span class="k">/if</span><span class="cp">}}</span></code></pre></figure>
 
 <p>We are simulating the expiration of a session by changing our session token to
 <code>expired</code>, and our mock server will take care of the rest.</p>
@@ -1034,7 +1030,7 @@ confusing user experience.</p>
 <p>To address this, we will make sure we clear the authentication information when
 the login route is entered:</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// routes/login.js</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// routes/login.js</span>
 
 <span class="nx">App</span><span class="p">.</span><span class="nx">LoginRoute</span> <span class="o">=</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Route</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
   <span class="c1">// ...</span>
@@ -1045,7 +1041,7 @@ the login route is entered:</p>
   <span class="p">},</span>
 
   <span class="c1">// ...</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <p>With that, our job is finally done!</p>
 
@@ -1131,7 +1127,6 @@ application? <a href="http://brewhouse.io/#hire-us">Get in touch</a>!</p>
     <aside class="lets-talk cover">
   <div class="container">
     <div class="col-md-6">
-      <h4>Let&apos;s Talk</h4>
       <p class="lede">We partner with businesses to design and develop well-loved products through a flexible and transparent process. We'd love to discuss how our process can help your idea become a reality.</p>
     </div>
   </div>
@@ -1155,7 +1150,7 @@ application? <a href="http://brewhouse.io/#hire-us">Get in touch</a>!</p>
     <nav role="navigation" class="col-md-6">
         <ul>
           <li>
-            <a href="/meet-the-team.html">Our Team</a>
+            <a class="internal" href="/#work">Work</a>
           </li>
           <li>
             <a class="internal" href="/#services">Services</a>
@@ -1172,14 +1167,15 @@ application? <a href="http://brewhouse.io/#hire-us">Get in touch</a>!</p>
         </ul>
     </nav>
     <div class="col-md-5 col-md-push-1">
-      <p class="copyright"> 
+      <p class="copyright">
         &copy; <span class="copyright-year"></span> <a href="http://brewhouse.io">brewhouse software, inc.</a>
       </p>
     </div>
   </div>
 </footer>
 
-    <script src="/assets/app-535a82bee3349c97d71afb2bb205208d.js"></script>
+
+    <script type="text/javascript" src="/assets/app.js"></script>
 
     <!-- needs to be refactored when we have more layouts -->
     

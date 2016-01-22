@@ -22,7 +22,7 @@
     <meta property="twitter:card" content="summary" />
     <meta property="twitter:site" content="@brewhouseteam" />
     <meta property="twitter:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png">
-    <meta property="twitter:url" content="http://brewhouse.io/blog/page/2/index.html">
+    <meta property="twitter:url" content="http://brewhouse.io/blog/page/2/">
 
     <link rel="alternate" type="application/atom+xml" href="/blog/index.xml" title="The Brew Pub atom feed">
 
@@ -56,7 +56,7 @@
 <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
 <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
 
-<link rel="stylesheet" href="/assets/application-896a79d9ededda8066f38e28d03d7060.css">
+<link type="text/css" rel="stylesheet" href="/assets/application.css">
 
 
     <!-- needs to be refactored when we have more layouts -->
@@ -79,10 +79,7 @@
     <aside class="offcanvas-menu">
   <ul>
     <li>
-      <a class="internal" href="http://brewhouse.io/#services">Services</a>
-    </li>
-    <li>
-      <a class="internal" href="http://brewhouse.io/#projects">Projects</a>
+      <a class="internal" href="http://brewhouse.io/#work">Work</a>
     </li>
     <li>
       <a href="/meet-the-team.html">Team</a>
@@ -97,7 +94,7 @@
   <a class="btn btn--header" href="/work-with-us.html">Hire Us</a>
 </aside>
 
-    <nav id="navbar-main" class="navbar navbar-default navbar-main navbar-fixed-top">
+    <nav id="navbar-main" class="navbar navbar-default navbar-main">
   <div class="container">
     <div class="col-xs-12">
 
@@ -115,8 +112,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <a class="internal btn navbar-btn navbar-right btn--header" href="/work-with-us.html">Hire Us</a>
           <ul id="navbar-links" class="nav navbar-nav navbar-right">
-            <li><a class="internal" href="/#services">Services</a></li>
-            <li><a class="internal" href="/#projects">Projects</a></li>
+            <li><a class="internal" href="/#work">Work</a></li>
             <li><a href="/meet-the-team.html">Team</a></li>
             <li><a href="/blog">Blog</a></li>
             <li><a href="/show">Show</a></li>
@@ -134,8 +130,10 @@
 
       <div class="page-header">
   <div class="container">
-    <div class="col-xs-12 text-xs-center text-md-left">
-      <h1>Writings from <a href="http://brewhouse.io">brewhouse.io</a>,<br class="visible-lg" /> makers of <a href="https://goodbits.io?utm_source=brewhouse-blog">Goodbits</a>.</h1>
+    <div class="col-xs-12">
+      <h1 class="page-title">
+        Writings from <a href="http://brewhouse.io">brewhouse.io</a>,<br class="visible-lg" /> makers of <a href="https://goodbits.io?utm_source=brewhouse-blog">Goodbits</a>.
+      </h1>
     </div>
   </div>
 </div>
@@ -150,7 +148,7 @@
 
           <div class="post">
 
-            <h1 class="text-xs-center text-md-left">
+            <h1 class="post-title">
               <a href="/blog/2015/05/13/emberjs-an-antidote-to-your-hype-fatigue.html">Ember.js: An Antidote To Your Hype Fatigue</a>
             </h1>
             
@@ -201,7 +199,7 @@ meetup.</p>
 
           <div class="post">
 
-            <h1 class="text-xs-center text-md-left">
+            <h1 class="post-title">
               <a href="/blog/2015/04/27/fixing-a-slow-rails-development-server.html">Fixing a slow Rails development server</a>
             </h1>
             
@@ -253,7 +251,7 @@ meetup.</p>
 
           <div class="post">
 
-            <h1 class="text-xs-center text-md-left">
+            <h1 class="post-title">
               <a href="/blog/2015/04/13/elegant-tests-with-truth-tables.html">Elegant tests with Truth Tables</a>
             </h1>
             
@@ -276,7 +274,7 @@ meetup.</p>
 
 <p>Here is an example:</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">describe</span> <span class="s2">&quot;#to_dollars&quot;</span> <span class="k">do</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">describe</span> <span class="s2">&quot;#to_dollars&quot;</span> <span class="k">do</span>
   <span class="o">[</span>
     <span class="o">[</span>      <span class="kp">nil</span><span class="p">,</span>         <span class="kp">nil</span><span class="o">]</span><span class="p">,</span>
     <span class="o">[</span>        <span class="mi">0</span><span class="p">,</span>     <span class="s2">&quot;$0.00&quot;</span><span class="o">]</span><span class="p">,</span>
@@ -289,7 +287,7 @@ meetup.</p>
       <span class="n">expect</span><span class="p">(</span><span class="n">to_dollars</span><span class="p">(</span><span class="n">amount</span><span class="p">))</span><span class="o">.</span><span class="n">to</span> <span class="n">eq</span> <span class="n">dollars</span>
     <span class="k">end</span>
   <span class="k">end</span>
-<span class="k">end</span></code></pre></div>
+<span class="k">end</span></code></pre></figure>
 
 
 
@@ -314,7 +312,7 @@ meetup.</p>
 
           <div class="post">
 
-            <h1 class="text-xs-center text-md-left">
+            <h1 class="post-title">
               <a href="/blog/2015/03/24/best-practices-for-component-state-in-reactjs.html">Best Practices for Component State in React.js</a>
             </h1>
             
@@ -366,7 +364,7 @@ meetup.</p>
 
           <div class="post">
 
-            <h1 class="text-xs-center text-md-left">
+            <h1 class="post-title">
               <a href="/blog/2015/03/06/adapter-patterns-in-ember-js.html">Adapter Patterns in Ember.js</a>
             </h1>
             
@@ -420,7 +418,7 @@ bit of new content that I couldn’t fit into original presentation.</p>
 
           <div class="post">
 
-            <h1 class="text-xs-center text-md-left">
+            <h1 class="post-title">
               <a href="/blog/2015/02/12/ember-vs-angular-authentication.html">Ember vs Angular: Authentication Example</a>
             </h1>
             
@@ -478,7 +476,7 @@ build this example from scratch.</p>
 
           <div class="post">
 
-            <h1 class="text-xs-center text-md-left">
+            <h1 class="post-title">
               <a href="/2015/01/07/lucky-number-seven.html">Lucky Number Seven</a>
             </h1>
             
@@ -530,7 +528,7 @@ He’s our new Product Manager.</p>
 
           <div class="post">
 
-            <h1 class="text-xs-center text-md-left">
+            <h1 class="post-title">
               <a href="/blog/2014/12/30/brewhouse-2014-by-the-numbers.html">Brewhouse 2014 - by the numbers</a>
             </h1>
             
@@ -638,7 +636,6 @@ and
     <aside class="lets-talk cover">
   <div class="container">
     <div class="col-md-6">
-      <h4>Let&apos;s Talk</h4>
       <p class="lede">We partner with businesses to design and develop well-loved products through a flexible and transparent process. We'd love to discuss how our process can help your idea become a reality.</p>
     </div>
   </div>
@@ -662,7 +659,7 @@ and
     <nav role="navigation" class="col-md-6">
         <ul>
           <li>
-            <a href="/meet-the-team.html">Our Team</a>
+            <a class="internal" href="/#work">Work</a>
           </li>
           <li>
             <a class="internal" href="/#services">Services</a>
@@ -679,14 +676,15 @@ and
         </ul>
     </nav>
     <div class="col-md-5 col-md-push-1">
-      <p class="copyright"> 
+      <p class="copyright">
         &copy; <span class="copyright-year"></span> <a href="http://brewhouse.io">brewhouse software, inc.</a>
       </p>
     </div>
   </div>
 </footer>
 
-    <script src="/assets/app-535a82bee3349c97d71afb2bb205208d.js"></script>
+
+    <script type="text/javascript" src="/assets/app.js"></script>
 
     <!-- needs to be refactored when we have more layouts -->
     

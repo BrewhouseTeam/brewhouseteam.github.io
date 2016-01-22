@@ -56,7 +56,7 @@
 <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
 <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
 
-<link rel="stylesheet" href="/assets/application-896a79d9ededda8066f38e28d03d7060.css">
+<link type="text/css" rel="stylesheet" href="/assets/application.css">
 
 
     <!-- needs to be refactored when we have more layouts -->
@@ -79,10 +79,7 @@
     <aside class="offcanvas-menu">
   <ul>
     <li>
-      <a class="internal" href="http://brewhouse.io/#services">Services</a>
-    </li>
-    <li>
-      <a class="internal" href="http://brewhouse.io/#projects">Projects</a>
+      <a class="internal" href="http://brewhouse.io/#work">Work</a>
     </li>
     <li>
       <a href="/meet-the-team.html">Team</a>
@@ -97,7 +94,7 @@
   <a class="btn btn--header" href="/work-with-us.html">Hire Us</a>
 </aside>
 
-    <nav id="navbar-main" class="navbar navbar-default navbar-main navbar-fixed-top">
+    <nav id="navbar-main" class="navbar navbar-default navbar-main">
   <div class="container">
     <div class="col-xs-12">
 
@@ -115,8 +112,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <a class="internal btn navbar-btn navbar-right btn--header" href="/work-with-us.html">Hire Us</a>
           <ul id="navbar-links" class="nav navbar-nav navbar-right">
-            <li><a class="internal" href="/#services">Services</a></li>
-            <li><a class="internal" href="/#projects">Projects</a></li>
+            <li><a class="internal" href="/#work">Work</a></li>
             <li><a href="/meet-the-team.html">Team</a></li>
             <li><a href="/blog">Blog</a></li>
             <li><a href="/show">Show</a></li>
@@ -138,8 +134,8 @@
 
   <div class="page-header">
     <div class="container">
-      <div class="col-xs-12 col-sm-8 text-xs-center text-sm-left">
-        <h1>Writing Rails-flavored AngularJS</h1>
+      <div class="col-xs-12 col-sm-8">
+        <h1 class="page-title">Writing Rails-flavored AngularJS</h1>
       </div>
       <div class="col-xs-12 col-sm-4 text-xs-center">
         <div class="meta text-center">
@@ -200,28 +196,28 @@ Let’s take a look.</p>
 <p>Two-way binding works right out of the box with Sprinkles. Wrapping objects
 with the <code>bindable</code> controller helper gives them the <code>bind</code> method.</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/controllers/user_controller.rb</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/controllers/user_controller.rb</span>
 
 <span class="k">class</span> <span class="nc">UserController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
   <span class="k">def</span> <span class="nf">show</span>
     <span class="vi">@user</span> <span class="o">=</span> <span class="n">bindable</span><span class="p">(</span><span class="no">User</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">))</span>
   <span class="k">end</span>
-<span class="k">end</span></code></pre></div>
+<span class="k">end</span></code></pre></figure>
 
 <p>And then in the view, you can either bind to the entire JSONified object with <code>@user.bind</code>,
 or just a single attribute with an argument.</p>
 
-<div class="highlight"><pre><code class="language-erb" data-lang="erb"><span class="x">&lt;!-- app/views/users/show.html.erb --&gt;</span>
+<figure class="highlight"><pre><code class="language-erb" data-lang="erb"><span class="x">&lt;!-- app/views/users/show.html.erb --&gt;</span>
 
 <span class="x">&lt;p&gt;My name is: {{ </span><span class="cp">&lt;%=</span> <span class="vi">@user</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="ss">:name</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="x"> }}&lt;/p&gt;</span>
-<span class="x">&lt;input type=&quot;text&quot; ng-model=&quot;</span><span class="cp">&lt;%=</span> <span class="vi">@user</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="ss">:name</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="x">&quot; /&gt;</span></code></pre></div>
+<span class="x">&lt;input type=&quot;text&quot; ng-model=&quot;</span><span class="cp">&lt;%=</span> <span class="vi">@user</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="ss">:name</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="x">&quot; /&gt;</span></code></pre></figure>
 
 <h2 id="inlined-directives">Inlined directives</h2>
 
 <p>We’ll take this a step further by creating a directive to make our name blink very rapidly (obviously).
 Let’s first write the directive.</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// app/assets/javascripts/directives/blink.js</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// app/assets/javascripts/directives/blink.js</span>
 
 <span class="nx">sprinkles</span><span class="p">.</span><span class="nx">directive</span><span class="p">(</span><span class="s1">&#39;blink&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$timeout</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="p">{</span>
@@ -244,16 +240,16 @@ Let’s first write the directive.</p>
       <span class="nx">blink</span><span class="p">();</span>
     <span class="p">}</span>
   <span class="p">};</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <p>And now we can include the directive in our view with the <code>directive</code> helper.</p>
 
-<div class="highlight"><pre><code class="language-erb" data-lang="erb"><span class="x">&lt;!-- app/views/users/show.html.erb --&gt;</span>
+<figure class="highlight"><pre><code class="language-erb" data-lang="erb"><span class="x">&lt;!-- app/views/users/show.html.erb --&gt;</span>
 
 <span class="cp">&lt;%=</span> <span class="n">directive</span><span class="p">(</span><span class="ss">:blink</span><span class="p">,</span> <span class="ss">period</span><span class="p">:</span> <span class="mi">250</span><span class="p">)</span> <span class="k">do</span> <span class="cp">%&gt;</span><span class="x"></span>
 <span class="x">  &lt;p&gt;My name is: {{ </span><span class="cp">&lt;%=</span> <span class="vi">@user</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="ss">:name</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="x"> }}&lt;/p&gt;</span>
 <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span><span class="x"></span>
-<span class="x">&lt;input type=&quot;text&quot; ng-model=&quot;</span><span class="cp">&lt;%=</span> <span class="vi">@user</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="ss">:name</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="x">&quot; /&gt;</span></code></pre></div>
+<span class="x">&lt;input type=&quot;text&quot; ng-model=&quot;</span><span class="cp">&lt;%=</span> <span class="vi">@user</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="ss">:name</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="x">&quot; /&gt;</span></code></pre></figure>
 
 <p>BOOM! Annoying blinking tag!</p>
 
@@ -264,20 +260,20 @@ bindings. For example, clicking a button and showing an alert box. Sprinkles
 solves this by allowing developers to inline Angular services with the <code>service</code>
 helper method.</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// app/assets/javascripts/services/alert_me.js</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// app/assets/javascripts/services/alert_me.js</span>
 
 <span class="nx">sprinkles</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;alertMe&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="k">return</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">input</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;My name is: &#39;</span> <span class="o">+</span> <span class="nx">input</span><span class="p">);</span>
   <span class="p">};</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <p>And then in the view,</p>
 
-<div class="highlight"><pre><code class="language-erb" data-lang="erb"><span class="x">&lt;!-- app/views/users/show.html.erb --&gt;</span>
+<figure class="highlight"><pre><code class="language-erb" data-lang="erb"><span class="x">&lt;!-- app/views/users/show.html.erb --&gt;</span>
 
 <span class="x">&lt;button ng-click=&quot;</span><span class="cp">&lt;%=</span> <span class="n">service</span><span class="p">(</span><span class="ss">:alert_me</span><span class="p">,</span> <span class="vi">@user</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="ss">:name</span><span class="p">))</span> <span class="cp">%&gt;</span><span class="x">&quot;&gt;CLICK ME!&lt;/button&gt;</span>
-<span class="x">&lt;input type=&quot;text&quot; ng-model=&quot;</span><span class="cp">&lt;%=</span> <span class="vi">@user</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="ss">:name</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="x">&quot; /&gt;</span></code></pre></div>
+<span class="x">&lt;input type=&quot;text&quot; ng-model=&quot;</span><span class="cp">&lt;%=</span> <span class="vi">@user</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="ss">:name</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="x">&quot; /&gt;</span></code></pre></figure>
 
 <p>In all of these examples there was no additional setup involved. An Angular application
 is generated behind the scenes, allowing the developer to keep focused on smaller
@@ -333,7 +329,6 @@ for more information on setup and leave some feedback. We would love to know wha
     <aside class="lets-talk cover">
   <div class="container">
     <div class="col-md-6">
-      <h4>Let&apos;s Talk</h4>
       <p class="lede">We partner with businesses to design and develop well-loved products through a flexible and transparent process. We'd love to discuss how our process can help your idea become a reality.</p>
     </div>
   </div>
@@ -357,7 +352,7 @@ for more information on setup and leave some feedback. We would love to know wha
     <nav role="navigation" class="col-md-6">
         <ul>
           <li>
-            <a href="/meet-the-team.html">Our Team</a>
+            <a class="internal" href="/#work">Work</a>
           </li>
           <li>
             <a class="internal" href="/#services">Services</a>
@@ -374,14 +369,15 @@ for more information on setup and leave some feedback. We would love to know wha
         </ul>
     </nav>
     <div class="col-md-5 col-md-push-1">
-      <p class="copyright"> 
+      <p class="copyright">
         &copy; <span class="copyright-year"></span> <a href="http://brewhouse.io">brewhouse software, inc.</a>
       </p>
     </div>
   </div>
 </footer>
 
-    <script src="/assets/app-535a82bee3349c97d71afb2bb205208d.js"></script>
+
+    <script type="text/javascript" src="/assets/app.js"></script>
 
     <!-- needs to be refactored when we have more layouts -->
     
