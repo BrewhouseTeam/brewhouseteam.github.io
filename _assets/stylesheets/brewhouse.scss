@@ -40,9 +40,6 @@ a {
   color: #47A4C2;
   cursor: pointer;
   word-wrap: break-word;
-  -webkit-transition: all 0.15s ease-in-out;
-  -moz-transition: all 0.15s ease-in-out;
-  transition: all 0.15s ease-in-out;
 }
 a:hover, a:focus {
   color: #F56741;
@@ -333,10 +330,10 @@ img.img-centered {
     margin-bottom: 1em;
   }
   a {
-    color: #fff;
+    color: $brand-primary;
     &:hover,
     &:focus {
-      color: #fff;
+      color: darken($brand-primary, 20);
     }
   }
   @media (min-width: 768px) {
@@ -855,12 +852,16 @@ html.blog {
 
   .pagination a,
   .continue-reading a {
+    border: 1px solid $brand-primary;
+    color: $brand-primary;
     display: inline-block;
     padding: 0 15px;
     text-decoration: none;
     border-radius: 30px;
     &:hover,
     &:focus {
+      background: $brand-primary;
+      color: #fff;
       text-decoration: none;
     }
   }
