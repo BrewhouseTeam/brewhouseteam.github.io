@@ -9,18 +9,18 @@ tags:
 - Code curation
 ---
 
-We've been working with Zozi to augment their team. The goal always being to accelerate their projects and improving their overall application by reducing complexity and increasing site performance.
+Zozi hired Brewhouse to augment their team for the purpose of accelerating their projects and improving their application by reducing complexity and increasing site performance.
 
-# How did we work
+## On Process
 
-We work with clients that follow our thinking on great product design and development. This means that we integrate with the current team's processes rather than work one way for us and another with the team.
+We work with clients that follow our thinking around how to design and develop great products. This means that we integrate with the current team's processes rather than work one way for us and another with the team.
 
-With Zozi we attended all their planning and standup meetings. We provided feedback on those processes to further optimize how best to work as a team and deliver high quality software. Their team had a workflow around developing the code, testing it in staging, we followed these practices rather than disrupt their team.
+We attended all of Zozi's planning and standup meetings throughout our engagement. We provided feedback on those processes to further optimize how best to work as a team and deliver high quality software. Their team had a workflow around developing the code and testing it in staging, and we followed these practices rather than disrupt their team.
 
-Conversation is very important to our values and a habit we encourage through every stage of our development process. The client was based between Vancouver and San Francisco so conversation was encouraged to take place through digital tooling so context was never lost. We used HipChat for chat, Pivotal Tracker for the planning and Github for code reviews and discussion.
+Conversation is very important to our values and a habit we encourage through every stage of our development process. As Zozi is based between Vancouver and San Francisco, conversation was encouraged to take place through digital tooling so context was never lost. We used [HipChat](https://www.hipchat.com) for chat, [Pivotal Tracker](http://pivotaltracker.com) for planning, and [Github](http://github.com) for code reviews and discussion.
 
-## Improving the performance of Zozi.com
+## Improving the Performance of Zozi.com
 
 One of the areas of work we performed with Zozi was to improve the performance of their application as they were preparing to send out a large amount of email campaigns. These campaigns in turn would bring users to the site and place orders with their e-commerce offering.
 
-We started by measuring as much as we could and review their [NewRelic](http://newrelic.com/) data to determine the areas of focus to investigate further to improve the application throughput. This involved some of our Senior Ruby developers to dig deep into their code and database and find areas to optimize. Take a read of [Fixing a slow Rails development Server](/blog/2015/04/27/fixing-a-slow-rails-development-server.html) from our Blog for more information on this kind of work.
+We started by measuring and analyzing as much data as we could and reviewed their [NewRelic](http://newrelic.com/) data to determine areas of focus to investigate further to improve the application throughput. This involved some of our Senior Ruby developers to dig deep into Zozi's code and database to find areas to optimize. We published [Fixing a slow Rails development Server](/blog/2015/04/27/fixing-a-slow-rails-development-server.html) to  our [blog](/blog/) to provide more information on this kind of work.

@@ -514,13 +514,9 @@ img.img-centered {
       clear: left;
     }
     a {
-      border: 1px solid #eee;
       display: block;
       margin-bottom: 2em;
       padding: .75em;
-      -webkit-border-radius: 4px;
-      -moz-border-radius: 4px;
-      border-radius: 4px;
       -webkit-transition: all .15s ease-in-out;
       -moz-transition: all .15s ease-in-out;
       transition: all .15s ease-in-out;
@@ -530,9 +526,6 @@ img.img-centered {
         max-height: 30px;
         max-width: 80%;
         vertical-align: middle;
-        -webkit-filter: grayscale(100%);
-        -moz-filter: grayscale(100%);
-        filter: grayscale(100%);
         -webkit-transition: all .15s ease-in-out;
         -moz-transition: all .15s ease-in-out;
         transition: all .15s ease-in-out;
@@ -544,9 +537,9 @@ img.img-centered {
       &:focus {
         border-color: #47A4C2;
         img {
-          -webkit-filter: grayscale(0);
-          -moz-filter: grayscale(0);
-          filter: grayscale(0);
+          -webkit-transform: scale(1.2);
+          -moz-transform: scale(1.2);
+          transform: scale(1.2);
         }
       }
     }

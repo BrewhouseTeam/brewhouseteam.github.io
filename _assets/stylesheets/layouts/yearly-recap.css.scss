@@ -57,11 +57,16 @@ $recap-counter-block-color:       #F56741;
 .recap-image img {
   margin: 0 auto;
 }
+.blog .content {
+  margin: 0 auto;
+  padding-bottom: 4em;
+  padding-top: 4em;
+}
 .blog .content .recap-counter {
   color: $recap-counter-block-color;
   font-family: $serif;
   font-size: 60px;
-  margin-bottom: .25em;
+  margin: 0 0 .25em;
   opacity: 0;
   padding: 0;
 }
