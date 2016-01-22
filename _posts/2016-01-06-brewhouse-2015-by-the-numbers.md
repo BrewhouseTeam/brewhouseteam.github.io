@@ -1,6 +1,8 @@
 ---
 layout: yearly_recap
 title: "Brewhouse 2015 - by the numbers"
+layout_css: yearly-recap
+layout_js: yearly-recap
 author: "kalv"
 category: blog
 date: 2016-01-06 13:30
