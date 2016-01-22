@@ -12,7 +12,7 @@ tags:
 - Design
 ---
 
-In the fall of 2015, Vancouver-based Tantalus Labs approached Brewhouse to build Contour, a web-based system that allows cannabis retailers and producers in Washington to discuss and order products in realtime.
+In the fall of 2015, Vancouver-based [Tantalus Labs](https://tantaluslabs.com) approached Brewhouse to build [Contour](http://joincontour), a web-based system that allows cannabis retailers and producers in Washington to discuss and order products in realtime.
 
 Our challenge was to make a compelling product where conventional purchase orders and inventory control would work within a realtime chat-based interface.
 
