@@ -324,7 +324,7 @@ img.img-centered {
 
 .page-header {
   border: 0;
-  margin: 120px 0 60px;
+  margin: 96px 0 48px;
   p {
     font: 18px/1.5 $serif;
     margin-bottom: 1em;
@@ -338,7 +338,7 @@ img.img-centered {
   }
   @media (min-width: 768px) {
     p {
-      font-size: 30px;
+      font-size: 24px;
     }
   }
 }
@@ -354,8 +354,8 @@ img.img-centered {
   }
 }
 
-.page-title + p {
-  margin-top: 3em;
+.page-header .page-title + p {
+  margin-top: 2em;
 }
 
 @media screen and (min-width: 768px) {

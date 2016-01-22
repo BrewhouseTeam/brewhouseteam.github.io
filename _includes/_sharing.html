@@ -1,41 +1,45 @@
-<section class="container post-list">
+<section id="sharing" class="post-list">
 
-  {% for post in site.posts limit:1 %}
+  <div class="container">
 
-  <div class="col-md-6">
+    {% for post in site.posts limit:1 %}
 
-    <h4>Recently at Brewhouse</h4>
+    <div class="col-md-6">
 
-    <a href="{{ post.url }}" class="post-link">
-      <span class="post-date">{{ post.date | date_to_string }}</span>
-      <h2 class="post-title">{{ post.title }}</h2>
-    </a>
+      <h4>Recently at Brewhouse</h4>
 
-    {{ post.content | split:'<!-- break -->' | first }}
+      <a href="{{ post.url }}" class="post-link">
+        <span class="post-date">{{ post.date | date_to_string }}</span>
+        <h2 class="post-title">{{ post.title }}</h2>
+      </a>
 
-  </div>
+      {{ post.content | split:'<!-- break -->' | first }}
 
-  {% endfor %}
+    </div>
 
-  <div class="col-md-5 col-md-push-1">
+    {% endfor %}
 
-    <ul class="list-unstyled">
- 
-      {% for post in site.posts limit:4 offset:1 %}
-      {% unless post.draft %}
-      {% assign author = site.data.authors[post.author] %}
+    <div class="col-md-5 col-md-push-1">
 
-      <li>
-        <a href="{{ post.url }}" class="post-link">
-          <span class="post-date">{{ post.date | date_to_string }}</span>
-          <h4 class="post-title">{{ post.title }}</h4>
-        </a>
-      </li>
-    
-      {% endunless %}
-      {% endfor %}
+      <ul class="list-unstyled">
+   
+        {% for post in site.posts limit:4 offset:1 %}
+        {% unless post.draft %}
+        {% assign author = site.data.authors[post.author] %}
 
-    </ul>
+        <li>
+          <a href="{{ post.url }}" class="post-link">
+            <span class="post-date">{{ post.date | date_to_string }}</span>
+            <h4 class="post-title">{{ post.title }}</h4>
+          </a>
+        </li>
+      
+        {% endunless %}
+        {% endfor %}
+
+      </ul>
+
+    </div>
 
   </div>
 
