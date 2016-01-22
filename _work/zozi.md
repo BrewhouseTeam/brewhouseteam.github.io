@@ -4,6 +4,7 @@ collection: work
 title:      "We accelerated the delivery of core business goals"
 thumbnail:  zozi.svg
 project_link: http://zozi.com
+cta:        "Need to augment your development team?"
 tags:
 - Development
 - Code curation
