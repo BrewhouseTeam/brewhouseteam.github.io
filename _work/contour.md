@@ -4,6 +4,7 @@ collection:   work
 title:        "Contour"
 headline:     "We shipped a purchase ordering system with realtime chat in 10 weeks"
 thumbnail:    contour.svg
+hero:         contour-desktop.jpg
 project_link: http://joincontour.com
 tags:
 - MVP Build
