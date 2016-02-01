@@ -2,7 +2,7 @@
 layout: post
 title: "Introducing Brewhouse's Rails Template"
 author: "philippe"
-date: 2016-02-01 9:30
+date: 2016-02-01 8:00
 published: true
 tags:
   - brewhouse
