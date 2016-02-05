@@ -7,13 +7,84 @@
 
 <form accept-charset="UTF-8" action="https://docs.google.com/a/brewhouse.io/forms/d/1REQEAU8bM5sOYzV_iOjwOssmiWVclVDPlHGdeZhF3m4/formResponse" method="post" target="hidden_iframe" onsubmit="submitted=true;" class="form">
   <div class="form-group">
-    <input type="text" class="form-control" name="entry.198792335" value="" id="entry_198792335" dir="auto" aria-label="What's Your Name?" placeholder="What's Your Name?" aria-required="true" required="true" title=""> 
+    <label for="entry.198792335">Your Name</label>
+    <input type="text" class="form-control" name="entry.198792335" value="" id="entry_198792335" dir="auto" aria-label="First &amp; Last" placeholder="First &amp; Last" aria-required="true" required="true" title="">
   </div>
   <div class="form-group">
-    <input type="email" class="form-control" name="entry.1691412198" value="" id="entry_1691412198" dir="auto" aria-label="What's Your Email Address?" placeholder="What's Your Email Address?" aria-required="true" required="true" title="">
+    <label for="entry.1691412198">Email Address</label>
+    <input type="email" class="form-control" name="entry.1691412198" value="" id="entry_1691412198" dir="auto" aria-label="you@example.com" placeholder="you@example.com" aria-required="true" required="true" title="">
   </div>
   <div class="form-group">
-    <textarea class="form-control" name="entry.1701421508" value="" cols="0" rows="3" id="entry_1701421508" dir="auto" aria-label="What would you like our help in building?" placeholder="What would you like our help in building?" aria-required="true" required="true" title=""></textarea>
+    <label for="entry.1701421508">Project Details</label>
+    <textarea class="form-control" name="entry.1701421508" value="" cols="0" rows="3" id="entry_1701421508" dir="auto" aria-label="Provide as much information as possible" placeholder="Provide as much information as possible" aria-required="true" required="true" title=""></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="entry_1470617652">Services Required</label>
+    <ul>
+      {% for service in site.services_offered %}
+        <li>
+          <label>
+            <input type="checkbox" name="entry.795451762" value="{{ service }}" id="group_795451762_1" role="checkbox" aria-label="{{ service }}">
+            {{ service }}
+          </label>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="form-group">
+    <label for="entry_977795083">Timeline</label>
+    <ul>
+      <li>
+        <label>
+          <input type="radio" name="entry.685623661" value="1-3 Months" id="group_685623661_1" aria-label="1-3 Months">
+          1-3 Months
+        </label>
+      </li>
+
+      <li>
+        <label>
+          <input type="radio" name="entry.685623661" value="3+ Months" id="group_685623661_1" aria-label="3+ Months">
+          3+ Months
+        </label>
+      </li>
+
+      <li>
+        <label>
+          <input type="radio" name="entry.685623661" value="6+ Months" id="group_685623661_1" aria-label="6+ Months">
+          6+ Months
+        </label>
+      </li>
+
+    </ul>
+
+  </div>
+
+  <div class="form-group">
+    <label for="entry_68268861">Budget</label>
+    <ul>
+      <li>
+        <label>
+          <input type="radio" name="entry.401220415" value="$50k" id="group_401220415_1" aria-label="$50k">
+          $50k
+        </label>
+      </li>
+
+      <li>
+        <label>
+          <input type="radio" name="entry.401220415" value="$100k" id="group_401220415_3" aria-label="$100k">
+          $100k
+        </label>
+      </li>
+
+      <li>
+        <label>
+          <input type="radio" name="entry.401220415" value="$150k+" id="group_401220415_3" aria-label="$150k+">
+          $150k+
+        </label>
+      </li>
+    </ul>
   </div>
 
   <div class="form-group">

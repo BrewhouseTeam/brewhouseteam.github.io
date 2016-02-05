@@ -19,3 +19,11 @@ collections:
   work:
     output: true
     permalink: /:collection/:path/
+
+services_offered:
+  - "Team Augmentation"
+  - "MVP Build"
+  - "Design"
+  - "Front-end Development"
+  - "Back-end Development"
+  - "Code Review"
