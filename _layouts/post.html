@@ -17,7 +17,7 @@ layout: blog
             <div class="author">
               <img class="img-circle img-author" src="{{ author.email | to_gravatar }}" alt="A photo of {{ author.name }}" width="55">
 
-              <a href="{{ author.web }}" target="_blank">{{ author.name }}</a> wrote this on {{ page.date | date_to_string }}
+              <a href="{{ author.web }}" target="_blank">{{ author.name }}</a> {{ page.date | date_to_string }}
             </div>
           {% endif %}
           <div class="social-actions">

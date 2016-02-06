@@ -23,7 +23,7 @@ layout: blog
                 <span>
                   <img class="img-circle img-author" src="{{ author.email | to_gravatar }}" alt="A photo of {{ author.name }}" width="55">
 
-                  <a href="{{ author.web }}" target="_blank">{{ author.name }}</a> wrote this on {{ post.date | date_to_string }}
+                  <a href="{{ author.web }}" target="_blank">{{ author.name }}</a> {{ post.date | date_to_string }}
                 </span>
               {% endif %}
               
@@ -48,7 +48,7 @@ layout: blog
 
             {% if post.content contains '<!-- break -->' %}
               <div class="continue-reading">
-                <a href="{{ post.url }}">Continue reading &rarr;</a>
+                <a href="{{ post.url }}" class="btn btn-link">Continue reading &rarr;</a>
               </div>
             {% endif %}
 
@@ -63,17 +63,17 @@ layout: blog
   <nav class="pagination" role="pagination">
     {% if paginator.previous_page %}
       {% if paginator.previous_page == 1 %}
-        <a class="newer-posts" href="/blog/">&larr; Newer Posts</a>
+        <a class="newer-posts" href="/blog/" class="btn btn-link">&larr; Newer Posts</a>
       {% else %}
-        <a class="newer-posts" href="/blog/page/{{ paginator.previous_page }}">&larr; Newer Posts</a>
+        <a class="newer-posts" href="/blog/page/{{ paginator.previous_page }}" class="btn btn-link">&larr; Newer Posts</a>
       {% endif %}
 
     {% endif %}
 
-    <span class="page-number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+    <span class="page-number">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
 
     {% if paginator.next_page %}
-      <a class="older-posts" href="/blog/page/{{ paginator.next_page }}">Older Posts &rarr;</a>
+      <a class="older-posts" href="/blog/page/{{ paginator.next_page }}" class="btn btn-link">Older Posts &rarr;</a>
     {% endif %}
   </nav>
 

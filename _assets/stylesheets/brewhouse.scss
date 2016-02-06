@@ -26,7 +26,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   color: $text-black;
-  font: 1.6em/1.5 $sans-serif;
+  font: 1.6em/1.5 $serif;
 
   // max-width: 1280px;
   margin: 0 auto;
@@ -191,6 +191,7 @@ hr.hr--extra-push {
     width: 48px;
   }
   #navbar-links {
+    font-family: $sans-serif;
     font-size: 16px;
 
     li {
@@ -464,8 +465,10 @@ img.img-centered {
 }
 
 #services {
-  .container > div {
-    margin: 6em 0;
+  > div {
+    margin-bottom: 1em;
+    margin-top: .5em;
+    font-size: 1.125em;
   }
   h4 {
     font-weight: 700;
@@ -475,16 +478,6 @@ img.img-centered {
     height: 48px;
     width: auto;
     margin-bottom: .5em;
-  }
-  li {
-    color: #F56741;
-    line-height: 2;
-    text-transform: uppercase;
-  }
-  @media (max-width: 992px) {
-    p, li {
-      font-size: 14px;
-    }
   }
 }
 
@@ -510,8 +503,24 @@ img.img-centered {
     li {
       height: 90px;
     }
-    li:nth-child(4n+1) {
+    li:nth-child(2n+1) {
       clear: left;
+    }
+    @media (min-width: 768px) {
+      li:nth-child(2n+1) {
+        clear: none;
+      }
+      li:nth-child(3n+1) {
+        clear: left;
+      }
+    }
+    @media (min-width: 992px) {
+      li:nth-child(3n+1) {
+        clear: none;
+      }
+      li:nth-child(4n+1) {
+        clear: left;
+      }
     }
     a {
       display: block;
@@ -716,9 +725,11 @@ blockquote {
   }
 }
 
-.meta {
+.meta,
+.post-date {
   font-family: $sans-serif;
-  font-size: 1em;
+  font-size: .875em;
+  text-transform: uppercase;
 }
 .page-header .meta {
   margin-top: 1.5em;
@@ -835,28 +846,12 @@ html.blog {
 
   .pagination {
     position: relative;
-    width: 80%;
+    width: 100%;
     max-width: 730px;
     margin: 4rem auto;
     font-size: 1.3rem;
     color: #9EABB3;
     text-align: center;
-  }
-
-  .pagination a,
-  .continue-reading a {
-    border: 1px solid $brand-primary;
-    color: $brand-primary;
-    display: inline-block;
-    padding: 0 15px;
-    text-decoration: none;
-    border-radius: 30px;
-    &:hover,
-    &:focus {
-      background: $brand-primary;
-      color: #fff;
-      text-decoration: none;
-    }
   }
 
   .pagination a {
