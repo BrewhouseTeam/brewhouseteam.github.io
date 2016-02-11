@@ -17,10 +17,8 @@ published: true
 
 <figure style="display: block; max-width: 100%;height: auto;">
   <iframe style="border: 0" width="100%" height="300" src="https://s3-us-west-2.amazonaws.com/brewhouse-io/blog/cubes.framer/index.html"></iframe>
+  <figcaption>Animation built with <a href="http://framerjs.com/">FramerJS</a>, source code <a href="https://github.com/BrewhouseTeam/cubes-framer">here</a></figcaption>
 </figure>
-<figcaption>Animation built with <a href="http://framerjs.com/">FramerJS</a>, source code <a href="https://github.com/BrewhouseTeam/cubes-framer">here</a></figcaption>
-
-<br><br>
 
 Programming is one truly interesting skill. Many choose to study it for years in University, while others can pick it up in their spare time simply by reading and completing tutorials online. Learning to build things quickly can be both lucrative and life-improving. However, knowing more of the theory behind programming will help you write great code and comparing your style of programming to others can be a terrific eye-opener.
 

@@ -5,15 +5,18 @@
 
 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {window.location='/thanks.html';}"></iframe>
 
-<form accept-charset="UTF-8" action="https://docs.google.com/a/brewhouse.io/forms/d/1REQEAU8bM5sOYzV_iOjwOssmiWVclVDPlHGdeZhF3m4/formResponse" method="post" target="hidden_iframe" onsubmit="submitted=true;" class="form">
+<form accept-charset="UTF-8" action="https://docs.google.com/a/brewhouse.io/forms/d/1REQEAU8bM5sOYzV_iOjwOssmiWVclVDPlHGdeZhF3m4/formResponse" method="post" target="hidden_iframe" onsubmit="submitted=true;" class="form-container">
   <div class="form-group">
-    <input type="text" class="form-control" name="entry.198792335" value="" id="entry_198792335" dir="auto" aria-label="What's Your Name?" placeholder="What's Your Name?" aria-required="true" required="true" title=""> 
+    <label for="entry.198792335" class="control-label">Your Name</label>
+    <input type="text" class="form-control" name="entry.198792335" value="" id="entry_198792335" dir="auto" aria-label="What's Your Name?" placeholder="First &amp; Last" aria-required="true" required="true" title=""> 
   </div>
   <div class="form-group">
-    <input type="email" class="form-control" name="entry.1691412198" value="" id="entry_1691412198" dir="auto" aria-label="What's Your Email Address?" placeholder="What's Your Email Address?" aria-required="true" required="true" title="">
+    <label for="entry.1691412198" class="control-label">Your Email</label>
+    <input type="email" class="form-control" name="entry.1691412198" value="" id="entry_1691412198" dir="auto" aria-label="What is your email address?" placeholder="email@example.com" aria-required="true" required="true" title="">
   </div>
   <div class="form-group">
-    <textarea class="form-control" name="entry.1701421508" value="" cols="0" rows="3" id="entry_1701421508" dir="auto" aria-label="What would you like our help in building?" placeholder="What would you like our help in building?" aria-required="true" required="true" title=""></textarea>
+    <label form="entry.1701421508" class="control-label">Project Details</label>
+    <textarea class="form-control" name="entry.1701421508" value="" cols="0" rows="3" id="entry_1701421508" dir="auto" aria-label="Project Details" placeholder="Provide as much information as possible&hellip;" aria-required="true" required="true" title=""></textarea>
   </div>
 
   <div class="form-group">

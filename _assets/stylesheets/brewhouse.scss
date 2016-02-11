@@ -347,6 +347,7 @@ img.img-centered {
 .page-title {
   font-size: 2em;
   font-weight: 700;
+  line-height: 1.25;
   @media (min-width: 768px) {
     font-size: 3em;
   }
@@ -1027,14 +1028,31 @@ html.blog {
 .lil-push {
   margin-bottom: 30px;
 }
-.form-group-lg .form-control--brew,
-.form-control--brew {
-  border-radius: 3px;
+
+.form-group {
+  margin-bottom: 3em;
 }
-.form-control,
-.form-label {
+.form-control {
+  background: none;
+  border: 0;
+  border-bottom: 1px solid lighten($text-black, 40);
+  color: $text-black;
+  display: inline-block;
+  height: auto;
   font-family: $sans-serif;
-  font-size: 1.125em;
+  font-size: 1.25em;
+  padding: .25em 0;
+  width: 100%;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+  &:focus {
+    border-color: $brand-primary;
+  }
 }
 .form-control:focus {
   border-color: #ff6813;
@@ -1042,24 +1060,11 @@ html.blog {
   -webkit-box-shadow: none;
           box-shadow: none;
 }
-.page-header .form-control {
-  background: none;
-  border: 1px solid lighten($text-black, 40);
-  color: $text-black;
-  display: inline-block;
-  height: auto;
-  font-size: 1em;
-  padding: .75em 1em;
-  width: 100%;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  &:focus {
-    border-color: $brand-primary;
-  }
+.control-label {
+  color: lighten($text-black, 40);
+  font-family: $sans-serif;
+  font-size: .75em;
+  text-transform: uppercase;
 }
 #banner form {
   ::-webkit-input-placeholder {
