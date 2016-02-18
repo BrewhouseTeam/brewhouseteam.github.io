@@ -1,6 +1,6 @@
 ---
 layout: episode
-title: "Episode 14: Product Design & Development - Live Episode"
+title: "Episode 14: Product Design and Development - Live Episode"
 date: 2016-02-04 18:00
 hidden: true
 published: true
