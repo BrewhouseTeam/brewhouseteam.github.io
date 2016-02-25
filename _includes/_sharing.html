@@ -2,11 +2,11 @@
 
   <div class="container">
 
+    <h4 class="col-xs-12">Recently at Brewhouse</h4>
+
     {% for post in site.posts limit:1 %}
 
     <div class="col-md-6">
-
-      <h4>Recently at Brewhouse</h4>
 
       <a href="{{ post.url }}" class="post-link">
         <span class="post-date">{{ post.date | date_to_string }}</span>
