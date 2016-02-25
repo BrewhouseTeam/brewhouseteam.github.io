@@ -13,7 +13,7 @@ published: true
 
 Meet our newest Product Developer, affectionately known as [McTaylorPants](http://twitter.com/mctaylorpants)… or Alex, if we’ve got our serious hats on.
 
-Alex is coming to us from from a boutique post production company in Vancouver called [Skylab](http://skylabhq.com/#featured). He started out as a junior technician, and from there his role slowly evolved into developing automation and asset management tools in everything from Bash to Python and FileMaker Pro. This past fall that company was going through some fundamental changes, and he decided to take the opportunity to get more serious about development and enrolled in [CodeCore](https://codecore.ca/) -- and loved every minute of it!
+Alex is coming to us from from a boutique post-production company in Vancouver called [Skylab](http://skylabhq.com/#featured). He started out as a junior technician, and from there his role slowly evolved into developing automation and asset management tools in everything from Bash to Python and FileMaker Pro. This past fall that company was going through some fundamental changes, and he decided to take the opportunity to get more serious about development and enrolled in [CodeCore](https://codecore.ca/) -- and loved every minute of it!
 
 <!-- break -->
 
