@@ -12,13 +12,13 @@ published: true
 Whenever I come across a rails application with inconsistent data or bugs that are hard
 to nail down I tell myself: "They (the developers) were just a couple of keystokes away to prevent those issues from happening".
 
-At [brewhouse](http://brewhouse.io), we follow five simple practices to make our Rails application robusts. It all comes down to failing early, loudly and often. We ensure that data is valid and the application behaves properly by catching issues early on.
+At [brewhouse](http://brewhouse.io), we follow five simple practices to make our Rails application robusts. It all comes down to failing early, loudly and often. We ensure that data is valid and applications behave properly by catching issues early on.
 
 <!-- break -->
 
 ## Use `Hash#fetch` to catch malformed hash
 
-`unexpected method 'upcase' for nil`... Whenever you expect a Hash to contain a key, prefere `fetch()` over
+`unexpected method 'upcase' for nil`... Whenever you expect a Hash to contain a key, prefer `fetch()` over
 `[]`. `fetch()` will raise an error when the key is missing so you won't
 pass `nil` values around and see unrelated errors happening down the
 line.
@@ -37,7 +37,7 @@ version of `create!`, `update!` and `destroy!`. This extra key stroke
 will save you from dealing with inconsistent data.
 
 Used in test code, it ensures that the setup doesn't fail silently...
-there is nothing worst than a test that passes because the setup was
+there is nothing worse than a test that passes because the setup was
 incorrect.
 
 Also, always wrap multiple calls into a sql transaction to prevent your data from getting into an in-between state.
@@ -58,7 +58,7 @@ end
 ## Use database constraints to ensure data consistency
 
 Your database is your best friend when it comes to ensuring data is
-present, not duplicated and that no orphans are left in the database.
+present, not duplicated and that orphans are not left in the database.
 
 ### `null: false`
 
@@ -104,7 +104,7 @@ behalf.
 
 A few extra keystrokes here and there can save you from hours of
 debugging or recovering from inconsistent data. Go `!`, `raise`,
-`validate` and use database constraints, your coworkers and future-self
+`validate` and use database constraints. Your coworkers and future-self
 will thank you.
 
 As always, feedback is greatly appreciated. I'd be happy to hear of any other practices I didn't cover here.
