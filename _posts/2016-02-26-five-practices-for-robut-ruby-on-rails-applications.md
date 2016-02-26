@@ -33,7 +33,8 @@ ignoring it and moving on.
 
 Data is often being seen as the most valuable asset in a company. Failing silently to persist data can have a huge impact then.
 Whenever you're not expecting an operation to fail, use the "bang"
-version of `create!`, `update!` and `destroy!`. This extra key stroke
+version of `create!`, `update!` and `destroy!` that raise exceptions on
+failure. This extra key stroke
 will save you from dealing with inconsistent data.
 
 Used in test code, it ensures that the setup doesn't fail silently...
