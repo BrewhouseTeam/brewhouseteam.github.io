@@ -96,8 +96,8 @@ record.
 
 You don't want orphan records in your database, do you?
 
-Foreign keys help such things from happening. I'd recommend using
-[`schema_auto_foreign_keys`](https://github.com/SchemaPlus/schema_auto_foreign_keys) to automatically add foreign keys on your
+Foreign keys help such things from happening. I'd recommend using the ruby gem
+[schema_auto_foreign_keys](https://github.com/SchemaPlus/schema_auto_foreign_keys) to automatically add foreign keys on your
 behalf.
 
 ## A few extra keystrokes goes a long way
