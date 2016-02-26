@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Five practices for robust Ruby on Rails applications"
+title: "Five Practices for Robust Ruby on Rails Applications"
 author: philippe
 date: 2016-02-26 12:00
 shared_description: A few extra keystokes here and there can make a Rails application robust.
@@ -12,7 +12,7 @@ published: true
 Whenever I come across a rails application with inconsistent data or bugs that are hard
 to nail down I tell myself: "They (the developers) were just a couple of keystokes away from preventing those issues from happening".
 
-At [brewhouse](http://brewhouse.io), we follow five simple practices to make our Rails application robusts. It all comes down to failing early, loudly and often. We ensure that data is valid and applications behave properly by catching issues early on.
+At [Brewhouse](http://brewhouse.io), we follow five simple practices to make our Rails applications robust. It all comes down to failing early, loudly and often. We ensure that data is valid and applications behave properly by catching issues early on.
 
 <!-- break -->
 
