@@ -10,7 +10,7 @@ published: true
 
 
 Whenever I come across a rails application with inconsistent data or bugs that are hard
-to nail down I tell myself: "They (the developers) were just a couple of keystokes away to prevent those issues from happening".
+to nail down I tell myself: "They (the developers) were just a couple of keystokes away from preventing those issues from happening".
 
 At [brewhouse](http://brewhouse.io), we follow five simple practices to make our Rails application robusts. It all comes down to failing early, loudly and often. We ensure that data is valid and applications behave properly by catching issues early on.
 
@@ -40,7 +40,7 @@ Used in test code, it ensures that the setup doesn't fail silently...
 there is nothing worse than a test that passes because the setup was
 incorrect.
 
-Also, always wrap multiple calls into a sql transaction to prevent your data from getting into an in-between state.
+Also, always wrap multiple calls into an SQL transaction to prevent your data from getting into an in-between state.
 
 ## Add ActiveRecord validations to perform live checks
 
@@ -103,8 +103,8 @@ behalf.
 ## A few extra keystrokes goes a long way
 
 A few extra keystrokes here and there can save you from hours of
-debugging or recovering from inconsistent data. Go `!`, `raise`,
-`validate` and use database constraints. Your coworkers and future-self
+debugging or recovering from inconsistent data. Use `!`, `raise`,
+`validate` and database constraints. Your coworkers and future-self
 will thank you.
 
 As always, feedback is greatly appreciated. I'd be happy to hear of any other practices I didn't cover here.
