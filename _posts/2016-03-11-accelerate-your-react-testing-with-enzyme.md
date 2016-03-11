@@ -8,7 +8,7 @@ draft: false
 published: true
 ---
 
-When it comes to integration testing, Javascript frontends are notoriously hard to test - there’s lots of setup required, and you often need to rely on clunky simulations of user interactions like clicks and keyboard events.
+When it comes to integration testing, Javascript frontends are notoriously hard to test &mdash; there’s lots of setup required, and you often need to rely on clunky simulations of user interactions like clicks and keyboard events.
 
 React’s virtual DOM offers some interesting opportunities for simplifying the process of testing, and AirBnb’s [Enzyme framework](https://github.com/airbnb/enzyme) makes testing your components an absolute pleasure. We recently tried out Enzyme on a React project at Brewhouse. We were blown away by how much simpler it was to write tests, and we’re never looking back.
 
@@ -18,7 +18,7 @@ It’s not the only option, of course. React itself offers the [ReactTestUtils l
 
 Let’s investigate how we can put Enzyme to work. To demonstrate some of its features, I put together a small little app called [Gif Grabbr](https://gif-grabbr.herokuapp.com/). It uses the [GIPHY API](https://github.com/Giphy/GiphyAPI) to find random GIFs based on your search. [Take it for a spin](https://gif-grabbr.herokuapp.com/) first, then come back here to check out some code.
 
-![Gif Grabbr](/images/posts/2016/gif-grabbr-demo.gif)
+![Gif Grabbr](/images/posts/2016/enzyme_post/gif-grabbr-demo.gif)
 
 _(Note: In the examples below I'm using [Mocha](https://mochajs.org/) with [Chai](http://chaijs.com/) and [Karma](https://karma-runner.github.io/) as the test runner, but Enzyme can be used with pretty much any testing setup. Have a look at the [Gif Grabbr source](https://github.com/alextaylor000/gif-grabbr) to see more details about my setup.)_
 
