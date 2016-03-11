@@ -9,7 +9,7 @@ author: lana
 published: true
 ---
 
-![Alex Taylor](/images/posts/2016/alex_banner.jpg)
+![Alex Taylor](/images/posts/2016/alex_post/alex_banner.jpg)
 
 Meet our newest Product Developer, affectionately known as [McTaylorPants](http://twitter.com/mctaylorpants)… or Alex, if we’ve got our serious hats on.
 
@@ -55,7 +55,7 @@ __Brewhouse: Makes sense. You must read publications or blogs that help support 
 Alex: [@ThePracticalDev](https://twitter.com/ThePracticalDev) on Twitter is really great. I keep an eye out for Javascript and React tips in the [Front End Newsletter](http://frontendnewsletter.com/). I also try to hit up the [Rails blog](http://weblog.rubyonrails.org/) every couple of weeks.
 
 
-![Practical Dev](/images/posts/2016/practical_developer.png)
+![Practical Dev](/images/posts/2016/alex_post/practical_developer.png)
 
 __Brewhouse: And one last question -- what do you consider one of your greatest skills?__
 
@@ -75,4 +75,4 @@ In addition, Alex is very approachable and keen to speak to customers, the real 
 
 They say that ‘all you need is love’, but some days all you need are pants. [McTaylorPants](http://twitter.com/mctaylorpants), that is.
 
-![Pants](/images/posts/2016/pants.png)
+![Pants](/images/posts/2016/alex_post/pants.png)
