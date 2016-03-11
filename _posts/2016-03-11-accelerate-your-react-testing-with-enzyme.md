@@ -100,7 +100,7 @@ it('Passes loading:true to ImageDisplay', () => {
 {% endhighlight %}
 
 ## Put the '$' back in DOM traversal
-Enzyme's three flavours of rendering (shallow, full and static) all return wrapper objects which give you jQuery-style power over your node tree. No longer must you wade through a jungle of nested arrays to in order to test some deep-level node:
+Enzyme's three flavours of rendering (shallow, full, and static) all return wrapper objects which give you jQuery-style power over your node tree. No longer must you wade through a jungle of nested arrays in order to test some deep-level node:
 
 {% highlight javascript %}
 // components/imageDisplay.js
@@ -210,7 +210,7 @@ Enzyme gives you a concise and elegant way of simulating user events, one of the
 ...
 {% endhighlight %}
 
-It's also worth noting that the event argument can be _anything you want_. Unlike ReactTestUtils, you're not limited to [only events that React understands](https://facebook.github.io/react/docs/events.html#supported-events). Following convention, you could call `wrapper.simulate('donut')` and Enzyme would simply look for an `onDonut` event handler. Pretty neat.
+It's also worth noting that the event argument can be *anything you want*. Unlike ReactTestUtils, you're not limited to [only events that React understands](https://facebook.github.io/react/docs/events.html#supported-events). Following convention, you could call `wrapper.simulate('donut')` and Enzyme would simply look for an `onDonut` event handler. Pretty neat.
 
 ## Conclusion
 Enzyme is an elegant and powerful way of testing your React applications. It can significantly increase the brevity of your tests thanks to its selector engine, and its approach to event simulation is quite promising. It also plays nicely with most test suites and assertion libraries out there, so you probably don't need to change your workflow to start using it today.
