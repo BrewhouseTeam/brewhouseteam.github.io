@@ -89,7 +89,7 @@ __Brewhouse: What do you consider one of your greatest accomplishments?__
 
 Edward: Cycling up this road:
 
-![Passo Stelvio](/images/posts/2016/edward_post/road-mountain.jpg)
+![Passo Stelvio](/images/posts/2016/edward_post/road-mountain1.jpg)
 
 It’s the Passo Stelvio -- highest paved road in the Alps. It’s basically Mecca for cyclists.
 
