@@ -2,7 +2,7 @@
 layout: post
 title: "Callback Responsibly"
 author: "paulo"
-date: 2016-03-03 8:00
+date: 2016-03-14 8:00
 published: true
 tags:
   - rails
