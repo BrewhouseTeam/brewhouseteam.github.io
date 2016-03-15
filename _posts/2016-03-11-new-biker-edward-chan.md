@@ -4,14 +4,14 @@ title: "Business Operations Gets a Boost with the Addition of Edward Chan"
 author: "lana"
 date: 2016-03-11 1:00
 shared_square_image: http://brewhouse.io/images/posts/2016/edward_post/chan-square.jpg
-shared_description: "Brewhouse Software is pleased to announce the newest biker to the gang - Edward Chan."
+shared_description: "Brewhouse Software is pleased to announce the newest biker in the gang - Edward Chan."
 draft: false
 published: true
 ---
 
 ![Edward Chan](/images/posts/2016/edward_post/Edward-Hero-Image.jpg)
 
-Brewhouse Software is pleased to announce the newest biker to the gang - Edward Chan.
+Brewhouse Software is pleased to announce the newest biker in the gang - Edward Chan.
 
 Edward’s role at Brewhouse will spotlight on all things related to business operations. This includes driving and growing revenue, managing relationships with clients and partners, executing on operational challenges and much more.
 
@@ -36,9 +36,9 @@ I do owe these pivots to something called co-operative education championed at t
 Without it, I wouldn’t have arrived at the realization that, after 4 different “engineering jobs”, I didn’t want to work as an engineer every day, even though I loved everything about technology and analyzing how things worked.
 Equally, without a final co-op term in “corporate development” at BlackBerry, I wouldn’t have stumbled upon a career track that was unknown to me before, and would make me part engineer, part business thinker, part lawyer -- that was the first pivot.
 
-To many (including myself, at that time), corporate development is a nebulous term. As I discovered, it would cover everything from strategic partnerships, restructuring, startup acquisitions, to intellectual property management. TL;DR, it is an executive team’s Navy SEAL send to solve problems, or evaluate/take on strategic initiatives.
+To many (including myself, at that time), corporate development is a nebulous term. As I discovered, it would cover everything from strategic partnerships, restructuring, startup acquisitions, to intellectual property management. TL;DR, it is an executive team’s Navy SEAL sent to solve problems, or evaluate/take on strategic initiatives.
 
-They wanted technical people to understand the technology landscape, identify gaps/opportunities, seek out partnerships or acquisition options, and evaluate startups. So that was my way in. Through my time in that role, I learned to picked up on the business and legal aspects of the role.
+They wanted technical people to understand the technology landscape, identify gaps/opportunities, seek out partnerships or acquisition options, and evaluate startups. So that was my way in. Through my time in that role, I learned to pick up on the business and legal aspects of the role.
 
 It also opened up the wild-west of the entrepreneurial world for me -- something that I gravitated to after moving back to Vancouver. That was the second pivot.
 
@@ -56,7 +56,7 @@ I left the company before that OS and product was launched. But I still remember
 
 There was even some icing on the cake as the hard work I put in negotiating the deal paid off. There’s always the “worst case scenario” that a competitor would acquire the partner and “cut off the source”. We had to make sure that proper terms were in place to prevent any disruption to BlackBerry -- especially as it was a foundational piece.
 
-Soon enough, Nokia (a BlackBerry competitor at the time) acquired the partner. But because of the nifty deal making, the impact was minimal -- they had no choice but had to continue to support a competitor. Best of all, in all of the press that followed, there was only one answer when Nokia was asked whether they would make this tech available for competitors: They would not make the technology available to, or support anyone. Except for one. It’s nice to cause some heartburns :)
+Soon enough, Nokia (a BlackBerry competitor at the time) acquired the partner. But because of the nifty deal making, the impact was minimal -- they had no choice but had to continue to support a competitor. Best of all, in all of the press that followed, there was only one answer when Nokia was asked whether they would make this tech available for competitors: They would not make the technology available to, or support, anyone. Except for one. It’s nice to cause some heartburns :)
 
 __Brewhouse: Yep, business is your passion :)  What do you hope to contribute at Brewhouse?__
 
@@ -76,11 +76,11 @@ The last item on that list would be how I saw my past experience in corp dev fit
 
 __Brewhouse: It all starts with team. So, looking out 3 - 5 years, beyond the obvious trends, what do you think will be the next big change in our industry?__
 
-Edward: I’m going to go “obvious” but add my own flavour, and say the next big change is what I call ‘alternate reality’. It’s that awkward “W-T-F” intermediate step between what we knew as reality in the early 2010s, to what we imagine as the “future” that VR/AR people tell us will be in 2020s.
+Edward: I’m going to go “obvious” but add my own flavour, and say the next big change is what I call "alternate reality". It’s that awkward “W-T-F” intermediate step between what we knew as reality in the early 2010s, to what we imagine as the “future” that VR/AR people tell us will be in 2020s.
 
 We’ll see things like 1) being weirded out by people dancing in the corner while wearing goggles (like that character from the Sims), 2) amazed to type into a chat field to order your next pizza, or 3) curious whether you should really trust that bio-sensor in that thing on your wrist or embedded in your athletic clothing when it tells you you could have worked harder.
 
-Basically, if you think this photo is weird, then you’re in “alternate reality”
+Basically, if you think this photo is weird, then you’re in “alternate reality.”
 
 ![Zuckerberg VR](/images/posts/2016/edward_post/zuckerberg-vr.jpg)
 
