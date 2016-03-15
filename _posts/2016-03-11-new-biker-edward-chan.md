@@ -3,6 +3,7 @@ layout: post
 title: "Business Operations Gets a Boost with the Addition of Edward Chan"
 author: "lana"
 date: 2016-03-11 1:00
+shared_square_image: http://brewhouse.io/images/posts/2016/edward_post/chan-square.jpg
 shared_description: "Brewhouse Software is pleased to announce the newest biker to the gang - Edward Chan."
 draft: false
 published: true
