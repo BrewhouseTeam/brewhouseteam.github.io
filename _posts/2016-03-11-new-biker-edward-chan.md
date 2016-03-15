@@ -93,7 +93,7 @@ Edward: Cycling up this road:
 
 It’s the Passo Stelvio -- highest paved road in the Alps. It’s basically Mecca for cyclists.
 
-__Brewhouse: And the most most important question of the interview, how you do like your coffee?__
+__Brewhouse: And the most most important question of the interview, how you do you like your coffee?__
 
 Black, enrobed with aroma, and paired with the squeaky horn of [Louis Armstrong](https://www.youtube.com/watch?v=bOH_mioL3TU) in the background.
 
