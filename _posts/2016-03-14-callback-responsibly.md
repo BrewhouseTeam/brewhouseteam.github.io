@@ -13,7 +13,7 @@ Recently, I have worked on a project where one of the biggest obstacle for me wa
 
 <!-- break -->
 
-I asked one of my mentors (Philippe), the most important question: __When should we use callbacks?__ And his short answer was: _"You don't"_. In my opinion, having callbacks in a Rails app can easily get out of hand. He explained that previously, the __Rails way__ was to have a _Fat Controllers_. But after that, then came the __Fat Models, Skinny Controllers__ idea where we have to basically say, _"After we create the user account, let's send him an email or notify Intercom! We should do this by adding more methods on our models that calls other classes and attach it to a callback!"_.
+I asked one of my mentors ([Philippe](https://twitter.com/pcreux)), the most important question: __When should we use callbacks?__ And his short answer was: _"You don't"_. In my opinion, having callbacks in a Rails app can easily get out of hand. He explained that previously, the __Rails way__ was to have a _Fat Controllers_. But after that, then came the __Fat Models, Skinny Controllers__ idea where we have to basically say, _"After we create the user account, let's send him an email or notify Intercom! We should do this by adding more methods on our models that calls other classes and attach it to a callback!"_.
 
 I believe that they soon realized that apps that uses this pattern is becoming a nightmare to work on, because the callbacks makes the models harder to test. When adding features to the models, they also have to touch the specs. Soon after that, __Service Objects__ became the new hip thing to use because it encourages extraction of the action of a model. So, the question is, how do service objects help with creating other models? Consider this:
 
