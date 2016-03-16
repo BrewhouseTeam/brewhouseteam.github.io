@@ -24,8 +24,10 @@ What is the first question designers and developers are asked when approached to
 - [Mixpanel for iPhone](https://mixpanel.com/iphone-analytics/)
 - [Fitbit Aria](https://www.fitbit.com/ca/aria)
 
-- [Follow Kalv on Twitter](http://twitter.com/kalv)
-- [Follow Pat on Twitter](http://twitter.com/patdryburgh)
+<ul>
+  <li><a href="http://twitter.com/kalv">Follow Kalv on Twitter</a></li>
+  <li><a href="http://twitter.com/patdryburgh">Follow Pat on Twitter</a></li>
+</ul>
 
 *The Brewhouse Show is proudly hosted by [Feedpress][FP], a simple, intuitive, and powerful RSS analytics and podcast hosting platform. Use the promo code **brewhouse** at checkout for 10% off your first year.*
 

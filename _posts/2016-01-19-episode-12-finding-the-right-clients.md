@@ -23,8 +23,10 @@ What characteristics do we look for in a client? How does a client's reaction to
 - [Sandwich Video - How It Works](http://sandwichvideo.com/how-it-works/)
 - [Peach](http://peach.cool)
 
-- [Follow Kalv on Twitter](http://twitter.com/kalv)
-- [Follow Pat on Twitter](http://twitter.com/patdryburgh)
+<ul>
+  <li><a href="http://twitter.com/kalv">Follow Kalv on Twitter</a></li>
+  <li><a href="http://twitter.com/patdryburgh">Follow Pat on Twitter</a></li>
+</ul>
 
 *The Brewhouse Show is proudly hosted by [Feedpress][FP], a simple, intuitive, and powerful RSS analytics and podcast hosting platform. Use the promo code **brewhouse** at checkout for 10% off your first year.*
 
