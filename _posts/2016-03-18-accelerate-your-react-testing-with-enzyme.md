@@ -3,14 +3,14 @@ layout: post
 title: "Accelerate your React testing with Enzyme"
 author: alex
 date: 2016-03-18 11:00
-shared_description: AirBnb's Enzyme library is the fastest and most elegant way to test your React code.
+shared_description: Airbnb's Enzyme library is the fastest and most elegant way to test your React code.
 draft: false
 published: true
 ---
 
 When it comes to integration testing, Javascript frontends are notoriously hard to test &mdash; there’s lots of setup required, and you often need to rely on clunky simulations of user interactions like clicks and keyboard events.
 
-React’s virtual DOM offers some interesting opportunities for simplifying the process of testing, and AirBnb’s [Enzyme framework](https://github.com/airbnb/enzyme) makes testing your components an absolute pleasure. We recently tried out Enzyme on a React project at Brewhouse. We were blown away by how much simpler it was to write tests, and we’re never looking back.
+React’s virtual DOM offers some interesting opportunities for simplifying the process of testing, and Airbnb’s [Enzyme framework](https://github.com/Airbnb/enzyme) makes testing your components an absolute pleasure. We recently tried out Enzyme on a React project at Brewhouse. We were blown away by how much simpler it was to write tests, and we’re never looking back.
 
 <!-- break -->>
 
@@ -146,7 +146,7 @@ describe('ImageDisplay', () => {
 Using the wrapper I get from `.shallow()`, I can just search for the image tag instead of needing to know exactly where it is in the node tree. This encourages a more declarative form of testing, minimizing your tests' reliance on a specific tree structure.
 
 ## Enzyme Selectors FTW
-The selector is more than meets the eye. In addition to CSS-style selectors, [an Enzyme Selector](https://github.com/airbnb/enzyme/blob/master/docs/api/selector.md#enzyme-selectors) can find nodes by their component constructor, display name, even object properties:
+The selector is more than meets the eye. In addition to CSS-style selectors, [an Enzyme Selector](https://github.com/Airbnb/enzyme/blob/master/docs/api/selector.md#enzyme-selectors) can find nodes by their component constructor, display name, even object properties:
 
 {% highlight javascript %}
 // components/imageDisplay.js
@@ -215,4 +215,4 @@ It's also worth noting that the event argument can be *anything you want*. Unlik
 ## Conclusion
 Enzyme is an elegant and powerful way of testing your React applications. It can significantly increase the brevity of your tests thanks to its selector engine, and its approach to event simulation is quite promising. It also plays nicely with most test suites and assertion libraries out there, so you probably don't need to change your workflow to start using it today.
 
-Hit up the [Enzyme docs](http://airbnb.io/enzyme/) to learn more. You should also check out [Leland Richardson's Lightning Talk](https://www.youtube.com/watch?v=V5N0Ukb8LGg) at ReactConf 2016 to get a good overview of the problems Enzyme solves.
+Hit up the [Enzyme docs](http://Airbnb.io/enzyme/) to learn more. You should also check out [Leland Richardson's Lightning Talk](https://www.youtube.com/watch?v=V5N0Ukb8LGg) at ReactConf 2016 to get a good overview of the problems Enzyme solves.
