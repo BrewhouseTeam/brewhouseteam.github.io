@@ -2,7 +2,7 @@
 layout: post
 title: "Accelerate your React testing with Enzyme"
 author: alex
-date: 2016-03-18 12:00
+date: 2016-03-18 11:00
 shared_description: AirBnb's Enzyme library is the fastest and most elegant way to test your React code.
 draft: false
 published: true
