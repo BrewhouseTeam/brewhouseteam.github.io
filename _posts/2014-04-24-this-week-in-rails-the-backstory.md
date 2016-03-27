@@ -15,7 +15,7 @@ tags:
   </a>
 </p>
 
-I recently started a newsletter called [*This week in Rails*](http://rails-weekly.goodbits.io)
+I recently started a newsletter called [*This week in Rails*](https://rails-weekly.ongoodbits.com/)
 (you may have [heard](http://ruby5.envylabs.com/episodes/495-episode-458-april-22nd-2014#story-3)
 about it) – a weekly digest of notable commits, issues, pull-requests and other
 interesting things happening around the Rails ecosystem. I'd like to share my
@@ -88,8 +88,8 @@ this as a [Friday afternoon project](http://brewhouse.io/2014/04/04/welcome-to-b
 While not very "sexy", it turns out that email newsletters could be a very
 powerful medium to engage with your readers.
 
-If you haven't already, you should [check out my newsletter](http://rails-weekly.goodbits.io/archive)
-and consider [subscribing](http://rails-weekly.goodbits.io)! Got some
+If you haven't already, you should [check out my newsletter](https://rails-weekly.ongoodbits.com/archive)
+and consider [subscribing](https://rails-weekly.ongoodbits.com/)! Got some
 interesting niche content to share with your customers, coworkers or your
 community? Give [Goodbits](https://goodbits.io/?utm_source=brewhouse-blog-backstory)
 a spin and let us know what you think!
