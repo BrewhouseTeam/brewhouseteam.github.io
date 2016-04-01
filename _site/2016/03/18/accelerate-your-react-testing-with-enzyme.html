@@ -1,0 +1,460 @@
+
+
+<!DOCTYPE html>
+<!-- Hello, nice to see you took a peek here :) -->
+<!-- Send us an email at hello at brewhouse dot io if you'd like to talk tech -->
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+
+<html lang="en-us" class="blog">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# business: http://ogp.me/ns/business#">
+
+    <title>Accelerate your React testing with Enzyme</title>
+    <meta property="og:title" content="Accelerate your React testing with Enzyme">
+    <meta property="og:site_name" content="brewhouse">
+    <meta property="og:url" content="http://brewhouse.io/2016/03/18/accelerate-your-react-testing-with-enzyme.html">
+
+    <meta property="og:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png">
+
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:site" content="@brewhouseteam" />
+    <meta property="twitter:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png">
+    <meta property="twitter:url" content="http://brewhouse.io/2016/03/18/accelerate-your-react-testing-with-enzyme.html">
+
+    <link rel="alternate" type="application/atom+xml" href="/blog/index.xml" title="The Brew Pub atom feed">
+
+    
+      <meta property="og:type" content="article">
+      <meta property="article:published_time" content="2016-03-18 11:00:00 -0800">
+      <meta property="article:tag" content="Alex Taylor">
+
+      <meta property="twitter:title" content="Accelerate your React testing with Enzyme">
+
+      
+        <meta name="description" content="Airbnb's Enzyme library is the fastest and most elegant way to test your React code.">
+        <meta property="twitter:description" content="Airbnb's Enzyme library is the fastest and most elegant way to test your React code.">
+        <meta property="og:description" content="Airbnb's Enzyme library is the fastest and most elegant way to test your React code.">
+      
+    
+
+    <script src="//use.typekit.net/scl6izu.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="robots" content="INDEX, FOLLOW">
+
+<link rel="shortcut icon" href="/images/icons/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
+
+<link type="text/css" rel="stylesheet" href="/assets/application.css">
+
+
+    <!-- needs to be refactored when we have more layouts -->
+    
+
+  </head>
+  <body class="on-post">
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46725009-2', 'brewhouse.io');
+  ga('send', 'pageview');
+
+</script>
+
+
+    <aside class="offcanvas-menu">
+  <ul>
+    <li>
+      <a class="internal" href="http://brewhouse.io/#work">Work</a>
+    </li>
+    <li>
+      <a class="internal" href="http://brewhouse.io/#services">Services</a>
+    </li>
+    <li>
+      <a href="/meet-the-team.html">Team</a>
+    </li>
+    <li>
+      <a href="/blog">Blog</a>
+    </li>
+    <li>
+      <a href="/show">Podcast</a>
+    </li>
+  </ul>
+  <a class="btn btn--header" href="/work-with-us.html">Hire Us</a>
+</aside>
+
+    <nav id="navbar-main" class="navbar navbar-default navbar-main">
+  <div class="container">
+    <div class="col-xs-12">
+
+      <div class="logo-container">
+        <a id="brewhouse-logo" class="navbar-brand internal" rel="home" href="/" title="brewhouse logo"><img src="/images/brewhouse-logo.svg" alt="Brewhouse" class="img-responsive"></a>
+      </div>
+
+      <button type="button" class="navbar-toggle navbar-toggle-offcanvas js-navbar-toggle-offcanvas">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <div class="main-menu">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <a class="internal btn navbar-btn navbar-right btn--header" href="/work-with-us.html">Hire Us</a>
+          <ul id="navbar-links" class="nav navbar-nav navbar-right">
+            <li><a class="internal" href="/#work">Work</a></li>
+            <li><a class="internal" href="/#services">Services</a></li>
+            <li><a href="/meet-the-team.html">Team</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/show">Podcast</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div>
+
+    </div>
+
+  </div>
+</nav>
+
+
+    <div class="main">
+
+      
+
+<article>
+
+  <div class="page-header">
+    <div class="container">
+      <div class="col-xs-12 col-sm-8">
+        <h1 class="page-title">Accelerate your React testing with Enzyme</h1>
+      </div>
+      <div class="col-xs-12 col-sm-4 text-xs-center">
+        <div class="meta text-center">
+          
+            <div class="author">
+              <img class="img-circle img-author" src="//www.gravatar.com/avatar/da0b02303090f0ded442767e58a98626?s=135" alt="A photo of Alex Taylor" width="55">
+
+              <a href="http://twitter.com/mctaylorpants" target="_blank">Alex Taylor</a> 18 Mar 2016
+            </div>
+          
+          <div class="social-actions">
+            <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io/2016/03/18/accelerate-your-react-testing-with-enzyme.html" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="">Tweet</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="article-start" class="container content">
+
+      <div class="col-xs-12 col-sm-8">
+
+        <div class="post clearfix">
+
+          <p>When it comes to integration testing, Javascript frontends are notoriously hard to test — there’s lots of setup required, and you often need to rely on clunky simulations of user interactions like clicks and keyboard events.</p>
+
+<p>React’s virtual DOM offers some interesting opportunities for simplifying the process of testing, and Airbnb’s <a href="https://github.com/Airbnb/enzyme">Enzyme framework</a> makes testing your components an absolute pleasure. We recently tried out Enzyme on a React project at Brewhouse. We were blown away by how much simpler it was to write tests, and we’re never looking back.</p>
+
+<!-- break -->
+<blockquote>
+
+</blockquote>
+
+<p>It’s not the only option, of course. React itself offers the <a href="https://facebook.github.io/react/docs/test-utils.html">ReactTestUtils library</a> - in fact, Enzyme depends on this for its integration with React. But Enzyme’s jQuery-style approach to node selection and manipulation makes it super familiar and really easy to work with.</p>
+
+<p>Let’s investigate how we can put Enzyme to work. To demonstrate some of its features, I put together a small little app called <a href="https://gif-grabbr.herokuapp.com/">Gif Grabbr</a>. It uses the <a href="https://github.com/Giphy/GiphyAPI">GIPHY API</a> to find random GIFs based on your search. <a href="https://gif-grabbr.herokuapp.com/">Take it for a spin</a> first, then come back here to check out some code.</p>
+
+<p><img src="/images/posts/2016/enzyme_post/gif-grabbr-demo.gif" alt="Gif Grabbr" /></p>
+
+<p><em>(Note: In the examples below I’m using <a href="https://mochajs.org/">Mocha</a> with <a href="http://chaijs.com/">Chai</a> and <a href="https://karma-runner.github.io/">Karma</a> as the test runner, but Enzyme can be used with pretty much any testing setup. Have a look at the <a href="https://github.com/alextaylor000/gif-grabbr">Gif Grabbr source</a> to see more details about my setup.)</em></p>
+
+<h2 id="shallow-rendering">Shallow Rendering</h2>
+<p>Enzyme’s biggest strength is its shallow rendering capabilities. Not only does this encourage you to limit the scope of your tests to a single component, it also prevents errors deep in your node tree from affecting all your tests, and removes the requirement to mock a ton of objects.</p>
+
+<p>Consider the <code>App</code> component in GIF Grabbr, which is the root component within which everything else is rendered:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// components/app.js</span>
+
+<span class="c1">// ...</span>
+
+<span class="kr">class</span> <span class="nx">App</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+
+  <span class="c1">// ...</span>
+
+  <span class="nx">render</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">style</span><span class="o">=</span><span class="p">{</span><span class="nx">styles</span><span class="p">}</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">gif</span> <span class="nx">grabbr</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
+        <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">find</span> <span class="nx">a</span> <span class="nx">GIF</span> <span class="nx">on</span> <span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s1">&#39;http://giphy.com&#39;</span><span class="o">&gt;</span><span class="nx">giphy</span><span class="o">&lt;</span><span class="err">/a&gt;. Keep pressing enter for more results.&lt;/p&gt;</span>
+        <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="nx">SearchBar</span> <span class="nx">onSearch</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleSearch</span><span class="p">}</span><span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="err">/div&gt;</span>
+        <span class="o">&lt;</span><span class="nx">ImageDisplay</span>
+          <span class="nx">loading</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">loading</span><span class="p">}</span>
+          <span class="nx">url</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">gif</span><span class="p">.</span><span class="nx">url</span><span class="p">}</span>
+          <span class="nx">width</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">gif</span><span class="p">.</span><span class="nx">width</span><span class="p">}</span>
+          <span class="nx">sourceUrl</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">gif</span><span class="p">.</span><span class="nx">sourceUrl</span><span class="p">}</span>
+          <span class="o">/&gt;</span>
+      <span class="o">&lt;</span><span class="err">/div&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>To ensure the stability of my tests, as well as for performance reasons, I can use <code>.shallow()</code> to render this component only one level deep:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="nx">shallow</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">App</span> <span class="o">/&gt;</span><span class="p">);</span>
+ </code></pre></figure>
+
+<p>This gives me a <code>ShallowWrapper</code> object which I can do all sorts of fun stuff with. To illustrate how Enzyme is handling this render, let’s use <code>.debug()</code> to take a look at the output:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">wrapper</span><span class="p">.</span><span class="nx">debug</span><span class="p">()</span>
+
+<span class="s2">&quot;&lt;div style=&gt;</span>
+<span class="s2">&lt;h1&gt;</span>
+<span class="s2">gif grabbr</span>
+<span class="s2">&lt;/h1&gt;</span>
+<span class="s2">&lt;p&gt;</span>
+<span class="s2">find a GIF on</span>
+<span class="s2">&lt;a href=&quot;</span><span class="nx">http</span><span class="o">:</span><span class="c1">//giphy.com&quot;&gt;</span>
+<span class="nx">giphy</span>
+<span class="o">&lt;</span><span class="err">/a&gt;</span>
+<span class="p">.</span> <span class="nx">Keep</span> <span class="nx">pressing</span> <span class="nx">enter</span> <span class="k">for</span> <span class="nx">more</span> <span class="nx">results</span><span class="p">.</span>
+<span class="o">&lt;</span><span class="err">/p&gt;</span>
+<span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">SearchBar</span> <span class="nx">onSearch</span><span class="o">=</span><span class="p">{[</span><span class="nb">Function</span><span class="p">]}</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="err">/div&gt;</span>
+<span class="o">&lt;</span><span class="nx">ImageDisplay</span> <span class="nx">loading</span><span class="o">=</span><span class="p">{</span><span class="kc">true</span><span class="p">}</span> <span class="nx">url</span><span class="o">=</span><span class="p">{[</span><span class="kc">undefined</span><span class="p">]}</span> <span class="nx">width</span><span class="o">=</span><span class="p">{[</span><span class="kc">undefined</span><span class="p">]}</span> <span class="nx">sourceUrl</span><span class="o">=</span><span class="p">{[</span><span class="kc">undefined</span><span class="p">]}</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="err">/div&gt;&quot;</span></code></pre></figure>
+
+<p><code>.debug()</code> returns a HTML-ish string representing the rendered output. Notice that the shallow render didn’t touch the <code>SearchBar</code> or <code>ImageDisplay</code> components, but it <em>did</em> pass in any props that were available at the time. In our tests, this allows us to verify that a child component would have received the correct props without needing to actually render the thing.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// components/__tests__/imageDisplay.test.js</span>
+
+<span class="c1">// ...</span>
+
+<span class="nx">it</span><span class="p">(</span><span class="s1">&#39;Passes loading:true to ImageDisplay&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="nx">shallow</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">App</span> <span class="o">/&gt;</span><span class="p">);</span>
+  <span class="kr">const</span> <span class="nx">imageDisplay</span> <span class="o">=</span> <span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;ImageDisplay&#39;</span><span class="p">);</span>
+  <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">imageDisplay</span><span class="p">.</span><span class="nx">prop</span><span class="p">(</span><span class="s1">&#39;loading&#39;</span><span class="p">),</span> <span class="kc">true</span><span class="p">);</span>
+<span class="p">});</span></code></pre></figure>
+
+<h2 id="put-the--back-in-dom-traversal">Put the ‘$’ back in DOM traversal</h2>
+<p>Enzyme’s three flavours of rendering (shallow, full, and static) all return wrapper objects which give you jQuery-style power over your node tree. No longer must you wade through a jungle of nested arrays in order to test some deep-level node:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// components/imageDisplay.js</span>
+<span class="kr">class</span> <span class="nx">ImageDisplay</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+
+  <span class="c1">// ...</span>
+
+  <span class="nx">render</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">loading</span> <span class="o">?</span> <span class="s1">&#39;loading.gif&#39;</span> <span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">url</span><span class="p">;</span>
+    <span class="kr">const</span> <span class="nx">width</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">width</span> <span class="o">||</span> <span class="mi">200</span><span class="p">;</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">style</span><span class="o">=</span><span class="p">{</span><span class="nx">styles</span><span class="p">}</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">giphySourceUrl</span><span class="p">()}</span> <span class="nx">title</span><span class="o">=</span><span class="s1">&#39;view this on giphy&#39;</span> <span class="nx">target</span><span class="o">=</span><span class="s1">&#39;new&#39;</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="nx">img</span> <span class="nx">id</span><span class="o">=</span><span class="s1">&#39;gif&#39;</span> <span class="nx">src</span><span class="o">=</span><span class="p">{</span><span class="nx">url</span><span class="p">}</span> <span class="nx">width</span><span class="o">=</span><span class="p">{</span><span class="nx">width</span><span class="p">}</span> <span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="err">/a&gt;</span>
+      <span class="o">&lt;</span><span class="err">/div&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// components/__tests__/imageDisplay.test.js</span>
+
+<span class="c1">// ...</span>
+
+<span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;ImageDisplay&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;Renders the loading gif at the default width when passed loading:true&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">props</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">loading</span><span class="o">:</span> <span class="kc">true</span>
+    <span class="p">};</span>
+    <span class="kr">const</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="nx">shallow</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">ImageDisplay</span> <span class="p">{...</span><span class="nx">props</span><span class="p">}</span><span class="o">/&gt;</span><span class="p">);</span>
+    <span class="kr">const</span> <span class="nx">image</span> <span class="o">=</span> <span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">);</span>
+
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">image</span><span class="p">.</span><span class="nx">prop</span><span class="p">(</span><span class="s1">&#39;src&#39;</span><span class="p">),</span> <span class="nx">LOADING_GIF</span><span class="p">);</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">image</span><span class="p">.</span><span class="nx">prop</span><span class="p">(</span><span class="s1">&#39;width&#39;</span><span class="p">),</span> <span class="nx">DEFAULT_WIDTH</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="c1">// ...</span>
+
+<span class="p">}</span></code></pre></figure>
+
+<p>Using the wrapper I get from <code>.shallow()</code>, I can just search for the image tag instead of needing to know exactly where it is in the node tree. This encourages a more declarative form of testing, minimizing your tests’ reliance on a specific tree structure.</p>
+
+<h2 id="enzyme-selectors-ftw">Enzyme Selectors FTW</h2>
+<p>The selector is more than meets the eye. In addition to CSS-style selectors, <a href="https://github.com/Airbnb/enzyme/blob/master/docs/api/selector.md#enzyme-selectors">an Enzyme Selector</a> can find nodes by their component constructor, display name, even object properties:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// components/imageDisplay.js</span>
+
+<span class="c1">// ...</span>
+
+<span class="kr">class</span> <span class="nx">ImageDisplay</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+
+  <span class="c1">// ...</span>
+
+  <span class="nx">render</span> <span class="p">()</span> <span class="p">{</span>
+
+    <span class="c1">// ...</span>
+
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">style</span><span class="o">=</span><span class="p">{</span><span class="nx">styles</span><span class="p">}</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">giphySourceUrl</span><span class="p">()}</span> <span class="nx">title</span><span class="o">=</span><span class="s1">&#39;view this on giphy&#39;</span> <span class="nx">target</span><span class="o">=</span><span class="s1">&#39;new&#39;</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="nx">img</span> <span class="nx">id</span><span class="o">=</span><span class="s1">&#39;gif&#39;</span> <span class="nx">src</span><span class="o">=</span><span class="p">{</span><span class="nx">url</span><span class="p">}</span> <span class="nx">width</span><span class="o">=</span><span class="p">{</span><span class="nx">width</span><span class="p">}</span> <span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="err">/a&gt;</span>
+      <span class="o">&lt;</span><span class="err">/div&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// components/__tests__/imageDisplay.test.js</span>
+
+<span class="c1">// ...</span>
+
+<span class="nx">it</span><span class="p">(</span><span class="s1">&#39;Renders an image when passed a url&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">props</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://www.example.com/pusheen.gif&#39;</span>
+  <span class="p">}</span>
+  <span class="kr">const</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="nx">shallow</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">ImageDisplay</span> <span class="p">{...</span><span class="nx">props</span><span class="p">}</span><span class="o">/&gt;</span><span class="p">);</span>
+  <span class="kr">const</span> <span class="nx">image</span> <span class="o">=</span> <span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">src</span><span class="o">:</span> <span class="s1">&#39;http://www.example.com/pusheen.gif&#39;</span><span class="p">});</span>
+  <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">image</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="p">});</span></code></pre></figure>
+
+<h2 id="simulations">Simulations</h2>
+<p>Enzyme gives you a concise and elegant way of simulating user events, one of the trickier aspects of UI testing. Just pass the name of the event you want to simulate, along with any required data:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// components/__tests__/searchBar.test.js&quot;</span>
+
+<span class="c1">// ...</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;Triggers a new search as the user types&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">onSearchStub</span> <span class="o">=</span> <span class="nx">sinon</span><span class="p">.</span><span class="nx">spy</span><span class="p">();</span>
+    <span class="kr">const</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="nx">shallow</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">SearchBar</span> <span class="nx">onSearch</span><span class="o">=</span><span class="p">{</span><span class="nx">onSearchStub</span><span class="p">}</span><span class="o">/&gt;</span><span class="p">);</span>
+    <span class="kr">const</span> <span class="nx">searchField</span> <span class="o">=</span> <span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">);</span>
+    <span class="kr">const</span> <span class="nx">event1</span> <span class="o">=</span> <span class="p">{</span><span class="nx">target</span><span class="o">:</span> <span class="p">{</span><span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;cat&#39;</span><span class="p">}};</span>
+    <span class="kr">const</span> <span class="nx">event2</span> <span class="o">=</span> <span class="p">{</span><span class="nx">target</span><span class="o">:</span> <span class="p">{</span><span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;cats&#39;</span><span class="p">}};</span>
+
+    <span class="nx">searchField</span><span class="p">.</span><span class="nx">simulate</span><span class="p">(</span><span class="s1">&#39;change&#39;</span><span class="p">,</span> <span class="nx">event1</span><span class="p">);</span>
+    <span class="nx">searchField</span><span class="p">.</span><span class="nx">simulate</span><span class="p">(</span><span class="s1">&#39;change&#39;</span><span class="p">,</span> <span class="nx">event2</span><span class="p">);</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">onSearchStub</span><span class="p">.</span><span class="nx">calledTwice</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+  <span class="p">});</span>
+
+<span class="p">...</span></code></pre></figure>
+
+<p>It’s also worth noting that the event argument can be <em>anything you want</em>. Unlike ReactTestUtils, you’re not limited to <a href="https://facebook.github.io/react/docs/events.html#supported-events">only events that React understands</a>. Following convention, you could call <code>wrapper.simulate('donut')</code> and Enzyme would simply look for an <code>onDonut</code> event handler. Pretty neat.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>Enzyme is an elegant and powerful way of testing your React applications. It can significantly increase the brevity of your tests thanks to its selector engine, and its approach to event simulation is quite promising. It also plays nicely with most test suites and assertion libraries out there, so you probably don’t need to change your workflow to start using it today.</p>
+
+<p>Hit up the <a href="http://Airbnb.io/enzyme/">Enzyme docs</a> to learn more. You should also check out <a href="https://www.youtube.com/watch?v=V5N0Ukb8LGg">Leland Richardson’s Lightning Talk</a> at ReactConf 2016 to get a good overview of the problems Enzyme solves.</p>
+
+
+        </div><!-- /post -->
+
+        <div class="hire-us-form text-center">
+  <h2>Let's Work Together</h2>
+  <h3>Find out why our transparent, collaborative process is the best way to make well-loved products.</h3>
+  <a href="/work-with-us.html" class="btn btn--blue">Get in touch today</a>
+</div>
+
+
+        <div id="disqus_thread"></div>
+
+        <!-- disqus -->
+        <script type="text/javascript">
+            var disqus_shortname = 'brewhouse';
+            var disqus_url = 'http://brewhouse.io/2016/03/18/accelerate-your-react-testing-with-enzyme.html';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        <!-- /disqus -->
+
+      </div>
+
+  </div><!-- /content-->
+
+</article>
+
+<script>
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+</script>
+
+
+    </div>
+
+    <aside class="lets-talk cover">
+  <div class="container">
+    <div class="col-md-6">
+      <p class="lede">We partner with businesses to design and develop well-loved products through a flexible and transparent process. We'd love to discuss how our process can help your idea become a reality.</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="col-md-6">
+      <a href="http://maps.apple.com/?q=210%20Carrall,+Vancouver,+Canada">#303 - 210 Carrall St, Vancouver, BC
+      V6B 2J1</a><br>
+      <a href="tel:+16047574242">+1 604-757-4242</a> &middot;
+      <a href="mailto:hello@brewhouse.io">hello@brewhouse.io</a> &middot;
+      <a href="http://twitter.com/brewhouseteam">@brewhouseteam</a>
+    </div>
+    <div class="col-md-5 col-md-offset-1">
+      <a href="/work-with-us.html" class="btn btn--footer">Hire Us</a>
+    </div>
+  </div>
+</aside>
+
+
+    <footer id="footer">
+  <div class="container">
+    <nav role="navigation" class="col-md-6">
+        <ul>
+          <li>
+            <a class="internal" href="/#work">Work</a>
+          </li>
+          <li>
+            <a class="internal" href="/meet-the-team.html">Team</a>
+          </li>
+          <li>
+            <a class="internal" href="/blog">Blog</a>
+          </li>          
+          <li>
+            <a class="internal" href="/show">Podcast</a>
+          </li>
+        </ul>
+    </nav>
+    <div class="col-md-5 col-md-push-1">
+      <p class="copyright">
+        &copy; <span class="copyright-year"></span> <a href="http://brewhouse.io">brewhouse software, inc.</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script type="text/javascript" src="/assets/app.js"></script>
+
+    <!-- needs to be refactored when we have more layouts -->
+    
+
+  </body>
+</html>

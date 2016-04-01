@@ -7501,7 +7501,8 @@ button.close {
     text-transform: none; }
 
 .btn-sm {
-  font-size: .75em; }
+  font-size: .75em;
+  padding: .75em 1.25em .675em; }
 
 .btn-lg {
   font-size: 1.25em; }
@@ -7582,7 +7583,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #383C4A;
-  font: 1.6em/1.5 "proxima-nova", Helvetica, Arial, sans-serif;
+  font: 1.6em/1.5 "adelle", Georgia, "Times New Roman", serif;
   margin: 0 auto; }
 
 p.lede {
@@ -7623,6 +7624,10 @@ input::-moz-focus-inner {
 
 audio {
   margin-bottom: 1em; }
+
+em {
+  font-style: italic;
+  font-weight: 400; }
 
 h1,
 h2,
@@ -7724,6 +7729,7 @@ hr.hr--extra-push {
     padding: 0;
     width: 48px; }
   .navbar-main #navbar-links {
+    font-family: "proxima-nova", Helvetica, Arial, sans-serif;
     font-size: 16px; }
     .navbar-main #navbar-links li {
       margin-left: 12px; }
@@ -7825,7 +7831,7 @@ img.img-centered {
 
 .page-header {
   border: 0;
-  margin: 120px 0 60px; }
+  margin: 96px 0 48px; }
   .page-header p {
     font: 18px/1.5 "adelle", Georgia, "Times New Roman", serif;
     margin-bottom: 1em; }
@@ -7835,11 +7841,12 @@ img.img-centered {
       color: #28677c; }
   @media (min-width: 768px) {
     .page-header p {
-      font-size: 30px; } }
+      font-size: 24px; } }
 
 .page-title {
   font-size: 2em;
-  font-weight: 700; }
+  font-weight: 700;
+  line-height: 1.175; }
   @media (min-width: 768px) {
     .page-title {
       font-size: 3em; } }
@@ -7847,8 +7854,8 @@ img.img-centered {
     .page-title {
       font-size: 4em; } }
 
-.page-title + p {
-  margin-top: 3em; }
+.page-header .page-title + p {
+  margin-top: 2em; }
 
 @media screen and (min-width: 768px) {
   .img-full-width img {
@@ -7928,8 +7935,10 @@ img.img-centered {
   margin: 0 auto;
   vertical-align: bottom; }
 
-#services .container > div {
-  margin: 6em 0; }
+#services > div {
+  margin-bottom: 1em;
+  margin-top: .5em;
+  font-size: 1.125em; }
 #services h4 {
   font-weight: 700;
   margin-bottom: 10px; }
@@ -7937,13 +7946,6 @@ img.img-centered {
   height: 48px;
   width: auto;
   margin-bottom: .5em; }
-#services li {
-  color: #F56741;
-  line-height: 2;
-  text-transform: uppercase; }
-@media (max-width: 992px) {
-  #services p, #services li {
-    font-size: 14px; } }
 
 #projects ul {
   color: #999;
@@ -7959,8 +7961,18 @@ img.img-centered {
   padding-left: 0; }
   #projects .client-logos li {
     height: 90px; }
-  #projects .client-logos li:nth-child(4n+1) {
+  #projects .client-logos li:nth-child(2n+1) {
     clear: left; }
+  @media (min-width: 768px) {
+    #projects .client-logos li:nth-child(2n+1) {
+      clear: none; }
+    #projects .client-logos li:nth-child(3n+1) {
+      clear: left; } }
+  @media (min-width: 992px) {
+    #projects .client-logos li:nth-child(3n+1) {
+      clear: none; }
+    #projects .client-logos li:nth-child(4n+1) {
+      clear: left; } }
   #projects .client-logos a {
     display: block;
     margin-bottom: 2em;
@@ -8112,9 +8124,11 @@ blockquote {
   blockquote i, blockquote em {
     font-style: normal; }
 
-.meta {
+.meta,
+.post-date {
   font-family: "proxima-nova", Helvetica, Arial, sans-serif;
-  font-size: 1em; }
+  font-size: .875em;
+  text-transform: uppercase; }
 
 .page-header .meta {
   margin-top: 1.5em; }
@@ -8201,28 +8215,17 @@ blockquote {
 .post-list .post-date {
   color: #222; }
 
+.post-list img {
+  max-width: 100%; }
+
 html.blog .pagination {
   position: relative;
-  width: 80%;
+  width: 100%;
   max-width: 730px;
   margin: 4rem auto;
   font-size: 1.3rem;
   color: #9EABB3;
   text-align: center; }
-html.blog .pagination a,
-html.blog .continue-reading a {
-  border: 1px solid #47a4c3;
-  color: #47a4c3;
-  display: inline-block;
-  padding: 0 15px;
-  text-decoration: none;
-  border-radius: 30px; }
-  html.blog .pagination a:hover, html.blog .pagination a:focus,
-  html.blog .continue-reading a:hover,
-  html.blog .continue-reading a:focus {
-    background: #47a4c3;
-    color: #fff;
-    text-decoration: none; }
 html.blog .pagination a {
   position: absolute; }
 html.blog .older-posts {
@@ -8345,14 +8348,29 @@ html.blog .newer-posts:hover {
 .lil-push {
   margin-bottom: 30px; }
 
-.form-group-lg .form-control--brew,
-.form-control--brew {
-  border-radius: 3px; }
+.form-group {
+  margin-bottom: 3em; }
 
-.form-control,
-.form-label {
+.form-control {
+  background: none;
+  border: 0;
+  border-bottom: 1px solid #9ba0b3;
+  color: #383C4A;
+  display: inline-block;
+  height: auto;
   font-family: "proxima-nova", Helvetica, Arial, sans-serif;
-  font-size: 1.125em; }
+  font-size: 1.25em;
+  padding: .25em 0;
+  width: 100%;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-appearance: none; }
+  .form-control:focus {
+    border-color: #47a4c3; }
 
 .form-control:focus {
   border-color: #ff6813;
@@ -8360,23 +8378,11 @@ html.blog .newer-posts:hover {
   -webkit-box-shadow: none;
   box-shadow: none; }
 
-.page-header .form-control {
-  background: none;
-  border: 1px solid #9ba0b3;
-  color: #383C4A;
-  display: inline-block;
-  height: auto;
-  font-size: 1em;
-  padding: .75em 1em;
-  width: 100%;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px; }
-  .page-header .form-control:focus {
-    border-color: #47a4c3; }
+.control-label {
+  color: #9ba0b3;
+  font-family: "proxima-nova", Helvetica, Arial, sans-serif;
+  font-size: .75em;
+  text-transform: uppercase; }
 
 #banner form ::-webkit-input-placeholder {
   color: rgba(56, 60, 74, 0.5); }
@@ -8388,6 +8394,12 @@ html.blog .newer-posts:hover {
   color: rgba(56, 60, 74, 0.5); }
 #banner form input:-ms-input-placeholder {
   color: rgba(56, 60, 74, 0.5); }
+
+figure figcaption {
+  font-style: italic;
+  border-bottom: 1px solid #f2f3f5;
+  margin-bottom: 2em;
+  padding: .5em 0; }
 
 .callout {
   padding: 20px;
@@ -8482,3 +8494,6 @@ html.blog .newer-posts:hover {
 .visible-xl-inline-block,
 .visible-xl {
   display: none !important; }
+
+.scrolling-party {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.7) 100%), url("http://cultofthepartyparrot.com/parrots/parrot.gif"); }

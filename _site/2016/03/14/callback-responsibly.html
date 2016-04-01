@@ -1,0 +1,346 @@
+
+
+<!DOCTYPE html>
+<!-- Hello, nice to see you took a peek here :) -->
+<!-- Send us an email at hello at brewhouse dot io if you'd like to talk tech -->
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+
+<html lang="en-us" class="blog">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# business: http://ogp.me/ns/business#">
+
+    <title>Callback Responsibly</title>
+    <meta property="og:title" content="Callback Responsibly">
+    <meta property="og:site_name" content="brewhouse">
+    <meta property="og:url" content="http://brewhouse.io/2016/03/14/callback-responsibly.html">
+
+    <meta property="og:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png">
+
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:site" content="@brewhouseteam" />
+    <meta property="twitter:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png">
+    <meta property="twitter:url" content="http://brewhouse.io/2016/03/14/callback-responsibly.html">
+
+    <link rel="alternate" type="application/atom+xml" href="/blog/index.xml" title="The Brew Pub atom feed">
+
+    
+      <meta property="og:type" content="article">
+      <meta property="article:published_time" content="2016-03-14 08:00:00 -0800">
+      <meta property="article:tag" content="Paulo Ancheta">
+
+      <meta property="twitter:title" content="Callback Responsibly">
+
+      
+        <meta name="description" content="Avoiding callbacks makes it easier to test and to code!">
+        <meta property="twitter:description" content="Avoiding callbacks makes it easier to test and to code!">
+        <meta property="og:description" content="Avoiding callbacks makes it easier to test and to code!">
+      
+    
+
+    <script src="//use.typekit.net/scl6izu.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="robots" content="INDEX, FOLLOW">
+
+<link rel="shortcut icon" href="/images/icons/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
+
+<link type="text/css" rel="stylesheet" href="/assets/application.css">
+
+
+    <!-- needs to be refactored when we have more layouts -->
+    
+
+  </head>
+  <body class="on-post">
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46725009-2', 'brewhouse.io');
+  ga('send', 'pageview');
+
+</script>
+
+
+    <aside class="offcanvas-menu">
+  <ul>
+    <li>
+      <a class="internal" href="http://brewhouse.io/#work">Work</a>
+    </li>
+    <li>
+      <a class="internal" href="http://brewhouse.io/#services">Services</a>
+    </li>
+    <li>
+      <a href="/meet-the-team.html">Team</a>
+    </li>
+    <li>
+      <a href="/blog">Blog</a>
+    </li>
+    <li>
+      <a href="/show">Podcast</a>
+    </li>
+  </ul>
+  <a class="btn btn--header" href="/work-with-us.html">Hire Us</a>
+</aside>
+
+    <nav id="navbar-main" class="navbar navbar-default navbar-main">
+  <div class="container">
+    <div class="col-xs-12">
+
+      <div class="logo-container">
+        <a id="brewhouse-logo" class="navbar-brand internal" rel="home" href="/" title="brewhouse logo"><img src="/images/brewhouse-logo.svg" alt="Brewhouse" class="img-responsive"></a>
+      </div>
+
+      <button type="button" class="navbar-toggle navbar-toggle-offcanvas js-navbar-toggle-offcanvas">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <div class="main-menu">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <a class="internal btn navbar-btn navbar-right btn--header" href="/work-with-us.html">Hire Us</a>
+          <ul id="navbar-links" class="nav navbar-nav navbar-right">
+            <li><a class="internal" href="/#work">Work</a></li>
+            <li><a class="internal" href="/#services">Services</a></li>
+            <li><a href="/meet-the-team.html">Team</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/show">Podcast</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div>
+
+    </div>
+
+  </div>
+</nav>
+
+
+    <div class="main">
+
+      
+
+<article>
+
+  <div class="page-header">
+    <div class="container">
+      <div class="col-xs-12 col-sm-8">
+        <h1 class="page-title">Callback Responsibly</h1>
+      </div>
+      <div class="col-xs-12 col-sm-4 text-xs-center">
+        <div class="meta text-center">
+          
+            <div class="author">
+              <img class="img-circle img-author" src="//www.gravatar.com/avatar/70952ec3d3d0677fbd24a03bc24d242b?s=135" alt="A photo of Paulo Ancheta" width="55">
+
+              <a href="http://twitter.com/pauloancheta" target="_blank">Paulo Ancheta</a> 14 Mar 2016
+            </div>
+          
+          <div class="social-actions">
+            <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io/2016/03/14/callback-responsibly.html" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="">Tweet</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="article-start" class="container content">
+
+      <div class="col-xs-12 col-sm-8">
+
+        <div class="post clearfix">
+
+          <p>Recently, I have worked on a project where one of the biggest obstacle for me was to understand the app’s business logic due to its callback chains. Whenever I create a model, I get an error because it tried to validate something that was supposed to be created during a callback. At that time, I found myself in what it seemed to be a rabbit hole that does not end. (Ok, I might have been exaggerating because it was probably just about 5 callback chains. MAYBE. I don’t really want to count). It got a bit frustrating and I knew that there had to be a better way.</p>
+
+<!-- break -->
+
+<p>I asked one of my mentors (<a href="https://twitter.com/pcreux">Philippe</a>), the most important question: <strong>When should we use callbacks?</strong> And his short answer was: <em>“You don’t”</em>. In my opinion, having callbacks in a Rails app can easily get out of hand. He explained that previously, the <strong>Rails way</strong> was to have a <em>Fat Controllers</em>. But after that, then came the <strong>Fat Models, Skinny Controllers</strong> idea where we have to basically say, <em>“After we create the user account, let’s send him an email or notify Intercom! We should do this by adding more methods on our models that calls other classes and attach it to a callback!”</em>.</p>
+
+<p>I believe that they soon realized that apps that uses this pattern is becoming a nightmare to work on, because the callbacks makes the models harder to test. When adding features to the models, they also have to touch the specs. Soon after that, <strong>Service Objects</strong> became the new hip thing to use because it encourages extraction of the action of a model. So, the question is, how do service objects help with creating other models? Consider this:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/models/dog.rb</span>
+<span class="k">class</span> <span class="nc">Dog</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">has_many</span> <span class="ss">:collars</span>
+  <span class="n">after_create</span> <span class="ss">:create_collars!</span>
+
+  <span class="k">def</span> <span class="nf">create_collars!</span>
+    <span class="n">collars</span><span class="o">.</span><span class="n">create!</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1"># app/models/collar.rb</span>
+<span class="k">class</span> <span class="nc">Collar</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">belongs_to</span> <span class="ss">:dog</span>
+  <span class="n">before_create</span> <span class="ss">:register_to_fitbit!</span>
+
+  <span class="k">def</span> <span class="nf">register_to_fitbit</span>
+    <span class="no">FitBitCollar</span><span class="o">::</span><span class="no">Create</span><span class="o">.</span><span class="n">call</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>When writing a test for the <code>Dog</code> model, you would have to write a valid <code>Collar</code> instance with all the attributes to register it to FitBit (let’s just say he is a hipster dog) before you can actually test the <code>Dog</code>! Now imagine if there were 5 callbacks that need to run when the <code>Dog</code> is created. It will most likely take a long time to run since the <code>Dog</code> is tightly coupled with other classes and all its dependencies. Also, the test would rely on other objects that shouldn’t be part of the spec.  Now let’s see how it looks like with a service object:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/models/dog.rb</span>
+<span class="k">class</span> <span class="nc">Dog</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">has_many</span> <span class="ss">:collars</span>
+<span class="k">end</span>
+
+<span class="c1"># app/models/collar.rb</span>
+<span class="k">class</span> <span class="nc">Collar</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">belongs_to</span> <span class="ss">:dog</span>
+<span class="k">end</span>
+
+<span class="c1"># app/services/dog/create.rb</span>
+<span class="k">class</span> <span class="nc">Dog</span><span class="o">::</span><span class="no">Create</span>
+  <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="p">{})</span>
+    <span class="n">dog</span> <span class="o">=</span> <span class="no">Dog</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+
+    <span class="no">Dog</span><span class="o">.</span><span class="n">transaction</span> <span class="k">do</span>
+      <span class="n">dog</span><span class="o">.</span><span class="n">save!</span>
+      <span class="n">collar</span> <span class="o">=</span> <span class="n">dog</span><span class="o">.</span><span class="n">collars</span><span class="o">.</span><span class="n">create!</span>
+      <span class="n">register_to_fitbit!</span><span class="p">(</span><span class="n">collar</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="kp">private</span>
+  <span class="k">def</span> <span class="nf">register_to_fitbit!</span><span class="p">(</span><span class="n">collar</span><span class="p">)</span>
+    <span class="no">FitBitCollar</span><span class="o">::</span><span class="no">Create</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="ss">collar</span><span class="p">:</span> <span class="n">collar</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>When writing a test for the  <code>Dog</code> class, you actually don’t have to create a valid instance of a <code>Collar</code> because all its association dependencies are extracted to a service! When testing a model, you should not care about other models, the test should focus on the <code>Dog</code> model and not care about the dependencies that the dog may have. This makes testing the class so much easier and makes the testing suite so much faster which is a huge win!</p>
+
+<p>So now, the question is, “Are there good uses for callbacks?”. The answer is a big YES! Callbacks are really useful in tasks affecting the model layer (not the business logic) like updating a column of the parent class.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/models/dog.rb</span>
+<span class="k">class</span> <span class="nc">Dog</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">has_many</span> <span class="ss">:collars</span>
+<span class="k">end</span>
+
+<span class="c1"># app/models/collar.rb</span>
+<span class="k">class</span> <span class="nc">Collar</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">belongs_to</span> <span class="ss">:dog</span>
+  <span class="n">after_save</span> <span class="ss">:make_main_swag!</span>
+
+  <span class="k">def</span> <span class="nf">make_main_swag!</span>
+    <span class="n">dog</span><span class="o">.</span><span class="n">update!</span><span class="p">(</span><span class="ss">main_swag_id</span><span class="p">:</span> <span class="nb">id</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>With this code, everytime we update the collar of a dog, it becomes the collar that our dog is going to use.</p>
+
+<p>Without callbacks, testing is generally easier and can give an overall better development experience. Use callbacks responsibly and please don’t create new records with callbacks, instead step back and think if it is really necessary to have such a dependency between records. If they really have to be dependent on each other, use a service object to extract the action and use a transaction!</p>
+
+
+        </div><!-- /post -->
+
+        <div class="hire-us-form text-center">
+  <h2>Let's Work Together</h2>
+  <h3>Find out why our transparent, collaborative process is the best way to make well-loved products.</h3>
+  <a href="/work-with-us.html" class="btn btn--blue">Get in touch today</a>
+</div>
+
+
+        <div id="disqus_thread"></div>
+
+        <!-- disqus -->
+        <script type="text/javascript">
+            var disqus_shortname = 'brewhouse';
+            var disqus_url = 'http://brewhouse.io/2016/03/14/callback-responsibly.html';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        <!-- /disqus -->
+
+      </div>
+
+  </div><!-- /content-->
+
+</article>
+
+<script>
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+</script>
+
+
+    </div>
+
+    <aside class="lets-talk cover">
+  <div class="container">
+    <div class="col-md-6">
+      <p class="lede">We partner with businesses to design and develop well-loved products through a flexible and transparent process. We'd love to discuss how our process can help your idea become a reality.</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="col-md-6">
+      <a href="http://maps.apple.com/?q=210%20Carrall,+Vancouver,+Canada">#303 - 210 Carrall St, Vancouver, BC
+      V6B 2J1</a><br>
+      <a href="tel:+16047574242">+1 604-757-4242</a> &middot;
+      <a href="mailto:hello@brewhouse.io">hello@brewhouse.io</a> &middot;
+      <a href="http://twitter.com/brewhouseteam">@brewhouseteam</a>
+    </div>
+    <div class="col-md-5 col-md-offset-1">
+      <a href="/work-with-us.html" class="btn btn--footer">Hire Us</a>
+    </div>
+  </div>
+</aside>
+
+
+    <footer id="footer">
+  <div class="container">
+    <nav role="navigation" class="col-md-6">
+        <ul>
+          <li>
+            <a class="internal" href="/#work">Work</a>
+          </li>
+          <li>
+            <a class="internal" href="/meet-the-team.html">Team</a>
+          </li>
+          <li>
+            <a class="internal" href="/blog">Blog</a>
+          </li>          
+          <li>
+            <a class="internal" href="/show">Podcast</a>
+          </li>
+        </ul>
+    </nav>
+    <div class="col-md-5 col-md-push-1">
+      <p class="copyright">
+        &copy; <span class="copyright-year"></span> <a href="http://brewhouse.io">brewhouse software, inc.</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script type="text/javascript" src="/assets/app.js"></script>
+
+    <!-- needs to be refactored when we have more layouts -->
+    
+
+  </body>
+</html>

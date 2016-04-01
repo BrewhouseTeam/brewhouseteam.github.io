@@ -3,12 +3,781 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2016-01-21T17:54:39-08:00</updated>
+    <updated>2016-04-01T07:09:43-07:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
         <email>hello@brewhouse.io</email>
     </author>
+    
+      
+        <entry>
+            <title>Accelerate your React testing with Enzyme</title>
+            <author>
+              <name>Alex Taylor</name>
+              <email>alex@brewhouse.io</email>
+            </author>
+            <link href="http://brewhouse.io/2016/03/18/accelerate-your-react-testing-with-enzyme.html"/>
+            <updated>2016-03-18T11:00:00-07:00</updated>
+            <id>http://brewhouse.io/2016/03/18/accelerate-your-react-testing-with-enzyme</id>
+            <content type="html">&lt;p&gt;When it comes to integration testing, Javascript frontends are notoriously hard to test — there’s lots of setup required, and you often need to rely on clunky simulations of user interactions like clicks and keyboard events.&lt;/p&gt;
+
+&lt;p&gt;React’s virtual DOM offers some interesting opportunities for simplifying the process of testing, and Airbnb’s &lt;a href=&quot;https://github.com/Airbnb/enzyme&quot;&gt;Enzyme framework&lt;/a&gt; makes testing your components an absolute pleasure. We recently tried out Enzyme on a React project at Brewhouse. We were blown away by how much simpler it was to write tests, and we’re never looking back.&lt;/p&gt;
+
+&lt;!-- break --&gt;
+&lt;blockquote&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;It’s not the only option, of course. React itself offers the &lt;a href=&quot;https://facebook.github.io/react/docs/test-utils.html&quot;&gt;ReactTestUtils library&lt;/a&gt; - in fact, Enzyme depends on this for its integration with React. But Enzyme’s jQuery-style approach to node selection and manipulation makes it super familiar and really easy to work with.&lt;/p&gt;
+
+&lt;p&gt;Let’s investigate how we can put Enzyme to work. To demonstrate some of its features, I put together a small little app called &lt;a href=&quot;https://gif-grabbr.herokuapp.com/&quot;&gt;Gif Grabbr&lt;/a&gt;. It uses the &lt;a href=&quot;https://github.com/Giphy/GiphyAPI&quot;&gt;GIPHY API&lt;/a&gt; to find random GIFs based on your search. &lt;a href=&quot;https://gif-grabbr.herokuapp.com/&quot;&gt;Take it for a spin&lt;/a&gt; first, then come back here to check out some code.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2016/enzyme_post/gif-grabbr-demo.gif&quot; alt=&quot;Gif Grabbr&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;(Note: In the examples below I’m using &lt;a href=&quot;https://mochajs.org/&quot;&gt;Mocha&lt;/a&gt; with &lt;a href=&quot;http://chaijs.com/&quot;&gt;Chai&lt;/a&gt; and &lt;a href=&quot;https://karma-runner.github.io/&quot;&gt;Karma&lt;/a&gt; as the test runner, but Enzyme can be used with pretty much any testing setup. Have a look at the &lt;a href=&quot;https://github.com/alextaylor000/gif-grabbr&quot;&gt;Gif Grabbr source&lt;/a&gt; to see more details about my setup.)&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;shallow-rendering&quot;&gt;Shallow Rendering&lt;/h2&gt;
+&lt;p&gt;Enzyme’s biggest strength is its shallow rendering capabilities. Not only does this encourage you to limit the scope of your tests to a single component, it also prevents errors deep in your node tree from affecting all your tests, and removes the requirement to mock a ton of objects.&lt;/p&gt;
+
+&lt;p&gt;Consider the &lt;code&gt;App&lt;/code&gt; component in GIF Grabbr, which is the root component within which everything else is rendered:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// components/app.js&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
+
+&lt;span class=&quot;kr&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;styles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;gif&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;grabbr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/h1&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;GIF&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;http://giphy.com&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;giphy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/a&amp;gt;. Keep pressing enter for more results.&amp;lt;/p&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;SearchBar&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onSearch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;handleSearch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/div&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ImageDisplay&lt;/span&gt;
+          &lt;span class=&quot;nx&quot;&gt;loading&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;loading&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+          &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;gif&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+          &lt;span class=&quot;nx&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;gif&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+          &lt;span class=&quot;nx&quot;&gt;sourceUrl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;gif&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sourceUrl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+          &lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;To ensure the stability of my tests, as well as for performance reasons, I can use &lt;code&gt;.shallow()&lt;/code&gt; to render this component only one level deep:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;wrapper&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;shallow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+ &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;This gives me a &lt;code&gt;ShallowWrapper&lt;/code&gt; object which I can do all sorts of fun stuff with. To illustrate how Enzyme is handling this render, let’s use &lt;code&gt;.debug()&lt;/code&gt; to take a look at the output:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;wrapper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;debug&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;lt;div style=&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;gif grabbr&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;find a GIF on&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&amp;lt;a href=&amp;quot;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//giphy.com&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;giphy&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/a&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Keep&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;pressing&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;enter&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;more&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;results&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/p&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;SearchBar&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onSearch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ImageDisplay&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;loading&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{[&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{[&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sourceUrl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{[&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/div&amp;gt;&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;code&gt;.debug()&lt;/code&gt; returns a HTML-ish string representing the rendered output. Notice that the shallow render didn’t touch the &lt;code&gt;SearchBar&lt;/code&gt; or &lt;code&gt;ImageDisplay&lt;/code&gt; components, but it &lt;em&gt;did&lt;/em&gt; pass in any props that were available at the time. In our tests, this allows us to verify that a child component would have received the correct props without needing to actually render the thing.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// components/__tests__/imageDisplay.test.js&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Passes loading:true to ImageDisplay&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;wrapper&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;shallow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;imageDisplay&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;wrapper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;ImageDisplay&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;equal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;imageDisplay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;loading&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;put-the--back-in-dom-traversal&quot;&gt;Put the ‘$’ back in DOM traversal&lt;/h2&gt;
+&lt;p&gt;Enzyme’s three flavours of rendering (shallow, full, and static) all return wrapper objects which give you jQuery-style power over your node tree. No longer must you wade through a jungle of nested arrays in order to test some deep-level node:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// components/imageDisplay.js&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ImageDisplay&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;loading&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;loading.gif&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;width&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;width&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;styles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;giphySourceUrl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;view this on giphy&amp;#39;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;new&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;img&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;gif&amp;#39;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/a&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// components/__tests__/imageDisplay.test.js&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;describe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;ImageDisplay&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Renders the loading gif at the default width when passed loading:true&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;loading&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+    &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;wrapper&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;shallow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ImageDisplay&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;image&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;wrapper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;img&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;equal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;src&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOADING_GIF&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;equal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;width&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DEFAULT_WIDTH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Using the wrapper I get from &lt;code&gt;.shallow()&lt;/code&gt;, I can just search for the image tag instead of needing to know exactly where it is in the node tree. This encourages a more declarative form of testing, minimizing your tests’ reliance on a specific tree structure.&lt;/p&gt;
+
+&lt;h2 id=&quot;enzyme-selectors-ftw&quot;&gt;Enzyme Selectors FTW&lt;/h2&gt;
+&lt;p&gt;The selector is more than meets the eye. In addition to CSS-style selectors, &lt;a href=&quot;https://github.com/Airbnb/enzyme/blob/master/docs/api/selector.md#enzyme-selectors&quot;&gt;an Enzyme Selector&lt;/a&gt; can find nodes by their component constructor, display name, even object properties:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// components/imageDisplay.js&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
+
+&lt;span class=&quot;kr&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ImageDisplay&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;styles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;giphySourceUrl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;view this on giphy&amp;#39;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;new&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;img&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;gif&amp;#39;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/a&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// components/__tests__/imageDisplay.test.js&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Renders an image when passed a url&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;http://www.example.com/pusheen.gif&amp;#39;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;wrapper&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;shallow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ImageDisplay&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;image&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;wrapper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;http://www.example.com/pusheen.gif&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;equal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;simulations&quot;&gt;Simulations&lt;/h2&gt;
+&lt;p&gt;Enzyme gives you a concise and elegant way of simulating user events, one of the trickier aspects of UI testing. Just pass the name of the event you want to simulate, along with any required data:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// components/__tests__/searchBar.test.js&amp;quot;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Triggers a new search as the user types&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onSearchStub&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sinon&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;spy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;wrapper&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;shallow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;SearchBar&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onSearch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onSearchStub&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;searchField&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;wrapper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;input&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;event1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;cat&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}};&lt;/span&gt;
+    &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;event2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;cats&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}};&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;searchField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;simulate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;change&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;event1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;searchField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;simulate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;change&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;event2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;equal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onSearchStub&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;calledTwice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;It’s also worth noting that the event argument can be &lt;em&gt;anything you want&lt;/em&gt;. Unlike ReactTestUtils, you’re not limited to &lt;a href=&quot;https://facebook.github.io/react/docs/events.html#supported-events&quot;&gt;only events that React understands&lt;/a&gt;. Following convention, you could call &lt;code&gt;wrapper.simulate(&#39;donut&#39;)&lt;/code&gt; and Enzyme would simply look for an &lt;code&gt;onDonut&lt;/code&gt; event handler. Pretty neat.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Enzyme is an elegant and powerful way of testing your React applications. It can significantly increase the brevity of your tests thanks to its selector engine, and its approach to event simulation is quite promising. It also plays nicely with most test suites and assertion libraries out there, so you probably don’t need to change your workflow to start using it today.&lt;/p&gt;
+
+&lt;p&gt;Hit up the &lt;a href=&quot;http://Airbnb.io/enzyme/&quot;&gt;Enzyme docs&lt;/a&gt; to learn more. You should also check out &lt;a href=&quot;https://www.youtube.com/watch?v=V5N0Ukb8LGg&quot;&gt;Leland Richardson’s Lightning Talk&lt;/a&gt; at ReactConf 2016 to get a good overview of the problems Enzyme solves.&lt;/p&gt;
+</content>
+
+            
+              <content type="image" src="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png" />
+            
+        </entry>
+      
+    
+      
+    
+      
+        <entry>
+            <title>Callback Responsibly</title>
+            <author>
+              <name>Paulo Ancheta</name>
+              <email>paulo@brewhouse.io</email>
+            </author>
+            <link href="http://brewhouse.io/2016/03/14/callback-responsibly.html"/>
+            <updated>2016-03-14T08:00:00-07:00</updated>
+            <id>http://brewhouse.io/2016/03/14/callback-responsibly</id>
+            <content type="html">&lt;p&gt;Recently, I have worked on a project where one of the biggest obstacle for me was to understand the app’s business logic due to its callback chains. Whenever I create a model, I get an error because it tried to validate something that was supposed to be created during a callback. At that time, I found myself in what it seemed to be a rabbit hole that does not end. (Ok, I might have been exaggerating because it was probably just about 5 callback chains. MAYBE. I don’t really want to count). It got a bit frustrating and I knew that there had to be a better way.&lt;/p&gt;
+
+&lt;!-- break --&gt;
+
+&lt;p&gt;I asked one of my mentors (&lt;a href=&quot;https://twitter.com/pcreux&quot;&gt;Philippe&lt;/a&gt;), the most important question: &lt;strong&gt;When should we use callbacks?&lt;/strong&gt; And his short answer was: &lt;em&gt;“You don’t”&lt;/em&gt;. In my opinion, having callbacks in a Rails app can easily get out of hand. He explained that previously, the &lt;strong&gt;Rails way&lt;/strong&gt; was to have a &lt;em&gt;Fat Controllers&lt;/em&gt;. But after that, then came the &lt;strong&gt;Fat Models, Skinny Controllers&lt;/strong&gt; idea where we have to basically say, &lt;em&gt;“After we create the user account, let’s send him an email or notify Intercom! We should do this by adding more methods on our models that calls other classes and attach it to a callback!”&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I believe that they soon realized that apps that uses this pattern is becoming a nightmare to work on, because the callbacks makes the models harder to test. When adding features to the models, they also have to touch the specs. Soon after that, &lt;strong&gt;Service Objects&lt;/strong&gt; became the new hip thing to use because it encourages extraction of the action of a model. So, the question is, how do service objects help with creating other models? Consider this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/models/dog.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Dog&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;has_many&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:collars&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;after_create&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:create_collars!&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;create_collars!&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;collars&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create!&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# app/models/collar.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Collar&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;belongs_to&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:dog&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;before_create&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:register_to_fitbit!&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;register_to_fitbit&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;FitBitCollar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Create&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;When writing a test for the &lt;code&gt;Dog&lt;/code&gt; model, you would have to write a valid &lt;code&gt;Collar&lt;/code&gt; instance with all the attributes to register it to FitBit (let’s just say he is a hipster dog) before you can actually test the &lt;code&gt;Dog&lt;/code&gt;! Now imagine if there were 5 callbacks that need to run when the &lt;code&gt;Dog&lt;/code&gt; is created. It will most likely take a long time to run since the &lt;code&gt;Dog&lt;/code&gt; is tightly coupled with other classes and all its dependencies. Also, the test would rely on other objects that shouldn’t be part of the spec.  Now let’s see how it looks like with a service object:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/models/dog.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Dog&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;has_many&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:collars&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# app/models/collar.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Collar&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;belongs_to&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:dog&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# app/services/dog/create.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Dog&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Create&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{})&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;dog&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Dog&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;no&quot;&gt;Dog&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transaction&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;dog&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;save!&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;collar&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dog&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;collars&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create!&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;register_to_fitbit!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;collar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;register_to_fitbit!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;collar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;FitBitCollar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Create&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;collar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;collar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;When writing a test for the  &lt;code&gt;Dog&lt;/code&gt; class, you actually don’t have to create a valid instance of a &lt;code&gt;Collar&lt;/code&gt; because all its association dependencies are extracted to a service! When testing a model, you should not care about other models, the test should focus on the &lt;code&gt;Dog&lt;/code&gt; model and not care about the dependencies that the dog may have. This makes testing the class so much easier and makes the testing suite so much faster which is a huge win!&lt;/p&gt;
+
+&lt;p&gt;So now, the question is, “Are there good uses for callbacks?”. The answer is a big YES! Callbacks are really useful in tasks affecting the model layer (not the business logic) like updating a column of the parent class.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/models/dog.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Dog&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;has_many&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:collars&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# app/models/collar.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Collar&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;belongs_to&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:dog&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;after_save&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:make_main_swag!&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;make_main_swag!&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;dog&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;update!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;main_swag_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;With this code, everytime we update the collar of a dog, it becomes the collar that our dog is going to use.&lt;/p&gt;
+
+&lt;p&gt;Without callbacks, testing is generally easier and can give an overall better development experience. Use callbacks responsibly and please don’t create new records with callbacks, instead step back and think if it is really necessary to have such a dependency between records. If they really have to be dependent on each other, use a service object to extract the action and use a transaction!&lt;/p&gt;
+</content>
+
+            
+              <content type="image" src="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png" />
+            
+        </entry>
+      
+    
+      
+        <entry>
+            <title>Business Operations Gets a Boost with the Addition of Edward Chan</title>
+            <author>
+              <name>Lana Topham</name>
+              <email>lana@brewhouse.io</email>
+            </author>
+            <link href="http://brewhouse.io/2016/03/11/new-biker-edward-chan.html"/>
+            <updated>2016-03-11T01:00:00-08:00</updated>
+            <id>http://brewhouse.io/2016/03/11/new-biker-edward-chan</id>
+            <content type="html">&lt;p&gt;&lt;img src=&quot;/images/posts/2016/edward_post/Edward-Hero-Image.jpg&quot; alt=&quot;Edward Chan&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Brewhouse Software is pleased to announce the newest biker in the gang - Edward Chan.&lt;/p&gt;
+
+&lt;p&gt;Edward’s role at Brewhouse will spotlight on all things related to business operations. This includes driving and growing revenue, managing relationships with clients and partners, executing on operational challenges and much more.&lt;/p&gt;
+
+&lt;p&gt;We sat down with him to learn a bit about his career path…and how he likes his coffee (our name is Brewhouse for a reason!).&lt;/p&gt;
+
+&lt;!-- break --&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Brewhouse: Welcome, Edward! Let’s dig into the beginning. Describe your educational background.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Edward: Despite the “business” facade, my education background is actually in engineering. I studied Mechatronics Engineering at the University of Waterloo. It’s a combination of mechanical and electrical - basically learning everything you need to build robots. That means everything from designing the hardware and electrical circuits, to programming software to control the robots. It’s a little different type of software though - much more lower level. You don’t get very much help like you do with Rails!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Brewhouse: I guess a pivot or two in early education is just a part of figuring out what a person is really interested in, career-wise. So then how did you end up at Brewhouse?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Edward: So yes, judging from my business focused role at Brewhouse, there were definitely a couple of pivots in there.&lt;/p&gt;
+
+&lt;p&gt;I do owe these pivots to something called co-operative education championed at the University of Waterloo, where students alternate every 4 months between study and work terms. That way, students graduate with 2 years of work experience, across potentially 6 different placements, and industries. That also means students get to see if the careers they have in mind are really what they want to do - and more importantly, what else is out there.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2016/edward_post/waterloo_sign.jpg&quot; alt=&quot;waterloo&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Without it, I wouldn’t have arrived at the realization that, after 4 different “engineering jobs”, I didn’t want to work as an engineer every day, even though I loved everything about technology and analyzing how things worked.
+Equally, without a final co-op term in “corporate development” at BlackBerry, I wouldn’t have stumbled upon a career track that was unknown to me before, and would make me part engineer, part business thinker, part lawyer – that was the first pivot.&lt;/p&gt;
+
+&lt;p&gt;To many (including myself, at that time), corporate development is a nebulous term. As I discovered, it would cover everything from strategic partnerships, restructuring, startup acquisitions, to intellectual property management. TL;DR, it is an executive team’s Navy SEAL sent to solve problems, or evaluate/take on strategic initiatives.&lt;/p&gt;
+
+&lt;p&gt;They wanted technical people to understand the technology landscape, identify gaps/opportunities, seek out partnerships or acquisition options, and evaluate startups. So that was my way in. Through my time in that role, I learned to pick up on the business and legal aspects of the role.&lt;/p&gt;
+
+&lt;p&gt;It also opened up the wild-west of the entrepreneurial world for me – something that I gravitated to after moving back to Vancouver. That was the second pivot.&lt;/p&gt;
+
+&lt;p&gt;I began working with various companies of all sizes, helping them solve all sorts of corporate problems – be it around growth, revenue, partnerships, sales etc. It’s a wide range of experience, but the common thread, and motivation, is understanding and solving problems.&lt;/p&gt;
+
+&lt;p&gt;I had known Kalv and a few folks on the team for a number of years – Vancouver startup scene is a small one after all. And following my last project, when he approached me on what the team at Brewhouse wanted to do – I saw lots of interesting problems to be solved.&lt;/p&gt;
+
+&lt;p&gt;The biggest hook is probably the opportunity to collaboratively shape what we do – and leverage some of my corp dev experience along the way.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Brewhouse: Such a great opportunity and you found your passion — solving business problems! What single project or task would you consider your most significant career accomplishment to date?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;That would have to be one particular partnership deal that I did while at BlackBerry – largely because of my involvement with it, and the eventual impact. It was a deal that I shepherded all the way through – from finding them, identifying their value, the value to BlackBerry, to the eventual negotiation and product coordination to launch it as a foundational part of a next-generation operating system around it.&lt;/p&gt;
+
+&lt;p&gt;I left the company before that OS and product was launched. But I still remember that day when I flipped open the Globe and Mail and saw a 2-page spread of an ad of the new BlackBerry, showcasing the nifty photo/image capabilities enabled by this technology. It’s a fuzzy feeling.&lt;/p&gt;
+
+&lt;p&gt;There was even some icing on the cake as the hard work I put in negotiating the deal paid off. There’s always the “worst case scenario” that a competitor would acquire the partner and “cut off the source”. We had to make sure that proper terms were in place to prevent any disruption to BlackBerry – especially as it was a foundational piece.&lt;/p&gt;
+
+&lt;p&gt;Soon enough, Nokia (a BlackBerry competitor at the time) acquired the partner. But because of the nifty deal making, the impact was minimal – they had no choice but had to continue to support a competitor. Best of all, in all of the press that followed, there was only one answer when Nokia was asked whether they would make this tech available for competitors: They would not make the technology available to, or support, anyone. Except for one. It’s nice to cause some heartburns :)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Brewhouse: Yep, business is your passion :)  What do you hope to contribute at Brewhouse?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Edward: One big focus for me in working at Brewhouse is finding ways to mature the company, and find ways to take the team’s vision of building handcrafted products, into something sustainable and scalable.&lt;/p&gt;
+
+&lt;p&gt;At the end of the day, I don’t want Brewhouse to be seen as “just a service company”. Brewhouse is fast growing past that now and instead, are building exciting products for both clients and ourselves. Now, it is onto finding sustainable ways to grow that success, to enable more opportunities for the team here to explore the what-ifs – everything from the ideas we work on, or the business models for a product studio.&lt;/p&gt;
+
+&lt;p&gt;It sounds nebulous – and it’s because we don’t know the answer either. But in the Brewhouse way, we’ll figure out how best we can make use of our team and the products we brew, to make the most impact.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Brewhouse: You sound like you’ve been working here for a year already! So what was the biggest draw with wanting to work here?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Edward: The biggest draw for me about Brewhouse is the team. I’ve known &lt;a href=&quot;https://twitter.com/kalv&quot;&gt;Kalv&lt;/a&gt; for a little while now, and &lt;a href=&quot;@patdryburgh&quot;&gt;Pat&lt;/a&gt;, even more. So I’ve always heard how things are done at Brewhouse and the sense of transparency, openness, and sense of collaboration there is within the team.&lt;/p&gt;
+
+&lt;p&gt;At the same time, I had a sudden realization of the importance of a good team – both for the greater success, but also for personal growth. So when Kalv told me the goals and opportunities the team wants to explore, I saw it as a very intriguing set of problems to solve.&lt;/p&gt;
+
+&lt;p&gt;The last item on that list would be how I saw my past experience in corp dev fitting into some of the work the team wants to do. The team has always thought of Brewhouse as not just a service company. And when one lumps in the product development aspect, some very interesting opportunities can open up in terms of the companies Brewhouse partners with, the products it develops. And that’s really intriguing for me to explore!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Brewhouse: It all starts with team. So, looking out 3 - 5 years, beyond the obvious trends, what do you think will be the next big change in our industry?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Edward: I’m going to go “obvious” but add my own flavour, and say the next big change is what I call “alternate reality”. It’s that awkward “W-T-F” intermediate step between what we knew as reality in the early 2010s, to what we imagine as the “future” that VR/AR people tell us will be in 2020s.&lt;/p&gt;
+
+&lt;p&gt;We’ll see things like 1) being weirded out by people dancing in the corner while wearing goggles (like that character from the Sims), 2) amazed to type into a chat field to order your next pizza, or 3) curious whether you should really trust that bio-sensor in that thing on your wrist or embedded in your athletic clothing when it tells you you could have worked harder.&lt;/p&gt;
+
+&lt;p&gt;Basically, if you think this photo is weird, then you’re in “alternate reality.”&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2016/edward_post/zuckerberg-vr.jpg&quot; alt=&quot;Zuckerberg VR&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You’ll know you’re no longer in alternate reality when you feel happy being Tom Cruise in Minority Report. Not because of the gadgets and swiping, but because we’ll all be as handsome as Tom Cruise (or pretty as Natalie Portman) with our virtual selves.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Brewhouse: What do you consider one of your greatest accomplishments?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Edward: Cycling up this road:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2016/edward_post/road-mountain1.jpg&quot; alt=&quot;Passo Stelvio&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It’s the Passo Stelvio – highest paved road in the Alps. It’s basically Mecca for cyclists.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Brewhouse: And the most most important question of the interview, how you do you like your coffee?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Black, enrobed with aroma, and paired with the squeaky horn of &lt;a href=&quot;https://www.youtube.com/watch?v=bOH_mioL3TU&quot;&gt;Louis Armstrong&lt;/a&gt; in the background.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;For Brewhouse to be a leading product development firm we need to seek the best possible clients and partnerships. Edward’s background and expertise brings a number of strategies and insight to make this a reality at Brewhouse. We’re excited to have him represent us by talking to our existing and new clients. He has a great professional, humble and honest attitude which aligns great with how we operate.&lt;/p&gt;
+
+&lt;p&gt;And, as you can see, Edward likes to talk. Feel free to &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#101;&amp;#100;&amp;#119;&amp;#097;&amp;#114;&amp;#100;&amp;#064;&amp;#098;&amp;#114;&amp;#101;&amp;#119;&amp;#104;&amp;#111;&amp;#117;&amp;#115;&amp;#101;&amp;#046;&amp;#105;&amp;#111;&quot;&gt;ping him&lt;/a&gt; if you’d like to chat business.&lt;/p&gt;
+</content>
+
+            
+              <content type="image" src="http://brewhouse.io/images/posts/2016/edward_post/chan-square.jpg" />
+            
+        </entry>
+      
+    
+      
+        <entry>
+            <title>Five Practices for Robust Ruby on Rails Applications</title>
+            <author>
+              <name>Philippe Creux</name>
+              <email>philippe@brewhouse.io</email>
+            </author>
+            <link href="http://brewhouse.io/2016/02/26/five-practices-for-robust-ruby-on-rails-applications.html"/>
+            <updated>2016-02-26T12:00:00-08:00</updated>
+            <id>http://brewhouse.io/2016/02/26/five-practices-for-robust-ruby-on-rails-applications</id>
+            <content type="html">&lt;p&gt;Whenever I come across a rails application with inconsistent data or bugs that are hard
+to nail down I tell myself: “They (the developers) were just a couple of keystokes away from preventing those issues from happening”.&lt;/p&gt;
+
+&lt;p&gt;At &lt;a href=&quot;http://brewhouse.io&quot;&gt;Brewhouse&lt;/a&gt;, we follow five simple practices to make our Rails applications robust. It all comes down to failing early, loudly and often. We ensure that data is valid and applications behave properly by catching issues early on.&lt;/p&gt;
+
+&lt;!-- break --&gt;
+
+&lt;h2 id=&quot;use-hashfetch-to-catch-malformed-hash&quot;&gt;Use &lt;code&gt;Hash#fetch&lt;/code&gt; to catch malformed hash&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;unexpected method &#39;upcase&#39; for nil&lt;/code&gt;… Whenever you expect a Hash to contain a key, prefer &lt;code&gt;fetch()&lt;/code&gt; over
+&lt;code&gt;[]&lt;/code&gt;. &lt;code&gt;fetch()&lt;/code&gt; will raise an error when the key is missing so you won’t
+pass &lt;code&gt;nil&lt;/code&gt; values around and see unrelated errors happening down the
+line.&lt;/p&gt;
+
+&lt;h2 id=&quot;case--else-raise-to-catch-invalid-data&quot;&gt;&lt;code&gt;case ... else raise&lt;/code&gt; to catch invalid data&lt;/h2&gt;
+
+&lt;p&gt;Always add an &lt;code&gt;else raise ...&lt;/code&gt; clause to your &lt;code&gt;case&lt;/code&gt; statements. You
+want to know when you’ve received an unexpected value rather than
+ignoring it and moving on.&lt;/p&gt;
+
+&lt;h2 id=&quot;use-activerecord--methods-to-fail-loudly&quot;&gt;Use ActiveRecord &lt;code&gt;!&lt;/code&gt; methods to fail loudly&lt;/h2&gt;
+
+&lt;p&gt;Data is often being seen as the most valuable asset in a company. Failing silently to persist data can have a huge impact then.
+Whenever you’re not expecting an operation to fail, use the “bang”
+version of &lt;code&gt;create!&lt;/code&gt;, &lt;code&gt;update!&lt;/code&gt; and &lt;code&gt;destroy!&lt;/code&gt; that raise exceptions on
+failure. This extra key stroke
+will save you from dealing with inconsistent data.&lt;/p&gt;
+
+&lt;p&gt;Used in test code, it ensures that the setup doesn’t fail silently…
+there is nothing worse than a test that passes because the setup was
+incorrect.&lt;/p&gt;
+
+&lt;p&gt;Also, always wrap multiple calls into an SQL transaction to prevent your data from getting into an in-between state.&lt;/p&gt;
+
+&lt;h2 id=&quot;add-activerecord-validations-to-perform-live-checks&quot;&gt;Add ActiveRecord validations to perform live checks&lt;/h2&gt;
+
+&lt;p&gt;Pairing ActiveRecord validations with the use of ‘bang methods’ is a great way to ensure you persist valid data. For example:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Post&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Model&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;validates&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:author&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:blog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;presence&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;validates&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:published_by&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;presence&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:published?&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;validates&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:comment_count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;numericality&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;greater_or_equal_to&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;use-database-constraints-to-ensure-data-consistency&quot;&gt;Use database constraints to ensure data consistency&lt;/h2&gt;
+
+&lt;p&gt;Your database is your best friend when it comes to ensuring data is
+present, not duplicated and that orphans are not left in the database.&lt;/p&gt;
+
+&lt;h3 id=&quot;null-false&quot;&gt;&lt;code&gt;null: false&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;Given the fact that the large majority of columns are required in a database, you should define columns with &lt;code&gt;null: false&lt;/code&gt; by default.&lt;/p&gt;
+
+&lt;h3 id=&quot;index--unique-true&quot;&gt;&lt;code&gt;index ... unique: true&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;Did you know that rails &lt;code&gt;has_one&lt;/code&gt; does not prevent duplicate
+associations from being created?&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Account&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;has_one&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:account_settings&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;account&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Account&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create!&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;account&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create_account_settings!&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;account&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create_account_settings!&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;account&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create_account_settings!&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;account&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;account_settings&lt;/span&gt;
+ &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; one of the three account settings you&amp;#39;ve created... -_-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The best way to prevent this from making data inconsistent is to add a unique index.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;add_index&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:account_settings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:account_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;unique&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The database will throw an error if you attempt to persist a duplicate
+record.&lt;/p&gt;
+
+&lt;h3 id=&quot;foreignkey&quot;&gt;&lt;code&gt;foreign_key&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;You don’t want orphan records in your database, do you?&lt;/p&gt;
+
+&lt;p&gt;Foreign keys help such things from happening. I’d recommend using the ruby gem
+&lt;a href=&quot;https://github.com/SchemaPlus/schema_auto_foreign_keys&quot;&gt;schema_auto_foreign_keys&lt;/a&gt; to automatically add foreign keys on your
+behalf.&lt;/p&gt;
+
+&lt;h2 id=&quot;a-few-extra-keystrokes-goes-a-long-way&quot;&gt;A few extra keystrokes goes a long way&lt;/h2&gt;
+
+&lt;p&gt;A few extra keystrokes here and there can save you from hours of
+debugging or recovering from inconsistent data. Use &lt;code&gt;!&lt;/code&gt;, &lt;code&gt;raise&lt;/code&gt;,
+&lt;code&gt;validate&lt;/code&gt; and database constraints. Your coworkers and future-self
+will thank you.&lt;/p&gt;
+
+&lt;p&gt;As always, feedback is greatly appreciated. I’d be happy to hear of any other practices I didn’t cover here.&lt;/p&gt;
+</content>
+
+            
+              <content type="image" src="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png" />
+            
+        </entry>
+      
+    
+      
+        <entry>
+            <title>New Product Developer, Alex Taylor, Joins Brewhouse Software</title>
+            <author>
+              <name>Lana Topham</name>
+              <email>lana@brewhouse.io</email>
+            </author>
+            <link href="http://brewhouse.io/2016/02/23/new-developer-mctaylorpants.html"/>
+            <updated>2016-02-23T12:00:00-08:00</updated>
+            <id>http://brewhouse.io/2016/02/23/new-developer-mctaylorpants</id>
+            <content type="html">&lt;p&gt;&lt;img src=&quot;/images/posts/2016/alex_post/alex_banner.jpg&quot; alt=&quot;Alex Taylor&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Meet our newest Product Developer, affectionately known as &lt;a href=&quot;http://twitter.com/mctaylorpants&quot;&gt;McTaylorPants&lt;/a&gt;… or Alex, if we’ve got our serious hats on.&lt;/p&gt;
+
+&lt;p&gt;Alex is coming to us from from a boutique post-production company in Vancouver called &lt;a href=&quot;http://skylabhq.com/#featured&quot;&gt;Skylab&lt;/a&gt;. He started out as a junior technician, and from there his role slowly evolved into developing automation and asset management tools in everything from Bash to Python and FileMaker Pro. This past fall that company was going through some fundamental changes, and he decided to take the opportunity to get more serious about development and enrolled in &lt;a href=&quot;https://codecore.ca/&quot;&gt;CodeCore&lt;/a&gt; – and loved every minute of it!&lt;/p&gt;
+
+&lt;!-- break --&gt;
+
+&lt;p&gt;&lt;strong&gt;Brewhouse: Welcome, Alex! Let’s start with learning a little bit about what you were up to before joining the team.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Alex: Thanks! Well, I’ve got a BFA in Film from Simon Fraser University because I developed a passion for filmmaking in high school. In terms of programming and web development, I was entirely self-taught until I took the Web Developer bootcamp at CodeCore.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Brewhouse: Another Codecore graduate! Our former apprentice, turned full-time developer, &lt;a href=&quot;http://brewhouse.io/2015/08/05/the-apprentice.html&quot;&gt;Paulo&lt;/a&gt;, was also a graduate from there.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Alex: Yes, I know! He was one of the TAs for my cohort this past fall. &lt;a href=&quot;https://twitter.com/gabescholz&quot;&gt;Gabe&lt;/a&gt;, too.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Brewhouse: Nice! So when you’re learning a new skill like coding, most people screw up a lot in the beginning. What would you say is your most embarrassing &lt;em&gt;professional&lt;/em&gt; screw-up, where you should have known better?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Alex: Ages ago, I was a camera assistant on an independent film shoot. I was in charge of unloading the film from the camera and into a light-tight film can for delivery to the lab. I was going a little too quickly one day and the lid on the camera popped open, exposing and ruining the entire 20-minute roll of shot material! The producers were very understanding, but I was pretty mortified. That taught me the value of taking your time and not rushing!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Brewhouse: I can’t imagine how terrifying that conversation would have been to tell the producers. So let’s shift and talk about career accomplishments. What single project or task would you consider to be your most significant?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Alex: At Skylab, we designed a completely unique and innovative post workflow for finishing Neill Blomkamp’s &lt;a href=&quot;https://en.wikipedia.org/wiki/Elysium_(film)&quot;&gt;Elysium&lt;/a&gt;. It was an exciting project to work on, and I’m extremely proud of what we managed to pull off with such a small (but dedicated) team.&lt;/p&gt;
+
+&lt;p&gt;RELATED: Alex’s 2007 final short film project:&lt;/p&gt;
+&lt;iframe width=&quot;420&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/NdRb80DxZ-c&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;strong&gt;Brewhouse: Speaking of dedicated team..&lt;em&gt;ahem&lt;/em&gt;, what do you hope to contribute here?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Alex: I’m really proud to be part of this team, and I’m excited to keep honing my skills. My experience at Skylab gave me a strong aptitude for understanding and designing interconnected systems, and I think a lot of those concepts will translate nicely into web development. I’ve also developed a fondness for writing tests, so I’m loving Brewhouse’s ‘Test Everything’ mantra.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Brewhouse: We even apply that fondness to testing every type of coffee and tea out there! And on occasion, the local craft breweries.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Alex: Yes! And honestly, I was naturally drawn to Brewhouse as soon as I heard the name! The more I learned about the company, the more I liked: the small, tight-knit team; the emphasis on quality; the spirit of collaboration and openness. They’re all values that I hold personally so I was really excited to get the opportunity to come onboard. Plus you were willing to overlook the fact that I don’t (yet) drink coffee.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Brewhouse: WHAT?! You’re lucky you drink tea though. :)
+Looking out 3 - 5 years, beyond the obvious trends, what do you think will be the next big change in tech?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Alex: I think we’ll see a full convergence of the mobile app and web app spaces. This is already starting to happen with projects like React Native, and I think as those projects evolve it’ll lead to a more seamless experience, not only for users but for developers as well.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Brewhouse: Makes sense. You must read publications or blogs that help support this opinion. What are some of your favourite places to learn?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Alex: &lt;a href=&quot;https://twitter.com/ThePracticalDev&quot;&gt;@ThePracticalDev&lt;/a&gt; on Twitter is really great. I keep an eye out for Javascript and React tips in the &lt;a href=&quot;http://frontendnewsletter.com/&quot;&gt;Front End Newsletter&lt;/a&gt;. I also try to hit up the &lt;a href=&quot;http://weblog.rubyonrails.org/&quot;&gt;Rails blog&lt;/a&gt; every couple of weeks.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2016/alex_post/practical_developer.png&quot; alt=&quot;Practical Dev&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Brewhouse: And one last question – what do you consider one of your greatest skills?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Alex: Being able to order Chinese donuts and soy milk in relatively fluent Mandarin while on a trip to Taiwan.&lt;/p&gt;
+&lt;audio controls=&quot;&quot;&gt;
+  &lt;source src=&quot;http://podcasts-1.feedpress.co/13375/donuts%20and%20soy%20milk.mp3&quot; type=&quot;audio/mp3&quot; /&gt;
+  
+&lt;/audio&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Although Alex does not drink coffee and is all about the single origin black tea, we saw such potential in him in the short time he’s been working with code. He’s been able to demonstrate a proficient ability in building high quality products.&lt;/p&gt;
+
+&lt;p&gt;In one of his first Creative Fridays, he shipped &lt;a href=&quot;https://gif-grabbr.herokuapp.com/&quot;&gt;GifGrabbr&lt;/a&gt; – this is a great indicator of how he thinks about delivering value and pleasure to users through programming.&lt;/p&gt;
+
+&lt;p&gt;In addition, Alex is very approachable and keen to speak to customers, the real people we build software for, so we believe he will make a great Brewer and Product Developer in YVR.&lt;/p&gt;
+
+&lt;p&gt;They say that ‘all you need is love’, but some days all you need are pants. &lt;a href=&quot;http://twitter.com/mctaylorpants&quot;&gt;McTaylorPants&lt;/a&gt;, that is.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2016/alex_post/pants.png&quot; alt=&quot;Pants&quot; /&gt;&lt;/p&gt;
+</content>
+
+            
+              <content type="image" src="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png" />
+            
+        </entry>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        <entry>
+            <title>Introducing Brewhouse's Rails Template</title>
+            <author>
+              <name>Philippe Creux</name>
+              <email>philippe@brewhouse.io</email>
+            </author>
+            <link href="http://brewhouse.io/2016/02/01/introducing-brewhouse-rails-template.html"/>
+            <updated>2016-02-01T08:00:00-08:00</updated>
+            <id>http://brewhouse.io/2016/02/01/introducing-brewhouse-rails-template</id>
+            <content type="html">&lt;p&gt;We’ve shipped over a dozen Ruby on Rails apps that all share
+the same base set of gems and configuration files. In order to save some
+time and ensure that our next web apps share a common set of best
+practices, we’ve put together the
+&lt;a href=&quot;https://github.com/BrewhouseTeam/brewhouse-rails-template&quot;&gt;brewhouse-rails-template&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://github.com/BrewhouseTeam/brewhouse-rails-template&quot;&gt;brewhouse-rails-template&lt;/a&gt;
+is a Ruby on Rails 4.2 application ready to deploy to Heroku with popular gems
+configured to work nicely together and a
+&lt;a href=&quot;https://github.com/BrewhouseTeam/brewhouse-rails-template/blob/master/bootstrap&quot;&gt;self-destroying
+script&lt;/a&gt;
+to
+bootstrap your app by renaming all configuration and classes to your application name.&lt;/p&gt;
+
+&lt;!-- break --&gt;
+
+&lt;h2 id=&quot;what-about-generators&quot;&gt;What about generators?&lt;/h2&gt;
+
+&lt;p&gt;We reviewed the excellent
+&lt;a href=&quot;https://github.com/thoughtbot/suspenders&quot;&gt;Suspenders&lt;/a&gt; gem by Thoughtbot and found
+it bundles quite a number of gems we don’t use.
+Customizing it to suit our needs would have been
+quite difficult and maintaining a fork would have been even harder. However, we do 
+recommend going through the
+&lt;a href=&quot;https://github.com/thoughtbot/suspenders&quot;&gt;code&lt;/a&gt; as it features a
+&lt;a href=&quot;https://github.com/thoughtbot/suspenders/blob/master/templates/_javascript.html.erb&quot;&gt;lot&lt;/a&gt;
+of
+&lt;a href=&quot;https://github.com/thoughtbot/suspenders/blob/master/templates/disable_xml_params.rb&quot;&gt;nice&lt;/a&gt;
+&lt;a href=&quot;https://github.com/thoughtbot/suspenders/blob/master/templates/json_encoding.rb&quot;&gt;tricks&lt;/a&gt;
+to get the most out of Rails.&lt;/p&gt;
+
+&lt;p&gt;We also experimented with building a &lt;a href=&quot;http://guides.rubyonrails.org/rails_application_templates.html&quot;&gt;Rails application template&lt;/a&gt; that we could use when creating a new Rails app to set up gems and modify configuration files.
+Making an application template turned out to be tedious as
+we would write code to inject code into existing code. It’s hard to
+understand what the template is trying to achieve and the output often
+does not look right (wrong indentation etc).
+On top of that, the feedback loop is quite slow as we would have to generate a
+brand new rails app everytime we made a change. When we started to write specs to test our application template, we decided to take the simpler approach of making a base rails app that we’ll keep
+updated as new versions of gems get published.&lt;/p&gt;
+
+&lt;h2 id=&quot;whats-in-the-box&quot;&gt;What’s in the box?&lt;/h2&gt;
+
+&lt;p&gt;A Ruby on Rails 4.2 application ready to deploy to Heroku with popular gems
+configured to work nicely together and a &lt;code&gt;bootstrap&lt;/code&gt; script that takes
+care of renaming all configuration and classes to match your application
+name.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-basics&quot;&gt;The basics&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;devise&lt;/code&gt; with a &lt;code&gt;User&lt;/code&gt; model setup and mailer previews available at
+&lt;code&gt;/rails/mailers&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;simple_form&lt;/code&gt; set up for bootstrap 3&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;virtus&lt;/code&gt; for building
+&lt;a href=&quot;http://brewhouse.io/blog/2014/04/30/gourmet-service-objects.html&quot;&gt;service objects&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;schema_auto_foreign_keys&lt;/code&gt; for a robust data layer where orphan
+records are not a thing&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;sidekiq&lt;/code&gt; with dashboard at &lt;code&gt;/sidekiq&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;bootstrap-sass&lt;/code&gt; with a couple of defaults in &lt;code&gt;_variables.scss&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;roadie-rails&lt;/code&gt; to inline css in emails so that GMail picks up the
+styles&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;dev-env&quot;&gt;Dev env&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;dotenv-rails&lt;/code&gt; to store config and secrets in env variables&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;letter_opener&lt;/code&gt; to open emails in the browser in dev env&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;factory_girl&lt;/code&gt; with generators integration setup&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;spring&lt;/code&gt; bin-stubs in &lt;code&gt;./bin&lt;/code&gt; (ProTip: Add &lt;code&gt;./bin&lt;/code&gt; to your &lt;code&gt;$PATH&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;test&quot;&gt;Test&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;rspec&lt;/code&gt; for unit testing&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;cucumber&lt;/code&gt; with &lt;code&gt;capybara-webkit&lt;/code&gt; and &lt;code&gt;capybara-screenshot&lt;/code&gt; for
+integration tests&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;simplecov&lt;/code&gt; because test coverage matters&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;production&quot;&gt;Production&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;puma&lt;/code&gt; ‘cause it’s fast&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;rails_12factor&lt;/code&gt; to run the app on Heroku&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;heroku-deflater&lt;/code&gt; to compress assets&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;rollbar&lt;/code&gt; to get notified about errors&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;newrelic_rpm&lt;/code&gt; to monitor performances&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;app.json&lt;/code&gt; to setup free add-ons (rollbar, newrelic, papertrail, etc.), environment variables and run migrations when you deploy to Heroku&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;usage&quot;&gt;Usage&lt;/h2&gt;
+
+&lt;p&gt;Assuming you want to create “my-rails-app”:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Clone the `brewhouse-rails-template` repo:&lt;/p&gt;
+    &lt;p&gt;
+      &lt;code&gt;
+        git clone git@github.com:BrewhouseTeam/brewhouse-rails-template.git my-rails-app
+      &lt;/code&gt;
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Bootstrap your app (rename all configuration and classes to your application name)&lt;/p&gt;
+    &lt;p&gt;
+      &lt;code&gt;
+        cd my-rails-app &amp;amp;&amp;amp; ./bootstrap my-rails-app
+      &lt;/code&gt;
+    &lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;et-voil-a-great-rails-app-with-solid-foundations&quot;&gt;Et voilà! A great Rails app with solid foundations!&lt;/h2&gt;
+
+&lt;p&gt;We hope you’ll find
+&lt;a href=&quot;https://github.com/BrewhouseTeam/brewhouse-rails-template&quot;&gt;brewhouse-rails-template&lt;/a&gt;
+to be a solid starting point for your next rails app.&lt;/p&gt;
+
+&lt;p&gt;As always, questions, comments, and contributions are more than welcomed.&lt;/p&gt;
+
+&lt;p&gt;Happy coding!&lt;/p&gt;
+</content>
+
+            
+              <content type="image" src="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png" />
+            
+        </entry>
+      
+    
+      
     
       
     
@@ -573,10 +1342,8 @@
 
 &lt;figure style=&quot;display: block; max-width: 100%;height: auto;&quot;&gt;
   &lt;iframe style=&quot;border: 0&quot; width=&quot;100%&quot; height=&quot;300&quot; src=&quot;https://s3-us-west-2.amazonaws.com/brewhouse-io/blog/cubes.framer/index.html&quot;&gt;&lt;/iframe&gt;
+  &lt;figcaption&gt;Animation built with &lt;a href=&quot;http://framerjs.com/&quot;&gt;FramerJS&lt;/a&gt;, source code &lt;a href=&quot;https://github.com/BrewhouseTeam/cubes-framer&quot;&gt;here&lt;/a&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;figcaption&gt;Animation built with &lt;a href=&quot;http://framerjs.com/&quot;&gt;FramerJS&lt;/a&gt;, source code &lt;a href=&quot;https://github.com/BrewhouseTeam/cubes-framer&quot;&gt;here&lt;/a&gt;&lt;/figcaption&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;Programming is one truly interesting skill. Many choose to study it for years in University, while others can pick it up in their spare time simply by reading and completing tutorials online. Learning to build things quickly can be both lucrative and life-improving. However, knowing more of the theory behind programming will help you write great code and comparing your style of programming to others can be a terrific eye-opener.&lt;/p&gt;
 
@@ -6565,7 +7332,7 @@ leave a comment below. &amp;lt;3 &amp;lt;3 &amp;lt;3&lt;/p&gt;
   &lt;/a&gt;
 &lt;/p&gt;
 
-&lt;p&gt;I recently started a newsletter called &lt;a href=&quot;http://rails-weekly.goodbits.io&quot;&gt;&lt;em&gt;This week in Rails&lt;/em&gt;&lt;/a&gt;
+&lt;p&gt;I recently started a newsletter called &lt;a href=&quot;https://rails-weekly.ongoodbits.com/&quot;&gt;&lt;em&gt;This week in Rails&lt;/em&gt;&lt;/a&gt;
 (you may have &lt;a href=&quot;http://ruby5.envylabs.com/episodes/495-episode-458-april-22nd-2014#story-3&quot;&gt;heard&lt;/a&gt;
 about it) – a weekly digest of notable commits, issues, pull-requests and other
 interesting things happening around the Rails ecosystem. I’d like to share my
@@ -6638,8 +7405,8 @@ this as a &lt;a href=&quot;http://brewhouse.io/2014/04/04/welcome-to-brewhouse.h
 While not very “sexy”, it turns out that email newsletters could be a very
 powerful medium to engage with your readers.&lt;/p&gt;
 
-&lt;p&gt;If you haven’t already, you should &lt;a href=&quot;http://rails-weekly.goodbits.io/archive&quot;&gt;check out my newsletter&lt;/a&gt;
-and consider &lt;a href=&quot;http://rails-weekly.goodbits.io&quot;&gt;subscribing&lt;/a&gt;! Got some
+&lt;p&gt;If you haven’t already, you should &lt;a href=&quot;https://rails-weekly.ongoodbits.com/archive&quot;&gt;check out my newsletter&lt;/a&gt;
+and consider &lt;a href=&quot;https://rails-weekly.ongoodbits.com/&quot;&gt;subscribing&lt;/a&gt;! Got some
 interesting niche content to share with your customers, coworkers or your
 community? Give &lt;a href=&quot;https://goodbits.io/?utm_source=brewhouse-blog-backstory&quot;&gt;Goodbits&lt;/a&gt;
 a spin and let us know what you think!&lt;/p&gt;

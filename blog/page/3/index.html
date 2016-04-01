@@ -82,13 +82,16 @@
       <a class="internal" href="http://brewhouse.io/#work">Work</a>
     </li>
     <li>
+      <a class="internal" href="http://brewhouse.io/#services">Services</a>
+    </li>
+    <li>
       <a href="/meet-the-team.html">Team</a>
     </li>
     <li>
       <a href="/blog">Blog</a>
     </li>
     <li>
-      <a href="/show">Show</a>
+      <a href="/show">Podcast</a>
     </li>
   </ul>
   <a class="btn btn--header" href="/work-with-us.html">Hire Us</a>
@@ -113,9 +116,10 @@
           <a class="internal btn navbar-btn navbar-right btn--header" href="/work-with-us.html">Hire Us</a>
           <ul id="navbar-links" class="nav navbar-nav navbar-right">
             <li><a class="internal" href="/#work">Work</a></li>
+            <li><a class="internal" href="/#services">Services</a></li>
             <li><a href="/meet-the-team.html">Team</a></li>
             <li><a href="/blog">Blog</a></li>
-            <li><a href="/show">Show</a></li>
+            <li><a href="/show">Podcast</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div>
@@ -149,6 +153,369 @@
           <div class="post">
 
             <h1 class="post-title">
+              <a href="/blog/2015/04/13/elegant-tests-with-truth-tables.html">Elegant tests with Truth Tables</a>
+            </h1>
+            
+            <div class="meta text-center">
+              
+                <span>
+                  <img class="img-circle img-author" src="//www.gravatar.com/avatar/cf8db14764d6420698b0ed9c9ed1ba93?s=135" alt="A photo of Philippe Creux" width="55">
+
+                  <a href="http://twitter.com/pcreux" target="_blank">Philippe Creux</a> 13 Apr 2015
+                </span>
+              
+              
+              <div class="social-actions">
+                <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io/blog/2015/04/13/elegant-tests-with-truth-tables.html" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="">Tweet</a>
+              </div><!-- /social-actions -->
+
+            </div><!-- /meta -->
+
+            <p>Truth Tables help writing readable tests that are easy to maintain.</p>
+
+<p>Here is an example:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">describe</span> <span class="s2">&quot;#to_dollars&quot;</span> <span class="k">do</span>
+  <span class="o">[</span>
+    <span class="o">[</span>      <span class="kp">nil</span><span class="p">,</span>         <span class="kp">nil</span><span class="o">]</span><span class="p">,</span>
+    <span class="o">[</span>        <span class="mi">0</span><span class="p">,</span>     <span class="s2">&quot;$0.00&quot;</span><span class="o">]</span><span class="p">,</span>
+    <span class="o">[</span>       <span class="mi">12</span><span class="p">,</span>     <span class="s2">&quot;$0.12&quot;</span><span class="o">]</span><span class="p">,</span>
+    <span class="o">[</span>     <span class="mi">4_10</span><span class="p">,</span>     <span class="s2">&quot;$4.10&quot;</span><span class="o">]</span><span class="p">,</span>
+    <span class="o">[</span>   <span class="o">-</span><span class="mi">23_00</span><span class="p">,</span>   <span class="s2">&quot;$-23.00&quot;</span><span class="o">]</span><span class="p">,</span>
+    <span class="o">[</span>  <span class="mi">1230_00</span><span class="p">,</span> <span class="s2">&quot;$1,230.00&quot;</span><span class="o">]</span>
+  <span class="o">].</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">amount</span><span class="p">,</span> <span class="n">dollars</span><span class="o">|</span>
+    <span class="n">it</span> <span class="s2">&quot;converts </span><span class="si">#{</span><span class="n">amount</span><span class="o">.</span><span class="n">inspect</span><span class="si">}</span><span class="s2"> to </span><span class="si">#{</span><span class="n">dollars</span><span class="o">.</span><span class="n">inspect</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">do</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">to_dollars</span><span class="p">(</span><span class="n">amount</span><span class="p">))</span><span class="o">.</span><span class="n">to</span> <span class="n">eq</span> <span class="n">dollars</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+
+
+
+            
+
+            
+              <div class="continue-reading">
+                <a href="/blog/2015/04/13/elegant-tests-with-truth-tables.html" class="btn btn-link">Continue reading &rarr;</a>
+              </div>
+            
+
+          </div><!-- /post -->
+
+        </div>
+
+    
+  
+    
+      
+
+        <div class="col-xs-12 col-md-8">
+
+          <div class="post">
+
+            <h1 class="post-title">
+              <a href="/blog/2015/03/24/best-practices-for-component-state-in-reactjs.html">Best Practices for Component State in React.js</a>
+            </h1>
+            
+            <div class="meta text-center">
+              
+                <span>
+                  <img class="img-circle img-author" src="//www.gravatar.com/avatar/667f2b767c362d9291bf2e7afa3de5fd?s=135" alt="A photo of Gabe Scholz" width="55">
+
+                  <a href="http://twitter.com/gabescholz" target="_blank">Gabe Scholz</a> 24 Mar 2015
+                </span>
+              
+              
+              <div class="social-actions">
+                <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io/blog/2015/03/24/best-practices-for-component-state-in-reactjs.html" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="">Tweet</a>
+              </div><!-- /social-actions -->
+
+            </div><!-- /meta -->
+
+            <p>When writing React applications, it’s important to know when and when not to use state in components. In this post, I will review what I consider to be best practices for working with state. TL;DR:</p>
+
+<ol>
+  <li>If a component does not own a datum, then that datum should not influence it’s state.</li>
+  <li>Store the simplest possible values to describe a component’s state.</li>
+  <li>Leave calculations and conditionals to the render function.</li>
+</ol>
+
+<p>These rules obviously have exceptions and should be violated when appropriate; though if you’re able to follow them most of the time, you will find that your components will be easier to break down, the tests will be easier to write, and the entire application will have fewer bugs. Let’s take a closer look at each of these rules.</p>
+
+
+
+            
+
+            
+              <div class="continue-reading">
+                <a href="/blog/2015/03/24/best-practices-for-component-state-in-reactjs.html" class="btn btn-link">Continue reading &rarr;</a>
+              </div>
+            
+
+          </div><!-- /post -->
+
+        </div>
+
+    
+  
+    
+      
+
+        <div class="col-xs-12 col-md-8">
+
+          <div class="post">
+
+            <h1 class="post-title">
+              <a href="/blog/2015/03/06/adapter-patterns-in-ember-js.html">Adapter Patterns in Ember.js</a>
+            </h1>
+            
+            <div class="meta text-center">
+              
+                <span>
+                  <img class="img-circle img-author" src="//www.gravatar.com/avatar/560f36d69534a1a58d0f12dad39b0396?s=135" alt="A photo of Godfrey Chan" width="55">
+
+                  <a href="http://twitter.com/chancancode" target="_blank">Godfrey Chan</a> 06 Mar 2015
+                </span>
+              
+              
+              <div class="social-actions">
+                <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io/blog/2015/03/06/adapter-patterns-in-ember-js.html" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="">Tweet</a>
+              </div><!-- /social-actions -->
+
+            </div><!-- /meta -->
+
+            <p><del>If you couldn’t wait for the video to be uploaded,</del> here is a write-up of the
+talk I gave at <a href="http://emberconf.com/">EmberConf 2015</a> earlier this week, sans
+the jokes. You can find the slides <a href="https://speakerdeck.com/chancancode/hijacking-hacker-news-with-ember-dot-js">here</a>.
+For those at the conference, <a href="#the-possibilities">the last section</a> has a little
+bit of new content that I couldn’t fit into original presentation.</p>
+
+<p><del>This post will be updated with a link to the video when it is available.</del></p>
+
+<p>Video is live!</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PXB93Z8azZE?list=PLE7tQUdRKcyacwiUPs0CjPYt6tJub4xXU" frameborder="0" allowfullscreen=""></iframe>
+
+
+
+            
+
+            
+              <div class="continue-reading">
+                <a href="/blog/2015/03/06/adapter-patterns-in-ember-js.html" class="btn btn-link">Continue reading &rarr;</a>
+              </div>
+            
+
+          </div><!-- /post -->
+
+        </div>
+
+    
+  
+    
+      
+
+        <div class="col-xs-12 col-md-8">
+
+          <div class="post">
+
+            <h1 class="post-title">
+              <a href="/blog/2015/02/12/ember-vs-angular-authentication.html">Ember vs Angular: Authentication Example</a>
+            </h1>
+            
+            <div class="meta text-center">
+              
+                <span>
+                  <img class="img-circle img-author" src="//www.gravatar.com/avatar/560f36d69534a1a58d0f12dad39b0396?s=135" alt="A photo of Godfrey Chan" width="55">
+
+                  <a href="http://twitter.com/chancancode" target="_blank">Godfrey Chan</a> 12 Feb 2015
+                </span>
+              
+              
+              <div class="social-actions">
+                <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io/blog/2015/02/12/ember-vs-angular-authentication.html" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="">Tweet</a>
+              </div><!-- /social-actions -->
+
+            </div><!-- /meta -->
+
+            <div class="callout callout-info">
+  <h4>Shameless Plug</h4>
+  <p>I'll be <a href="http://emberconf.com/speakers.html#gchan" target="_blank">speaking at EmberConf</a>
+  next month, hope to see you there!</p>
+</div>
+
+<p>A while back, Gabe showed us an approach to <a href="http://brewhouse.io/blog/2014/12/09/authentication-made-simple-in-single-page-angularjs-applications.html">handling authentications in AngularJS</a>.
+This is a good opportunity to compare the similarity and differences between <a href="https://angularjs.org/">AngularJS</a>
+and <a href="http://emberjs.com/">Ember.js</a>, so in this blog post, we will look at how
+you would achieve the same thing with Ember.js.</p>
+
+<p>It is worth mentioning that there are plenty of <a href="https://github.com/simplabs/ember-simple-auth">plugins</a>
+and <a href="http://www.embercasts.com/episodes/client-side-authentication-part-1">tutorials</a>
+on the same topic in the Ember world. However, for comparison’s sake, let’s
+build this example from scratch.</p>
+
+
+
+            
+
+            
+              <div class="continue-reading">
+                <a href="/blog/2015/02/12/ember-vs-angular-authentication.html" class="btn btn-link">Continue reading &rarr;</a>
+              </div>
+            
+
+          </div><!-- /post -->
+
+        </div>
+
+    
+  
+    
+      
+
+        <div class="col-xs-12 col-md-8">
+
+          <div class="post">
+
+            <h1 class="post-title">
+              <a href="/2015/01/07/lucky-number-seven.html">Lucky Number Seven</a>
+            </h1>
+            
+            <div class="meta text-center">
+              
+                <span>
+                  <img class="img-circle img-author" src="//www.gravatar.com/avatar/1660f4acd02f0f24a9cccf5a7f3d6f5c?s=135" alt="A photo of Lana Topham" width="55">
+
+                  <a href="http://twitter.com/mstopham" target="_blank">Lana Topham</a> 07 Jan 2015
+                </span>
+              
+              
+              <div class="social-actions">
+                <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io/2015/01/07/lucky-number-seven.html" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="">Tweet</a>
+              </div><!-- /social-actions -->
+
+            </div><!-- /meta -->
+
+            <p>We’re excited to announce that the Brewhouse Team has grown to seven!</p>
+
+<h2 id="meet-mark">Meet, Mark.</h2>
+<p><img src="/images/posts/2015/jan/mark.jpg" alt="Dapper picture of Mark" />
+He’s our new Product Manager.</p>
+
+<p><a href="https://twitter.com/markhazlett?lang=en">Mark</a> is joining us from Pensio, where he worked as Chief Product Officer and Co-Founder. Originally from Alberta, he started his software career working at Apple in their technical support department. From there he decided to go to school and learn how to code. After that, he started his own gaming company and went to work for 2 top 200 sites (<a href="http://www.expedia.ca/">Expedia</a> and <a href="http://www.istockphoto.com/">iStockphoto</a>).</p>
+
+<p>Let’s learn even more about him!</p>
+
+
+
+            
+
+            
+              <div class="continue-reading">
+                <a href="/2015/01/07/lucky-number-seven.html" class="btn btn-link">Continue reading &rarr;</a>
+              </div>
+            
+
+          </div><!-- /post -->
+
+        </div>
+
+    
+  
+    
+      
+
+        <div class="col-xs-12 col-md-8">
+
+          <div class="post">
+
+            <h1 class="post-title">
+              <a href="/blog/2014/12/30/brewhouse-2014-by-the-numbers.html">Brewhouse 2014 - by the numbers</a>
+            </h1>
+            
+            <div class="meta text-center">
+              
+                <span>
+                  <img class="img-circle img-author" src="//www.gravatar.com/avatar/cf8db14764d6420698b0ed9c9ed1ba93?s=135" alt="A photo of Philippe Creux" width="55">
+
+                  <a href="http://twitter.com/pcreux" target="_blank">Philippe Creux</a> 30 Dec 2014
+                </span>
+              
+              
+              <div class="social-actions">
+                <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io/blog/2014/12/30/brewhouse-2014-by-the-numbers.html" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="">Tweet</a>
+              </div><!-- /social-actions -->
+
+            </div><!-- /meta -->
+
+            <h2 class="brewhouse-numbers" id="new-hires">
+  <span class="headline--numerals">3</span> <span class="headline--alphas">new hires</span>
+</h2>
+
+<p>Brewhouse was founded in January 2014 by
+<a href="https://twitter.com/ChuckBergeron">Chuck</a>,
+<a href="https://twitter.com/chancancode">Godfrey</a>,
+<a href="https://twitter.com/kalv">Kalv</a> and
+<a href="https://twitter.com/pcreux">Philippe</a>.
+<br />
+<a href="https://twitter.com/gabescholz">Gabe</a>
+and
+<a href="https://twitter.com/mstopham">Lana</a>
+joined us along the way and <a href="https://twitter.com/markhazlett">Mark</a>
+has just started this week!</p>
+
+<h2 class="brewhouse-numbers" id="events">
+  <span class="headline--numerals">4</span> <span class="headline--alphas">events</span>
+</h2>
+
+<p><img src="/images/posts/2014/Dec/boohouse.gif" alt="boohouse" /></p>
+
+<p>We started with <em>Cocktails</em>, we then hosted the <em><a href="http://vanruby.org">Vanruby</a> Summer BBQ</em>,
+we became <em>Boohouse</em> for Halloween and we collected non-perishable goods for the
+food bank at the <em>Mouthy Mixer</em>.</p>
+
+<h2 class="brewhouse-numbers" id="conferences">
+  <span class="headline--numerals">5</span> <span class="headline--alphas">conferences</span>
+</h2>
+
+<p><img src="/images/posts/2014/Dec/conferences.jpg" alt="conferences" /></p>
+
+<p>We’ve attended
+<a href="http://2014.emberconf.com/">Ember conf</a> in Portland,
+<a href="http://www.railsconf.com/">Rails conf</a> in Chicago,
+<a href="http://www.polyglotconf.com/">Polyglot (un)conf</a> in Vancouver,
+<a href="http://rubykaigi.org/2014">Ruby Kaigi</a> in Tokyo,
+and
+<a href="http://rubyconf.org/">Ruby conf</a> in San Diego!</p>
+
+<h2 class="brewhouse-numbers" id="clients">
+  <span class="headline--numerals">12</span> <span class="headline--alphas">clients</span>
+</h2>
+
+
+
+            
+
+            
+              <div class="continue-reading">
+                <a href="/blog/2014/12/30/brewhouse-2014-by-the-numbers.html" class="btn btn-link">Continue reading &rarr;</a>
+              </div>
+            
+
+          </div><!-- /post -->
+
+        </div>
+
+    
+  
+    
+      
+
+        <div class="col-xs-12 col-md-8">
+
+          <div class="post">
+
+            <h1 class="post-title">
               <a href="/blog/2014/12/09/authentication-made-simple-in-single-page-angularjs-applications.html">Authentication made simple in Single Page AngularJS Applications</a>
             </h1>
             
@@ -157,7 +524,7 @@
                 <span>
                   <img class="img-circle img-author" src="//www.gravatar.com/avatar/667f2b767c362d9291bf2e7afa3de5fd?s=135" alt="A photo of Gabe Scholz" width="55">
 
-                  <a href="http://twitter.com/gabescholz" target="_blank">Gabe Scholz</a> wrote this on 09 Dec 2014
+                  <a href="http://twitter.com/gabescholz" target="_blank">Gabe Scholz</a> 09 Dec 2014
                 </span>
               
               
@@ -178,7 +545,7 @@ authenticated and resorting to explicit checks all over the place. Here we lay t
 
             
               <div class="continue-reading">
-                <a href="/blog/2014/12/09/authentication-made-simple-in-single-page-angularjs-applications.html">Continue reading &rarr;</a>
+                <a href="/blog/2014/12/09/authentication-made-simple-in-single-page-angularjs-applications.html" class="btn btn-link">Continue reading &rarr;</a>
               </div>
             
 
@@ -204,7 +571,7 @@ authenticated and resorting to explicit checks all over the place. Here we lay t
                 <span>
                   <img class="img-circle img-author" src="//www.gravatar.com/avatar/cf8db14764d6420698b0ed9c9ed1ba93?s=135" alt="A photo of Philippe Creux" width="55">
 
-                  <a href="http://twitter.com/pcreux" target="_blank">Philippe Creux</a> wrote this on 20 Nov 2014
+                  <a href="http://twitter.com/pcreux" target="_blank">Philippe Creux</a> 20 Nov 2014
                 </span>
               
               
@@ -224,7 +591,7 @@ authenticated and resorting to explicit checks all over the place. Here we lay t
 
             
               <div class="continue-reading">
-                <a href="/blog/2014/11/20/rubyconf-2014-the-human-bits.html">Continue reading &rarr;</a>
+                <a href="/blog/2014/11/20/rubyconf-2014-the-human-bits.html" class="btn btn-link">Continue reading &rarr;</a>
               </div>
             
 
@@ -232,253 +599,6 @@ authenticated and resorting to explicit checks all over the place. Here we lay t
 
         </div>
 
-    
-  
-    
-      
-
-        <div class="col-xs-12 col-md-8">
-
-          <div class="post">
-
-            <h1 class="post-title">
-              <a href="/blog/2014/11/10/healthy-codebase-and-preparatory-refactoring.html">Healthy Codebase and Preparatory Refactoring</a>
-            </h1>
-            
-            <div class="meta text-center">
-              
-                <span>
-                  <img class="img-circle img-author" src="//www.gravatar.com/avatar/cf8db14764d6420698b0ed9c9ed1ba93?s=135" alt="A photo of Philippe Creux" width="55">
-
-                  <a href="http://twitter.com/pcreux" target="_blank">Philippe Creux</a> wrote this on 10 Nov 2014
-                </span>
-              
-              
-              <div class="social-actions">
-                <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io/blog/2014/11/10/healthy-codebase-and-preparatory-refactoring.html" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="">Tweet</a>
-              </div><!-- /social-actions -->
-
-            </div><!-- /meta -->
-
-            <p>In a <a href="http://devchat.tv/ruby-rogues/178-rr-book-club-refactoring-ruby-with-martin-fowler">recent episode of the RubyRogues podcast</a>, <a href="http://martinfowler.com">Martin Fowler</a> and <a href="https://twitter.com/jessitron">Jessica Kerr</a> literally spoke my mind. They named two concepts that I deeply believe in and care about: Healthy Codebase and Preparatory Refactoring. The fact that they have expressed them in beautiful words and powerful metaphors enables me to share them with you in this article.</p>
-
-
-
-            
-
-            
-              <div class="continue-reading">
-                <a href="/blog/2014/11/10/healthy-codebase-and-preparatory-refactoring.html">Continue reading &rarr;</a>
-              </div>
-            
-
-          </div><!-- /post -->
-
-        </div>
-
-    
-  
-    
-      
-
-        <div class="col-xs-12 col-md-8">
-
-          <div class="post">
-
-            <h1 class="post-title">
-              <a href="/blog/2014/11/04/big-data-with-elk-stack.html">Big data in minutes with the ELK Stack</a>
-            </h1>
-            
-            <div class="meta text-center">
-              
-                <span>
-                  <img class="img-circle img-author" src="//www.gravatar.com/avatar/cf8db14764d6420698b0ed9c9ed1ba93?s=135" alt="A photo of Philippe Creux" width="55">
-
-                  <a href="http://twitter.com/pcreux" target="_blank">Philippe Creux</a> wrote this on 04 Nov 2014
-                </span>
-              
-              
-              <div class="social-actions">
-                <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io/blog/2014/11/04/big-data-with-elk-stack.html" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="">Tweet</a>
-              </div><!-- /social-actions -->
-
-            </div><!-- /meta -->
-
-            <p>We’ve built a data analysis and dashboarding infrastructure for one of our clients over the past few weeks. They collect about 10 million data points a day. Yes, that’s big data.</p>
-
-<p>My highest priority was to allow them to browse the data they collect so that they can ensure that the data points are consistent and contain all the attributes required to generate the reports and dashboards they need.</p>
-
-<p>I chose to give the <a href="http://www.elasticsearch.org/overview/">ELK stack</a> a try: <a href="http://www.elasticsearch.org/overview/elasticsearch/">ElasticSearch</a>, <a href="http://www.elasticsearch.org/overview/logstash/">logstash</a> and <a href="http://www.elasticsearch.org/overview/kibana/">Kibana</a>.</p>
-
-
-
-            
-
-            
-              <div class="continue-reading">
-                <a href="/blog/2014/11/04/big-data-with-elk-stack.html">Continue reading &rarr;</a>
-              </div>
-            
-
-          </div><!-- /post -->
-
-        </div>
-
-    
-  
-    
-      
-
-        <div class="col-xs-12 col-md-8">
-
-          <div class="post">
-
-            <h1 class="post-title">
-              <a href="/blog/2014/09/30/the-evolution-of-brewhouse-software.html">The Evolution of Brewhouse Software</a>
-            </h1>
-            
-            <div class="meta text-center">
-              
-                <span>
-                  <img class="img-circle img-author" src="//www.gravatar.com/avatar/1660f4acd02f0f24a9cccf5a7f3d6f5c?s=135" alt="A photo of Lana Topham" width="55">
-
-                  <a href="http://twitter.com/mstopham" target="_blank">Lana Topham</a> wrote this on 30 Sep 2014
-                </span>
-              
-              
-              <div class="social-actions">
-                <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io/blog/2014/09/30/the-evolution-of-brewhouse-software.html" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="">Tweet</a>
-              </div><!-- /social-actions -->
-
-            </div><!-- /meta -->
-
-            <p>
-  <img class="img-responsive" alt="tea that looks like coffee" src="/images/posts/2014/Sept/coff.jpg" />
-</p>
-
-<p><em>“Brewhouse – so you brew beer?”</em></p>
-
-<p>Everyone on the team has been asked this question at some point when introducing ourselves at an event or conference – it’s a valid question! However, we brew up a much different batch of awesome.</p>
-
-<p><em>Brewhouse Software</em>. It took about two weeks of defining and then redefining what was important about the brand and the creative process attached to it. The notion of coffee kept coming up. Code and coffee. Coffee and creating. And within the team, the fuss we made about a fantastic cup of high quality, craft coffee.</p>
-
-
-
-            
-
-            
-              <div class="continue-reading">
-                <a href="/blog/2014/09/30/the-evolution-of-brewhouse-software.html">Continue reading &rarr;</a>
-              </div>
-            
-
-          </div><!-- /post -->
-
-        </div>
-
-    
-  
-    
-      
-
-        <div class="col-xs-12 col-md-8">
-
-          <div class="post">
-
-            <h1 class="post-title">
-              <a href="/blog/2014/09/26/ruby-kaigi-2014-day-3.html">Ruby Kaigi 2014: Day 3</a>
-            </h1>
-            
-            <div class="meta text-center">
-              
-                <span>
-                  <img class="img-circle img-author" src="//www.gravatar.com/avatar/560f36d69534a1a58d0f12dad39b0396?s=135" alt="A photo of Godfrey Chan" width="55">
-
-                  <a href="http://twitter.com/chancancode" target="_blank">Godfrey Chan</a> wrote this on 26 Sep 2014
-                </span>
-              
-              
-              <div class="social-actions">
-                <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io/blog/2014/09/26/ruby-kaigi-2014-day-3.html" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="">Tweet</a>
-              </div><!-- /social-actions -->
-
-            </div><!-- /meta -->
-
-            <p>
-  <a href="/images/posts/ruby-kaigi-2014/the-end.jpg">
-    <img class="img-responsive" alt="#rubykaigi has finally come to an end!" src="/images/posts/ruby-kaigi-2014/the-end.jpg" />
-  </a>
-</p>
-
-<p>Continuing from <a href="/blog/2014/09/18/ruby-kaigi-2014-day-1">part 1</a> and <a href="/blog/2014/09/19/ruby-kaigi-2014-day-2">part 2</a>,
-of my Ruby Kaigi blog posts, here is the final day at Ruby Kaigi!</p>
-
-
-
-            
-
-            
-              <div class="continue-reading">
-                <a href="/blog/2014/09/26/ruby-kaigi-2014-day-3.html">Continue reading &rarr;</a>
-              </div>
-            
-
-          </div><!-- /post -->
-
-        </div>
-
-    
-  
-    
-      
-
-        <div class="col-xs-12 col-md-8">
-
-          <div class="post">
-
-            <h1 class="post-title">
-              <a href="/blog/2014/09/23/writing-rails-flavored-angularjs.html">Writing Rails-flavored AngularJS</a>
-            </h1>
-            
-            <div class="meta text-center">
-              
-                <span>
-                  <img class="img-circle img-author" src="//www.gravatar.com/avatar/667f2b767c362d9291bf2e7afa3de5fd?s=135" alt="A photo of Gabe Scholz" width="55">
-
-                  <a href="http://twitter.com/gabescholz" target="_blank">Gabe Scholz</a> wrote this on 23 Sep 2014
-                </span>
-              
-              
-              <div class="social-actions">
-                <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io/blog/2014/09/23/writing-rails-flavored-angularjs.html" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="">Tweet</a>
-              </div><!-- /social-actions -->
-
-            </div><!-- /meta -->
-
-            <p>When I think about Ruby on Rails and AngularJS in the same codebase, I kind of cringe. After
-spending more than a year trying to reconcile how Rails plays with Angular, not only
-have I been unsuccessful, but I have not been satisfied with any of the suggested
-solutions. There is a ton of material on the numerous Rails hacks you should employ
-so that Rails and AngularJS feel compatible; however, I’m beginning to
-wonder whether this problem is being approached from the wrong direction.
-Instead, how can we hack AngularJS so that it plays nice with Rails?</p>
-
-
-
-            
-
-            
-              <div class="continue-reading">
-                <a href="/blog/2014/09/23/writing-rails-flavored-angularjs.html">Continue reading &rarr;</a>
-              </div>
-            
-
-          </div><!-- /post -->
-
-        </div>
-
-    
-  
     
   
 
@@ -486,15 +606,15 @@ Instead, how can we hack AngularJS so that it plays nice with Rails?</p>
   <nav class="pagination" role="pagination">
     
       
-        <a class="newer-posts" href="/blog/page/2">&larr; Newer Posts</a>
+        <a class="newer-posts" href="/blog/page/2" class="btn btn-link">&larr; Newer Posts</a>
       
 
     
 
-    <span class="page-number ">Page: 3 of 4</span>
+    <span class="page-number">Page: 3 of 5</span>
 
     
-      <a class="older-posts" href="/blog/page/4">Older Posts &rarr;</a>
+      <a class="older-posts" href="/blog/page/4" class="btn btn-link">Older Posts &rarr;</a>
     
   </nav>
 
@@ -536,16 +656,13 @@ Instead, how can we hack AngularJS so that it plays nice with Rails?</p>
             <a class="internal" href="/#work">Work</a>
           </li>
           <li>
-            <a class="internal" href="/#services">Services</a>
+            <a class="internal" href="/meet-the-team.html">Team</a>
           </li>
           <li>
-            <a class="internal" href="/#projects">Projects</a>
-          </li>
+            <a class="internal" href="/blog">Blog</a>
+          </li>          
           <li>
-            <a class="internal" href="/work-with-us.html">Work With Us</a>
-          </li>
-          <li>
-            <a href="/blog">Read Our Blog</a>
+            <a class="internal" href="/show">Podcast</a>
           </li>
         </ul>
     </nav>
