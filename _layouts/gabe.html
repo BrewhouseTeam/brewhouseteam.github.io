@@ -1,0 +1,85 @@
+{% include _doctypes.html %}
+<html lang="en-us" class="{% body_class %}">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# business: http://ogp.me/ns/business#">
+    <title>Brewhouse - Vancouver's leading Rails web development agency</title>
+
+    {% include _shared_head.html %}
+
+    <meta name="description" content="Vancouver's leading Rails web development agency">
+    <meta property="og:description" content="Vancouver's leading Rails web development agency">
+    <meta name="keywords" content="cascadia vancouver web mobile ruby rails product development developers agency hire">
+    <meta property="og:title" content="Brewhouse - Vancouver's leading Rails developers">
+
+    <meta name="author" content="brewhouse.io">
+    <meta name="copyright" content="brewhouse software inc">
+
+    <meta property="og:site_name" content="brewhouse">
+    <meta property="og:url" content="http://brewhouse.io{{ page.url | replace: 'index.html', ''}}">
+    <meta property="og:type" content="business.business">
+
+    <meta property="og:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200-gray.png">
+
+    <meta property="business:contact_data:street_address" content="#303 - 210 Carrall St">
+    <meta property="business:contact_data:locality" content="Vancouver, BC">
+    <meta property="business:contact_data:postal_code" content="V6B 2J1">
+    <meta property="business:contact_data:country_name" content="Canada">
+    <meta property="place:location:latitude" content="49.282471">
+    <meta property="place:location:longitude" content="-123.103046">
+
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:site" content="@brewhouseteam" />
+    <meta property="twitter:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png">
+    <meta property="twitter:url" content="http://brewhouse.io">
+
+    <script src="//use.typekit.net/scl6izu.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+
+    <link rel="alternate" type="application/atom+xml" href="/blog/index.xml" title="The Brew Pub atom feed">
+
+  </head>
+  <body>
+
+    {% include _mobile_nav.html %}
+
+    <div class="main landing">
+      <nav id="navbar-main" class="navbar navbar-default navbar-main">
+        <div class="container">
+          <div class="col-xs-12">
+
+            <div class="logo-container">
+              <a id="brewhouse-logo" class="navbar-brand internal" rel="home" href="/" title="brewhouse logo"><img src="/images/brewhouse-logo.svg" alt="Brewhouse" class="img-responsive"></a>
+            </div>
+
+            <button type="button" class="navbar-toggle navbar-toggle-offcanvas js-navbar-toggle-offcanvas">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            <div class="main-menu">
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <a class="internal btn navbar-btn navbar-right btn--header" href="/work-with-us.html">Hire Us</a>
+                <ul id="navbar-links" class="nav navbar-nav navbar-right">
+                  <li><a class="internal" href="/index-original">Our real homepage</a></li>
+                  <li><a href="/blog">Blog</a></li>
+                  <li><a href="/show">Podcast</a></li>
+                </ul>
+              </div><!-- /.navbar-collapse -->
+            </div>
+
+          </div>
+
+        </div>
+      </nav>
+
+
+      {{ content }}
+
+    </div>
+
+    {% include _site_footer.html %}
+
+    {% javascript app %}
+    {% include _ga.html %}
+  </body>
+</html>
