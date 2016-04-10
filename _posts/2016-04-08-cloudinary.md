@@ -13,9 +13,9 @@ published: true
 
 Images on the web are tricky business these days. With the rise of high-density screen resolutions, there's an increasing need to serve up a multitude of sizes and formats. Manipulation is also key: users want the ability to crop and edit their photos, even perform more advanced manipulations like colour correction and compositing.
 
-[ImageMagick](http://www.imagemagick.org/script/index.php) has for some time been the mainstay for programmatic image manipulation. However, there's a new neighbour on the block, and they live in the cloud.
+For some time now, [ImageMagick](http://www.imagemagick.org/script/index.php) has been the mainstay for programmatic image manipulation. However, there's a new neighbour on the block, and they live in the cloud.
 
-[Cloudinary](http://cloudinary.com/) is a SaaS product that offers storage and manipulation for image and video. Like Amazon S3 or Rackspace Cloud Files, it provides object storage for media assets. But the real magic of Cloudinary is its ability to dynamically generate and manipulate images on-the-fly.
+[Cloudinary](http://cloudinary.com/) is a SaaS product that offers storage and manipulation of images and video. Like Amazon S3 or Rackspace Cloud Files, it provides object storage for media assets. But the real magic of Cloudinary is its ability to dynamically generate and manipulate images on-the-fly.
 
 We've been playing with Cloudinary recently on a client project, and I wanted to share a couple of tips on integrating Cloudinary into a standard Rails/CarrierWave workflow, as well as some general Cloudinary tips on image manipulation.
 
@@ -89,9 +89,9 @@ I used my formidable (ahem) design skills to craft a perfectly white 25x25 PNG. 
 CarrierWave creates callbacks for each processor step that you define in your uploaders. The scope in which these callbacks get executed makes it difficult to pass runtime parameters into your uploaders. Thankfully, CarrierWave provides a `model` helper method which allows you to access attributes on the record instance to which the image will be attached.
 
 ### Problem 3: Making it dynamic... with Cloudinary
-Cloudinary's `cloudinary_transformation` method is a simple wrapper around CarrierWave's `process` and allows CarrierWave to hook into Cloudinary for image processing. But here's the wrinkle: since `process` ends up getting called from within the Cloudinary gem itself, it doesn't have access to the `model` helper, and therefore does not allow you to specify dynamic content (at least not without some potentially ugly monkey-patching).
+Cloudinary's `cloudinary_transformation` method is a simple wrapper around CarrierWave's `process` and allows CarrierWave to hook into Cloudinary for image processing. But here's the rub: since `process` ends up getting called from within the Cloudinary gem itself, it doesn't have access to the `model` helper, and therefore does not allow you to specify dynamic content (at least not without some potentially ugly monkey-patching).
 
-The most straightforward solution would be one that allowed developers to easily reason about the transformations in one place, and the logical place for that code is in the uploader. To accomplish this, I bypassed the `cloudinary_transformation` method entirely and instead provided a hash of all the Cloudinary transformation parameters. Since the hash is being created within the uploader, it's got access to `model`, and so we can populate that hash in any way we please:
+The most straightforward solution would be one that allowed developers to easily reason about the transformations in one place, and the logical place for that code is in the uploader. To accomplish this, I bypassed the `cloudinary_transformation` method entirely and instead provided a hash of all the Cloudinary transformation parameters. Since the hash is being created within the uploader, it has access to `model`, and so we can populate that hash in any way we please:
 
 
 {% highlight ruby %}
