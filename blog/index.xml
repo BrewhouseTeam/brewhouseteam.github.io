@@ -3,7 +3,7 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2016-04-12T17:49:01-07:00</updated>
+    <updated>2016-04-12T18:10:55-07:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
@@ -145,7 +145,7 @@
 
 &lt;p&gt;The result is an uploader which can be customized at runtime to dynamically generate an image which can be accessed just like any other CarrierWave image. This is super useful if you need to composite an image and then serve different versions of that image (thumbnail, small, large, etc). Plus, if you define your processing outside of a version as above, the “base image” that gets uploaded to Cloudinary will be the actual composite, not whatever your base image is (goodbye, white square!)&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/brewhouse-cloudinary-dev/image/upload/v1460146312/campaign-banner-1.png&quot; alt=&quot;generated image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/brewhouse-cloudinary-dev/image/upload/v1460509669/parrot-comp_idvv2d.png&quot; alt=&quot;generated image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Below is the full uploader code that I used in this example, followed by a short snippet that demonstrates how to kick off an upload:&lt;/p&gt;
 
