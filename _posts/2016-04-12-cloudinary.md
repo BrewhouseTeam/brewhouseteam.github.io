@@ -2,11 +2,7 @@
 layout: post
 title: "CarrierWave, Cloudinary and the path to Image Manipulation Enlightenment"
 author: alex
-date: 2016-04-08 16:20
-tags:
-  - example
-  - tags
-  - here
+date: 2016-04-12 09:00
 shared_description: You can integrate CarrierWave with Cloudinary to generate and serve images on-the-fly with user-specified content.
 published: true
 ---
