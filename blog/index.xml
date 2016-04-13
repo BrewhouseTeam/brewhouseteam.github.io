@@ -3,7 +3,7 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2016-04-12T17:45:46-07:00</updated>
+    <updated>2016-04-12T17:49:01-07:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
@@ -17,9 +17,9 @@
               <name>Alex Taylor</name>
               <email>alex@brewhouse.io</email>
             </author>
-            <link href="http://brewhouse.io/2016/04/08/cloudinary.html"/>
-            <updated>2016-04-08T16:20:00-07:00</updated>
-            <id>http://brewhouse.io/2016/04/08/cloudinary</id>
+            <link href="http://brewhouse.io/2016/04/12/cloudinary.html"/>
+            <updated>2016-04-12T09:00:00-07:00</updated>
+            <id>http://brewhouse.io/2016/04/12/cloudinary</id>
             <content type="html">&lt;p&gt;Images on the web are tricky business these days. With the rise of high-density screen resolutions, there’s an increasing need to serve up a multitude of sizes and formats. Manipulation is also key: users want the ability to crop and edit their photos, even perform more advanced manipulations like colour correction and compositing.&lt;/p&gt;
 
 &lt;p&gt;For some time now, &lt;a href=&quot;http://www.imagemagick.org/script/index.php&quot;&gt;ImageMagick&lt;/a&gt; has been the mainstay for programmatic image manipulation. However, there’s a new neighbour on the block, and they live in the cloud.&lt;/p&gt;
