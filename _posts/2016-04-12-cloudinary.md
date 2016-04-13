@@ -147,8 +147,7 @@ end
 
 The result is an uploader which can be customized at runtime to dynamically generate an image which can be accessed just like any other CarrierWave image. This is super useful if you need to composite an image and then serve different versions of that image (thumbnail, small, large, etc). Plus, if you define your processing outside of a version as above, the "base image" that gets uploaded to Cloudinary will be the actual composite, not whatever your base image is (goodbye, white square!)
 
-![generated image](http://res.cloudinary.com/brewhouse-cloudinary-dev/image/upload/v1460146312/campaign-banner-1.png)
-
+![generated image](http://res.cloudinary.com/brewhouse-cloudinary-dev/image/upload/v1460509669/parrot-comp_idvv2d.png)
 
 Below is the full uploader code that I used in this example, followed by a short snippet that demonstrates how to kick off an upload:
 
