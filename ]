@@ -1,0 +1,97 @@
+---
+layout: post
+title: "Creating Rails API"
+author: "paulo"
+date: 2016-03-14 8:00
+published: true
+tags:
+  - rails
+  - jsonapi-resource
+  - rspec-api-documentation
+  - apitome
+shared_description: "The fast robust and easy way of creating API endpoints with documentations"
+---
+
+Let’s say we have a mobile app. This mobile app wants to post images to our rails API and the only constant we know is that the photos would be sent to our rails app through a RESTful JSON API and the images would be converted to a base 64 image.
+
+## Here is our tools
+- [carrierwave-base64](https://github.com/lebedev-yury/carrierwave-base64) - Upload files encoded as base64 to carrierwave.
+- [jsonapi-resources](https://github.com/cerebris/jsonapi-resources) - provides a framework for developing a server that complies with the JSON API specification.
+- [rspec_api_documentation](https://github.com/zipmark/rspec_api_documentation) - Generate pretty API docs for your rails API
+- [apitome](https://github.com/modeset/apitome) - Rails viewer for the documentation
+
+## Add Models to DB and mounting the uploader
+We'll use a rails generator to create a post that stores in image strings.
+{% highlight ruby %}
+>$ rails g model post image:string
+>$ rake db:migrate
+{% endhighlight %}
+
+With the generators add in the base 64 uploader
+{% highlight ruby %}
+# app/models/post
+class Post < ActiveRecord::Base
+  mount_base64_uploader :image, ImageUploader
+end
+
+# app/uploaders
+class ImageUploader < CarrierWave::Uploader::Base
+  include Cloudinary::CarrierWave
+end
+{% endhighlight %}
+
+## Creating the JSON API Endpoint
+{% highlight ruby %}
+>$ rails generate jsonapi:controller post
+>$ rails generate jsonapi:resource post
+{% endhighlight %}
+
+{% highlight ruby %}
+# app/controllers/api/posts_controller.rb
+class Api::PostsController < JSONAPI::ResourceController
+end
+
+# app/resources/api/post_resource.rb
+class Api::PostResource < JSONAPI::Resource
+end
+{% endhighlight %}
+
+{% highlight ruby %}
+# THE ONLY FILE THAT WE ACTUALLY CHANGE
+# config/router.rb
+namespace "api" do
+  jsonapi_resources :post, only: [:create]
+end
+{% endhighlight %}
+
+{% highlight ruby %}
+# final result =>
+# api_post POST   /api/posts(.:format)           api/posts#create
+{% endhighlight %}
+
+## Testing
+{% highlight ruby %}
+# spec/acceptance
+require "rails_helper"
+require "rspec_api_documentation/dsl"
+require 'facebook_helper'
+
+resource "Posts" do
+  post "/api/posts" do
+    example "Post a photo" do
+      stub_post_photo
+      do_request
+      expect(status).to eq 201
+
+      images = JSON.parse(response_body)["data"]["attributes"]["original_photo"]
+      expect( images["original_photo"]["url"]).to be_present
+    end
+  end
+end
+{% endhighlight %}
+
+
+## Generate the docs
+{% highlight ruby %}
+>$ rake docs:generate
+{% endhighlight %}
