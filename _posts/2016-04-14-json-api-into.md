@@ -59,9 +59,9 @@ Now that can save a base64 image, we now have to create an API endpoint that our
 # Creating the JSON API Endpoint
 __implementing jsonapi-resources__
 
-Although there is a lot more to explore in `JR`/jsonapi-resources, I will only touch on just a few of its really cool features. I believe this gem deserves it's own blogpost on how much benefit it provides with just a few lines of code.
+Although there is a lot more to explore in `jsonapi-resources`, I will only touch on just a few of its really cool features. I believe this gem deserves it's own blogpost on how much benefit it provides with just a few lines of code.
 
-Now let's create a `JR` controller and resource with generators that the gem provides.
+Now let's create a `jsonapi-resources` controller and resource with generators that the gem provides.
 {% highlight ruby %}
 >$ rails generate jsonapi:resource api/post
 # =>
@@ -82,7 +82,7 @@ namespace "api" do
 end
 {% endhighlight %}
 
-Although the `ApplicationController` that we have written inherits from the `JR` controller. This can also be a normal controller that includes a `ActsAsResourceController`.
+Although the `ApplicationController` that we have written inherits from the `jsonapi-resources` controller. This can also be a normal controller that includes a `ActsAsResourceController`.
 
 In the routes, we are using `jsonapi_resources` method. This gives us a lot of useful endpoints. For the sake of this example, let's just focus on a posting endpoint and add `only: [:create]`. Thus giving:
 {% highlight javascript %}
