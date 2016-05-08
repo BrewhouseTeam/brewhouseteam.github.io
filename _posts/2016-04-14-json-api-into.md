@@ -12,7 +12,7 @@ tags:
 shared_description: ""
 ---
 
-Let’s say we have a rails app that uploads images using `carrierwave`. We want to extend this functionality to let a mobile app upload images as well. The only constants we know are that the photos should be sent to our rails app through a RESTful JSON API, and that the images are strings encoded in base64.
+Let’s say we have a [Rails](http://rubyonrails.org) app that uploads images using `carrierwave`. We want to extend this functionality to let a mobile app upload images as well. The only constants we know are that the photos should be sent to our Rails app through a RESTful JSON API, and that the images are strings encoded in base64.
 
 <!-- break -->
 
@@ -22,7 +22,7 @@ Let’s say we have a rails app that uploads images using `carrierwave`. We want
 
 _For The Stretch Goal_
 
-- [rspec_api_documentation](https://github.com/zipmark/rspec_api_documentation) - Generate pretty API docs for your rails API
+- [rspec_api_documentation](https://github.com/zipmark/rspec_api_documentation) - Generate pretty API docs for your Rails API
 - [apitome](https://github.com/modeset/apitome) - Rails viewer for the documentation
 
 # Add Models to DB and mounting the uploader
