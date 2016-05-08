@@ -26,7 +26,7 @@ _For The Stretch Goal_
 - [apitome](https://github.com/modeset/apitome) - Rails viewer for the documentation
 
 # Add Models to DB and mounting the uploader
-_implementing carrierwave-base64_
+_Implementing carrierwave-base64_
 
 We need a place to store the images. We could use a generator to create a `Post` table that has an `image` column which stores strings.
 {% highlight ruby %}
@@ -46,12 +46,11 @@ end
 class ImageUploader < CarrierWave::Uploader::Base; end
 {% endhighlight %}
 
-By mounting a base 64 uploader, we can add base 64 images with a small requirement, every image must be  prefixed with Data URI scheme format.
-
 {% highlight ruby %}
 # rails console
 p = Post.new
-p.image = "data:image/jpg;base64,(...)"
+base64_image = Base64.encode64(File.read(awesome_picture.jpg))
+p.image = "data:image/jpg;base64,#{base64_image}"
 p.save!
 {% endhighlight %}
 
