@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Uploading Base64 Images Through a Rails API"
+title: "Robust JSON API for Mobile Apps Powered by Rails"
 author: "paulo"
 date: 2016-04-29 8:00
 published: true
@@ -9,7 +9,7 @@ tags:
   - jsonapi-resource
   - rspec-api-documentation
   - apitome
-shared_description: ""
+shared_description: "Uploading Base 64 images using jsonapi-resources with good and up to date documentation"
 ---
 
 Let’s say we have a [Rails](http://rubyonrails.org) app that uploads images using `carrierwave`. We want to extend this functionality to let a mobile app upload images as well. The only constants we know are that the photos should be sent to our Rails app through a RESTful JSON API, and that the images are strings encoded in base64.
