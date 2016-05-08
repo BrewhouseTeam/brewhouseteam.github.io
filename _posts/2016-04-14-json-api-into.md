@@ -117,12 +117,9 @@ To set up our test, we would first have to include `rspec_api_documentation` dsl
 
 {% highlight ruby %}
 resource "Posts" do
-  def request_attributes
-    {data: {
-       type: "post", attributes: {
-         image: valid_base64_image,
-         caption: "Small caption",
-         campaign_id: campaign.id } } }
+  let(:valid_base64_image){ Base64.encode64(File.read(awesome_picture.jpg)) }
+  let(:request_attributes){
+    {data: {type: "post", attributes: {image: valid_base64_image}}}
   end
 
   header "Accept", "application/vnd.api+json"
@@ -141,7 +138,10 @@ resource "Posts" do
       do_request(request_attributes)
       expect(status).to eq 201
 
-      images = JSON.parse(response_body)["data"]["attributes"]["image"]
+      images = JSON.parse(response_body)
+                   .fetch("data")
+                   .fetch("attributes")
+                   .fetch("image")
       expect(images["image"]["url"]).to be_present
     end
   end
