@@ -59,7 +59,7 @@ Now that can save a base64 image, we now have to create an API endpoint that our
 # Creating the JSON API Endpoint
 __implementing jsonapi-resources__
 
-Although there is a lot more to explore in `jsonapi-resources`, I will only touch on just a few of its really cool features. I believe this gem deserves it's own blogpost on how much benefit it provides with just a few lines of code.
+Although there is a lot more to explore in `jsonapi-resources`, I will only touch on just a few of its really cool features. I believe this gem deserves its own blog post on how much benefit it provides with just a few lines of code.
 
 Now let's create a `jsonapi-resources` controller and resource with generators that the gem provides.
 {% highlight ruby %}
@@ -82,14 +82,14 @@ namespace "api" do
 end
 {% endhighlight %}
 
-Although the `ApplicationController` that we have written inherits from the `jsonapi-resources` controller. This can also be a normal controller that includes a `ActsAsResourceController`.
+Although the `ApplicationController` that we have written inherits from the `jsonapi-resources` controller, this can also be a normal controller that includes a `ActsAsResourceController`.
 
-In the routes, we are using `jsonapi_resources` method. This gives us a lot of useful endpoints. For the sake of this example, let's just focus on a posting endpoint and add `only: [:create]`. Thus giving:
+In the routes, we are using the `jsonapi_resources` method. This gives us a lot of useful endpoints. For the sake of this example, let's just focus on a posting endpoint and add `only: [:create]`. Thus giving:
 {% highlight javascript %}
 api_post POST   /api/posts(.:format)           api/posts#create
 {% endhighlight %}
 
-This is actually all we need to post a base64 image through an API. From here we can use postman
+This is actually all we need to post a base64 image through an API. From here we can use Postman:
 {% highlight javascript %}
 curl -X POST -H "Content-Type: application/vnd.api+json" -H "Cache-Control: no-cache" -H "Postman-Token: 233cdeb0-ba65-7bd5-c550-8e8b79e181bb" -d '{
   "data": {
@@ -113,7 +113,7 @@ resource "Posts" do
 end
 {% endhighlight %}
 
-To set up our test, we would have to first include `rspec_api_documentation` dsl. This gives us wrappers to have headers to our requests and setting HTTP verbs as context. We also use `resource` instead of `describe` to define what we are testing.
+To set up our test, we would first have to include `rspec_api_documentation` dsl. This gives us wrappers to have headers to our requests and setting HTTP verbs as context. We also use `resource` instead of `describe` to define what we are testing.
 
 {% highlight ruby %}
 resource "Posts" do
