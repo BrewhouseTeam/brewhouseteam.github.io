@@ -1,7 +1,7 @@
 ---
 layout: episode
 title: "Episode 19: The Big Dream"
-date: 2016-05-12 11:30
+date: 2016-05-13 14:15
 hidden: true
 published: true
 podcast: true
