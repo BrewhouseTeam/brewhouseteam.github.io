@@ -103,7 +103,24 @@ curl -X POST -H "Content-Type: application/vnd.api+json" -H "Cache-Control: no-c
 # Stretch Goal: Testing & Documentation
 _rspec api documentation_
 
-It is important to test and document API implementations. With `rspec_api_documentation`, we can do both at the same time. In my opinion, the best part of using this gem is that it does not generate the documentation for a failed example. Also, example documentation can be skipped with the `document: false` option.
+It is important to test and document API implementations. With `rspec_api_documentation`, we can do both at the same time. In my opinion, the best part of using this gem is that it does not generate the documentation for a failed example. It runs all the acceptance test, and if it passes, it generates the documentation. Once the documentation is re-generated, all the documentation is removed and generates a new one. Also, example documentation can be skipped with the `document: false` option.
+
+First we need to tell `rspec_api_documentation` that we are going to be formatting the body to a `JSON` response by adding this helper:
+
+{% highlight ruby %}
+# spec/rails_helper.rb
+# Values listed are the default values
+RspecApiDocumentation.configure do |config|
+  # Change how the post body is formatted by default, you can still override by `raw_post`
+  # Can be :json, :xml, or a proc that will be passed the params
+  config.request_body_formatter = :json
+  config.format = :json
+end
+{% endhighlight %}
+
+Now that is all set up, we can start writing our test.
+
+To set up our test, we would first have to include `rspec_api_documentation` dsl. This gives us wrappers to have headers to our requests and setting HTTP verbs as context. We also use `resource` instead of `describe` to define what we are testing.
 
 {% highlight ruby %}
 # spec/acceptance/post_spec.rb
@@ -111,17 +128,10 @@ require "rails_helper"
 require "rspec_api_documentation/dsl"
 
 resource "Posts" do
-end
-{% endhighlight %}
-
-To set up our test, we would first have to include `rspec_api_documentation` dsl. This gives us wrappers to have headers to our requests and setting HTTP verbs as context. We also use `resource` instead of `describe` to define what we are testing.
-
-{% highlight ruby %}
-resource "Posts" do
-  let(:valid_base64_image){ Base64.encode64(File.read(awesome_picture.jpg)) }
-  let(:request_attributes){
-    {data: {type: "post", attributes: {image: valid_base64_image}}}
-  end
+  let!(:valid_base64_image){ Base64.encode64(File.read(awesome_picture.jpg)) }
+  let!(:request_attributes){
+    {data: {type: "posts", attributes: {image: "data:image/png;base64,#{valid_base64_image}"}}
+  }
 
   header "Accept", "application/vnd.api+json"
   header "Content-Type", "application/vnd.api+json"
@@ -132,7 +142,7 @@ Below I have added a method that will be passed in a request method in my "examp
 
 {% highlight ruby %}
 resource "Posts" do
-  def request_attributes...
+  # ... lines ommitted
 
   post "/api/posts" do
     example "Post a photo" do
