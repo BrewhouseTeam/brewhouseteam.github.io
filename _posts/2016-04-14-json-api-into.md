@@ -100,6 +100,8 @@ curl -X POST -H "Content-Type: application/vnd.api+json" -H "Cache-Control: no-c
 } ' "http://localhost:3000/api/posts"
 {% endhighlight %}
 
+---
+
 # Stretch Goal: Testing & Documentation
 _rspec api documentation_
 
@@ -169,4 +171,8 @@ Run the test and generate the docs with:
 >$ rspec spec/acceptance
 {% endhighlight %}
 
-In the beginning of this post, I have also mentioned `apitome`. This is just a wrapper for the `json_api_documentation` to make it prettier
+In the beginning of this post, I have also mentioned `apitome`. This is just a wrapper for the `json_api_documentation` to make it prettier.
+
+---
+
+I have made a toy app for you guys to try! Follow this [link]('https://blog-jsonapi.herokuapp.com/') to go to the website, and this [link]('https://blog-jsonapi.herokuapp.com/docs/api')` to go to the api documentation
