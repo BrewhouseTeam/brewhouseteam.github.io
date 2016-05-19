@@ -1,6 +1,6 @@
 ---
 layout: episode
-title: "Episode 19: The Big Dream"
+title: "Episode 20: The Big Dream"
 date: 2016-05-13 14:15
 hidden: true
 published: true
