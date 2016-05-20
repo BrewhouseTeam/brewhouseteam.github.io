@@ -57,7 +57,7 @@ p.image = "data:image/jpg;base64,#{base64_image}"
 p.save!
 {% endhighlight %}
 
-Now that can save a base64 image, we now have to create an API endpoint that our mobile app can call so they can post images.
+Now that can save a base64 image, we have to create an API endpoint that our mobile app can call so they can post images.
 
 # Creating the JSON API Endpoint
 __implementing jsonapi-resources__
