@@ -175,8 +175,16 @@ Run the test and generate the docs with:
 >$ rspec spec/acceptance
 {% endhighlight %}
 
-The docs are available at `http://localhost:3000/docs/api` and with the help of `apitome` this would look really cool! In essence, `apitome` is a wrapper for `rspec_api_documentation` to enhance the generated documentation.
+The docs are available at [`/api/docs`](https://blog-jsonapi.herokuapp.com/api/docs) and with the help of `apitome` they [look really cool](https://blog-jsonapi.herokuapp.com/api/docs)! In essence, `apitome` is a wrapper for `rspec_api_documentation` to enhance the generated documentation.
 
----
+Following the [JSON API specification](http://jsonapi.org/) with the help of
+[jsonapi-resources](https://github.com/cerebris/jsonapi-resources)
+enables us to ship a consistent API with little effort.
 
-Creating an API endpoint is never complete without a good proper documentation. With this API bootstrap combo for Rails, it makes mobile image upload feature easier. See how awesome this combo is with our toy app! Follow this [link](https://blog-jsonapi.herokuapp.com/) to go to the website, and this [link](https://blog-jsonapi.herokuapp.com/docs/api) to go to the api documentation
+Our [friends at Steamclock](http://www.steamclock.com/) take advantage
+of the [JSON API iOS
+libraries](http://jsonapi.org/implementations/#client-libraries-ios)
+to automagically map api data to models.
+
+Finally, providing them with an up-to-date and tested [API documentation](https://blog-jsonapi.herokuapp.com/api/docs) is key to maintain an healthy relationship in an Agile world. :)
+
