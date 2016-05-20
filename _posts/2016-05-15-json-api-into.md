@@ -108,7 +108,7 @@ curl -X POST -H "Content-Type: application/vnd.api+json" -H "Cache-Control: no-c
 # Stretch Goal: Testing & Documentation
 _rspec api documentation_
 
-It is important to test and document API implementations. With `rspec_api_documentation`, we can do both at the same time. In my opinion, the best part of using this gem is that it does not generate the documentation for a failed example. It runs all the acceptance test, and if it passes, it generates the documentation. Once the documentation is re-generated, all the documentation is removed and generates a new one. Also, example documentation can be skipped with the `document: false` option.
+It is important to test and document API implementations. With `rspec_api_documentation`, we can do both at the same time. In my opinion, the best part of using this gem is that it does not generate wrong documentation for a failed example. Also, example documentation can be skipped with the `document: false` option.
 
 First we need to tell `rspec_api_documentation` that we are going to be formatting the body to a `JSON` response by adding this helper:
 
