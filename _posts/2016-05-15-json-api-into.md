@@ -93,7 +93,7 @@ In the routes, we are using the `jsonapi_resources` method. This gives us a lot 
 api_posts POST   /api/posts(.:format)           api/posts#create
 {% endhighlight %}
 
-This is actually all we need to post a base64 image through an API. From here we can use Postman:
+This is actually all we need to post a base64 image through an API. From here we can use [Postman](https://www.getpostman.com/):
 {% highlight javascript %}
 curl -X POST -H "Content-Type: application/vnd.api+json" -H "Cache-Control: no-cache" -H "Postman-Token: 233cdeb0-ba65-7bd5-c550-8e8b79e181bb" -d '{
   "data": {
