@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Robust JSON API for Mobile Apps Powered by Rails"
+title: "Documented JSON-API and image upload"
 author: "paulo"
 date: 2016-05-16 8:00
 published: true
