@@ -12,11 +12,14 @@ tags:
 shared_description: "Uploading Base 64 images using jsonapi-resources with good and up to date documentation"
 ---
 
-Let’s say we have a [Rails](http://rubyonrails.org) app that uploads images using `carrierwave`. We want to extend this functionality to let a mobile app upload images as well. The only constants we know are that the photos should be sent to our Rails app through a RESTful JSON API, and that the images are strings encoded in base64.
+We've been working on a [Rails](http://rubyonrails.org) app that uploads images using `carrierwave`.
+We wanted to extend this functionality to enable our [friends at Steamclock](http://www.steamclock.com/) build a mobile app that upload images as well.
+In order to make collaboration easy, we decided to follow the [JSON API specification](http://jsonapi.org/) and to generate the API documentation.
 
 <!-- break -->
 
 # Here are the tools that we are going to use
+
 - [carrierwave-base64](https://github.com/lebedev-yury/carrierwave-base64) - Upload files encoded as base64 to carrierwave.
 - [jsonapi-resources](https://github.com/cerebris/jsonapi-resources) - provides a framework for developing a server that complies with the JSON API specification.
 
