@@ -167,7 +167,7 @@ Run the test and generate the docs with:
 {% highlight ruby %}
 >$ rake docs:generate
 
-# Or jus run the test without generating the documentation
+# Or just run the test without generating the documentation
 >$ rspec spec/acceptance
 {% endhighlight %}
 
