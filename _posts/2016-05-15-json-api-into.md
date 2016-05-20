@@ -29,6 +29,7 @@ _For The Stretch Goal_
 - [apitome](https://github.com/modeset/apitome) - Rails viewer for the documentation
 
 # Add Models to DB and mounting the uploader
+
 _Implementing carrierwave-base64_
 
 We need a place to store the images. We could use a generator to create a `Post` table that has an `image` column which stores strings.
