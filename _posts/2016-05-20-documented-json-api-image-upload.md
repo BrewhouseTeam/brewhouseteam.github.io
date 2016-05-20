@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Documented JSON-API and image upload"
+title: "Documented JSON-API with image upload"
 author: "paulo"
 date: 2016-05-20 8:00
 published: true
