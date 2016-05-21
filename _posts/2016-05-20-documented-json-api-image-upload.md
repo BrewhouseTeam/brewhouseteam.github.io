@@ -13,7 +13,7 @@ shared_description: "Uploading Base 64 images using jsonapi-resources with good 
 ---
 
 We've been working on a [Rails](http://rubyonrails.org) app that uploads images using `carrierwave`.
-We wanted to extend this functionality to enable our [friends at Steamclock](http://www.steamclock.com/) build a mobile app that upload images as well.
+We wanted to extend this functionality to enable our [friends at Steamclock](http://www.steamclock.com/) to build a mobile app that upload images as well.
 In order to make collaboration easy, we decided to follow the [JSON API specification](http://jsonapi.org/) and to generate the API documentation.
 
 <!-- break -->
@@ -25,8 +25,8 @@ In order to make collaboration easy, we decided to follow the [JSON API specific
 
 _For The Stretch Goal_
 
-- [rspec_api_documentation](https://github.com/zipmark/rspec_api_documentation) - Generate pretty API docs for your Rails API
-- [apitome](https://github.com/modeset/apitome) - Rails viewer for the documentation
+- [rspec_api_documentation](https://github.com/zipmark/rspec_api_documentation) - Test your Rails API and generate documentation.
+- [apitome](https://github.com/modeset/apitome) - Rails viewer for the documentation.
 
 # Add Models to DB and mounting the uploader
 
@@ -126,7 +126,7 @@ end
 
 Now that is all set up, we can start writing our test.
 
-To set up our test, we would first have to include `rspec_api_documentation` dsl. This gives us wrappers to have headers to our requests and setting HTTP verbs as context. We also use `resource` instead of `describe` to define what we are testing.
+To set up our test, we include `rspec_api_documentation` dsl. This gives us wrappers to have headers to our requests and setting HTTP verbs as context. We also use `resource` instead of `describe` to define what we are testing.
 
 {% highlight ruby %}
 # spec/acceptance/post_spec.rb
