@@ -175,7 +175,7 @@ Run the test and generate the docs with:
 >$ rspec spec/acceptance
 {% endhighlight %}
 
-The docs are available at [`/api/docs`](https://blog-jsonapi.herokuapp.com/api/docs) and with the help of `apitome` they [look really cool](https://blog-jsonapi.herokuapp.com/api/docs)! In essence, `apitome` is a wrapper for `rspec_api_documentation` to enhance the generated documentation.
+The docs are available at `localhost:3000/api/docs` and with the help of `apitome` they [look really cool](https://blog-jsonapi.herokuapp.com/api/docs)! In essence, `apitome` is a wrapper for `rspec_api_documentation` to enhance the generated documentation.
 
 Following the [JSON API specification](http://jsonapi.org/) with the help of
 [jsonapi-resources](https://github.com/cerebris/jsonapi-resources)
@@ -186,5 +186,6 @@ of the [JSON API iOS
 libraries](http://jsonapi.org/implementations/#client-libraries-ios)
 to automagically map api data to models.
 
-Finally, providing them with an up-to-date and tested [API documentation](https://blog-jsonapi.herokuapp.com/api/docs) is key to maintain an healthy relationship in an Agile world. :)
+Finally, providing them with an up-to-date and tested API documentation is key to maintain an healthy relationship in an Agile world. :)
 
+Here is an [example app](https://blog-jsonapi.herokuapp.com/) to play around with! Feel free to [post images to this endpoint](https://blog-jsonapi.herokuapp.com/api/post) or read the [generated documentation](https://blog-jsonapi.herokuapp.com/api/docs). You can also view the [the repository here](https://github.com/pauloancheta/json-api-base64)
