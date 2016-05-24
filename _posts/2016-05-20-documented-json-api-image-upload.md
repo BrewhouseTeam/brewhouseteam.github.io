@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Robust JSON API for Mobile Apps Powered by Rails"
+title: "Documented JSON-API with image upload"
 author: "paulo"
-date: 2016-05-16 8:00
+date: 2016-05-20 8:00
 published: true
 tags:
   - rails
@@ -12,20 +12,24 @@ tags:
 shared_description: "Uploading Base 64 images using jsonapi-resources with good and up to date documentation"
 ---
 
-Let’s say we have a [Rails](http://rubyonrails.org) app that uploads images using `carrierwave`. We want to extend this functionality to let a mobile app upload images as well. The only constants we know are that the photos should be sent to our Rails app through a RESTful JSON API, and that the images are strings encoded in base64.
+We've been working on a [Rails](http://rubyonrails.org) app that uploads images using `carrierwave`.
+We wanted to extend this functionality to enable our [friends at Steamclock](http://www.steamclock.com/) to build a mobile app that upload images as well.
+In order to make collaboration easy, we decided to follow the [JSON API specification](http://jsonapi.org/) and to generate the API documentation.
 
 <!-- break -->
 
 # Here are the tools that we are going to use
+
 - [carrierwave-base64](https://github.com/lebedev-yury/carrierwave-base64) - Upload files encoded as base64 to carrierwave.
 - [jsonapi-resources](https://github.com/cerebris/jsonapi-resources) - provides a framework for developing a server that complies with the JSON API specification.
 
 _For The Stretch Goal_
 
-- [rspec_api_documentation](https://github.com/zipmark/rspec_api_documentation) - Generate pretty API docs for your Rails API
-- [apitome](https://github.com/modeset/apitome) - Rails viewer for the documentation
+- [rspec_api_documentation](https://github.com/zipmark/rspec_api_documentation) - Test your Rails API and generate documentation.
+- [apitome](https://github.com/modeset/apitome) - Rails viewer for the documentation.
 
 # Add Models to DB and mounting the uploader
+
 _Implementing carrierwave-base64_
 
 We need a place to store the images. We could use a generator to create a `Post` table that has an `image` column which stores strings.
@@ -54,7 +58,7 @@ p.image = "data:image/jpg;base64,#{base64_image}"
 p.save!
 {% endhighlight %}
 
-Now that can save a base64 image, we now have to create an API endpoint that our mobile app can call so they can post images.
+Now that can save a base64 image, we have to create an API endpoint that our mobile app can call so they can post images.
 
 # Creating the JSON API Endpoint
 __implementing jsonapi-resources__
@@ -90,7 +94,7 @@ In the routes, we are using the `jsonapi_resources` method. This gives us a lot 
 api_posts POST   /api/posts(.:format)           api/posts#create
 {% endhighlight %}
 
-This is actually all we need to post a base64 image through an API. From here we can use Postman:
+This is actually all we need to post a base64 image through an API. From here we can use [Postman](https://www.getpostman.com/):
 {% highlight javascript %}
 curl -X POST -H "Content-Type: application/vnd.api+json" -H "Cache-Control: no-cache" -H "Postman-Token: 233cdeb0-ba65-7bd5-c550-8e8b79e181bb" -d '{
   "data": {
@@ -105,7 +109,7 @@ curl -X POST -H "Content-Type: application/vnd.api+json" -H "Cache-Control: no-c
 # Stretch Goal: Testing & Documentation
 _rspec api documentation_
 
-It is important to test and document API implementations. With `rspec_api_documentation`, we can do both at the same time. In my opinion, the best part of using this gem is that it does not generate the documentation for a failed example. It runs all the acceptance test, and if it passes, it generates the documentation. Once the documentation is re-generated, all the documentation is removed and generates a new one. Also, example documentation can be skipped with the `document: false` option.
+It is important to test and document API implementations. With `rspec_api_documentation`, we can do both at the same time. In my opinion, the best part of using this gem is that it does not generate wrong documentation for a failed example. Also, example documentation can be skipped with the `document: false` option.
 
 First we need to tell `rspec_api_documentation` that we are going to be formatting the body to a `JSON` response by adding this helper:
 
@@ -122,7 +126,7 @@ end
 
 Now that is all set up, we can start writing our test.
 
-To set up our test, we would first have to include `rspec_api_documentation` dsl. This gives us wrappers to have headers to our requests and setting HTTP verbs as context. We also use `resource` instead of `describe` to define what we are testing.
+To set up our test, we include `rspec_api_documentation` dsl. This gives us wrappers to have headers to our requests and setting HTTP verbs as context. We also use `resource` instead of `describe` to define what we are testing.
 
 {% highlight ruby %}
 # spec/acceptance/post_spec.rb
@@ -167,12 +171,20 @@ Run the test and generate the docs with:
 {% highlight ruby %}
 >$ rake docs:generate
 
-# Or jus run the test without generating the documentation
+# Or just run the test without generating the documentation
 >$ rspec spec/acceptance
 {% endhighlight %}
 
-The docs are available at `http://localhost:3000/docs/api` and with the help of `apitome` this would look really cool! In essence, `apitome` is a wrapper for `rspec_api_documentation` to enhance the generated documentation.
+The docs are available at [`/api/docs`](https://blog-jsonapi.herokuapp.com/api/docs) and with the help of `apitome` they [look really cool](https://blog-jsonapi.herokuapp.com/api/docs)! In essence, `apitome` is a wrapper for `rspec_api_documentation` to enhance the generated documentation.
 
----
+Following the [JSON API specification](http://jsonapi.org/) with the help of
+[jsonapi-resources](https://github.com/cerebris/jsonapi-resources)
+enables us to ship a consistent API with little effort.
 
-Creating an API endpoint is never complete without a good proper documentation. With this API bootstrap combo for Rails, it makes mobile image upload feature easier. See how awesome this combo is with our toy app! Follow this [link](https://blog-jsonapi.herokuapp.com/) to go to the website, and this [link](https://blog-jsonapi.herokuapp.com/docs/api) to go to the api documentation
+Our [friends at Steamclock](http://www.steamclock.com/) take advantage
+of the [JSON API iOS
+libraries](http://jsonapi.org/implementations/#client-libraries-ios)
+to automagically map api data to models.
+
+Finally, providing them with an up-to-date and tested [API documentation](https://blog-jsonapi.herokuapp.com/api/docs) is key to maintain an healthy relationship in an Agile world. :)
+
