@@ -1,0 +1,377 @@
+
+
+<!DOCTYPE html>
+<!-- Hello, nice to see you took a peek here :) -->
+<!-- Send us an email at hello at brewhouse dot io if you'd like to talk tech -->
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+
+<html lang="en-us" class="blog">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# business: http://ogp.me/ns/business#">
+
+    <title>Advanced SQL in Rails - Part 1</title>
+    <meta property="og:title" content="Advanced SQL in Rails - Part 1">
+    <meta property="og:site_name" content="brewhouse">
+    <meta property="og:url" content="http://brewhouse.io/2016/07/28/sql-in-rails.html">
+
+    <meta property="og:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png">
+
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:site" content="@brewhouseteam" />
+    <meta property="twitter:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png">
+    <meta property="twitter:url" content="http://brewhouse.io/2016/07/28/sql-in-rails.html">
+
+    <link rel="alternate" type="application/atom+xml" href="/blog/index.xml" title="The Brew Pub atom feed">
+
+    
+      <meta property="og:type" content="article">
+      <meta property="article:published_time" content="2016-07-28 11:00:00 -0800">
+      <meta property="article:tag" content="Alex Taylor">
+
+      <meta property="twitter:title" content="Advanced SQL in Rails - Part 1">
+
+      
+        <meta name="description" content="Turbocharge your Rails workflow by taking advantage of advanced SQL, right from within Rails.">
+        <meta property="twitter:description" content="Turbocharge your Rails workflow by taking advantage of advanced SQL, right from within Rails.">
+        <meta property="og:description" content="Turbocharge your Rails workflow by taking advantage of advanced SQL, right from within Rails.">
+      
+    
+
+    <script src="//use.typekit.net/scl6izu.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="robots" content="INDEX, FOLLOW">
+
+<link rel="shortcut icon" href="/images/icons/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
+
+<link type="text/css" rel="stylesheet" href="/assets/application.css">
+
+
+    <!-- needs to be refactored when we have more layouts -->
+    
+
+  </head>
+  <body class="on-post">
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46725009-2', 'brewhouse.io');
+  ga('send', 'pageview');
+
+</script>
+
+
+    <aside class="offcanvas-menu">
+  <ul>
+    <li>
+      <a class="internal" href="http://brewhouse.io/#work">Work</a>
+    </li>
+    <li>
+      <a class="internal" href="http://brewhouse.io/#services">Services</a>
+    </li>
+    <li>
+      <a href="/meet-the-team.html">Team</a>
+    </li>
+    <li>
+      <a href="/blog">Blog</a>
+    </li>
+    <li>
+      <a href="/show">Podcast</a>
+    </li>
+  </ul>
+  <a class="btn btn--header" href="/work-with-us.html">Hire Us</a>
+</aside>
+
+    <nav id="navbar-main" class="navbar navbar-default navbar-main">
+  <div class="container">
+    <div class="col-xs-12">
+
+      <div class="logo-container">
+        <a id="brewhouse-logo" class="navbar-brand internal" rel="home" href="/" title="brewhouse logo"><img src="/images/brewhouse-logo.svg" alt="Brewhouse" class="img-responsive"></a>
+      </div>
+
+      <button type="button" class="navbar-toggle navbar-toggle-offcanvas js-navbar-toggle-offcanvas">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <div class="main-menu">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <a class="internal btn navbar-btn navbar-right btn--header" href="/work-with-us.html">Hire Us</a>
+          <ul id="navbar-links" class="nav navbar-nav navbar-right">
+            <li><a class="internal" href="/#work">Work</a></li>
+            <li><a class="internal" href="/#services">Services</a></li>
+            <li><a href="/meet-the-team.html">Team</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/show">Podcast</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div>
+
+    </div>
+
+  </div>
+</nav>
+
+
+    <div class="main">
+
+      
+
+<article>
+
+  <div class="page-header">
+    <div class="container">
+      <div class="col-xs-12 col-sm-8">
+        <h1 class="page-title">Advanced SQL in Rails - Part 1</h1>
+      </div>
+      <div class="col-xs-12 col-sm-4 text-xs-center">
+        <div class="meta text-center">
+          
+            <div class="author">
+              <img class="img-circle img-author" src="//www.gravatar.com/avatar/da0b02303090f0ded442767e58a98626?s=135" alt="A photo of Alex Taylor" width="55">
+
+              <a href="http://twitter.com/mctaylorpants" target="_blank">Alex Taylor</a> 28 Jul 2016
+            </div>
+          
+          <div class="social-actions">
+            <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io/2016/07/28/sql-in-rails.html" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="">Tweet</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="article-start" class="container content">
+
+      <div class="col-xs-12 col-sm-8">
+
+        <div class="post clearfix">
+
+          <p>The more I work with Rails apps, the more I love ActiveRecord. It’s a really elegant abstraction over your data layer, and lets you focus on business logic instead of crafting SQL statements. For the majority of use cases, this works great. But as apps grow in both database size and complexity, we can start to see some compelling reasons to get “closer to the metal” and work more directly with our database.</p>
+
+<!-- break -->
+
+<p>It’s no secret that databases are fast. For complex aggregate functions that involve processing data from thousands or hundreds of thousands of rows, databases can easily outperform any implementation in Ruby. ActiveRecord gives us some power here, too (shout-out to <code>.sum</code> and <code>.group</code>!). But what if we wanted to go further?</p>
+
+<p>In part 1 of this post, I’m going to cover two powerful features common to most relational databases today: window functions and views. In part 2, I’ll discuss how you can leverage their power from right within Rails. I’m using Postgres, but the examples I show should work in your RDBMS of choice (with a few tweaks to syntax here and there).</p>
+
+<h2 id="window-functions">Window Functions</h2>
+<p>Your average (ha!) aggregate function returns just that: an aggregated result. As a simple example, let’s say I wanted to get the balance of a bank account by summing all of the transactions:</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">sum</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">transactions</span> <span class="k">WHERE</span> <span class="n">account</span> <span class="o">=</span> <span class="s1">&#39;debit&#39;</span><span class="p">;</span>
+
+  <span class="k">sum</span>
+<span class="c1">--------</span>
+ <span class="mi">387</span><span class="p">.</span><span class="mi">04</span></code></pre></figure>
+
+<p>Using the <code>sum()</code> function, we get back a single result. Now, what if we wanted to return all the records for the ‘debit’ account, with a running total? For instance, we might want to construct a view that looks like this:</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql">    <span class="nb">date</span>    <span class="o">|</span> <span class="n">amount</span> <span class="o">|</span> <span class="n">balance</span>
+<span class="c1">------------+--------+---------</span>
+ <span class="mi">2016</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span>  <span class="mi">50</span><span class="p">.</span><span class="mi">25</span> <span class="o">|</span>   <span class="mi">50</span><span class="p">.</span><span class="mi">25</span>
+ <span class="mi">2016</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span>  <span class="mi">17</span><span class="p">.</span><span class="mi">35</span> <span class="o">|</span>   <span class="mi">67</span><span class="p">.</span><span class="mi">60</span>
+ <span class="mi">2016</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span>  <span class="mi">21</span><span class="p">.</span><span class="mi">56</span> <span class="o">|</span>   <span class="mi">89</span><span class="p">.</span><span class="mi">16</span>
+ <span class="mi">2016</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span>  <span class="mi">14</span><span class="p">.</span><span class="mi">01</span> <span class="o">|</span>  <span class="mi">103</span><span class="p">.</span><span class="mi">17</span>
+ <span class="mi">2016</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span>  <span class="mi">79</span><span class="p">.</span><span class="mi">23</span> <span class="o">|</span>  <span class="mi">182</span><span class="p">.</span><span class="mi">40</span>
+ <span class="mi">2016</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span> <span class="o">-</span><span class="mi">15</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span>  <span class="mi">167</span><span class="p">.</span><span class="mi">40</span>
+ <span class="mi">2016</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span>  <span class="mi">46</span><span class="p">.</span><span class="mi">23</span> <span class="o">|</span>  <span class="mi">213</span><span class="p">.</span><span class="mi">63</span>
+ <span class="mi">2016</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">03</span> <span class="o">|</span> <span class="mi">100</span><span class="p">.</span><span class="mi">74</span> <span class="o">|</span>  <span class="mi">314</span><span class="p">.</span><span class="mi">37</span>
+ <span class="mi">2016</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">03</span> <span class="o">|</span>  <span class="mi">72</span><span class="p">.</span><span class="mi">67</span> <span class="o">|</span>  <span class="mi">387</span><span class="p">.</span><span class="mi">04</span></code></pre></figure>
+
+<p>This is where window functions come in. They allow you to compute aggregate functions for each individual row using a ‘window’ into the query that can slice the data up in different ways. In this example, for any given row, we can ask the database to compute the value for ‘balance’ by taking the results from our original query and drawing a ‘window’ around a subset of the rows, then sum the result. Here’s what that query would look like:</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="nb">date</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span>
+<span class="k">sum</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span> <span class="n">OVER</span><span class="p">(</span><span class="k">ORDER</span> <span class="k">BY</span> <span class="nb">date</span><span class="p">,</span> <span class="n">id</span><span class="p">)</span> <span class="k">AS</span> <span class="n">balance</span>
+<span class="k">FROM</span> <span class="n">transactions</span>
+<span class="k">WHERE</span> <span class="n">account</span> <span class="o">=</span> <span class="s1">&#39;debit&#39;</span><span class="p">;</span></code></pre></figure>
+
+<p>We can construct a window function using <code>OVER</code>. Everything between the parentheses defines how the window will be dynamically constructed for each row. Here, we say that we want to create a column called ‘balance’ which will contain the sum of the amount column, but we want to calculate it by considering only the rows up to and including the current row, as sorted by date and ID.</p>
+
+<p>Whew! This is where an animation might come in handy:</p>
+
+<p><img src="/images/posts/2016/sql_in_rails_post/window_function_example.gif" alt="Animated example of an SQL window function" /></p>
+
+<p>In addition to just sorting the result set in different ways, we can also compute values by partitioning the result set, essentially grouping each row into different ‘buckets’ before calculation. For instance, what if our transactions table had an ‘account’ column, and we wanted to display a table containing the transactions from every account, with a running balance for each account:</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="nb">date</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span>
+<span class="k">sum</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span> <span class="n">OVER</span><span class="p">(</span><span class="n">PARTITION</span> <span class="k">BY</span> <span class="n">account</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="nb">date</span><span class="p">,</span> <span class="n">id</span><span class="p">)</span> <span class="k">AS</span> <span class="n">balance</span>
+<span class="k">FROM</span> <span class="n">transactions</span><span class="p">;</span>
+
+    <span class="nb">date</span>    <span class="o">|</span> <span class="n">amount</span> <span class="o">|</span> <span class="n">account</span> <span class="o">|</span> <span class="n">balance</span>
+<span class="c1">------------+--------+---------+---------</span>
+ <span class="mi">2016</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span>  <span class="mi">50</span><span class="p">.</span><span class="mi">25</span> <span class="o">|</span> <span class="n">debit</span>   <span class="o">|</span>   <span class="mi">50</span><span class="p">.</span><span class="mi">25</span>
+ <span class="mi">2016</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span>  <span class="mi">17</span><span class="p">.</span><span class="mi">35</span> <span class="o">|</span> <span class="n">debit</span>   <span class="o">|</span>   <span class="mi">67</span><span class="p">.</span><span class="mi">60</span>
+ <span class="mi">2016</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span>  <span class="mi">21</span><span class="p">.</span><span class="mi">56</span> <span class="o">|</span> <span class="n">debit</span>   <span class="o">|</span>   <span class="mi">89</span><span class="p">.</span><span class="mi">16</span>
+ <span class="mi">2016</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span>  <span class="mi">14</span><span class="p">.</span><span class="mi">01</span> <span class="o">|</span> <span class="n">debit</span>   <span class="o">|</span>  <span class="mi">103</span><span class="p">.</span><span class="mi">17</span>
+ <span class="mi">2016</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span>  <span class="mi">79</span><span class="p">.</span><span class="mi">23</span> <span class="o">|</span> <span class="n">debit</span>   <span class="o">|</span>  <span class="mi">182</span><span class="p">.</span><span class="mi">40</span>
+ <span class="mi">2016</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span> <span class="o">-</span><span class="mi">15</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="n">debit</span>   <span class="o">|</span>  <span class="mi">167</span><span class="p">.</span><span class="mi">40</span>
+ <span class="mi">2016</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span>  <span class="mi">46</span><span class="p">.</span><span class="mi">23</span> <span class="o">|</span> <span class="n">debit</span>   <span class="o">|</span>  <span class="mi">213</span><span class="p">.</span><span class="mi">63</span>
+ <span class="mi">2016</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">03</span> <span class="o">|</span> <span class="mi">100</span><span class="p">.</span><span class="mi">74</span> <span class="o">|</span> <span class="n">debit</span>   <span class="o">|</span>  <span class="mi">314</span><span class="p">.</span><span class="mi">37</span>
+ <span class="mi">2016</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">03</span> <span class="o">|</span>  <span class="mi">72</span><span class="p">.</span><span class="mi">67</span> <span class="o">|</span> <span class="n">debit</span>   <span class="o">|</span>  <span class="mi">387</span><span class="p">.</span><span class="mi">04</span>
+ <span class="mi">2016</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">15</span> <span class="o">|</span>     <span class="mi">25</span> <span class="o">|</span> <span class="n">savings</span> <span class="o">|</span>      <span class="mi">25</span>
+ <span class="mi">2016</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">22</span> <span class="o">|</span>     <span class="mi">25</span> <span class="o">|</span> <span class="n">savings</span> <span class="o">|</span>      <span class="mi">50</span>
+ <span class="mi">2016</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span>     <span class="mi">25</span> <span class="o">|</span> <span class="n">savings</span> <span class="o">|</span>      <span class="mi">75</span>
+ <span class="mi">2016</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">08</span> <span class="o">|</span>     <span class="mi">25</span> <span class="o">|</span> <span class="n">savings</span> <span class="o">|</span>     <span class="mi">100</span>
+ <span class="mi">2016</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">16</span> <span class="o">|</span>     <span class="mi">25</span> <span class="o">|</span> <span class="n">savings</span> <span class="o">|</span>     <span class="mi">125</span>
+<span class="p">(</span><span class="mi">14</span> <span class="k">rows</span><span class="p">)</span></code></pre></figure>
+
+<p>We’ve kept our <code>ORDER BY</code> clause, but we’ve added <code>PARTITION BY</code>. Here’s what’s actually happening:</p>
+
+<p><img src="/images/posts/2016/sql_in_rails_post/window_function_partition.gif" alt="Animated example of an SQL window function with partition" /></p>
+
+<p>Both of these examples are something that could be done at your ActiveRecord layer, maybe with clever usage of scopes and virtual attributes. But as your datasets grow, these kind of calculations become prohibitively expensive to do in-memory. Offloading processing like this to the database becomes an attractive option.</p>
+
+<h2 id="views">Views</h2>
+<p>In our examples above, the ‘balance’ column has always been a virtual column. We don’t store it in the database; we compute it on-the-fly every time we run the query. We could add a column for it in our table, but then we’d need to ensure that it gets calculated correctly every time a record in the table is created, updated or deleted. Plus, since we know we’re going to need these queries a lot for displaying to the user, it would be nice if we could store it for easy access.</p>
+
+<p>Database views allow you to do just that: store a query, and access it as if it were a table. You get the benefit of a common interface through which to access your data, without worrying about the complexities of persisting dynamic values.</p>
+
+<p>Creating a view is pretty easy in Postgres. Let’s create one with our example query above:</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">VIEW</span> <span class="n">debit_account_activity</span> <span class="k">AS</span> <span class="p">(</span>
+  <span class="k">SELECT</span> <span class="nb">date</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span>
+  <span class="k">sum</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span> <span class="n">OVER</span><span class="p">(</span><span class="k">ORDER</span> <span class="k">BY</span> <span class="nb">date</span><span class="p">,</span> <span class="n">id</span><span class="p">)</span> <span class="k">AS</span> <span class="n">balance</span>
+  <span class="k">FROM</span> <span class="n">transactions</span> <span class="k">WHERE</span> <span class="n">account</span> <span class="o">=</span> <span class="s1">&#39;debit&#39;</span>
+<span class="p">);</span></code></pre></figure>
+
+<p>Next time we want to access that data, we can just query the view as if it were a table instead of rewriting the entire query:</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">debit_account_activity</span><span class="p">;</span>
+
+    <span class="nb">date</span>    <span class="o">|</span> <span class="n">amount</span> <span class="o">|</span> <span class="n">balance</span>
+<span class="c1">------------+--------+---------</span>
+ <span class="mi">2016</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span>  <span class="mi">50</span><span class="p">.</span><span class="mi">25</span> <span class="o">|</span>   <span class="mi">50</span><span class="p">.</span><span class="mi">25</span>
+ <span class="mi">2016</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span>  <span class="mi">17</span><span class="p">.</span><span class="mi">35</span> <span class="o">|</span>   <span class="mi">67</span><span class="p">.</span><span class="mi">60</span>
+ <span class="mi">2016</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span>  <span class="mi">21</span><span class="p">.</span><span class="mi">56</span> <span class="o">|</span>   <span class="mi">89</span><span class="p">.</span><span class="mi">16</span>
+ <span class="mi">2016</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span>  <span class="mi">14</span><span class="p">.</span><span class="mi">01</span> <span class="o">|</span>  <span class="mi">103</span><span class="p">.</span><span class="mi">17</span>
+ <span class="mi">2016</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span>  <span class="mi">79</span><span class="p">.</span><span class="mi">23</span> <span class="o">|</span>  <span class="mi">182</span><span class="p">.</span><span class="mi">40</span>
+ <span class="mi">2016</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span> <span class="o">-</span><span class="mi">15</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span>  <span class="mi">167</span><span class="p">.</span><span class="mi">40</span>
+ <span class="mi">2016</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span>  <span class="mi">46</span><span class="p">.</span><span class="mi">23</span> <span class="o">|</span>  <span class="mi">213</span><span class="p">.</span><span class="mi">63</span>
+ <span class="mi">2016</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">03</span> <span class="o">|</span> <span class="mi">100</span><span class="p">.</span><span class="mi">74</span> <span class="o">|</span>  <span class="mi">314</span><span class="p">.</span><span class="mi">37</span>
+ <span class="mi">2016</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">03</span> <span class="o">|</span>  <span class="mi">72</span><span class="p">.</span><span class="mi">67</span> <span class="o">|</span>  <span class="mi">387</span><span class="p">.</span><span class="mi">04</span>
+<span class="p">(</span><span class="mi">9</span> <span class="k">rows</span><span class="p">)</span></code></pre></figure>
+
+<p>Note that using a view in this way is analogous to creating a method; when you call <code>SELECT * FROM debit_account_activity</code>, Postgres will simply run the query you gave it when you created the view.</p>
+
+<p>Many databases, including Postgres, have another type of view, called a materialized view. Materialized views will actually persist the results from the query as if it were a table. Because of this, however, they need to be refreshed whenever the underlying data changes, so they’re best for scenarios where real-time data is not a priority.</p>
+
+<h2 id="summary">Summary</h2>
+<p>So far, we’ve seen how we can use views and window functions to construct efficient queries in SQL, avoiding many of the common pitfalls encountered when pulling together data for a view. In Part 2 of this post, I’ll discuss how we can use this to our advantage within Rails applications. Stay tuned!</p>
+
+
+
+        </div><!-- /post -->
+
+        <div class="hire-us-form text-center">
+  <h2>Let's Work Together</h2>
+  <h3>Find out why our transparent, collaborative process is the best way to make well-loved products.</h3>
+  <a href="/work-with-us.html" class="btn btn--blue">Get in touch today</a>
+</div>
+
+
+        <div id="disqus_thread"></div>
+
+        <!-- disqus -->
+        <script type="text/javascript">
+            var disqus_shortname = 'brewhouse';
+            var disqus_url = 'http://brewhouse.io/2016/07/28/sql-in-rails.html';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        <!-- /disqus -->
+
+      </div>
+
+  </div><!-- /content-->
+
+</article>
+
+<script>
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+</script>
+
+
+    </div>
+
+    <aside class="lets-talk cover">
+  <div class="container">
+    <div class="col-md-6">
+      <p class="lede">We partner with businesses to design and develop well-loved products through a flexible and transparent process. We'd love to discuss how our process can help your idea become a reality.</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="col-md-6">
+      <a href="http://maps.apple.com/?q=210%20Carrall,+Vancouver,+Canada">#303 - 210 Carrall St, Vancouver, BC
+      V6B 2J1</a><br>
+      <a href="tel:+16047574242">+1 604-757-4242</a> &middot;
+      <a href="mailto:hello@brewhouse.io">hello@brewhouse.io</a> &middot;
+      <a href="http://twitter.com/brewhouseteam">@brewhouseteam</a>
+    </div>
+    <div class="col-md-5 col-md-offset-1">
+      <a href="/work-with-us.html" class="btn btn--footer">Hire Us</a>
+    </div>
+  </div>
+</aside>
+
+
+    <footer id="footer">
+  <div class="container">
+    <nav role="navigation" class="col-md-6">
+        <ul>
+          <li>
+            <a class="internal" href="/#work">Work</a>
+          </li>
+          <li>
+            <a class="internal" href="/meet-the-team.html">Team</a>
+          </li>
+          <li>
+            <a class="internal" href="/blog">Blog</a>
+          </li>          
+          <li>
+            <a class="internal" href="/show">Podcast</a>
+          </li>
+        </ul>
+    </nav>
+    <div class="col-md-5 col-md-push-1">
+      <p class="copyright">
+        &copy; <span class="copyright-year"></span> <a href="http://brewhouse.io">brewhouse software, inc.</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script type="text/javascript" src="/assets/app.js"></script>
+
+    <!-- needs to be refactored when we have more layouts -->
+    
+
+  </body>
+</html>

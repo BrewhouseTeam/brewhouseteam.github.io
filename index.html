@@ -122,13 +122,10 @@
 
       <div id="banner" class="page-header">
   <div class="container">
-    <div class="col-xs-12">
+    <div class="col-xs-12 col-md-10 col-md-offset-1 text-center">
       <h1 class="page-title">We ship high quality <br class="hidden-xs"> products people love.</h1>
       <p>
-        <strong><em>We believe creating digital products is a craft</em></strong>, like brewing that perfect cup of coffee from well-sourced beans. Our team is made up of designers, developers, and product managers who love the process of designing and developing products just as much as that perfect cup of coffee.
-      </p>
-      <p>
-        <strong>Here's a few we've shipped:</strong>
+        <strong><em>We believe creating digital products is a craft</em></strong>, like brewing that perfect cup of coffee from well-sourced beans. Our team is made up of designers, developers, and product managers who love the process of designing and developing products just as much as that perfect cup of coffee. <strong>Here's a few we've shipped:</strong>
       </p>
     </div>
   </div>
@@ -200,7 +197,9 @@
   <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
 
     <p>
-       <strong>Product Design &amp; Development</strong> &mdash; Our team of <a href="/meet-the-team.html">designers &amp; developers</a> work directly with product owners to ship products people love. Our collaborative, flexible process is completely transparent, allowing product owners the ability to make educated decisions around what needs to be built. <a href="/work/contour/" class="btn btn-link">Read How We Built Contour &rarr;</a>
+       <strong>Product Design Sprints</strong> &mdash; Before a single line of code is written, it's important to ensure that what's being built is what customers actually need. Product design sprints bring our respective teams into the same room to understand the problem, brainstorm &amp; sketch possible solutions, converge around one or two ideas worth validating, prototype the best ideas, and test those ideas with real customers.
+       <br>
+       <a href="/work/goodbits/" class="btn btn-link">Read How We Make Goodbits &rarr;</a>
     </p>
 
   </div>
@@ -208,7 +207,9 @@
   <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
 
     <p>
-       <strong>Product Design Sprint</strong> &mdash; Before a single line of code is written, it's important to ensure that what's being built is what customers actually need. A product design sprint brings our respective teams into the same room to understand the problem, brainstorm &amp; sketch possible solutions, converge around one or two ideas worth validating, prototype the best ideas, and test those ideas with real customers.
+       <strong>Product Design &amp; Development</strong> &mdash; Our team of <a href="/meet-the-team.html">designers &amp; developers</a> work directly with product owners to ship products people love. Our collaborative, flexible process is completely transparent, allowing product owners the ability to make educated decisions around what needs to be built. 
+       <br>
+       <a href="/work/contour/" class="btn btn-link">Read How We Built Contour &rarr;</a>
     </p>
 
   </div>
@@ -216,16 +217,8 @@
   <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
 
     <p>
-       <strong>Team Augmentation</strong> &mdash; Have a great team already but could use some reinforcements? Our team can accelerate the delivery of products and features, reducing the time it takes to reach your business's objectives. Whether you need a Javascript or Rails expert to review your code and make recommendations, or if your company could use an expert product squad to come in and help your team refine their process, our team can help.
-       <a href="/work/zozi/" class="btn btn-link">Read How We Helped Zozi &rarr;</a>
-    </p>
-
-  </div>
-
-  <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-
-    <p>
-       <strong>MVP Build</strong> &mdash; If you are looking to build an MVP (Minimum Viable Product) for your business, our product development team can assist you. Similar to our Team Augmentation, we work alongside your team, refine your scope with our Product Design Sprint and get on working to ship your final product.
+       <strong>MVP Build</strong> &mdash; If you are looking to build an MVP (Minimum Viable Product) for your business, our product development team can assist you. We work alongside your team, refine your scope with our Product Design Sprint and get on working to ship your final product.
+       <br>
        <a href="/work/retargetlinks/" class="btn btn-link">Read How We Shipped an MVP for Retarget Links &rarr;</a>
     </p>
 
@@ -242,6 +235,16 @@
 
   <ul class="list-unstyled clearfix text-center client-logos">
 
+    <li class="col-xs-6 col-sm-4 col-md-3">
+      <a href="http://mobify.com">
+        <img id="mobify-logo" src="/images/logos/mobify.png" alt="Mobify">
+      </a>
+    </li>
+    <li class="col-xs-6 col-sm-4 col-md-3">
+      <a href="http://unbounce.com">
+        <img id="unbounce-logo" src="/images/logos/unbounce.svg" alt="Unbounce">
+      </a>
+    </li>
     <li class="col-xs-6 col-sm-4 col-md-3">
       <a href="http://joincontour.com/">
         <img id="contour-logo" src="/images/logos/contour.png" alt="Contour">
@@ -337,18 +340,12 @@
 
     <div class="col-md-6">
 
-      <a href="/2016/04/12/cloudinary.html" class="post-link">
-        <span class="post-date">12 Apr 2016</span>
-        <h2 class="post-title">CarrierWave, Cloudinary and the path to Image Manipulation Enlightenment</h2>
+      <a href="/2016/08/04/sql-in-rails.html" class="post-link">
+        <span class="post-date">04 Aug 2016</span>
+        <h2 class="post-title">Advanced SQL in Rails - Part 1</h2>
       </a>
 
-      <p>Images on the web are tricky business these days. With the rise of high-density screen resolutions, there’s an increasing need to serve up a multitude of sizes and formats. Manipulation is also key: users want the ability to crop and edit their photos, even perform more advanced manipulations like colour correction and compositing.</p>
-
-<p>For some time now, <a href="http://www.imagemagick.org/script/index.php">ImageMagick</a> has been the mainstay for programmatic image manipulation. However, there’s a new neighbour on the block, and they live in the cloud.</p>
-
-<p><a href="http://cloudinary.com/">Cloudinary</a> is a SaaS product that offers storage and manipulation of images and video. Like Amazon S3 or Rackspace Cloud Files, it provides object storage for media assets. But the real magic of Cloudinary is its ability to dynamically generate and manipulate images on-the-fly.</p>
-
-<p>We’ve been playing with Cloudinary recently on a client project, and I wanted to share a couple of tips on integrating Cloudinary into a standard Rails/CarrierWave workflow, as well as some general Cloudinary tips on image manipulation.</p>
+      <p>The more I work with Rails apps, the more I love ActiveRecord. It’s a really elegant abstraction over your data layer, and lets you focus on business logic instead of crafting SQL statements. For the majority of use cases, this works great. But as apps grow in both database size and complexity, we can start to see some compelling reasons to get “closer to the metal” and work more directly with our database.</p>
 
 
 
@@ -365,9 +362,9 @@
         
 
         <li>
-          <a href="/2016/03/18/accelerate-your-react-testing-with-enzyme.html" class="post-link">
-            <span class="post-date">18 Mar 2016</span>
-            <h4 class="post-title">Accelerate your React testing with Enzyme</h4>
+          <a href="/2016/05/20/documented-json-api-image-upload.html" class="post-link">
+            <span class="post-date">20 May 2016</span>
+            <h4 class="post-title">Documented JSON-API with image upload</h4>
           </a>
         </li>
       
@@ -377,9 +374,9 @@
         
 
         <li>
-          <a href="/2016/03/15/episode-17-joe-stump.html" class="post-link">
-            <span class="post-date">15 Mar 2016</span>
-            <h4 class="post-title">Episode 17: Interview w/ Joe Stump, cofounder of Sprintly, SimpleGeo, and attachments.me</h4>
+          <a href="/2016/05/13/episode-20-the-big-dream.html" class="post-link">
+            <span class="post-date">13 May 2016</span>
+            <h4 class="post-title">Episode 20: The Big Dream</h4>
           </a>
         </li>
       
@@ -389,9 +386,9 @@
         
 
         <li>
-          <a href="/2016/03/14/callback-responsibly.html" class="post-link">
-            <span class="post-date">14 Mar 2016</span>
-            <h4 class="post-title">Callback Responsibly</h4>
+          <a href="/2016/05/12/episode-19-pricing-service-work.html" class="post-link">
+            <span class="post-date">12 May 2016</span>
+            <h4 class="post-title">Episode 19: Pricing service work</h4>
           </a>
         </li>
       
@@ -401,9 +398,9 @@
         
 
         <li>
-          <a href="/2016/03/11/new-biker-edward-chan.html" class="post-link">
-            <span class="post-date">11 Mar 2016</span>
-            <h4 class="post-title">Business Operations Gets a Boost with the Addition of Edward Chan</h4>
+          <a href="/2016/04/20/episode-18-conversational-ui.html" class="post-link">
+            <span class="post-date">20 Apr 2016</span>
+            <h4 class="post-title">Episode 18: A chat about chatbots</h4>
           </a>
         </li>
       
