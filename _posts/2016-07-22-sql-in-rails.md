@@ -2,7 +2,7 @@
 layout: post
 title: "Advanced SQL in Rails - Part 1"
 author: alex
-date: 2016-07-28 11:00
+date: 2016-08-04 13:00
 shared_description: Turbocharge your Rails workflow by taking advantage of advanced SQL, right from within Rails.
 draft: false
 published: true
