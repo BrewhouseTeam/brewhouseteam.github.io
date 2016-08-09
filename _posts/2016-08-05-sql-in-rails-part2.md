@@ -7,7 +7,7 @@ shared_description: Turbocharge your Rails workflow by taking advantage of advan
 draft: false
 published: true
 ---
-Welcome back, dear readers! In Part 1(LINK!!!), we did a quick overview of SQL's window functions and views. Now, we're going to see how we can use those features from right within Rails.
+Welcome back, dear readers! In [Part 1](http://brewhouse.io/2016/08/04/sql-in-rails.html), we did a quick overview of SQL's window functions and views. Now, we're going to see how we can use those features from right within Rails.
 
 <!-- break -->
 
