@@ -13,7 +13,7 @@ The more I work with Rails apps, the more I love ActiveRecord. It’s a really e
 
 It’s no secret that databases are fast. For complex aggregate functions that involve processing data from thousands or hundreds of thousands of rows, databases can easily outperform any implementation in Ruby. ActiveRecord gives us some power here, too (shout-out to `.sum` and `.group`!). But what if we wanted to go further?
 
-In part 1 of this post, I’m going to cover two powerful features common to most relational databases today: window functions and views. In part 2, I'll discuss how you can leverage their power from right within Rails. I’m using Postgres, but the examples I show should work in your RDBMS of choice (with a few tweaks to syntax here and there).
+In part 1 of this post, I’m going to cover two powerful features common to most relational databases today: window functions and views. In [part 2](http://brewhouse.io/2016/08/12/sql-in-rails-part2.html), I'll discuss how you can leverage their power from right within Rails. I’m using Postgres, but the examples I show should work in your RDBMS of choice (with a few tweaks to syntax here and there).
 
 ## Window Functions
 Your average (ha!) aggregate function returns just that: an aggregated result. As a simple example, let’s say I wanted to get the balance of a bank account by summing all of the transactions:
@@ -128,5 +128,6 @@ Note that using a view in this way is analogous to creating a method; when you c
 Many databases, including Postgres, have another type of view, called a materialized view. Materialized views will actually persist the results from the query as if it were a table. Because of this, however, they need to be refreshed whenever the underlying data changes, so they’re best for scenarios where real-time data is not a priority.
 
 ## Summary
-So far, we've seen how we can use views and window functions to construct efficient queries in SQL, avoiding many of the common pitfalls encountered when pulling together data for a view. In Part 2 of this post, I'll discuss how we can use this to our advantage within Rails applications. Stay tuned!
+So far, we've seen how we can use views and window functions to construct efficient queries in SQL, avoiding many of the common pitfalls encountered when pulling together data for a view. In [Part 2](http://brewhouse.io/2016/08/12/sql-in-rails-part2.html) of this post, I'll discuss how we can use this to our advantage within Rails applications. Stay tuned!
 
+*Update 2016/08/12*: [Advanced SQL in Rails - Part 2](http://brewhouse.io/2016/08/12/sql-in-rails-part2.html) is up on the blog. Head over and check it out!
