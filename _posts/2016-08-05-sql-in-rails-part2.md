@@ -2,12 +2,12 @@
 layout: post
 title: "Advanced SQL in Rails - Part 2"
 author: alex
-date: 2016-07-28 11:00
+date: 2016-08-12 09:00
 shared_description: Turbocharge your Rails workflow by taking advantage of advanced SQL, right from within Rails.
 draft: false
 published: true
 ---
-Welcome back, dear readers! In [Part 1](http://brewhouse.io/2016/08/04/sql-in-rails.html), we did a quick overview of SQL's window functions and views. Now, we're going to see how we can use those features from right within Rails.
+Welcome back, dear readers! In [part 1 of this post](http://brewhouse.io/2016/08/04/sql-in-rails.html), we did a quick overview of SQL's window functions and views. Now, we're going to see how we can use those features from right within Rails.
 
 <!-- break -->
 
@@ -259,3 +259,5 @@ That's quite the query, isn't it? Bet you're glad you didn't have to worry about
 When the size and complexity of your data begins to outgrow ActiveRecord, you don't need to [throw away all your Rails magic](http://giphy.com/gifs/harry-potter-hp-hagrid-2gGEWrIGVioP6) just to get the results you need. With the right workflow, higher-level SQL features can integrate nicely with any Rails app. Your data will thank you!
 
 Are you going to try out views and window functions on your next project? Are you working with them in your Rails app already? Drop me a line in the comments!
+
+Related: [Advanced SQL in Rails - Part 1](http://brewhouse.io/2016/08/04/sql-in-rails.html)
