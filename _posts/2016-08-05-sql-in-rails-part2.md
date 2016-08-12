@@ -27,8 +27,8 @@ end
 class Vote < ApplicationRecord
   belongs_to :gif
 
-  scope :upvotes,   ->() { where(value:  1) }
-  scope :downvotes, ->() { where(value: -1) }
+  scope :upvotes,   -> { where(value:  1) }
+  scope :downvotes, -> { where(value: -1) }
 end
 {% endhighlight %}
 
@@ -71,10 +71,11 @@ Instead, let's make a view! We'll start by loading up our database console using
 
 {% highlight sql %}
 SELECT row_number() OVER () AS id,
-total_votes.*,
+total_votes.gif_id,
+total_votes.score,
 rank() OVER (ORDER BY total_votes.score DESC) AS rank
 FROM (
-  SELECT gif_id, sum(value) AS SCORE
+  SELECT gif_id, sum(value) AS score
   FROM votes GROUP BY gif_id
 ) AS total_votes;
 {% endhighlight %}
@@ -93,7 +94,7 @@ This is a pretty complex query, so let's break it down.
 First, we need to calculate the score for each GIF. We can get this from the votes table with a basic aggregate function:
 
 {% highlight ruby %}
-SELECT gif_id, sum(value) AS SCORE
+SELECT gif_id, sum(value) AS score
 FROM votes GROUP BY gif_id;
 {% endhighlight %}
 
@@ -111,7 +112,7 @@ Next, we want to take this result set and calculate a rank for each row, based o
 {% highlight sql %}
 SELECT ...
 FROM (
-  SELECT gif_id, sum(value) AS SCORE
+  SELECT gif_id, sum(value) AS score
   FROM votes GROUP BY gif_id
 ) AS total_votes;
 {% endhighlight %}
@@ -122,7 +123,7 @@ We can use the `rank()` function to calculate the ranking for each row. Fun fact
 SELECT ...,
 rank() OVER (ORDER BY total_votes.score DESC) AS rank
 FROM (
-  SELECT gif_id, sum(value) AS SCORE
+  SELECT gif_id, sum(value) AS score
   FROM votes GROUP BY gif_id
 ) AS total_votes;
 {% endhighlight %}
@@ -133,10 +134,11 @@ Along with the 'rank' column, we also want to return the other columns from 'tot
 
 {% highlight sql %}
 SELECT row_number() OVER () AS id,
-total_votes.*,
+total_votes.gif_id,
+total_votes.score,
 rank() OVER (ORDER BY total_votes.score DESC) AS rank
 FROM (
-  SELECT gif_id, sum(value) AS SCORE
+  SELECT gif_id, sum(value) AS score
   FROM votes GROUP BY gif_id
 ) AS total_votes;
 {% endhighlight %}
@@ -154,7 +156,7 @@ class CreateRankingsView < ActiveRecord::Migration[5.0]
         total_votes.*,
         rank() OVER (ORDER BY total_votes.score DESC) AS rank
         FROM (
-          SELECT gif_id, sum(value) AS SCORE
+          SELECT gif_id, sum(value) AS score
           FROM votes GROUP BY gif_id
         ) AS total_votes
       )
@@ -197,10 +199,9 @@ class Gif < ApplicationRecord
   has_many :upvotes,   -> { upvotes   }, class_name: "Vote"
   has_many :downvotes, -> { downvotes }, class_name: "Vote"
 
-  scope :with_votes,    ->() { includes(:upvotes, :downvotes) }
-  scope :with_rankings, ->() { includes(:ranking) }
-  scope :order_by_id,   ->() { order(:id) }
-  scope :order_by_rank, ->() { joins(:ranking).order('rankings.rank').order_by_id }
+  scope :with_votes,    -> { includes(:upvotes, :downvotes) }
+  scope :with_rankings, -> { includes(:ranking) }
+  scope :order_by_rank, -> { joins(:ranking).order('rankings.rank', 'rankings.id') }
 
   delegate :rank, to: :ranking
 
@@ -227,10 +228,12 @@ end
 class Vote < ApplicationRecord
   belongs_to :gif
 
-  scope :upvotes,   ->() { where(value:  1) }
-  scope :downvotes, ->() { where(value: -1) }
+  scope :upvotes,   -> { where(value:  1) }
+  scope :downvotes, -> { where(value: -1) }
 end
 {% endhighlight %}
+
+(One thing to note about our `order_by_rank` scope: we're explicitly ordering by `rank` and `id` in order to guarantee a consistent sort order, since our `rank()` function will assign the same rank to GIFs with equal scores. Sorting by `id` ensures that features like pagination will continue to work predictably. If you want to nerd out more on rank functions, check out [this article](https://oracle-base.com/articles/misc/rank-dense-rank-first-last-analytic-functions).)
 
 Back in ActiveRecord land, we can harness the power of scopes and associations to construct an efficient database query, with all the data we need, up front:
 
