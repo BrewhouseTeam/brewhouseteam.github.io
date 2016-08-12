@@ -3,7 +3,7 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2016-08-12T10:49:06-07:00</updated>
+    <updated>2016-08-12T10:53:53-07:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
@@ -266,7 +266,7 @@
 
 &lt;p&gt;It’s no secret that databases are fast. For complex aggregate functions that involve processing data from thousands or hundreds of thousands of rows, databases can easily outperform any implementation in Ruby. ActiveRecord gives us some power here, too (shout-out to &lt;code&gt;.sum&lt;/code&gt; and &lt;code&gt;.group&lt;/code&gt;!). But what if we wanted to go further?&lt;/p&gt;
 
-&lt;p&gt;In part 1 of this post, I’m going to cover two powerful features common to most relational databases today: window functions and views. In part 2, I’ll discuss how you can leverage their power from right within Rails. I’m using Postgres, but the examples I show should work in your RDBMS of choice (with a few tweaks to syntax here and there).&lt;/p&gt;
+&lt;p&gt;In part 1 of this post, I’m going to cover two powerful features common to most relational databases today: window functions and views. In &lt;a href=&quot;http://brewhouse.io/2016/08/12/sql-in-rails-part2.html&quot;&gt;part 2&lt;/a&gt;, I’ll discuss how you can leverage their power from right within Rails. I’m using Postgres, but the examples I show should work in your RDBMS of choice (with a few tweaks to syntax here and there).&lt;/p&gt;
 
 &lt;h2 id=&quot;window-functions&quot;&gt;Window Functions&lt;/h2&gt;
 &lt;p&gt;Your average (ha!) aggregate function returns just that: an aggregated result. As a simple example, let’s say I wanted to get the balance of a bank account by summing all of the transactions:&lt;/p&gt;
@@ -369,8 +369,9 @@
 &lt;p&gt;Many databases, including Postgres, have another type of view, called a materialized view. Materialized views will actually persist the results from the query as if it were a table. Because of this, however, they need to be refreshed whenever the underlying data changes, so they’re best for scenarios where real-time data is not a priority.&lt;/p&gt;
 
 &lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
-&lt;p&gt;So far, we’ve seen how we can use views and window functions to construct efficient queries in SQL, avoiding many of the common pitfalls encountered when pulling together data for a view. In Part 2 of this post, I’ll discuss how we can use this to our advantage within Rails applications. Stay tuned!&lt;/p&gt;
+&lt;p&gt;So far, we’ve seen how we can use views and window functions to construct efficient queries in SQL, avoiding many of the common pitfalls encountered when pulling together data for a view. In &lt;a href=&quot;http://brewhouse.io/2016/08/12/sql-in-rails-part2.html&quot;&gt;Part 2&lt;/a&gt; of this post, I’ll discuss how we can use this to our advantage within Rails applications. Stay tuned!&lt;/p&gt;
 
+&lt;p&gt;&lt;em&gt;Update 2016/08/12&lt;/em&gt;: &lt;a href=&quot;http://brewhouse.io/2016/08/12/sql-in-rails-part2.html&quot;&gt;Advanced SQL in Rails - Part 2&lt;/a&gt; is up on the blog. Head over and check it out!&lt;/p&gt;
 </content>
 
             
