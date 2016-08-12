@@ -6,8 +6,8 @@
     <title>The Brewhouse Show</title>
     <description>The Brewhouse Show is about designing and developing products people love.</description>
     <link>http://brewhouse.io/</link>
-    <lastBuildDate>Thu, 04 Aug 2016 13:48:20 -0700</lastBuildDate>
-    <pubDate>Thu, 04 Aug 2016 13:48:20 -0700</pubDate>
+    <lastBuildDate>Fri, 12 Aug 2016 10:49:06 -0700</lastBuildDate>
+    <pubDate>Fri, 12 Aug 2016 10:49:06 -0700</pubDate>
     <language>en-us</language>
 
     <itunes:author>Brewhouse Software, Inc.</itunes:author>
@@ -26,6 +26,8 @@
     <itunes:category text="Technology">
     </itunes:category>
 
+    
+      
     
       
     
@@ -333,8 +335,6 @@
               <itunes:keywords>brewhouse, software, product, products, design, development, ruby, rails</itunes:keywords>
           </item>
         
-      
-    
       
     
       

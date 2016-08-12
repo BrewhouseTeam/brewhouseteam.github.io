@@ -15,20 +15,20 @@
     <title>Advanced SQL in Rails - Part 2</title>
     <meta property="og:title" content="Advanced SQL in Rails - Part 2">
     <meta property="og:site_name" content="brewhouse">
-    <meta property="og:url" content="http://brewhouse.io/2016/07/28/sql-in-rails-part2.html">
+    <meta property="og:url" content="http://brewhouse.io/2016/08/12/sql-in-rails-part2.html">
 
     <meta property="og:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png">
 
     <meta property="twitter:card" content="summary" />
     <meta property="twitter:site" content="@brewhouseteam" />
     <meta property="twitter:image" content="http://brewhouse.io/images/brewhouse-symbol-large-200x200.png">
-    <meta property="twitter:url" content="http://brewhouse.io/2016/07/28/sql-in-rails-part2.html">
+    <meta property="twitter:url" content="http://brewhouse.io/2016/08/12/sql-in-rails-part2.html">
 
     <link rel="alternate" type="application/atom+xml" href="/blog/index.xml" title="The Brew Pub atom feed">
 
     
       <meta property="og:type" content="article">
-      <meta property="article:published_time" content="2016-07-28 11:00:00 -0800">
+      <meta property="article:published_time" content="2016-08-12 09:00:00 -0800">
       <meta property="article:tag" content="Alex Taylor">
 
       <meta property="twitter:title" content="Advanced SQL in Rails - Part 2">
@@ -151,11 +151,11 @@
             <div class="author">
               <img class="img-circle img-author" src="//www.gravatar.com/avatar/da0b02303090f0ded442767e58a98626?s=135" alt="A photo of Alex Taylor" width="55">
 
-              <a href="http://twitter.com/mctaylorpants" target="_blank">Alex Taylor</a> 28 Jul 2016
+              <a href="http://twitter.com/mctaylorpants" target="_blank">Alex Taylor</a> 12 Aug 2016
             </div>
           
           <div class="social-actions">
-            <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io/2016/07/28/sql-in-rails-part2.html" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="">Tweet</a>
+            <a href="https://twitter.com/share?via=BrewhouseTeam" class="twitter-share-button" data-lang="en" data-url="http://brewhouse.io/2016/08/12/sql-in-rails-part2.html" data-related="chancancode,kalv,pcreux,chuckbergeron" data-counturl="">Tweet</a>
           </div>
         </div>
       </div>
@@ -168,7 +168,7 @@
 
         <div class="post clearfix">
 
-          <p>Welcome back, dear readers! In <a href="http://brewhouse.io/2016/08/04/sql-in-rails.html">Part 1</a>, we did a quick overview of SQL’s window functions and views. Now, we’re going to see how we can use those features from right within Rails.</p>
+          <p>Welcome back, dear readers! In <a href="http://brewhouse.io/2016/08/04/sql-in-rails.html">part 1 of this post</a>, we did a quick overview of SQL’s window functions and views. Now, we’re going to see how we can use those features from right within Rails.</p>
 
 <!-- break -->
 
@@ -185,8 +185,8 @@
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Vote</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">belongs_to</span> <span class="ss">:gif</span>
 
-  <span class="n">scope</span> <span class="ss">:upvotes</span><span class="p">,</span>   <span class="o">-&gt;</span><span class="p">()</span> <span class="p">{</span> <span class="n">where</span><span class="p">(</span><span class="ss">value</span><span class="p">:</span>  <span class="mi">1</span><span class="p">)</span> <span class="p">}</span>
-  <span class="n">scope</span> <span class="ss">:downvotes</span><span class="p">,</span> <span class="o">-&gt;</span><span class="p">()</span> <span class="p">{</span> <span class="n">where</span><span class="p">(</span><span class="ss">value</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">}</span>
+  <span class="n">scope</span> <span class="ss">:upvotes</span><span class="p">,</span>   <span class="o">-&gt;</span> <span class="p">{</span> <span class="n">where</span><span class="p">(</span><span class="ss">value</span><span class="p">:</span>  <span class="mi">1</span><span class="p">)</span> <span class="p">}</span>
+  <span class="n">scope</span> <span class="ss">:downvotes</span><span class="p">,</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="n">where</span><span class="p">(</span><span class="ss">value</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">}</span>
 <span class="k">end</span></code></pre></figure>
 
 <p>With these simple models (and a <a href="http://giphy.com/gifs/season-11-the-simpsons-11x22-l2JdWch9V8wsn4mAw">couple</a> <a href="http://giphy.com/gifs/hackers-hacking-FnGJfc18tDDHy">of</a> <a href="http://giphy.com/gifs/tim-and-eric-mind-blown-EldfH1VJdbrwY">fun</a> <a href="http://giphy.com/gifs/missiles-wargames-diBYl6TWc6pTW">GIFs</a>), we can issue queries like:</p>
@@ -221,10 +221,11 @@
 <p>Instead, let’s make a view! We’ll start by loading up our database console using <code>rails db</code> and figure out how we can construct an SQL query that gives us the data we need. Remember, we’re looking for the score of each GIF, as well as its rank relative to all the GIFs in the system.</p>
 
 <figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">row_number</span><span class="p">()</span> <span class="n">OVER</span> <span class="p">()</span> <span class="k">AS</span> <span class="n">id</span><span class="p">,</span>
-<span class="n">total_votes</span><span class="p">.</span><span class="o">*</span><span class="p">,</span>
+<span class="n">total_votes</span><span class="p">.</span><span class="n">gif_id</span><span class="p">,</span>
+<span class="n">total_votes</span><span class="p">.</span><span class="n">score</span><span class="p">,</span>
 <span class="n">rank</span><span class="p">()</span> <span class="n">OVER</span> <span class="p">(</span><span class="k">ORDER</span> <span class="k">BY</span> <span class="n">total_votes</span><span class="p">.</span><span class="n">score</span> <span class="k">DESC</span><span class="p">)</span> <span class="k">AS</span> <span class="n">rank</span>
 <span class="k">FROM</span> <span class="p">(</span>
-  <span class="k">SELECT</span> <span class="n">gif_id</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">AS</span> <span class="n">SCORE</span>
+  <span class="k">SELECT</span> <span class="n">gif_id</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">AS</span> <span class="n">score</span>
   <span class="k">FROM</span> <span class="n">votes</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">gif_id</span>
 <span class="p">)</span> <span class="k">AS</span> <span class="n">total_votes</span><span class="p">;</span></code></pre></figure>
 
@@ -239,7 +240,7 @@
 
 <p>First, we need to calculate the score for each GIF. We can get this from the votes table with a basic aggregate function:</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">SELECT</span> <span class="n">gif_id</span><span class="p">,</span> <span class="n">sum</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="no">AS</span> <span class="no">SCORE</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">SELECT</span> <span class="n">gif_id</span><span class="p">,</span> <span class="n">sum</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="no">AS</span> <span class="n">score</span>
 <span class="no">FROM</span> <span class="n">votes</span> <span class="no">GROUP</span> <span class="no">BY</span> <span class="n">gif_id</span><span class="p">;</span></code></pre></figure>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"> <span class="n">gif_id</span> <span class="o">|</span> <span class="n">score</span>
@@ -253,7 +254,7 @@
 
 <figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="p">...</span>
 <span class="k">FROM</span> <span class="p">(</span>
-  <span class="k">SELECT</span> <span class="n">gif_id</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">AS</span> <span class="n">SCORE</span>
+  <span class="k">SELECT</span> <span class="n">gif_id</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">AS</span> <span class="n">score</span>
   <span class="k">FROM</span> <span class="n">votes</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">gif_id</span>
 <span class="p">)</span> <span class="k">AS</span> <span class="n">total_votes</span><span class="p">;</span></code></pre></figure>
 
@@ -262,7 +263,7 @@
 <figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="p">...,</span>
 <span class="n">rank</span><span class="p">()</span> <span class="n">OVER</span> <span class="p">(</span><span class="k">ORDER</span> <span class="k">BY</span> <span class="n">total_votes</span><span class="p">.</span><span class="n">score</span> <span class="k">DESC</span><span class="p">)</span> <span class="k">AS</span> <span class="n">rank</span>
 <span class="k">FROM</span> <span class="p">(</span>
-  <span class="k">SELECT</span> <span class="n">gif_id</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">AS</span> <span class="n">SCORE</span>
+  <span class="k">SELECT</span> <span class="n">gif_id</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">AS</span> <span class="n">score</span>
   <span class="k">FROM</span> <span class="n">votes</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">gif_id</span>
 <span class="p">)</span> <span class="k">AS</span> <span class="n">total_votes</span><span class="p">;</span></code></pre></figure>
 
@@ -271,10 +272,11 @@
 <p>Along with the ‘rank’ column, we also want to return the other columns from ‘total_votes’. While we’re at it, we should add an ‘id’ field so that our view feels like a real table:</p>
 
 <figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">row_number</span><span class="p">()</span> <span class="n">OVER</span> <span class="p">()</span> <span class="k">AS</span> <span class="n">id</span><span class="p">,</span>
-<span class="n">total_votes</span><span class="p">.</span><span class="o">*</span><span class="p">,</span>
+<span class="n">total_votes</span><span class="p">.</span><span class="n">gif_id</span><span class="p">,</span>
+<span class="n">total_votes</span><span class="p">.</span><span class="n">score</span><span class="p">,</span>
 <span class="n">rank</span><span class="p">()</span> <span class="n">OVER</span> <span class="p">(</span><span class="k">ORDER</span> <span class="k">BY</span> <span class="n">total_votes</span><span class="p">.</span><span class="n">score</span> <span class="k">DESC</span><span class="p">)</span> <span class="k">AS</span> <span class="n">rank</span>
 <span class="k">FROM</span> <span class="p">(</span>
-  <span class="k">SELECT</span> <span class="n">gif_id</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">AS</span> <span class="n">SCORE</span>
+  <span class="k">SELECT</span> <span class="n">gif_id</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">AS</span> <span class="n">score</span>
   <span class="k">FROM</span> <span class="n">votes</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">gif_id</span>
 <span class="p">)</span> <span class="k">AS</span> <span class="n">total_votes</span><span class="p">;</span></code></pre></figure>
 
@@ -290,7 +292,7 @@
 <span class="sh">        total_votes.*,</span>
 <span class="sh">        rank() OVER (ORDER BY total_votes.score DESC) AS rank</span>
 <span class="sh">        FROM (</span>
-<span class="sh">          SELECT gif_id, sum(value) AS SCORE</span>
+<span class="sh">          SELECT gif_id, sum(value) AS score</span>
 <span class="sh">          FROM votes GROUP BY gif_id</span>
 <span class="sh">        ) AS total_votes</span>
 <span class="sh">      )</span>
@@ -334,10 +336,9 @@
   <span class="n">has_many</span> <span class="ss">:upvotes</span><span class="p">,</span>   <span class="o">-&gt;</span> <span class="p">{</span> <span class="n">upvotes</span>   <span class="p">},</span> <span class="ss">class_name</span><span class="p">:</span> <span class="s2">&quot;Vote&quot;</span>
   <span class="n">has_many</span> <span class="ss">:downvotes</span><span class="p">,</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="n">downvotes</span> <span class="p">},</span> <span class="ss">class_name</span><span class="p">:</span> <span class="s2">&quot;Vote&quot;</span>
 
-  <span class="n">scope</span> <span class="ss">:with_votes</span><span class="p">,</span>    <span class="o">-&gt;</span><span class="p">()</span> <span class="p">{</span> <span class="n">includes</span><span class="p">(</span><span class="ss">:upvotes</span><span class="p">,</span> <span class="ss">:downvotes</span><span class="p">)</span> <span class="p">}</span>
-  <span class="n">scope</span> <span class="ss">:with_rankings</span><span class="p">,</span> <span class="o">-&gt;</span><span class="p">()</span> <span class="p">{</span> <span class="n">includes</span><span class="p">(</span><span class="ss">:ranking</span><span class="p">)</span> <span class="p">}</span>
-  <span class="n">scope</span> <span class="ss">:order_by_id</span><span class="p">,</span>   <span class="o">-&gt;</span><span class="p">()</span> <span class="p">{</span> <span class="n">order</span><span class="p">(</span><span class="ss">:id</span><span class="p">)</span> <span class="p">}</span>
-  <span class="n">scope</span> <span class="ss">:order_by_rank</span><span class="p">,</span> <span class="o">-&gt;</span><span class="p">()</span> <span class="p">{</span> <span class="n">joins</span><span class="p">(</span><span class="ss">:ranking</span><span class="p">)</span><span class="o">.</span><span class="n">order</span><span class="p">(</span><span class="s1">&#39;rankings.rank&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">order_by_id</span> <span class="p">}</span>
+  <span class="n">scope</span> <span class="ss">:with_votes</span><span class="p">,</span>    <span class="o">-&gt;</span> <span class="p">{</span> <span class="n">includes</span><span class="p">(</span><span class="ss">:upvotes</span><span class="p">,</span> <span class="ss">:downvotes</span><span class="p">)</span> <span class="p">}</span>
+  <span class="n">scope</span> <span class="ss">:with_rankings</span><span class="p">,</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="n">includes</span><span class="p">(</span><span class="ss">:ranking</span><span class="p">)</span> <span class="p">}</span>
+  <span class="n">scope</span> <span class="ss">:order_by_rank</span><span class="p">,</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="n">joins</span><span class="p">(</span><span class="ss">:ranking</span><span class="p">)</span><span class="o">.</span><span class="n">order</span><span class="p">(</span><span class="s1">&#39;rankings.rank&#39;</span><span class="p">,</span> <span class="s1">&#39;rankings.id&#39;</span><span class="p">)</span> <span class="p">}</span>
 
   <span class="n">delegate</span> <span class="ss">:rank</span><span class="p">,</span> <span class="ss">to</span><span class="p">:</span> <span class="ss">:ranking</span>
 
@@ -359,9 +360,11 @@
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Vote</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="n">belongs_to</span> <span class="ss">:gif</span>
 
-  <span class="n">scope</span> <span class="ss">:upvotes</span><span class="p">,</span>   <span class="o">-&gt;</span><span class="p">()</span> <span class="p">{</span> <span class="n">where</span><span class="p">(</span><span class="ss">value</span><span class="p">:</span>  <span class="mi">1</span><span class="p">)</span> <span class="p">}</span>
-  <span class="n">scope</span> <span class="ss">:downvotes</span><span class="p">,</span> <span class="o">-&gt;</span><span class="p">()</span> <span class="p">{</span> <span class="n">where</span><span class="p">(</span><span class="ss">value</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">}</span>
+  <span class="n">scope</span> <span class="ss">:upvotes</span><span class="p">,</span>   <span class="o">-&gt;</span> <span class="p">{</span> <span class="n">where</span><span class="p">(</span><span class="ss">value</span><span class="p">:</span>  <span class="mi">1</span><span class="p">)</span> <span class="p">}</span>
+  <span class="n">scope</span> <span class="ss">:downvotes</span><span class="p">,</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="n">where</span><span class="p">(</span><span class="ss">value</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">}</span>
 <span class="k">end</span></code></pre></figure>
+
+<p>(One thing to note about our <code>order_by_rank</code> scope: we’re explicitly ordering by <code>rank</code> and <code>id</code> in order to guarantee a consistent sort order, since our <code>rank()</code> function will assign the same rank to GIFs with equal scores. Sorting by <code>id</code> ensures that features like pagination will continue to work predictably. If you want to nerd out more on rank functions, check out <a href="https://oracle-base.com/articles/misc/rank-dense-rank-first-last-analytic-functions">this article</a>.)</p>
 
 <p>Back in ActiveRecord land, we can harness the power of scopes and associations to construct an efficient database query, with all the data we need, up front:</p>
 
@@ -386,6 +389,8 @@
 
 <p>Are you going to try out views and window functions on your next project? Are you working with them in your Rails app already? Drop me a line in the comments!</p>
 
+<p>Related: <a href="http://brewhouse.io/2016/08/04/sql-in-rails.html">Advanced SQL in Rails - Part 1</a></p>
+
 
         </div><!-- /post -->
 
@@ -401,7 +406,7 @@
         <!-- disqus -->
         <script type="text/javascript">
             var disqus_shortname = 'brewhouse';
-            var disqus_url = 'http://brewhouse.io/2016/07/28/sql-in-rails-part2.html';
+            var disqus_url = 'http://brewhouse.io/2016/08/12/sql-in-rails-part2.html';
 
             (function() {
                 var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
