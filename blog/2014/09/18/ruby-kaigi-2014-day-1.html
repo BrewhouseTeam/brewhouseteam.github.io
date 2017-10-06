@@ -115,7 +115,6 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <a class="internal btn navbar-btn navbar-right btn--header" href="/work-with-us.html">Hire Us</a>
           <ul id="navbar-links" class="nav navbar-nav navbar-right">
-            <li><a href="/meet-the-team.html">Team</a></li>
             <li><a href="/blog">Blog</a></li>
             <li><a href="/show">Podcast</a></li>
           </ul>
@@ -350,9 +349,8 @@ exploited by malicious users and cause DOS attacks.</p>
 <p>Web applications written in Ruby (e.g. Rails applications) happens to fit this
 description perfectly. For example, the following piece of pseudo-code is bad:</p>
 
-<p><code>
-value = store.fetch(params[:key].to_sym)
-</code></p>
+<pre><code>value = store.fetch(params[:key].to_sym)
+</code></pre>
 
 <p>As you can see, a user supplied string is being converted into a symbol (a
 dynamic symbol allocation). This is problematic, because an attack could send
@@ -377,9 +375,8 @@ becomes immortal symbols. Because they are marked as “uncollectable”, their
 memory address becomes their IDs and hence they can be used in C code. For
 example, consider this piece of code:</p>
 
-<p><code>
-define_method(method_name.to_sym) { ... }
-</code></p>
+<pre><code>define_method(method_name.to_sym) { ... }
+</code></pre>
 
 <p>Here, the runtime first allocates a mortal symbol (from <code>method_name.to_sym</code>)
 that can be garbage collected. As it is passed into <code>define_method</code>, however,

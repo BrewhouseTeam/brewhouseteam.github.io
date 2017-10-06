@@ -3,7 +3,7 @@
     <title>The Brew Pub</title>
     <link href="http://brewhouse.io/index.xml" rel="self"/>
     <link href="http://brewhouse.io"/>
-    <updated>2016-11-08T08:13:10-08:00</updated>
+    <updated>2017-10-06T10:57:44-07:00</updated>
     <id>http://brewhouse.io</id>
     <author>
         <name>Brewhouse Team</name>
@@ -1007,7 +1007,7 @@ to automagically map api data to models.&lt;/p&gt;
 
 &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;It’s also worth noting that the event argument can be &lt;em&gt;anything you want&lt;/em&gt;. Unlike ReactTestUtils, you’re not limited to &lt;a href=&quot;https://facebook.github.io/react/docs/events.html#supported-events&quot;&gt;only events that React understands&lt;/a&gt;. Following convention, you could call &lt;code&gt;wrapper.simulate(&#39;donut&#39;)&lt;/code&gt; and Enzyme would simply look for an &lt;code&gt;onDonut&lt;/code&gt; event handler. Pretty neat.&lt;/p&gt;
+&lt;p&gt;It’s also worth noting that the event argument can be &lt;em&gt;anything you want&lt;/em&gt;. Unlike ReactTestUtils, you’re not limited to &lt;a href=&quot;https://facebook.github.io/react/docs/events.html#supported-events&quot;&gt;only events that React understands&lt;/a&gt;. Following convention, you could call &lt;code&gt;wrapper.simulate('donut')&lt;/code&gt; and Enzyme would simply look for an &lt;code&gt;onDonut&lt;/code&gt; event handler. Pretty neat.&lt;/p&gt;
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;Enzyme is an elegant and powerful way of testing your React applications. It can significantly increase the brevity of your tests thanks to its selector engine, and its approach to event simulation is quite promising. It also plays nicely with most test suites and assertion libraries out there, so you probably don’t need to change your workflow to start using it today.&lt;/p&gt;
@@ -1224,7 +1224,7 @@ Equally, without a final co-op term in “corporate development” at BlackBerry
 
 &lt;p&gt;For Brewhouse to be a leading product development firm we need to seek the best possible clients and partnerships. Edward’s background and expertise brings a number of strategies and insight to make this a reality at Brewhouse. We’re excited to have him represent us by talking to our existing and new clients. He has a great professional, humble and honest attitude which aligns great with how we operate.&lt;/p&gt;
 
-&lt;p&gt;And, as you can see, Edward likes to talk. Feel free to &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#101;&amp;#100;&amp;#119;&amp;#097;&amp;#114;&amp;#100;&amp;#064;&amp;#098;&amp;#114;&amp;#101;&amp;#119;&amp;#104;&amp;#111;&amp;#117;&amp;#115;&amp;#101;&amp;#046;&amp;#105;&amp;#111;&quot;&gt;ping him&lt;/a&gt; if you’d like to chat business.&lt;/p&gt;
+&lt;p&gt;And, as you can see, Edward likes to talk. Feel free to &lt;a href=&quot;mailto:edward@brewhouse.io&quot;&gt;ping him&lt;/a&gt; if you’d like to chat business.&lt;/p&gt;
 </content>
 
             
@@ -1252,7 +1252,7 @@ to nail down I tell myself: “They (the developers) were just a couple of keyst
 
 &lt;h2 id=&quot;use-hashfetch-to-catch-malformed-hash&quot;&gt;Use &lt;code&gt;Hash#fetch&lt;/code&gt; to catch malformed hash&lt;/h2&gt;
 
-&lt;p&gt;&lt;code&gt;unexpected method &#39;upcase&#39; for nil&lt;/code&gt;… Whenever you expect a Hash to contain a key, prefer &lt;code&gt;fetch()&lt;/code&gt; over
+&lt;p&gt;&lt;code&gt;unexpected method 'upcase' for nil&lt;/code&gt;… Whenever you expect a Hash to contain a key, prefer &lt;code&gt;fetch()&lt;/code&gt; over
 &lt;code&gt;[]&lt;/code&gt;. &lt;code&gt;fetch()&lt;/code&gt; will raise an error when the key is missing so you won’t
 pass &lt;code&gt;nil&lt;/code&gt; values around and see unrelated errors happening down the
 line.&lt;/p&gt;
@@ -1321,7 +1321,7 @@ associations from being created?&lt;/p&gt;
 &lt;p&gt;The database will throw an error if you attempt to persist a duplicate
 record.&lt;/p&gt;
 
-&lt;h3 id=&quot;foreignkey&quot;&gt;&lt;code&gt;foreign_key&lt;/code&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;foreign_key&quot;&gt;&lt;code&gt;foreign_key&lt;/code&gt;&lt;/h3&gt;
 
 &lt;p&gt;You don’t want orphan records in your database, do you?&lt;/p&gt;
 
@@ -1559,7 +1559,7 @@ integration tests&lt;/li&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;et-voil-a-great-rails-app-with-solid-foundations&quot;&gt;Et voilà! A great Rails app with solid foundations!&lt;/h2&gt;
+&lt;h2 id=&quot;et-voilà-a-great-rails-app-with-solid-foundations&quot;&gt;Et voilà! A great Rails app with solid foundations!&lt;/h2&gt;
 
 &lt;p&gt;We hope you’ll find
 &lt;a href=&quot;https://github.com/BrewhouseTeam/brewhouse-rails-template&quot;&gt;brewhouse-rails-template&lt;/a&gt;
@@ -1875,7 +1875,7 @@ to be a solid starting point for your next rails app.&lt;/p&gt;
               &lt;p&gt;We were fortunate to work with 15 lovely clients in 2015 and we look forward to &lt;a href=&quot;/work-with-us.html&quot;&gt;speaking with you&lt;/a&gt; in 2016 about future product development.&lt;/p&gt;
 
               &lt;div class=&quot;social-actions&quot;&gt;
-                &lt;a href=&quot;https://twitter.com/share?via=BrewhouseTeam&quot; class=&quot;twitter-share-button&quot; data-lang=&quot;en&quot; data-url=&quot;http://brewhouse.io/blog/2016/01/06/brewhouse-2015-by-the-numbers.html&quot; data-related=&quot;chancancode,kalv,pcreux,chuckbergeron&quot; data-counturl=&quot;&quot; data-text=&quot;Brewhouse worked with 15 lovely clients in 2015, maybe you&#39;re the next, get in touch with them&quot;&gt;Tweet&lt;/a&gt;
+                &lt;a href=&quot;https://twitter.com/share?via=BrewhouseTeam&quot; class=&quot;twitter-share-button&quot; data-lang=&quot;en&quot; data-url=&quot;http://brewhouse.io/blog/2016/01/06/brewhouse-2015-by-the-numbers.html&quot; data-related=&quot;chancancode,kalv,pcreux,chuckbergeron&quot; data-counturl=&quot;&quot; data-text=&quot;Brewhouse worked with 15 lovely clients in 2015, maybe you're the next, get in touch with them&quot;&gt;Tweet&lt;/a&gt;
               &lt;/div&gt;
             &lt;/blockquote&gt;
 
@@ -2470,7 +2470,7 @@ I am a motivational junkie. I love watching motivational videos on youtube and t
 &lt;p&gt;Let’s take the &lt;a href=&quot;https://mandrillapp.com/api/docs/index.ruby.html&quot;&gt;Mandrill API&lt;/a&gt; as an example here. The
 &lt;a href=&quot;https://mandrillapp.com/api/docs/messages.JSON.html#method=info&quot;&gt;end-point &lt;code&gt;/messages/info.json&lt;/code&gt;&lt;/a&gt; returns information about an email you sent including sender, subject, opens, clicks as well as all open and click events.&lt;/p&gt;
 
-&lt;p&gt;The ruby wrapper turns that JSON into (oh, surprise!) a large hash. You could query the hash via &lt;code&gt;reponse.fetch(&#39;metadata&#39;).fetch(&#39;user_id&#39;)&lt;/code&gt; and look up the online documentation to determine what’s available. Let’s create a Data Object to wrap the API responses here. Using Virtus and some code-editing-fu it takes a couple of seconds to turn the documentation into a Data Object class.&lt;/p&gt;
+&lt;p&gt;The ruby wrapper turns that JSON into (oh, surprise!) a large hash. You could query the hash via &lt;code&gt;reponse.fetch('metadata').fetch('user_id')&lt;/code&gt; and look up the online documentation to determine what’s available. Let’s create a Data Object to wrap the API responses here. Using Virtus and some code-editing-fu it takes a couple of seconds to turn the documentation into a Data Object class.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/posts/2015/07/vim-macros.gif&quot; alt=&quot;turn-text-doc-into-virtus&quot; /&gt;&lt;/p&gt;
 
@@ -2636,7 +2636,7 @@ I am a motivational junkie. I love watching motivational videos on youtube and t
   #teams {
     height: 396px;
     width: 680px;
-    background: url(&#39;/images/posts/2015/07/brewhouse-tilde-bkg.png&#39;);
+    background: url('/images/posts/2015/07/brewhouse-tilde-bkg.png');
     transition: background-position 1s;
     position: relative;
     margin-bottom: 50px;
@@ -2792,7 +2792,7 @@ I am a motivational junkie. I love watching motivational videos on youtube and t
 
 &lt;p&gt;&lt;strong&gt;Q: Last question. What is your favourite quote?&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/posts/2015/06/pat-quote.png&quot; alt=&quot;I&#39;m gonna build stuff until I die. --Loren Brichter&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/posts/2015/06/pat-quote.png&quot; alt=&quot;I'm gonna build stuff until I die. --Loren Brichter&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Pat’s Expertise&lt;/strong&gt;&lt;/p&gt;
 
@@ -4294,7 +4294,7 @@ stick around.&lt;/p&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;This component works; however, I do have some serious reservations. It’s state is now an awkward array of strings. &lt;code&gt;this.state.classes = [&#39;active&#39;, &#39;hover&#39;]&lt;/code&gt;. Not only does this format hurt the readability of the code, but it makes it more difficult to change. Having other components relying on whether or not my array of classes contains &lt;code&gt;hover&lt;/code&gt; isn’t quite the same as checking a boolean flag. Consider this refactoring where we instead store boolean values that represent whether or not the component should have a class - &lt;em&gt;e.g.&lt;/em&gt; &lt;code&gt;isHovering === true&lt;/code&gt; implies that I should use the &lt;code&gt;hover&lt;/code&gt; class:&lt;/p&gt;
+&lt;p&gt;This component works; however, I do have some serious reservations. It’s state is now an awkward array of strings. &lt;code&gt;this.state.classes = ['active', 'hover']&lt;/code&gt;. Not only does this format hurt the readability of the code, but it makes it more difficult to change. Having other components relying on whether or not my array of classes contains &lt;code&gt;hover&lt;/code&gt; isn’t quite the same as checking a boolean flag. Consider this refactoring where we instead store boolean values that represent whether or not the component should have a class - &lt;em&gt;e.g.&lt;/em&gt; &lt;code&gt;isHovering === true&lt;/code&gt; implies that I should use the &lt;code&gt;hover&lt;/code&gt; class:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;react/addons&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addons&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;classSet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -4342,7 +4342,7 @@ stick around.&lt;/p&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Whoa! By boiling the state concerns down to boolean values we must calculate the array of classes from within the render function; though, we also enhance the readability of the component. &lt;code&gt;this.state.isHovering&lt;/code&gt; is a far better representation of the &lt;strong&gt;actual&lt;/strong&gt; component state than &lt;code&gt;this.state.classes.indexOf(&#39;hover&#39;) != -1&lt;/code&gt;. The component can be more easily extended and tested because we’re not concerned with the construction of some array.&lt;/p&gt;
+&lt;p&gt;Whoa! By boiling the state concerns down to boolean values we must calculate the array of classes from within the render function; though, we also enhance the readability of the component. &lt;code&gt;this.state.isHovering&lt;/code&gt; is a far better representation of the &lt;strong&gt;actual&lt;/strong&gt; component state than &lt;code&gt;this.state.classes.indexOf('hover') != -1&lt;/code&gt;. The component can be more easily extended and tested because we’re not concerned with the construction of some array.&lt;/p&gt;
 
 &lt;p&gt;I’d like to repeat that you should always aim for the simplest representation of the state. This does &lt;em&gt;not&lt;/em&gt; necessarily mean you’re only storing boolean values. It may very well be that deeply nested objects are the only option. It may also be that you can get away with storing a number. Or a string. Or a function.&lt;/p&gt;
 
@@ -4935,7 +4935,7 @@ amazing conference! &amp;lt;3 &amp;lt;3 &amp;lt;3 &amp;lt;3 &amp;lt;3)&lt;/p&gt;
             <id>http://brewhouse.io/blog/2015/02/12/ember-vs-angular-authentication</id>
             <content type="html">&lt;div class=&quot;callout callout-info&quot;&gt;
   &lt;h4&gt;Shameless Plug&lt;/h4&gt;
-  &lt;p&gt;I&#39;ll be &lt;a href=&quot;http://emberconf.com/speakers.html#gchan&quot; target=&quot;_blank&quot;&gt;speaking at EmberConf&lt;/a&gt;
+  &lt;p&gt;I'll be &lt;a href=&quot;http://emberconf.com/speakers.html#gchan&quot; target=&quot;_blank&quot;&gt;speaking at EmberConf&lt;/a&gt;
   next month, hope to see you there!&lt;/p&gt;
 &lt;/div&gt;
 
@@ -5178,7 +5178,7 @@ it!&lt;/p&gt;
 
 &lt;h2 id=&quot;step-3-adding-the-public-page&quot;&gt;Step 3: Adding the public page&lt;/h2&gt;
 
-&lt;p&gt;To render the public page, we want to call &lt;code&gt;API.get(&#39;public&#39;);&lt;/code&gt; to fetch the
+&lt;p&gt;To render the public page, we want to call &lt;code&gt;API.get('public');&lt;/code&gt; to fetch the
 data we need to populate the page. Because we don’t need to authenticate with
 the server, this is pretty straight forward:&lt;/p&gt;
 
@@ -6385,7 +6385,7 @@ like that too!&lt;/p&gt;
 
 &lt;!-- break --&gt;
 
-&lt;h3 id=&quot;in-open-source-no-one-can-hear-you-scream----justin-searls&quot;&gt;“In open-source, no one can hear you scream” – Justin Searls&lt;/h3&gt;
+&lt;h3 id=&quot;in-open-source-no-one-can-hear-you-scream--justin-searls&quot;&gt;“In open-source, no one can hear you scream” – Justin Searls&lt;/h3&gt;
 
 &lt;p&gt;In “&lt;a href=&quot;https://speakerdeck.com/searls/the-social-coding-contract&quot;&gt;The social coding contract&lt;/a&gt;”, &lt;a href=&quot;https://twitter.com/searls&quot;&gt;Justin Searls&lt;/a&gt; didn’t depict the ruby community as a happy people singing in harmony “MINASWAN” (“Matz Is Nice And So We Are Nice”). “Late adopters [of open source projects] often behave as consumers”.&lt;/p&gt;
 
@@ -6393,15 +6393,15 @@ like that too!&lt;/p&gt;
 
 &lt;p&gt;Justin insists on the fact that maintainers should learn to say “No”, otherwise they may burn out. And he adds: “In open-source, no one can hear you scream”. We can fix this by going beyond emails and GitHub comments using video chat to pair with people. The lack of real human interaction is what makes trolling a thing. He adds that people don’t seem to get to a consensus on Twitter, and it seems they have a better time when they speak to each other.&lt;/p&gt;
 
-&lt;h3 id=&quot;languages-are-not-only-tools-to-communicate-but-also-to-think----randy-coulman&quot;&gt;“Languages are not only tools to communicate but also to think” – Randy Coulman&lt;/h3&gt;
+&lt;h3 id=&quot;languages-are-not-only-tools-to-communicate-but-also-to-think--randy-coulman&quot;&gt;“Languages are not only tools to communicate but also to think” – Randy Coulman&lt;/h3&gt;
 
 &lt;p&gt;Speaking of language, &lt;a href=&quot;https://twitter.com/randycoulman&quot;&gt;Randy Coulman&lt;/a&gt; points out that “languages are not only tools to communicate but also to think”. Language influences our thoughts and learning new languages increases our “solution space”. This solution space can greatly benefit from mathematics.&lt;/p&gt;
 
-&lt;h3 id=&quot;if-you-can-write-a-program-you-are-good-at-mathematic----tom-stuart&quot;&gt;“If you can write a program, you are good at mathematic” – Tom Stuart&lt;/h3&gt;
+&lt;h3 id=&quot;if-you-can-write-a-program-you-are-good-at-mathematic--tom-stuart&quot;&gt;“If you can write a program, you are good at mathematic” – Tom Stuart&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://twitter.com/tomstuart&quot;&gt;Tom Stuart&lt;/a&gt; did a brilliant talk where he demonstrated how mathematics are not about greek symbols, numbers,  and formulas to learn by heart but instead that mathematics are abstractions used to solve problems. When we find an honest and minimal abstraction to a problem, we can solve it in interesting, simpler ways. And even if we don’t want to hear it, he believes that “if you can write a program, you are good at mathematics”.&lt;/p&gt;
 
-&lt;h3 id=&quot;your-future-is-decay-and-obsolescence----sandy-metz&quot;&gt;“Your future is Decay and Obsolescence” – Sandy Metz&lt;/h3&gt;
+&lt;h3 id=&quot;your-future-is-decay-and-obsolescence--sandy-metz&quot;&gt;“Your future is Decay and Obsolescence” – Sandy Metz&lt;/h3&gt;
 
 &lt;p&gt;And mathematics could be what saves us in the long run, since &lt;a href=&quot;https://twitter.com/sandimetz&quot;&gt;Sandy Metz&lt;/a&gt; told us that our future is Decay and Obsolescence. After inviting us to take 30 seconds to introduce ourselves to the people around us, she brought us along on a journey where we learned about the history of scrolls, codex, books, press and &lt;a href=&quot;http://en.wikipedia.org/wiki/Linotype_machine&quot;&gt;Linotype&lt;/a&gt;. Her dad worked on Linotypes for decades and he would “never ever have clean hands”. The Linotype was used to print newspapers until the late 70s. Almost overnight, newspaper switched from the Linotype to modern printers. And her dad had to move on.&lt;/p&gt;
 
@@ -6409,7 +6409,7 @@ like that too!&lt;/p&gt;
 
 &lt;p&gt;What really matters is happiness, health and the world we leave to our children. &lt;strong&gt;Happiness&lt;/strong&gt;, do real things and tell the ones you love that you love them. &lt;strong&gt;Health&lt;/strong&gt;, get some exercise, take care of your body. &lt;strong&gt;Community&lt;/strong&gt;, we can contribute to open-source but we are bigger than Rails and Ruby so we should also teach, do things for others and help the ones who need it the most.&lt;/p&gt;
 
-&lt;h3 id=&quot;we-deserve-our-success-but-we-are-lucky-enough-to-have-the-wind-in-our-back----sandy-metz&quot;&gt;“We deserve our success but we are lucky enough to have the wind in our back.” – Sandy Metz&lt;/h3&gt;
+&lt;h3 id=&quot;we-deserve-our-success-but-we-are-lucky-enough-to-have-the-wind-in-our-back--sandy-metz&quot;&gt;“We deserve our success but we are lucky enough to have the wind in our back.” – Sandy Metz&lt;/h3&gt;
 
 &lt;p&gt;Several speakers brought humanity and community to their talks. They helped us step back, see the big picture and keep in mind what is really important. Ruby conferences gather Ruby developers in the same place for a couple of days. We learn new practices and discover new tools but the most vibrant memories we have happen in the hallway or during the 5K run, Karaoke, Birds of a Feather, drinks and social ice-cream. Those memories are the social interactions. This is how we take care of our community.&lt;/p&gt;
 </content>
@@ -6709,7 +6709,7 @@ like that too!&lt;/p&gt;
 
 &lt;p&gt;Craft coffee is huge in the west coast, craft beer is surging and what &lt;em&gt;we&lt;/em&gt; actually do is create “craft software”. We really care about the tools used, the process to create the software and the people that we work with. Craft implies care and quality. So naturally, the perfect name for us was &lt;em&gt;Brewhouse Software&lt;/em&gt;.&lt;/p&gt;
 
-&lt;h2 id=&quot;coffee-connection&quot;&gt;Coffee Connection&lt;/h2&gt;
+&lt;p&gt;##Coffee Connection&lt;/p&gt;
 
 &lt;p&gt;
   &lt;img class=&quot;img-responsive&quot; alt=&quot;coffee tools used&quot; src=&quot;/images/posts/2014/Sept/coffee-tools.jpg&quot; /&gt;
@@ -6721,7 +6721,7 @@ like that too!&lt;/p&gt;
 
 &lt;p&gt;We think the elements that go into creating coffee overlap with how we create our software. Patience. The slow process of brewing a stellar cup of coffee applies to the work we do. We appreciate the relevance between the aspects of the coffee brewing world and how that relates to our processes.&lt;/p&gt;
 
-&lt;h2 id=&quot;movin-on-up&quot;&gt;Movin’ On Up&lt;/h2&gt;
+&lt;p&gt;##Movin’ On Up&lt;/p&gt;
 
 &lt;p&gt;
   &lt;img class=&quot;img-responsive&quot; alt=&quot;Map of location&quot; src=&quot;/images/posts/2014/Sept/map.jpg&quot; /&gt;
@@ -6736,7 +6736,7 @@ like that too!&lt;/p&gt;
 
 &lt;p&gt;Adding &lt;a href=&quot;https://twitter.com/MsTopham&quot;&gt;Lana&lt;/a&gt; (aka, Me) to the team was more of a leap. Having someone who wasn’t a developer or a designer – someone who read copy from a whole different perspective. That was big. We’re no longer just “techies”. We’re now a bonafide business with multi-functions and roles to help us grow.&lt;/p&gt;
 
-&lt;h2 id=&quot;its-custom-baby&quot;&gt;It’s Custom, Baby&lt;/h2&gt;
+&lt;p&gt;##It’s Custom, Baby&lt;/p&gt;
 
 &lt;p&gt;
   &lt;img class=&quot;img-responsive&quot; alt=&quot;Brewhouse HQ office view&quot; src=&quot;/images/posts/2014/Sept/office.jpg&quot; /&gt;
@@ -7047,7 +7047,7 @@ you can find the links at the middle of the Ruby Kaigi homepage.)&lt;/p&gt;
 
 &lt;p&gt;
   &lt;a href=&quot;/images/posts/ruby-kaigi-2014/matz.jpg&quot;&gt;
-    &lt;img class=&quot;img-responsive&quot; alt=&quot;It&#39;s Matz!&quot; src=&quot;/images/posts/ruby-kaigi-2014/matz.jpg&quot; /&gt;
+    &lt;img class=&quot;img-responsive&quot; alt=&quot;It's Matz!&quot; src=&quot;/images/posts/ruby-kaigi-2014/matz.jpg&quot; /&gt;
   &lt;/a&gt;
 &lt;/p&gt;
 
@@ -7220,7 +7220,7 @@ def foo(a)
 end
 
 foo(1) # OK: 1 has to_int
-food(&quot;a&quot;) # NG: &quot;a&quot; doesn&#39;t have to_int&lt;/pre&gt;
+food(&quot;a&quot;) # NG: &quot;a&quot; doesn't have to_int&lt;/pre&gt;
 
 &lt;p&gt;As you can see, the compiler can deduce from the code structure that anything
 passed into &lt;code&gt;foo&lt;/code&gt; must respond to &lt;code&gt;to_int&lt;/code&gt; and can reject anything that doesn’t
@@ -7325,7 +7325,7 @@ talks.&lt;/p&gt;
             <id>http://brewhouse.io/blog/2014/09/18/ruby-kaigi-2014-day-1</id>
             <content type="html">&lt;p&gt;
   &lt;a href=&quot;/images/posts/ruby-kaigi-2014/japan.jpg&quot;&gt;
-    &lt;img class=&quot;img-responsive&quot; alt=&quot;I&#39;m in Japan!&quot; src=&quot;/images/posts/ruby-kaigi-2014/japan.jpg&quot; /&gt;
+    &lt;img class=&quot;img-responsive&quot; alt=&quot;I'm in Japan!&quot; src=&quot;/images/posts/ruby-kaigi-2014/japan.jpg&quot; /&gt;
   &lt;/a&gt;
 &lt;/p&gt;
 
@@ -7385,7 +7385,7 @@ headsets.&lt;/p&gt;
 
 &lt;p&gt;
   &lt;a href=&quot;/images/posts/ruby-kaigi-2014/zzak.jpg&quot;&gt;
-    &lt;img class=&quot;img-responsive&quot; alt=&quot;It&#39;s @_zzak!&quot; src=&quot;/images/posts/ruby-kaigi-2014/zzak.jpg&quot; /&gt;
+    &lt;img class=&quot;img-responsive&quot; alt=&quot;It's @_zzak!&quot; src=&quot;/images/posts/ruby-kaigi-2014/zzak.jpg&quot; /&gt;
   &lt;/a&gt;
 &lt;/p&gt;
 
@@ -7511,9 +7511,8 @@ exploited by malicious users and cause DOS attacks.&lt;/p&gt;
 &lt;p&gt;Web applications written in Ruby (e.g. Rails applications) happens to fit this
 description perfectly. For example, the following piece of pseudo-code is bad:&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;
-value = store.fetch(params[:key].to_sym)
-&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;value = store.fetch(params[:key].to_sym)
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;As you can see, a user supplied string is being converted into a symbol (a
 dynamic symbol allocation). This is problematic, because an attack could send
@@ -7538,9 +7537,8 @@ becomes immortal symbols. Because they are marked as “uncollectable”, their
 memory address becomes their IDs and hence they can be used in C code. For
 example, consider this piece of code:&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;
-define_method(method_name.to_sym) { ... }
-&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;define_method(method_name.to_sym) { ... }
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Here, the runtime first allocates a mortal symbol (from &lt;code&gt;method_name.to_sym&lt;/code&gt;)
 that can be garbage collected. As it is passed into &lt;code&gt;define_method&lt;/code&gt;, however,
@@ -8264,7 +8262,7 @@ internally and with clients. We’ve implemented this and are very happy with th
 
 &lt;p&gt;We are going to continue code curating services in a workshop format and will soon be providing these services part-time for some of our existing clients.&lt;/p&gt;
 
-&lt;h2 id=&quot;product-amp-service&quot;&gt;Product &amp;amp; Service&lt;/h2&gt;
+&lt;h2 id=&quot;product--service&quot;&gt;Product &amp;amp; Service&lt;/h2&gt;
 
 &lt;p&gt;Yep, we do product, as well as service. It’s hard but we’re doing it.&lt;/p&gt;
 
