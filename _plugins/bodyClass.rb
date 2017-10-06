@@ -1,9 +1,11 @@
 # source: https://joe8bit.com/article/jekyll-generate-body-class/
 
-class BodyClassTag < Liquid::Tag  
+class BodyClassTag < Liquid::Tag
 
   def generate_body_class(prefix, id)
-    id = id.gsub(/\.\w*?$/, '').gsub(/[-\/]/, '_').gsub(/^_/, '') # Remove extension from url, replace '-' and '/' with underscore, Remove leading '_'
+    if !id.nil?
+      id = id.gsub(/\.\w*?$/, '').gsub(/[-\/]/, '_').gsub(/^_/, '') # Remove extension from url, replace '-' and '/' with underscore, Remove leading '_'
+    end
 
     case prefix
     when "class"
@@ -20,7 +22,7 @@ class BodyClassTag < Liquid::Tag
     classes = []
 
     %w[class url categories tags layout].each do |prop|
-      next unless page.has_key?(prop)
+      next unless page.key?(prop)
       if page[prop].kind_of?(Array)
         page[prop].each { |proper| classes.push generate_body_class(prop, proper) }
       else
