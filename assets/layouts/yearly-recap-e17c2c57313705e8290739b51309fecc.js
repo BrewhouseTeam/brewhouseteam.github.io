@@ -1,1 +1,0 @@
-function isScrolledIntoView(o){var n=$(o),c=$(window),e=c.scrollTop()+c.height(),i=n.offset().top;return e>=i}function showRecapSections(){$(".recap-section").each(function(o){isScrolledIntoView(this)===!0&&$(this).addClass("animate-section")})}$(document).ready(function(){showRecapSections()}),$(window).scroll(function(){showRecapSections()});
