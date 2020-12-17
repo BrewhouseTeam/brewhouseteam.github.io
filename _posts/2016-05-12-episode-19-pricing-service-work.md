@@ -2,7 +2,6 @@
 layout: episode
 title: "Episode 19: Pricing service work"
 date: 2016-05-12 11:30
-hidden: true
 published: true
 podcast: true
 episode_link: http://podcasts-1.feedpress.co/13375/Episode-19.mp3

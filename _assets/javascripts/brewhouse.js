@@ -28,7 +28,7 @@ jQuery(function($) {
 
 
   // Set Copyright Year
-  $footer.find('.copyright-year').html('2016');
+  $footer.find('.copyright-year').html('2020');
 
 
   // Set Sticky on scroll (should also be on page load)

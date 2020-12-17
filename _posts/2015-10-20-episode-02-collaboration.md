@@ -2,7 +2,6 @@
 layout: episode
 title: "Episode 02: Collaboration"
 date: 2015-10-20 16:00
-hidden: true
 published: true
 podcast: true
 episode_link: http://podcasts-1.feedpress.co/13375/Episode-2.mp3

@@ -2,7 +2,6 @@
 layout: episode
 title: "Episode 08: What's the First Thing You Made?"
 date: 2015-12-02 09:30
-hidden: true
 published: true
 podcast: true
 episode_link: http://podcasts-1.feedpress.co/13375/Episode-8.mp3

@@ -2,7 +2,6 @@
 layout: episode
 title: "Episode 01: Your Message is Your Medium"
 date: 2015-10-14 11:00
-hidden: true
 published: true
 podcast: true
 episode_link: http://podcasts-1.feedpress.co/13375/Episode-1.mp3

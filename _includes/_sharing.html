@@ -2,7 +2,7 @@
 
   <div class="container">
 
-    <h4 class="col-xs-12">Recently at Brewhouse</h4>
+    <h4 class="col-xs-12">Posts from a time ago</h4>
 
     {% for post in site.posts limit:1 %}
 
@@ -22,7 +22,7 @@
     <div class="col-md-5 col-md-push-1">
 
       <ul class="list-unstyled">
-   
+
         {% for post in site.posts limit:4 offset:1 %}
         {% unless post.draft %}
         {% assign author = site.data.authors[post.author] %}
@@ -33,7 +33,7 @@
             <h4 class="post-title">{{ post.title }}</h4>
           </a>
         </li>
-      
+
         {% endunless %}
         {% endfor %}
 

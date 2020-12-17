@@ -2,8 +2,7 @@
 layout: episode
 title: "Episode 20: The Big Dream"
 date: 2016-05-13 14:15
-hidden: true
-published: true
+published: irue
 podcast: true
 episode_link: http://podcasts-1.feedpress.co/13375/Episode-12.mp3
 episode_length: "00:45:06"

@@ -2,7 +2,6 @@
 layout: episode
 title: "Episode 18: A chat about chatbots"
 date: 2016-04-20 11:30
-hidden: true
 published: true
 podcast: true
 episode_link: http://podcasts-1.feedpress.co/13375/Episode-18.mp3

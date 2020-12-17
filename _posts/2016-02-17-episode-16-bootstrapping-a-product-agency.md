@@ -2,7 +2,6 @@
 layout: episode
 title: "Episode 16: Bootstrapping a Product Agency"
 date: 2016-02-17 11:59
-hidden: true
 published: true
 podcast: true
 episode_link: http://podcasts-1.feedpress.co/13375/Episode-16.mp3

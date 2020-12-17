@@ -2,7 +2,6 @@
 layout: episode
 title: "Episode 15: Work Adequately, Live Abundantly"
 date: 2016-02-12 10:00
-hidden: true
 published: true
 podcast: true
 episode_link: http://podcasts-1.feedpress.co/13375/Episode-15.mp3

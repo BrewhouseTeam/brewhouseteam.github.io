@@ -2,7 +2,6 @@
 layout: episode
 title: "Episode 06: Design"
 date: 2015-11-23 10:11
-hidden: true
 published: true
 podcast: true
 episode_link: http://podcasts-1.feedpress.co/13375/Episode-6.mp3

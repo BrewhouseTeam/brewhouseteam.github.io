@@ -2,7 +2,6 @@
 layout: episode
 title: "Episode 10: 2016 Predictions"
 date: 2015-12-24 14:30
-hidden: true
 published: true
 podcast: true
 episode_link: http://podcasts-1.feedpress.co/13375/Episode-10.mp3

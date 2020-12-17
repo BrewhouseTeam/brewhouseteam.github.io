@@ -2,7 +2,6 @@
 layout: episode
 title: "Episode 12: Finding the Right Clients"
 date: 2016-01-19 15:00
-hidden: true
 published: true
 podcast: true
 episode_link: http://podcasts-1.feedpress.co/13375/Episode-12.mp3

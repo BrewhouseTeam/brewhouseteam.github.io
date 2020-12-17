@@ -2,7 +2,6 @@
 layout: episode
 title: "Episode 09: A Sad, Sad Day"
 date: 2015-12-07 15:30
-hidden: true
 published: true
 podcast: true
 episode_link: http://podcasts-1.feedpress.co/13375/Episode-9.mp3

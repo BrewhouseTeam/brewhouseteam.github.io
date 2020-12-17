@@ -2,7 +2,6 @@
 layout: episode
 title: "Episode 05: Quality"
 date: 2015-11-10 9:15
-hidden: true
 published: true
 podcast: true
 episode_link: http://podcasts-1.feedpress.co/13375/Episode-5.mp3

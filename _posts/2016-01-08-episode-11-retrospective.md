@@ -2,7 +2,6 @@
 layout: episode
 title: "Episode 11: Podcast Retrospective"
 date: 2016-01-08 15:45
-hidden: true
 published: true
 podcast: true
 episode_link: http://podcasts-1.feedpress.co/13375/Episode-11.mp3
